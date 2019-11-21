@@ -1,4 +1,5 @@
 li{
+	list-style-type: none;
 	border: 1px solid #eee;
 	float: left;
 	width: 175px;
