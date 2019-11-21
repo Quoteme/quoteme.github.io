@@ -17,6 +17,4 @@
 
 * [![](https://i.imgur.com/05wgpP9.png "I am in the credits of this steam game for collaborating with them")](https://github.com/mventurelli/relichunterszero)
 
-<span style="font-size: 0px">
 <link rel="stylesheet" type="text/css" href="style.css">
-</span>
