@@ -17,4 +17,6 @@
 
 * [![](https://i.imgur.com/05wgpP9.png "I am in the credits of this steam game for collaborating with them")](https://github.com/mventurelli/relichunterszero)
 
+* [![](https://i.imgur.com/ibEuDVu.png "A very simplistic QR-Code reader and creater for 2D custom barcodes")](https://quoteme.github.io/qrcode/)
+
 <link rel="stylesheet" type="text/css" href="style.css">
