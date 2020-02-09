@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-02-09T22:36:12+01:00</updated>
+ <updated>2020-02-09T23:03:10+01:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -15,10 +15,24 @@
    <entry>
      <title>First Post</title>
      <link href="https://quoteme.github.io//posts/first_post"/>
-     <updated>2019-02-09T00:00:00+01:00</updated>
+     <updated>2020-02-09T00:00:00+01:00</updated>
      <id>https://quoteme.github.io//posts/first_post</id>
-     <content type="html">&lt;p&gt;hier werde ich nun etwas mathjax verwenden
-\[ \frac{1}{n^{2}} \]&lt;/p&gt;
+     <content type="html">&lt;p&gt;Ich habe nun endlich meine Seite geupdated, sodass ich ein etwas
+moderneres Layout verwende und dazu noch die praktisch unbegrenzten
+Möglichkeiten von &lt;a href=&quot;jekyll.io&quot;&gt;Jekyll&lt;/a&gt; verwenden kann.&lt;/p&gt;
+
+&lt;p&gt;Eine glückliche Konsequenz dessen ist, dass ich nun auch ein Blogging-
+System integriert habe und hoffentlich stets neue Beiträge teilen kann.
+Wie ich diese Technologie mit meinen bisherigen Projekten in Einklang
+bringen werde, dass weiß ich noch nicht ganz genau. Doch alle meine
+alten Projekte sind noch über meine &lt;a href=&quot;./projekte.html&quot;&gt;Projekte-Übersicht&lt;/a&gt;
+auffindbar.&lt;/p&gt;
+
+&lt;p&gt;Und ‘last but not least’, jetzt kann ich endlich &lt;a href=&quot;mathjax.org&quot;&gt;MathJax&lt;/a&gt;
+in meinen Dokumenten verwenden! Das erlaubt dann solche Sachen zu schreiben:
+\[ \sum_{p=0}^n \Big( cos \Big( \frac{\frac{\pi}{2}}{n} k_p \Big) \Big) + i \sum_{p=0}^n \Big( sin \Big( \frac{\frac{\pi}{2}}{n} k_p \Big) \Big)\]
+(dies ist eine Formel, welche ich entwickelt habe, die es erlaubt einen Punkt
+\( k = (k_0,\dots,k_n) \in \mathbb{R}^n \) auf \(\mathbb{C}\) abzubilden)&lt;/p&gt;
 </content>
    </entry>
    
