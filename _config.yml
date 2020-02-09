@@ -1,28 +1,14 @@
-# Where things are
-source              : .
-plugins_dir         : _plugins
-layouts_dir         : _layouts
-data_dir            : _data
-includes_dir        : _includes
+permalink: /posts/:title
 
-# Handling Reading
-safe                : false
-include             : [".htaccess"]
-exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
-keep_files          : [".git", ".svn"]
-encoding            : "utf-8"
-markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter : false
+gems:
+  - jekyll-sitemap
 
-# Filtering Content
-show_drafts         : null
-limit_posts         : 0
-future              : false
-unpublished         : false
 
-# Plugins
-whitelist           : []
-plugins             : []
+logo: https://avatars2.githubusercontent.com/u/6796009
+name: Luca Leon Happel
+url: https://quoteme.github.io/
+description: A place for my thoughts
+twitter: luca_happel
 
 # Conversion
 markdown            : kramdown
@@ -41,16 +27,5 @@ kramdown:
   hard_wrap         : false
   footnote_nr       : 1
   show_warnings     : false
-  math_engine: mathjax
-  syntax_highlighter: rouge
-
-# Custom
-theme: jekyll-theme-minimal
-description: >
-    I am Luca Leon Happel, a mathematics and computer
-    science student in Germany. This is my place for
-    mathematics, programming and all things I deem interesting.
-    <a href="https://www.paypal.me/lucahappel" target="about_blank">
-    <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" />
-    </a>
-logo: https://avatars2.githubusercontent.com/u/6796009
+  math_engine       : mathjax
+  syntax_highlighter: r
