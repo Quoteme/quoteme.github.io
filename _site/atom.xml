@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-02-09T23:10:25+01:00</updated>
+ <updated>2020-02-10T00:08:21+01:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -31,8 +31,11 @@ auffindbar.&lt;/p&gt;
 &lt;p&gt;Und ‘last but not least’, jetzt kann ich endlich &lt;a href=&quot;mathjax.org&quot;&gt;MathJax&lt;/a&gt;
 in meinen Dokumenten verwenden! Das erlaubt dann solche Sachen zu schreiben:
 \[ \sum_{p=0}^n \Big( cos \Big( \frac{\frac{\pi}{2}}{n} k_p \Big) \Big) + i \sum_{p=0}^n \Big( sin \Big( \frac{\frac{\pi}{2}}{n} k_p \Big) \Big)\]
-(dies ist eine Formel, welche ich entwickelt habe, die es erlaubt einen Punkt
-\( k = (k_0,\dots,k_n) \in \mathbb{R}^n \) auf \(\mathbb{C}\) abzubilden)&lt;/p&gt;
+Dies ist eine Formel, welche ich entwickelt habe, die es erlaubt einen Punkt
+\( k = (k_0,\dots,k_n) \in \mathbb{R}^n \) auf \(\mathbb{C}\) abzubilden.
+Rückwirkend ist diese Projektion unnötig kompliziert und nicht wirklich hilfreich,
+doch ich war sehr stolz damals darauf und habe sogar Memes darüber gemacht:
+&lt;img src=&quot;https://i.imgur.com/zza8x8O.png&quot; alt=&quot;Hier sollte ein Meme zu sehen sein&quot; /&gt;&lt;/p&gt;
 </content>
    </entry>
    
