@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://quoteme.github.io//posts/intersect_sphaere_box</loc>
+<lastmod>2020-02-14T00:00:00+01:00</lastmod>
+</url>
+<url>
 <loc>https://quoteme.github.io//posts/first_post</loc>
 <lastmod>2020-02-09T00:00:00+01:00</lastmod>
 </url>
@@ -10,9 +14,6 @@
 </url>
 <url>
 <loc>https://quoteme.github.io//404</loc>
-</url>
-<url>
-<loc>https://quoteme.github.io//about</loc>
 </url>
 <url>
 <loc>https://quoteme.github.io//about</loc>

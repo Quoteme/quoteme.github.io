@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>
     
-      First Post &ndash;
+      intersect.mjs und der Sphären/Boxen-Schnitt &ndash;
     
     Luca Leon Happel
   </title>
@@ -57,33 +57,40 @@
 
   <section class="content">
   <h1>
-    <a href="/posts/first_post">First Post</a>
+    <a href="/posts/intersect_sphaere_box">intersect.mjs und der Sphären/Boxen-Schnitt</a>
   </h1>
 
   <section class="byline">
-    February  9, 2020
+    February 14, 2020
   </section>
 
-  <p>Ich habe nun endlich meine Seite geupdated, sodass ich ein etwas
-moderneres Layout verwende und dazu noch die praktisch unbegrenzten
-Möglichkeiten von <a href="jekyll.io">Jekyll</a> verwenden kann.</p>
+  <p>Momentan arbeite ich an meiner <a href="https://github.com/Quoteme/intersect">intersect.mjs</a>
+Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen
+geometrischen Strukturen in $n$ dimensionen zu erkennen.</p>
 
-<p>Eine glückliche Konsequenz dessen ist, dass ich nun auch ein Blogging-
-System integriert habe und hoffentlich stets neue Beiträge teilen kann.
-Wie ich diese Technologie mit meinen bisherigen Projekten in Einklang
-bringen werde, dass weiß ich noch nicht ganz genau. Doch alle meine
-alten Projekte sind noch über meine <a href="./projekte.html">Projekte-Übersicht</a>
-auffindbar.</p>
+<p>Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:</p>
 
-<p>Und ‘last but not least’, jetzt kann ich endlich <a href="mathjax.org">MathJax</a>
-in meinen Dokumenten verwenden! Das erlaubt dann solche Sachen zu schreiben:
-\[ \sum_{p=0}^n \Big( cos \Big( \frac{\frac{\pi}{2}}{n} k_p \Big) \Big) + i \sum_{p=0}^n \Big( sin \Big( \frac{\frac{\pi}{2}}{n} k_p \Big) \Big)\]
-Dies ist eine Formel, welche ich entwickelt habe, die es erlaubt einen Punkt
-\( k = (k_0,\dots,k_n) \in \mathbb{R}^n \) auf \(\mathbb{C}\) abzubilden.</p>
+<pre><code class="language-javascript">// plane2circle :: Real a =&gt; [(a,a)] -&gt; a -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean
+const plane2circle = (p,r,c,d=Math.hypot) =&gt;
+</code></pre>
 
-<p>Rückwirkend ist diese Projektion unnötig kompliziert und nicht wirklich hilfreich,
-doch ich war sehr stolz damals darauf und habe sogar Memes darüber gemacht:
-<img src="https://i.imgur.com/zza8x8O.png" alt="Hier sollte ein Meme zu sehen sein" /></p>
+<p>Hierbei definiere ich eine Funktion <code>plane2circle</code>,
+mit folgenden Eigenschaften:
+| Name | Abkürzung | Eigenschaft | Beschreibung |
+|:—|:—:|:—:|—:|
+| Name | Abkürzung | Eigenschaft | Beschreibung |
+<!---
+|Hyperwürfel | `p` |`[(a,a)]` | Zwei Punkte im $\mathbb{R}^n$|
+|Radius | `r` |`a` | Radius der Sphäre|
+|Position der Sphäre | `c` |`[a]` | .|
+|Maß | `d` | `[a] -> a` | Ein verwendetes [Maß](https://de.wikipedia.org/wiki/Ma%C3%9F_(Mathematik)#Definition) aus der Maßtheorie|
+--></p>
+
+<p>wichtig ist, dass hierbei <a href="haskell.org">Haskell</a> Schreibkonventionen
+verwendet werden. Also, <code>a</code> bedeuted, ein beliebiger Datentyp oder
+<code>[a,a]</code> deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
+des selben Types hin. Da ich <code>Real a =&gt;...</code> am Anfang geschrieben habe,
+bedeuted dass: <code>[(a,a)]</code> $\Rightarrow ((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots)$</p>
 
 
   <!-- TODO: bio here -->
