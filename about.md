@@ -14,7 +14,7 @@ title: About me
 
 ### Work experience
 
-| Experience | Place | Duration |
+| Experience | Employer | Duration |
 |---|---|---|
 | 2-week work internship | ProVita | 2017 |
 | Lifeguard | NEW Volksbad Mönchengl. | 2018 |
@@ -31,11 +31,13 @@ title: About me
 		- Markdown
 	- experienced (>3 Projects):
 		- Haskell
-	- studied in university/school at some point:
+	- studied in university/school:
 		- JAVA
 		- C
 		- Assembler
 		- PHP
+		- SQL
+		- UML diagrams
 - Social expertise
 	- very social and reliable
 	- kids tend to like me very much
