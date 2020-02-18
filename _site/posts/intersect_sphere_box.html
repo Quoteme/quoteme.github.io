@@ -64,33 +64,121 @@
     February 14, 2020
   </section>
 
-  <p>Momentan arbeite ich an meiner <a href="https://github.com/Quoteme/intersect">intersect.mjs</a>
+  <h3 id="problem">Problem</h3>
+
+<p>Momentan arbeite ich an meiner <a href="https://github.com/Quoteme/intersect">intersect.mjs</a>
 Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen
 geometrischen Strukturen in $n$ dimensionen zu erkennen.</p>
 
 <p>Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:</p>
 
-<pre><code class="language-javascript">// plane2circle :: Real a =&gt; [(a,a)] -&gt; a -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean
-const plane2circle = (p,r,c,d=Math.hypot) =&gt;
-</code></pre>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// plane2circle :: Real a =&gt; [(a,a)] -&gt; a -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean</span>
+<span class="kr">const</span> <span class="nx">plane2circle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">d</span><span class="o">=</span><span class="nb">Math</span><span class="p">.</span><span class="nx">hypot</span><span class="p">)</span> <span class="o">=&gt;</span>
+	<span class="c1">//TODO</span></code></pre></figure>
 
-<p>Hierbei definiere ich eine Funktion <code>plane2circle</code>,
-mit folgenden Eigenschaften:
-| Name | Abkürzung | Eigenschaft | Beschreibung |
-|:—|:—:|:—:|—:|
-| Name | Abkürzung | Eigenschaft | Beschreibung |
-<!---
-|Hyperwürfel | `p` |`[(a,a)]` | Zwei Punkte im $\mathbb{R}^n$|
-|Radius | `r` |`a` | Radius der Sphäre|
-|Position der Sphäre | `c` |`[a]` | .|
-|Maß | `d` | `[a] -> a` | Ein verwendetes [Maß](https://de.wikipedia.org/wiki/Ma%C3%9F_(Mathematik)#Definition) aus der Maßtheorie|
---></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Abkürzung</th>
+      <th>Name</th>
+      <th>Eigenschaft</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code>p</code></td>
+      <td>Hyperwürfel</td>
+      <td><code>[(a,a)]</code></td>
+      <td>Zwei Punkte im <script type="math/tex">\mathbb{R}^n</script></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code>r</code></td>
+      <td>Radius</td>
+      <td><code>a</code></td>
+      <td>Radius der Sphäre</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code>c</code></td>
+      <td>Position der Sphäre</td>
+      <td><code>[a]</code></td>
+      <td>Position des Zentrums der Sphäre</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code>d</code></td>
+      <td>Maß</td>
+      <td><code>[a] -&gt; a</code></td>
+      <td>Ein verwendetes <a href="https://de.wikipedia.org/wiki/Ma%C3%9F_(Mathematik)#Definition">Maß</a> aus der Maßtheorie</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>wichtig ist, dass hierbei <a href="haskell.org">Haskell</a> Schreibkonventionen
-verwendet werden. Also, <code>a</code> bedeuted, ein beliebiger Datentyp oder
+<p>hierbei verwende ich <a href="haskell.org">Haskell</a> Schreibkonventionen für die
+Eigenschaften. Also, <code>a</code> bedeuted, ein beliebiger Datentyp oder
 <code>[a,a]</code> deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
 des selben Types hin. Da ich <code>Real a =&gt;...</code> am Anfang geschrieben habe,
-bedeuted dass: <code>[(a,a)]</code> $\Rightarrow ((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots)$</p>
+bedeuted dass: <code>[(a,a)]</code> <script type="math/tex">\Rightarrow ((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots)</script></p>
+
+<h3 id="lsung">Lösung</h3>
+
+<p>Damit ich diese Funktion dazu bringen konnte, zu funktionieren ist mir
+eine Lösung gekommen. Gegeben hatte ich bereits eine Funktion, welche
+prüft ob eine Hypersphäre und ein Punkt sich schneiden. Daher habe ich
+eine weitere Funktion geschrieben, welche prüft, ob sich ein Kreis und
+ein Intervall schneiden:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// point2circle :: Num a =&gt; [a] -&gt; Real -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean</span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">point2circle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">q</span><span class="o">=</span><span class="nx">p</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">_</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">),</span><span class="nx">d</span><span class="o">=</span><span class="nb">Math</span><span class="p">.</span><span class="nx">hypot</span><span class="p">)</span> <span class="o">=&gt;</span>
+	<span class="nx">d</span><span class="p">(...</span><span class="nx">p</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">x</span><span class="p">,</span><span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span><span class="o">-</span><span class="nx">q</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="o">&lt;=</span> <span class="nx">r</span><span class="p">;</span>
+
+<span class="c1">// interval2circle :: Num a =&gt; a -&gt; Real -&gt; [a,a] -&gt; Boolean</span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">interval2circle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">i</span><span class="p">,</span><span class="nx">d</span><span class="o">=</span><span class="nb">Math</span><span class="p">.</span><span class="nx">hypot</span><span class="p">)</span> <span class="o">=&gt;</span>
+	<span class="nx">point2circle</span><span class="p">([</span><span class="nx">c</span><span class="p">],</span> <span class="nx">r</span><span class="o">+</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="nx">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">[(</span><span class="nx">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="nx">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="nx">d</span><span class="p">)</span></code></pre></figure>
+
+<p>Nun ist es ein Leiches, zu prüfen ob ein Hyperwürfel und eine Hypersphäre
+sich schneiden;
+Man muss prüfen ob die Projektion der Sphäre und des Hyperwürfels auf
+jeder Achse sich schneiden.</p>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/rZpCzkF" data-context="false"><a href="//imgur.com/a/rZpCzkF"></a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// plane2circle :: Num a =&gt; [(a,a)] -&gt; Real -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean</span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">plane2circle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">d</span><span class="o">=</span><span class="nb">Math</span><span class="p">.</span><span class="nx">hypot</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">p</span>
+	<span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">i</span><span class="p">,</span><span class="nx">j</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">interval2circle</span><span class="p">(</span><span class="nx">c</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span><span class="nx">r</span><span class="p">,</span><span class="nx">i</span><span class="p">,</span><span class="nx">d</span><span class="p">)</span> <span class="p">)</span>
+	<span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="o">==</span><span class="kc">true</span><span class="p">)</span></code></pre></figure>
+
+<p>und diese Funktion können wir nun testen:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="kr">int</span> <span class="nx">from</span> <span class="s1">'./intersect.mjs'</span>
+
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kr">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// true ✅</span>
+
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kr">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// false ✅</span>
+
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kr">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// false ✅</span></code></pre></figure>
+
+<p>besonders das letzte Ergebnis kann man leicht überprüfen:</p>
+
+<p><img src="https://i.imgur.com/aqI995m.png" alt="geometrischer Beweis" /></p>
+
+<h3 id="fazit">Fazit</h3>
+
+<p>Das Problem <em>Schnitte zwischen höherdimensinalen Sphären und Würfeln</em>
+zu lösen war nicht all zu einfach auf den ersten Blick; doch verwendet
+man (wortwörtlich) verschiedene Perspektiven und ist bereit bereits
+bekannte Resultate (wie <code>point2circle</code>) zu verwenden und neue zu
+finden (wie <code>interval2circle</code>), so ist es doch ein Leichtes gewesen
+eine allgemeine Lösung zu finden.</p>
 
 
   <!-- TODO: bio here -->
