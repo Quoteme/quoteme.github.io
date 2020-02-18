@@ -4,12 +4,41 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-02-14T15:56:03+01:00</updated>
+ <updated>2020-02-18T09:54:04+01:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
  </author>
  
+ 
+   
+   <entry>
+     <title>Jupyter Notebook auf Android</title>
+     <link href="https://quoteme.github.io//posts/jupyter_pydroid"/>
+     <updated>2020-02-18T00:00:00+01:00</updated>
+     <id>https://quoteme.github.io//posts/jupyter_pydroid</id>
+     <content type="html">&lt;p&gt;&lt;a href=&quot;https://imgur.com/XKFMPSw&quot;&gt;Screenshots&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Installiere &lt;a href=&quot;https://play.google.com/store/apps/details?id=ru.iiec.pydroid3&amp;amp;hl=en_US&quot;&gt;Pydroid3&lt;/a&gt;
+ und &lt;a href=&quot;https://play.google.com/store/apps/details?id=ru.iiec.pydroid3.quickinstallrepo&amp;amp;hl=en_US&quot;&gt;Pydroid Repository&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Öffne Pydroid 3 und wähle &lt;em&gt;Pip&lt;/em&gt; im Menü aus
+    &lt;ol&gt;
+      &lt;li&gt;Wähle &lt;em&gt;quick install&lt;/em&gt; und installiere &lt;em&gt;jupyter&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;(Optional installiere &lt;em&gt;sympy&lt;/em&gt;, &lt;em&gt;numpy&lt;/em&gt;, …)&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Wähle &lt;em&gt;Terminal&lt;/em&gt; im Menü aus
+    &lt;ol&gt;
+      &lt;li&gt;Gib &lt;code&gt;jupyter notebook --ip=127.0.0.1 --port=4040&lt;/code&gt; ein&lt;/li&gt;
+      &lt;li&gt;Ein neues Browserfenster mit Jupyter Notebook öffnet sich&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Beende das Terminal, nach benutzen von Jupyter&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+   </entry>
+   
  
    
  
