@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-02-18T18:05:01+01:00</updated>
+ <updated>2020-02-18T18:43:23+01:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -17,7 +17,8 @@
      <link href="https://quoteme.github.io//posts/jupyter_pydroid"/>
      <updated>2020-02-18T00:00:00+01:00</updated>
      <id>https://quoteme.github.io//posts/jupyter_pydroid</id>
-     <content type="html">&lt;p&gt;&lt;a href=&quot;https://imgur.com/XKFMPSw&quot;&gt;Screenshots&lt;/a&gt;&lt;/p&gt;
+     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;XKFMPSw&quot;&gt;&lt;a href=&quot;//imgur.com/XKFMPSw&quot;&gt;Jupyter Notebook on Android&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Installiere &lt;a href=&quot;https://play.google.com/store/apps/details?id=ru.iiec.pydroid3&amp;amp;hl=en_US&quot;&gt;Pydroid3&lt;/a&gt;
@@ -50,9 +51,8 @@
 
 &lt;p&gt;Momentan arbeite ich an meiner &lt;a href=&quot;https://github.com/Quoteme/intersect&quot;&gt;intersect.mjs&lt;/a&gt;
 Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen
-geometrischen Strukturen in $n$ dimensionen zu erkennen.&lt;/p&gt;
-
-&lt;p&gt;Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:&lt;/p&gt;
+geometrischen Strukturen in &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; dimensionen zu erkennen.
+Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// plane2circle :: Real a =&amp;gt; [(a,a)] -&amp;gt; a -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
 &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;

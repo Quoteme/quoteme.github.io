@@ -9,7 +9,6 @@ category: posts
 Momentan arbeite ich an meiner [intersect.mjs](https://github.com/Quoteme/intersect)
 Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen
 geometrischen Strukturen in $$n$$ dimensionen zu erkennen.
-
 Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:
 
 {% highlight javascript %}
