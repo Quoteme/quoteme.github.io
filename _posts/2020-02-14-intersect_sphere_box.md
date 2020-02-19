@@ -79,7 +79,7 @@ console.log(int.plane2circle(p,r,c)) // false ✅
 
 let p = [[0,1],[0,1]]
 let r = 1
-let c = [Math.sqrt(8),Math.sqrt(8)]
+let c = [2,2]
 console.log(int.plane2circle(p,r,c)) // false ✅
 {% endhighlight %}
 
