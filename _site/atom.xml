@@ -4,12 +4,65 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-02-18T18:43:23+01:00</updated>
+ <updated>2020-02-19T02:03:03+01:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
  </author>
  
+ 
+   
+   <entry>
+     <title>i3bar</title>
+     <link href="https://quoteme.github.io//posts/i3bar"/>
+     <updated>2020-02-19T00:00:00+01:00</updated>
+     <id>https://quoteme.github.io//posts/i3bar</id>
+     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/swgn01F&quot;&gt;&lt;a href=&quot;//imgur.com/a/swgn01F&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Du findest mein Laptop sieht interessant aus?
+Du würdest gerne die selbe statusbar in &lt;a href=&quot;i3wm.org&quot;&gt;i3&lt;/a&gt;
+haben wie ich?
+Dann ist hier die Anleitung für dich!&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;(trivial) installiere &lt;a href=&quot;i3wm.org&quot;&gt;i3&lt;/a&gt; &lt;!--und [i3bar](https://i3wm.org/docs/i3bar-protocol.html)--&gt;
+ (&lt;code&gt;$ pacman -S i3-gaps&lt;/code&gt;)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;falls du &lt;a href=&quot;https://github.com/i3/i3status&quot;&gt;i3status&lt;/a&gt; installiert hast: deinstalliere es
+ (&lt;code&gt;$ pacman -Rns i3status&lt;/code&gt;)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;installiere &lt;a href=&quot;https://github.com/davidscholberg/goblocks&quot;&gt;goblocks&lt;/a&gt;
+ (&lt;code&gt;# yay goblocks&lt;/code&gt;, falls &lt;a href=&quot;https://github.com/Jguer/yay&quot;&gt;yay&lt;/a&gt; bereits installiert ist)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ändere &lt;code&gt;i3status&lt;/code&gt; -&amp;gt; &lt;code&gt;goblocks&lt;/code&gt; in &lt;code&gt;.config/i3/config&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bearbeite &lt;code&gt;.config/goblocks/goblocks.yml&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;schreibe eine config selber&lt;/li&gt;
+      &lt;li&gt;oder kopiere &lt;a href=&quot;https://pastebin.com/dxXqhMMq&quot;&gt;meine config&lt;/a&gt;
+  diese hat &lt;code&gt;spotify-cli&lt;/code&gt; mitinbehalten. Wenn du das nicht möchtest,
+  lösche einfach den dazugehörende ‘command’-Abschnitt&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;(optional) installiere &lt;a href=&quot;https://github.com/pwittchen/spotify-cli-linux&quot;&gt;spotify-cli&lt;/a&gt;
+ um die momentan spielende Musik (auf youtube/spotify/…) anzuzeigen.
+ &lt;code&gt;$ pip install spotify-cli-linux&lt;/code&gt;
+ und verwende den folgenden code in deiner config&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;blocks:
+    - type: command
+      label: &quot;msc &quot; # &quot;📻&quot;
+      command: &#39;spotifycli --status&#39;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</content>
+   </entry>
+   
  
    
    <entry>

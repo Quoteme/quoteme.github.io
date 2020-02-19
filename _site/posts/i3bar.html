@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>
     
-      About me &ndash;
+      i3bar &ndash;
     
     Luca Leon Happel
   </title>
@@ -80,130 +80,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-  <style type="text/css" media="screen">
-	table{
-		border-collapse: collapse;
-	}
-	table, th, td {
-		border: 1px solid black;
-	}
-</style>
-
-<section class="content">
+  <section class="content">
   <h1>
-    <a href="/about">About me</a>
+    <a href="/posts/i3bar">i3bar</a>
   </h1>
 
   <section class="byline">
-    
+    February 19, 2020
   </section>
 
-  <h3 id="academic-achievements">Academic achievements</h3>
+  <blockquote class="imgur-embed-pub" lang="en" data-id="a/swgn01F"><a href="//imgur.com/a/swgn01F"></a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-<table>
-  <thead>
-    <tr>
-      <th>Achievement</th>
-      <th>Place</th>
-      <th>Duration</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Elementary school</td>
-      <td>Erich-Kästner Grundschule</td>
-      <td>2006-2010</td>
-    </tr>
-    <tr>
-      <td>Gymnasium</td>
-      <td>Gymnasium an der Gartenstraße</td>
-      <td>2010-2018</td>
-    </tr>
-    <tr>
-      <td>Bachelor of Computer-Science</td>
-      <td>HHU Düsseldorf</td>
-      <td>2018-*</td>
-    </tr>
-    <tr>
-      <td>Bachelor of Mathematics</td>
-      <td>HHU Düsseldorf</td>
-      <td>2018-*</td>
-    </tr>
-  </tbody>
-</table>
+<p>Du findest mein Laptop sieht interessant aus?
+Du würdest gerne die selbe statusbar in <a href="i3wm.org">i3</a>
+haben wie ich?
+Dann ist hier die Anleitung für dich!</p>
 
-<h3 id="work-experience">Work experience</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Experience</th>
-      <th>Employer</th>
-      <th>Duration</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2-week work internship</td>
-      <td>ProVita</td>
-      <td>2017</td>
-    </tr>
-    <tr>
-      <td>Lifeguard</td>
-      <td>NEW Volksbad Mönchengl.</td>
-      <td>2018</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="other-skills">other skills</h3>
-<ul>
-  <li>Vast knowledge about mathematics</li>
-  <li>Programming knowledge
+<ol>
+  <li>
+    <p>(trivial) installiere <a href="i3wm.org">i3</a> <!--und [i3bar](https://i3wm.org/docs/i3bar-protocol.html)-->
+ (<code>$ pacman -S i3-gaps</code>)</p>
+  </li>
+  <li>
+    <p>falls du <a href="https://github.com/i3/i3status">i3status</a> installiert hast: deinstalliere es
+ (<code>$ pacman -Rns i3status</code>)</p>
+  </li>
+  <li>
+    <p>installiere <a href="https://github.com/davidscholberg/goblocks">goblocks</a>
+ (<code># yay goblocks</code>, falls <a href="https://github.com/Jguer/yay">yay</a> bereits installiert ist)</p>
+  </li>
+  <li>
+    <p>Ändere <code>i3status</code> -&gt; <code>goblocks</code> in <code>.config/i3/config</code></p>
+  </li>
+  <li>Bearbeite <code>.config/goblocks/goblocks.yml</code>
     <ul>
-      <li>actively programming since age 13 (2012)</li>
-      <li>very much experienced (&gt;10 Projects):
-        <ul>
-          <li>JavaScript</li>
-          <li>NodeJS</li>
-          <li>CSS</li>
-          <li>HTML</li>
-          <li>Markdown</li>
-        </ul>
-      </li>
-      <li>experienced (&gt;3 Projects):
-        <ul>
-          <li>Haskell</li>
-        </ul>
-      </li>
-      <li>studied in university/school:
-        <ul>
-          <li>JAVA</li>
-          <li>C</li>
-          <li>Assembler</li>
-          <li>PHP</li>
-          <li>SQL</li>
-          <li>UML diagrams</li>
-        </ul>
-      </li>
+      <li>schreibe eine config selber</li>
+      <li>oder kopiere <a href="https://pastebin.com/dxXqhMMq">meine config</a>
+  diese hat <code>spotify-cli</code> mitinbehalten. Wenn du das nicht möchtest,
+  lösche einfach den dazugehörende ‘command’-Abschnitt</li>
     </ul>
   </li>
-  <li>Social expertise
-    <ul>
-      <li>very social and reliable</li>
-      <li>kids tend to like me very much</li>
-      <li>always open to new cultures,experiences,people,…</li>
-    </ul>
-  </li>
-  <li>Languages
-    <ul>
-      <li>native in German</li>
-      <li>fluent in English</li>
-      <li>understand turkish somewhat</li>
-    </ul>
-  </li>
-</ul>
+  <li>(optional) installiere <a href="https://github.com/pwittchen/spotify-cli-linux">spotify-cli</a>
+ um die momentan spielende Musik (auf youtube/spotify/…) anzuzeigen.
+ <code>$ pip install spotify-cli-linux</code>
+ und verwende den folgenden code in deiner config</li>
+</ol>
 
+<figure class="highlight"><pre><code class="language-text" data-lang="text">blocks:
+    - type: command
+      label: "msc " # "📻"
+      command: 'spotifycli --status'</code></pre></figure>
+
+
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="httpss://twitter.com/luca_happel" target="_blank">
+        <img src="?s=142" height="50" width="50" />
+      </a>
+
+      <p>
+        I'm a developer at GitHub. <a href="https://twitter.com/luca_happel" target="_blank">Follow me on Twitter</a>;
+        you'll enjoy my tweets and can contact me there.
+		<br>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="luca_happel">Tweet</a>
+      <a href="https://twitter.com/luca_happel" class="twitter-follow-button" data-show-count="false">Follow @luca_happel</a>
+      <script src="https://platform.twitter.com/widgets.js" type="text/javascript"></script>
+      </p>
+    </section>
   </section>
 </section>
 
