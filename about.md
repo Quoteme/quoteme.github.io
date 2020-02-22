@@ -89,7 +89,7 @@ In case I was able to catch your interest, please do not hesitate to contact me.
 
 Ich bin Luca Leon Happel, ein momentan 20 jähriger Student in Düsseldorf
 aus Mönchengladbach. Meine Interessen sind größtenteils das Lernen von
-Mathematik, Informatik, Philosophy, Sprachen, Technik und vielem mehr.
+Mathematik, Informatik, Philosophie, Sprachen, Technik und vielem mehr.
 Bekannt bin ich unter meinen Freunden und Kommilitonen jedoch nicht nur
 dafür, sondern besonders meine Eigenschaft, dass ich gerne extra Schritte
 gehe um Anderen zu helfen zeichnen mich aus.
