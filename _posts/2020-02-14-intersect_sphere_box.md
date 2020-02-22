@@ -28,7 +28,8 @@ hierbei verwende ich [Haskell](haskell.org) Schreibkonventionen für die
 Eigenschaften. Also, `a` bedeuted, ein beliebiger Datentyp oder
 `[a,a]` deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
 des selben Types hin. Da ich `Real a =>...` am Anfang geschrieben habe,
-bedeuted dass: `[(a,a)]` $$\Rightarrow ((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots)$$
+bedeuted dass: `[(a,a)]` eine Liste von Tupeln verschiedener reeller Zahlen
+ist: $$((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \Mathbb{R}$$
 
 ### Lösung
 
