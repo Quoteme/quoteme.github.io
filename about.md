@@ -13,6 +13,16 @@ title: About me
 
 ## English {#english}
 
+### About me
+
+I am Luca Leon Happel, a currently 20 year old Student in Düsseldorf who
+currently lives in Mönchengladbach. My interests include mathemaics,
+computer-science, philosophy, languages, technology and lots more.
+My friends and collegues primarily know me for the extra mile I always
+put into my work in order to help them and myself.
+
+In case I was able to get your interest, please do not hesitate to contact me.
+
 ### Academic achievements
 
 | Achievement | Place | Duration |
@@ -75,6 +85,17 @@ title: About me
 
 ## Deutsch {#deutsch}
 
+### Über mich
+
+Ich bin Luca Leon Happel, ein momentan 20 jähriger Student in Düsseldorf
+aus Mönchengladbach. Meine Interessen sind größtenteils das Lernen von
+Mathematik, Informatik, Philosophy, Sprachen, Technik und vielem mehr.
+Bekannt bin ich unter meinen Freunden und Kommilitonen jedoch nicht nur
+dafür, sondern besonders meine Eigenschaft, dass ich gerne extra Schritte
+gehe um Anderen zu helfen zeichnen mich aus.
+
+Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne Kontaktieren.
+
 ### Akademische Leistungen
 
 | Errungenschaft | Ort | Datum |
@@ -115,7 +136,6 @@ title: About me
 			- 95% positive Reviews von 6.444 (Stand 2020)
 			- Gewinner des "best game under development Brazilian indie games festivals 2015"
 			- Auszeichnung in "battle of games VI festival Cindemundo 2014"
-
 - Sociale Fertigkeiten
 	- sehr sozial, zuvorkommend, geduldig und sehr zuverlässig (siehe Bademeistererfahrungen)
 	- auch in stressvollen Situationen belastbar
