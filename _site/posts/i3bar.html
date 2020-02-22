@@ -93,7 +93,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 <p>Du findest mein Laptop sieht interessant aus?
-Du würdest gerne die selbe statusbar in <a href="i3wm.org">i3</a>
+Du würdest gerne die selbe Statusbar in <a href="i3wm.org">i3</a>
 haben wie ich?
 Dann ist hier die Anleitung für dich!</p>
 
@@ -116,9 +116,10 @@ Dann ist hier die Anleitung für dich!</p>
   <li>Bearbeite <code>.config/goblocks/goblocks.yml</code>
     <ul>
       <li>schreibe eine config selber</li>
-      <li>oder kopiere <a href="https://pastebin.com/dxXqhMMq">meine config</a>
+      <li>oder kopiere <a href="https://pastebin.com/VWpMasZx">meine config</a>
   diese hat <code>spotify-cli</code> mitinbehalten. Wenn du das nicht möchtest,
-  lösche einfach den dazugehörende ‘command’-Abschnitt</li>
+  lösche einfach den dazugehörende ‘command’-Abschnitt. Ansonsten
+  siehe den nächsten Abschnitt an</li>
     </ul>
   </li>
   <li>(optional) installiere <a href="https://github.com/pwittchen/spotify-cli-linux">spotify-cli</a>
@@ -130,7 +131,16 @@ Dann ist hier die Anleitung für dich!</p>
 <figure class="highlight"><pre><code class="language-text" data-lang="text">blocks:
     - type: command
       label: "msc " # "📻"
-      command: 'spotifycli --status'</code></pre></figure>
+      command: sh /home/DEINNUTZERNAME/.config/goblocks/musicdisplay.sh</code></pre></figure>
+
+<p>und erstelle die Datei <code>musicdisplay.sh</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/usr/bin/env bash</span>
+<span class="k">if </span>spotifycli --status; <span class="k">then
+	</span>spotifycli --status
+<span class="k">else
+	</span><span class="nb">echo</span> <span class="s1">''</span>
+<span class="k">fi</span></code></pre></figure>
 
 
 

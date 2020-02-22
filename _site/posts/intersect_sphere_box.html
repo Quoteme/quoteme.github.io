@@ -141,7 +141,8 @@ Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:</p>
 Eigenschaften. Also, <code>a</code> bedeuted, ein beliebiger Datentyp oder
 <code>[a,a]</code> deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
 des selben Types hin. Da ich <code>Real a =&gt;...</code> am Anfang geschrieben habe,
-bedeuted dass: <code>[(a,a)]</code> <script type="math/tex">\Rightarrow ((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots)</script></p>
+bedeuted dass: <code>[(a,a)]</code> eine Liste von Tupeln verschiedener reeller Zahlen
+ist: <script type="math/tex">((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}</script></p>
 
 <h3 id="lsung">Lösung</h3>
 
@@ -161,8 +162,8 @@ ein Intervall schneiden:</p>
 
 <p>Nun ist es ein Leiches, zu prüfen ob ein Hyperwürfel und eine Hypersphäre
 sich schneiden;
-Man muss prüfen ob die Projektion der Sphäre und des Hyperwürfels auf
-jeder Achse sich schneiden.</p>
+Man muss prüfen ob die Projektionen der Sphäre und des Hyperwürfels sich
+auf jeder Achse schneiden.</p>
 
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/rZpCzkF" data-context="false"><a href="//imgur.com/a/rZpCzkF"></a></blockquote>
 <script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
@@ -188,7 +189,7 @@ jeder Achse sich schneiden.</p>
 
 <span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
 <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kr">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// false ✅</span></code></pre></figure>
 
 <p>besonders das letzte Ergebnis kann man leicht überprüfen:</p>

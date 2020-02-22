@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-02-19T02:05:33+01:00</updated>
+ <updated>2020-02-22T20:18:49+01:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -21,7 +21,7 @@
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;Du findest mein Laptop sieht interessant aus?
-Du würdest gerne die selbe statusbar in &lt;a href=&quot;i3wm.org&quot;&gt;i3&lt;/a&gt;
+Du würdest gerne die selbe Statusbar in &lt;a href=&quot;i3wm.org&quot;&gt;i3&lt;/a&gt;
 haben wie ich?
 Dann ist hier die Anleitung für dich!&lt;/p&gt;
 
@@ -44,9 +44,10 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
   &lt;li&gt;Bearbeite &lt;code&gt;.config/goblocks/goblocks.yml&lt;/code&gt;
     &lt;ul&gt;
       &lt;li&gt;schreibe eine config selber&lt;/li&gt;
-      &lt;li&gt;oder kopiere &lt;a href=&quot;https://pastebin.com/dxXqhMMq&quot;&gt;meine config&lt;/a&gt;
+      &lt;li&gt;oder kopiere &lt;a href=&quot;https://pastebin.com/VWpMasZx&quot;&gt;meine config&lt;/a&gt;
   diese hat &lt;code&gt;spotify-cli&lt;/code&gt; mitinbehalten. Wenn du das nicht möchtest,
-  lösche einfach den dazugehörende ‘command’-Abschnitt&lt;/li&gt;
+  lösche einfach den dazugehörende ‘command’-Abschnitt. Ansonsten
+  siehe den nächsten Abschnitt an&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;(optional) installiere &lt;a href=&quot;https://github.com/pwittchen/spotify-cli-linux&quot;&gt;spotify-cli&lt;/a&gt;
@@ -58,7 +59,16 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;blocks:
     - type: command
       label: &quot;msc &quot; # &quot;📻&quot;
-      command: &#39;spotifycli --status&#39;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+      command: sh /home/DEINNUTZERNAME/.config/goblocks/musicdisplay.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;und erstelle die Datei &lt;code&gt;musicdisplay.sh&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;spotifycli --status; &lt;span class=&quot;k&quot;&gt;then
+	&lt;/span&gt;spotifycli --status
+&lt;span class=&quot;k&quot;&gt;else
+	&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </content>
    </entry>
@@ -152,7 +162,8 @@ Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:&lt;/p&g
 Eigenschaften. Also, &lt;code&gt;a&lt;/code&gt; bedeuted, ein beliebiger Datentyp oder
 &lt;code&gt;[a,a]&lt;/code&gt; deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
 des selben Types hin. Da ich &lt;code&gt;Real a =&amp;gt;...&lt;/code&gt; am Anfang geschrieben habe,
-bedeuted dass: &lt;code&gt;[(a,a)]&lt;/code&gt; &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow ((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots)&lt;/script&gt;&lt;/p&gt;
+bedeuted dass: &lt;code&gt;[(a,a)]&lt;/code&gt; eine Liste von Tupeln verschiedener reeller Zahlen
+ist: &lt;script type=&quot;math/tex&quot;&gt;((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}&lt;/script&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;lsung&quot;&gt;Lösung&lt;/h3&gt;
 
@@ -172,8 +183,8 @@ ein Intervall schneiden:&lt;/p&gt;
 
 &lt;p&gt;Nun ist es ein Leiches, zu prüfen ob ein Hyperwürfel und eine Hypersphäre
 sich schneiden;
-Man muss prüfen ob die Projektion der Sphäre und des Hyperwürfels auf
-jeder Achse sich schneiden.&lt;/p&gt;
+Man muss prüfen ob die Projektionen der Sphäre und des Hyperwürfels sich
+auf jeder Achse schneiden.&lt;/p&gt;
 
 &lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/rZpCzkF&quot; data-context=&quot;false&quot;&gt;&lt;a href=&quot;//imgur.com/a/rZpCzkF&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
@@ -199,7 +210,7 @@ jeder Achse sich schneiden.&lt;/p&gt;
 
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false ✅&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;besonders das letzte Ergebnis kann man leicht überprüfen:&lt;/p&gt;

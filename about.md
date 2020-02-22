@@ -3,6 +3,16 @@ layout: bio
 title: About me
 ---
 
+# Languages:
+
+- 🇬🇧[English](#english)
+- 🇩🇪[Deutsch](#deutsch)
+
+---
+---
+
+## English {#english}
+
 ### Academic achievements
 
 | Achievement | Place | Duration |
@@ -23,13 +33,13 @@ title: About me
 - Vast knowledge about mathematics
 - Programming knowledge
 	- actively programming since age 13 (2012)
-	- a lot of experience in (>10 Projects):
+	- a lot of experience in (>30 Projects):
 		- JavaScript
 		- NodeJS
 		- CSS
 		- HTML
 		- Markdown
-	- advanced experience in (>3 Projects):
+	- advanced experience in (>5 Projects):
 		- Haskell
 	- studied in university/school:
 		- JAVA
@@ -38,6 +48,11 @@ title: About me
 		- PHP
 		- SQL
 		- UML diagrams
+	- extraordinary experiences
+		- codeveloper of [relic hunters zero](https://store.steampowered.com/app/382490/Relic_Hunters_Zero/?snr=1_7_7_151_150_1)
+			- 95% positive reviews from 6,444 (2020)
+			- winner of the "best game under development Brazilian indie games festivals 2015"
+			- honorable mention in "battle of games VI festival Cindemundo 2014"
 - Social expertise
 	- very social and reliable
 	- kids tend to like me very much
@@ -45,4 +60,74 @@ title: About me
 - Languages
 	- native in German
 	- fluent in English
-	- understand turkish somewhat
+	- basic understanding of Turkish
+
+### Contact
+
+| Reason | Details |
+|---|---|
+| job interviews | [Luca.Happel@uni-duesseldorf.de](mailto:lucahappel99@gmx.de) |
+| commission | [lucahappel99@gmx.de](mailto:lucahappel99@gmx.de) topic "Commission - YOUR REQUEST" |
+| others | [<i class="fa fa-twitter"></i>](https://twitter.com/luca_happel "Twitter"), [<i class="fa fa-facebook"></i>](https://www.facebook.com/lucaleon.happel "Facebook"), [<i class="fa fa-instagram"></i>](https://www.instagram.com/lucaleonhappel/ "Instagram") |
+
+---
+
+## Deutsch {#deutsch}
+
+### Akademische Leistungen
+
+| Errungenschaft | Ort | Datum |
+|---|---|---|
+| Grundschule | Erich-Kästner Grundschule | 2006-2010 |
+| Gymnasium | Gymnasium an der Gartenstraße | 2010-2018 |
+| Bachelor der Computer-Wissenschaften | HHU Düsseldorf | 2018-* |
+| Bachelor der Mathematik | HHU Düsseldorf | 2018-* |
+
+### Arbeitserfahrungen
+
+| Erfahrung | Arbeitgeber | Datum |
+|---|---|---|
+| 2-Wochen Praktikum | ProVita | 2017 |
+| Bademeister | NEW Volksbad Mönchengl. | 2018 |
+
+### Weitere Besonderheiten
+- Breites Spektrum an mathematischem Wissen
+- Programmierfähigkeiten
+	- programmieren seit dem 13. Lebensjahr
+	- sehr viel Erfahrung in (>30 Projekte):
+		- JavaScript
+		- NodeJS
+		- CSS
+		- HTML
+		- Markdown
+	- erweiterte Erfahrung in (>5 Projekte):
+		- Haskell
+	- gelernt in der Universität/Schule
+		- JAVA
+		- C
+		- Assembler
+		- PHP
+		- SQL
+		- UML Diagramme
+	- außerordentliche Errungenschaften
+		- Mitentwickler von [relic hunters zero](https://store.steampowered.com/app/382490/Relic_Hunters_Zero/?snr=1_7_7_151_150_1)
+			- 95% positive Reviews von 6.444 (Stand 2020)
+			- Gewinner des "best game under development Brazilian indie games festivals 2015"
+			- Auszeichnung in "battle of games VI festival Cindemundo 2014"
+
+- Sociale Fertigkeiten
+	- sehr sozial, zuvorkommend und zuverlässig
+	- kann gut mit Kindern umgehen
+	- stets offenkundig für neue Kulturen,Erfahrungen,Leute,...
+- Sprachen
+	- muttersprachliche Deutschkentnisse
+	- fließende Englischkentnisse
+	- grundlegende Türkischkentnisse
+
+### Kontakt
+
+| Grund | Details |
+|---|---|
+| Jobinterviews | [Luca.Happel@uni-duesseldorf.de](mailto:lucahappel99@gmx.de) |
+| Aufträge | [lucahappel99@gmx.de](mailto:lucahappel99@gmx.de) mit Betreff "Commission - DEINE ANFRAGE" |
+| Anderes | [<i class="fa fa-twitter"></i>](https://twitter.com/luca_happel "Twitter"), [<i class="fa fa-facebook"></i>](https://www.facebook.com/lucaleon.happel "Facebook"), [<i class="fa fa-instagram"></i>](https://www.instagram.com/lucaleonhappel/ "Instagram") |
