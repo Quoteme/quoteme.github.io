@@ -23,13 +23,13 @@ title: About me
 - Vast knowledge about mathematics
 - Programming knowledge
 	- actively programming since age 13 (2012)
-	- very much experienced (>10 Projects):
+	- a lot of experience in (>10 Projects):
 		- JavaScript
 		- NodeJS
 		- CSS
 		- HTML
 		- Markdown
-	- experienced (>3 Projects):
+	- advanced experience in (>3 Projects):
 		- Haskell
 	- studied in university/school:
 		- JAVA
