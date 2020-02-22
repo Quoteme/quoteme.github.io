@@ -54,7 +54,8 @@ title: About me
 			- winner of the "best game under development Brazilian indie games festivals 2015"
 			- honorable mention in "battle of games VI festival Cindemundo 2014"
 - Social expertise
-	- very social and reliable
+	- very social, patient and reliable
+	- resilient in stressful situations
 	- kids tend to like me very much
 	- always open to new cultures,experiences,people,...
 - Languages
@@ -116,7 +117,8 @@ title: About me
 			- Auszeichnung in "battle of games VI festival Cindemundo 2014"
 
 - Sociale Fertigkeiten
-	- sehr sozial, zuvorkommend und zuverlässig
+	- sehr sozial, zuvorkommend, geduldig und sehr zuverlässig (siehe Bademeistererfahrungen)
+	- auch in stressvollen Situationen belastbar
 	- kann gut mit Kindern umgehen
 	- stets offenkundig für neue Kulturen,Erfahrungen,Leute,...
 - Sprachen
