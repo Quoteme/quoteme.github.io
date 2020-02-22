@@ -16,7 +16,7 @@ title: About me
 ### About me
 
 I am Luca Leon Happel, a currently 20 year old Student in Düsseldorf who
-currently lives in Mönchengladbach. My interests include mathemaics,
+currently lives in Mönchengladbach. My interests include mathematics,
 computer-science, philosophy, languages, technology and lots more.
 My friends and collegues primarily know me for the extra mile I always
 put into my work in order to help them and myself.
@@ -94,7 +94,7 @@ Bekannt bin ich unter meinen Freunden und Kommilitonen jedoch nicht nur
 dafür, sondern besonders meine Eigenschaft, dass ich gerne extra Schritte
 gehe um Anderen zu helfen zeichnen mich aus.
 
-Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne Kontaktieren.
+Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 
 ### Akademische Leistungen
 
