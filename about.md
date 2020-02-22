@@ -77,7 +77,7 @@ In case I was able to get your interest, please do not hesitate to contact me.
 
 | Reason | Details |
 |---|---|
-| job interviews | [Luca.Happel@uni-duesseldorf.de](mailto:lucahappel99@gmx.de) |
+| job interviews | [Luca.Happel@uni-duesseldorf.de](mailto:Luca.Happel@uni-duesseldorf.de) |
 | commission | [lucahappel99@gmx.de](mailto:lucahappel99@gmx.de) topic "Commission - YOUR REQUEST" |
 | others | [<i class="fa fa-twitter"></i>](https://twitter.com/luca_happel "Twitter"), [<i class="fa fa-facebook"></i>](https://www.facebook.com/lucaleon.happel "Facebook"), [<i class="fa fa-instagram"></i>](https://www.instagram.com/lucaleonhappel/ "Instagram") |
 
