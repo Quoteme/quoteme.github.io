@@ -21,7 +21,7 @@ computer-science, philosophy, languages, technology and lots more.
 My friends and collegues primarily know me for the extra mile I always
 put into my work in order to help them and myself.
 
-In case I was able to get your interest, please do not hesitate to contact me.
+In case I was able to catch your interest, please do not hesitate to contact me.
 
 ### Academic achievements
 
