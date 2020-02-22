@@ -150,6 +150,6 @@ Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 
 | Grund | Details |
 |---|---|
-| Jobinterviews | [Luca.Happel@uni-duesseldorf.de](mailto:lucahappel99@gmx.de) |
+| Jobinterviews | [Luca.Happel@uni-duesseldorf.de](mailto:Luca.Happel@uni-duesseldorf.de) |
 | Aufträge | [lucahappel99@gmx.de](mailto:lucahappel99@gmx.de) mit Betreff "Commission - DEINE ANFRAGE" |
 | Anderes | [<i class="fa fa-twitter"></i>](https://twitter.com/luca_happel "Twitter"), [<i class="fa fa-facebook"></i>](https://www.facebook.com/lucaleon.happel "Facebook"), [<i class="fa fa-instagram"></i>](https://www.instagram.com/lucaleonhappel/ "Instagram") |
