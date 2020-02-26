@@ -117,14 +117,14 @@ Dann ist hier die Anleitung für dich!</p>
     <ul>
       <li>schreibe eine config selber</li>
       <li>oder kopiere <a href="https://pastebin.com/VWpMasZx">meine config</a>
-  diese hat <code>spotify-cli</code> mitinbehalten. Wenn du das nicht möchtest,
+  diese hat <code>playerctl</code> mitinbehalten. Wenn du das nicht möchtest,
   lösche einfach den dazugehörende ‘command’-Abschnitt. Ansonsten
   siehe den nächsten Abschnitt an</li>
     </ul>
   </li>
-  <li>(optional) installiere <a href="https://github.com/pwittchen/spotify-cli-linux">spotify-cli</a>
+  <li>(optional) installiere <a href="https://github.com/altdesktop/playerctl">playerctl</a>
  um die momentan spielende Musik (auf youtube/spotify/…) anzuzeigen.
- <code>$ pip install spotify-cli-linux</code>
+ <code># pacman -S playerctl</code>
  und verwende den folgenden code in deiner config</li>
 </ol>
 
@@ -136,11 +136,13 @@ Dann ist hier die Anleitung für dich!</p>
 <p>und erstelle die Datei <code>musicdisplay.sh</code>:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/usr/bin/env bash</span>
-<span class="k">if </span>spotifycli --status; <span class="k">then
-	</span>spotifycli --status
-<span class="k">else
-	</span><span class="nb">echo</span> <span class="s1">''</span>
-<span class="k">fi</span></code></pre></figure>
+<span class="nb">echo</span> <span class="k">$(</span>playerctl metadata --format <span class="s1">' - '</span><span class="k">)</span></code></pre></figure>
+
+<hr />
+
+<p><img src="https://i.imgur.com/qlEUHuk.png" alt="meine Statusbar mit Icons statt Text" /></p>
+
+<p>NOTIZ: Um die selben Icons zu haben muss man <a href="https://github.com/stark/siji">Siji</a> installieren <code># yay -S siji-git</code> und in seiner <code>.config/i3/config</code> folgendes als font setzen: <code>font pango: Gohu GohuFont, Siji 11px</code></p>
 
 
 

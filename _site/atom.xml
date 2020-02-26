@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-02-24T09:15:24+01:00</updated>
+ <updated>2020-02-26T05:24:23+01:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -152,14 +152,14 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;schreibe eine config selber&lt;/li&gt;
       &lt;li&gt;oder kopiere &lt;a href=&quot;https://pastebin.com/VWpMasZx&quot;&gt;meine config&lt;/a&gt;
-  diese hat &lt;code&gt;spotify-cli&lt;/code&gt; mitinbehalten. Wenn du das nicht möchtest,
+  diese hat &lt;code&gt;playerctl&lt;/code&gt; mitinbehalten. Wenn du das nicht möchtest,
   lösche einfach den dazugehörende ‘command’-Abschnitt. Ansonsten
   siehe den nächsten Abschnitt an&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;(optional) installiere &lt;a href=&quot;https://github.com/pwittchen/spotify-cli-linux&quot;&gt;spotify-cli&lt;/a&gt;
+  &lt;li&gt;(optional) installiere &lt;a href=&quot;https://github.com/altdesktop/playerctl&quot;&gt;playerctl&lt;/a&gt;
  um die momentan spielende Musik (auf youtube/spotify/…) anzuzeigen.
- &lt;code&gt;$ pip install spotify-cli-linux&lt;/code&gt;
+ &lt;code&gt;# pacman -S playerctl&lt;/code&gt;
  und verwende den folgenden code in deiner config&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -171,11 +171,13 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
 &lt;p&gt;und erstelle die Datei &lt;code&gt;musicdisplay.sh&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;spotifycli --status; &lt;span class=&quot;k&quot;&gt;then
-	&lt;/span&gt;spotifycli --status
-&lt;span class=&quot;k&quot;&gt;else
-	&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&#39;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;playerctl metadata --format &lt;span class=&quot;s1&quot;&gt;&#39; - &#39;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/qlEUHuk.png&quot; alt=&quot;meine Statusbar mit Icons statt Text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;NOTIZ: Um die selben Icons zu haben muss man &lt;a href=&quot;https://github.com/stark/siji&quot;&gt;Siji&lt;/a&gt; installieren &lt;code&gt;# yay -S siji-git&lt;/code&gt; und in seiner &lt;code&gt;.config/i3/config&lt;/code&gt; folgendes als font setzen: &lt;code&gt;font pango: Gohu GohuFont, Siji 11px&lt;/code&gt;&lt;/p&gt;
 
 </content>
    </entry>
