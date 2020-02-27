@@ -2,6 +2,7 @@
 layout: post
 title: wmderland - mein erster Windowmanager bei dem ich geholfen habe
 category: posts
+draft: true
 ---
 
 ### Intro
