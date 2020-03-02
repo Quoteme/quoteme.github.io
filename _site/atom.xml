@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-02-26T05:24:23+01:00</updated>
+ <updated>2020-03-02T19:39:58+01:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -13,109 +13,127 @@
  
    
    <entry>
-     <title>wmderland - mein erster Windowmanager bei dem ich geholfen habe</title>
-     <link href="https://quoteme.github.io//posts/wmderland"/>
-     <updated>2020-02-24T00:00:00+01:00</updated>
-     <id>https://quoteme.github.io//posts/wmderland</id>
-     <content type="html">&lt;h3 id=&quot;intro&quot;&gt;Intro&lt;/h3&gt;
+     <title>Custom login-prompt in linux</title>
+     <link href="https://quoteme.github.io//posts/custom_loginprompt_linux"/>
+     <updated>2020-03-02T00:00:00+01:00</updated>
+     <id>https://quoteme.github.io//posts/custom_loginprompt_linux</id>
+     <content type="html">&lt;p&gt;I was asked on &lt;a href=&quot;https://www.reddit.com/r/archlinux/comments/fc4vqs/removing_lightdm/&quot;&gt;reddit&lt;/a&gt; how to change this:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/aesophor/wmderland&quot;&gt;Wmderland&lt;/a&gt; ist ein
-&lt;a href=&quot;https://wiki.archlinux.org/index.php/Window_manager&quot;&gt;Window-manager&lt;/a&gt;
-für Linux. Also, ein gewisses Programm, welches mit einem Display-server
-kommuniziert und dafür sorgt, dass Fenster auf einem PC angezeigt werden.
-In diesem Fall ist Wmderland eine Software, welche von &lt;a href=&quot;http://i3wm.org/&quot;&gt;i3&lt;/a&gt;
-inspiriert ist und zu den so genannten tiling-window-managern gehört;
-Also window manager, welche dadurch ausgezeichnet sind, dass diese Fenster
-platzsparend auf dem Computerbildschirm aufteilen (in sogenannten tiles).&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;how to change this&lt;/th&gt;
+      &lt;th&gt;to this:&lt;/th&gt;
+      &lt;th&gt;or this:&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://i.imgur.com/lmKNzQn.png&quot;&gt;&lt;img src=&quot;https://i.imgur.com/lmKNzQn.png&quot; alt=&quot;default login-prompt for Arch Linux&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://i.imgur.com/3BCKr8A.png&quot;&gt;&lt;img src=&quot;https://i.imgur.com/3BCKr8A.png&quot; alt=&quot;login-prompt for Arch Linux with screenfetch&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://i.imgur.com/bXuArnx.png&quot;&gt;&lt;img src=&quot;https://i.imgur.com/bXuArnx.png&quot; alt=&quot;login-prompt for Arch Linux with screenfetch&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;default login screen&lt;/td&gt;
+      &lt;td&gt;a loginscreen that runs neofetch every boot (has bugs tho)&lt;/td&gt;
+      &lt;td&gt;a loginscreen that runs neofetch every shutdown (information is one shutdown old, but it works better)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;Wmderland soll dabei einfacher, schneller und kürzer geschrieben sein als
-i3, doch dafür steht wmderland noch in den Kinderschuhen.
-Ein Problem, welches daraus resultiert ist, dass Wmderland noch nicht
-als Binary, also als fertiges Programm verfügbar ist und bisher immer
-neu compiliert werden muss. Das alleine wäre noch kein Problem, doch
-Wmderland ist auch in keinem Repository verfügbar, also in keiner Sammlung
-von Programmen welche auf Linux installiert werden können.&lt;/p&gt;
+&lt;h5 id=&quot;tldr&quot;&gt;TL;DR:&lt;/h5&gt;
 
-&lt;p&gt;Diese Probleme wollte ich lösen und habe den Inhaber &lt;a href=&quot;https://github.com/aesophor&quot;&gt;aesophor&lt;/a&gt;
-darauf angesprochen, welcher darauf hin ein &lt;a href=&quot;https://wiki.archlinux.org/index.php/PKGBUILD&quot;&gt;PKGBUILD&lt;/a&gt;
-bereitgestellt hat, doch es war meine Aufgabe dieses zu testen.
-Da ich jedoch nicht alle meine Daten auf meinem Laptop zu verlieren
-riskieren wollte, kam mir eine Idee: Ich emuliere einen PC und lasse darauf
-alle tests laufen.&lt;/p&gt;
+&lt;p&gt;How do I display Screenfetch/Neofetch before login in a TTY?&lt;/p&gt;
 
-&lt;p&gt;Hier ist das Abenteuer, welches ich dadurch innerhalb einer Nacht durchlaufen
-habe:&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;h3 id=&quot;vorbereitung&quot;&gt;Vorbereitung&lt;/h3&gt;
-
-&lt;p&gt;Als erstes musste ich einen virtuellen PC einrichten. Dafür habe ich
-&lt;a href=&quot;https://www.qemu.org/&quot;&gt;QEMU&lt;/a&gt; verwendet.&lt;/p&gt;
+&lt;h3 id=&quot;instructions&quot;&gt;Instructions&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;pacman -S qemu&lt;/code&gt; (installiert QEMU)&lt;/p&gt;
+    &lt;p&gt;install &lt;a href=&quot;https://github.com/dylanaraps/neofetch&quot;&gt;neofetch&lt;/a&gt; or &lt;a href=&quot;https://github.com/KittyKatt/screenFetch&quot;&gt;screenfetch&lt;/a&gt; (&lt;code&gt;sudo pacman -S neofetch&lt;/code&gt;) (I will use neofetch here, but it is the same process for screenfetch)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;wget http://artfiles.org/archlinux.org/iso/2020.02.01/archlinux-2020.02.01-x86_64.iso&lt;/code&gt;
- (downloaded Archlinux)&lt;/p&gt;
+    &lt;p&gt;download my &lt;a href=&quot;#update_login_prompt&quot;&gt;neofetch_login_prompt.service&lt;/a&gt; system.d service file&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;qemu-img create -f raw arch 8G&lt;/code&gt; (kreiert einen virtuellen Computer
- mit 8G Speicher. Zuerst hatte ich 4G, was wie es sich später
- herausstellte viel zu wenig war)&lt;/p&gt;
+    &lt;p&gt;place this file in &lt;code&gt;/etc/systemd/system/&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;qemu-system-x86_64 -cdrom ../archlinux-2020.02.01-x86_64.iso -m 512M  -boot order=d -drive file=arch,format=raw&lt;/code&gt;
- (startetet den virtuellen Computer mit 512MB RAM und läd die Archlinux
- ISO als CD)&lt;/p&gt;
+    &lt;p&gt;enable the script to run at boot: &lt;code&gt;sudo systemctl enable update_login_prompt --now&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Von hier aus habe ich den &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Archlinux installationsguide&lt;/a&gt;
- befolgt&lt;/p&gt;
+    &lt;p&gt;reboot! it should work now&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;installation-von-wmderland&quot;&gt;Installation von Wmderland&lt;/h3&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;Mit einem fertig eingerichteten virtuellen Computer war ich nun in der
-Lage, Software zu installieren wie ich es wollte, ohne dabei Angst haben
-zu müssen mein System zu verlieren. Also ging es weiter damit, &lt;a href=&quot;https://github.com/aesophor&quot;&gt;aesophor&lt;/a&gt;’s
-Auftrag weiter auszuführen und zu prüfen, ob sein Wmderland PKGBUILD
-funktionieren würde oder nicht.&lt;/p&gt;
+&lt;h3 id=&quot;files&quot;&gt;Files&lt;/h3&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;sudo pacman -S fakeroot bintools&lt;/code&gt; (installiert Programme, welche für
- &lt;code&gt;makepkg&lt;/code&gt; notwendig sind)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;mkdir wmderland &amp;amp;&amp;amp; cd wmderland&lt;/code&gt; (erstelle einen neuen Ordner im
- virtuellen computer für Wmderland und gehe dort hinen)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;kopiere die &lt;a href=&quot;https://github.com/aesophor/wmderland/issues/31&quot;&gt;PKGBUILD und wmderland.install&lt;/a&gt;
- Dateien von aesophor in den wmderland Ordner
-    &lt;ul&gt;
-      &lt;li&gt;dafür habe ich zuerst die Dateien auf meinem Laptop erstellt&lt;/li&gt;
-      &lt;li&gt;dann einen http server im selben Ordner gestartet&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;sudo pacman -S wget&lt;/code&gt; (um im nächsten &lt;code&gt;wget&lt;/code&gt; verwenden zu können)&lt;/li&gt;
-      &lt;li&gt;und zuletzt die dateien mit &lt;code&gt;wget 10.0.2.2:8080/PKGBUILD&lt;/code&gt; und &lt;code&gt;wget 10.0.2.2:8080/wmderland.install&lt;/code&gt;
-  auf meinen virtuellen Computer gezogen&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;pacman -S gcc cmake make git&lt;/code&gt; (installiert Compiler die für Wmderland
- benötigt sind und Anderes)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;makepkg -si&lt;/code&gt; (compiliert und installiert Wmderland, mit den von
- aesophor spezifizierten Dependencies)
-    &lt;ul&gt;
-      &lt;li&gt;hier hängt sich der Compiler bisher bei 14% auf. Deswegen muss ich
-  noch etwa testen, bis es ganz klapt&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;h4 id=&quot;update_login_prompt&quot;&gt;neofetch_login_prompt&lt;/h4&gt;
+
+&lt;h5 id=&quot;version-that-updates-on-shutdown&quot;&gt;Version that updates on shutdown&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# /etc/systemd/system/neofetch_login_prompt.service&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Util]
+&lt;span class=&quot;nv&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Display Neofetch before login &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;a TTY
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Service]
+&lt;span class=&quot;nv&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;oneshot
+&lt;span class=&quot;nv&quot;&gt;RemainAfterExit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;yes
+&lt;span class=&quot;nv&quot;&gt;ExecStop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/env bash -ec &lt;span class=&quot;s1&quot;&gt;&#39;neofetch &amp;gt; /etc/issue&#39;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Install]
+&lt;span class=&quot;nv&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;multi-user.target&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;version-that-updates-at-boot&quot;&gt;Version that updates at boot&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# /etc/systemd/system/neofetch_login_prompt.service&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Util]
+&lt;span class=&quot;nv&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Display Neofetch before login &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;a TTY
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Service]
+&lt;span class=&quot;nv&quot;&gt;ExecStart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/env bash -ec &lt;span class=&quot;s1&quot;&gt;&#39;neofetch &amp;gt; /etc/issue&#39;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Install]
+&lt;span class=&quot;nv&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;multi-user.target&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 </content>
    </entry>
+   
+ 
+   
+   <entry>
+     <title>glider</title>
+     <link href="https://quoteme.github.io//posts/glider"/>
+     <updated>2020-02-27T00:00:00+01:00</updated>
+     <id>https://quoteme.github.io//posts/glider</id>
+     <content type="html">&lt;p&gt;Heute bin ich beim Durchsuchen meines alten Laptops auf ein Projekt
+von vor fast genau einem Jahr und einem Monat gestoßen:&lt;/p&gt;
+
+&lt;p class=&quot;center-image&quot;&gt;&lt;img src=&quot;/glider/screenshot.png&quot; alt=&quot;Screenshot of glider&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Das Projekt hieß &lt;a href=&quot;https://github.com/Quoteme/glider&quot;&gt;Glider&lt;/a&gt; und kann
+in einem Browser ohne etwas installieren zu müssen auf
+&lt;a href=&quot;https://quoteme.github.io//glider/&quot;&gt;https://quoteme.github.io//glider/&lt;/a&gt;
+getestet/gespielt werden.&lt;/p&gt;
+
+&lt;p&gt;Im Grunde ging es nur darum ein proof-of-concept dafür zu haben, dass ich
+ein Spiel wie &lt;a href=&quot;https://store.steampowered.com/app/233150/LUFTRAUSERS/?snr=1_7_7_151_150_1&quot;&gt;LUFTRAUSERS&lt;/a&gt;
+nachprogrammieren könnte. Mein “clon” ist zwar nur sehr eingeschränkt
+in dem, was er tuen kann, aber dennoch hat er genau das erreicht was
+ich erreichen wollte.&lt;/p&gt;
+
+&lt;p&gt;Highlights beinhalten:
+- retro Ästhetik
+- KI der Gegner
+- Variable Anzahlen von Teams
+- die Möglichkeit jeden anderen Glider zu steuern&lt;/p&gt;
+</content>
+   </entry>
+   
+ 
    
  
    
