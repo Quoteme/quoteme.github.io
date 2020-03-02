@@ -26,7 +26,7 @@ How do I display Screenfetch/Neofetch before login in a TTY?
 
 3. place this file in `/etc/systemd/system/`
 
-4. enable the script to run at boot: `sudo systemctl enable update_login_prompt --now`
+4. enable the script to run at boot: `sudo systemctl enable neofetch_login_prompt --now`
 
 5. reboot! it should work now
 
