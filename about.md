@@ -15,7 +15,7 @@ title: About me
 
 ### About me
 
-I am Luca Leon Happel, a currently 20 year old Student in Düsseldorf who
+I am Luca Leon Happel, a 20 year old Student in Düsseldorf who
 currently lives in Mönchengladbach. My interests include mathematics,
 computer-science, philosophy, languages, technology and lots more.
 My friends and collegues primarily know me for the extra mile I always
