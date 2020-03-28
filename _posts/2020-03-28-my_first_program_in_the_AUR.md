@@ -57,6 +57,7 @@ than ~50 lines of code was a real pain.
 6. Put your `PKGBUILD` in there
 7. Add, Commit, Push
 
+###### SSH Configuration    {#ssh_config}
 ```bash
 $ cat .ssh/config
 Host aur.archlinux.org
@@ -64,7 +65,6 @@ User aur
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/aur
 ```
-{#ssh_config}
 
 ---
 
