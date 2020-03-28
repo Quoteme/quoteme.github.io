@@ -68,9 +68,33 @@ IdentityFile ~/.ssh/aur
 
 ---
 
-And after all this struggle, which honestly drove me to reddit because I
-had no more clue what to do, I was able to install my package using the AUR:
+And after all this struggle, which even drove me to reddit because I
+had no clue anymore on what to do, I was able to install my package using the AUR:
 
 ```bash
 yay -S prettymath-git
+```
+### What does it do?
+
+After having installed `prettymath-git`, you can do stuff like this:
+
+before `prettymath`
+```python
+import math
+
+def normalDistribution(x):
+	return 1/sqrt(math.pi)*math.e**(-x**2)
+```
+
+after `prettymath` (`:read !prettymath -u "1/sqrt(pi) * e**(-x**2)"; :norm ^i# `)
+```python
+import math
+
+def normalDistribution(x):
+	#    2
+	#  -x
+	# e
+	# ────
+	#  √π
+	return 1/sqrt(math.pi)*math.e**(-x**2)
 ```
