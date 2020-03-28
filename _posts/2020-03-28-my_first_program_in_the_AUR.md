@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Custom login-prompt in linux
+title: My first program in the AUR
 category: posts
 draft: false
 ---
