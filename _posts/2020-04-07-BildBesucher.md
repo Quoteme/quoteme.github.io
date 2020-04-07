@@ -9,6 +9,10 @@ draft: true
 
 ---
 
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/eu6CCK4"><a href="//imgur.com/a/eu6CCK4">Bilder zu meinem Spiel: BildBesucher (https://quoteme.github.io/bildbesucher/)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+---
+
 Nach einiger Zeit bin habe ich mal wieder angefangen ein Spiel
 zu schreiben, somit hat die momentane Corona-Kriese wenigstens ein paar
 positive Eigenschaften.
