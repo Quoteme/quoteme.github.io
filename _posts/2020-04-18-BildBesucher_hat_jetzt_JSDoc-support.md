@@ -2,7 +2,6 @@
 layout: post
 title: BildBesucher_hat_jetzt_JSDoc-support
 category: posts
-draft: true
 ---
 
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/IX4jhgT"><a href="//imgur.com/a/IX4jhgT">Overview of my first jsdoc documentation (quoteme.github.io/bildbesucher/docs)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
