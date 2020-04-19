@@ -1,6 +1,6 @@
 ---
 layout: post
-title: BildBesucher_hat_jetzt_JSDoc-support
+title: BildBesucher hat jetzt JSDoc-support
 category: posts
 ---
 
