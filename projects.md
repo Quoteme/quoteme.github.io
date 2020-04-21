@@ -47,6 +47,8 @@ title: "Projects"
 	#project_overview img {
 		width: 150px;
 		height: 150px;
+		margin: 3px;
+		box-shadow: 3px 3px 3px #161616;
 	}
 	#project_overview li {
 		float: left;
