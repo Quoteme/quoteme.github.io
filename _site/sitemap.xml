@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://quoteme.github.io//posts/neue_Art_Dimension_zu_z%25C3%25A4hlen</loc>
+<lastmod>2020-05-22T14:16:00+02:00</lastmod>
+</url>
+<url>
+<loc>https://quoteme.github.io//posts/neue_Art_Dimension_zu_z%25C3%25A4hlen</loc>
+<lastmod>2020-05-22T14:16:00+02:00</lastmod>
+</url>
+<url>
+<loc>https://quoteme.github.io//posts/BildBesucher_hat_jetzt_JSDoc-support</loc>
+<lastmod>2020-04-18T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>https://quoteme.github.io//posts/BildBesucher</loc>
+<lastmod>2020-04-07T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>https://quoteme.github.io//posts/my_first_program_in_the_AUR</loc>
+<lastmod>2020-03-28T00:00:00+01:00</lastmod>
+</url>
+<url>
 <loc>https://quoteme.github.io//posts/custom_loginprompt_linux</loc>
 <lastmod>2020-03-02T00:00:00+01:00</lastmod>
 </url>
@@ -39,9 +59,13 @@
 <loc>https://quoteme.github.io//about</loc>
 </url>
 <url>
-<loc>https://quoteme.github.io//</loc>
+<loc>https://quoteme.github.io//posts</loc>
 </url>
 <url>
-<loc>https://quoteme.github.io//posts</loc>
+<loc>https://quoteme.github.io//projects</loc>
+</url>
+<url>
+<loc>https://quoteme.github.io//index.html</loc>
+<lastmod>2020-05-22T15:43:44+02:00</lastmod>
 </url>
 </urlset>

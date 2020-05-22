@@ -4,12 +4,199 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-03-02T19:39:58+01:00</updated>
+ <updated>2020-05-22T15:59:56+02:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
  </author>
  
+ 
+   
+ 
+   
+ 
+   
+   <entry>
+     <title>BildBesucher hat jetzt JSDoc-support</title>
+     <link href="https://quoteme.github.io//posts/BildBesucher_hat_jetzt_JSDoc-support"/>
+     <updated>2020-04-18T00:00:00+02:00</updated>
+     <id>https://quoteme.github.io//posts/BildBesucher_hat_jetzt_JSDoc-support</id>
+     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/IX4jhgT&quot;&gt;&lt;a href=&quot;//imgur.com/a/IX4jhgT&quot;&gt;Overview of my first jsdoc documentation (quoteme.github.io/bildbesucher/docs)&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Wie man es in dem obigen Bild sehen kann, habe ich heute
+&lt;a href=&quot;https://jsdoc.app/index.html&quot;&gt;JSDoc&lt;/a&gt;-support zu meinem Spiel
+&lt;a href=&quot;http://github.com/quoteme/bildbesucher&quot;&gt;BildBesucher&lt;/a&gt; hinzugefügt!
+Das bedeuted, wenn man auf &lt;a href=&quot;https://quoteme.github.io/bildbesucher/docs/&quot;&gt;quoteme.github.io/bildbesucher/docs/&lt;/a&gt;
+geht, kann man alle möglichen interessanten Infos über die Programmierung
+des Spiels erfahren. Das erleichtert in der Zukunft mir beispielsweise
+herauszufinden wofür eine bestimme Funktion gut war, oder Andere welche
+meinem Projekt helfen möchten können somit schnell und einfach
+herausfinden, was ich da überhaupt geschrieben habe.&lt;/p&gt;
+
+&lt;p&gt;Leider musste ich dafür die die Zeilenanzahl des Codes quasi verdoppeln,
+doch sind all die Änderungen die ich gemacht habe nur Kommentare, somit
+wird das Programm dadurch nicht langsamer!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Das Ziel dieser ganzen Übung ist meinen Programmierstil zu verbessern
+und meine Teamfähigkeit zu erhöhen, da ich somit gelernt habe, wie
+ich meine Arbeiten am besten annotiere.&lt;/p&gt;
+
+&lt;p&gt;Dies könnte auch in ganz anderen Bereichen für mich nützlich sein, da
+ich somit weiß, dass man immer gute Buchhaltung für seine Kollegen
+halten sollte.&lt;/p&gt;
+</content>
+   </entry>
+   
+ 
+   
+   <entry>
+     <title>BildBesucher</title>
+     <link href="https://quoteme.github.io//posts/BildBesucher"/>
+     <updated>2020-04-07T00:00:00+02:00</updated>
+     <id>https://quoteme.github.io//posts/BildBesucher</id>
+     <content type="html">&lt;p&gt;&lt;a href=&quot;https://quoteme.github.io/bildbesucher/&quot;&gt;Hier klicken um BildBesucher online auszuprobieren&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/eu6CCK4&quot;&gt;&lt;a href=&quot;//imgur.com/a/eu6CCK4&quot;&gt;Bilder zu meinem Spiel: BildBesucher (https://quoteme.github.io/bildbesucher/)&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Nach einiger Zeit bin habe ich mal wieder angefangen ein Spiel
+zu schreiben, somit hat die momentane Corona-Kriese wenigstens ein paar
+positive Eigenschaften.&lt;/p&gt;
+
+&lt;p&gt;Das Spiel nenne ich BildBesucher, da es eigentlich nur darum geht, dass
+man Bilder online mit einem kleinen Character besuchen kann und von
+einem Bild zum nächsten weitergeleitet werden kann. Die Idee für das
+Spiel kam mir, als ich &lt;a href=&quot;https://xkcd.com/1608/&quot;&gt;XKCDs Hoverboard&lt;/a&gt;
+gespielt habe und davon sehr begeistert war. Den Quellcode kann
+man dafür auf der dazugehörigen &lt;a href=&quot;https://github.com/Quoteme/bildbesucher&quot;&gt;Github Seite&lt;/a&gt;
+ansehen/forken.&lt;/p&gt;
+
+&lt;p&gt;Pläne sind momentan noch viele da, insbesondere soll die Zoom-Funktion
+für die in-game Kamera möglichst schnell eingefügt werden, damit man
+etwas mehr von der gezeichneten Welt herausfinden kann.
+Andere wichtige Sachen, welche ich noch machen möchte sind:
+- Das Portalsystem, damit man an manchen stellen auf eine andere Seite
+	geschickt wird
+- Das Ladesystem, damit man anhand der URL ein bestimmtes Level mit
+	verschienen Eigenschaften (wie Position/etc) laden kann
+- Die Welt weiter ausbauen (mehr Bilder erstellen und mein momentanes
+	erweitern)
+- ???&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;PS: Ich hoffe, dass ich mein Spiel wenigstens dieses mal etwas weiter
+zuende führe als sonst 😪&lt;/p&gt;
+</content>
+   </entry>
+   
+ 
+   
+   <entry>
+     <title>My first program in the AUR</title>
+     <link href="https://quoteme.github.io//posts/my_first_program_in_the_AUR"/>
+     <updated>2020-03-28T00:00:00+01:00</updated>
+     <id>https://quoteme.github.io//posts/my_first_program_in_the_AUR</id>
+     <content type="html">&lt;p&gt;Recently I discovered some more of the incredibly useful features of
+my favorite text-editor &lt;a href=&quot;https://github.com/neovim/neovim&quot;&gt;Neovim&lt;/a&gt;:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Entering &lt;code&gt;:read !somefunction&lt;/code&gt; in Neovim causes the editor to execute
+the command &lt;code&gt;somefunction&lt;/code&gt; and then insert the echoed response into the
+file you are currently editing at your cursor position.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;This got me thinking… Maybe I could use this to make my programming
+more concise. And after installing &lt;code&gt;figlet&lt;/code&gt; I was proven right:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Use `:read figlet &quot;Example&quot;`&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#     and then select the output and comment it out: `:&#39;&amp;lt;,&#39;&amp;gt;norm ^i# `&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#  _____                           _&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# | ____|_  ____ _ _ __ ___  _ __ | | ___&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# |  _| \ \/ / _` | &#39;_ ` _ \| &#39;_ \| |/ _ \&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# | |___ &amp;gt;  &amp;lt; (_| | | | | | | |_) | |  __/&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# |_____/_/\_\__,_|_| |_| |_| .__/|_|\___|&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#                           |_|&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;It works!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And after all this thinking I was stuck with an idea, which I had for
+quite some time already, but never really knew how to implement in vim:&lt;/p&gt;
+
+&lt;p&gt;I can use this, to show complex math formulas in programs, as actual math formulas&lt;/p&gt;
+
+&lt;p&gt;The problem however was, that no package I searched for seemed to
+provide the ability to render math formulas as ASCII / ANSI / Unicode.
+And therefor I just set out to create my own program:&lt;/p&gt;
+
+&lt;h3 id=&quot;prettymathhttpgithubcomquotemeprettymath&quot;&gt;&lt;a href=&quot;http://github.com/quoteme/prettymath&quot;&gt;prettymath&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;The programming was the easy part. Just write a python script that
+internally parses expressions using &lt;a href=&quot;https://www.sympy.org/en/index.html&quot;&gt;SymPy&lt;/a&gt;
+and then pretty prints them. But publishing this program with none more
+than ~50 lines of code was a real pain.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Publish to GitHub&lt;/li&gt;
+  &lt;li&gt;Create an account on &lt;a href=&quot;https://aur.archlinux.org/&quot;&gt;https://aur.archlinux.org &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Use my &lt;a href=&quot;#ssh_config&quot;&gt;.ssh/config&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Generate an ssh key: &lt;code&gt;$ ssh-keygen -f ~/.ssh/aur&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Clone your future repository: &lt;code&gt;git clone ssh://aur@aur.archlinux.org/your_package_name.git&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Put your &lt;code&gt;PKGBUILD&lt;/code&gt; in there&lt;/li&gt;
+  &lt;li&gt;Add, Commit, Push&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h6 id=&quot;ssh_config&quot;&gt;SSH Configuration&lt;/h6&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ cat .ssh/config
+Host aur.archlinux.org
+User aur
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/aur
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;And after all this struggle, which even drove me to reddit because I
+had no clue anymore on what to do, I was able to install my package using the AUR:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;yay -S prettymath-git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;### What does it do?&lt;/p&gt;
+
+&lt;p&gt;After having installed &lt;code&gt;prettymath-git&lt;/code&gt;, you can do stuff like this:&lt;/p&gt;
+
+&lt;p&gt;before &lt;code&gt;prettymath&lt;/code&gt;
+```python
+import math&lt;/p&gt;
+
+&lt;p&gt;def normalDistribution(x):
+	return 1/sqrt(math.pi)*math.e&lt;strong&gt;(-x&lt;/strong&gt;2)
+```&lt;/p&gt;
+
+&lt;p&gt;after &lt;code&gt;prettymath&lt;/code&gt; (&lt;code&gt;:read !prettymath -u &quot;1/sqrt(pi) * e**(-x**2)&quot;; :norm ^i# &lt;/code&gt;)
+```python
+import math&lt;/p&gt;
+
+&lt;p&gt;def normalDistribution(x):
+	#    2
+	#  -x
+	# e
+	# ────
+	#  √π
+	return 1/sqrt(math.pi)*math.e&lt;strong&gt;(-x&lt;/strong&gt;2)
+```&lt;/p&gt;
+</content>
+   </entry>
+   
  
    
    <entry>
@@ -60,7 +247,7 @@
     &lt;p&gt;place this file in &lt;code&gt;/etc/systemd/system/&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;enable the script to run at boot: &lt;code&gt;sudo systemctl enable update_login_prompt --now&lt;/code&gt;&lt;/p&gt;
+    &lt;p&gt;enable the script to run at boot: &lt;code&gt;sudo systemctl enable neofetch_login_prompt --now&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;reboot! it should work now&lt;/p&gt;
@@ -289,8 +476,8 @@ Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:&lt;/p&g
 Eigenschaften. Also, &lt;code&gt;a&lt;/code&gt; bedeuted, ein beliebiger Datentyp oder
 &lt;code&gt;[a,a]&lt;/code&gt; deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
 des selben Types hin. Da ich &lt;code&gt;Real a =&amp;gt;...&lt;/code&gt; am Anfang geschrieben habe,
-bedeuted dass: &lt;code&gt;[(a,a)]&lt;/code&gt; eine Liste von Tupeln verschiedener reeller Zahlen
-ist: &lt;script type=&quot;math/tex&quot;&gt;((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}&lt;/script&gt;&lt;/p&gt;
+bedeuted dass: &lt;code&gt;[(a,a)]&lt;/code&gt; ist eine Liste von Tupeln verschiedener reeller
+Zahlen: &lt;script type=&quot;math/tex&quot;&gt;((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}&lt;/script&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;lsung&quot;&gt;Lösung&lt;/h3&gt;
 
