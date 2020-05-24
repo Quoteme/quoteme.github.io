@@ -28,4 +28,5 @@ kramdown:
   footnote_nr       : 1
   show_warnings     : false
   math_engine       : mathjax
-  syntax_highlighter: r
+  syntax_highlighter: rouge
+  enable_coderay    : true
