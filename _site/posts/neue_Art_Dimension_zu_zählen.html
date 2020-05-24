@@ -206,10 +206,7 @@ Definition überein.</p>
     \lim_{r\rightarrow\infty}\Delta_{r,x} &= 2
 \end{aligned} %]]></script>
 
-<pre><code class="language-{=html}">&lt;pre&gt;
-
-```python
-import numpy as np
+<pre><code class="language-{.python}">import numpy as np
 import matplotlib.pyplot as plt
 V = lambda r: 2*r**2+2*r+1
 Delta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))
@@ -219,12 +216,15 @@ ax.plot(xn, Delta(xn))
 plt.show()
 </code></pre>
 
-<p><img src="../images/assets/unnamed-chunk-1-1.png" alt="" />
-&lt;/pre&gt;
-```
-Auch hier stimmen die Definitionen überein.</p>
+<p><img src="../images/assets/unnamed-chunk-1-1.png" alt="" /></p>
+
+<p>Auch hier stimmen die Definitionen überein.</p>
 
 <h5 id="beispiel-3">Beispiel 3</h5>
+
+<pre><code class="language-{.python}">sirp = lambda x: [[],[],[]] if x==[] else [ sirp(v) for v in x]
+repeat = lambda f,x,n: f(x) if n==1 else f(repeat(f,x,n-1))
+</code></pre>
 
 <div class="footnotes">
   <ol>
