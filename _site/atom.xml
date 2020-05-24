@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-05-24T20:50:35+02:00</updated>
+ <updated>2020-05-24T20:51:01+02:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -17,20 +17,7 @@
      <link href="http://localhost:4000/posts/neue_Art_Dimension_zu_z%C3%A4hlen"/>
      <updated>2020-05-22T14:16:00+02:00</updated>
      <id>http://localhost:4000/posts/neue_Art_Dimension_zu_zählen</id>
-     <content type="html">&lt;hr /&gt;
-&lt;p&gt;author: Luca Leon Happel
-date: ‘2020-05-22 Fr 14:16 21’
-layout: post
-output:
-  md_document:
-    fig_height: 5
-    fig_width: 7
-    preserve_yaml: true
-    variant: ‘markdown-fenced_code_attributes’
-title: neue Art Dimension zu zählen
-—&lt;/p&gt;
-
-&lt;h3 id=&quot;einleitung-in-die-theorie&quot;&gt;Einleitung in die Theorie&lt;/h3&gt;
+     <content type="html">&lt;h3 id=&quot;einleitung-in-die-theorie&quot;&gt;Einleitung in die Theorie&lt;/h3&gt;
 
 &lt;p&gt;Vor einigen Tagen bin ich auf den Artikel &lt;a href=&quot;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/&quot;&gt;Finally We May Have a Path to
 the Fundamental Theory of Physics… and It’s

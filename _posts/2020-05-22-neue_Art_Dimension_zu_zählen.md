@@ -7,19 +7,6 @@ category: posts
 draft: false
 ---
 
----
-author: Luca Leon Happel
-date: '2020-05-22 Fr 14:16 21'
-layout: post
-output:
-  md_document:
-    fig_height: 5
-    fig_width: 7
-    preserve_yaml: true
-    variant: 'markdown-fenced\_code\_attributes'
-title: neue Art Dimension zu zählen
----
-
 ### Einleitung in die Theorie
 
 Vor einigen Tagen bin ich auf den Artikel [Finally We May Have a Path to
