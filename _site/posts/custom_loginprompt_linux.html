@@ -70,7 +70,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <ul>
       <li><a href="/about">about</a></li>
       <li><a href="/projects">projects</a></li>
-      <li><a href="/posts">posts</a></li>
+      <li><a href="/posts.html">posts</a></li>
     </ul>
   </section>
 </section>
@@ -154,7 +154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="o">[</span>Service]
 <span class="nv">Type</span><span class="o">=</span>oneshot
 <span class="nv">RemainAfterExit</span><span class="o">=</span>yes
-<span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/env bash -ec <span class="s1">'neofetch &gt; /etc/issue'</span>
+<span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/env bash <span class="nt">-ec</span> <span class="s1">'neofetch &gt; /etc/issue'</span>
 
 <span class="o">[</span>Install]
 <span class="nv">WantedBy</span><span class="o">=</span>multi-user.target</code></pre></figure>
@@ -166,7 +166,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="nv">Description</span><span class="o">=</span>Display Neofetch before login <span class="k">in </span>a TTY
 
 <span class="o">[</span>Service]
-<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/env bash -ec <span class="s1">'neofetch &gt; /etc/issue'</span>
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/env bash <span class="nt">-ec</span> <span class="s1">'neofetch &gt; /etc/issue'</span>
 
 <span class="o">[</span>Install]
 <span class="nv">WantedBy</span><span class="o">=</span>multi-user.target</code></pre></figure>

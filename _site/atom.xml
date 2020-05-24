@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="https://quoteme.github.io//atom.xml" rel="self"/>
  <link href="https://quoteme.github.io//"/>
- <updated>2020-05-22T15:59:56+02:00</updated>
+ <updated>2020-05-24T17:04:13+02:00</updated>
  <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -12,7 +12,312 @@
  
  
    
+   <entry>
+     <title>neue Art Dimension zu zählen</title>
+     <link href="https://quoteme.github.io//posts/neue_Art_Dimension_zu_z%C3%A4hlen"/>
+     <updated>2020-05-22T14:16:00+02:00</updated>
+     <id>https://quoteme.github.io//posts/neue_Art_Dimension_zu_zählen</id>
+     <content type="html">```{r opts, echo = FALSE}
+knitr::opts_chunk$set(
+  fig.path = &quot;../images/assets/&quot;
+)
+```
+
+
+### Einleitung in die Theorie
+
+Vor einigen Tagen bin ich auf den Artikel
+[Finally We May Have a Path to the Fundamental Theory of Physics… and It’s Beautiful](https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/)
+von [Stephen Wolfram](https://www.stephenwolfram.com/), einem
+amerikanischen Wissenschaftler
+und Erfinder von [WolframAlpha](https://www.wolframalpha.com/) gestoßen.
+
+In seinem Artikel geht es um seine neue Theorie der Physik, welche auf
+gerichteten Graphen und deren Veränderungen unter der Auswirkung von
+Regeln aufbaut. Für genauere Infos ist hier die ganze Version:
+
+[www.wolframphysics.org/technical-introduction/](https://www.wolframphysics.org/technical-introduction/)
+Unter anderem werden durch seine Theorie mathematische Räume
+aus Graphen gebildet. Also Knoten welche untereinander vernetzt sind.
+
+### Auswirkung auf Dimensionalität
+
+Nun bildet sich die Frage, was uns dies über die Dimensionalität von
+Räumen sagen kann.
+
+Vieles zu diesem Thema kann man [in dem Artikel durchlesen](https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out).
+Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
+eines Raumes generallisieren. Diese Generallisierung kann man dann
+sogar auf andere mathematische Objekte ausdehnen, sodass man den
+Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich, auch
+über &quot;2.5&quot;-Dimensionalen Raum zu reden, oder auch &quot;\[\pi\]&quot;-Dimensionale
+Räume zu betrachten.
+
+### Wie funktioniert dieser Dimensionsbegriff?
+
+Betrachte folgende Graphen:
+
+- ![2D Sphäre im Gitter](https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png)
+- ![3D Sphäre im Gitter](https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png)
+
+Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
+so Herr Wolfram folgender Maßen gebildet: &quot;Start at some point in the
+hypergraph. Then follow \[r\] hyperedges in all possible ways.
+You’ve effectively made the analog of a “spherical ball” in the hypergraph.&quot;^[https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out]
+
+Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
+viele Punkte in \[r\] Schritten oder weniger erreichbar sind.
+Sollte diese Ausbreitung der eines Polynoms ähnlich sein, so kann
+man anhand des Grades dessen die Dimension bestimmen. Das genaue bestimmen
+ist jedoch nicht trivial und wird im Kapitel 4.6 vom
+Wolfram Physics Project^[https://www.wolframphysics.org/]
+genauer erklärt^[https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/] ^[https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/]
+
+### Berechnung der Dimension
+
+##### Hinweis
+
+In dem Folgenden wird eine von mir entwickelte Version betrachtet,
+welche an das [Original](https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/)
+nur angelehnt ist.
+
+##### Berechnung
+
+Sei \[ (M,d) \] ein metrischer Raum.
+
+- \[M\] ist Menge
+- \[d: M\times M \rightarrow \mathbb{R}_{\ge 0}\] ist eine Metrik
+
+Sei \[V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|\] die Anzahl aller Punkte
+eines Balles mit Radius \[r\].
+
+Sei \[\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r+1,x}}}{\log{\frac{r+1}{r}}}\].
+
+Nun ist gilt folgendes:
+
+\[
+\text{dim}(M,d) = \begin{cases}
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|&lt;\infty\\
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{(?) wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|\ge\infty\\
+    \begin{gather}
+    v\in\mathbb{R}_{\ge 0} \text{ mit } \\
+    |\{\Delta_{v\pm\epsilon,x}\}| = \max |\{\Delta_{w\pm\epsilon,x}\}|\\
+    \forall \epsilon,w\in\mathbb{R}_{\ge 0}
+    \end{gather} &amp; \text{wenn}\&gt; |M|&lt;\infty
+\end{cases}
+\]
+
+##### Beispiel 1
+
+\[
+\begin{aligned}
+    M      &amp; = \mathbb{Z} \\
+    d(x,y) &amp; = |x+y| \\
+    V_{r,x}&amp; = 2r \\
+    \Delta_{r,x} &amp;= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 1
+\end{aligned}
+\]
+
+Hier stimmt die Dimension offensichtlich mit der herkömmlichen
+Definition überein.
+
+##### Beispiel 2
+
+\[
+\begin{aligned}
+    M      &amp; = \mathbb{Z}^2 \\
+    d(x,y) &amp; = |x_1+y_1 + x_2+y_2| \\
+    V_{r,x}&amp; = 2r^2+2r+1 \quad\forall x\in M\\
+    \Delta_{r,x} &amp;= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 2
+\end{aligned}
+\]
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+V = lambda r: 2*r**2+2*r+1
+Delta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))
+xn = np.arange(0.1, 100,1)
+fig, ax = plt.subplots()
+ax.plot(xn, Delta(xn))
+plt.show()
+```
+
+Auch hier stimmen die Definitionen überein.
+
+##### Beispiel 3
+
+```{python}
+sirp = lambda x: [[],[],[]] if x==[] else [ sirp(v) for v in x]
+repeat = lambda f,x,n: f(x) if n==1 else f(repeat(f,x,n-1))
+```
+</content>
+   </entry>
+   
  
+   
+   <entry>
+     <title>neue Art Dimension zu zählen</title>
+     <link href="https://quoteme.github.io//posts/neue_Art_Dimension_zu_z%C3%A4hlen"/>
+     <updated>2020-05-22T14:16:00+02:00</updated>
+     <id>https://quoteme.github.io//posts/neue_Art_Dimension_zu_zählen</id>
+     <content type="html">&lt;h3 id=&quot;einleitung-in-die-theorie&quot;&gt;Einleitung in die Theorie&lt;/h3&gt;
+
+&lt;p&gt;Vor einigen Tagen bin ich auf den Artikel &lt;a href=&quot;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/&quot;&gt;Finally We May Have a Path to
+the Fundamental Theory of Physics… and It’s
+Beautiful&lt;/a&gt;
+von &lt;a href=&quot;https://www.stephenwolfram.com/&quot;&gt;Stephen Wolfram&lt;/a&gt;, einem
+amerikanischen Wissenschaftler und Erfinder von
+&lt;a href=&quot;https://www.wolframalpha.com/&quot;&gt;WolframAlpha&lt;/a&gt; gestoßen.&lt;/p&gt;
+
+&lt;p&gt;In seinem Artikel geht es um seine neue Theorie der Physik, welche auf
+gerichteten Graphen und deren Veränderungen unter der Auswirkung von
+Regeln aufbaut. Für genauere Infos ist hier die ganze Version:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/&quot;&gt;www.wolframphysics.org/technical-introduction/&lt;/a&gt;
+Unter anderem werden durch seine Theorie mathematische Räume aus Graphen
+gebildet. Also Knoten welche untereinander vernetzt sind.&lt;/p&gt;
+
+&lt;h3 id=&quot;auswirkung-auf-dimensionalität&quot;&gt;Auswirkung auf Dimensionalität&lt;/h3&gt;
+
+&lt;p&gt;Nun bildet sich die Frage, was uns dies über die Dimensionalität von
+Räumen sagen kann.&lt;/p&gt;
+
+&lt;p&gt;Vieles zu diesem Thema kann man &lt;a href=&quot;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out&quot;&gt;in dem Artikel
+durchlesen&lt;/a&gt;.
+Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
+eines Raumes generallisieren. Diese Generallisierung kann man dann sogar
+auf andere mathematische Objekte ausdehnen, sodass man den
+Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich,
+auch über “2.5”-Dimensionalen Raum zu reden, oder auch
+“&lt;script type=&quot;math/tex&quot;&gt;\pi&lt;/script&gt;“-Dimensionale Räume zu betrachten.&lt;/p&gt;
+
+&lt;h3 id=&quot;wie-funktioniert-dieser-dimensionsbegriff&quot;&gt;Wie funktioniert dieser Dimensionsbegriff?&lt;/h3&gt;
+
+&lt;p&gt;Betrachte folgende Graphen:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;img src=&quot;https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png&quot; alt=&quot;2D Sphäre im
+Gitter&quot; title=&quot;fig:&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png&quot; alt=&quot;3D Sphäre im
+Gitter&quot; title=&quot;fig:&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
+so Herr Wolfram folgender Maßen gebildet: “Start at some point in the
+hypergraph. Then follow &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; hyperedges in all possible ways. You’ve
+effectively made the analog of a “spherical ball” in the
+hypergraph.&quot;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
+viele Punkte in &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; Schritten oder weniger erreichbar sind. Sollte
+diese Ausbreitung der eines Polynoms ähnlich sein, so kann man anhand
+des Grades dessen die Dimension bestimmen. Das genaue bestimmen ist
+jedoch nicht trivial und wird im Kapitel 4.6 vom Wolfram Physics
+Project&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; genauer erklärt&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;berechnung-der-dimension&quot;&gt;Berechnung der Dimension&lt;/h3&gt;
+
+&lt;h5 id=&quot;hinweis&quot;&gt;Hinweis&lt;/h5&gt;
+
+&lt;p&gt;In dem Folgenden wird eine von mir entwickelte Version betrachtet,
+welche an das
+&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/&quot;&gt;Original&lt;/a&gt;
+nur angelehnt ist.&lt;/p&gt;
+
+&lt;h5 id=&quot;berechnung&quot;&gt;Berechnung&lt;/h5&gt;
+
+&lt;p&gt;Sei &lt;script type=&quot;math/tex&quot;&gt;(M,d)&lt;/script&gt; ein metrischer Raum.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt; ist Menge&lt;/li&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;d: M\times M \rightarrow \mathbb{R}_{\ge 0}&lt;/script&gt; ist eine Metrik&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sei &lt;script type=&quot;math/tex&quot;&gt;V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|&lt;/script&gt; die Anzahl aller
+Punkte eines Balles mit Radius &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sei
+&lt;script type=&quot;math/tex&quot;&gt;\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r+1,x}}}{\log{\frac{r+1}{r}}}&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Nun ist gilt folgendes:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\text{dim}(M,d) = \begin{cases}
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|&lt;\infty\\
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{(?) wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|\ge\infty\\
+    \begin{gather}
+    v\in\mathbb{R}_{\ge 0} \text{ mit } \\
+    |\{\Delta_{v\pm\epsilon,x}\}| = \max |\{\Delta_{w\pm\epsilon,x}\}|\\
+    \forall \epsilon,w\in\mathbb{R}_{\ge 0}
+    \end{gather} &amp; \text{wenn}\&gt; |M|&lt;\infty
+\end{cases} %]]&gt;&lt;/script&gt;
+
+&lt;h5 id=&quot;beispiel-1&quot;&gt;Beispiel 1&lt;/h5&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+    M      &amp; = \mathbb{Z} \\
+    d(x,y) &amp; = |x+y| \\
+    V_{r,x}&amp; = 2r \\
+    \Delta_{r,x} &amp;= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 1
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Hier stimmt die Dimension offensichtlich mit der herkömmlichen
+Definition überein.&lt;/p&gt;
+
+&lt;h5 id=&quot;beispiel-2&quot;&gt;Beispiel 2&lt;/h5&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+    M      &amp; = \mathbb{Z}^2 \\
+    d(x,y) &amp; = |x_1+y_1 + x_2+y_2| \\
+    V_{r,x}&amp; = 2r^2+2r+1 \quad\forall x\in M\\
+    \Delta_{r,x} &amp;= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 2
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-{=html}&quot;&gt;&amp;lt;pre&amp;gt;
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+V = lambda r: 2*r**2+2*r+1
+Delta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))
+xn = np.arange(0.1, 100,1)
+fig, ax = plt.subplots()
+ax.plot(xn, Delta(xn))
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-1-1.png&quot; alt=&quot;&quot; /&gt;
+&amp;lt;/pre&amp;gt;
+```
+Auch hier stimmen die Definitionen überein.&lt;/p&gt;
+
+&lt;h5 id=&quot;beispiel-3&quot;&gt;Beispiel 3&lt;/h5&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out&quot;&gt;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.wolframphysics.org/&quot;&gt;https://www.wolframphysics.org/&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/&quot;&gt;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/&quot;&gt;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+   </entry>
    
  
    
@@ -81,14 +386,16 @@ ansehen/forken.&lt;/p&gt;
 &lt;p&gt;Pläne sind momentan noch viele da, insbesondere soll die Zoom-Funktion
 für die in-game Kamera möglichst schnell eingefügt werden, damit man
 etwas mehr von der gezeichneten Welt herausfinden kann.
-Andere wichtige Sachen, welche ich noch machen möchte sind:
-- Das Portalsystem, damit man an manchen stellen auf eine andere Seite
-	geschickt wird
-- Das Ladesystem, damit man anhand der URL ein bestimmtes Level mit
-	verschienen Eigenschaften (wie Position/etc) laden kann
-- Die Welt weiter ausbauen (mehr Bilder erstellen und mein momentanes
-	erweitern)
-- ???&lt;/p&gt;
+Andere wichtige Sachen, welche ich noch machen möchte sind:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Das Portalsystem, damit man an manchen stellen auf eine andere Seite
+  geschickt wird&lt;/li&gt;
+  &lt;li&gt;Das Ladesystem, damit man anhand der URL ein bestimmtes Level mit
+  verschienen Eigenschaften (wie Position/etc) laden kann&lt;/li&gt;
+  &lt;li&gt;Die Welt weiter ausbauen (mehr Bilder erstellen und mein momentanes
+  erweitern)&lt;/li&gt;
+  &lt;li&gt;???&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;hr /&gt;
 
@@ -119,11 +426,11 @@ file you are currently editing at your cursor position.&lt;/p&gt;
 more concise. And after installing &lt;code&gt;figlet&lt;/code&gt; I was proven right:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Use `:read figlet &quot;Example&quot;`&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#     and then select the output and comment it out: `:&#39;&amp;lt;,&#39;&amp;gt;norm ^i# `&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#     and then select the output and comment it out: `:'&amp;lt;,'&amp;gt;norm ^i# `&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#  _____                           _&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# | ____|_  ____ _ _ __ ___  _ __ | | ___&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# |  _| \ \/ / _` | &#39;_ ` _ \| &#39;_ \| |/ _ \&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# |  _| \ \/ / _` | '_ ` _ \| '_ \| |/ _ \&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# | |___ &amp;gt;  &amp;lt; (_| | | | | | | |_) | |  __/&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# |_____/_/\_\__,_|_| |_| |_| .__/|_|\___|&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#                           |_|&lt;/span&gt;
@@ -138,7 +445,7 @@ quite some time already, but never really knew how to implement in vim:&lt;/p&gt
 provide the ability to render math formulas as ASCII / ANSI / Unicode.
 And therefor I just set out to create my own program:&lt;/p&gt;
 
-&lt;h3 id=&quot;prettymathhttpgithubcomquotemeprettymath&quot;&gt;&lt;a href=&quot;http://github.com/quoteme/prettymath&quot;&gt;prettymath&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;prettymath&quot;&gt;&lt;a href=&quot;http://github.com/quoteme/prettymath&quot;&gt;prettymath&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;The programming was the easy part. Just write a python script that
 internally parses expressions using &lt;a href=&quot;https://www.sympy.org/en/index.html&quot;&gt;SymPy&lt;/a&gt;
@@ -170,30 +477,28 @@ had no clue anymore on what to do, I was able to install my package using the AU
 
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;yay -S prettymath-git
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;### What does it do?&lt;/p&gt;
+&lt;h3 id=&quot;what-does-it-do&quot;&gt;What does it do?&lt;/h3&gt;
 
 &lt;p&gt;After having installed &lt;code&gt;prettymath-git&lt;/code&gt;, you can do stuff like this:&lt;/p&gt;
 
-&lt;p&gt;before &lt;code&gt;prettymath&lt;/code&gt;
-```python
-import math&lt;/p&gt;
+&lt;p&gt;before &lt;code&gt;prettymath&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import math
 
-&lt;p&gt;def normalDistribution(x):
-	return 1/sqrt(math.pi)*math.e&lt;strong&gt;(-x&lt;/strong&gt;2)
-```&lt;/p&gt;
+def normalDistribution(x):
+	return 1/sqrt(math.pi)*math.e**(-x**2)
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;after &lt;code&gt;prettymath&lt;/code&gt; (&lt;code&gt;:read !prettymath -u &quot;1/sqrt(pi) * e**(-x**2)&quot;; :norm ^i# &lt;/code&gt;)
-```python
-import math&lt;/p&gt;
+&lt;p&gt;after &lt;code&gt;prettymath&lt;/code&gt; (&lt;code&gt;:read !prettymath -u &quot;1/sqrt(pi) * e**(-x**2)&quot;; :norm ^i# &lt;/code&gt;)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import math
 
-&lt;p&gt;def normalDistribution(x):
+def normalDistribution(x):
 	#    2
 	#  -x
 	# e
 	# ────
 	#  √π
-	return 1/sqrt(math.pi)*math.e&lt;strong&gt;(-x&lt;/strong&gt;2)
-```&lt;/p&gt;
+	return 1/sqrt(math.pi)*math.e**(-x**2)
+&lt;/code&gt;&lt;/pre&gt;
 </content>
    </entry>
    
@@ -269,7 +574,7 @@ import math&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Service]
 &lt;span class=&quot;nv&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;oneshot
 &lt;span class=&quot;nv&quot;&gt;RemainAfterExit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;yes
-&lt;span class=&quot;nv&quot;&gt;ExecStop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/env bash -ec &lt;span class=&quot;s1&quot;&gt;&#39;neofetch &amp;gt; /etc/issue&#39;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;ExecStop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/env bash &lt;span class=&quot;nt&quot;&gt;-ec&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'neofetch &amp;gt; /etc/issue'&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Install]
 &lt;span class=&quot;nv&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;multi-user.target&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -281,7 +586,7 @@ import math&lt;/p&gt;
 &lt;span class=&quot;nv&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Display Neofetch before login &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;a TTY
 
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Service]
-&lt;span class=&quot;nv&quot;&gt;ExecStart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/env bash -ec &lt;span class=&quot;s1&quot;&gt;&#39;neofetch &amp;gt; /etc/issue&#39;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;ExecStart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/env bash &lt;span class=&quot;nt&quot;&gt;-ec&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'neofetch &amp;gt; /etc/issue'&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Install]
 &lt;span class=&quot;nv&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;multi-user.target&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -312,11 +617,13 @@ nachprogrammieren könnte. Mein “clon” ist zwar nur sehr eingeschränkt
 in dem, was er tuen kann, aber dennoch hat er genau das erreicht was
 ich erreichen wollte.&lt;/p&gt;
 
-&lt;p&gt;Highlights beinhalten:
-- retro Ästhetik
-- KI der Gegner
-- Variable Anzahlen von Teams
-- die Möglichkeit jeden anderen Glider zu steuern&lt;/p&gt;
+&lt;p&gt;Highlights beinhalten:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;retro Ästhetik&lt;/li&gt;
+  &lt;li&gt;KI der Gegner&lt;/li&gt;
+  &lt;li&gt;Variable Anzahlen von Teams&lt;/li&gt;
+  &lt;li&gt;die Möglichkeit jeden anderen Glider zu steuern&lt;/li&gt;
+&lt;/ul&gt;
 </content>
    </entry>
    
@@ -376,7 +683,7 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
 &lt;p&gt;und erstelle die Datei &lt;code&gt;musicdisplay.sh&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;playerctl metadata --format &lt;span class=&quot;s1&quot;&gt;&#39; - &#39;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;playerctl metadata &lt;span class=&quot;nt&quot;&gt;--format&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' - '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;hr /&gt;
 
@@ -432,7 +739,7 @@ geometrischen Strukturen in &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script
 Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// plane2circle :: Real a =&amp;gt; [(a,a)] -&amp;gt; a -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
-&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;c1&quot;&gt;//TODO&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;table&gt;
@@ -479,7 +786,7 @@ des selben Types hin. Da ich &lt;code&gt;Real a =&amp;gt;...&lt;/code&gt; am Anf
 bedeuted dass: &lt;code&gt;[(a,a)]&lt;/code&gt; ist eine Liste von Tupeln verschiedener reeller
 Zahlen: &lt;script type=&quot;math/tex&quot;&gt;((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}&lt;/script&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;lsung&quot;&gt;Lösung&lt;/h3&gt;
+&lt;h3 id=&quot;lösung&quot;&gt;Lösung&lt;/h3&gt;
 
 &lt;p&gt;Damit ich diese Funktion dazu bringen konnte, zu funktionieren ist mir
 eine Lösung gekommen. Gegeben hatte ich bereits eine Funktion, welche
@@ -488,11 +795,11 @@ eine weitere Funktion geschrieben, welche prüft, ob sich ein Kreis und
 ein Intervall schneiden:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// point2circle :: Num a =&amp;gt; [a] -&amp;gt; Real -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
-&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;point2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;point2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// interval2circle :: Num a =&amp;gt; a -&amp;gt; Real -&amp;gt; [a,a] -&amp;gt; Boolean&lt;/span&gt;
-&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nx&quot;&gt;point2circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Nun ist es ein Leiches, zu prüfen ob ein Hyperwürfel und eine Hypersphäre
@@ -504,13 +811,13 @@ auf jeder Achse schneiden.&lt;/p&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// plane2circle :: Num a =&amp;gt; [(a,a)] -&amp;gt; Real -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
-&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval2circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;und diese Funktion können wir nun testen:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;./intersect.mjs&#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./intersect.mjs'&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;

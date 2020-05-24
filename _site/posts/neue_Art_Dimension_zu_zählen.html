@@ -70,7 +70,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <ul>
       <li><a href="/about">about</a></li>
       <li><a href="/projects">projects</a></li>
-      <li><a href="/posts">posts</a></li>
+      <li><a href="/posts.html">posts</a></li>
     </ul>
   </section>
 </section>
@@ -89,18 +89,159 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     May 22, 2020
   </section>
 
-  <p>Vor einigen Tagen bin ich auf den Artikel <a href="https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/">Finally We May Have a Path to
+  <h3 id="einleitung-in-die-theorie">Einleitung in die Theorie</h3>
+
+<p>Vor einigen Tagen bin ich auf den Artikel <a href="https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/">Finally We May Have a Path to
 the Fundamental Theory of Physics… and It’s
 Beautiful</a>
 von <a href="https://www.stephenwolfram.com/">Stephen Wolfram</a>, einem
-amerikanischen Computerwissenschaftler, Businessman, Mathematik,
-Physiker und Erfinder von <a href="https://www.wolframalpha.com/">Wolframalpha</a>
-unter Anderem gestoßen. In diesem Artikel geht es um seine neue Theorie
-der Physik, welche auf gerichteten Graphen und deren Veränderungen unter
-der Auswirkung von Regeln aufbaut.</p>
+amerikanischen Wissenschaftler und Erfinder von
+<a href="https://www.wolframalpha.com/">WolframAlpha</a> gestoßen.</p>
 
-<p><img src="https://writings.stephenwolfram.com/data/uploads/2020/04/0414img5.png" alt="Beispiel der Veränderung gerichteter Grapher durch
-Regeln" /></p>
+<p>In seinem Artikel geht es um seine neue Theorie der Physik, welche auf
+gerichteten Graphen und deren Veränderungen unter der Auswirkung von
+Regeln aufbaut. Für genauere Infos ist hier die ganze Version:</p>
+
+<p><a href="https://www.wolframphysics.org/technical-introduction/">www.wolframphysics.org/technical-introduction/</a>
+Unter anderem werden durch seine Theorie mathematische Räume aus Graphen
+gebildet. Also Knoten welche untereinander vernetzt sind.</p>
+
+<h3 id="auswirkung-auf-dimensionalität">Auswirkung auf Dimensionalität</h3>
+
+<p>Nun bildet sich die Frage, was uns dies über die Dimensionalität von
+Räumen sagen kann.</p>
+
+<p>Vieles zu diesem Thema kann man <a href="https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out">in dem Artikel
+durchlesen</a>.
+Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
+eines Raumes generallisieren. Diese Generallisierung kann man dann sogar
+auf andere mathematische Objekte ausdehnen, sodass man den
+Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich,
+auch über “2.5”-Dimensionalen Raum zu reden, oder auch
+“<script type="math/tex">\pi</script>“-Dimensionale Räume zu betrachten.</p>
+
+<h3 id="wie-funktioniert-dieser-dimensionsbegriff">Wie funktioniert dieser Dimensionsbegriff?</h3>
+
+<p>Betrachte folgende Graphen:</p>
+
+<ul>
+  <li><img src="https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png" alt="2D Sphäre im
+Gitter" title="fig:" /></li>
+  <li><img src="https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png" alt="3D Sphäre im
+Gitter" title="fig:" /></li>
+</ul>
+
+<p>Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
+so Herr Wolfram folgender Maßen gebildet: “Start at some point in the
+hypergraph. Then follow <script type="math/tex">r</script> hyperedges in all possible ways. You’ve
+effectively made the analog of a “spherical ball” in the
+hypergraph."<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p>Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
+viele Punkte in <script type="math/tex">r</script> Schritten oder weniger erreichbar sind. Sollte
+diese Ausbreitung der eines Polynoms ähnlich sein, so kann man anhand
+des Grades dessen die Dimension bestimmen. Das genaue bestimmen ist
+jedoch nicht trivial und wird im Kapitel 4.6 vom Wolfram Physics
+Project<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> genauer erklärt<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup> <sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup></p>
+
+<h3 id="berechnung-der-dimension">Berechnung der Dimension</h3>
+
+<h5 id="hinweis">Hinweis</h5>
+
+<p>In dem Folgenden wird eine von mir entwickelte Version betrachtet,
+welche an das
+<a href="https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/">Original</a>
+nur angelehnt ist.</p>
+
+<h5 id="berechnung">Berechnung</h5>
+
+<p>Sei <script type="math/tex">(M,d)</script> ein metrischer Raum.</p>
+
+<ul>
+  <li><script type="math/tex">M</script> ist Menge</li>
+  <li><script type="math/tex">d: M\times M \rightarrow \mathbb{R}_{\ge 0}</script> ist eine Metrik</li>
+</ul>
+
+<p>Sei <script type="math/tex">V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|</script> die Anzahl aller
+Punkte eines Balles mit Radius <script type="math/tex">r</script>.</p>
+
+<p>Sei
+<script type="math/tex">\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r+1,x}}}{\log{\frac{r+1}{r}}}</script>.</p>
+
+<p>Nun ist gilt folgendes:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\text{dim}(M,d) = \begin{cases}
+    \lim_{r\rightarrow \infty}\Delta_{r,x} & \text{wenn}\> |M|\ge\infty \wedge |V_{r,x}|<\infty\\
+    \lim_{r\rightarrow \infty}\Delta_{r,x} & \text{(?) wenn}\> |M|\ge\infty \wedge |V_{r,x}|\ge\infty\\
+    \begin{gather}
+    v\in\mathbb{R}_{\ge 0} \text{ mit } \\
+    |\{\Delta_{v\pm\epsilon,x}\}| = \max |\{\Delta_{w\pm\epsilon,x}\}|\\
+    \forall \epsilon,w\in\mathbb{R}_{\ge 0}
+    \end{gather} & \text{wenn}\> |M|<\infty
+\end{cases} %]]></script>
+
+<h5 id="beispiel-1">Beispiel 1</h5>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+    M      & = \mathbb{Z} \\
+    d(x,y) & = |x+y| \\
+    V_{r,x}& = 2r \\
+    \Delta_{r,x} &= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &= 1
+\end{aligned} %]]></script>
+
+<p>Hier stimmt die Dimension offensichtlich mit der herkömmlichen
+Definition überein.</p>
+
+<h5 id="beispiel-2">Beispiel 2</h5>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+    M      & = \mathbb{Z}^2 \\
+    d(x,y) & = |x_1+y_1 + x_2+y_2| \\
+    V_{r,x}& = 2r^2+2r+1 \quad\forall x\in M\\
+    \Delta_{r,x} &= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &= 2
+\end{aligned} %]]></script>
+
+<pre><code class="language-{=html}">&lt;pre&gt;
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+V = lambda r: 2*r**2+2*r+1
+Delta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))
+xn = np.arange(0.1, 100,1)
+fig, ax = plt.subplots()
+ax.plot(xn, Delta(xn))
+plt.show()
+</code></pre>
+
+<p><img src="../images/assets/unnamed-chunk-1-1.png" alt="" />
+&lt;/pre&gt;
+```
+Auch hier stimmen die Definitionen überein.</p>
+
+<h5 id="beispiel-3">Beispiel 3</h5>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out">https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="https://www.wolframphysics.org/">https://www.wolframphysics.org/</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><a href="https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/">https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p><a href="https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/">https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/</a> <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
 
   <!-- TODO: bio here -->

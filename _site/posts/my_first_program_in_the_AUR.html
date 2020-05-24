@@ -70,7 +70,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <ul>
       <li><a href="/about">about</a></li>
       <li><a href="/projects">projects</a></li>
-      <li><a href="/posts">posts</a></li>
+      <li><a href="/posts.html">posts</a></li>
     </ul>
   </section>
 </section>
@@ -123,7 +123,7 @@ quite some time already, but never really knew how to implement in vim:</p>
 provide the ability to render math formulas as ASCII / ANSI / Unicode.
 And therefor I just set out to create my own program:</p>
 
-<h3 id="prettymathhttpgithubcomquotemeprettymath"><a href="http://github.com/quoteme/prettymath">prettymath</a></h3>
+<h3 id="prettymath"><a href="http://github.com/quoteme/prettymath">prettymath</a></h3>
 
 <p>The programming was the easy part. Just write a python script that
 internally parses expressions using <a href="https://www.sympy.org/en/index.html">SymPy</a>
@@ -155,30 +155,28 @@ had no clue anymore on what to do, I was able to install my package using the AU
 
 <pre><code class="language-bash">yay -S prettymath-git
 </code></pre>
-<p>### What does it do?</p>
+<h3 id="what-does-it-do">What does it do?</h3>
 
 <p>After having installed <code>prettymath-git</code>, you can do stuff like this:</p>
 
-<p>before <code>prettymath</code>
-```python
-import math</p>
+<p>before <code>prettymath</code></p>
+<pre><code class="language-python">import math
 
-<p>def normalDistribution(x):
-	return 1/sqrt(math.pi)*math.e<strong>(-x</strong>2)
-```</p>
+def normalDistribution(x):
+	return 1/sqrt(math.pi)*math.e**(-x**2)
+</code></pre>
 
-<p>after <code>prettymath</code> (<code>:read !prettymath -u "1/sqrt(pi) * e**(-x**2)"; :norm ^i# </code>)
-```python
-import math</p>
+<p>after <code>prettymath</code> (<code>:read !prettymath -u "1/sqrt(pi) * e**(-x**2)"; :norm ^i# </code>)</p>
+<pre><code class="language-python">import math
 
-<p>def normalDistribution(x):
+def normalDistribution(x):
 	#    2
 	#  -x
 	# e
 	# ────
 	#  √π
-	return 1/sqrt(math.pi)*math.e<strong>(-x</strong>2)
-```</p>
+	return 1/sqrt(math.pi)*math.e**(-x**2)
+</code></pre>
 
 
   <!-- TODO: bio here -->
