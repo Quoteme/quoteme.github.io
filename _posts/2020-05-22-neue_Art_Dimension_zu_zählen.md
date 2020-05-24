@@ -32,11 +32,18 @@ Räumen sagen kann.
 Vieles zu diesem Thema kann man [in dem Artikel
 durchlesen](https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out).
 Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
-eines Raumes generallisieren. Diese Generallisierung kann man dann sogar
-auf andere mathematische Objekte ausdehnen, sodass man den
-Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich,
-auch über "2.5"-Dimensionalen Raum zu reden, oder auch
-"$$\pi$$"-Dimensionale Räume zu betrachten.
+eines Raumes generallisieren. Diese Generallisierung kann man dann
+sogar auf andere mathematische Objekte ausdehnen, sodass man den
+Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich, auch
+über "2.5"-Dimensionalen Raum zu reden, oder auch "$$\pi$$"-Dimensionale
+Räume zu betrachten. Wichtig ist dabei, dass wir nicht nur auf klassische
+Vektorräume bestehend aus Tupeln (z.B. $$\mathbb{R}^3$$) begrentz sind,
+sondern jede Menge, welche mit einer Metrik versehen ist, als unser
+Raum verwendet werden kann.
+
+Das interessante ist hier also, dass dieser neue Begriff der Dimension
+alleine von einer Menge und einer darauf definierten Metrik abhängt,
+doch ein rein topologischer Raum, scheint dafür nicht auszureichen.
 
 ### Meine ersten Ideen
 
