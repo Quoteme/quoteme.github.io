@@ -36,8 +36,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://quoteme.github.io//css/base.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="https://quoteme.github.io//css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="http://localhost:4000/css/base.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="http://localhost:4000/css/pygments.css" type="text/css" />
   <link media="only screen and (max-device-width: 480px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link media="only screen and (device-width: 768px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
@@ -100,31 +100,31 @@ Dann ist hier die Anleitung für dich!</p>
 <ol>
   <li>
     <p>(trivial) installiere <a href="i3wm.org">i3</a> <!--und [i3bar](https://i3wm.org/docs/i3bar-protocol.html)-->
- (<code>$ pacman -S i3-gaps</code>)</p>
+ (<code class="highlighter-rouge">$ pacman -S i3-gaps</code>)</p>
   </li>
   <li>
     <p>falls du <a href="https://github.com/i3/i3status">i3status</a> installiert hast: deinstalliere es
- (<code>$ pacman -Rns i3status</code>)</p>
+ (<code class="highlighter-rouge">$ pacman -Rns i3status</code>)</p>
   </li>
   <li>
     <p>installiere <a href="https://github.com/davidscholberg/goblocks">goblocks</a>
- (<code># yay goblocks</code>, falls <a href="https://github.com/Jguer/yay">yay</a> bereits installiert ist)</p>
+ (<code class="highlighter-rouge"># yay goblocks</code>, falls <a href="https://github.com/Jguer/yay">yay</a> bereits installiert ist)</p>
   </li>
   <li>
-    <p>Ändere <code>i3status</code> -&gt; <code>goblocks</code> in <code>.config/i3/config</code></p>
+    <p>Ändere <code class="highlighter-rouge">i3status</code> -&gt; <code class="highlighter-rouge">goblocks</code> in <code class="highlighter-rouge">.config/i3/config</code></p>
   </li>
-  <li>Bearbeite <code>.config/goblocks/goblocks.yml</code>
+  <li>Bearbeite <code class="highlighter-rouge">.config/goblocks/goblocks.yml</code>
     <ul>
       <li>schreibe eine config selber</li>
       <li>oder kopiere <a href="https://pastebin.com/VWpMasZx">meine config</a>
-  diese hat <code>playerctl</code> mitinbehalten. Wenn du das nicht möchtest,
+  diese hat <code class="highlighter-rouge">playerctl</code> mitinbehalten. Wenn du das nicht möchtest,
   lösche einfach den dazugehörende ‘command’-Abschnitt. Ansonsten
   siehe den nächsten Abschnitt an</li>
     </ul>
   </li>
   <li>(optional) installiere <a href="https://github.com/altdesktop/playerctl">playerctl</a>
  um die momentan spielende Musik (auf youtube/spotify/…) anzuzeigen.
- <code># pacman -S playerctl</code>
+ <code class="highlighter-rouge"># pacman -S playerctl</code>
  und verwende den folgenden code in deiner config</li>
 </ol>
 
@@ -133,7 +133,7 @@ Dann ist hier die Anleitung für dich!</p>
       label: "msc " # "📻"
       command: sh /home/DEINNUTZERNAME/.config/goblocks/musicdisplay.sh</code></pre></figure>
 
-<p>und erstelle die Datei <code>musicdisplay.sh</code>:</p>
+<p>und erstelle die Datei <code class="highlighter-rouge">musicdisplay.sh</code>:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/usr/bin/env bash</span>
 <span class="nb">echo</span> <span class="k">$(</span>playerctl metadata <span class="nt">--format</span> <span class="s1">' - '</span><span class="k">)</span></code></pre></figure>
@@ -142,7 +142,7 @@ Dann ist hier die Anleitung für dich!</p>
 
 <p><img src="https://i.imgur.com/qlEUHuk.png" alt="meine Statusbar mit Icons statt Text" /></p>
 
-<p>NOTIZ: Um die selben Icons zu haben muss man <a href="https://github.com/stark/siji">Siji</a> installieren <code># yay -S siji-git</code> und in seiner <code>.config/i3/config</code> folgendes als font setzen: <code>font pango: Gohu GohuFont, Siji 11px</code></p>
+<p>NOTIZ: Um die selben Icons zu haben muss man <a href="https://github.com/stark/siji">Siji</a> installieren <code class="highlighter-rouge"># yay -S siji-git</code> und in seiner <code class="highlighter-rouge">.config/i3/config</code> folgendes als font setzen: <code class="highlighter-rouge">font pango: Gohu GohuFont, Siji 11px</code></p>
 
 
 

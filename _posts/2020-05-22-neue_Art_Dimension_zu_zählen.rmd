@@ -9,7 +9,7 @@ output:
                 preserve_yaml: TRUE
                 fig_width: 7
                 fig_height: 5
-draft: true
+draft: false
 ---
 ```{r opts, echo = FALSE}
 knitr::opts_chunk$set(
@@ -136,6 +136,7 @@ Delta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))
 xn = np.arange(0.1, 100,1)
 fig, ax = plt.subplots()
 ax.plot(xn, Delta(xn))
+ax.grid()
 plt.show()
 ```
 

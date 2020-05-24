@@ -1,7 +1,6 @@
 ---
 author: Luca Leon Happel
 date: '2020-05-22 Fr 14:16 21'
-draft: true
 layout: post
 output:
   md_document:
@@ -136,6 +135,7 @@ Delta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))
 xn = np.arange(0.1, 100,1)
 fig, ax = plt.subplots()
 ax.plot(xn, Delta(xn))
+ax.grid()
 plt.show()
 ```
 

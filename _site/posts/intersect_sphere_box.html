@@ -36,8 +36,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://quoteme.github.io//css/base.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="https://quoteme.github.io//css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="http://localhost:4000/css/base.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="http://localhost:4000/css/pygments.css" type="text/css" />
   <link media="only screen and (max-device-width: 480px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link media="only screen and (device-width: 768px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
@@ -111,37 +111,37 @@ Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:</p>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><code>p</code></td>
+      <td style="text-align: center"><code class="highlighter-rouge">p</code></td>
       <td>Hyperwürfel</td>
-      <td><code>[(a,a)]</code></td>
+      <td><code class="highlighter-rouge">[(a,a)]</code></td>
       <td>Zwei Punkte im <script type="math/tex">\mathbb{R}^n</script></td>
     </tr>
     <tr>
-      <td style="text-align: center"><code>r</code></td>
+      <td style="text-align: center"><code class="highlighter-rouge">r</code></td>
       <td>Radius</td>
-      <td><code>a</code></td>
+      <td><code class="highlighter-rouge">a</code></td>
       <td>Radius der Sphäre</td>
     </tr>
     <tr>
-      <td style="text-align: center"><code>c</code></td>
+      <td style="text-align: center"><code class="highlighter-rouge">c</code></td>
       <td>Position der Sphäre</td>
-      <td><code>[a]</code></td>
+      <td><code class="highlighter-rouge">[a]</code></td>
       <td>Position des Zentrums der Sphäre</td>
     </tr>
     <tr>
-      <td style="text-align: center"><code>d</code></td>
+      <td style="text-align: center"><code class="highlighter-rouge">d</code></td>
       <td>Maß</td>
-      <td><code>[a] -&gt; a</code></td>
+      <td><code class="highlighter-rouge">[a] -&gt; a</code></td>
       <td>Ein verwendetes <a href="https://de.wikipedia.org/wiki/Ma%C3%9F_(Mathematik)#Definition">Maß</a> aus der Maßtheorie</td>
     </tr>
   </tbody>
 </table>
 
 <p>hierbei verwende ich <a href="haskell.org">Haskell</a> Schreibkonventionen für die
-Eigenschaften. Also, <code>a</code> bedeuted, ein beliebiger Datentyp oder
-<code>[a,a]</code> deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
-des selben Types hin. Da ich <code>Real a =&gt;...</code> am Anfang geschrieben habe,
-bedeuted dass: <code>[(a,a)]</code> ist eine Liste von Tupeln verschiedener reeller
+Eigenschaften. Also, <code class="highlighter-rouge">a</code> bedeuted, ein beliebiger Datentyp oder
+<code class="highlighter-rouge">[a,a]</code> deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
+des selben Types hin. Da ich <code class="highlighter-rouge">Real a =&gt;...</code> am Anfang geschrieben habe,
+bedeuted dass: <code class="highlighter-rouge">[(a,a)]</code> ist eine Liste von Tupeln verschiedener reeller
 Zahlen: <script type="math/tex">((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}</script></p>
 
 <h3 id="lösung">Lösung</h3>
@@ -201,8 +201,8 @@ auf jeder Achse schneiden.</p>
 <p>Das Problem <em>Schnitte zwischen höherdimensinalen Sphären und Würfeln</em>
 zu lösen war nicht all zu einfach auf den ersten Blick; doch verwendet
 man (wortwörtlich) verschiedene Perspektiven und ist bereit bereits
-bekannte Resultate (wie <code>point2circle</code>) zu verwenden und neue zu
-finden (wie <code>interval2circle</code>), so ist es doch ein Leichtes gewesen
+bekannte Resultate (wie <code class="highlighter-rouge">point2circle</code>) zu verwenden und neue zu
+finden (wie <code class="highlighter-rouge">interval2circle</code>), so ist es doch ein Leichtes gewesen
 eine allgemeine Lösung zu finden.</p>
 
 

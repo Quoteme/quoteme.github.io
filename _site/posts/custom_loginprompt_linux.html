@@ -36,8 +36,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://quoteme.github.io//css/base.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="https://quoteme.github.io//css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="http://localhost:4000/css/base.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="http://localhost:4000/css/pygments.css" type="text/css" />
   <link media="only screen and (max-device-width: 480px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link media="only screen and (device-width: 768px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
@@ -123,16 +123,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <ol>
   <li>
-    <p>install <a href="https://github.com/dylanaraps/neofetch">neofetch</a> or <a href="https://github.com/KittyKatt/screenFetch">screenfetch</a> (<code>sudo pacman -S neofetch</code>) (I will use neofetch here, but it is the same process for screenfetch)</p>
+    <p>install <a href="https://github.com/dylanaraps/neofetch">neofetch</a> or <a href="https://github.com/KittyKatt/screenFetch">screenfetch</a> (<code class="highlighter-rouge">sudo pacman -S neofetch</code>) (I will use neofetch here, but it is the same process for screenfetch)</p>
   </li>
   <li>
     <p>download my <a href="#update_login_prompt">neofetch_login_prompt.service</a> system.d service file</p>
   </li>
   <li>
-    <p>place this file in <code>/etc/systemd/system/</code></p>
+    <p>place this file in <code class="highlighter-rouge">/etc/systemd/system/</code></p>
   </li>
   <li>
-    <p>enable the script to run at boot: <code>sudo systemctl enable neofetch_login_prompt --now</code></p>
+    <p>enable the script to run at boot: <code class="highlighter-rouge">sudo systemctl enable neofetch_login_prompt --now</code></p>
   </li>
   <li>
     <p>reboot! it should work now</p>

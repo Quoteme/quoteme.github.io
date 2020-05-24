@@ -36,8 +36,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://quoteme.github.io//css/base.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="https://quoteme.github.io//css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="http://localhost:4000/css/base.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="http://localhost:4000/css/pygments.css" type="text/css" />
   <link media="only screen and (max-device-width: 480px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link media="only screen and (device-width: 768px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
@@ -213,6 +213,7 @@ Delta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))
 xn = np.arange(0.1, 100,1)
 fig, ax = plt.subplots()
 ax.plot(xn, Delta(xn))
+ax.grid()
 plt.show()
 </code></pre>
 

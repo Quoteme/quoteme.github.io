@@ -2,25 +2,332 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Luca Leon Happel</title>
- <link href="https://quoteme.github.io//atom.xml" rel="self"/>
- <link href="https://quoteme.github.io//"/>
- <updated>2020-05-24T17:31:21+02:00</updated>
- <id>https://quoteme.github.io/</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2020-05-24T17:53:58+02:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
  </author>
  
  
    
+   <entry>
+     <title>neue Art Dimension zu zählen</title>
+     <link href="http://localhost:4000/posts/neue_Art_Dimension_zu_z%C3%A4hlen"/>
+     <updated>2020-05-22T14:16:00+02:00</updated>
+     <id>http://localhost:4000/posts/neue_Art_Dimension_zu_zählen</id>
+     <content type="html">```{r opts, echo = FALSE}
+knitr::opts_chunk$set(
+  fig.path = &quot;../images/assets/&quot;
+)
+```
+
+
+### Einleitung in die Theorie
+
+Vor einigen Tagen bin ich auf den Artikel
+[Finally We May Have a Path to the Fundamental Theory of Physics… and It’s Beautiful](https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/)
+von [Stephen Wolfram](https://www.stephenwolfram.com/), einem
+amerikanischen Wissenschaftler
+und Erfinder von [WolframAlpha](https://www.wolframalpha.com/) gestoßen.
+
+In seinem Artikel geht es um seine neue Theorie der Physik, welche auf
+gerichteten Graphen und deren Veränderungen unter der Auswirkung von
+Regeln aufbaut. Für genauere Infos ist hier die ganze Version:
+
+[www.wolframphysics.org/technical-introduction/](https://www.wolframphysics.org/technical-introduction/)
+Unter anderem werden durch seine Theorie mathematische Räume
+aus Graphen gebildet. Also Knoten welche untereinander vernetzt sind.
+
+### Auswirkung auf Dimensionalität
+
+Nun bildet sich die Frage, was uns dies über die Dimensionalität von
+Räumen sagen kann.
+
+Vieles zu diesem Thema kann man [in dem Artikel durchlesen](https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out).
+Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
+eines Raumes generallisieren. Diese Generallisierung kann man dann
+sogar auf andere mathematische Objekte ausdehnen, sodass man den
+Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich, auch
+über &quot;2.5&quot;-Dimensionalen Raum zu reden, oder auch &quot;\[\pi\]&quot;-Dimensionale
+Räume zu betrachten.
+
+### Wie funktioniert dieser Dimensionsbegriff?
+
+Betrachte folgende Graphen:
+
+- ![2D Sphäre im Gitter](https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png)
+- ![3D Sphäre im Gitter](https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png)
+
+Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
+so Herr Wolfram folgender Maßen gebildet: &quot;Start at some point in the
+hypergraph. Then follow \[r\] hyperedges in all possible ways.
+You’ve effectively made the analog of a “spherical ball” in the hypergraph.&quot;^[https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out]
+
+Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
+viele Punkte in \[r\] Schritten oder weniger erreichbar sind.
+Sollte diese Ausbreitung der eines Polynoms ähnlich sein, so kann
+man anhand des Grades dessen die Dimension bestimmen. Das genaue bestimmen
+ist jedoch nicht trivial und wird im Kapitel 4.6 vom
+Wolfram Physics Project^[https://www.wolframphysics.org/]
+genauer erklärt^[https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/] ^[https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/]
+
+### Berechnung der Dimension
+
+##### Hinweis
+
+In dem Folgenden wird eine von mir entwickelte Version betrachtet,
+welche an das [Original](https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/)
+nur angelehnt ist.
+
+##### Berechnung
+
+Sei \[ (M,d) \] ein metrischer Raum.
+
+- \[M\] ist Menge
+- \[d: M\times M \rightarrow \mathbb{R}_{\ge 0}\] ist eine Metrik
+
+Sei \[V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|\] die Anzahl aller Punkte
+eines Balles mit Radius \[r\].
+
+Sei \[\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r+1,x}}}{\log{\frac{r+1}{r}}}\].
+
+Nun ist gilt folgendes:
+
+\[
+\text{dim}(M,d) = \begin{cases}
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|&lt;\infty\\
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{(?) wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|\ge\infty\\
+    \begin{gather}
+    v\in\mathbb{R}_{\ge 0} \text{ mit } \\
+    |\{\Delta_{v\pm\epsilon,x}\}| = \max |\{\Delta_{w\pm\epsilon,x}\}|\\
+    \forall \epsilon,w\in\mathbb{R}_{\ge 0}
+    \end{gather} &amp; \text{wenn}\&gt; |M|&lt;\infty
+\end{cases}
+\]
+
+##### Beispiel 1
+
+\[
+\begin{aligned}
+    M      &amp; = \mathbb{Z} \\
+    d(x,y) &amp; = |x+y| \\
+    V_{r,x}&amp; = 2r \\
+    \Delta_{r,x} &amp;= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 1
+\end{aligned}
+\]
+
+Hier stimmt die Dimension offensichtlich mit der herkömmlichen
+Definition überein.
+
+##### Beispiel 2
+
+\[
+\begin{aligned}
+    M      &amp; = \mathbb{Z}^2 \\
+    d(x,y) &amp; = |x_1+y_1 + x_2+y_2| \\
+    V_{r,x}&amp; = 2r^2+2r+1 \quad\forall x\in M\\
+    \Delta_{r,x} &amp;= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 2
+\end{aligned}
+\]
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+V = lambda r: 2*r**2+2*r+1
+Delta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))
+xn = np.arange(0.1, 100,1)
+fig, ax = plt.subplots()
+ax.plot(xn, Delta(xn))
+ax.grid()
+plt.show()
+```
+
+Auch hier stimmen die Definitionen überein.
+
+##### Beispiel 3
+
+```{python}
+sirp = lambda x: [[],[],[]] if x==[] else [ sirp(v) for v in x]
+repeat = lambda f,x,n: f(x) if n==1 else f(repeat(f,x,n-1))
+```
+</content>
+   </entry>
+   
  
+   
+   <entry>
+     <title>neue Art Dimension zu zählen</title>
+     <link href="http://localhost:4000/posts/neue_Art_Dimension_zu_z%C3%A4hlen"/>
+     <updated>2020-05-22T14:16:00+02:00</updated>
+     <id>http://localhost:4000/posts/neue_Art_Dimension_zu_zählen</id>
+     <content type="html">&lt;h3 id=&quot;einleitung-in-die-theorie&quot;&gt;Einleitung in die Theorie&lt;/h3&gt;
+
+&lt;p&gt;Vor einigen Tagen bin ich auf den Artikel &lt;a href=&quot;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/&quot;&gt;Finally We May Have a Path to
+the Fundamental Theory of Physics… and It’s
+Beautiful&lt;/a&gt;
+von &lt;a href=&quot;https://www.stephenwolfram.com/&quot;&gt;Stephen Wolfram&lt;/a&gt;, einem
+amerikanischen Wissenschaftler und Erfinder von
+&lt;a href=&quot;https://www.wolframalpha.com/&quot;&gt;WolframAlpha&lt;/a&gt; gestoßen.&lt;/p&gt;
+
+&lt;p&gt;In seinem Artikel geht es um seine neue Theorie der Physik, welche auf
+gerichteten Graphen und deren Veränderungen unter der Auswirkung von
+Regeln aufbaut. Für genauere Infos ist hier die ganze Version:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/&quot;&gt;www.wolframphysics.org/technical-introduction/&lt;/a&gt;
+Unter anderem werden durch seine Theorie mathematische Räume aus Graphen
+gebildet. Also Knoten welche untereinander vernetzt sind.&lt;/p&gt;
+
+&lt;h3 id=&quot;auswirkung-auf-dimensionalität&quot;&gt;Auswirkung auf Dimensionalität&lt;/h3&gt;
+
+&lt;p&gt;Nun bildet sich die Frage, was uns dies über die Dimensionalität von
+Räumen sagen kann.&lt;/p&gt;
+
+&lt;p&gt;Vieles zu diesem Thema kann man &lt;a href=&quot;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out&quot;&gt;in dem Artikel
+durchlesen&lt;/a&gt;.
+Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
+eines Raumes generallisieren. Diese Generallisierung kann man dann sogar
+auf andere mathematische Objekte ausdehnen, sodass man den
+Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich,
+auch über “2.5”-Dimensionalen Raum zu reden, oder auch
+“&lt;script type=&quot;math/tex&quot;&gt;\pi&lt;/script&gt;“-Dimensionale Räume zu betrachten.&lt;/p&gt;
+
+&lt;h3 id=&quot;wie-funktioniert-dieser-dimensionsbegriff&quot;&gt;Wie funktioniert dieser Dimensionsbegriff?&lt;/h3&gt;
+
+&lt;p&gt;Betrachte folgende Graphen:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;img src=&quot;https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png&quot; alt=&quot;2D Sphäre im
+Gitter&quot; title=&quot;fig:&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png&quot; alt=&quot;3D Sphäre im
+Gitter&quot; title=&quot;fig:&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
+so Herr Wolfram folgender Maßen gebildet: “Start at some point in the
+hypergraph. Then follow &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; hyperedges in all possible ways. You’ve
+effectively made the analog of a “spherical ball” in the
+hypergraph.&quot;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
+viele Punkte in &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; Schritten oder weniger erreichbar sind. Sollte
+diese Ausbreitung der eines Polynoms ähnlich sein, so kann man anhand
+des Grades dessen die Dimension bestimmen. Das genaue bestimmen ist
+jedoch nicht trivial und wird im Kapitel 4.6 vom Wolfram Physics
+Project&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; genauer erklärt&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;berechnung-der-dimension&quot;&gt;Berechnung der Dimension&lt;/h3&gt;
+
+&lt;h5 id=&quot;hinweis&quot;&gt;Hinweis&lt;/h5&gt;
+
+&lt;p&gt;In dem Folgenden wird eine von mir entwickelte Version betrachtet,
+welche an das
+&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/&quot;&gt;Original&lt;/a&gt;
+nur angelehnt ist.&lt;/p&gt;
+
+&lt;h5 id=&quot;berechnung&quot;&gt;Berechnung&lt;/h5&gt;
+
+&lt;p&gt;Sei &lt;script type=&quot;math/tex&quot;&gt;(M,d)&lt;/script&gt; ein metrischer Raum.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt; ist Menge&lt;/li&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;d: M\times M \rightarrow \mathbb{R}_{\ge 0}&lt;/script&gt; ist eine Metrik&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sei &lt;script type=&quot;math/tex&quot;&gt;V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|&lt;/script&gt; die Anzahl aller
+Punkte eines Balles mit Radius &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sei
+&lt;script type=&quot;math/tex&quot;&gt;\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r+1,x}}}{\log{\frac{r+1}{r}}}&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Nun ist gilt folgendes:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\text{dim}(M,d) = \begin{cases}
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|&lt;\infty\\
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{(?) wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|\ge\infty\\
+    \begin{gather}
+    v\in\mathbb{R}_{\ge 0} \text{ mit } \\
+    |\{\Delta_{v\pm\epsilon,x}\}| = \max |\{\Delta_{w\pm\epsilon,x}\}|\\
+    \forall \epsilon,w\in\mathbb{R}_{\ge 0}
+    \end{gather} &amp; \text{wenn}\&gt; |M|&lt;\infty
+\end{cases} %]]&gt;&lt;/script&gt;
+
+&lt;h5 id=&quot;beispiel-1&quot;&gt;Beispiel 1&lt;/h5&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+    M      &amp; = \mathbb{Z} \\
+    d(x,y) &amp; = |x+y| \\
+    V_{r,x}&amp; = 2r \\
+    \Delta_{r,x} &amp;= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 1
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Hier stimmt die Dimension offensichtlich mit der herkömmlichen
+Definition überein.&lt;/p&gt;
+
+&lt;h5 id=&quot;beispiel-2&quot;&gt;Beispiel 2&lt;/h5&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+    M      &amp; = \mathbb{Z}^2 \\
+    d(x,y) &amp; = |x_1+y_1 + x_2+y_2| \\
+    V_{r,x}&amp; = 2r^2+2r+1 \quad\forall x\in M\\
+    \Delta_{r,x} &amp;= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 2
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-{.python}&quot;&gt;import numpy as np
+import matplotlib.pyplot as plt
+V = lambda r: 2*r**2+2*r+1
+Delta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))
+xn = np.arange(0.1, 100,1)
+fig, ax = plt.subplots()
+ax.plot(xn, Delta(xn))
+ax.grid()
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-1-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Auch hier stimmen die Definitionen überein.&lt;/p&gt;
+
+&lt;h5 id=&quot;beispiel-3&quot;&gt;Beispiel 3&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-{.python}&quot;&gt;sirp = lambda x: [[],[],[]] if x==[] else [ sirp(v) for v in x]
+repeat = lambda f,x,n: f(x) if n==1 else f(repeat(f,x,n-1))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out&quot;&gt;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.wolframphysics.org/&quot;&gt;https://www.wolframphysics.org/&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/&quot;&gt;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/&quot;&gt;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+   </entry>
    
  
    
    <entry>
      <title>BildBesucher hat jetzt JSDoc-support</title>
-     <link href="https://quoteme.github.io//posts/BildBesucher_hat_jetzt_JSDoc-support"/>
+     <link href="http://localhost:4000/posts/BildBesucher_hat_jetzt_JSDoc-support"/>
      <updated>2020-04-18T00:00:00+02:00</updated>
-     <id>https://quoteme.github.io//posts/BildBesucher_hat_jetzt_JSDoc-support</id>
+     <id>http://localhost:4000/posts/BildBesucher_hat_jetzt_JSDoc-support</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/IX4jhgT&quot;&gt;&lt;a href=&quot;//imgur.com/a/IX4jhgT&quot;&gt;Overview of my first jsdoc documentation (quoteme.github.io/bildbesucher/docs)&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -54,9 +361,9 @@ halten sollte.&lt;/p&gt;
    
    <entry>
      <title>BildBesucher</title>
-     <link href="https://quoteme.github.io//posts/BildBesucher"/>
+     <link href="http://localhost:4000/posts/BildBesucher"/>
      <updated>2020-04-07T00:00:00+02:00</updated>
-     <id>https://quoteme.github.io//posts/BildBesucher</id>
+     <id>http://localhost:4000/posts/BildBesucher</id>
      <content type="html">&lt;p&gt;&lt;a href=&quot;https://quoteme.github.io/bildbesucher/&quot;&gt;Hier klicken um BildBesucher online auszuprobieren&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -103,22 +410,22 @@ zuende führe als sonst 😪&lt;/p&gt;
    
    <entry>
      <title>My first program in the AUR</title>
-     <link href="https://quoteme.github.io//posts/my_first_program_in_the_AUR"/>
+     <link href="http://localhost:4000/posts/my_first_program_in_the_AUR"/>
      <updated>2020-03-28T00:00:00+01:00</updated>
-     <id>https://quoteme.github.io//posts/my_first_program_in_the_AUR</id>
+     <id>http://localhost:4000/posts/my_first_program_in_the_AUR</id>
      <content type="html">&lt;p&gt;Recently I discovered some more of the incredibly useful features of
 my favorite text-editor &lt;a href=&quot;https://github.com/neovim/neovim&quot;&gt;Neovim&lt;/a&gt;:&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;Entering &lt;code&gt;:read !somefunction&lt;/code&gt; in Neovim causes the editor to execute
-the command &lt;code&gt;somefunction&lt;/code&gt; and then insert the echoed response into the
+&lt;p&gt;Entering &lt;code class=&quot;highlighter-rouge&quot;&gt;:read !somefunction&lt;/code&gt; in Neovim causes the editor to execute
+the command &lt;code class=&quot;highlighter-rouge&quot;&gt;somefunction&lt;/code&gt; and then insert the echoed response into the
 file you are currently editing at your cursor position.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;This got me thinking… Maybe I could use this to make my programming
-more concise. And after installing &lt;code&gt;figlet&lt;/code&gt; I was proven right:&lt;/p&gt;
+more concise. And after installing &lt;code class=&quot;highlighter-rouge&quot;&gt;figlet&lt;/code&gt; I was proven right:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Use `:read figlet &quot;Example&quot;`&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#     and then select the output and comment it out: `:'&amp;lt;,'&amp;gt;norm ^i# `&lt;/span&gt;
@@ -151,49 +458,49 @@ than ~50 lines of code was a real pain.&lt;/p&gt;
   &lt;li&gt;Publish to GitHub&lt;/li&gt;
   &lt;li&gt;Create an account on &lt;a href=&quot;https://aur.archlinux.org/&quot;&gt;https://aur.archlinux.org &lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Use my &lt;a href=&quot;#ssh_config&quot;&gt;.ssh/config&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Generate an ssh key: &lt;code&gt;$ ssh-keygen -f ~/.ssh/aur&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Clone your future repository: &lt;code&gt;git clone ssh://aur@aur.archlinux.org/your_package_name.git&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Put your &lt;code&gt;PKGBUILD&lt;/code&gt; in there&lt;/li&gt;
+  &lt;li&gt;Generate an ssh key: &lt;code class=&quot;highlighter-rouge&quot;&gt;$ ssh-keygen -f ~/.ssh/aur&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Clone your future repository: &lt;code class=&quot;highlighter-rouge&quot;&gt;git clone ssh://aur@aur.archlinux.org/your_package_name.git&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Put your &lt;code class=&quot;highlighter-rouge&quot;&gt;PKGBUILD&lt;/code&gt; in there&lt;/li&gt;
   &lt;li&gt;Add, Commit, Push&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h6 id=&quot;ssh_config&quot;&gt;SSH Configuration&lt;/h6&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ cat .ssh/config
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; .ssh/config
 Host aur.archlinux.org
 User aur
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/aur
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;And after all this struggle, which even drove me to reddit because I
 had no clue anymore on what to do, I was able to install my package using the AUR:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;yay -S prettymath-git
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yay &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt; prettymath-git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h3 id=&quot;what-does-it-do&quot;&gt;What does it do?&lt;/h3&gt;
 
-&lt;p&gt;After having installed &lt;code&gt;prettymath-git&lt;/code&gt;, you can do stuff like this:&lt;/p&gt;
+&lt;p&gt;After having installed &lt;code class=&quot;highlighter-rouge&quot;&gt;prettymath-git&lt;/code&gt;, you can do stuff like this:&lt;/p&gt;
 
-&lt;p&gt;before &lt;code&gt;prettymath&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import math
+&lt;p&gt;before &lt;code class=&quot;highlighter-rouge&quot;&gt;prettymath&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;math&lt;/span&gt;
 
-def normalDistribution(x):
-	return 1/sqrt(math.pi)*math.e**(-x**2)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;normalDistribution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;after &lt;code&gt;prettymath&lt;/code&gt; (&lt;code&gt;:read !prettymath -u &quot;1/sqrt(pi) * e**(-x**2)&quot;; :norm ^i# &lt;/code&gt;)&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import math
+&lt;p&gt;after &lt;code class=&quot;highlighter-rouge&quot;&gt;prettymath&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;:read !prettymath -u &quot;1/sqrt(pi) * e**(-x**2)&quot;; :norm ^i# &lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;math&lt;/span&gt;
 
-def normalDistribution(x):
-	#    2
-	#  -x
-	# e
-	# ────
-	#  √π
-	return 1/sqrt(math.pi)*math.e**(-x**2)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;normalDistribution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;#    2&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;#  -x&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;# e&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;# ────&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;#  √π&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </content>
    </entry>
    
@@ -201,9 +508,9 @@ def normalDistribution(x):
    
    <entry>
      <title>Custom login-prompt in linux</title>
-     <link href="https://quoteme.github.io//posts/custom_loginprompt_linux"/>
+     <link href="http://localhost:4000/posts/custom_loginprompt_linux"/>
      <updated>2020-03-02T00:00:00+01:00</updated>
-     <id>https://quoteme.github.io//posts/custom_loginprompt_linux</id>
+     <id>http://localhost:4000/posts/custom_loginprompt_linux</id>
      <content type="html">&lt;p&gt;I was asked on &lt;a href=&quot;https://www.reddit.com/r/archlinux/comments/fc4vqs/removing_lightdm/&quot;&gt;reddit&lt;/a&gt; how to change this:&lt;/p&gt;
 
 &lt;table&gt;
@@ -238,16 +545,16 @@ def normalDistribution(x):
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;install &lt;a href=&quot;https://github.com/dylanaraps/neofetch&quot;&gt;neofetch&lt;/a&gt; or &lt;a href=&quot;https://github.com/KittyKatt/screenFetch&quot;&gt;screenfetch&lt;/a&gt; (&lt;code&gt;sudo pacman -S neofetch&lt;/code&gt;) (I will use neofetch here, but it is the same process for screenfetch)&lt;/p&gt;
+    &lt;p&gt;install &lt;a href=&quot;https://github.com/dylanaraps/neofetch&quot;&gt;neofetch&lt;/a&gt; or &lt;a href=&quot;https://github.com/KittyKatt/screenFetch&quot;&gt;screenfetch&lt;/a&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo pacman -S neofetch&lt;/code&gt;) (I will use neofetch here, but it is the same process for screenfetch)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;download my &lt;a href=&quot;#update_login_prompt&quot;&gt;neofetch_login_prompt.service&lt;/a&gt; system.d service file&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;place this file in &lt;code&gt;/etc/systemd/system/&lt;/code&gt;&lt;/p&gt;
+    &lt;p&gt;place this file in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/systemd/system/&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;enable the script to run at boot: &lt;code&gt;sudo systemctl enable neofetch_login_prompt --now&lt;/code&gt;&lt;/p&gt;
+    &lt;p&gt;enable the script to run at boot: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo systemctl enable neofetch_login_prompt --now&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;reboot! it should work now&lt;/p&gt;
@@ -293,9 +600,9 @@ def normalDistribution(x):
    
    <entry>
      <title>glider</title>
-     <link href="https://quoteme.github.io//posts/glider"/>
+     <link href="http://localhost:4000/posts/glider"/>
      <updated>2020-02-27T00:00:00+01:00</updated>
-     <id>https://quoteme.github.io//posts/glider</id>
+     <id>http://localhost:4000/posts/glider</id>
      <content type="html">&lt;p&gt;Heute bin ich beim Durchsuchen meines alten Laptops auf ein Projekt
 von vor fast genau einem Jahr und einem Monat gestoßen:&lt;/p&gt;
 
@@ -303,7 +610,7 @@ von vor fast genau einem Jahr und einem Monat gestoßen:&lt;/p&gt;
 
 &lt;p&gt;Das Projekt hieß &lt;a href=&quot;https://github.com/Quoteme/glider&quot;&gt;Glider&lt;/a&gt; und kann
 in einem Browser ohne etwas installieren zu müssen auf
-&lt;a href=&quot;https://quoteme.github.io//glider/&quot;&gt;https://quoteme.github.io//glider/&lt;/a&gt;
+&lt;a href=&quot;http://localhost:4000/glider/&quot;&gt;http://localhost:4000/glider/&lt;/a&gt;
 getestet/gespielt werden.&lt;/p&gt;
 
 &lt;p&gt;Im Grunde ging es nur darum ein proof-of-concept dafür zu haben, dass ich
@@ -328,9 +635,9 @@ ich erreichen wollte.&lt;/p&gt;
    
    <entry>
      <title>i3bar</title>
-     <link href="https://quoteme.github.io//posts/i3bar"/>
+     <link href="http://localhost:4000/posts/i3bar"/>
      <updated>2020-02-19T00:00:00+01:00</updated>
-     <id>https://quoteme.github.io//posts/i3bar</id>
+     <id>http://localhost:4000/posts/i3bar</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/swgn01F&quot;&gt;&lt;a href=&quot;//imgur.com/a/swgn01F&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -342,31 +649,31 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;(trivial) installiere &lt;a href=&quot;i3wm.org&quot;&gt;i3&lt;/a&gt; &lt;!--und [i3bar](https://i3wm.org/docs/i3bar-protocol.html)--&gt;
- (&lt;code&gt;$ pacman -S i3-gaps&lt;/code&gt;)&lt;/p&gt;
+ (&lt;code class=&quot;highlighter-rouge&quot;&gt;$ pacman -S i3-gaps&lt;/code&gt;)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;falls du &lt;a href=&quot;https://github.com/i3/i3status&quot;&gt;i3status&lt;/a&gt; installiert hast: deinstalliere es
- (&lt;code&gt;$ pacman -Rns i3status&lt;/code&gt;)&lt;/p&gt;
+ (&lt;code class=&quot;highlighter-rouge&quot;&gt;$ pacman -Rns i3status&lt;/code&gt;)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;installiere &lt;a href=&quot;https://github.com/davidscholberg/goblocks&quot;&gt;goblocks&lt;/a&gt;
- (&lt;code&gt;# yay goblocks&lt;/code&gt;, falls &lt;a href=&quot;https://github.com/Jguer/yay&quot;&gt;yay&lt;/a&gt; bereits installiert ist)&lt;/p&gt;
+ (&lt;code class=&quot;highlighter-rouge&quot;&gt;# yay goblocks&lt;/code&gt;, falls &lt;a href=&quot;https://github.com/Jguer/yay&quot;&gt;yay&lt;/a&gt; bereits installiert ist)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Ändere &lt;code&gt;i3status&lt;/code&gt; -&amp;gt; &lt;code&gt;goblocks&lt;/code&gt; in &lt;code&gt;.config/i3/config&lt;/code&gt;&lt;/p&gt;
+    &lt;p&gt;Ändere &lt;code class=&quot;highlighter-rouge&quot;&gt;i3status&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;goblocks&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;.config/i3/config&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;Bearbeite &lt;code&gt;.config/goblocks/goblocks.yml&lt;/code&gt;
+  &lt;li&gt;Bearbeite &lt;code class=&quot;highlighter-rouge&quot;&gt;.config/goblocks/goblocks.yml&lt;/code&gt;
     &lt;ul&gt;
       &lt;li&gt;schreibe eine config selber&lt;/li&gt;
       &lt;li&gt;oder kopiere &lt;a href=&quot;https://pastebin.com/VWpMasZx&quot;&gt;meine config&lt;/a&gt;
-  diese hat &lt;code&gt;playerctl&lt;/code&gt; mitinbehalten. Wenn du das nicht möchtest,
+  diese hat &lt;code class=&quot;highlighter-rouge&quot;&gt;playerctl&lt;/code&gt; mitinbehalten. Wenn du das nicht möchtest,
   lösche einfach den dazugehörende ‘command’-Abschnitt. Ansonsten
   siehe den nächsten Abschnitt an&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;(optional) installiere &lt;a href=&quot;https://github.com/altdesktop/playerctl&quot;&gt;playerctl&lt;/a&gt;
  um die momentan spielende Musik (auf youtube/spotify/…) anzuzeigen.
- &lt;code&gt;# pacman -S playerctl&lt;/code&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;# pacman -S playerctl&lt;/code&gt;
  und verwende den folgenden code in deiner config&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -375,7 +682,7 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
       label: &quot;msc &quot; # &quot;📻&quot;
       command: sh /home/DEINNUTZERNAME/.config/goblocks/musicdisplay.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;und erstelle die Datei &lt;code&gt;musicdisplay.sh&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;und erstelle die Datei &lt;code class=&quot;highlighter-rouge&quot;&gt;musicdisplay.sh&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;playerctl metadata &lt;span class=&quot;nt&quot;&gt;--format&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' - '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -384,7 +691,7 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/qlEUHuk.png&quot; alt=&quot;meine Statusbar mit Icons statt Text&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;NOTIZ: Um die selben Icons zu haben muss man &lt;a href=&quot;https://github.com/stark/siji&quot;&gt;Siji&lt;/a&gt; installieren &lt;code&gt;# yay -S siji-git&lt;/code&gt; und in seiner &lt;code&gt;.config/i3/config&lt;/code&gt; folgendes als font setzen: &lt;code&gt;font pango: Gohu GohuFont, Siji 11px&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;NOTIZ: Um die selben Icons zu haben muss man &lt;a href=&quot;https://github.com/stark/siji&quot;&gt;Siji&lt;/a&gt; installieren &lt;code class=&quot;highlighter-rouge&quot;&gt;# yay -S siji-git&lt;/code&gt; und in seiner &lt;code class=&quot;highlighter-rouge&quot;&gt;.config/i3/config&lt;/code&gt; folgendes als font setzen: &lt;code class=&quot;highlighter-rouge&quot;&gt;font pango: Gohu GohuFont, Siji 11px&lt;/code&gt;&lt;/p&gt;
 
 </content>
    </entry>
@@ -393,9 +700,9 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
    
    <entry>
      <title>Jupyter Notebook auf Android</title>
-     <link href="https://quoteme.github.io//posts/jupyter_pydroid"/>
+     <link href="http://localhost:4000/posts/jupyter_pydroid"/>
      <updated>2020-02-18T00:00:00+01:00</updated>
-     <id>https://quoteme.github.io//posts/jupyter_pydroid</id>
+     <id>http://localhost:4000/posts/jupyter_pydroid</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;XKFMPSw&quot;&gt;&lt;a href=&quot;//imgur.com/XKFMPSw&quot;&gt;Jupyter Notebook on Android&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -410,7 +717,7 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;Wähle &lt;em&gt;Terminal&lt;/em&gt; im Menü aus
     &lt;ol&gt;
-      &lt;li&gt;Gib &lt;code&gt;jupyter notebook --ip=127.0.0.1 --port=4040&lt;/code&gt; ein&lt;/li&gt;
+      &lt;li&gt;Gib &lt;code class=&quot;highlighter-rouge&quot;&gt;jupyter notebook --ip=127.0.0.1 --port=4040&lt;/code&gt; ein&lt;/li&gt;
       &lt;li&gt;Ein neues Browserfenster mit Jupyter Notebook öffnet sich&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
@@ -423,9 +730,9 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
    
    <entry>
      <title>intersect.mjs und der Sphären/Boxen-Schnitt</title>
-     <link href="https://quoteme.github.io//posts/intersect_sphere_box"/>
+     <link href="http://localhost:4000/posts/intersect_sphere_box"/>
      <updated>2020-02-14T00:00:00+01:00</updated>
-     <id>https://quoteme.github.io//posts/intersect_sphere_box</id>
+     <id>http://localhost:4000/posts/intersect_sphere_box</id>
      <content type="html">&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
 
 &lt;p&gt;Momentan arbeite ich an meiner &lt;a href=&quot;https://github.com/Quoteme/intersect&quot;&gt;intersect.mjs&lt;/a&gt;
@@ -448,37 +755,37 @@ Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:&lt;/p&g
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;p&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Hyperwürfel&lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;[(a,a)]&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[(a,a)]&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Zwei Punkte im &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^n&lt;/script&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;r&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Radius&lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;a&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Radius der Sphäre&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;c&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Position der Sphäre&lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;[a]&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[a]&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Position des Zentrums der Sphäre&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;d&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;d&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Maß&lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;[a] -&amp;gt; a&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[a] -&amp;gt; a&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Ein verwendetes &lt;a href=&quot;https://de.wikipedia.org/wiki/Ma%C3%9F_(Mathematik)#Definition&quot;&gt;Maß&lt;/a&gt; aus der Maßtheorie&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;p&gt;hierbei verwende ich &lt;a href=&quot;haskell.org&quot;&gt;Haskell&lt;/a&gt; Schreibkonventionen für die
-Eigenschaften. Also, &lt;code&gt;a&lt;/code&gt; bedeuted, ein beliebiger Datentyp oder
-&lt;code&gt;[a,a]&lt;/code&gt; deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
-des selben Types hin. Da ich &lt;code&gt;Real a =&amp;gt;...&lt;/code&gt; am Anfang geschrieben habe,
-bedeuted dass: &lt;code&gt;[(a,a)]&lt;/code&gt; ist eine Liste von Tupeln verschiedener reeller
+Eigenschaften. Also, &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; bedeuted, ein beliebiger Datentyp oder
+&lt;code class=&quot;highlighter-rouge&quot;&gt;[a,a]&lt;/code&gt; deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
+des selben Types hin. Da ich &lt;code class=&quot;highlighter-rouge&quot;&gt;Real a =&amp;gt;...&lt;/code&gt; am Anfang geschrieben habe,
+bedeuted dass: &lt;code class=&quot;highlighter-rouge&quot;&gt;[(a,a)]&lt;/code&gt; ist eine Liste von Tupeln verschiedener reeller
 Zahlen: &lt;script type=&quot;math/tex&quot;&gt;((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}&lt;/script&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;lösung&quot;&gt;Lösung&lt;/h3&gt;
@@ -538,8 +845,8 @@ auf jeder Achse schneiden.&lt;/p&gt;
 &lt;p&gt;Das Problem &lt;em&gt;Schnitte zwischen höherdimensinalen Sphären und Würfeln&lt;/em&gt;
 zu lösen war nicht all zu einfach auf den ersten Blick; doch verwendet
 man (wortwörtlich) verschiedene Perspektiven und ist bereit bereits
-bekannte Resultate (wie &lt;code&gt;point2circle&lt;/code&gt;) zu verwenden und neue zu
-finden (wie &lt;code&gt;interval2circle&lt;/code&gt;), so ist es doch ein Leichtes gewesen
+bekannte Resultate (wie &lt;code class=&quot;highlighter-rouge&quot;&gt;point2circle&lt;/code&gt;) zu verwenden und neue zu
+finden (wie &lt;code class=&quot;highlighter-rouge&quot;&gt;interval2circle&lt;/code&gt;), so ist es doch ein Leichtes gewesen
 eine allgemeine Lösung zu finden.&lt;/p&gt;
 </content>
    </entry>
@@ -548,9 +855,9 @@ eine allgemeine Lösung zu finden.&lt;/p&gt;
    
    <entry>
      <title>First Post</title>
-     <link href="https://quoteme.github.io//posts/first_post"/>
+     <link href="http://localhost:4000/posts/first_post"/>
      <updated>2020-02-09T00:00:00+01:00</updated>
-     <id>https://quoteme.github.io//posts/first_post</id>
+     <id>http://localhost:4000/posts/first_post</id>
      <content type="html">&lt;p&gt;Ich habe nun endlich meine Seite geupdated, sodass ich ein etwas
 moderneres Layout verwende und dazu noch die praktisch unbegrenzten
 Möglichkeiten von &lt;a href=&quot;jekyll.io&quot;&gt;Jekyll&lt;/a&gt; verwenden kann.&lt;/p&gt;
