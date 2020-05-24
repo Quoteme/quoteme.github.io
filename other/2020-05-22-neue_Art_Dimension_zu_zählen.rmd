@@ -47,6 +47,15 @@ Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich, auch
 über "2.5"-Dimensionalen Raum zu reden, oder auch "\[\pi\]"-Dimensionale
 Räume zu betrachten.
 
+### Meine ersten Ideen
+
+Zuerst war es für mich recht kompliziert, diesen Begriff für metrische
+Räume zu übersetzen. Doch im Endeffekt waren die Formeln eigentlich die
+selben, nur habe ich es mir selber unnötig kompliziert gemacht, indem
+ich selber noch herumgeforscht habe:
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/3yjeSPI"><a href="//imgur.com/a/3yjeSPI">Meine Ideen zum Dimensionsbegriff</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 ### Wie funktioniert dieser Dimensionsbegriff?
 
 Betrachte folgende Graphen:
@@ -214,7 +223,7 @@ plt.legend(['Durchschnittliches $\Delta_r$', '$Hausdorff Dimension von Sierpińs
 ```
 
 Dies bewegt sich nahe der [Hausdorff Dimension](https://de.wikipedia.org/wiki/Hausdorff-Dimension)
-von einem Sierpiński-Dreieck und zeigt, dass diesee Methode genereller
+von einem Sierpiński-Dreieck und zeigt, dass diese Methode genereller
 ist, als die Bestimmung der Dimension, wie sie in der linearen Algebra
 beigebracht wird.
 
