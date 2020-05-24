@@ -19,8 +19,8 @@ amerikanischen Wissenschaftler und Erfinder von
 In seinem Artikel geht es um seine neue Theorie der Physik, welche auf
 gerichteten Graphen und deren Veränderungen unter der Auswirkung von
 Regeln aufbaut. Für genauere Infos ist hier die ganze Version:
-
 [www.wolframphysics.org/technical-introduction/](https://www.wolframphysics.org/technical-introduction/)
+
 Unter anderem werden durch seine Theorie mathematische Räume aus Graphen
 gebildet. Also Knoten welche untereinander vernetzt sind.
 
