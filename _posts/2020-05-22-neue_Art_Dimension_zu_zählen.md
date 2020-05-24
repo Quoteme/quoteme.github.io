@@ -3,12 +3,7 @@ layout: post
 title: neue Art Dimension zu zählen
 author: Luca Leon Happel
 date: 2020-05-22 Fr 14:16 21
-output:
-        md_document:
-                variant: markdown-fenced_code_attributes
-                preserve_yaml: TRUE
-                fig_width: 7
-                fig_height: 5
+category: posts
 draft: false
 ---
 

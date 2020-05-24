@@ -82,7 +82,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <section class="content">
   <h1>
-    <a href="/posts/neue_Art_Dimension_zu_z%C3%A4hlen">neue Art Dimension zu zählen</a>
+    <a href="/other/2020-05-22-neue_Art_Dimension_zu_z%C3%A4hlen.rmd">neue Art Dimension zu zählen</a>
   </h1>
 
   <section class="byline">
