@@ -1,4 +1,18 @@
 ---
+layout: post
+title: neue Art Dimension zu zählen
+author: Luca Leon Happel
+date: 2020-05-22 Fr 14:16 21
+output:
+        md_document:
+                variant: markdown-fenced_code_attributes
+                preserve_yaml: TRUE
+                fig_width: 7
+                fig_height: 5
+draft: false
+---
+
+---
 author: Luca Leon Happel
 date: '2020-05-22 Fr 14:16 21'
 layout: post
@@ -7,7 +21,7 @@ output:
     fig_height: 5
     fig_width: 7
     preserve_yaml: true
-    variant: markdown
+    variant: 'markdown-fenced\_code\_attributes'
 title: neue Art Dimension zu zählen
 ---
 
@@ -127,7 +141,7 @@ $$
 \end{aligned}
 $$
 
-``` {.python}
+``` python
 import numpy as np
 import matplotlib.pyplot as plt
 V = lambda r: 2*r**2+2*r+1
@@ -145,10 +159,97 @@ Auch hier stimmen die Definitionen überein.
 
 ##### Beispiel 3
 
-``` {.python}
+Ein Sierpiński Dreieck kann folgender Maßen gebildet werden:
+
+``` python
+import matplotlib.pyplot as plt
+import numpy as np
+
 sirp = lambda x: [[],[],[]] if x==[] else [ sirp(v) for v in x]
 repeat = lambda f,x,n: f(x) if n==1 else f(repeat(f,x,n-1))
+points = []
+start  = np.array([1,1])
+angle  = 2*np.pi/3       # Winkel zwischen Punkten
+length = 1               # Anfangslänge eines Punktes zum nächsten
+decay  = 0.5             # Koeffizient, mit dem bei jeder Iterationstiefe die Länge zwischen Punkten sinkt
+def calc(data, current_point=start, length=length):
+    if len(data)==0:
+        points.append(current_point)
+    for i in range(len(data)):
+        newpoint = current_point+np.array([
+            length * np.cos(angle * i),
+            length * np.sin(angle * i),
+        ])
+        calc(data[i], newpoint, length*decay)
+
+# Sierpiński Dreieck mit Rekursionstiefe rt
+rt = 6
+data = repeat(sirp, [], rt)
+calc(data)
+
+# Zeichnen
+x, y = np.array(points).T
+fig, ax = plt.subplots()
+ax.scatter(x, y, s=1)
+plt.legend(['Ein Sierpiński Dreieck mit Rekursionstiefe $'+str(rt)+'$'])
+plt.show()
+
+# Nun berechnen wir V_r für jeden Punkt für verschiedene r
 ```
+
+![](../images/assets/unnamed-chunk-2-1.png)
+
+``` python
+rn = np.arange(0.1,2,0.025)
+d = np.hypot
+U = lambda r,p: [ q for q in points if d(*(p-q))<=r ]
+V = lambda r,p: len(U(r,p))
+def avg(r):
+    """berechne die durchschnittliche Anzahl an Punkten in einer r großen Umgebung
+    """
+    total = 0
+    for p in points:
+        total += V(r,p)
+    total /= len(points)
+    return total
+
+val = [avg(r) for r in rn]
+fig, ax = plt.subplots()
+ax.plot(rn, val)
+plt.xlabel('Radius $r$')
+plt.legend(['Durchschnittliche Anzahl an Punkten in $V_r$'])
+plt.show()
+
+# Delta berechnung
+```
+
+![](../images/assets/unnamed-chunk-2-2.png)
+
+``` python
+dn = [rn[i] for i in range(1,len(rn)-1)]
+Delta = lambda i: (np.log(val[i+1])-np.log(val[i]))/(np.log(rn[i+1])-np.log(rn[i]))
+dval = [Delta(i) for i in range(len(dn))]
+
+fig, ax = plt.subplots()
+ax.plot(dn, dval)
+ax.plot(dn, [np.log2(3) for _ in dn], '.:')
+plt.xlabel('Radius $r$')
+plt.ylabel('$\Delta_r$')
+plt.legend(['Durchschnittliches $\Delta_r$', '$Hausdorff Dimension von Sierpiński-Dreieck\approx\log_2(3)$'])
+```
+
+![](../images/assets/unnamed-chunk-2-3.png)
+
+Dies bewegt sich nahe der [Hausdorff
+Dimension](https://de.wikipedia.org/wiki/Hausdorff-Dimension) von einem
+Sierpiński-Dreieck und zeigt, dass diesee Methode genereller ist, als
+die Bestimmung der Dimension, wie sie in der linearen Algebra
+beigebracht wird.
+
+In den Folgenden Beiträgen, werde ich auf einige der Eigenschaften
+dieses Dimensionsbegriffes eingehen. Darunter wird auch fallen, welche
+Auswirkung die Dimension auf die Krümmung des Raumes hat und wie somit,
+Beispielsweise Gravitation auf natürliche Weise auftaucht.
 
 [^1]: <https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out>
 
