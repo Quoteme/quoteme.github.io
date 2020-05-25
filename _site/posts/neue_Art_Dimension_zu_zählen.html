@@ -36,8 +36,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" href="http://localhost:4000/css/base.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="http://localhost:4000/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://quoteme.github.io//css/base.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="https://quoteme.github.io//css/pygments.css" type="text/css" />
   <link media="only screen and (max-device-width: 480px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link media="only screen and (device-width: 768px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
   <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
@@ -100,10 +100,10 @@ amerikanischen Wissenschaftler und Erfinder von
 
 <p>In seinem Artikel geht es um seine neue Theorie der Physik, welche auf
 gerichteten Graphen und deren Veränderungen unter der Auswirkung von
-Regeln aufbaut. Für genauere Infos ist hier die ganze Version:</p>
+Regeln aufbaut. Für genauere Infos ist hier die ganze Version:
+<a href="https://www.wolframphysics.org/technical-introduction/">www.wolframphysics.org/technical-introduction/</a></p>
 
-<p><a href="https://www.wolframphysics.org/technical-introduction/">www.wolframphysics.org/technical-introduction/</a>
-Unter anderem werden durch seine Theorie mathematische Räume aus Graphen
+<p>Unter anderem werden durch seine Theorie mathematische Räume aus Graphen
 gebildet. Also Knoten welche untereinander vernetzt sind.</p>
 
 <h3 id="auswirkung-auf-dimensionalität">Auswirkung auf Dimensionalität</h3>
@@ -114,11 +114,28 @@ Räumen sagen kann.</p>
 <p>Vieles zu diesem Thema kann man <a href="https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out">in dem Artikel
 durchlesen</a>.
 Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
-eines Raumes generallisieren. Diese Generallisierung kann man dann sogar
-auf andere mathematische Objekte ausdehnen, sodass man den
-Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich,
-auch über “2.5”-Dimensionalen Raum zu reden, oder auch
-“<script type="math/tex">\pi</script>“-Dimensionale Räume zu betrachten.</p>
+eines Raumes generallisieren. Diese Generallisierung kann man dann
+sogar auf andere mathematische Objekte ausdehnen, sodass man den
+Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich, auch
+über “2.5”-Dimensionalen Raum zu reden, oder auch “<script type="math/tex">\pi</script>“-Dimensionale
+Räume zu betrachten. Wichtig ist dabei, dass wir nicht nur auf klassische
+Vektorräume bestehend aus Tupeln (z.B. <script type="math/tex">\mathbb{R}^3</script>) begrentz sind,
+sondern jede Menge, welche mit einer Metrik versehen ist, als unser
+Raum verwendet werden kann.</p>
+
+<p>Das interessante ist hier also, dass dieser neue Begriff der Dimension
+alleine von einer Menge und einer darauf definierten Metrik abhängt,
+doch ein rein topologischer Raum, scheint dafür nicht auszureichen.</p>
+
+<h3 id="meine-ersten-ideen">Meine ersten Ideen</h3>
+
+<p>Zuerst war es für mich recht kompliziert, diesen Begriff für metrische
+Räume zu übersetzen. Doch im Endeffekt waren die Formeln eigentlich die
+selben, nur habe ich es mir selber unnötig kompliziert gemacht, indem
+ich selber noch herumgeforscht habe:</p>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/3yjeSPI"><a href="//imgur.com/a/3yjeSPI">Meine Ideen zum Dimensionsbegriff</a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 <h3 id="wie-funktioniert-dieser-dimensionsbegriff">Wie funktioniert dieser Dimensionsbegriff?</h3>
 
@@ -166,9 +183,9 @@ nur angelehnt ist.</p>
 Punkte eines Balles mit Radius <script type="math/tex">r</script>.</p>
 
 <p>Sei
-<script type="math/tex">\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r+1,x}}}{\log{\frac{r+1}{r}}}</script>.</p>
+<script type="math/tex">\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r,x}}}{\log{\frac{r+1}{r}}}</script>.</p>
 
-<p>Nun ist gilt folgendes:</p>
+<p>Nun gilt folgendes:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \text{dim}(M,d) = \begin{cases}
@@ -303,7 +320,7 @@ Definition überein.</p>
 
 <p>Dies bewegt sich nahe der <a href="https://de.wikipedia.org/wiki/Hausdorff-Dimension">Hausdorff
 Dimension</a> von einem
-Sierpiński-Dreieck und zeigt, dass diesee Methode genereller ist, als
+Sierpiński-Dreieck und zeigt, dass diese Methode genereller ist, als
 die Bestimmung der Dimension, wie sie in der linearen Algebra
 beigebracht wird.</p>
 

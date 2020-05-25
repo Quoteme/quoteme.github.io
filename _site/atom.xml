@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Luca Leon Happel</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2020-05-24T20:51:01+02:00</updated>
- <id>http://localhost:4000</id>
+ <link href="https://quoteme.github.io//atom.xml" rel="self"/>
+ <link href="https://quoteme.github.io//"/>
+ <updated>2020-05-25T07:58:49+02:00</updated>
+ <id>https://quoteme.github.io/</id>
  <author>
    <name>Luca Leon Happel</name>
  </author>
@@ -14,9 +14,9 @@
    
    <entry>
      <title>neue Art Dimension zu zählen</title>
-     <link href="http://localhost:4000/posts/neue_Art_Dimension_zu_z%C3%A4hlen"/>
+     <link href="https://quoteme.github.io//posts/neue_Art_Dimension_zu_z%C3%A4hlen"/>
      <updated>2020-05-22T14:16:00+02:00</updated>
-     <id>http://localhost:4000/posts/neue_Art_Dimension_zu_zählen</id>
+     <id>https://quoteme.github.io//posts/neue_Art_Dimension_zu_zählen</id>
      <content type="html">&lt;h3 id=&quot;einleitung-in-die-theorie&quot;&gt;Einleitung in die Theorie&lt;/h3&gt;
 
 &lt;p&gt;Vor einigen Tagen bin ich auf den Artikel &lt;a href=&quot;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/&quot;&gt;Finally We May Have a Path to
@@ -28,10 +28,10 @@ amerikanischen Wissenschaftler und Erfinder von
 
 &lt;p&gt;In seinem Artikel geht es um seine neue Theorie der Physik, welche auf
 gerichteten Graphen und deren Veränderungen unter der Auswirkung von
-Regeln aufbaut. Für genauere Infos ist hier die ganze Version:&lt;/p&gt;
+Regeln aufbaut. Für genauere Infos ist hier die ganze Version:
+&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/&quot;&gt;www.wolframphysics.org/technical-introduction/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/&quot;&gt;www.wolframphysics.org/technical-introduction/&lt;/a&gt;
-Unter anderem werden durch seine Theorie mathematische Räume aus Graphen
+&lt;p&gt;Unter anderem werden durch seine Theorie mathematische Räume aus Graphen
 gebildet. Also Knoten welche untereinander vernetzt sind.&lt;/p&gt;
 
 &lt;h3 id=&quot;auswirkung-auf-dimensionalität&quot;&gt;Auswirkung auf Dimensionalität&lt;/h3&gt;
@@ -42,11 +42,28 @@ Räumen sagen kann.&lt;/p&gt;
 &lt;p&gt;Vieles zu diesem Thema kann man &lt;a href=&quot;https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out&quot;&gt;in dem Artikel
 durchlesen&lt;/a&gt;.
 Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
-eines Raumes generallisieren. Diese Generallisierung kann man dann sogar
-auf andere mathematische Objekte ausdehnen, sodass man den
-Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich,
-auch über “2.5”-Dimensionalen Raum zu reden, oder auch
-“&lt;script type=&quot;math/tex&quot;&gt;\pi&lt;/script&gt;“-Dimensionale Räume zu betrachten.&lt;/p&gt;
+eines Raumes generallisieren. Diese Generallisierung kann man dann
+sogar auf andere mathematische Objekte ausdehnen, sodass man den
+Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich, auch
+über “2.5”-Dimensionalen Raum zu reden, oder auch “&lt;script type=&quot;math/tex&quot;&gt;\pi&lt;/script&gt;“-Dimensionale
+Räume zu betrachten. Wichtig ist dabei, dass wir nicht nur auf klassische
+Vektorräume bestehend aus Tupeln (z.B. &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^3&lt;/script&gt;) begrentz sind,
+sondern jede Menge, welche mit einer Metrik versehen ist, als unser
+Raum verwendet werden kann.&lt;/p&gt;
+
+&lt;p&gt;Das interessante ist hier also, dass dieser neue Begriff der Dimension
+alleine von einer Menge und einer darauf definierten Metrik abhängt,
+doch ein rein topologischer Raum, scheint dafür nicht auszureichen.&lt;/p&gt;
+
+&lt;h3 id=&quot;meine-ersten-ideen&quot;&gt;Meine ersten Ideen&lt;/h3&gt;
+
+&lt;p&gt;Zuerst war es für mich recht kompliziert, diesen Begriff für metrische
+Räume zu übersetzen. Doch im Endeffekt waren die Formeln eigentlich die
+selben, nur habe ich es mir selber unnötig kompliziert gemacht, indem
+ich selber noch herumgeforscht habe:&lt;/p&gt;
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/3yjeSPI&quot;&gt;&lt;a href=&quot;//imgur.com/a/3yjeSPI&quot;&gt;Meine Ideen zum Dimensionsbegriff&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 &lt;h3 id=&quot;wie-funktioniert-dieser-dimensionsbegriff&quot;&gt;Wie funktioniert dieser Dimensionsbegriff?&lt;/h3&gt;
 
@@ -94,9 +111,9 @@ nur angelehnt ist.&lt;/p&gt;
 Punkte eines Balles mit Radius &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt;.&lt;/p&gt;
 
 &lt;p&gt;Sei
-&lt;script type=&quot;math/tex&quot;&gt;\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r+1,x}}}{\log{\frac{r+1}{r}}}&lt;/script&gt;.&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r,x}}}{\log{\frac{r+1}{r}}}&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;Nun ist gilt folgendes:&lt;/p&gt;
+&lt;p&gt;Nun gilt folgendes:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \text{dim}(M,d) = \begin{cases}
@@ -231,7 +248,7 @@ Definition überein.&lt;/p&gt;
 
 &lt;p&gt;Dies bewegt sich nahe der &lt;a href=&quot;https://de.wikipedia.org/wiki/Hausdorff-Dimension&quot;&gt;Hausdorff
 Dimension&lt;/a&gt; von einem
-Sierpiński-Dreieck und zeigt, dass diesee Methode genereller ist, als
+Sierpiński-Dreieck und zeigt, dass diese Methode genereller ist, als
 die Bestimmung der Dimension, wie sie in der linearen Algebra
 beigebracht wird.&lt;/p&gt;
 
@@ -263,9 +280,9 @@ Beispielsweise Gravitation auf natürliche Weise auftaucht.&lt;/p&gt;
    
    <entry>
      <title>BildBesucher hat jetzt JSDoc-support</title>
-     <link href="http://localhost:4000/posts/BildBesucher_hat_jetzt_JSDoc-support"/>
+     <link href="https://quoteme.github.io//posts/BildBesucher_hat_jetzt_JSDoc-support"/>
      <updated>2020-04-18T00:00:00+02:00</updated>
-     <id>http://localhost:4000/posts/BildBesucher_hat_jetzt_JSDoc-support</id>
+     <id>https://quoteme.github.io//posts/BildBesucher_hat_jetzt_JSDoc-support</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/IX4jhgT&quot;&gt;&lt;a href=&quot;//imgur.com/a/IX4jhgT&quot;&gt;Overview of my first jsdoc documentation (quoteme.github.io/bildbesucher/docs)&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -299,9 +316,9 @@ halten sollte.&lt;/p&gt;
    
    <entry>
      <title>BildBesucher</title>
-     <link href="http://localhost:4000/posts/BildBesucher"/>
+     <link href="https://quoteme.github.io//posts/BildBesucher"/>
      <updated>2020-04-07T00:00:00+02:00</updated>
-     <id>http://localhost:4000/posts/BildBesucher</id>
+     <id>https://quoteme.github.io//posts/BildBesucher</id>
      <content type="html">&lt;p&gt;&lt;a href=&quot;https://quoteme.github.io/bildbesucher/&quot;&gt;Hier klicken um BildBesucher online auszuprobieren&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -348,9 +365,9 @@ zuende führe als sonst 😪&lt;/p&gt;
    
    <entry>
      <title>My first program in the AUR</title>
-     <link href="http://localhost:4000/posts/my_first_program_in_the_AUR"/>
+     <link href="https://quoteme.github.io//posts/my_first_program_in_the_AUR"/>
      <updated>2020-03-28T00:00:00+01:00</updated>
-     <id>http://localhost:4000/posts/my_first_program_in_the_AUR</id>
+     <id>https://quoteme.github.io//posts/my_first_program_in_the_AUR</id>
      <content type="html">&lt;p&gt;Recently I discovered some more of the incredibly useful features of
 my favorite text-editor &lt;a href=&quot;https://github.com/neovim/neovim&quot;&gt;Neovim&lt;/a&gt;:&lt;/p&gt;
 
@@ -446,9 +463,9 @@ had no clue anymore on what to do, I was able to install my package using the AU
    
    <entry>
      <title>Custom login-prompt in linux</title>
-     <link href="http://localhost:4000/posts/custom_loginprompt_linux"/>
+     <link href="https://quoteme.github.io//posts/custom_loginprompt_linux"/>
      <updated>2020-03-02T00:00:00+01:00</updated>
-     <id>http://localhost:4000/posts/custom_loginprompt_linux</id>
+     <id>https://quoteme.github.io//posts/custom_loginprompt_linux</id>
      <content type="html">&lt;p&gt;I was asked on &lt;a href=&quot;https://www.reddit.com/r/archlinux/comments/fc4vqs/removing_lightdm/&quot;&gt;reddit&lt;/a&gt; how to change this:&lt;/p&gt;
 
 &lt;table&gt;
@@ -538,9 +555,9 @@ had no clue anymore on what to do, I was able to install my package using the AU
    
    <entry>
      <title>glider</title>
-     <link href="http://localhost:4000/posts/glider"/>
+     <link href="https://quoteme.github.io//posts/glider"/>
      <updated>2020-02-27T00:00:00+01:00</updated>
-     <id>http://localhost:4000/posts/glider</id>
+     <id>https://quoteme.github.io//posts/glider</id>
      <content type="html">&lt;p&gt;Heute bin ich beim Durchsuchen meines alten Laptops auf ein Projekt
 von vor fast genau einem Jahr und einem Monat gestoßen:&lt;/p&gt;
 
@@ -548,7 +565,7 @@ von vor fast genau einem Jahr und einem Monat gestoßen:&lt;/p&gt;
 
 &lt;p&gt;Das Projekt hieß &lt;a href=&quot;https://github.com/Quoteme/glider&quot;&gt;Glider&lt;/a&gt; und kann
 in einem Browser ohne etwas installieren zu müssen auf
-&lt;a href=&quot;http://localhost:4000/glider/&quot;&gt;http://localhost:4000/glider/&lt;/a&gt;
+&lt;a href=&quot;https://quoteme.github.io//glider/&quot;&gt;https://quoteme.github.io//glider/&lt;/a&gt;
 getestet/gespielt werden.&lt;/p&gt;
 
 &lt;p&gt;Im Grunde ging es nur darum ein proof-of-concept dafür zu haben, dass ich
@@ -573,9 +590,9 @@ ich erreichen wollte.&lt;/p&gt;
    
    <entry>
      <title>i3bar</title>
-     <link href="http://localhost:4000/posts/i3bar"/>
+     <link href="https://quoteme.github.io//posts/i3bar"/>
      <updated>2020-02-19T00:00:00+01:00</updated>
-     <id>http://localhost:4000/posts/i3bar</id>
+     <id>https://quoteme.github.io//posts/i3bar</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/swgn01F&quot;&gt;&lt;a href=&quot;//imgur.com/a/swgn01F&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -638,9 +655,9 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
    
    <entry>
      <title>Jupyter Notebook auf Android</title>
-     <link href="http://localhost:4000/posts/jupyter_pydroid"/>
+     <link href="https://quoteme.github.io//posts/jupyter_pydroid"/>
      <updated>2020-02-18T00:00:00+01:00</updated>
-     <id>http://localhost:4000/posts/jupyter_pydroid</id>
+     <id>https://quoteme.github.io//posts/jupyter_pydroid</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;XKFMPSw&quot;&gt;&lt;a href=&quot;//imgur.com/XKFMPSw&quot;&gt;Jupyter Notebook on Android&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -668,9 +685,9 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
    
    <entry>
      <title>intersect.mjs und der Sphären/Boxen-Schnitt</title>
-     <link href="http://localhost:4000/posts/intersect_sphere_box"/>
+     <link href="https://quoteme.github.io//posts/intersect_sphere_box"/>
      <updated>2020-02-14T00:00:00+01:00</updated>
-     <id>http://localhost:4000/posts/intersect_sphere_box</id>
+     <id>https://quoteme.github.io//posts/intersect_sphere_box</id>
      <content type="html">&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
 
 &lt;p&gt;Momentan arbeite ich an meiner &lt;a href=&quot;https://github.com/Quoteme/intersect&quot;&gt;intersect.mjs&lt;/a&gt;
@@ -793,9 +810,9 @@ eine allgemeine Lösung zu finden.&lt;/p&gt;
    
    <entry>
      <title>First Post</title>
-     <link href="http://localhost:4000/posts/first_post"/>
+     <link href="https://quoteme.github.io//posts/first_post"/>
      <updated>2020-02-09T00:00:00+01:00</updated>
-     <id>http://localhost:4000/posts/first_post</id>
+     <id>https://quoteme.github.io//posts/first_post</id>
      <content type="html">&lt;p&gt;Ich habe nun endlich meine Seite geupdated, sodass ich ein etwas
 moderneres Layout verwende und dazu noch die praktisch unbegrenzten
 Möglichkeiten von &lt;a href=&quot;jekyll.io&quot;&gt;Jekyll&lt;/a&gt; verwenden kann.&lt;/p&gt;

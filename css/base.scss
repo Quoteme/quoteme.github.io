@@ -15,8 +15,11 @@ a {
 
 .sidebar {
   position: fixed;
-  left: 15px;
-  top: 15px;
+  // left: 15px;
+  // top: 15px;
+  padding: 15px;
+  background: #fff;
+  z-index: 1;
   width: 80px;
   font-family: Helvetica, sans-serif;
   a {
