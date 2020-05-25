@@ -96,7 +96,7 @@ Sei $$V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|$$ die Anzahl aller
 Punkte eines Balles mit Radius $$r$$.
 
 Sei
-$$\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r+1,x}}}{\log{\frac{r+1}{r}}}$$.
+$$\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r,x}}}{\log{\frac{r+1}{r}}}$$.
 
 Nun gilt folgendes:
 
