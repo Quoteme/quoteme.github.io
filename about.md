@@ -40,7 +40,8 @@ In case I was able to catch your interest, please do not hesitate to contact me.
 | Lifeguard | NEW Volksbad Mönchengl. | 2018 |
 
 ### other skills
-- Vast knowledge about mathematics
+- "Advanced" knowledge about mathematics
+    - aiming for a Bachelor/Master degree in mathematics
 - Programming knowledge
 	- actively programming since age 13 (2012)
 	- a lot of experience in (>30 Projects):
@@ -68,8 +69,8 @@ In case I was able to catch your interest, please do not hesitate to contact me.
 - Social expertise
 	- very social, patient and reliable
 	- resilient in stressful situations
-	- kids tend to like me very much
-	- always open to new cultures,experiences,people,...
+	- children tend to like me
+	- always open to new cultures, experiences, people,...
 - Languages
 	- native in German
 	- fluent in English
@@ -115,7 +116,8 @@ Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 | Bademeister | NEW Volksbad Mönchengl. | 2018 |
 
 ### Weitere Besonderheiten
-- Breites Spektrum an mathematischem Wissen
+- fortgeschrittenes mathematischem Verständnis
+    - derzeitiges Ziel: Bachelor/Master in Mathematik an Universität
 - Programmierfähigkeiten
 	- programmieren seit dem 13. Lebensjahr
 	- sehr viel Erfahrung in (>30 Projekte):
@@ -140,9 +142,10 @@ Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 			- 95% positive Reviews von 6.444 (Stand 2020)
 			- Gewinner des "best game under development Brazilian indie games festivals 2015"
 			- Auszeichnung in "battle of games VI festival Cindemundo 2014"
-- Sociale Fertigkeiten
-	- sehr sozial, zuvorkommend, geduldig und sehr zuverlässig (siehe Bademeistererfahrungen)
+- Soziale Fertigkeiten
+	- sozial, zuvorkommend, geduldig und zuverlässig
 	- auch in stressvollen Situationen belastbar
+    - verantwortungsvoll (siehe Bademeistererfahrungen)
 	- kann gut mit Kindern umgehen
 	- stets offenkundig für neue Kulturen,Erfahrungen,Leute,...
 - Sprachen
