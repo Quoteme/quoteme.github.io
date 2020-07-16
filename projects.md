@@ -44,7 +44,7 @@ title: "Projects"
 	</li>
 </ul>
 
-[see more / mehr anzeigen](https://github.com/Quoteme?tab=repositories)
+[see more](https://github.com/Quoteme?tab=repositories)
 
 <style type="text/css" media="screen">
 	#project_overview img {
