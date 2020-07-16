@@ -44,14 +44,16 @@ In case I was able to catch your interest, please do not hesitate to contact me.
 - Programming knowledge
 	- actively programming since age 13 (2012)
 	- a lot of experience in (>30 Projects):
-		- JavaScript
+        - [JavaScript](https://github.com/Quoteme?tab=repositories&q=&type=&language=javascript)
 		- NodeJS
 		- CSS
 		- HTML
 		- Markdown
 	- advanced experience in (>5 Projects):
-		- Haskell
+        - [Haskell](https://github.com/Quoteme?tab=repositories&q=&type=&language=haskell)
+        - Python (multiple courses in university)
 	- studied in university/school:
+        - Python
 		- JAVA
 		- C
 		- Assembler
@@ -117,14 +119,16 @@ Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 - Programmierfähigkeiten
 	- programmieren seit dem 13. Lebensjahr
 	- sehr viel Erfahrung in (>30 Projekte):
-		- JavaScript
+        - [JavaScript](https://github.com/Quoteme?tab=repositories&q=&type=&language=javascript)
 		- NodeJS
 		- CSS
 		- HTML
 		- Markdown
 	- erweiterte Erfahrung in (>5 Projekte):
-		- Haskell
+        - [Haskell](https://github.com/Quoteme?tab=repositories&q=&type=&language=haskell)
+        - Python (multiple courses in university)
 	- gelernt in der Universität/Schule
+        - Python
 		- JAVA
 		- C
 		- Assembler
