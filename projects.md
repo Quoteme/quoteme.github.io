@@ -43,6 +43,9 @@ title: "Projects"
 		<a href="https://github.com/Quoteme/matrixVisualizer"><img src="https://i.imgur.com/47Bc1uJ.gif" alt="" title="Visualize the effects of 4x4 Matrices"></a>
 	</li>
 </ul>
+
+[see more / mehr anzeigen](https://github.com/Quoteme?tab=repositories)
+
 <style type="text/css" media="screen">
 	#project_overview img {
 		width: 150px;
