@@ -23,7 +23,7 @@ put into my work in order to help them and myself.
 
 In case I was able to catch your interest, please do not hesitate to contact me.
 
-### Academic achievements
+### Education
 
 | Achievement | Place | Duration |
 |---|---|---|
@@ -99,7 +99,7 @@ gehe um Anderen zu helfen zeichnen mich aus.
 
 Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 
-### Akademische Leistungen
+### Bildung
 
 | Errungenschaft | Ort | Datum |
 |---|---|---|
