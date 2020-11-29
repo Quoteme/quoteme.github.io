@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Voxels Rings and Modules
+title: Voxels, Rings and Modules - My observations on how games like minecraft relate to abstract algebra
 author: Luca Leon Happel
 date: 2020-11-26 Do 20:25 50
 category: posts
