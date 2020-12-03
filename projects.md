@@ -100,7 +100,7 @@ title: "Projects"
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        align-items: baseline;
+        align-items: center;
         align-content: space-between;
     }
     .project {
