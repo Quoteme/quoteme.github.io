@@ -94,14 +94,14 @@ my favorite text-editor <a href="https://github.com/neovim/neovim">Neovim</a>:</
 
 <hr />
 
-<p>Entering <code class="highlighter-rouge">:read !somefunction</code> in Neovim causes the editor to execute
-the command <code class="highlighter-rouge">somefunction</code> and then insert the echoed response into the
+<p>Entering <code class="language-plaintext highlighter-rouge">:read !somefunction</code> in Neovim causes the editor to execute
+the command <code class="language-plaintext highlighter-rouge">somefunction</code> and then insert the echoed response into the
 file you are currently editing at your cursor position.</p>
 
 <hr />
 
 <p>This got me thinking… Maybe I could use this to make my programming
-more concise. And after installing <code class="highlighter-rouge">figlet</code> I was proven right:</p>
+more concise. And after installing <code class="language-plaintext highlighter-rouge">figlet</code> I was proven right:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Use `:read figlet "Example"`</span>
 <span class="c">#     and then select the output and comment it out: `:'&lt;,'&gt;norm ^i# `</span>
@@ -134,9 +134,9 @@ than ~50 lines of code was a real pain.</p>
   <li>Publish to GitHub</li>
   <li>Create an account on <a href="https://aur.archlinux.org/">https://aur.archlinux.org </a></li>
   <li>Use my <a href="#ssh_config">.ssh/config</a></li>
-  <li>Generate an ssh key: <code class="highlighter-rouge">$ ssh-keygen -f ~/.ssh/aur</code></li>
-  <li>Clone your future repository: <code class="highlighter-rouge">git clone ssh://aur@aur.archlinux.org/your_package_name.git</code></li>
-  <li>Put your <code class="highlighter-rouge">PKGBUILD</code> in there</li>
+  <li>Generate an ssh key: <code class="language-plaintext highlighter-rouge">$ ssh-keygen -f ~/.ssh/aur</code></li>
+  <li>Clone your future repository: <code class="language-plaintext highlighter-rouge">git clone ssh://aur@aur.archlinux.org/your_package_name.git</code></li>
+  <li>Put your <code class="language-plaintext highlighter-rouge">PKGBUILD</code> in there</li>
   <li>Add, Commit, Push</li>
 </ol>
 
@@ -157,25 +157,25 @@ had no clue anymore on what to do, I was able to install my package using the AU
 </code></pre></div></div>
 <h3 id="what-does-it-do">What does it do?</h3>
 
-<p>After having installed <code class="highlighter-rouge">prettymath-git</code>, you can do stuff like this:</p>
+<p>After having installed <code class="language-plaintext highlighter-rouge">prettymath-git</code>, you can do stuff like this:</p>
 
-<p>before <code class="highlighter-rouge">prettymath</code></p>
+<p>before <code class="language-plaintext highlighter-rouge">prettymath</code></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">def</span> <span class="nf">normalDistribution</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-	<span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+	<span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="p">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>after <code class="highlighter-rouge">prettymath</code> (<code class="highlighter-rouge">:read !prettymath -u "1/sqrt(pi) * e**(-x**2)"; :norm ^i# </code>)</p>
+<p>after <code class="language-plaintext highlighter-rouge">prettymath</code> (<code class="language-plaintext highlighter-rouge">:read !prettymath -u "1/sqrt(pi) * e**(-x**2)"; :norm ^i# </code>)</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">def</span> <span class="nf">normalDistribution</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-	<span class="c">#    2</span>
-	<span class="c">#  -x</span>
-	<span class="c"># e</span>
-	<span class="c"># ────</span>
-	<span class="c">#  √π</span>
-	<span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+	<span class="c1">#    2
+</span>	<span class="c1">#  -x
+</span>	<span class="c1"># e
+</span>	<span class="c1"># ────
+</span>	<span class="c1">#  √π
+</span>	<span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="p">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div></div>
 
 

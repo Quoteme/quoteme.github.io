@@ -117,9 +117,9 @@ Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
 eines Raumes generallisieren. Diese Generallisierung kann man dann
 sogar auf andere mathematische Objekte ausdehnen, sodass man den
 Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich, auch
-über “2.5”-Dimensionalen Raum zu reden, oder auch “<script type="math/tex">\pi</script>“-Dimensionale
+über “2.5”-Dimensionalen Raum zu reden, oder auch “\(\pi\)“-Dimensionale
 Räume zu betrachten. Wichtig ist dabei, dass wir nicht nur auf klassische
-Vektorräume bestehend aus Tupeln (z.B. <script type="math/tex">\mathbb{R}^3</script>) begrentz sind,
+Vektorräume bestehend aus Tupeln (z.B. \(\mathbb{R}^3\)) begrentz sind,
 sondern jede Menge, welche mit einer Metrik versehen ist, als unser
 Raum verwendet werden kann.</p>
 
@@ -150,16 +150,16 @@ Gitter" title="fig:" /></li>
 
 <p>Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
 so Herr Wolfram folgender Maßen gebildet: “Start at some point in the
-hypergraph. Then follow <script type="math/tex">r</script> hyperedges in all possible ways. You’ve
+hypergraph. Then follow \(r\) hyperedges in all possible ways. You’ve
 effectively made the analog of a “spherical ball” in the
-hypergraph."<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+hypergraph."<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup></p>
 
 <p>Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
-viele Punkte in <script type="math/tex">r</script> Schritten oder weniger erreichbar sind. Sollte
+viele Punkte in \(r\) Schritten oder weniger erreichbar sind. Sollte
 diese Ausbreitung der eines Polynoms ähnlich sein, so kann man anhand
 des Grades dessen die Dimension bestimmen. Das genaue bestimmen ist
 jedoch nicht trivial und wird im Kapitel 4.6 vom Wolfram Physics
-Project<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> genauer erklärt<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup> <sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup></p>
+Project<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup> genauer erklärt<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote">3</a></sup> <sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote">4</a></sup></p>
 
 <h3 id="berechnung-der-dimension">Berechnung der Dimension</h3>
 
@@ -172,66 +172,63 @@ nur angelehnt ist.</p>
 
 <h5 id="berechnung">Berechnung</h5>
 
-<p>Sei <script type="math/tex">(M,d)</script> ein metrischer Raum.</p>
+<p>Sei \((M,d)\) ein metrischer Raum.</p>
 
 <ul>
-  <li><script type="math/tex">M</script> ist Menge</li>
-  <li><script type="math/tex">d: M\times M \rightarrow \mathbb{R}_{\ge 0}</script> ist eine Metrik</li>
+  <li>\(M\) ist Menge</li>
+  <li>\(d: M\times M \rightarrow \mathbb{R}_{\ge 0}\) ist eine Metrik</li>
 </ul>
 
-<p>Sei <script type="math/tex">V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|</script> die Anzahl aller
-Punkte eines Balles mit Radius <script type="math/tex">r</script>.</p>
+<p>Sei \(V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|\) die Anzahl aller
+Punkte eines Balles mit Radius \(r\).</p>
 
 <p>Sei
-<script type="math/tex">\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r,x}}}{\log{\frac{r+1}{r}}}</script>.</p>
+\(\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r,x}}}{\log{\frac{r+1}{r}}}\).</p>
 
 <p>Nun gilt folgendes:</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\text{dim}(M,d) = \begin{cases}
-    \lim_{r\rightarrow \infty}\Delta_{r,x} & \text{wenn}\> |M|\ge\infty \wedge |V_{r,x}|<\infty\\
-    \lim_{r\rightarrow \infty}\Delta_{r,x} & \text{(?) wenn}\> |M|\ge\infty \wedge |V_{r,x}|\ge\infty\\
+\[\text{dim}(M,d) = \begin{cases}
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|&lt;\infty\\
+    \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{(?) wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|\ge\infty\\
     \begin{gather}
     v\in\mathbb{R}_{\ge 0} \text{ mit } \\
     |\{\Delta_{v\pm\epsilon,x}\}| = \max |\{\Delta_{w\pm\epsilon,x}\}|\\
     \forall \epsilon,w\in\mathbb{R}_{\ge 0}
-    \end{gather} & \text{wenn}\> |M|<\infty
-\end{cases} %]]></script>
+    \end{gather} &amp; \text{wenn}\&gt; |M|&lt;\infty
+\end{cases}\]
 
 <h5 id="beispiel-1">Beispiel 1</h5>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{aligned}
-    M      & = \mathbb{Z} \\
-    d(x,y) & = |x+y| \\
-    V_{r,x}& = 2r \\
-    \Delta_{r,x} &= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
-    \lim_{r\rightarrow\infty}\Delta_{r,x} &= 1
-\end{aligned} %]]></script>
+\[\begin{aligned}
+    M      &amp; = \mathbb{Z} \\
+    d(x,y) &amp; = |x+y| \\
+    V_{r,x}&amp; = 2r \\
+    \Delta_{r,x} &amp;= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 1
+\end{aligned}\]
 
 <p>Hier stimmt die Dimension offensichtlich mit der herkömmlichen
 Definition überein.</p>
 
 <h5 id="beispiel-2">Beispiel 2</h5>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{aligned}
-    M      & = \mathbb{Z}^2 \\
-    d(x,y) & = |x_1+y_1 + x_2+y_2| \\
-    V_{r,x}& = 2r^2+2r+1 \quad\forall x\in M\\
-    \Delta_{r,x} &= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
-    \lim_{r\rightarrow\infty}\Delta_{r,x} &= 2
-\end{aligned} %]]></script>
+\[\begin{aligned}
+    M      &amp; = \mathbb{Z}^2 \\
+    d(x,y) &amp; = |x_1+y_1 + x_2+y_2| \\
+    V_{r,x}&amp; = 2r^2+2r+1 \quad\forall x\in M\\
+    \Delta_{r,x} &amp;= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 2
+\end{aligned}\]
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="n">V</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">Delta</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">V</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">V</span><span class="p">(</span><span class="n">r</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-<span class="n">xn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xn</span><span class="p">,</span> <span class="n">Delta</span><span class="p">(</span><span class="n">xn</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">Delta</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">V</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">V</span><span class="p">(</span><span class="n">r</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="n">xn</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xn</span><span class="p">,</span> <span class="n">Delta</span><span class="p">(</span><span class="n">xn</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p><img src="../images/assets/unnamed-chunk-1-1.png" alt="" /></p>
@@ -248,39 +245,39 @@ Definition überein.</p>
 <span class="n">sirp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[[],[],[]]</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="p">[</span> <span class="n">sirp</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="n">repeat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="n">f</span><span class="p">(</span><span class="n">repeat</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">start</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">angle</span>  <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span>       <span class="c"># Winkel zwischen Punkten</span>
-<span class="n">length</span> <span class="o">=</span> <span class="mi">1</span>               <span class="c"># Anfangslänge eines Punktes zum nächsten</span>
-<span class="n">decay</span>  <span class="o">=</span> <span class="mf">0.5</span>             <span class="c"># Koeffizient, mit dem bei jeder Iterationstiefe die Länge zwischen Punkten sinkt</span>
-<span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">current_point</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">length</span><span class="p">):</span>
+<span class="n">start</span>  <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">angle</span>  <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span>       <span class="c1"># Winkel zwischen Punkten
+</span><span class="n">length</span> <span class="o">=</span> <span class="mi">1</span>               <span class="c1"># Anfangslänge eines Punktes zum nächsten
+</span><span class="n">decay</span>  <span class="o">=</span> <span class="mf">0.5</span>             <span class="c1"># Koeffizient, mit dem bei jeder Iterationstiefe die Länge zwischen Punkten sinkt
+</span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">current_point</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">length</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-        <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_point</span><span class="p">)</span>
+        <span class="n">points</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_point</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
-        <span class="n">newpoint</span> <span class="o">=</span> <span class="n">current_point</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-            <span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span> <span class="o">*</span> <span class="n">i</span><span class="p">),</span>
-            <span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">*</span> <span class="n">i</span><span class="p">),</span>
+        <span class="n">newpoint</span> <span class="o">=</span> <span class="n">current_point</span><span class="o">+</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span>
+            <span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span> <span class="o">*</span> <span class="n">i</span><span class="p">),</span>
+            <span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">*</span> <span class="n">i</span><span class="p">),</span>
         <span class="p">])</span>
         <span class="n">calc</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">newpoint</span><span class="p">,</span> <span class="n">length</span><span class="o">*</span><span class="n">decay</span><span class="p">)</span>
 
-<span class="c"># Sierpiński Dreieck mit Rekursionstiefe rt</span>
-<span class="n">rt</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="c1"># Sierpiński Dreieck mit Rekursionstiefe rt
+</span><span class="n">rt</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">repeat</span><span class="p">(</span><span class="n">sirp</span><span class="p">,</span> <span class="p">[],</span> <span class="n">rt</span><span class="p">)</span>
 <span class="n">calc</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<span class="c"># Zeichnen</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'Ein Sierpiński Dreieck mit Rekursionstiefe $'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span><span class="o">+</span><span class="s">'$'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Zeichnen
+</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">).</span><span class="n">T</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'Ein Sierpiński Dreieck mit Rekursionstiefe $'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span><span class="o">+</span><span class="s">'$'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c"># Nun berechnen wir V_r für jeden Punkt für verschiedene r</span>
-</code></pre></div></div>
+<span class="c1"># Nun berechnen wir V_r für jeden Punkt für verschiedene r
+</span></code></pre></div></div>
 
 <p><img src="../images/assets/unnamed-chunk-2-1.png" alt="" /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.025</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hypot</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rn</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">hypot</span>
 <span class="n">U</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">:</span> <span class="p">[</span> <span class="n">q</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">points</span> <span class="k">if</span> <span class="n">d</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="n">q</span><span class="p">))</span><span class="o">&lt;=</span><span class="n">r</span> <span class="p">]</span>
 <span class="n">V</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">avg</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
@@ -293,27 +290,27 @@ Definition überein.</p>
     <span class="k">return</span> <span class="n">total</span>
 
 <span class="n">val</span> <span class="o">=</span> <span class="p">[</span><span class="n">avg</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rn</span><span class="p">]</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rn</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Radius $r$'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'Durchschnittliche Anzahl an Punkten in $V_r$'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rn</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Radius $r$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'Durchschnittliche Anzahl an Punkten in $V_r$'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c"># Delta berechnung</span>
-</code></pre></div></div>
+<span class="c1"># Delta berechnung
+</span></code></pre></div></div>
 
 <p><img src="../images/assets/unnamed-chunk-2-2.png" alt="" /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dn</span> <span class="o">=</span> <span class="p">[</span><span class="n">rn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">rn</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">Delta</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rn</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rn</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">Delta</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">rn</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">rn</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 <span class="n">dval</span> <span class="o">=</span> <span class="p">[</span><span class="n">Delta</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dn</span><span class="p">))]</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dn</span><span class="p">,</span> <span class="n">dval</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dn</span><span class="p">,</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">dn</span><span class="p">],</span> <span class="s">'.:'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Radius $r$'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'$</span><span class="err">\</span><span class="s">Delta_r$'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'Durchschnittliches $</span><span class="err">\</span><span class="s">Delta_r$'</span><span class="p">,</span> <span class="s">'$Hausdorff Dimension von Sierpiński-Dreieck</span><span class="se">\a</span><span class="s">pprox</span><span class="err">\</span><span class="s">log_2(3)$'</span><span class="p">])</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dn</span><span class="p">,</span> <span class="n">dval</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dn</span><span class="p">,</span> <span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">dn</span><span class="p">],</span> <span class="s">'.:'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Radius $r$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'$\Delta_r$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'Durchschnittliches $\Delta_r$'</span><span class="p">,</span> <span class="s">'$Hausdorff Dimension von Sierpiński-Dreieck</span><span class="se">\a</span><span class="s">pprox\log_2(3)$'</span><span class="p">])</span>
 </code></pre></div></div>
 
 <p><img src="../images/assets/unnamed-chunk-2-3.png" alt="" /></p>
@@ -329,19 +326,19 @@ dieses Dimensionsbegriffes eingehen. Darunter wird auch fallen, welche
 Auswirkung die Dimension auf die Krümmung des Raumes hat und wie somit,
 Beispielsweise Gravitation auf natürliche Weise auftaucht.</p>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p><a href="https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out">https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out">https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2">
-      <p><a href="https://www.wolframphysics.org/">https://www.wolframphysics.org/</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://www.wolframphysics.org/">https://www.wolframphysics.org/</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:3">
-      <p><a href="https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/">https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/">https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:4">
-      <p><a href="https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/">https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/</a> <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:4" role="doc-endnote">
+      <p><a href="https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/">https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>

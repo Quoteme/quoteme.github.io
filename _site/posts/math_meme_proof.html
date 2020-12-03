@@ -96,29 +96,29 @@ forum:</p>
 
 <p>Here is my thought process:</p>
 
-<p><script type="math/tex">b^2-4c</script> is just the <a href="https://en.wikipedia.org/wiki/Discriminant">discriminant</a>
-of the polynomial <script type="math/tex">f(x) = x^2+bx+c</script>, and I will refer to it from now
-on as <script type="math/tex">\Delta(f)</script>.</p>
+<p>\(b^2-4c\) is just the <a href="https://en.wikipedia.org/wiki/Discriminant">discriminant</a>
+of the polynomial \(f(x) = x^2+bx+c\), and I will refer to it from now
+on as \(\Delta(f)\).</p>
 
-<p>We know that if <script type="math/tex">\Delta(f)>0</script> then the formula
-<script type="math/tex">\frac{-b\pm\sqrt{b^2-4c}}{2} = -\frac{b}{2} \pm \sqrt{\left(\frac{b}{2}\right)^2 - c}</script>
-gives us the zeros <script type="math/tex">x_1, x_2 \in \mathbb{R}</script> of <script type="math/tex">f</script>. Let’s look
-at <script type="math/tex">\mathbb{R}[x] / (f)</script>. And identify each part now.</p>
+<p>We know that if \(\Delta(f)&gt;0\) then the formula
+\(\frac{-b\pm\sqrt{b^2-4c}}{2} = -\frac{b}{2} \pm \sqrt{\left(\frac{b}{2}\right)^2 - c}\)
+gives us the zeros \(x_1, x_2 \in \mathbb{R}\) of \(f\). Let’s look
+at \(\mathbb{R}[x] / (f)\). And identify each part now.</p>
 
 <ul>
   <li>
     <p>The <a href="https://en.wikipedia.org/wiki/Principal_ideal">principal ideal</a>
-<script type="math/tex">(f) \overbrace{=}^{\mathbb{R}[x] \text{ commutative}} \{ p(x)\cdot \underbrace{f(x)}_{x^2+bx+c \\ = (x-x_1)(x-x_2) } \mid p(x) \in \mathbb{R}[x]\}</script></p>
+\((f) \overbrace{=}^{\mathbb{R}[x] \text{ commutative}} \{ p(x)\cdot \underbrace{f(x)}_{x^2+bx+c \\ = (x-x_1)(x-x_2) } \mid p(x) \in \mathbb{R}[x]\}\)</p>
   </li>
   <li>
     <p>The <a href="https://en.wikipedia.org/wiki/Quotient_ring">quotient ring</a>
-<script type="math/tex">\mathbb{R} [x]/(f)</script>, which is the same as <script type="math/tex">\mathbb{R}[x]/\sim</script> where
-<script type="math/tex">\sim</script> is an <a href="https://en.wikipedia.org/wiki/Equivalence_relation">equivalence relation</a>:
-<script type="math/tex">a\sim b \Leftrightarrow a-b \in (f)</script></p>
+\(\mathbb{R} [x]/(f)\), which is the same as \(\mathbb{R}[x]/\sim\) where
+\(\sim\) is an <a href="https://en.wikipedia.org/wiki/Equivalence_relation">equivalence relation</a>:
+\(a\sim b \Leftrightarrow a-b \in (f)\)</p>
 
-    <p>When performing polynomial division <script type="math/tex">\frac{p(x)}{f(x)}, \> p(x)\in\mathbb{R}[x]</script>
-if <script type="math/tex">\deg(p(x))>2</script> we can always perform at least one step and
-the remainder must be of the form <script type="math/tex">ax+b \in \mathbb{R}[x]/(f)</script></p>
+    <p>When performing polynomial division \(\frac{p(x)}{f(x)}, \&gt; p(x)\in\mathbb{R}[x]\)
+if \(\deg(p(x))&gt;2\) we can always perform at least one step and
+the remainder must be of the form \(ax+b \in \mathbb{R}[x]/(f)\)</p>
   </li>
 </ul>
 

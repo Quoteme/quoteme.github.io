@@ -100,31 +100,31 @@ Dann ist hier die Anleitung für dich!</p>
 <ol>
   <li>
     <p>(trivial) installiere <a href="i3wm.org">i3</a> <!--und [i3bar](https://i3wm.org/docs/i3bar-protocol.html)-->
- (<code class="highlighter-rouge">$ pacman -S i3-gaps</code>)</p>
+ (<code class="language-plaintext highlighter-rouge">$ pacman -S i3-gaps</code>)</p>
   </li>
   <li>
     <p>falls du <a href="https://github.com/i3/i3status">i3status</a> installiert hast: deinstalliere es
- (<code class="highlighter-rouge">$ pacman -Rns i3status</code>)</p>
+ (<code class="language-plaintext highlighter-rouge">$ pacman -Rns i3status</code>)</p>
   </li>
   <li>
     <p>installiere <a href="https://github.com/davidscholberg/goblocks">goblocks</a>
- (<code class="highlighter-rouge"># yay goblocks</code>, falls <a href="https://github.com/Jguer/yay">yay</a> bereits installiert ist)</p>
+ (<code class="language-plaintext highlighter-rouge"># yay goblocks</code>, falls <a href="https://github.com/Jguer/yay">yay</a> bereits installiert ist)</p>
   </li>
   <li>
-    <p>Ändere <code class="highlighter-rouge">i3status</code> -&gt; <code class="highlighter-rouge">goblocks</code> in <code class="highlighter-rouge">.config/i3/config</code></p>
+    <p>Ändere <code class="language-plaintext highlighter-rouge">i3status</code> -&gt; <code class="language-plaintext highlighter-rouge">goblocks</code> in <code class="language-plaintext highlighter-rouge">.config/i3/config</code></p>
   </li>
-  <li>Bearbeite <code class="highlighter-rouge">.config/goblocks/goblocks.yml</code>
+  <li>Bearbeite <code class="language-plaintext highlighter-rouge">.config/goblocks/goblocks.yml</code>
     <ul>
       <li>schreibe eine config selber</li>
       <li>oder kopiere <a href="https://pastebin.com/VWpMasZx">meine config</a>
-  diese hat <code class="highlighter-rouge">playerctl</code> mitinbehalten. Wenn du das nicht möchtest,
+  diese hat <code class="language-plaintext highlighter-rouge">playerctl</code> mitinbehalten. Wenn du das nicht möchtest,
   lösche einfach den dazugehörende ‘command’-Abschnitt. Ansonsten
   siehe den nächsten Abschnitt an</li>
     </ul>
   </li>
   <li>(optional) installiere <a href="https://github.com/altdesktop/playerctl">playerctl</a>
  um die momentan spielende Musik (auf youtube/spotify/…) anzuzeigen.
- <code class="highlighter-rouge"># pacman -S playerctl</code>
+ <code class="language-plaintext highlighter-rouge"># pacman -S playerctl</code>
  und verwende den folgenden code in deiner config</li>
 </ol>
 
@@ -133,16 +133,16 @@ Dann ist hier die Anleitung für dich!</p>
       label: "msc " # "📻"
       command: sh /home/DEINNUTZERNAME/.config/goblocks/musicdisplay.sh</code></pre></figure>
 
-<p>und erstelle die Datei <code class="highlighter-rouge">musicdisplay.sh</code>:</p>
+<p>und erstelle die Datei <code class="language-plaintext highlighter-rouge">musicdisplay.sh</code>:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/usr/bin/env bash</span>
-<span class="nb">echo</span> <span class="k">$(</span>playerctl metadata <span class="nt">--format</span> <span class="s1">' - '</span><span class="k">)</span></code></pre></figure>
+<span class="nb">echo</span> <span class="si">$(</span>playerctl metadata <span class="nt">--format</span> <span class="s1">' - '</span><span class="si">)</span></code></pre></figure>
 
 <hr />
 
 <p><img src="https://i.imgur.com/qlEUHuk.png" alt="meine Statusbar mit Icons statt Text" /></p>
 
-<p>NOTIZ: Um die selben Icons zu haben muss man <a href="https://github.com/stark/siji">Siji</a> installieren <code class="highlighter-rouge"># yay -S siji-git</code> und in seiner <code class="highlighter-rouge">.config/i3/config</code> folgendes als font setzen: <code class="highlighter-rouge">font pango: Gohu GohuFont, Siji 11px</code></p>
+<p>NOTIZ: Um die selben Icons zu haben muss man <a href="https://github.com/stark/siji">Siji</a> installieren <code class="language-plaintext highlighter-rouge"># yay -S siji-git</code> und in seiner <code class="language-plaintext highlighter-rouge">.config/i3/config</code> folgendes als font setzen: <code class="language-plaintext highlighter-rouge">font pango: Gohu GohuFont, Siji 11px</code></p>
 
 
 

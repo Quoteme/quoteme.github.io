@@ -125,19 +125,19 @@ habe:</p>
 
 <ol>
   <li>
-    <p><code class="highlighter-rouge">pacman -S qemu</code> (installiert QEMU)</p>
+    <p><code class="language-plaintext highlighter-rouge">pacman -S qemu</code> (installiert QEMU)</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">wget http://artfiles.org/archlinux.org/iso/2020.02.01/archlinux-2020.02.01-x86_64.iso</code>
+    <p><code class="language-plaintext highlighter-rouge">wget http://artfiles.org/archlinux.org/iso/2020.02.01/archlinux-2020.02.01-x86_64.iso</code>
  (downloaded Archlinux)</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">qemu-img create -f raw arch 8G</code> (kreiert einen virtuellen Computer
+    <p><code class="language-plaintext highlighter-rouge">qemu-img create -f raw arch 8G</code> (kreiert einen virtuellen Computer
  mit 8G Speicher. Zuerst hatte ich 4G, was wie es sich später
  herausstellte viel zu wenig war)</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">qemu-system-x86_64 -cdrom ../archlinux-2020.02.01-x86_64.iso -m 512M  -boot order=d -drive file=arch,format=raw</code>
+    <p><code class="language-plaintext highlighter-rouge">qemu-system-x86_64 -cdrom ../archlinux-2020.02.01-x86_64.iso -m 512M  -boot order=d -drive file=arch,format=raw</code>
  (startetet den virtuellen Computer mit 512MB RAM und läd die Archlinux
  ISO als CD)</p>
   </li>
@@ -157,11 +157,11 @@ funktionieren würde oder nicht.</p>
 
 <ol>
   <li>
-    <p><code class="highlighter-rouge">sudo pacman -S fakeroot bintools</code> (installiert Programme, welche für
- <code class="highlighter-rouge">makepkg</code> notwendig sind)</p>
+    <p><code class="language-plaintext highlighter-rouge">sudo pacman -S fakeroot bintools</code> (installiert Programme, welche für
+ <code class="language-plaintext highlighter-rouge">makepkg</code> notwendig sind)</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">mkdir wmderland &amp;&amp; cd wmderland</code> (erstelle einen neuen Ordner im
+    <p><code class="language-plaintext highlighter-rouge">mkdir wmderland &amp;&amp; cd wmderland</code> (erstelle einen neuen Ordner im
  virtuellen computer für Wmderland und gehe dort hinen)</p>
   </li>
   <li>kopiere die <a href="https://github.com/aesophor/wmderland/issues/31">PKGBUILD und wmderland.install</a>
@@ -169,16 +169,16 @@ funktionieren würde oder nicht.</p>
     <ul>
       <li>dafür habe ich zuerst die Dateien auf meinem Laptop erstellt</li>
       <li>dann einen http server im selben Ordner gestartet</li>
-      <li><code class="highlighter-rouge">sudo pacman -S wget</code> (um im nächsten <code class="highlighter-rouge">wget</code> verwenden zu können)</li>
-      <li>und zuletzt die dateien mit <code class="highlighter-rouge">wget 10.0.2.2:8080/PKGBUILD</code> und <code class="highlighter-rouge">wget 10.0.2.2:8080/wmderland.install</code>
+      <li><code class="language-plaintext highlighter-rouge">sudo pacman -S wget</code> (um im nächsten <code class="language-plaintext highlighter-rouge">wget</code> verwenden zu können)</li>
+      <li>und zuletzt die dateien mit <code class="language-plaintext highlighter-rouge">wget 10.0.2.2:8080/PKGBUILD</code> und <code class="language-plaintext highlighter-rouge">wget 10.0.2.2:8080/wmderland.install</code>
   auf meinen virtuellen Computer gezogen</li>
     </ul>
   </li>
   <li>
-    <p><code class="highlighter-rouge">pacman -S gcc cmake make git</code> (installiert Compiler die für Wmderland
+    <p><code class="language-plaintext highlighter-rouge">pacman -S gcc cmake make git</code> (installiert Compiler die für Wmderland
  benötigt sind und Anderes)</p>
   </li>
-  <li><code class="highlighter-rouge">makepkg -si</code> (compiliert und installiert Wmderland, mit den von
+  <li><code class="language-plaintext highlighter-rouge">makepkg -si</code> (compiliert und installiert Wmderland, mit den von
  aesophor spezifizierten Dependencies)
     <ul>
       <li>hier hängt sich der Compiler bisher bei 14% auf. Deswegen muss ich

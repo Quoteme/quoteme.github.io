@@ -123,16 +123,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <ol>
   <li>
-    <p>install <a href="https://github.com/dylanaraps/neofetch">neofetch</a> or <a href="https://github.com/KittyKatt/screenFetch">screenfetch</a> (<code class="highlighter-rouge">sudo pacman -S neofetch</code>) (I will use neofetch here, but it is the same process for screenfetch)</p>
+    <p>install <a href="https://github.com/dylanaraps/neofetch">neofetch</a> or <a href="https://github.com/KittyKatt/screenFetch">screenfetch</a> (<code class="language-plaintext highlighter-rouge">sudo pacman -S neofetch</code>) (I will use neofetch here, but it is the same process for screenfetch)</p>
   </li>
   <li>
     <p>download my <a href="#update_login_prompt">neofetch_login_prompt.service</a> system.d service file</p>
   </li>
   <li>
-    <p>place this file in <code class="highlighter-rouge">/etc/systemd/system/</code></p>
+    <p>place this file in <code class="language-plaintext highlighter-rouge">/etc/systemd/system/</code></p>
   </li>
   <li>
-    <p>enable the script to run at boot: <code class="highlighter-rouge">sudo systemctl enable neofetch_login_prompt --now</code></p>
+    <p>enable the script to run at boot: <code class="language-plaintext highlighter-rouge">sudo systemctl enable neofetch_login_prompt --now</code></p>
   </li>
   <li>
     <p>reboot! it should work now</p>
@@ -153,8 +153,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <span class="o">[</span>Service]
 <span class="nv">Type</span><span class="o">=</span>oneshot
-<span class="nv">RemainAfterExit</span><span class="o">=</span>yes
-<span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/env bash <span class="nt">-ec</span> <span class="s1">'neofetch &gt; /etc/issue'</span>
+<span class="nv">RemainAfterExit</span><span class="o">=</span><span class="nb">yes
+</span><span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/env bash <span class="nt">-ec</span> <span class="s1">'neofetch &gt; /etc/issue'</span>
 
 <span class="o">[</span>Install]
 <span class="nv">WantedBy</span><span class="o">=</span>multi-user.target</code></pre></figure>

@@ -93,7 +93,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Momentan arbeite ich an meiner <a href="https://github.com/Quoteme/intersect">intersect.mjs</a>
 Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen
-geometrischen Strukturen in <script type="math/tex">n</script> dimensionen zu erkennen.
+geometrischen Strukturen in \(n\) dimensionen zu erkennen.
 Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// plane2circle :: Real a =&gt; [(a,a)] -&gt; a -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean</span>
@@ -111,38 +111,38 @@ Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:</p>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><code class="highlighter-rouge">p</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">p</code></td>
       <td>Hyperwürfel</td>
-      <td><code class="highlighter-rouge">[(a,a)]</code></td>
-      <td>Zwei Punkte im <script type="math/tex">\mathbb{R}^n</script></td>
+      <td><code class="language-plaintext highlighter-rouge">[(a,a)]</code></td>
+      <td>Zwei Punkte im \(\mathbb{R}^n\)</td>
     </tr>
     <tr>
-      <td style="text-align: center"><code class="highlighter-rouge">r</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">r</code></td>
       <td>Radius</td>
-      <td><code class="highlighter-rouge">a</code></td>
+      <td><code class="language-plaintext highlighter-rouge">a</code></td>
       <td>Radius der Sphäre</td>
     </tr>
     <tr>
-      <td style="text-align: center"><code class="highlighter-rouge">c</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">c</code></td>
       <td>Position der Sphäre</td>
-      <td><code class="highlighter-rouge">[a]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">[a]</code></td>
       <td>Position des Zentrums der Sphäre</td>
     </tr>
     <tr>
-      <td style="text-align: center"><code class="highlighter-rouge">d</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">d</code></td>
       <td>Maß</td>
-      <td><code class="highlighter-rouge">[a] -&gt; a</code></td>
+      <td><code class="language-plaintext highlighter-rouge">[a] -&gt; a</code></td>
       <td>Ein verwendetes <a href="https://de.wikipedia.org/wiki/Ma%C3%9F_(Mathematik)#Definition">Maß</a> aus der Maßtheorie</td>
     </tr>
   </tbody>
 </table>
 
 <p>hierbei verwende ich <a href="haskell.org">Haskell</a> Schreibkonventionen für die
-Eigenschaften. Also, <code class="highlighter-rouge">a</code> bedeuted, ein beliebiger Datentyp oder
-<code class="highlighter-rouge">[a,a]</code> deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
-des selben Types hin. Da ich <code class="highlighter-rouge">Real a =&gt;...</code> am Anfang geschrieben habe,
-bedeuted dass: <code class="highlighter-rouge">[(a,a)]</code> ist eine Liste von Tupeln verschiedener reeller
-Zahlen: <script type="math/tex">((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}</script></p>
+Eigenschaften. Also, <code class="language-plaintext highlighter-rouge">a</code> bedeuted, ein beliebiger Datentyp oder
+<code class="language-plaintext highlighter-rouge">[a,a]</code> deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
+des selben Types hin. Da ich <code class="language-plaintext highlighter-rouge">Real a =&gt;...</code> am Anfang geschrieben habe,
+bedeuted dass: <code class="language-plaintext highlighter-rouge">[(a,a)]</code> ist eine Liste von Tupeln verschiedener reeller
+Zahlen: \(((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}\)</p>
 
 <h3 id="lösung">Lösung</h3>
 
@@ -175,22 +175,22 @@ auf jeder Achse schneiden.</p>
 
 <p>und diese Funktion können wir nun testen:</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="kr">int</span> <span class="k">from</span> <span class="s1">'./intersect.mjs'</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">int</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./intersect.mjs</span><span class="dl">'</span>
 
 <span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
 <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kr">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// true ✅</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// true ✅</span>
 
 <span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
 <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kr">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// false ✅</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// false ✅</span>
 
 <span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
 <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kr">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// false ✅</span></code></pre></figure>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// false ✅</span></code></pre></figure>
 
 <p>besonders das letzte Ergebnis kann man leicht überprüfen:</p>
 
@@ -201,8 +201,8 @@ auf jeder Achse schneiden.</p>
 <p>Das Problem <em>Schnitte zwischen höherdimensinalen Sphären und Würfeln</em>
 zu lösen war nicht all zu einfach auf den ersten Blick; doch verwendet
 man (wortwörtlich) verschiedene Perspektiven und ist bereit bereits
-bekannte Resultate (wie <code class="highlighter-rouge">point2circle</code>) zu verwenden und neue zu
-finden (wie <code class="highlighter-rouge">interval2circle</code>), so ist es doch ein Leichtes gewesen
+bekannte Resultate (wie <code class="language-plaintext highlighter-rouge">point2circle</code>) zu verwenden und neue zu
+finden (wie <code class="language-plaintext highlighter-rouge">interval2circle</code>), so ist es doch ein Leichtes gewesen
 eine allgemeine Lösung zu finden.</p>
 
 
