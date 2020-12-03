@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-11-26T21:48:09+01:00</updated>
+ <updated>2020-12-03T17:27:40+01:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -13,7 +13,49 @@
  
    
    <entry>
-     <title>Voxels Rings and Modules</title>
+     <title>Math meme solve - When is R[x]/(x^2+bx+c) isomorphic to R^2 or C</title>
+     <link href="http://localhost:4000/posts/math_meme_proof"/>
+     <updated>2020-12-03T13:58:00+01:00</updated>
+     <id>http://localhost:4000/posts/math_meme_proof</id>
+     <content type="html">&lt;p&gt;A few minute ago I stumbled upon this meme on some math and science
+forum:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/5gUWnRL.png&quot; alt=&quot;Prove that Rx/(x^2+bx+c) is isomorphic to R^2 or C&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is my thought process:&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;b^2-4c&lt;/script&gt; is just the &lt;a href=&quot;https://en.wikipedia.org/wiki/Discriminant&quot;&gt;discriminant&lt;/a&gt;
+of the polynomial &lt;script type=&quot;math/tex&quot;&gt;f(x) = x^2+bx+c&lt;/script&gt;, and I will refer to it from now
+on as &lt;script type=&quot;math/tex&quot;&gt;\Delta(f)&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;We know that if &lt;script type=&quot;math/tex&quot;&gt;\Delta(f)&gt;0&lt;/script&gt; then the formula
+&lt;script type=&quot;math/tex&quot;&gt;\frac{-b\pm\sqrt{b^2-4c}}{2} = -\frac{b}{2} \pm \sqrt{\left(\frac{b}{2}\right)^2 - c}&lt;/script&gt;
+gives us the zeros &lt;script type=&quot;math/tex&quot;&gt;x_1, x_2 \in \mathbb{R}&lt;/script&gt; of &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt;. Let’s look
+at &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}[x] / (f)&lt;/script&gt;. And identify each part now.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Principal_ideal&quot;&gt;principal ideal&lt;/a&gt;
+&lt;script type=&quot;math/tex&quot;&gt;(f) \overbrace{=}^{\mathbb{R}[x] \text{ commutative}} \{ p(x)\cdot \underbrace{f(x)}_{x^2+bx+c \\ = (x-x_1)(x-x_2) } \mid p(x) \in \mathbb{R}[x]\}&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Quotient_ring&quot;&gt;quotient ring&lt;/a&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\mathbb{R} [x]/(f)&lt;/script&gt;, which is the same as &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}[x]/\sim&lt;/script&gt; where
+&lt;script type=&quot;math/tex&quot;&gt;\sim&lt;/script&gt; is an &lt;a href=&quot;https://en.wikipedia.org/wiki/Equivalence_relation&quot;&gt;equivalence relation&lt;/a&gt;:
+&lt;script type=&quot;math/tex&quot;&gt;a\sim b \Leftrightarrow a-b \in (f)&lt;/script&gt;&lt;/p&gt;
+
+    &lt;p&gt;When performing polynomial division &lt;script type=&quot;math/tex&quot;&gt;\frac{p(x)}{f(x)}, \&gt; p(x)\in\mathbb{R}[x]&lt;/script&gt;
+if &lt;script type=&quot;math/tex&quot;&gt;\deg(p(x))&gt;2&lt;/script&gt; we can always perform at least one step and
+the remainder must be of the form &lt;script type=&quot;math/tex&quot;&gt;ax+b \in \mathbb{R}[x]/(f)&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+   </entry>
+   
+ 
+   
+   <entry>
+     <title>Voxels, Rings and Modules - My observations on how games like minecraft relate to abstract algebra</title>
      <link href="http://localhost:4000/posts/voxels_rings_and_modules"/>
      <updated>2020-11-26T20:25:00+01:00</updated>
      <id>http://localhost:4000/posts/voxels_rings_and_modules</id>
@@ -32,12 +74,12 @@ game? 😂&lt;/p&gt;
 and expanded on it’s worldbuilding. This made me want to actually code
 this world into my game, which then lead me to revisit my voxel-mesher.
 A voxel mesher is a program which takes in a set of 3-tuples
-$(x,y,z) \in \mathbb{Z}^3$ and creates a mesh out of it. Kinda like
+&lt;script type=&quot;math/tex&quot;&gt;(x,y,z) \in \mathbb{Z}^3&lt;/script&gt; and creates a mesh out of it. Kinda like
 this:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/b/bc/Voxels.svg&quot; alt=&quot;Example of a Voxel Mesh&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;If you extend this definition and use 4-tuples $(x,y,z,type)\in\mathbb{Z}^4$
+&lt;p&gt;If you extend this definition and use 4-tuples &lt;script type=&quot;math/tex&quot;&gt;(x,y,z,type)\in\mathbb{Z}^4&lt;/script&gt;
 you can even create meshes consisting of different materials with
 different textures and so on:&lt;/p&gt;
 
@@ -49,17 +91,17 @@ different textures and so on:&lt;/p&gt;
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Ring_(mathematics)&quot;&gt;rings&lt;/a&gt; and
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Module_(mathematics)&quot;&gt;modules&lt;/a&gt;?&lt;/p&gt;
 
-&lt;p&gt;Well, first of a &lt;em&gt;Ring&lt;/em&gt; like the integers $\mathbb{Z}={\dots,-2,-1,0,1,2,\dots}$
+&lt;p&gt;Well, first of a &lt;em&gt;Ring&lt;/em&gt; like the integers &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}=\{\dots,-2,-1,0,1,2,\dots\}&lt;/script&gt;
 together with an &lt;a href=&quot;https://en.wikipedia.org/wiki/Abelian_group&quot;&gt;abelian group&lt;/a&gt;
-called addition $+$, a &lt;a href=&quot;https://en.wikipedia.org/wiki/Monoid&quot;&gt;monoid&lt;/a&gt;
-called multiplication $\cdot$ and a $1$-Element is simply speaking
+called addition &lt;script type=&quot;math/tex&quot;&gt;+&lt;/script&gt;, a &lt;a href=&quot;https://en.wikipedia.org/wiki/Monoid&quot;&gt;monoid&lt;/a&gt;
+called multiplication &lt;script type=&quot;math/tex&quot;&gt;\cdot&lt;/script&gt; and a &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt;-Element is simply speaking
 just a set of numbers on which one can multiply, add and subtract
 every number from the other (but not necessarily divide).&lt;/p&gt;
 
-&lt;p&gt;$(\mathbb{Z}, +, \cdot)$ forms a Ring, because we can add every element
-with another and the result will be in $\mathbb{Z}$. We can also
-multiply elements with each other, but when we divide for example $1$
-by $2$, the result one half is not an integer $\frac{1}{2} \notin \mathbb{Z}$.&lt;/p&gt;
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;(\mathbb{Z}, +, \cdot)&lt;/script&gt; forms a Ring, because we can add every element
+with another and the result will be in &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}&lt;/script&gt;. We can also
+multiply elements with each other, but when we divide for example &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt;
+by &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt;, the result one half is not an integer &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{2} \notin \mathbb{Z}&lt;/script&gt;.&lt;/p&gt;
 
 &lt;p&gt;We can see this structure in our voxels, because they are indexed
 using integers (i.e. there is no voxel between the first and second one).&lt;/p&gt;
@@ -71,7 +113,7 @@ with vector addition and the ring extends this to scalar multiplication.&lt;/p&g
 
 &lt;h3 id=&quot;how-is-this-related-to-our-voxels-then&quot;&gt;How is this related to our voxels then?&lt;/h3&gt;
 
-&lt;p&gt;Well, our Voxelspace (the set of all 3-tuples $(x,y,z)\in\mathbb{Z}^3$)
+&lt;p&gt;Well, our Voxelspace (the set of all 3-tuples &lt;script type=&quot;math/tex&quot;&gt;(x,y,z)\in\mathbb{Z}^3&lt;/script&gt;)
 is just a &lt;em&gt;module&lt;/em&gt;! On first glance it might look like a
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Vector_space&quot;&gt;vector space&lt;/a&gt;, but because
 our voxels are arranged on a grid / indexed by integers and because they
@@ -83,31 +125,67 @@ with multiplying the tuple component wise with our factor.&lt;/p&gt;
 
 &lt;h3 id=&quot;cool-but-how-is-this-useful&quot;&gt;Cool, but how is this useful?&lt;/h3&gt;
 
-&lt;p&gt;Basically this gives intuition into what the length of a module is.
-The &lt;a href=&quot;https://en.wikipedia.org/wiki/Length_of_a_module&quot;&gt;length of a module&lt;/a&gt;
-is just the longest chain of submodules a module has, where a submodule
-is a proper subset of our module which is invariant under multiplication.&lt;/p&gt;
-
-&lt;p&gt;In terms of voxels this means:&lt;/p&gt;
+&lt;p&gt;We can find a &lt;a href=&quot;https://en.wikipedia.org/wiki/Generating_set_of_a_module&quot;&gt;generating set&lt;/a&gt;
+for this module which consists of three elements. These elements are
+the ones which lie in each cardinal direction
+&lt;script type=&quot;math/tex&quot;&gt;\{(1,0,0),(0,1,0),(0,0,1)\}&lt;/script&gt;. If we take &lt;script type=&quot;math/tex&quot;&gt;(1,0,0)&lt;/script&gt;
+and look at the submodules it creates, then it will be similar to the
+red line in this image:&lt;/p&gt;
 
 &lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;5P7as95&quot;&gt;&lt;a href=&quot;https://imgur.com/5P7as95&quot;&gt;View post on imgur.com&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;The blue arrow is a submodule, as is the red module. In fact, the entire
+&lt;p&gt;The blue line analogously represents the submodule generated by &lt;script type=&quot;math/tex&quot;&gt;(0,0,1)&lt;/script&gt;.
+And from here on, we can observe that the number of elements of this
+generating set is 3. Therefor we can also conclude that this module
+is &lt;a href=&quot;https://en.wikipedia.org/wiki/Finitely_generated_module&quot;&gt;finitely generated&lt;/a&gt;
+and kinda looks like a three dimensional vectorspace.&lt;/p&gt;
+
+&lt;h5 id=&quot;note&quot;&gt;Note&lt;/h5&gt;
+
+&lt;p&gt;At first I wanted to determine the length of the module and from there
+conclude that because this length is three, say that this relates to
+its three-dimensional representation. But this is false, because this
+module actually has infinite length, because we can for example
+pick &lt;script type=&quot;math/tex&quot;&gt;\langle(1,0,0)\rangle&lt;/script&gt; the submodule generated by &lt;script type=&quot;math/tex&quot;&gt;(1,0,0)&lt;/script&gt;
+and then pick a prime number &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; and look at the submodule generated by
+&lt;script type=&quot;math/tex&quot;&gt;\langle(p^n,0,0)\rangle, \&gt; n\in\mathbb{N}&lt;/script&gt;. This will lead a proper
+submodule for each &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;, kinda like in this image, where the
+y-Axis represents the &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;!&lt;/p&gt;
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;umB2aNP&quot;&gt;&lt;a href=&quot;https://imgur.com/umB2aNP&quot;&gt;View post on imgur.com&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;More on that in the &lt;a href=&quot;https://www.reddit.com/r/math/comments/k30zol/voxels_rings_and_modules_my_observations_on_how/?utm_source=share&amp;amp;utm_medium=web2x&amp;amp;context=3&quot;&gt;reddit thread&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--
+
+Basically this gives intuition into what the length of a module is.
+The [length of a module](https://en.wikipedia.org/wiki/Length_of_a_module)
+is just the longest chain of submodules a module has, where a submodule
+is a proper subset of our module which is invariant under multiplication.
+
+In terms of voxels this means:
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;5P7as95&quot;&gt;&lt;a href=&quot;https://imgur.com/5P7as95&quot;&gt;View post on imgur.com&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+The blue arrow is a submodule, as is the red module. In fact, the entire
 floor is a submodule (the floor includes the red arrow as a submodule,
 and the floor also includes the blue arrow as a submodule). And all these
 submodules are submodules of my entire level which is a subset of a
-“voxelspace”.&lt;/p&gt;
+&quot;voxelspace&quot;.
 
-&lt;p&gt;Now the length of a submodule also makes sense intuitively! If we consider
+Now the length of a submodule also makes sense intuitively! If we consider
 the entire level as a module, then we could pick the floor as a submodule
 and then we could pick the red arrow as a submodule of the floor submodule,
 and finally pick the empty-set as a submodule. But now we are stuck and
-have no more submodules of this &lt;em&gt;submodule&lt;/em&gt; of the red arrow &lt;em&gt;submodule&lt;/em&gt; of the
-floor &lt;em&gt;submodule&lt;/em&gt;. (Actually, this is the longest chain of proper
+have no more submodules of this _submodule_ of the red arrow _submodule_ of the
+floor _submodule_. (Actually, this is the longest chain of proper
 submodules one could take here). How many submodules are we deep now?
-The answer is &lt;em&gt;3&lt;/em&gt;! Therefor this module is of length three, which
-correlates to a vectorspace of dimension &lt;em&gt;3&lt;/em&gt;!&lt;/p&gt;
+The answer is _3_! Therefor this module is of length three, which
+correlates to a vectorspace of dimension _3_!
+
+--&gt;
 
 &lt;h3 id=&quot;final-words-of-wisdom&quot;&gt;Final words of wisdom&lt;/h3&gt;
 
