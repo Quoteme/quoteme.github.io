@@ -44,7 +44,7 @@ In case I was able to catch your interest, please do not hesitate to [contact me
 
 ### Awards
 
-| Auszeichnung | Quelle | Datum |
+| Award | Source | Date |
 |---|---|---|
 | Winner of "best game under development" with "Relic Hunters Zero" | [Brazilian indie games festivals 2015](https://www.bigfestival.com.br/big-festival-2015.html) | 2015 |
 | Top-100 physics-engine programmer | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
