@@ -17,7 +17,7 @@ title: About me
 
 I am Luca Leon Happel, a 21 year old Student in Düsseldorf and
 [Github top-100 programmer](https://xscode.com/profile/quoteme) in
-categories like physiks-gngines and rigid-body-dynamics
+categories like physiks-engines and rigid-body-dynamics
 who currently lives in Mönchengladbach. My interests include mathematics,
 computer-science, philosophy, languages, technology and lots more.
 My friends and collegues primarily know me for the extra mile I always
