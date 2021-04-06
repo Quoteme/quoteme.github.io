@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>
+    
+      Pacratch &ndash;
+    
+    Luca Leon Happel
+  </title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-44432837-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-44432837-2');
+</script>
+
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WTB4GCX');</script>
+<!-- End Google Tag Manager -->
+
+
+  <meta name="author" content="Luca Leon Happel" />
+  <meta name="description" content="A place for my thoughts" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://localhost:4000/css/base.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="http://localhost:4000/css/pygments.css" type="text/css" />
+  <link media="only screen and (max-device-width: 480px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
+  <link media="only screen and (device-width: 768px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
+  <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <script type="text/javascript" src="/js/application.js"></script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+<body>
+  <section class="sidebar">
+  <a href="/" aria-label="Avatar">
+    <img src="?s=150" height="75" width="75" class="avatar" />
+  </a>
+
+  <section class="name">
+    <a href="/">
+      <span id="fname">Luca</span>
+      <span id="lname">Happel</span>
+    </a>
+  </section>
+
+  <section class="meta">
+    <a href="" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><i class="fa fa-github"></i></a>
+    <a href="https://twitter.com/luca_happel" target="_blank" title="Follow me on Twitter" aria-label="Follow me on Twitter"><i class="fa fa-twitter"></i></a>
+    <a href="/atom.xml" title="Atom RSS feed" aria-label="Atom RSS feed"><i class="fa fa-rss"></i></a>
+  </section>
+
+  <section class="sections">
+    <ul>
+      <li><a href="/about">about</a></li>
+      <li><a href="/projects">projects</a></li>
+      <li><a href="/posts.html">posts</a></li>
+    </ul>
+  </section>
+</section>
+
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTB4GCX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <section class="content">
+  <h1>
+    <a href="/posts/pacratch">Pacratch</a>
+  </h1>
+
+  <section class="byline">
+    April  6, 2021
+  </section>
+
+  <blockquote class="imgur-embed-pub" lang="en" data-id="a/a9oSq6x"><a href="//imgur.com/a/a9oSq6x">Pacrach update 2020/04/06</a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<p>Ich arbeite jetzt seit fünf Tagen (plus/minus ein Tag oder so) an einem
+neuen Spiel, welches ich “Pacratch” nenne, nach dem Kartenspiel,
+welches ich in meiner Grundschule mal entworfen habe. Mehr dazu kann
+man auf <a href="https://github.com/Quoteme/pacratch">https://github.com/Quoteme/pacratch</a>
+nachlesen 👍🏻.</p>
+
+<p>Hier ist ein kleiner Statusreport von dem, wie weit ich momentan bin.
+Zuerst würde ich aber gerne Robert Smykala und Dominik Du für Ihre
+Hilfe beim Zeichnen der entsprechenden neuen Figuren Zitronenmann
+und Oni Warrior danken 🙏🏻.</p>
+
+<h2 id="kartenupdate">Kartenupdate</h2>
+
+<p>Updates zum Spielsystem sind, dass Karten nun folgende Daten angeben:</p>
+
+<p><img src="https://i.imgur.com/eNGu2rf.png" alt="momentanes Kartenlayout und abgespeicherte Daten" /></p>
+
+<p>Mehr zu dem Thema, welche Daten in einer Karte abgespeichert werden,
+wie man selber Karten entwerfen kann und wie man eine Preview einer
+Karte bekommen kann, kann man im <a href="https://github.com/Quoteme/pacratch/wiki/How-to-create-a-new-Pacratch">Pacrach Wiki</a>
+nachlesen.</p>
+
+<h2 id="spielsystem">Spielsystem</h2>
+
+<p>Das Spielsystem, beziehungsweise die Spiellogik wurde auch gestern
+Nacht etwas mehr von mir überdacht. Wie es jetzt aussieht, ist dass
+jeder Spieler ein Kartendeck hat, welches (sagen wir) 60 Karten je hat.
+Der Spieler zieht nun in jedem Zug eine gewisse Anzahl von Karten und
+darf diese, je nachdem wie schnell die Karte ist, um sein Deck legen.
+Es gibt Karten, welche Krieger sind, oder welche Stützpunkte sind, oder
+Ausrüstung, oder Infrastruktur, oder …, jedoch kommen diese alle
+vom Deck des Spielers.</p>
+
+<p>Ziel ist es, das Deck der anderen Spieler mit seinen Kriegern zu
+übernehmen. Dabei muss man bedenken, dass Krieger nicht all zu weit weg
+vom Kartendeck, beziehungsweise der Infrastruktur des Spielers gehen
+sollten, da sie dann keine Energie mehr erhalten (und Schaden durch
+Verschleiß erleiden).</p>
+
+<p>Man muss also abwägen, wie man am besten sein eigenes Imperium ausbaut
+und durch Monster, Krieger und gut geplante Infrastruktur zum Sieg
+gelangt.</p>
+
+<p>Hier ist noch ein Bild von dem momentanen Spielideeenplan:</p>
+
+<p><img src="https://i.imgur.com/91asZx9.png" alt="Spielideeenplan" /></p>
+
+<hr />
+
+<p>Zu guter Letzt ist hier noch eine Work-In-Progress preview für eine
+neue Art von Karte: Eine Infrastrukturkarte, welche es erlaubt Kriegern
+weiter vom Deck weg zu gehen und trotzdem Energie zu bekommen.
+Somit gibt sie Schutz und weil sie ein fliegendes Schloss ist, ist sie
+sogar etwas mobil, obwohl das mehr Energie zum Erhalt dieser Karte
+bedeutet.</p>
+
+<p><img src="https://i.imgur.com/1Kew2c0.png" alt="Preview der neuen Karte" /></p>
+
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="httpss://twitter.com/luca_happel" target="_blank">
+        <img src="?s=142" height="50" width="50" />
+      </a>
+
+      <p>
+        I'm a developer at GitHub. <a href="https://twitter.com/luca_happel" target="_blank">Follow me on Twitter</a>;
+        you'll enjoy my tweets and can contact me there.
+		<br>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="luca_happel">Tweet</a>
+      <a href="https://twitter.com/luca_happel" class="twitter-follow-button" data-show-count="false">Follow @luca_happel</a>
+      <script src="https://platform.twitter.com/widgets.js" type="text/javascript"></script>
+      </p>
+    </section>
+  </section>
+</section>
+
+</body>
+
+</html>

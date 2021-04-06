@@ -4,12 +4,98 @@
  <title>Luca Leon Happel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-01-18T03:17:43+01:00</updated>
+ <updated>2021-04-06T21:43:09+02:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
  </author>
  
+ 
+   
+   <entry>
+     <title>Pacratch</title>
+     <link href="http://localhost:4000/posts/pacratch"/>
+     <updated>2021-04-06T21:06:00+02:00</updated>
+     <id>http://localhost:4000/posts/pacratch</id>
+     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/a9oSq6x&quot;&gt;&lt;a href=&quot;//imgur.com/a/a9oSq6x&quot;&gt;Pacrach update 2020/04/06&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Ich arbeite jetzt seit fünf Tagen (plus/minus ein Tag oder so) an einem
+neuen Spiel, welches ich “Pacratch” nenne, nach dem Kartenspiel,
+welches ich in meiner Grundschule mal entworfen habe. Mehr dazu kann
+man auf &lt;a href=&quot;https://github.com/Quoteme/pacratch&quot;&gt;https://github.com/Quoteme/pacratch&lt;/a&gt;
+nachlesen 👍🏻.&lt;/p&gt;
+
+&lt;p&gt;Hier ist ein kleiner Statusreport von dem, wie weit ich momentan bin.
+Zuerst würde ich aber gerne Robert Smykala und Dominik Du für Ihre
+Hilfe beim Zeichnen der entsprechenden neuen Figuren Zitronenmann
+und Oni Warrior danken 🙏🏻.&lt;/p&gt;
+
+&lt;h2 id=&quot;kartenupdate&quot;&gt;Kartenupdate&lt;/h2&gt;
+
+&lt;p&gt;Updates zum Spielsystem sind, dass Karten nun folgende Daten angeben:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/eNGu2rf.png&quot; alt=&quot;momentanes Kartenlayout und abgespeicherte Daten&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mehr zu dem Thema, welche Daten in einer Karte abgespeichert werden,
+wie man selber Karten entwerfen kann und wie man eine Preview einer
+Karte bekommen kann, kann man im &lt;a href=&quot;https://github.com/Quoteme/pacratch/wiki/How-to-create-a-new-Pacratch&quot;&gt;Pacrach Wiki&lt;/a&gt;
+nachlesen.&lt;/p&gt;
+
+&lt;h2 id=&quot;spielsystem&quot;&gt;Spielsystem&lt;/h2&gt;
+
+&lt;p&gt;Das Spielsystem, beziehungsweise die Spiellogik wurde auch gestern
+Nacht etwas mehr von mir überdacht. Wie es jetzt aussieht, ist dass
+jeder Spieler ein Kartendeck hat, welches (sagen wir) 60 Karten je hat.
+Der Spieler zieht nun in jedem Zug eine gewisse Anzahl von Karten und
+darf diese, je nachdem wie schnell die Karte ist, um sein Deck legen.
+Es gibt Karten, welche Krieger sind, oder welche Stützpunkte sind, oder
+Ausrüstung, oder Infrastruktur, oder …, jedoch kommen diese alle
+vom Deck des Spielers.&lt;/p&gt;
+
+&lt;p&gt;Ziel ist es, das Deck der anderen Spieler mit seinen Kriegern zu
+übernehmen. Dabei muss man bedenken, dass Krieger nicht all zu weit weg
+vom Kartendeck, beziehungsweise der Infrastruktur des Spielers gehen
+sollten, da sie dann keine Energie mehr erhalten (und Schaden durch
+Verschleiß erleiden).&lt;/p&gt;
+
+&lt;p&gt;Man muss also abwägen, wie man am besten sein eigenes Imperium ausbaut
+und durch Monster, Krieger und gut geplante Infrastruktur zum Sieg
+gelangt.&lt;/p&gt;
+
+&lt;p&gt;Hier ist noch ein Bild von dem momentanen Spielideeenplan:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/91asZx9.png&quot; alt=&quot;Spielideeenplan&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Zu guter Letzt ist hier noch eine Work-In-Progress preview für eine
+neue Art von Karte: Eine Infrastrukturkarte, welche es erlaubt Kriegern
+weiter vom Deck weg zu gehen und trotzdem Energie zu bekommen.
+Somit gibt sie Schutz und weil sie ein fliegendes Schloss ist, ist sie
+sogar etwas mobil, obwohl das mehr Energie zum Erhalt dieser Karte
+bedeutet.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/1Kew2c0.png&quot; alt=&quot;Preview der neuen Karte&quot; /&gt;&lt;/p&gt;
+</content>
+   </entry>
+   
+ 
+   
+   <entry>
+     <title>Torusmeme</title>
+     <link href="http://localhost:4000/posts/torusmeme"/>
+     <updated>2021-03-24T23:55:00+01:00</updated>
+     <id>http://localhost:4000/posts/torusmeme</id>
+     <content type="html">&lt;p&gt;A funny meme I made about toruses:&lt;/p&gt;
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/WXBTYWm&quot;&gt;&lt;a href=&quot;//imgur.com/a/WXBTYWm&quot;&gt;The torus alignment chart&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You better laugh now.&lt;/p&gt;
+</content>
+   </entry>
+   
  
    
    <entry>
@@ -266,14 +352,14 @@ Gitter&quot; title=&quot;fig:&quot; /&gt;&lt;/li&gt;
 so Herr Wolfram folgender Maßen gebildet: “Start at some point in the
 hypergraph. Then follow \(r\) hyperedges in all possible ways. You’ve
 effectively made the analog of a “spherical ball” in the
-hypergraph.&quot;&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+hypergraph.&quot;&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;p&gt;Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
 viele Punkte in \(r\) Schritten oder weniger erreichbar sind. Sollte
 diese Ausbreitung der eines Polynoms ähnlich sein, so kann man anhand
 des Grades dessen die Dimension bestimmen. Das genaue bestimmen ist
 jedoch nicht trivial und wird im Kapitel 4.6 vom Wolfram Physics
-Project&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; genauer erklärt&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+Project&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; genauer erklärt&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;berechnung-der-dimension&quot;&gt;Berechnung der Dimension&lt;/h3&gt;
 
