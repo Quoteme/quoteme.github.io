@@ -18,12 +18,14 @@ title: "Projects"
         <span class='title'>Top2Man</span>
       </a>
     </div>
+<!--
     <div class='project'>
       <a href="https://quoteme.github.io/skript/">
         <img class='preview' src="https://i.imgur.com/3DSsCuD.png" alt="">
         <span class='title'>Lecture notes</span>
       </a>
     </div>
+-->
     <div class='project'>
       <a href="https://github.com/Quoteme/img2string/">
         <img class='preview' src="https://i.imgur.com/CmCh70g.gif" alt="">
