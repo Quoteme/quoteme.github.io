@@ -177,9 +177,9 @@ Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 	- kann gut mit Kindern umgehen
 	- stets offenkundig für neue Kulturen,Erfahrungen,Leute,...
 - Sprachen
-	- muttersprachliche Deutschkentnisse
-	- fließende Englischkentnisse
-	- grundlegende Türkischkentnisse
+	- muttersprachliche Deutschkenntnisse
+	- fließende Englischkenntnisse
+	- grundlegende Türkischkenntnisse
 
 ### Kontakt
 
