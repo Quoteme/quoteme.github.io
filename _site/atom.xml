@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-04-06T21:43:09+02:00</updated>
+ <updated>2021-10-26T22:43:02+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -13,10 +13,66 @@
  
    
    <entry>
-     <title>Pacratch</title>
-     <link href="http://localhost:4000/posts/pacratch"/>
-     <updated>2021-04-06T21:06:00+02:00</updated>
-     <id>http://localhost:4000/posts/pacratch</id>
+     <title>Math meme solve finished</title>
+     <link href="http://localhost:4000/posts/math_meme_proof_finished"/>
+     <updated>2021-10-21T23:58:00+00:00</updated>
+     <id>http://localhost:4000/posts/math_meme_proof_finished</id>
+     <content type="html">&lt;h2 id=&quot;the-exercise&quot;&gt;The exercise&lt;/h2&gt;
+
+&lt;p&gt;Around one year ago I tried to solve
+&lt;a href=&quot;/posts/math_meme_proof&quot;&gt;the following riddle&lt;/a&gt; involving
+abstract algebra, but I failed and did not finish the question at that&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/5gUWnRL.png&quot; alt=&quot;Prove that Rx/(x^2+bx+c) is isomorphic to R^2 or C&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-proof&quot;&gt;The proof&lt;/h2&gt;
+
+&lt;p&gt;Let \(f=x^2+bx+c\in\mathbb{R}[x]\). 
+\(f\) can either have one double root, iff the discriminant
+\(\Delta f=b^2-4c\) is
+zero, or it can have two real roots iff \(\Delta f&amp;gt;0\), or it can have
+two complex roots iff \(\Delta f&amp;lt;0\).&lt;/p&gt;
+
+&lt;h3 id=&quot;negative-discriminant&quot;&gt;Negative discriminant&lt;/h3&gt;
+
+&lt;p&gt;If \(\Delta f&amp;gt;0\) we have \(f(x)\in\mathbb{R}\) with \(x\not\in\mathbb{R}\).
+We can rewrite \(f(x)=x^2+bx+c=0\) to be \(x^2+bx=-c\), and therefor
+\(x^2+bx\in\mathbb{R}\).
+Also, because \(\Delta f&amp;gt;0\), we know that that we can split \(f(x)\)
+into its linear factors \(f(x)=(x-w)(x-v)\) with \(w,v\in\mathbb{R}\).
+This means that our number \(x\) will be equal to \(0\) if we subtract
+a real number from it, meaning it must be real, thereofr concluding
+that \(\mathbb{R}/(x^2+bx+c)\cong \mathbb{R}\times \mathbb{R}\)&lt;/p&gt;
+
+&lt;h3 id=&quot;positive-discriminant&quot;&gt;Positive discriminant&lt;/h3&gt;
+
+&lt;p&gt;In case our discriminant \(\Delta f\) is positive we know that
+\(f(x)\) cannot be split into real linear monomial factors, which
+means that \(x\) cannot be a real number.
+Also, because \(f\) only has purely complex roots, \(x\) must be a
+purely complex number as well.
+Because \(\mathbb{R}[x]/(f)\) is a vectorspace over \(\mathbb{R}\)
+we know that \(\alpha x+\beta=i\) for \(\alpha, \beta\in \mathbb{R}\),
+concluding that \(\mathbb{R}[x]/(x^2+bx+c) \cong \mathbb{R}[i]=\mathbb{C}\)&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Reading Bosch Algebra really helped me grasp some of the concepts like
+field extensions some more. I assume that this knowledge also took
+some time to ripen inside my brain, but after some time algebra
+finally makes more sense to me. Also I finished my exam about abstract
+algebra a few months ago! (While also studying for commutative algebra
+and already having finished my introductory course in algebraic geometry).&lt;/p&gt;
+</content>
+   </entry>
+   
+ 
+   
+   <entry>
+     <title>Pacratch Update bisher</title>
+     <link href="http://localhost:4000/posts/pacratch_update_bisher"/>
+     <updated>2021-04-06T21:06:00+00:00</updated>
+     <id>http://localhost:4000/posts/pacratch_update_bisher</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/a9oSq6x&quot;&gt;&lt;a href=&quot;//imgur.com/a/a9oSq6x&quot;&gt;Pacrach update 2020/04/06&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -85,7 +141,7 @@ bedeutet.&lt;/p&gt;
    <entry>
      <title>Torusmeme</title>
      <link href="http://localhost:4000/posts/torusmeme"/>
-     <updated>2021-03-24T23:55:00+01:00</updated>
+     <updated>2021-03-24T23:55:00+00:00</updated>
      <id>http://localhost:4000/posts/torusmeme</id>
      <content type="html">&lt;p&gt;A funny meme I made about toruses:&lt;/p&gt;
 
@@ -101,7 +157,7 @@ bedeutet.&lt;/p&gt;
    <entry>
      <title>Math meme solve - When is R[x]/(x^2+bx+c) isomorphic to R^2 or C</title>
      <link href="http://localhost:4000/posts/math_meme_proof"/>
-     <updated>2020-12-03T13:58:00+01:00</updated>
+     <updated>2020-12-03T13:58:00+00:00</updated>
      <id>http://localhost:4000/posts/math_meme_proof</id>
      <content type="html">&lt;p&gt;A few minute ago I stumbled upon this meme on some math and science
 forum:&lt;/p&gt;
@@ -143,7 +199,7 @@ the remainder must be of the form \(ax+b \in \mathbb{R}[x]/(f)\)&lt;/p&gt;
    <entry>
      <title>Voxels, Rings and Modules - My observations on how games like minecraft relate to abstract algebra</title>
      <link href="http://localhost:4000/posts/voxels_rings_and_modules"/>
-     <updated>2020-11-26T20:25:00+01:00</updated>
+     <updated>2020-11-26T20:25:00+00:00</updated>
      <id>http://localhost:4000/posts/voxels_rings_and_modules</id>
      <content type="html">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
@@ -287,7 +343,7 @@ uncovered hidden in your own imagination.&lt;/p&gt;
    <entry>
      <title>neue Art Dimension zu zählen</title>
      <link href="http://localhost:4000/posts/neue_Art_Dimension_zu_z%C3%A4hlen"/>
-     <updated>2020-05-22T14:16:00+02:00</updated>
+     <updated>2020-05-22T14:16:00+00:00</updated>
      <id>http://localhost:4000/posts/neue_Art_Dimension_zu_zählen</id>
      <content type="html">&lt;h3 id=&quot;einleitung-in-die-theorie&quot;&gt;Einleitung in die Theorie&lt;/h3&gt;
 
@@ -550,7 +606,7 @@ Beispielsweise Gravitation auf natürliche Weise auftaucht.&lt;/p&gt;
    <entry>
      <title>BildBesucher hat jetzt JSDoc-support</title>
      <link href="http://localhost:4000/posts/BildBesucher_hat_jetzt_JSDoc-support"/>
-     <updated>2020-04-18T00:00:00+02:00</updated>
+     <updated>2020-04-18T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/BildBesucher_hat_jetzt_JSDoc-support</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/IX4jhgT&quot;&gt;&lt;a href=&quot;//imgur.com/a/IX4jhgT&quot;&gt;Overview of my first jsdoc documentation (quoteme.github.io/bildbesucher/docs)&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
@@ -586,7 +642,7 @@ halten sollte.&lt;/p&gt;
    <entry>
      <title>BildBesucher</title>
      <link href="http://localhost:4000/posts/BildBesucher"/>
-     <updated>2020-04-07T00:00:00+02:00</updated>
+     <updated>2020-04-07T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/BildBesucher</id>
      <content type="html">&lt;p&gt;&lt;a href=&quot;https://quoteme.github.io/bildbesucher/&quot;&gt;Hier klicken um BildBesucher online auszuprobieren&lt;/a&gt;&lt;/p&gt;
 
@@ -635,7 +691,7 @@ zuende führe als sonst 😪&lt;/p&gt;
    <entry>
      <title>My first program in the AUR</title>
      <link href="http://localhost:4000/posts/my_first_program_in_the_AUR"/>
-     <updated>2020-03-28T00:00:00+01:00</updated>
+     <updated>2020-03-28T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/my_first_program_in_the_AUR</id>
      <content type="html">&lt;p&gt;Recently I discovered some more of the incredibly useful features of
 my favorite text-editor &lt;a href=&quot;https://github.com/neovim/neovim&quot;&gt;Neovim&lt;/a&gt;:&lt;/p&gt;
@@ -733,7 +789,7 @@ had no clue anymore on what to do, I was able to install my package using the AU
    <entry>
      <title>Custom login-prompt in linux</title>
      <link href="http://localhost:4000/posts/custom_loginprompt_linux"/>
-     <updated>2020-03-02T00:00:00+01:00</updated>
+     <updated>2020-03-02T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/custom_loginprompt_linux</id>
      <content type="html">&lt;p&gt;I was asked on &lt;a href=&quot;https://www.reddit.com/r/archlinux/comments/fc4vqs/removing_lightdm/&quot;&gt;reddit&lt;/a&gt; how to change this:&lt;/p&gt;
 
@@ -825,7 +881,7 @@ had no clue anymore on what to do, I was able to install my package using the AU
    <entry>
      <title>glider</title>
      <link href="http://localhost:4000/posts/glider"/>
-     <updated>2020-02-27T00:00:00+01:00</updated>
+     <updated>2020-02-27T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/glider</id>
      <content type="html">&lt;p&gt;Heute bin ich beim Durchsuchen meines alten Laptops auf ein Projekt
 von vor fast genau einem Jahr und einem Monat gestoßen:&lt;/p&gt;
@@ -860,7 +916,7 @@ ich erreichen wollte.&lt;/p&gt;
    <entry>
      <title>i3bar</title>
      <link href="http://localhost:4000/posts/i3bar"/>
-     <updated>2020-02-19T00:00:00+01:00</updated>
+     <updated>2020-02-19T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/i3bar</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/swgn01F&quot;&gt;&lt;a href=&quot;//imgur.com/a/swgn01F&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
@@ -925,7 +981,7 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
    <entry>
      <title>Jupyter Notebook auf Android</title>
      <link href="http://localhost:4000/posts/jupyter_pydroid"/>
-     <updated>2020-02-18T00:00:00+01:00</updated>
+     <updated>2020-02-18T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/jupyter_pydroid</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;XKFMPSw&quot;&gt;&lt;a href=&quot;//imgur.com/XKFMPSw&quot;&gt;Jupyter Notebook on Android&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
@@ -955,7 +1011,7 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
    <entry>
      <title>intersect.mjs und der Sphären/Boxen-Schnitt</title>
      <link href="http://localhost:4000/posts/intersect_sphere_box"/>
-     <updated>2020-02-14T00:00:00+01:00</updated>
+     <updated>2020-02-14T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/intersect_sphere_box</id>
      <content type="html">&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
 
@@ -1080,7 +1136,7 @@ eine allgemeine Lösung zu finden.&lt;/p&gt;
    <entry>
      <title>First Post</title>
      <link href="http://localhost:4000/posts/first_post"/>
-     <updated>2020-02-09T00:00:00+01:00</updated>
+     <updated>2020-02-09T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/first_post</id>
      <content type="html">&lt;p&gt;Ich habe nun endlich meine Seite geupdated, sodass ich ein etwas
 moderneres Layout verwende und dazu noch die praktisch unbegrenzten
