@@ -134,58 +134,58 @@ Räume zu übersetzen. Doch im Endeffekt waren die Formeln eigentlich die
 selben, nur habe ich es mir selber unnötig kompliziert gemacht, indem
 ich selber noch herumgeforscht habe:</p>
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/3yjeSPI"><a href="//imgur.com/a/3yjeSPI">Meine Ideen zum Dimensionsbegriff</a></blockquote>
-<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/3yjeSPI">
+  <p><a href="//imgur.com/a/3yjeSPI">Meine Ideen zum Dimensionsbegriff</a>&lt;/blockquote&gt;<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script></p>
 
-<h3 id="wie-funktioniert-dieser-dimensionsbegriff">Wie funktioniert dieser Dimensionsbegriff?</h3>
+  <h3 id="wie-funktioniert-dieser-dimensionsbegriff">Wie funktioniert dieser Dimensionsbegriff?</h3>
 
-<p>Betrachte folgende Graphen:</p>
+  <p>Betrachte folgende Graphen:</p>
 
-<ul>
-  <li><img src="https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png" alt="2D Sphäre im
+  <ul>
+    <li><img src="https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png" alt="2D Sphäre im
 Gitter" title="fig:" /></li>
-  <li><img src="https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png" alt="3D Sphäre im
+    <li><img src="https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png" alt="3D Sphäre im
 Gitter" title="fig:" /></li>
-</ul>
+  </ul>
 
-<p>Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
+  <p>Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
 so Herr Wolfram folgender Maßen gebildet: “Start at some point in the
 hypergraph. Then follow \(r\) hyperedges in all possible ways. You’ve
 effectively made the analog of a “spherical ball” in the
 hypergraph."<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
 
-<p>Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
+  <p>Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
 viele Punkte in \(r\) Schritten oder weniger erreichbar sind. Sollte
 diese Ausbreitung der eines Polynoms ähnlich sein, so kann man anhand
 des Grades dessen die Dimension bestimmen. Das genaue bestimmen ist
 jedoch nicht trivial und wird im Kapitel 4.6 vom Wolfram Physics
 Project<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> genauer erklärt<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> <sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup></p>
 
-<h3 id="berechnung-der-dimension">Berechnung der Dimension</h3>
+  <h3 id="berechnung-der-dimension">Berechnung der Dimension</h3>
 
-<h5 id="hinweis">Hinweis</h5>
+  <h5 id="hinweis">Hinweis</h5>
 
-<p>In dem Folgenden wird eine von mir entwickelte Version betrachtet,
+  <p>In dem Folgenden wird eine von mir entwickelte Version betrachtet,
 welche an das
 <a href="https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/">Original</a>
 nur angelehnt ist.</p>
 
-<h5 id="berechnung">Berechnung</h5>
+  <h5 id="berechnung">Berechnung</h5>
 
-<p>Sei \((M,d)\) ein metrischer Raum.</p>
+  <p>Sei \((M,d)\) ein metrischer Raum.</p>
 
-<ul>
-  <li>\(M\) ist Menge</li>
-  <li>\(d: M\times M \rightarrow \mathbb{R}_{\ge 0}\) ist eine Metrik</li>
-</ul>
+  <ul>
+    <li>\(M\) ist Menge</li>
+    <li>\(d: M\times M \rightarrow \mathbb{R}_{\ge 0}\) ist eine Metrik</li>
+  </ul>
 
-<p>Sei \(V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|\) die Anzahl aller
+  <p>Sei \(V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|\) die Anzahl aller
 Punkte eines Balles mit Radius \(r\).</p>
 
-<p>Sei
+  <p>Sei
 \(\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r,x}}}{\log{\frac{r+1}{r}}}\).</p>
 
-<p>Nun gilt folgendes:</p>
+  <p>Nun gilt folgendes:</p>
 
 \[\text{dim}(M,d) = \begin{cases}
     \lim_{r\rightarrow \infty}\Delta_{r,x} &amp; \text{wenn}\&gt; |M|\ge\infty \wedge |V_{r,x}|&lt;\infty\\
@@ -197,7 +197,7 @@ Punkte eines Balles mit Radius \(r\).</p>
     \end{gather} &amp; \text{wenn}\&gt; |M|&lt;\infty
 \end{cases}\]
 
-<h5 id="beispiel-1">Beispiel 1</h5>
+  <h5 id="beispiel-1">Beispiel 1</h5>
 
 \[\begin{aligned}
     M      &amp; = \mathbb{Z} \\
@@ -207,10 +207,10 @@ Punkte eines Balles mit Radius \(r\).</p>
     \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 1
 \end{aligned}\]
 
-<p>Hier stimmt die Dimension offensichtlich mit der herkömmlichen
+  <p>Hier stimmt die Dimension offensichtlich mit der herkömmlichen
 Definition überein.</p>
 
-<h5 id="beispiel-2">Beispiel 2</h5>
+  <h5 id="beispiel-2">Beispiel 2</h5>
 
 \[\begin{aligned}
     M      &amp; = \mathbb{Z}^2 \\
@@ -220,7 +220,7 @@ Definition überein.</p>
     \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;= 2
 \end{aligned}\]
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="n">V</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span>
 <span class="n">Delta</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">V</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">V</span><span class="p">(</span><span class="n">r</span><span class="p">)))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
@@ -229,17 +229,17 @@ Definition überein.</p>
 <span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xn</span><span class="p">,</span> <span class="n">Delta</span><span class="p">(</span><span class="n">xn</span><span class="p">))</span>
 <span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div></div>
+</code></pre></div>  </div>
 
-<p><img src="../images/assets/unnamed-chunk-1-1.png" alt="" /></p>
+  <p><img src="../images/assets/unnamed-chunk-1-1.png" alt="" /></p>
 
-<p>Auch hier stimmen die Definitionen überein.</p>
+  <p>Auch hier stimmen die Definitionen überein.</p>
 
-<h5 id="beispiel-3">Beispiel 3</h5>
+  <h5 id="beispiel-3">Beispiel 3</h5>
 
-<p>Ein Sierpiński Dreieck kann folgender Maßen gebildet werden:</p>
+  <p>Ein Sierpiński Dreieck kann folgender Maßen gebildet werden:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 
 <span class="n">sirp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[[],[],[]]</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="p">[]</span> <span class="k">else</span> <span class="p">[</span> <span class="n">sirp</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
@@ -272,11 +272,11 @@ Definition überein.</p>
 <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># Nun berechnen wir V_r für jeden Punkt für verschiedene r
-</span></code></pre></div></div>
+</span></code></pre></div>  </div>
 
-<p><img src="../images/assets/unnamed-chunk-2-1.png" alt="" /></p>
+  <p><img src="../images/assets/unnamed-chunk-2-1.png" alt="" /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rn</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.025</span><span class="p">)</span>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rn</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.025</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">hypot</span>
 <span class="n">U</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">:</span> <span class="p">[</span> <span class="n">q</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">points</span> <span class="k">if</span> <span class="n">d</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="n">q</span><span class="p">))</span><span class="o">&lt;=</span><span class="n">r</span> <span class="p">]</span>
 <span class="n">V</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
@@ -297,11 +297,11 @@ Definition überein.</p>
 <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># Delta berechnung
-</span></code></pre></div></div>
+</span></code></pre></div>  </div>
 
-<p><img src="../images/assets/unnamed-chunk-2-2.png" alt="" /></p>
+  <p><img src="../images/assets/unnamed-chunk-2-2.png" alt="" /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dn</span> <span class="o">=</span> <span class="p">[</span><span class="n">rn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">rn</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+  <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dn</span> <span class="o">=</span> <span class="p">[</span><span class="n">rn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">rn</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
 <span class="n">Delta</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">rn</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">rn</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 <span class="n">dval</span> <span class="o">=</span> <span class="p">[</span><span class="n">Delta</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dn</span><span class="p">))]</span>
 
@@ -311,21 +311,22 @@ Definition überein.</p>
 <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Radius $r$'</span><span class="p">)</span>
 <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'$\Delta_r$'</span><span class="p">)</span>
 <span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'Durchschnittliches $\Delta_r$'</span><span class="p">,</span> <span class="s">'$Hausdorff Dimension von Sierpiński-Dreieck</span><span class="se">\a</span><span class="s">pprox\log_2(3)$'</span><span class="p">])</span>
-</code></pre></div></div>
+</code></pre></div>  </div>
 
-<p><img src="../images/assets/unnamed-chunk-2-3.png" alt="" /></p>
+  <p><img src="../images/assets/unnamed-chunk-2-3.png" alt="" /></p>
 
-<p>Dies bewegt sich nahe der <a href="https://de.wikipedia.org/wiki/Hausdorff-Dimension">Hausdorff
+  <p>Dies bewegt sich nahe der <a href="https://de.wikipedia.org/wiki/Hausdorff-Dimension">Hausdorff
 Dimension</a> von einem
 Sierpiński-Dreieck und zeigt, dass diese Methode genereller ist, als
 die Bestimmung der Dimension, wie sie in der linearen Algebra
 beigebracht wird.</p>
 
-<p>In den Folgenden Beiträgen, werde ich auf einige der Eigenschaften
+  <p>In den Folgenden Beiträgen, werde ich auf einige der Eigenschaften
 dieses Dimensionsbegriffes eingehen. Darunter wird auch fallen, welche
 Auswirkung die Dimension auf die Krümmung des Raumes hat und wie somit,
 Beispielsweise Gravitation auf natürliche Weise auftaucht.</p>
 
+</blockquote>
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:1" role="doc-endnote">

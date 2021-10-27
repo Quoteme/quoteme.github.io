@@ -3,7 +3,7 @@ layout: layout
 title: "Projects"
 ---
 
-<section class="content">
+<section class="content" markdown="0">
   <h1>Projects</h1>
   <div class='projectOverview'>
     <div class='project'>

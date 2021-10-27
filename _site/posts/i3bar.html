@@ -89,61 +89,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     February 19, 2020
   </section>
 
-  <blockquote class="imgur-embed-pub" lang="en" data-id="a/swgn01F"><a href="//imgur.com/a/swgn01F"></a></blockquote>
-<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+  <blockquote class="imgur-embed-pub" lang="en" data-id="a/swgn01F">
+  <p><a href="//imgur.com/a/swgn01F"></a>&lt;/blockquote&gt;<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script></p>
 
-<p>Du findest mein Laptop sieht interessant aus?
+  <p>Du findest mein Laptop sieht interessant aus?
 Du würdest gerne die selbe Statusbar in <a href="i3wm.org">i3</a>
 haben wie ich?
 Dann ist hier die Anleitung für dich!</p>
 
-<ol>
-  <li>
-    <p>(trivial) installiere <a href="i3wm.org">i3</a> <!--und [i3bar](https://i3wm.org/docs/i3bar-protocol.html)-->
+  <ol>
+    <li>
+      <p>(trivial) installiere <a href="i3wm.org">i3</a> <!--und [i3bar](https://i3wm.org/docs/i3bar-protocol.html)-->
  (<code class="language-plaintext highlighter-rouge">$ pacman -S i3-gaps</code>)</p>
-  </li>
-  <li>
-    <p>falls du <a href="https://github.com/i3/i3status">i3status</a> installiert hast: deinstalliere es
+    </li>
+    <li>
+      <p>falls du <a href="https://github.com/i3/i3status">i3status</a> installiert hast: deinstalliere es
  (<code class="language-plaintext highlighter-rouge">$ pacman -Rns i3status</code>)</p>
-  </li>
-  <li>
-    <p>installiere <a href="https://github.com/davidscholberg/goblocks">goblocks</a>
+    </li>
+    <li>
+      <p>installiere <a href="https://github.com/davidscholberg/goblocks">goblocks</a>
  (<code class="language-plaintext highlighter-rouge"># yay goblocks</code>, falls <a href="https://github.com/Jguer/yay">yay</a> bereits installiert ist)</p>
-  </li>
-  <li>
-    <p>Ändere <code class="language-plaintext highlighter-rouge">i3status</code> -&gt; <code class="language-plaintext highlighter-rouge">goblocks</code> in <code class="language-plaintext highlighter-rouge">.config/i3/config</code></p>
-  </li>
-  <li>Bearbeite <code class="language-plaintext highlighter-rouge">.config/goblocks/goblocks.yml</code>
-    <ul>
-      <li>schreibe eine config selber</li>
-      <li>oder kopiere <a href="https://pastebin.com/VWpMasZx">meine config</a>
+    </li>
+    <li>
+      <p>Ändere <code class="language-plaintext highlighter-rouge">i3status</code> -&gt; <code class="language-plaintext highlighter-rouge">goblocks</code> in <code class="language-plaintext highlighter-rouge">.config/i3/config</code></p>
+    </li>
+    <li>Bearbeite <code class="language-plaintext highlighter-rouge">.config/goblocks/goblocks.yml</code>
+      <ul>
+        <li>schreibe eine config selber</li>
+        <li>oder kopiere <a href="https://pastebin.com/VWpMasZx">meine config</a>
   diese hat <code class="language-plaintext highlighter-rouge">playerctl</code> mitinbehalten. Wenn du das nicht möchtest,
   lösche einfach den dazugehörende ‘command’-Abschnitt. Ansonsten
   siehe den nächsten Abschnitt an</li>
-    </ul>
-  </li>
-  <li>(optional) installiere <a href="https://github.com/altdesktop/playerctl">playerctl</a>
+      </ul>
+    </li>
+    <li>(optional) installiere <a href="https://github.com/altdesktop/playerctl">playerctl</a>
  um die momentan spielende Musik (auf youtube/spotify/…) anzuzeigen.
  <code class="language-plaintext highlighter-rouge"># pacman -S playerctl</code>
  und verwende den folgenden code in deiner config</li>
-</ol>
+  </ol>
 
-<figure class="highlight"><pre><code class="language-text" data-lang="text">blocks:
+  <figure class="highlight">
+    <pre><code class="language-text" data-lang="text">blocks:
     - type: command
       label: "msc " # "📻"
-      command: sh /home/DEINNUTZERNAME/.config/goblocks/musicdisplay.sh</code></pre></figure>
+      command: sh /home/DEINNUTZERNAME/.config/goblocks/musicdisplay.sh</code></pre>
+  </figure>
 
-<p>und erstelle die Datei <code class="language-plaintext highlighter-rouge">musicdisplay.sh</code>:</p>
+  <p>und erstelle die Datei <code class="language-plaintext highlighter-rouge">musicdisplay.sh</code>:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/usr/bin/env bash</span>
-<span class="nb">echo</span> <span class="si">$(</span>playerctl metadata <span class="nt">--format</span> <span class="s1">' - '</span><span class="si">)</span></code></pre></figure>
+  <figure class="highlight">
+    <pre><code class="language-bash" data-lang="bash"><span class="c">#!/usr/bin/env bash</span>
+<span class="nb">echo</span> <span class="si">$(</span>playerctl metadata <span class="nt">--format</span> <span class="s1">' - '</span><span class="si">)</span></code></pre>
+  </figure>
 
-<hr />
+  <hr />
 
-<p><img src="https://i.imgur.com/qlEUHuk.png" alt="meine Statusbar mit Icons statt Text" /></p>
+  <p><img src="https://i.imgur.com/qlEUHuk.png" alt="meine Statusbar mit Icons statt Text" /></p>
 
-<p>NOTIZ: Um die selben Icons zu haben muss man <a href="https://github.com/stark/siji">Siji</a> installieren <code class="language-plaintext highlighter-rouge"># yay -S siji-git</code> und in seiner <code class="language-plaintext highlighter-rouge">.config/i3/config</code> folgendes als font setzen: <code class="language-plaintext highlighter-rouge">font pango: Gohu GohuFont, Siji 11px</code></p>
+  <p>NOTIZ: Um die selben Icons zu haben muss man <a href="https://github.com/stark/siji">Siji</a> installieren <code class="language-plaintext highlighter-rouge"># yay -S siji-git</code> und in seiner <code class="language-plaintext highlighter-rouge">.config/i3/config</code> folgendes als font setzen: <code class="language-plaintext highlighter-rouge">font pango: Gohu GohuFont, Siji 11px</code></p>
 
+</blockquote>
 
 
   <!-- TODO: bio here -->

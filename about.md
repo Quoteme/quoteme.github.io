@@ -3,13 +3,10 @@ layout: bio
 title: About me
 ---
 
-# Languages:
-
-- 🇬🇧[English](#english)
-- 🇩🇪[Deutsch](#deutsch)
-
----
----
+<span style="float: right">
+[🇬🇧](#english)
+[🇩🇪](#deutsch)
+<span>
 
 ## English {#english}
 
@@ -17,10 +14,10 @@ title: About me
 
 I am Luca Leon Happel, a 21 year old Student in Düsseldorf and
 [top-100 programmer on Github](https://xscode.com/profile/quoteme) in
-categories like physiks-engines and rigid-body-dynamics
+categories like physics-engines and rigid-body-dynamics
 who currently lives in Mönchengladbach. My interests include mathematics,
 computer-science, philosophy, languages, technology and lots more.
-My friends and collegues primarily know me for the extra mile I always
+My friends and colleges primarily know me for the extra mile I always
 put into my work in order to help them and myself.
 
 In case I was able to catch your interest, please do not hesitate to [contact me](#contact).
@@ -52,7 +49,15 @@ In case I was able to catch your interest, please do not hesitate to [contact me
 | Top-1000 canvas-technology developer | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 | Top-150.000 programmer | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 
-### other skills
+### Other skills
+
+My list of skills is very long and I could not list all of them so far.
+Therefor I compiled a short preview of some skills I currently possess.
+(Caution: This list is not updated regularity!)
+
+<details>
+<summary markdown="span">click to expand</summary>
+
 - "Advanced" knowledge about mathematics
     - aiming for a Bachelor/Master degree in mathematics
 - Programming knowledge
@@ -89,6 +94,7 @@ In case I was able to catch your interest, please do not hesitate to [contact me
 	- native in German
 	- fluent in English
 	- basic understanding of Turkish
+</details>
 
 ### Contact
 
@@ -130,7 +136,7 @@ Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 |---|---|---|
 | 2-Wochen Praktikum | ProVita | 2017 |
 | Bademeister | NEW Volksbad Mönchengl. | 2018 |
-| Wissenschaftliche Hilfskraft für computergestütze lineare Algebra | Heinrich Heine Universität Düsseldorf | 2020-2021 |
+| Wissenschaftliche Hilfskraft für computergestützte lineare Algebra | Heinrich Heine Universität Düsseldorf | 2020-2021 |
 
 ### Auszeichnungen
 
@@ -142,7 +148,16 @@ Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 | Top-1000 Canvas-Technology Entwickler | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 | Top-150.000 Programmierer | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 
-### Weitere Besonderheiten
+### Weitere Fähigkeiten
+
+Meine Liste von Kenntnissen und Fähigkeiten ist nicht komplett. Viele
+Sachen die ich gelernt habe sind nicht darauf, da ich diese Liste nur
+selten auf den neuesten Stand bringe. Dennoch denke ich, dass dieser
+kleine Glimps bereits ein wenig Aufschluss auf mein Engagement liefert.
+
+<details>
+<summary markdown="span">Klicken für mehr Information</summary>
+
 - fortgeschrittenes mathematischem Verständnis
     - derzeitiges Ziel: Bachelor/Master in Mathematik an Universität
 - Programmierfähigkeiten
@@ -180,6 +195,8 @@ Sollte ich Ihr Interessen geweckt haben, können Sie mich gerne kontaktieren.
 	- muttersprachliche Deutschkenntnisse
 	- fließende Englischkenntnisse
 	- grundlegende Türkischkenntnisse
+
+</details>
 
 ### Kontakt
 

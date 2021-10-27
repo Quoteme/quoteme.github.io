@@ -147,7 +147,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h5 id="version-that-updates-on-shutdown">Version that updates on shutdown</h5>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># /etc/systemd/system/neofetch_login_prompt.service</span>
+<figure class="highlight">
+  <pre><code class="language-bash" data-lang="bash"><span class="c"># /etc/systemd/system/neofetch_login_prompt.service</span>
 <span class="o">[</span>Util]
 <span class="nv">Description</span><span class="o">=</span>Display Neofetch before login <span class="k">in </span>a TTY
 
@@ -157,11 +158,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span><span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/env bash <span class="nt">-ec</span> <span class="s1">'neofetch &gt; /etc/issue'</span>
 
 <span class="o">[</span>Install]
-<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target</code></pre></figure>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target</code></pre>
+</figure>
 
 <h5 id="version-that-updates-at-boot">Version that updates at boot</h5>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># /etc/systemd/system/neofetch_login_prompt.service</span>
+<figure class="highlight">
+  <pre><code class="language-bash" data-lang="bash"><span class="c"># /etc/systemd/system/neofetch_login_prompt.service</span>
 <span class="o">[</span>Util]
 <span class="nv">Description</span><span class="o">=</span>Display Neofetch before login <span class="k">in </span>a TTY
 
@@ -169,7 +172,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/env bash <span class="nt">-ec</span> <span class="s1">'neofetch &gt; /etc/issue'</span>
 
 <span class="o">[</span>Install]
-<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target</code></pre></figure>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target</code></pre>
+</figure>
 
 
 

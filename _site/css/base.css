@@ -1,9 +1,9 @@
 @charset "UTF-8";
-body { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; margin: 0; -webkit-font-smoothing: antialiased; }
+body { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; margin: 0; -webkit-font-smoothing: antialiased; background: #161616; color: #fff; }
 
-a { color: #227ce8; }
+a { color: #598ecd; }
 
-.sidebar { position: fixed; padding: 15px; background: #fff; z-index: 1; width: 80px; font-family: Helvetica, sans-serif; }
+.sidebar { position: fixed; top: 0px; padding: 15px; background: #0c0c0c; z-index: 1; width: 80px; box-shadow: 5px 0px 10px #060606; height: 100vh; font-family: Helvetica, sans-serif; }
 
 .sidebar a { text-decoration: none; }
 
@@ -13,45 +13,53 @@ a { color: #227ce8; }
 
 .sidebar .name { text-transform: uppercase; margin: 10px 0 20px 0; }
 
-.sidebar .name #fname { padding-left: 1px; font-size: 23px; letter-spacing: 5px; color: black; }
+.sidebar .name #fname { padding-left: 1px; font-size: 23px; letter-spacing: 5px; color: #fae73b; }
 
-.sidebar .name #lname { font-size: 17px; font-weight: bold; letter-spacing: 1px; color: black; }
+.sidebar .name #lname { font-size: 17px; font-weight: bold; letter-spacing: 1px; color: #fae73b; }
 
 .sidebar .meta { margin-left: 4px; }
 
-.sidebar .meta a { margin-left: 0px; color: black; }
+.sidebar .meta a { margin-left: 0px; color: white; transition: 0.25s; }
 
-.sidebar .meta a:hover { color: #227ce8; }
+.sidebar .meta a:hover { transition: 0.25s; color: #227ce8; }
 
 .sidebar .meta .icon { margin-right: 6px; }
 
 .sidebar .sections { margin: 15px 0 0 0; }
 
-.sidebar .sections a { padding: 3px 0; color: black; font-weight: bold; font-size: 12px; display: block; }
+.sidebar .sections a { padding: 3px 0; color: white; font-weight: bold; font-size: 12px; display: block; transition: 0.25s; }
 
-.sidebar .sections a:hover { color: #227ce8; }
+.sidebar .sections a:hover { color: #227ce8; transition: 0.25s; }
 
 .sidebar .sections ul { margin: 0; padding: 0; }
 
 .sidebar .sections li { list-style: none; margin-bottom: 7px; }
 
-.content { max-width: 650px; margin-left: 110px; margin-right: 20px; margin-bottom: 50px; }
+.content { max-width: 650px; margin-left: 130px; margin-right: 20px; margin-bottom: 50px; }
 
-.content h1, .content h2, .content h3, .content h4 { color: #333; font-family: "Yanone Kaffeesatz", Helvetica, sans-serif; font-weight: 400; }
+.content h1, .content h2, .content h3, .content h4 { color: #e9e9e9; font-family: "Yanone Kaffeesatz", Helvetica, sans-serif; font-weight: 400; }
 
-.content h1 a, .content h2 a, .content h3 a, .content h4 a { color: #111; text-decoration: none; }
+.content h1 a, .content h2 a, .content h3 a, .content h4 a { color: #e9e9e9; text-decoration: none; }
 
 .content h1 { font-size: 36px; margin: 18px 0 5px 0; }
 
-.content h2 { font-size: 30px; margin-bottom: 15px; }
+.content h1 a { transition: 0.25s; }
 
-.content h3 { color: #777; font-size: 25px; padding-bottom: 5px; margin-bottom: 10px; }
+.content h1 a:hover { color: #3b87fa; transition: 0.25s; }
+
+.content h2 { font-size: 30px; margin-bottom: 15px; transition: 0.25s; }
+
+.content h2:hover { color: #fa693b; transition: 0.25s; }
+
+.content h3 { color: #d9d9d9; font-size: 25px; padding-bottom: 5px; margin-bottom: 10px; transition: 0.25s; }
+
+.content h3:hover { color: #7efa3b; transition: 0.25s; }
 
 .content p { font-size: 16px; margin-top: 0; margin-bottom: 1.2em; line-height: 1.7em; }
 
-.content p code { font-size: 12px; background-color: #eeeeee; border: 1px solid #777777; border-radius: 3px; padding: 2px 3px; }
+.content code { max-width: 100%; font-size: 12px; display: inline-block; background-color: #000; border: 1px solid #000; border-radius: 3px; padding: 2px 3px; }
 
-.content img { padding: 3px; border: 1px solid #eeeeee; max-width: 100%; }
+.content img { padding: 3px; border: 1px solid #060606; max-width: 100%; }
 
 .content hr { border: 0; height: 6px; background-image: url("/images/hr.png"); background-repeat: repeat-x; margin: 2em 3em; }
 
@@ -63,7 +71,7 @@ a { color: #227ce8; }
 
 .content blockquote cite:before { content: '— '; }
 
-.content .byline { margin-bottom: 17px; font-family: "Yanone Kaffeesatz", Helvetica, sans-serif; padding-left: 0px; font-size: 17px; color: #777; }
+.content .byline { margin-bottom: 17px; font-family: "Yanone Kaffeesatz", Helvetica, sans-serif; padding-left: 0px; font-size: 17px; color: #bbb; }
 
 .content .aside { background-color: #eeeeee; padding: 14px; font-size: 14px; margin: 5px 0 15px 0; font-family: Helvetica, sans-serif; line-height: 1.6em; }
 
@@ -92,5 +100,13 @@ a { color: #227ce8; }
 .content .talk-design .color div { float: left; margin-right: 10px; padding: 5px 15px; border: 1px solid #000; font-family: Helvetica, sans-serif; font-size: 12px; font-weight: bold; }
 
 .content .talk-design .color .white { color: #fff; }
+
+table { border-collapse: collapse; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+
+table th, table td { border: 1px solid black; padding: 4px; }
+
+table th { padding: 8px; background: #0e0e0e; }
+
+table td { background: #131313; }
 
 /*# sourceMappingURL=base.css.map */

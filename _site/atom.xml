@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-10-26T22:43:02+00:00</updated>
+ <updated>2021-10-27T00:50:50+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -73,34 +73,34 @@ and already having finished my introductory course in algebraic geometry).&lt;/p
      <link href="http://localhost:4000/posts/pacratch_update_bisher"/>
      <updated>2021-04-06T21:06:00+00:00</updated>
      <id>http://localhost:4000/posts/pacratch_update_bisher</id>
-     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/a9oSq6x&quot;&gt;&lt;a href=&quot;//imgur.com/a/a9oSq6x&quot;&gt;Pacrach update 2020/04/06&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/a9oSq6x&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/a9oSq6x&quot;&gt;Pacrach update 2020/04/06&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;Ich arbeite jetzt seit fünf Tagen (plus/minus ein Tag oder so) an einem
+  &lt;p&gt;Ich arbeite jetzt seit fünf Tagen (plus/minus ein Tag oder so) an einem
 neuen Spiel, welches ich “Pacratch” nenne, nach dem Kartenspiel,
 welches ich in meiner Grundschule mal entworfen habe. Mehr dazu kann
 man auf &lt;a href=&quot;https://github.com/Quoteme/pacratch&quot;&gt;https://github.com/Quoteme/pacratch&lt;/a&gt;
 nachlesen 👍🏻.&lt;/p&gt;
 
-&lt;p&gt;Hier ist ein kleiner Statusreport von dem, wie weit ich momentan bin.
+  &lt;p&gt;Hier ist ein kleiner Statusreport von dem, wie weit ich momentan bin.
 Zuerst würde ich aber gerne Robert Smykala und Dominik Du für Ihre
 Hilfe beim Zeichnen der entsprechenden neuen Figuren Zitronenmann
 und Oni Warrior danken 🙏🏻.&lt;/p&gt;
 
-&lt;h2 id=&quot;kartenupdate&quot;&gt;Kartenupdate&lt;/h2&gt;
+  &lt;h2 id=&quot;kartenupdate&quot;&gt;Kartenupdate&lt;/h2&gt;
 
-&lt;p&gt;Updates zum Spielsystem sind, dass Karten nun folgende Daten angeben:&lt;/p&gt;
+  &lt;p&gt;Updates zum Spielsystem sind, dass Karten nun folgende Daten angeben:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/eNGu2rf.png&quot; alt=&quot;momentanes Kartenlayout und abgespeicherte Daten&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/eNGu2rf.png&quot; alt=&quot;momentanes Kartenlayout und abgespeicherte Daten&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Mehr zu dem Thema, welche Daten in einer Karte abgespeichert werden,
+  &lt;p&gt;Mehr zu dem Thema, welche Daten in einer Karte abgespeichert werden,
 wie man selber Karten entwerfen kann und wie man eine Preview einer
 Karte bekommen kann, kann man im &lt;a href=&quot;https://github.com/Quoteme/pacratch/wiki/How-to-create-a-new-Pacratch&quot;&gt;Pacrach Wiki&lt;/a&gt;
 nachlesen.&lt;/p&gt;
 
-&lt;h2 id=&quot;spielsystem&quot;&gt;Spielsystem&lt;/h2&gt;
+  &lt;h2 id=&quot;spielsystem&quot;&gt;Spielsystem&lt;/h2&gt;
 
-&lt;p&gt;Das Spielsystem, beziehungsweise die Spiellogik wurde auch gestern
+  &lt;p&gt;Das Spielsystem, beziehungsweise die Spiellogik wurde auch gestern
 Nacht etwas mehr von mir überdacht. Wie es jetzt aussieht, ist dass
 jeder Spieler ein Kartendeck hat, welches (sagen wir) 60 Karten je hat.
 Der Spieler zieht nun in jedem Zug eine gewisse Anzahl von Karten und
@@ -109,30 +109,31 @@ Es gibt Karten, welche Krieger sind, oder welche Stützpunkte sind, oder
 Ausrüstung, oder Infrastruktur, oder …, jedoch kommen diese alle
 vom Deck des Spielers.&lt;/p&gt;
 
-&lt;p&gt;Ziel ist es, das Deck der anderen Spieler mit seinen Kriegern zu
+  &lt;p&gt;Ziel ist es, das Deck der anderen Spieler mit seinen Kriegern zu
 übernehmen. Dabei muss man bedenken, dass Krieger nicht all zu weit weg
 vom Kartendeck, beziehungsweise der Infrastruktur des Spielers gehen
 sollten, da sie dann keine Energie mehr erhalten (und Schaden durch
 Verschleiß erleiden).&lt;/p&gt;
 
-&lt;p&gt;Man muss also abwägen, wie man am besten sein eigenes Imperium ausbaut
+  &lt;p&gt;Man muss also abwägen, wie man am besten sein eigenes Imperium ausbaut
 und durch Monster, Krieger und gut geplante Infrastruktur zum Sieg
 gelangt.&lt;/p&gt;
 
-&lt;p&gt;Hier ist noch ein Bild von dem momentanen Spielideeenplan:&lt;/p&gt;
+  &lt;p&gt;Hier ist noch ein Bild von dem momentanen Spielideeenplan:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/91asZx9.png&quot; alt=&quot;Spielideeenplan&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/91asZx9.png&quot; alt=&quot;Spielideeenplan&quot; /&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+  &lt;hr /&gt;
 
-&lt;p&gt;Zu guter Letzt ist hier noch eine Work-In-Progress preview für eine
+  &lt;p&gt;Zu guter Letzt ist hier noch eine Work-In-Progress preview für eine
 neue Art von Karte: Eine Infrastrukturkarte, welche es erlaubt Kriegern
 weiter vom Deck weg zu gehen und trotzdem Energie zu bekommen.
 Somit gibt sie Schutz und weil sie ein fliegendes Schloss ist, ist sie
 sogar etwas mobil, obwohl das mehr Energie zum Erhalt dieser Karte
 bedeutet.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/1Kew2c0.png&quot; alt=&quot;Preview der neuen Karte&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/1Kew2c0.png&quot; alt=&quot;Preview der neuen Karte&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
    </entry>
    
@@ -145,10 +146,11 @@ bedeutet.&lt;/p&gt;
      <id>http://localhost:4000/posts/torusmeme</id>
      <content type="html">&lt;p&gt;A funny meme I made about toruses:&lt;/p&gt;
 
-&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/WXBTYWm&quot;&gt;&lt;a href=&quot;//imgur.com/a/WXBTYWm&quot;&gt;The torus alignment chart&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/WXBTYWm&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/WXBTYWm&quot;&gt;The torus alignment chart&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;You better laugh now.&lt;/p&gt;
+  &lt;p&gt;You better laugh now.&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
    </entry>
    
@@ -274,18 +276,18 @@ the ones which lie in each cardinal direction
 and look at the submodules it creates, then it will be similar to the
 red line in this image:&lt;/p&gt;
 
-&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;5P7as95&quot;&gt;&lt;a href=&quot;https://imgur.com/5P7as95&quot;&gt;View post on imgur.com&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;5P7as95&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;https://imgur.com/5P7as95&quot;&gt;View post on imgur.com&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;The blue line analogously represents the submodule generated by \((0,0,1)\).
+  &lt;p&gt;The blue line analogously represents the submodule generated by \((0,0,1)\).
 And from here on, we can observe that the number of elements of this
 generating set is 3. Therefor we can also conclude that this module
 is &lt;a href=&quot;https://en.wikipedia.org/wiki/Finitely_generated_module&quot;&gt;finitely generated&lt;/a&gt;
 and kinda looks like a three dimensional vectorspace.&lt;/p&gt;
 
-&lt;h5 id=&quot;note&quot;&gt;Note&lt;/h5&gt;
+  &lt;h5 id=&quot;note&quot;&gt;Note&lt;/h5&gt;
 
-&lt;p&gt;At first I wanted to determine the length of the module and from there
+  &lt;p&gt;At first I wanted to determine the length of the module and from there
 conclude that because this length is three, say that this relates to
 its three-dimensional representation. But this is false, because this
 module actually has infinite length, because we can for example
@@ -295,12 +297,12 @@ and then pick a prime number \(p\) and look at the submodule generated by
 submodule for each \(n\), kinda like in this image, where the
 y-Axis represents the \(n\)!&lt;/p&gt;
 
-&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;umB2aNP&quot;&gt;&lt;a href=&quot;https://imgur.com/umB2aNP&quot;&gt;View post on imgur.com&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+  &lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;umB2aNP&quot;&gt;
+    &lt;p&gt;&lt;a href=&quot;https://imgur.com/umB2aNP&quot;&gt;View post on imgur.com&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;More on that in the &lt;a href=&quot;https://www.reddit.com/r/math/comments/k30zol/voxels_rings_and_modules_my_observations_on_how/?utm_source=share&amp;amp;utm_medium=web2x&amp;amp;context=3&quot;&gt;reddit thread&lt;/a&gt;.&lt;/p&gt;
+    &lt;p&gt;More on that in the &lt;a href=&quot;https://www.reddit.com/r/math/comments/k30zol/voxels_rings_and_modules_my_observations_on_how/?utm_source=share&amp;amp;utm_medium=web2x&amp;amp;context=3&quot;&gt;reddit thread&lt;/a&gt;.&lt;/p&gt;
 
-&lt;!--
+    &lt;!--
 
 Basically this gives intuition into what the length of a module is.
 The [length of a module](https://en.wikipedia.org/wiki/Length_of_a_module)
@@ -329,12 +331,14 @@ correlates to a vectorspace of dimension _3_!
 
 --&gt;
 
-&lt;h3 id=&quot;final-words-of-wisdom&quot;&gt;Final words of wisdom&lt;/h3&gt;
+    &lt;h3 id=&quot;final-words-of-wisdom&quot;&gt;Final words of wisdom&lt;/h3&gt;
 
-&lt;p&gt;Sometimes it is best to relax a bit and just be creative. Maybe imagine
+    &lt;p&gt;Sometimes it is best to relax a bit and just be creative. Maybe imagine
 a weird video-game-universe where you would like to live in. And on closer
 inspection of these thoughts, you may just be surprised what gems lie
 uncovered hidden in your own imagination.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
 </content>
    </entry>
    
@@ -390,58 +394,58 @@ Räume zu übersetzen. Doch im Endeffekt waren die Formeln eigentlich die
 selben, nur habe ich es mir selber unnötig kompliziert gemacht, indem
 ich selber noch herumgeforscht habe:&lt;/p&gt;
 
-&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/3yjeSPI&quot;&gt;&lt;a href=&quot;//imgur.com/a/3yjeSPI&quot;&gt;Meine Ideen zum Dimensionsbegriff&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/3yjeSPI&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/3yjeSPI&quot;&gt;Meine Ideen zum Dimensionsbegriff&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;wie-funktioniert-dieser-dimensionsbegriff&quot;&gt;Wie funktioniert dieser Dimensionsbegriff?&lt;/h3&gt;
+  &lt;h3 id=&quot;wie-funktioniert-dieser-dimensionsbegriff&quot;&gt;Wie funktioniert dieser Dimensionsbegriff?&lt;/h3&gt;
 
-&lt;p&gt;Betrachte folgende Graphen:&lt;/p&gt;
+  &lt;p&gt;Betrachte folgende Graphen:&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;img src=&quot;https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png&quot; alt=&quot;2D Sphäre im
+  &lt;ul&gt;
+    &lt;li&gt;&lt;img src=&quot;https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png&quot; alt=&quot;2D Sphäre im
 Gitter&quot; title=&quot;fig:&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;img src=&quot;https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png&quot; alt=&quot;3D Sphäre im
+    &lt;li&gt;&lt;img src=&quot;https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png&quot; alt=&quot;3D Sphäre im
 Gitter&quot; title=&quot;fig:&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+  &lt;/ul&gt;
 
-&lt;p&gt;Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
+  &lt;p&gt;Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
 so Herr Wolfram folgender Maßen gebildet: “Start at some point in the
 hypergraph. Then follow \(r\) hyperedges in all possible ways. You’ve
 effectively made the analog of a “spherical ball” in the
 hypergraph.&quot;&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;p&gt;Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
+  &lt;p&gt;Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
 viele Punkte in \(r\) Schritten oder weniger erreichbar sind. Sollte
 diese Ausbreitung der eines Polynoms ähnlich sein, so kann man anhand
 des Grades dessen die Dimension bestimmen. Das genaue bestimmen ist
 jedoch nicht trivial und wird im Kapitel 4.6 vom Wolfram Physics
 Project&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; genauer erklärt&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;berechnung-der-dimension&quot;&gt;Berechnung der Dimension&lt;/h3&gt;
+  &lt;h3 id=&quot;berechnung-der-dimension&quot;&gt;Berechnung der Dimension&lt;/h3&gt;
 
-&lt;h5 id=&quot;hinweis&quot;&gt;Hinweis&lt;/h5&gt;
+  &lt;h5 id=&quot;hinweis&quot;&gt;Hinweis&lt;/h5&gt;
 
-&lt;p&gt;In dem Folgenden wird eine von mir entwickelte Version betrachtet,
+  &lt;p&gt;In dem Folgenden wird eine von mir entwickelte Version betrachtet,
 welche an das
 &lt;a href=&quot;https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/&quot;&gt;Original&lt;/a&gt;
 nur angelehnt ist.&lt;/p&gt;
 
-&lt;h5 id=&quot;berechnung&quot;&gt;Berechnung&lt;/h5&gt;
+  &lt;h5 id=&quot;berechnung&quot;&gt;Berechnung&lt;/h5&gt;
 
-&lt;p&gt;Sei \((M,d)\) ein metrischer Raum.&lt;/p&gt;
+  &lt;p&gt;Sei \((M,d)\) ein metrischer Raum.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;\(M\) ist Menge&lt;/li&gt;
-  &lt;li&gt;\(d: M\times M \rightarrow \mathbb{R}_{\ge 0}\) ist eine Metrik&lt;/li&gt;
-&lt;/ul&gt;
+  &lt;ul&gt;
+    &lt;li&gt;\(M\) ist Menge&lt;/li&gt;
+    &lt;li&gt;\(d: M\times M \rightarrow \mathbb{R}_{\ge 0}\) ist eine Metrik&lt;/li&gt;
+  &lt;/ul&gt;
 
-&lt;p&gt;Sei \(V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|\) die Anzahl aller
+  &lt;p&gt;Sei \(V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|\) die Anzahl aller
 Punkte eines Balles mit Radius \(r\).&lt;/p&gt;
 
-&lt;p&gt;Sei
+  &lt;p&gt;Sei
 \(\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r,x}}}{\log{\frac{r+1}{r}}}\).&lt;/p&gt;
 
-&lt;p&gt;Nun gilt folgendes:&lt;/p&gt;
+  &lt;p&gt;Nun gilt folgendes:&lt;/p&gt;
 
 \[\text{dim}(M,d) = \begin{cases}
     \lim_{r\rightarrow \infty}\Delta_{r,x} &amp;amp; \text{wenn}\&amp;gt; |M|\ge\infty \wedge |V_{r,x}|&amp;lt;\infty\\
@@ -453,7 +457,7 @@ Punkte eines Balles mit Radius \(r\).&lt;/p&gt;
     \end{gather} &amp;amp; \text{wenn}\&amp;gt; |M|&amp;lt;\infty
 \end{cases}\]
 
-&lt;h5 id=&quot;beispiel-1&quot;&gt;Beispiel 1&lt;/h5&gt;
+  &lt;h5 id=&quot;beispiel-1&quot;&gt;Beispiel 1&lt;/h5&gt;
 
 \[\begin{aligned}
     M      &amp;amp; = \mathbb{Z} \\
@@ -463,10 +467,10 @@ Punkte eines Balles mit Radius \(r\).&lt;/p&gt;
     \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;amp;= 1
 \end{aligned}\]
 
-&lt;p&gt;Hier stimmt die Dimension offensichtlich mit der herkömmlichen
+  &lt;p&gt;Hier stimmt die Dimension offensichtlich mit der herkömmlichen
 Definition überein.&lt;/p&gt;
 
-&lt;h5 id=&quot;beispiel-2&quot;&gt;Beispiel 2&lt;/h5&gt;
+  &lt;h5 id=&quot;beispiel-2&quot;&gt;Beispiel 2&lt;/h5&gt;
 
 \[\begin{aligned}
     M      &amp;amp; = \mathbb{Z}^2 \\
@@ -476,7 +480,7 @@ Definition überein.&lt;/p&gt;
     \lim_{r\rightarrow\infty}\Delta_{r,x} &amp;amp;= 2
 \end{aligned}\]
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+  &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;Delta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
@@ -485,17 +489,17 @@ Definition überein.&lt;/p&gt;
 &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Delta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-1-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-1-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Auch hier stimmen die Definitionen überein.&lt;/p&gt;
+  &lt;p&gt;Auch hier stimmen die Definitionen überein.&lt;/p&gt;
 
-&lt;h5 id=&quot;beispiel-3&quot;&gt;Beispiel 3&lt;/h5&gt;
+  &lt;h5 id=&quot;beispiel-3&quot;&gt;Beispiel 3&lt;/h5&gt;
 
-&lt;p&gt;Ein Sierpiński Dreieck kann folgender Maßen gebildet werden:&lt;/p&gt;
+  &lt;p&gt;Ein Sierpiński Dreieck kann folgender Maßen gebildet werden:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
+  &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;sirp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[],[],[]]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sirp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -528,11 +532,11 @@ Definition überein.&lt;/p&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;# Nun berechnen wir V_r für jeden Punkt für verschiedene r
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-2-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-2-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;rn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.025&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;rn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.025&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hypot&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;U&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;points&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
@@ -553,11 +557,11 @@ Definition überein.&lt;/p&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;# Delta berechnung
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-2-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-2-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+  &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;Delta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;dval&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Delta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
 
@@ -567,21 +571,22 @@ Definition überein.&lt;/p&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Radius $r$'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'$\Delta_r$'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Durchschnittliches $\Delta_r$'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'$Hausdorff Dimension von Sierpiński-Dreieck&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;pprox\log_2(3)$'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-2-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;../images/assets/unnamed-chunk-2-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Dies bewegt sich nahe der &lt;a href=&quot;https://de.wikipedia.org/wiki/Hausdorff-Dimension&quot;&gt;Hausdorff
+  &lt;p&gt;Dies bewegt sich nahe der &lt;a href=&quot;https://de.wikipedia.org/wiki/Hausdorff-Dimension&quot;&gt;Hausdorff
 Dimension&lt;/a&gt; von einem
 Sierpiński-Dreieck und zeigt, dass diese Methode genereller ist, als
 die Bestimmung der Dimension, wie sie in der linearen Algebra
 beigebracht wird.&lt;/p&gt;
 
-&lt;p&gt;In den Folgenden Beiträgen, werde ich auf einige der Eigenschaften
+  &lt;p&gt;In den Folgenden Beiträgen, werde ich auf einige der Eigenschaften
 dieses Dimensionsbegriffes eingehen. Darunter wird auch fallen, welche
 Auswirkung die Dimension auf die Krümmung des Raumes hat und wie somit,
 Beispielsweise Gravitation auf natürliche Weise auftaucht.&lt;/p&gt;
 
+&lt;/blockquote&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
@@ -608,10 +613,10 @@ Beispielsweise Gravitation auf natürliche Weise auftaucht.&lt;/p&gt;
      <link href="http://localhost:4000/posts/BildBesucher_hat_jetzt_JSDoc-support"/>
      <updated>2020-04-18T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/BildBesucher_hat_jetzt_JSDoc-support</id>
-     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/IX4jhgT&quot;&gt;&lt;a href=&quot;//imgur.com/a/IX4jhgT&quot;&gt;Overview of my first jsdoc documentation (quoteme.github.io/bildbesucher/docs)&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/IX4jhgT&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/IX4jhgT&quot;&gt;Overview of my first jsdoc documentation (quoteme.github.io/bildbesucher/docs)&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;Wie man es in dem obigen Bild sehen kann, habe ich heute
+  &lt;p&gt;Wie man es in dem obigen Bild sehen kann, habe ich heute
 &lt;a href=&quot;https://jsdoc.app/index.html&quot;&gt;JSDoc&lt;/a&gt;-support zu meinem Spiel
 &lt;a href=&quot;http://github.com/quoteme/bildbesucher&quot;&gt;BildBesucher&lt;/a&gt; hinzugefügt!
 Das bedeuted, wenn man auf &lt;a href=&quot;https://quoteme.github.io/bildbesucher/docs/&quot;&gt;quoteme.github.io/bildbesucher/docs/&lt;/a&gt;
@@ -621,19 +626,20 @@ herauszufinden wofür eine bestimme Funktion gut war, oder Andere welche
 meinem Projekt helfen möchten können somit schnell und einfach
 herausfinden, was ich da überhaupt geschrieben habe.&lt;/p&gt;
 
-&lt;p&gt;Leider musste ich dafür die die Zeilenanzahl des Codes quasi verdoppeln,
+  &lt;p&gt;Leider musste ich dafür die die Zeilenanzahl des Codes quasi verdoppeln,
 doch sind all die Änderungen die ich gemacht habe nur Kommentare, somit
 wird das Programm dadurch nicht langsamer!&lt;/p&gt;
 
-&lt;hr /&gt;
+  &lt;hr /&gt;
 
-&lt;p&gt;Das Ziel dieser ganzen Übung ist meinen Programmierstil zu verbessern
+  &lt;p&gt;Das Ziel dieser ganzen Übung ist meinen Programmierstil zu verbessern
 und meine Teamfähigkeit zu erhöhen, da ich somit gelernt habe, wie
 ich meine Arbeiten am besten annotiere.&lt;/p&gt;
 
-&lt;p&gt;Dies könnte auch in ganz anderen Bereichen für mich nützlich sein, da
+  &lt;p&gt;Dies könnte auch in ganz anderen Bereichen für mich nützlich sein, da
 ich somit weiß, dass man immer gute Buchhaltung für seine Kollegen
 halten sollte.&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
    </entry>
    
@@ -648,16 +654,16 @@ halten sollte.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/eu6CCK4&quot;&gt;&lt;a href=&quot;//imgur.com/a/eu6CCK4&quot;&gt;Bilder zu meinem Spiel: BildBesucher (https://quoteme.github.io/bildbesucher/)&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/eu6CCK4&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/eu6CCK4&quot;&gt;Bilder zu meinem Spiel: BildBesucher (https://quoteme.github.io/bildbesucher/)&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+  &lt;hr /&gt;
 
-&lt;p&gt;Nach einiger Zeit bin habe ich mal wieder angefangen ein Spiel
+  &lt;p&gt;Nach einiger Zeit bin habe ich mal wieder angefangen ein Spiel
 zu schreiben, somit hat die momentane Corona-Kriese wenigstens ein paar
 positive Eigenschaften.&lt;/p&gt;
 
-&lt;p&gt;Das Spiel nenne ich BildBesucher, da es eigentlich nur darum geht, dass
+  &lt;p&gt;Das Spiel nenne ich BildBesucher, da es eigentlich nur darum geht, dass
 man Bilder online mit einem kleinen Character besuchen kann und von
 einem Bild zum nächsten weitergeleitet werden kann. Die Idee für das
 Spiel kam mir, als ich &lt;a href=&quot;https://xkcd.com/1608/&quot;&gt;XKCDs Hoverboard&lt;/a&gt;
@@ -665,24 +671,25 @@ gespielt habe und davon sehr begeistert war. Den Quellcode kann
 man dafür auf der dazugehörigen &lt;a href=&quot;https://github.com/Quoteme/bildbesucher&quot;&gt;Github Seite&lt;/a&gt;
 ansehen/forken.&lt;/p&gt;
 
-&lt;p&gt;Pläne sind momentan noch viele da, insbesondere soll die Zoom-Funktion
+  &lt;p&gt;Pläne sind momentan noch viele da, insbesondere soll die Zoom-Funktion
 für die in-game Kamera möglichst schnell eingefügt werden, damit man
 etwas mehr von der gezeichneten Welt herausfinden kann.
 Andere wichtige Sachen, welche ich noch machen möchte sind:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Das Portalsystem, damit man an manchen stellen auf eine andere Seite
+  &lt;ul&gt;
+    &lt;li&gt;Das Portalsystem, damit man an manchen stellen auf eine andere Seite
   geschickt wird&lt;/li&gt;
-  &lt;li&gt;Das Ladesystem, damit man anhand der URL ein bestimmtes Level mit
+    &lt;li&gt;Das Ladesystem, damit man anhand der URL ein bestimmtes Level mit
   verschienen Eigenschaften (wie Position/etc) laden kann&lt;/li&gt;
-  &lt;li&gt;Die Welt weiter ausbauen (mehr Bilder erstellen und mein momentanes
+    &lt;li&gt;Die Welt weiter ausbauen (mehr Bilder erstellen und mein momentanes
   erweitern)&lt;/li&gt;
-  &lt;li&gt;???&lt;/li&gt;
-&lt;/ul&gt;
+    &lt;li&gt;???&lt;/li&gt;
+  &lt;/ul&gt;
 
-&lt;hr /&gt;
+  &lt;hr /&gt;
 
-&lt;p&gt;PS: Ich hoffe, dass ich mein Spiel wenigstens dieses mal etwas weiter
+  &lt;p&gt;PS: Ich hoffe, dass ich mein Spiel wenigstens dieses mal etwas weiter
 zuende führe als sonst 😪&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
    </entry>
    
@@ -707,7 +714,8 @@ file you are currently editing at your cursor position.&lt;/p&gt;
 &lt;p&gt;This got me thinking… Maybe I could use this to make my programming
 more concise. And after installing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;figlet&lt;/code&gt; I was proven right:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Use `:read figlet &quot;Example&quot;`&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Use `:read figlet &quot;Example&quot;`&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#     and then select the output and comment it out: `:'&amp;lt;,'&amp;gt;norm ^i# `&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#  _____                           _&lt;/span&gt;
@@ -716,7 +724,8 @@ more concise. And after installing &lt;code class=&quot;language-plaintext highl
 &lt;span class=&quot;c&quot;&gt;# | |___ &amp;gt;  &amp;lt; (_| | | | | | | |_) | |  __/&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# |_____/_/\_\__,_|_| |_| |_| .__/|_|\___|&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#                           |_|&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;It works!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;It works!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;And after all this thinking I was stuck with an idea, which I had for
 quite some time already, but never really knew how to implement in vim:&lt;/p&gt;
@@ -849,7 +858,8 @@ had no clue anymore on what to do, I was able to install my package using the AU
 
 &lt;h5 id=&quot;version-that-updates-on-shutdown&quot;&gt;Version that updates on shutdown&lt;/h5&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# /etc/systemd/system/neofetch_login_prompt.service&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# /etc/systemd/system/neofetch_login_prompt.service&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Util]
 &lt;span class=&quot;nv&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Display Neofetch before login &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;a TTY
 
@@ -859,11 +869,13 @@ had no clue anymore on what to do, I was able to install my package using the AU
 &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ExecStop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/env bash &lt;span class=&quot;nt&quot;&gt;-ec&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'neofetch &amp;gt; /etc/issue'&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Install]
-&lt;span class=&quot;nv&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;multi-user.target&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nv&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;multi-user.target&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
 
 &lt;h5 id=&quot;version-that-updates-at-boot&quot;&gt;Version that updates at boot&lt;/h5&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# /etc/systemd/system/neofetch_login_prompt.service&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# /etc/systemd/system/neofetch_login_prompt.service&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Util]
 &lt;span class=&quot;nv&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Display Neofetch before login &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;a TTY
 
@@ -871,7 +883,8 @@ had no clue anymore on what to do, I was able to install my package using the AU
 &lt;span class=&quot;nv&quot;&gt;ExecStart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/env bash &lt;span class=&quot;nt&quot;&gt;-ec&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'neofetch &amp;gt; /etc/issue'&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Install]
-&lt;span class=&quot;nv&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;multi-user.target&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nv&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;multi-user.target&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
 
 </content>
    </entry>
@@ -918,61 +931,66 @@ ich erreichen wollte.&lt;/p&gt;
      <link href="http://localhost:4000/posts/i3bar"/>
      <updated>2020-02-19T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/i3bar</id>
-     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/swgn01F&quot;&gt;&lt;a href=&quot;//imgur.com/a/swgn01F&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/swgn01F&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/swgn01F&quot;&gt;&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;Du findest mein Laptop sieht interessant aus?
+  &lt;p&gt;Du findest mein Laptop sieht interessant aus?
 Du würdest gerne die selbe Statusbar in &lt;a href=&quot;i3wm.org&quot;&gt;i3&lt;/a&gt;
 haben wie ich?
 Dann ist hier die Anleitung für dich!&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;(trivial) installiere &lt;a href=&quot;i3wm.org&quot;&gt;i3&lt;/a&gt; &lt;!--und [i3bar](https://i3wm.org/docs/i3bar-protocol.html)--&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;p&gt;(trivial) installiere &lt;a href=&quot;i3wm.org&quot;&gt;i3&lt;/a&gt; &lt;!--und [i3bar](https://i3wm.org/docs/i3bar-protocol.html)--&gt;
  (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pacman -S i3-gaps&lt;/code&gt;)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;falls du &lt;a href=&quot;https://github.com/i3/i3status&quot;&gt;i3status&lt;/a&gt; installiert hast: deinstalliere es
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;falls du &lt;a href=&quot;https://github.com/i3/i3status&quot;&gt;i3status&lt;/a&gt; installiert hast: deinstalliere es
  (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ pacman -Rns i3status&lt;/code&gt;)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;installiere &lt;a href=&quot;https://github.com/davidscholberg/goblocks&quot;&gt;goblocks&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;installiere &lt;a href=&quot;https://github.com/davidscholberg/goblocks&quot;&gt;goblocks&lt;/a&gt;
  (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;# yay goblocks&lt;/code&gt;, falls &lt;a href=&quot;https://github.com/Jguer/yay&quot;&gt;yay&lt;/a&gt; bereits installiert ist)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ändere &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3status&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;goblocks&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.config/i3/config&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Bearbeite &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.config/goblocks/goblocks.yml&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;schreibe eine config selber&lt;/li&gt;
-      &lt;li&gt;oder kopiere &lt;a href=&quot;https://pastebin.com/VWpMasZx&quot;&gt;meine config&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;Ändere &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3status&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;goblocks&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.config/i3/config&lt;/code&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Bearbeite &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.config/goblocks/goblocks.yml&lt;/code&gt;
+      &lt;ul&gt;
+        &lt;li&gt;schreibe eine config selber&lt;/li&gt;
+        &lt;li&gt;oder kopiere &lt;a href=&quot;https://pastebin.com/VWpMasZx&quot;&gt;meine config&lt;/a&gt;
   diese hat &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;playerctl&lt;/code&gt; mitinbehalten. Wenn du das nicht möchtest,
   lösche einfach den dazugehörende ‘command’-Abschnitt. Ansonsten
   siehe den nächsten Abschnitt an&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;(optional) installiere &lt;a href=&quot;https://github.com/altdesktop/playerctl&quot;&gt;playerctl&lt;/a&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;(optional) installiere &lt;a href=&quot;https://github.com/altdesktop/playerctl&quot;&gt;playerctl&lt;/a&gt;
  um die momentan spielende Musik (auf youtube/spotify/…) anzuzeigen.
  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;# pacman -S playerctl&lt;/code&gt;
  und verwende den folgenden code in deiner config&lt;/li&gt;
-&lt;/ol&gt;
+  &lt;/ol&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;blocks:
+  &lt;figure class=&quot;highlight&quot;&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;blocks:
     - type: command
       label: &quot;msc &quot; # &quot;📻&quot;
-      command: sh /home/DEINNUTZERNAME/.config/goblocks/musicdisplay.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+      command: sh /home/DEINNUTZERNAME/.config/goblocks/musicdisplay.sh&lt;/code&gt;&lt;/pre&gt;
+  &lt;/figure&gt;
 
-&lt;p&gt;und erstelle die Datei &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;musicdisplay.sh&lt;/code&gt;:&lt;/p&gt;
+  &lt;p&gt;und erstelle die Datei &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;musicdisplay.sh&lt;/code&gt;:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;playerctl metadata &lt;span class=&quot;nt&quot;&gt;--format&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' - '&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+  &lt;figure class=&quot;highlight&quot;&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;playerctl metadata &lt;span class=&quot;nt&quot;&gt;--format&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;' - '&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/figure&gt;
 
-&lt;hr /&gt;
+  &lt;hr /&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/qlEUHuk.png&quot; alt=&quot;meine Statusbar mit Icons statt Text&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/qlEUHuk.png&quot; alt=&quot;meine Statusbar mit Icons statt Text&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;NOTIZ: Um die selben Icons zu haben muss man &lt;a href=&quot;https://github.com/stark/siji&quot;&gt;Siji&lt;/a&gt; installieren &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;# yay -S siji-git&lt;/code&gt; und in seiner &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.config/i3/config&lt;/code&gt; folgendes als font setzen: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;font pango: Gohu GohuFont, Siji 11px&lt;/code&gt;&lt;/p&gt;
+  &lt;p&gt;NOTIZ: Um die selben Icons zu haben muss man &lt;a href=&quot;https://github.com/stark/siji&quot;&gt;Siji&lt;/a&gt; installieren &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;# yay -S siji-git&lt;/code&gt; und in seiner &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.config/i3/config&lt;/code&gt; folgendes als font setzen: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;font pango: Gohu GohuFont, Siji 11px&lt;/code&gt;&lt;/p&gt;
 
+&lt;/blockquote&gt;
 </content>
    </entry>
    
@@ -983,26 +1001,27 @@ Dann ist hier die Anleitung für dich!&lt;/p&gt;
      <link href="http://localhost:4000/posts/jupyter_pydroid"/>
      <updated>2020-02-18T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/jupyter_pydroid</id>
-     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;XKFMPSw&quot;&gt;&lt;a href=&quot;//imgur.com/XKFMPSw&quot;&gt;Jupyter Notebook on Android&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+     <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;XKFMPSw&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/XKFMPSw&quot;&gt;Jupyter Notebook on Android&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Installiere &lt;a href=&quot;https://play.google.com/store/apps/details?id=ru.iiec.pydroid3&amp;amp;hl=en_US&quot;&gt;Pydroid3&lt;/a&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Installiere &lt;a href=&quot;https://play.google.com/store/apps/details?id=ru.iiec.pydroid3&amp;amp;hl=en_US&quot;&gt;Pydroid3&lt;/a&gt;
  und &lt;a href=&quot;https://play.google.com/store/apps/details?id=ru.iiec.pydroid3.quickinstallrepo&amp;amp;hl=en_US&quot;&gt;Pydroid Repository&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Öffne Pydroid 3 und wähle &lt;em&gt;Pip&lt;/em&gt; im Menü aus
-    &lt;ol&gt;
-      &lt;li&gt;Wähle &lt;em&gt;quick install&lt;/em&gt; und installiere &lt;em&gt;jupyter&lt;/em&gt;&lt;/li&gt;
-      &lt;li&gt;(Optional installiere &lt;em&gt;sympy&lt;/em&gt;, &lt;em&gt;numpy&lt;/em&gt;, …)&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Wähle &lt;em&gt;Terminal&lt;/em&gt; im Menü aus
-    &lt;ol&gt;
-      &lt;li&gt;Gib &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter notebook --ip=127.0.0.1 --port=4040&lt;/code&gt; ein&lt;/li&gt;
-      &lt;li&gt;Ein neues Browserfenster mit Jupyter Notebook öffnet sich&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Beende das Terminal, nach benutzen von Jupyter&lt;/li&gt;
-&lt;/ol&gt;
+    &lt;li&gt;Öffne Pydroid 3 und wähle &lt;em&gt;Pip&lt;/em&gt; im Menü aus
+      &lt;ol&gt;
+        &lt;li&gt;Wähle &lt;em&gt;quick install&lt;/em&gt; und installiere &lt;em&gt;jupyter&lt;/em&gt;&lt;/li&gt;
+        &lt;li&gt;(Optional installiere &lt;em&gt;sympy&lt;/em&gt;, &lt;em&gt;numpy&lt;/em&gt;, …)&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Wähle &lt;em&gt;Terminal&lt;/em&gt; im Menü aus
+      &lt;ol&gt;
+        &lt;li&gt;Gib &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter notebook --ip=127.0.0.1 --port=4040&lt;/code&gt; ein&lt;/li&gt;
+        &lt;li&gt;Ein neues Browserfenster mit Jupyter Notebook öffnet sich&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Beende das Terminal, nach benutzen von Jupyter&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
 </content>
    </entry>
    
@@ -1020,9 +1039,11 @@ Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen
 geometrischen Strukturen in \(n\) dimensionen zu erkennen.
 Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// plane2circle :: Real a =&amp;gt; [(a,a)] -&amp;gt; a -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// plane2circle :: Real a =&amp;gt; [(a,a)] -&amp;gt; a -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;//TODO&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+	&lt;span class=&quot;c1&quot;&gt;//TODO&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -1076,30 +1097,35 @@ prüft ob eine Hypersphäre und ein Punkt sich schneiden. Daher habe ich
 eine weitere Funktion geschrieben, welche prüft, ob sich ein Kreis und
 ein Intervall schneiden:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// point2circle :: Num a =&amp;gt; [a] -&amp;gt; Real -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// point2circle :: Num a =&amp;gt; [a] -&amp;gt; Real -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;point2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// interval2circle :: Num a =&amp;gt; a -&amp;gt; Real -&amp;gt; [a,a] -&amp;gt; Boolean&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;point2circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+	&lt;span class=&quot;nx&quot;&gt;point2circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Nun ist es ein Leiches, zu prüfen ob ein Hyperwürfel und eine Hypersphäre
 sich schneiden;
 Man muss prüfen ob die Projektionen der Sphäre und des Hyperwürfels sich
 auf jeder Achse schneiden.&lt;/p&gt;
 
-&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/rZpCzkF&quot; data-context=&quot;false&quot;&gt;&lt;a href=&quot;//imgur.com/a/rZpCzkF&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/rZpCzkF&quot; data-context=&quot;false&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/rZpCzkF&quot;&gt;&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// plane2circle :: Num a =&amp;gt; [(a,a)] -&amp;gt; Real -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
+  &lt;figure class=&quot;highlight&quot;&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// plane2circle :: Num a =&amp;gt; [(a,a)] -&amp;gt; Real -&amp;gt; [a] -&amp;gt; ([a] -&amp;gt; Real) -&amp;gt; Boolean&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hypot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval2circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/figure&gt;
 
-&lt;p&gt;und diese Funktion können wir nun testen:&lt;/p&gt;
+  &lt;p&gt;und diese Funktion können wir nun testen:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./intersect.mjs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+  &lt;figure class=&quot;highlight&quot;&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./intersect.mjs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
@@ -1114,20 +1140,22 @@ auf jeder Achse schneiden.&lt;/p&gt;
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false ✅&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;plane2circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false ✅&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/figure&gt;
 
-&lt;p&gt;besonders das letzte Ergebnis kann man leicht überprüfen:&lt;/p&gt;
+  &lt;p&gt;besonders das letzte Ergebnis kann man leicht überprüfen:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/aqI995m.png&quot; alt=&quot;geometrischer Beweis&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/aqI995m.png&quot; alt=&quot;geometrischer Beweis&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;fazit&quot;&gt;Fazit&lt;/h3&gt;
+  &lt;h3 id=&quot;fazit&quot;&gt;Fazit&lt;/h3&gt;
 
-&lt;p&gt;Das Problem &lt;em&gt;Schnitte zwischen höherdimensinalen Sphären und Würfeln&lt;/em&gt;
+  &lt;p&gt;Das Problem &lt;em&gt;Schnitte zwischen höherdimensinalen Sphären und Würfeln&lt;/em&gt;
 zu lösen war nicht all zu einfach auf den ersten Blick; doch verwendet
 man (wortwörtlich) verschiedene Perspektiven und ist bereit bereits
 bekannte Resultate (wie &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;point2circle&lt;/code&gt;) zu verwenden und neue zu
 finden (wie &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;interval2circle&lt;/code&gt;), so ist es doch ein Leichtes gewesen
 eine allgemeine Lösung zu finden.&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
    </entry>
    
