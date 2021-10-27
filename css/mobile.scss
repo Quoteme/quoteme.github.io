@@ -6,8 +6,10 @@
   width: inherit;
   margin: 0;
   padding: 25px;
+  height: auto;
+  padding-bottom: 10;
   img {
-    display: none;
+	  float: right;
   }
   .name {
     display: inline;
@@ -36,6 +38,7 @@
 
 .content {
   margin: 0;
+  margin-top: 20px;
   padding: 5px 25px;
   width: inherit;
   h1 {
