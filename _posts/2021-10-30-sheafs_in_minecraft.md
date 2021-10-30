@@ -7,17 +7,13 @@ category: posts
 draft: false
 ---
 
-<!--
-TODO: sheaves link
-TODO: minecraft link
--->
-
 ## Introduction
 
 A few days ago after my introductory class in topology and right before
 my class about algebraic geometry, me and my friend Anastasia were asked
 by our fellow students from topology about our current topics in
-algebraic geometry. This then lead to the discussion about sheaves, as
+algebraic geometry. This then lead to the discussion
+about [sheaves](https://en.wikipedia.org/wiki/Sheaf_(mathematics)), as
 they saw my sketch of them in my lecture notes (because I mentioned that
 I typically only draw geometric sketches of ideas and proofs instead of
 writing actual sentences like most people).
@@ -33,7 +29,8 @@ algebraic geometry, but instead convey the idea of tracking data which
 is connected to open sets. And as I thought about this, I started to
 imagine video games, which typically provide very natural applications
 of impressively deep mathematical structures, leading me to relate the
-game Minecraft to algebraic geometry, or sheaves more exactly.
+game [Minecraft](https://en.wikipedia.org/wiki/Minecraft)
+to algebraic geometry, or sheaves more exactly.
 
 ## Minecraft as a game
 
@@ -42,11 +39,9 @@ is very likely that you, the reader, have heard about it at some point
 in your life. But here is a quick recap of what Minecraft is and how
 it works (abstractly).
 
-<!--
-TODO Bild einfügen: Minecraft
--->
-
 ### What is minecraft?
+
+![Example view of minecraft](https://i.imgur.com/gJAxAuO.png)
 
 In Minecraft you start a game as digital character in a blocky world.
 There you start to collect resources by mining different materials (in
@@ -75,12 +70,11 @@ neglect the last coordinate of our tuples in $$M$$, because the number
 of different blocks is small small enough that a computer can traverse
 them easily).
 
-<!--
-TODO Bild von chunk einfügen
--->
+![Examples of chunks - chunkbounds shader](https://i.imgur.com/6sKQkg8.jpg)
+![Examples of chunks - chunk edge indicator](https://i.imgur.com/I3ZECeE.png)
 
-These subsets of the world $$C_{x,y,z}\subset M\subset \mathbb{Z}^3\times\mathbb{N}$$
-are called chunk and each exist for each $x,y \in 16\mathbb{Z}, \> z\in 256\mathbb{Z}$$
+These subsets of the world $$$C_{x,y,z}\subset M\subset \mathbb{Z}^3\times\mathbb{N}$$
+are called chunk and each exist for each $$x,y \in 16\mathbb{Z}, \> z\in 256\mathbb{Z}$$
 (technically the $$z$$ is fixed to $$0$$ because Minecraft has a finite
 height of $$256$$ blocks, but we will abstract/future proof a bit for now).
 
@@ -89,8 +83,10 @@ TODO: Link basis of topology
 -->
 
 So why are these chunks important for us? How do they relate to sheaves?
-Well, these $$C_{x,y,z}$$ form a basis of a topology on $$M$$ if
-we name the "chunks" not "chunks" but "open sets" instead! This is quite
+Well, these $$C_{x,y,z}$$ form a
+[basis of a topology](https://en.wikipedia.org/wiki/Base_(topology))
+on $$M$$ if we name the "chunks" not "chunks"
+but "open sets" instead! This is quite
 natural because Minecraft creates a union of these chunks (the number
 of which is free for the user to decide, therefor possibly infinite)
 and then renders this union of chunks to the screen. This union of chunks
@@ -150,10 +146,9 @@ condition:
 
 ### But who needs the structure of a sheaf for that? Doesn't a function suffice?
 
-<!--
-TODO insert meme here "Well yes, but also no"
--->
-Well yes, but also no. The problem with just mapping open sets of our
+![Well yes, but actually no](https://i.imgur.com/4RXyf44.jpg)
+
+The problem with just mapping open sets of our
 Minecraft world to sets of entities raises the problem of
 _restricting our open set_ but _increasing our number of entities therein_.
 Imagine the following. You have your Minecraft map and play the game inside.
@@ -255,7 +250,3 @@ chunk) and possibly also the idea of germs.
 
 Until then I wish all of you good luck and fun applying abstract math
 with seemingly no application 😉.
-
-<!-- TODO -->
-
-
