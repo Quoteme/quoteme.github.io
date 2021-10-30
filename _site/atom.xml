@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-10-30T13:53:16+00:00</updated>
+ <updated>2021-10-30T13:54:26+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -14,9 +14,9 @@
    
    <entry>
      <title>sheaves in Minecraft</title>
-     <link href="http://localhost:4000/posts/sheafs_in_minecraft"/>
+     <link href="http://localhost:4000/posts/sheaves_in_minecraft"/>
      <updated>2021-10-29T10:12:35+00:00</updated>
-     <id>http://localhost:4000/posts/sheafs_in_minecraft</id>
+     <id>http://localhost:4000/posts/sheaves_in_minecraft</id>
      <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;A few days ago after my introductory class in topology and right before
