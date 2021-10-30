@@ -75,7 +75,7 @@ them easily).
 ![Examples of chunks - chunkbounds shader](https://i.imgur.com/6sKQkg8.jpg)
 ![Examples of chunks - chunk edge indicator](https://i.imgur.com/I3ZECeE.png)
 
-These subsets of the world $$$C_{x,y,z}\subset M\subset \mathbb{Z}^3\times\mathbb{N}$$
+These subsets of the world $$C_{x,y,z}\subset M\subset \mathbb{Z}^3\times\mathbb{N}$$
 are called chunk and each exist for each $$x,y \in 16\mathbb{Z}, \> z\in 256\mathbb{Z}$$
 (technically the $$z$$ is fixed to $$0$$ because Minecraft has a finite
 height of $$256$$ blocks, but we will abstract/future proof a bit for now).

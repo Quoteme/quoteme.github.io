@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-10-30T14:08:07+00:00</updated>
+ <updated>2021-10-30T14:26:48+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -85,7 +85,7 @@ them easily).&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/6sKQkg8.jpg&quot; alt=&quot;Examples of chunks - chunkbounds shader&quot; /&gt;
 &lt;img src=&quot;https://i.imgur.com/I3ZECeE.png&quot; alt=&quot;Examples of chunks - chunk edge indicator&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;These subsets of the world \($C_{x,y,z}\subset M\subset \mathbb{Z}^3\times\mathbb{N}\)
+&lt;p&gt;These subsets of the world \(C_{x,y,z}\subset M\subset \mathbb{Z}^3\times\mathbb{N}\)
 are called chunk and each exist for each \(x,y \in 16\mathbb{Z}, \&amp;gt; z\in 256\mathbb{Z}\)
 (technically the \(z\) is fixed to \(0\) because Minecraft has a finite
 height of \(256\) blocks, but we will abstract/future proof a bit for now).&lt;/p&gt;
