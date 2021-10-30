@@ -18,6 +18,8 @@ they saw my sketch of them in my lecture notes (because I mentioned that
 I typically only draw geometric sketches of ideas and proofs instead of
 writing actual sentences like most people).
 
+![We talked about this diagram](https://i.imgur.com/IvIs8F3.png)
+
 After some explaining they seemed to understand the concept somewhat,
 but I was unable to really give them a deeper understanding. I assume
 this was caused by my inability to relate the importance of this
