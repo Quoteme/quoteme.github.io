@@ -9,9 +9,9 @@ draft: false
 
 ## Introduction
 
-A few days ago after my introductory class in topology and right before
-my class about algebraic geometry, me and my friend Anastasia were asked
-by our fellow students from topology about our current topics in
+A few days ago, after my introductory class in topology, and right before
+my class about algebraic geometry, my friend Anastasia and I were asked
+by fellow topology students about our current topics in
 algebraic geometry. This then lead to the discussion
 about [sheaves](https://en.wikipedia.org/wiki/Sheaf_(mathematics)), as
 they saw my sketch of them in my lecture notes (because I mentioned that
@@ -20,14 +20,14 @@ writing actual sentences like most people).
 
 ![We talked about this diagram](https://i.imgur.com/IvIs8F3.png)
 
-After some explaining they seemed to understand the concept somewhat,
-but I was unable to really give them a deeper understanding. I assume
+After some explaining, they seemed to understand the concept somewhat,
+but I was unable to give them a deeper understanding. I assume
 this was caused by my inability to relate the importance of this
 structure to them in a practical way. So after some days, I started to
 imagine fictional conversations in my spare time where I would try to
 explain this topic to them again. I especially tried to focus on
-giving real world examples of sheaves, which are not exactly linked to
-algebraic geometry, but instead convey the idea of tracking data which
+giving real-world examples of sheaves, which are not exactly linked to
+algebraic geometry, but, instead convey the idea of tracking data that
 is connected to open sets. And as I thought about this, I started to
 imagine video games, which typically provide very natural applications
 of impressively deep mathematical structures, leading me to relate the
@@ -36,16 +36,16 @@ to algebraic geometry, or sheaves more exactly.
 
 ## Minecraft as a game
 
-Minecraft is the most popular game in existence currently. Therefor it
+Minecraft is the most popular game in existence currently. Therefore it
 is very likely that you, the reader, have heard about it at some point
 in your life. But here is a quick recap of what Minecraft is and how
 it works (abstractly).
 
-### What is minecraft?
+### What is Minecraft?
 
 ![Example view of minecraft](https://i.imgur.com/gJAxAuO.png)
 
-In Minecraft you start a game as digital character in a blocky world.
+In Minecraft, you start a game as a digital character in a blocky world.
 There you start to collect resources by mining different materials (in
 the form of breaking blocks mainly) or slaying enemies which roam your
 digital world.
@@ -64,12 +64,12 @@ from the types of blocks to $$\mathbb{N}=\{0,1,2,\dots\}$$.
 Now how can Minecraft be able to process infinitely many blocks and
 render them to a screen? The answer is that this would be impossible,
 because traversing every block in an infinite Minecraft world (which
-most Minecraft worlds basically are) would take a very long time, let
+most Minecraft worlds are) would take a very long time, let
 alone rendering them. This would be impossible to render at a stable
-30FPS and therefor the developers at Mojang decided to split the
+30FPS and the developers at Mojang decided to split the
 Minecraft world into chunks of $$16\times 16\times 256$$ (here we can
 neglect the last coordinate of our tuples in $$M$$, because the number
-of different blocks is small small enough that a computer can traverse
+of different blocks is small enough that a computer can traverse
 them easily).
 
 ![Examples of chunks - chunkbounds shader](https://i.imgur.com/6sKQkg8.jpg)
@@ -90,11 +90,11 @@ Well, these $$C_{x,y,z}$$ form a
 on $$M$$ if we name the "chunks" not "chunks"
 but "open sets" instead! This is quite
 natural because Minecraft creates a union of these chunks (the number
-of which is free for the user to decide, therefor possibly infinite)
+of which is free for the user to decide, therefore possibly infinite)
 and then renders this union of chunks to the screen. This union of chunks
 would not be considered a chunk in Minecrafts' code, but we will refer to
-the union of chunks as "open set" nonetheless, because this gives us our
-topological structure on $$M$$. (Bonus: to really proof that the
+the union of chunks as "open set" nonetheless because this gives us our
+topological structure on $$M$$. (Bonus: to really prove that the
 $$C_{x,y,z}$$ form a topological basis, one must show that the finite
 intersection of open sets must also be an open set. The proof is quite
 trivial but left as an exercise to the reader.)
@@ -108,8 +108,8 @@ for free!
 
 Like for example when the player wants to go to sleep in the game.
 Minecraft first checks if the player does not have any hostile entities
-in the current chunk. Therefor the game must calculate the set of
-all entities in currently in the game world, which are also in the
+in the current chunk. Therefore the game must calculate the set of
+all entities currently in the game world, which are also in the
 currently inhabited chunk.
 
 For this, Minecraft stores all entities as tuples $$e\in\mathbb{R}^3\times\mathbb{N}$$,
@@ -154,26 +154,26 @@ The problem with just mapping open sets of our
 Minecraft world to sets of entities raises the problem of
 _restricting our open set_ but _increasing our number of entities therein_.
 Imagine the following. You have your Minecraft map and play the game
-with your charachter $$p$$ inside said map.
-Now you wish to poll the number of entities which are located in your
+with your character $$p$$ inside said map.
+Now you wish to poll the number of entities that are located in your
 current chunk (the one your player resides in) and the ones adjacent to
 your current chunk. This would give you in total $$9$$ chunks in which you poll
-for entities. Because you wish to let your charachter sleep in the game
-and the game does not let your charater sleep, if there are any monsters
+for entities. Because you wish to let your character sleep in the game
+and the game does not let your character sleep if there are any monsters
 (which are a subset of entities) near your bed, you need to check if
-$$\Gamma(V, \mathcal{F})$$ has any monsers in it (where $$V$$ is
+$$\Gamma(V, \mathcal{F})$$ has any monster in it (where $$V$$ is
 the chunk the player is in and the adjacent chunks).
 So now the game says everything is fine because $$\Gamma(V, \mathcal{F}) = \{p\}$$,
 your player is the only entity in these chunks and you can go to bed.
 But when you wake up in Minecraft to your dismay you are getting attacked
 by a zombie, because actually there was one more entity nearby.
 There was indeed one zombie $$z \in \Gamma(V', \mathcal{F})$$ where
-$$V'\subset V$$ is just the players current chunk.
+$$V'\subset V$$ is just the player's current chunk.
 This problem/bug occurred, because the mapping which shows entities
 residing in an open set of our
 topology did not respect _restriction mappings_. This means, even if
 one takes the subset of an open set, the correlating entities in this
-subset need not be a subset of the entities correlating to the supset.
+subset need not be a subset of the entities correlating to the superset.
 Indeed, in our case we had $$V'\subset V$$ but
 $$\Gamma(V',\mathcal{F})=\{p,z\}\supset \{p\}=\Gamma(V,\mathcal{F})$$
 
@@ -195,7 +195,7 @@ So now we have done all of this to formalize our notion of entities
 inside some set of chunks. But there is still some problem in the example
 we wrote one paragraph before. We still have not solved the problem
 that given our knowledge of $$\Gamma(V,\mathcal{F})$$ where $$U$$ is some
-open set (with the player inside) we want to infer that open subsets
+open set (with the player inside) we want to infer that, open subsets
 $$V'\subset V$$ cannot have more entities or ones, that cannot be found
 inside $$V$$.
 
@@ -208,13 +208,13 @@ which completes our requirements from before:
 - $$\text{res}^{V'}_{V''} \circ \text{res}^{V}_{V'} = \text{res}^{V}_{V''}$$ <!--__ -->
 - $$\text{res}^{V}_{V} = id$$ <!--__-->
 
-which define a sheaf. The sheaf axiom now states the following:
+which defines a sheaf. The sheaf axiom now states the following:
 
 - (_Locality_) If $$\mathcal{U}=\bigcup_{i\in I} U_i$$ is an open
   covering of an open set $$U$$ and if $$s,t\in\Gamma(U,\mathcal{F})$$
   with $$\text{res}^U_{U_i}(s)=\text{res}^U_{U_i}(t)$$, then $$s=t$$
 - (_Gluing_) If $$\mathcal{U}=\bigcup_{i\in I} U_i$$ is an open covering
-  of an open set $$U$$ and $$s_i\in U_i$$$ for $$i\in I$$ holds
+  of an open set $$U$$ and $$s_i\in U_i$$ for $$i\in I$$ holds
   $$\text{res}^{U_i}_{U_i\cup U_j}(s_i) = \text{res}^{U_j}_{U_i\cup U_j}(s_j)$$
   then there must be exactly one $$s\in\Gamma(U,\mathcal{F})$$ with
   $$\text{res}^U_{U_i}(s) = s_j$$
@@ -227,7 +227,7 @@ is then equal to $$e'$$ is we restrict our focus back to $$V'$$.
 In our situation with the zombie before, we had looked at an open set
 $$V$$ which was defined as the chunk with the player $$p$$ inside glued together
 with the chunks adjacent to that one. We said $$\Gamma(V,\mathcal{F})$$
-only included the player, because this was the only entity which was
+only included the player, because this was the only entity that was
 mapped from $$V$$ by $$\mathcal{F}$$, but then we said there
 was actually one zombie $$z'$$ (another entity) inside $$V'$$, which
 we defined as the chunk the player was inside.
@@ -243,9 +243,9 @@ exist in any open set $$V$$ that includes $$V'$$.
 ## Conclusion
 
 This concept might look daunting at first and maybe even useless
-because of its' apparent abstractness. But in fact we are very far away
+because of its' apparent abstractness. But in fact, we are very far away
 from some abstract useless construct as I tried to visualize in this
-blog post. In fact the construct of a sheaf is quite natural as it
+blog post. In fact, the construct of a sheaf is quite natural as it
 canonically allows us to track data attached to open sets (or as is the
 case in Minecraft: track entities in unions of chunks).
 
@@ -255,7 +255,7 @@ publish another post soon where I analyze some art I found
 particularity interesting using the structures defined in this post while
 also extending the notions of a sheaf to the ideas of stalks (which in
 our Minecraft example would allocate the entities in the smallest open
-set around some some point to said point; Or more concretely all the
+set around some point to said point; Or more concretely all the
 entities in a chunk are returned, if we enter some point inside said
 chunk) and possibly also the idea of germs.
 
