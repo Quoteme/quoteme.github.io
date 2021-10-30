@@ -200,7 +200,7 @@ also has a functor \(\mathcal{F}: (\frac{\text{open}}{M})\to \mathcal{E}\), wher
 \(\mathcal{E}\) is the category of entities, which has as objects just
 sets of entities and as morphisms the surjective maps
 \(\phi: V \twoheadrightarrow V'\subset V\) for \(V, V'\in \mathcal{E}\)
-and \(\frac{\text{open}}{M}\) denotes the category of open sets over \(M\)
+and \(\left(\frac{\text{open}}{M}\right)\) denotes the category of open sets over \(M\)
 created by set inclusion as well.</p>
 
 <p>In tradition to the notation used by my professor Schröer, I will
@@ -239,20 +239,29 @@ condition:</p>
 <p>The problem with just mapping open sets of our
 Minecraft world to sets of entities raises the problem of
 <em>restricting our open set</em> but <em>increasing our number of entities therein</em>.
-Imagine the following. You have your Minecraft map and play the game inside.
+Imagine the following. You have your Minecraft map and play the game
+with your charachter \(p\) inside said map.
 Now you wish to poll the number of entities which are located in your
 current chunk (the one your player resides in) and the ones adjacent to
-this one. This would give you in total $9$ chunks in which you poll
-for entities, because you wish to sleep in the game and the game does 
-not let you sleep, if there are any monster (subset of entities) near
-your bed. So the game says everything is fine, your player is the only
-entity in these chunks and you can go to bed. But when you wake up
-in Minecraft to your dismay you are getting attacked by a zombie, because
-actually there was one more entity nearby. This problem/bug occurred,
-because the mapping which shows entities residing in a open set of our
+your current chunk. This would give you in total \(9\) chunks in which you poll
+for entities. Because you wish to let your charachter sleep in the game
+and the game does not let your charater sleep, if there are any monsters
+(which are a subset of entities) near your bed, you need to check if
+\(\Gamma(V, \mathcal{F})\) has any monsers in it (where \(V\) is
+the chunk the player is in and the adjacent chunks).
+So now the game says everything is fine because \(\Gamma(V, \mathcal{F}) = \{p\}\),
+your player is the only entity in these chunks and you can go to bed.
+But when you wake up in Minecraft to your dismay you are getting attacked
+by a zombie, because actually there was one more entity nearby.
+There was indeed one zombie \(z \in \Gamma(V', \mathcal{F})\) where
+\(V'\subset V\) is just the players current chunk.
+This problem/bug occurred, because the mapping which shows entities
+residing in an open set of our
 topology did not respect <em>restriction mappings</em>. This means, even if
 one takes the subset of an open set, the correlating entities in this
-subset need not be a subset of the entities correlating to the supset.</p>
+subset need not be a subset of the entities correlating to the supset.
+Indeed, in our case we had \(V'\subset V\) but
+\(\Gamma(V',\mathcal{F})=\{p,z\}\supset \{p\}=\Gamma(V,\mathcal{F})\)</p>
 
 <p>We can solve this issue by requesting our function \(\mathcal{F}\) must
 fulfill the following criteria:</p>
