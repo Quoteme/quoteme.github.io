@@ -37,7 +37,7 @@ a { color: #598ecd; }
 
 .content { max-width: 650px; margin-left: 130px; margin-right: 20px; margin-bottom: 50px; }
 
-.content * { max-width: 100%; }
+.content iframe { max-width: 100%; }
 
 .content h1, .content h2, .content h3, .content h4 { color: #e9e9e9; font-family: "Yanone Kaffeesatz", Helvetica, sans-serif; font-weight: 400; }
 
@@ -67,7 +67,7 @@ a { color: #598ecd; }
 
 .content li { margin-bottom: 10px; line-height: 1.4em; }
 
-.content blockquote { font-style: italic; font-size: 14px; padding: .25em 1em; margin: 1em 1em 0 1em; color: #444; }
+.content blockquote { font-style: italic; font-size: 14px; padding: .25em 1em; margin: 1em 1em 0 1em; color: #aaa; }
 
 .content blockquote cite { display: block; margin-top: .5em; text-align: right; color: #111; font-style: normal; }
 

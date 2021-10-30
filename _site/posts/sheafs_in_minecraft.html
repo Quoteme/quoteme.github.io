@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>
     
-      sheavs in minecraft &ndash;
+      sheaves in Minecraft &ndash;
     
     Luca Leon Happel
   </title>
@@ -82,7 +82,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <section class="content">
   <h1>
-    <a href="/posts/sheafs_in_minecraft">sheavs in minecraft</a>
+    <a href="/posts/sheafs_in_minecraft">sheaves in Minecraft</a>
   </h1>
 
   <section class="byline">
@@ -90,7 +90,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!--
-TODO: sheavs link
+TODO: sheaves link
 TODO: minecraft link
 -->
 
@@ -99,7 +99,7 @@ TODO: minecraft link
 <p>A few days ago after my introductory class in topology and right before
 my class about algebraic geometry, me and my friend Anastasia were asked
 by our fellow students from topology about our current topics in
-algebraic geometry. This then lead to the discussion about sheavs, as
+algebraic geometry. This then lead to the discussion about sheaves, as
 they saw my sketch of them in my lecture notes (because I mentioned that
 I typically only draw geometric sketches of ideas and proofs instead of
 writing actual sentences like most people).</p>
@@ -110,16 +110,16 @@ this was caused by my inability to relate the importance of this
 structure to them in a practical way. So after some days, I started to
 imagine fictional conversations in my spare time where I would try to
 explain this topic to them again. I especially tried to focus on
-giving real world examples of sheavs, which are not exactly linked to
+giving real world examples of sheaves, which are not exactly linked to
 algebraic geometry, but instead convey the idea of tracking data which
 is connected to open sets. And as I thought about this, I started to
 imagine video games, which typically provide very natural applications
 of impressively deep mathematical structures, leading me to relate the
-game Minecraft to algebraic geometry, or sheavs more exactly.</p>
+game Minecraft to algebraic geometry, or sheaves more exactly.</p>
 
 <h2 id="minecraft-as-a-game">Minecraft as a game</h2>
 
-<p>Minecraft is the most popular game in existance currently. Therefor it
+<p>Minecraft is the most popular game in existence currently. Therefor it
 is very likely that you, the reader, have heard about it at some point
 in your life. But here is a quick recap of what Minecraft is and how
 it works (abstractly).</p>
@@ -130,7 +130,7 @@ TODO Bild einfügen: Minecraft
 
 <h3 id="what-is-minecraft">What is minecraft?</h3>
 
-<p>In minecraft you start a game as digital character in a blocky world.
+<p>In Minecraft you start a game as digital character in a blocky world.
 There you start to collect resources by mining different materials (in
 the form of breaking blocks mainly) or slaying enemies which roam your
 digital world.</p>
@@ -142,17 +142,17 @@ this world and its inhabitants. We know that the blocks are arranged in
 a lattice pattern which happens to be \(\mathbb{Z}^3\) and because each
 block can be identified by its type (<em>air</em>, <em>grass</em>, <em>dirt</em>, <em>wood</em>, …)
 and there are just a finite number of unique blocks, we can store
-the blocky part of a Minecarft world as a subset
+the blocky part of a Minecraft world as a subset
 \(M\subset \mathbb{Z}^3\times\mathbb{N}\) by using a bijective mapping
 from the types of blocks to \(\mathbb{N}=\{0,1,2,\dots\}\).</p>
 
-<p>Now how can minecraft be able to process infinitely many blocks and
+<p>Now how can Minecraft be able to process infinitely many blocks and
 render them to a screen? The answer is that this would be impossible,
-because traversing every block in an infinite minecraft world (which
-most minecraft worlds basically are) would take a very long time, let
+because traversing every block in an infinite Minecraft world (which
+most Minecraft worlds basically are) would take a very long time, let
 alone rendering them. This would be impossible to render at a stable
 30FPS and therefor the developers at Mojang decided to split the
-minecraft world into chunks of \(16\times 16\times 256\) (here we can
+Minecraft world into chunks of \(16\times 16\times 256\) (here we can
 neglect the last coordinate of our tuples in \(M\), because the number
 of different blocks is small small enough that a computer can traverse
 them easily).</p>
@@ -162,27 +162,27 @@ TODO Bild von chunk einfügen
 -->
 
 <p>These subsets of the world \(C_{x,y,z}\subset M\subset \mathbb{Z}^3\times\mathbb{N}\)
-are called chunk and each exist for each $x,y \in 16\mathbb{Z}, &gt; z\in 256\mathbb{Z}\((technically the\)z\(is fixed to\)0\(because minecraft has a finite
+are called chunk and each exist for each $x,y \in 16\mathbb{Z}, &gt; z\in 256\mathbb{Z}\((technically the\)z\(is fixed to\)0\(because Minecraft has a finite
 height of\)256$$ blocks, but we will abstract/future proof a bit for now).</p>
 
 <!--
 TODO: Link basis of topology
 -->
 
-<p>So why are these chunks important for us? How do they relate to sheavs?
+<p>So why are these chunks important for us? How do they relate to sheaves?
 Well, these \(C_{x,y,z}\) form a basis of a topology on \(M\) if
 we name the “chunks” not “chunks” but “open sets” instead! This is quite
 natural because Minecraft creates a union of these chunks (the number
 of which is free for the user to decide, therefor possibly infinite)
 and then renders this union of chunks to the screen. This union of chunks
-would not be considered a chunk in minecrafts code, but we will refer to
-the union of chunks as “open set” nontheless, because this gives us our
+would not be considered a chunk in Minecrafts’ code, but we will refer to
+the union of chunks as “open set” nonetheless, because this gives us our
 topological structure on \(M\). (Bonus: to really proof that the
 \(C_{x,y,z}\) form a topological basis, one must show that the finite
 intersection of open sets must also be an open set. The proof is quite
 trivial but left as an exercise to the reader.)</p>
 
-<h3 id="so-we-have-a-topological-space-on-our-minecraft-world-m-what-now">So we have a topological space on our minecraft world \(M\), what now?</h3>
+<h3 id="so-we-have-a-topological-space-on-our-minecraft-world-m-what-now">So we have a topological space on our Minecraft world \(M\), what now?</h3>
 
 <p>After having done all of this for the sake of rendering parts of our
 world on a computer in a finite time, we get some fundamentally needed
@@ -195,7 +195,7 @@ in the current chunk. Therefor the game must calculate the set of
 all entities in currently in the game world, which are also in the
 currently inhabited chunk.</p>
 
-<p>For this, minecraft stores all entities as tuples \(e\in\mathbb{R}^3\times\mathbb{N}\),
+<p>For this, Minecraft stores all entities as tuples \(e\in\mathbb{R}^3\times\mathbb{N}\),
 where \(\mathbb{N}\) again denotes the type of enemy. But now, minecraft
 also has a functor \(\mathcal{F}: (\frac{\text{open}}{M})\to \mathcal{E}\), where
 \(\mathcal{E}\) is the category of entities, which has as objects just
@@ -205,7 +205,7 @@ and \(\frac{\text{open}}{M}\) denotes the category of open sets over \(M\)
 created by set inclusion as well.</p>
 
 <p>In tradition to the notation used by my professor Schröer, I will
-denothe the application of this functor as \(\Gamma(U, \mathcal{F})=V\).</p>
+denote the application of this functor as \(\Gamma(U, \mathcal{F})=V\).</p>
 
 <h3 id="a-quick-recap-in-simple-terms">A quick recap in simple terms</h3>
 
@@ -216,7 +216,7 @@ following question using the mathematical/computer language:</p>
 <blockquote>
   <p>Which entities (like zombies, skeleton, player, …) are inside
 the collection of the following chunks:
-\(C_{x_1, y_1, z_1}, C_{x_2, y_2, z_2}, \dots\)</p>
+\(C_{x_1, y_1, z_1}, C_{x_2, y_2, z_2}, \dots\) ?</p>
 </blockquote>
 
 <p>And the formulation in mathematical lingo would be:</p>
@@ -239,9 +239,9 @@ condition:</p>
 TODO insert meme here "Well yes, but also no"
 -->
 <p>Well yes, but also no. The problem with just mapping open sets of our
-minecraft world to sets of entities raises the problem of
+Minecraft world to sets of entities raises the problem of
 <em>restricting our open set</em> but <em>increasing our number of entities therein</em>.
-Imaine the following. You have your minecraft map and play the game inside.
+Imagine the following. You have your Minecraft map and play the game inside.
 Now you wish to poll the number of entities which are located in your
 current chunk (the one your player resides in) and the ones adjacent to
 this one. This would give you in total $9$ chunks in which you poll
@@ -249,14 +249,14 @@ for entities, because you wish to sleep in the game and the game does
 not let you sleep, if there are any monster (subset of entities) near
 your bed. So the game says everything is fine, your player is the only
 entity in these chunks and you can go to bed. But when you wake up
-in minecraft to your dismay you are getting attacked by a zomby, because
-actually there was one more entity nearby. This problem/bug occured,
+in Minecraft to your dismay you are getting attacked by a zombie, because
+actually there was one more entity nearby. This problem/bug occurred,
 because the mapping which shows entities residing in a open set of our
 topology did not respect <em>restriction mappings</em>. This means, even if
 one takes the subset of an open set, the correlating entities in this
 subset need not be a subset of the entities correlating to the supset.</p>
 
-<p>We can solve this issue by requesting our fucntion \(\mathcal{F}\) must
+<p>We can solve this issue by requesting our function \(\mathcal{F}\) must
 fulfill the following criteria:</p>
 
 <ul>
@@ -332,14 +332,14 @@ because of its’ apparent abstractness. But in fact we are very far away
 from some abstract useless construct as I tried to visualize in this
 blog post. In fact the construct of a sheaf is quite natural as it
 canonically allows us to track data attached to open sets (or as is the
-case in minecraft: track entities in unions of chunks).</p>
+case in Minecraft: track entities in unions of chunks).</p>
 
 <p>This concept can be much further observed though, providing a rich
 theory not just applicable in algebraic geometry. In fact, I will try to
 publish another post soon where I analyze some art I found
-particularily interesting using the structures defined in this post while
+particularity interesting using the structures defined in this post while
 also extending the notions of a sheaf to the ideas of stalks (which in
-our minecraft example would allocate the entities in the smallest open
+our Minecraft example would allocate the entities in the smallest open
 set around some some point to said point; Or more concretely all the
 entities in a chunk are returned, if we enter some point inside said
 chunk) and possibly also the idea of germs.</p>
