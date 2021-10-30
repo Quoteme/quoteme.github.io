@@ -2,7 +2,7 @@
 layout: post
 title: Math meme solve finished
 author: Luca Leon Happel
-date: 2021-10-21 Di 23:58 35
+date: 2021-10-21 Di 23:58:35
 category: posts
 draft: false
 ---

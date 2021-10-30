@@ -12,7 +12,7 @@ title: About me
 
 ### About me
 
-I am Luca Leon Happel, a 21 year old Student in Düsseldorf and
+I am Luca Leon Happel, a 22 year old Student in Düsseldorf and
 [top-100 programmer on Github](https://xscode.com/profile/quoteme) in
 categories like physics-engines and rigid-body-dynamics
 who currently lives in Mönchengladbach. My interests include mathematics,
@@ -110,7 +110,7 @@ Therefor I compiled a short preview of some skills I currently possess.
 
 ### Über mich
 
-Ich bin Luca Leon Happel, ein momentan 21 jähriger Student in Düsseldorf
+Ich bin Luca Leon Happel, ein momentan 22 jähriger Student in Düsseldorf
 und [top-100 Programmierer auf GitHub](https://xscode.com/profile/quoteme)
 in verschiedenen Kategorien wie Physik-Engines und Starrkörpersimulationen
 aus Mönchengladbach. Meine Interessen sind größtenteils das Lernen von
