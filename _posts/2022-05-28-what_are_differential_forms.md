@@ -66,3 +66,11 @@ as:
 $$\omega \in \Gamma(M, \Lambda^k(T^\ast M))$$
 
 ## My interpretation
+
+Basically a differential 1-form can be visualized as appending
+a vector on to each point of our manifold. Because we work with a smooth
+section, these vectors need to vary "smoothly" from one point to
+another. This means, if we wiggle the point we look at on our manifold
+just a tiny bit, the vector we have related to this point will also
+wiggle just a tiny bit. Also out corresponding vector cannot take any
+sharp turns if we do not move our point in sharp turns.
