@@ -4,12 +4,179 @@
  <title>Luca Leon Happel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-10-30T15:03:32+00:00</updated>
+ <updated>2022-08-31T14:06:45+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
  </author>
  
+ 
+   
+   <entry>
+     <title>What are "differential forms"</title>
+     <link href="http://localhost:4000/posts/what_are_differential_forms"/>
+     <updated>2022-05-27T02:05:32+00:00</updated>
+     <id>http://localhost:4000/posts/what_are_differential_forms</id>
+     <content type="html">&lt;!-- FIX: change date +1 day --&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Currently while visiting the “&lt;a href=&quot;http://die-koma.org/&quot;&gt;KoMa&lt;/a&gt;”
+(Konferenz der deutschsprachigen Mathematikfachschaften / conference of
+German-speaking mathematics students) I got into a lot of interesting
+conversations about geometry, topology and category theory. This set
+the stage for me to think about differential forms, because I wanted to
+understand how exactly these things look and feel like.&lt;/p&gt;
+
+&lt;h2 id=&quot;my-sketches&quot;&gt;My sketches&lt;/h2&gt;
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/2bqRwJy&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/2bqRwJy&quot;&gt;My notes about differential forms&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The proof mentioned on page 1 is viewable on &lt;a href=&quot;https://web.archive.org/web/20211224033113/https://planetmath.org/tensorproductofdualspacesisadualspaceoftensorproduct&quot;&gt;https://web.archive.org/web/20211224033113/https://planetmath.org/tensorproductofdualspacesisadualspaceoftensorproduct&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;notation&quot;&gt;Notation&lt;/h2&gt;
+
+&lt;p&gt;Throughout this article we will choose the following symbols and notation:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;\(M\) a smooth manifold over a field \(K\subset \mathbb{R}\)&lt;/li&gt;
+  &lt;li&gt;\(p\in M\) a point in \(M\)&lt;/li&gt;
+  &lt;li&gt;\(T_p M\) the tangent space of \(M\) at \(p\)&lt;/li&gt;
+  &lt;li&gt;\(T_p^\ast M\) the cotangent space of \(M\) at \(p\), which
+consists of the linear functions \(\phi: T_p M \to K\).
+For finite tangent spaces \(T_p M\), we can canonically
+identify \(T_p^\ast M\) with \(T_p M\).&lt;/li&gt;
+  &lt;li&gt;\(T M = \bigcup_{p\in M} \{p\}\times T_p M\) and
+\(T^\ast M = \bigcup_{p\in M} \{p\}\times T_p^\ast M\)
+are the tangent/cotangent bundles of \(M\)&lt;/li&gt;
+  &lt;li&gt;\(\Lambda^k(T^\ast M)\) is the
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Exterior_algebra&quot;&gt;k-th exterior product&lt;/a&gt;
+of the cotangent bundle of \(M\).
+Its elements \(\mu_p\in\Lambda^k(T^\ast M)\) are called
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Blade_(geometry)&quot;&gt;k-coblades&lt;/a&gt; and
+allow to measure volumes on some tangentspace \(T_pM\) in \(k\)-dimensions.&lt;/li&gt;
+  &lt;li&gt;\(\Gamma(M, \Lambda^k(T^\ast M)) = \Gamma(\Lambda^k(T^\ast M))\)
+is the space of
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Section_(fiber_bundle)&quot;&gt;global sections&lt;/a&gt;
+from the basespace \(M\) to the total space \(\Lambda^k(T^\ast M)\).
+We use this, because for an element
+\(\omega:M \to \Lambda^k(T^\ast M)\) 
+in it, we can smoothly associate for each point \(p\) on \(M\)
+a k-coblade.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;formal-definition&quot;&gt;Formal definition&lt;/h2&gt;
+
+&lt;p&gt;A differential form $\omega$ is defined as an element
+in the space of global sections over the kth exterior algebra
+of the cotangent bundle over a smooth manifold $M$. We denote this
+as:&lt;/p&gt;
+
+\[\omega \in \Gamma(M, \Lambda^k(T^\ast M))\]
+
+&lt;h2 id=&quot;my-interpretation&quot;&gt;My interpretation&lt;/h2&gt;
+
+&lt;p&gt;Basically a differential 1-form can be visualized as appending
+a vector on to each point of our manifold. Because we work with a smooth
+section, these vectors need to vary “smoothly” from one point to
+another. This means, if we wiggle the point we look at on our manifold
+just a tiny bit, the vector we have related to this point will also
+wiggle just a tiny bit. Also out corresponding vector cannot take any
+sharp turns if we do not move our point in sharp turns.&lt;/p&gt;
+</content>
+   </entry>
+   
+ 
+   
+   <entry>
+     <title>Elliptic curves ofer the field with four elements (not finished)</title>
+     <link href="http://localhost:4000/posts/elliptic_curves_over_the_field_with_four_elements"/>
+     <updated>2022-03-01T20:35:13+00:00</updated>
+     <id>http://localhost:4000/posts/elliptic_curves_over_the_field_with_four_elements</id>
+     <content type="html">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#Introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-field-mathbbf_4-with-four-elements&quot;&gt;The Field \(\mathbb{F}_4\) with four elements&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-affine-plane&quot;&gt;The affine plane&lt;/a&gt;
+    &lt;ol&gt;
+      &lt;li&gt;&lt;a href=&quot;example-of-an-reducible-hypersurface&quot;&gt;Example of an reducible hypersurface&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;example-of-an-irreducible-hypersurface&quot;&gt;Example of an irreducible hypersurface&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;example-of-an-irreducible-hypersurface-that-is-an-elliptic-curve&quot;&gt;Example of an irreducible hypersurface that is an elliptic curve&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;!-- TODO --&gt;
+
+&lt;h2 id=&quot;the-field-mathbbf_4-with-four-elements&quot;&gt;The Field \(\mathbb{F}_4\) with four elements&lt;/h2&gt;
+
+&lt;!-- TODO --&gt;
+
+&lt;h2 id=&quot;the-affine-plane&quot;&gt;The affine plane&lt;/h2&gt;
+
+&lt;p&gt;We define the &lt;em&gt;affine space&lt;/em&gt; \(\mathbb{A}^n_k\) over a ground field \(k\)
+to be the set of all tuples \((x_1, \dots, x_n)\) with elements in \(k\).
+In the case of \(n=2\) we call \(\mathbb{A}^n_k\) &lt;em&gt;affine plane&lt;/em&gt;.
+A &lt;em&gt;variety&lt;/em&gt; \(V(A)\) for a subset \(A\subset k[X_1, \dots, X_n]\) of
+polynomials is the set points in \(\mathbb{A}^n_k\) which are zeros for
+each polynomial in \(A\).
+We call \(V(A)\) a &lt;em&gt;hypersurface&lt;/em&gt;, if \(A=\{f\}\) contains only one
+element.&lt;/p&gt;
+
+&lt;p&gt;We can define a topology on \(\mathbb{A}^n_k\) by defining the open sets
+to be the sets \(V(f)\) for each \(f\in k[X_1,\dots, X_n]\). I will not
+go into detail as to why this results in a topology. As an example,
+we can always construct \(V(f_1) \cup\dots\cup V(f_r) = V(f_1\cdot\dots\cdot f_r)\)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/FoVlqcE.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This image shows how solution sets can be united by multiplying the
+underlying functions. We use the affine real line \(\mathbb{A}^1_\mathbb{R}\)
+for this illustration. The green function is the product of the blue and
+red one and as can be seen, the green graph has exactly the same poles
+as the red and blue graph combined.&lt;/p&gt;
+
+&lt;p&gt;Furthermore we define a hypersurface \(V(f)\) to be &lt;em&gt;irreducible&lt;/em&gt; if the
+underlying polynomial \(f\) is irreducible. A hypersurface is &lt;em&gt;reducible&lt;/em&gt;
+if it is not irreducible.&lt;/p&gt;
+
+&lt;h3 id=&quot;example-of-an-reducible-hypersurface&quot;&gt;Example of an reducible hypersurface&lt;/h3&gt;
+
+&lt;p&gt;Consider \(f=(x-y)(x+y)\) which is reducible in \(\mathbb{R}[x,y]\) as it
+can be factored into the non-units: \((x-y)\) and \((x+y)\).&lt;/p&gt;
+
+&lt;p&gt;This can be seen in the graph of \(V(f)\), because \(V(f)\) can be
+split into two hypersurfaces \(V(x-y)\) and \(V(x+y)\).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/ABBUUqI.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example-of-an-irreducible-hypersurface&quot;&gt;Example of an irreducible hypersurface&lt;/h3&gt;
+
+&lt;p&gt;Consider \(f=x^2+y^2-1\). This defines the circle \(V(f) = S^1\).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/sGK3Msf.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example-of-an-irreducible-hypersurface-that-is-an-elliptic-curve&quot;&gt;Example of an irreducible hypersurface that is an elliptic curve&lt;/h3&gt;
+
+&lt;p&gt;Another irreducible hypersurface is \(V(y^2-x^3+x)\) in
+\(\mathbb{A}^2_\mathbb{R}\).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/p8mcDuu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This also happens to define an elliptic curve. Also note that an irreducible
+hypersurface need not be a connected space in the sense of topology.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-projective-space&quot;&gt;The projective space&lt;/h2&gt;
+
+</content>
+   </entry>
+   
  
    
    <entry>
@@ -19,9 +186,9 @@
      <id>http://localhost:4000/posts/sheaves_in_minecraft</id>
      <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;A few days ago after my introductory class in topology and right before
-my class about algebraic geometry, me and my friend Anastasia were asked
-by our fellow students from topology about our current topics in
+&lt;p&gt;A few days ago, after my introductory class in topology, and right before
+my class about algebraic geometry, my friend Anastasia and I were asked
+by fellow topology students about our current topics in
 algebraic geometry. This then lead to the discussion
 about &lt;a href=&quot;https://en.wikipedia.org/wiki/Sheaf_(mathematics)&quot;&gt;sheaves&lt;/a&gt;, as
 they saw my sketch of them in my lecture notes (because I mentioned that
@@ -30,14 +197,14 @@ writing actual sentences like most people).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/IvIs8F3.png&quot; alt=&quot;We talked about this diagram&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;After some explaining they seemed to understand the concept somewhat,
-but I was unable to really give them a deeper understanding. I assume
+&lt;p&gt;After some explaining, they seemed to understand the concept somewhat,
+but I was unable to give them a deeper understanding. I assume
 this was caused by my inability to relate the importance of this
 structure to them in a practical way. So after some days, I started to
 imagine fictional conversations in my spare time where I would try to
 explain this topic to them again. I especially tried to focus on
-giving real world examples of sheaves, which are not exactly linked to
-algebraic geometry, but instead convey the idea of tracking data which
+giving real-world examples of sheaves, which are not exactly linked to
+algebraic geometry, but, instead convey the idea of tracking data that
 is connected to open sets. And as I thought about this, I started to
 imagine video games, which typically provide very natural applications
 of impressively deep mathematical structures, leading me to relate the
@@ -46,16 +213,16 @@ to algebraic geometry, or sheaves more exactly.&lt;/p&gt;
 
 &lt;h2 id=&quot;minecraft-as-a-game&quot;&gt;Minecraft as a game&lt;/h2&gt;
 
-&lt;p&gt;Minecraft is the most popular game in existence currently. Therefor it
+&lt;p&gt;Minecraft is the most popular game in existence currently. Therefore it
 is very likely that you, the reader, have heard about it at some point
 in your life. But here is a quick recap of what Minecraft is and how
 it works (abstractly).&lt;/p&gt;
 
-&lt;h3 id=&quot;what-is-minecraft&quot;&gt;What is minecraft?&lt;/h3&gt;
+&lt;h3 id=&quot;what-is-minecraft&quot;&gt;What is Minecraft?&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/gJAxAuO.png&quot; alt=&quot;Example view of minecraft&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In Minecraft you start a game as digital character in a blocky world.
+&lt;p&gt;In Minecraft, you start a game as a digital character in a blocky world.
 There you start to collect resources by mining different materials (in
 the form of breaking blocks mainly) or slaying enemies which roam your
 digital world.&lt;/p&gt;
@@ -74,12 +241,12 @@ from the types of blocks to \(\mathbb{N}=\{0,1,2,\dots\}\).&lt;/p&gt;
 &lt;p&gt;Now how can Minecraft be able to process infinitely many blocks and
 render them to a screen? The answer is that this would be impossible,
 because traversing every block in an infinite Minecraft world (which
-most Minecraft worlds basically are) would take a very long time, let
+most Minecraft worlds are) would take a very long time, let
 alone rendering them. This would be impossible to render at a stable
-30FPS and therefor the developers at Mojang decided to split the
+30FPS and the developers at Mojang decided to split the
 Minecraft world into chunks of \(16\times 16\times 256\) (here we can
 neglect the last coordinate of our tuples in \(M\), because the number
-of different blocks is small small enough that a computer can traverse
+of different blocks is small enough that a computer can traverse
 them easily).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/6sKQkg8.jpg&quot; alt=&quot;Examples of chunks - chunkbounds shader&quot; /&gt;
@@ -100,11 +267,11 @@ Well, these \(C_{x,y,z}\) form a
 on \(M\) if we name the “chunks” not “chunks”
 but “open sets” instead! This is quite
 natural because Minecraft creates a union of these chunks (the number
-of which is free for the user to decide, therefor possibly infinite)
+of which is free for the user to decide, therefore possibly infinite)
 and then renders this union of chunks to the screen. This union of chunks
 would not be considered a chunk in Minecrafts’ code, but we will refer to
-the union of chunks as “open set” nonetheless, because this gives us our
-topological structure on \(M\). (Bonus: to really proof that the
+the union of chunks as “open set” nonetheless because this gives us our
+topological structure on \(M\). (Bonus: to really prove that the
 \(C_{x,y,z}\) form a topological basis, one must show that the finite
 intersection of open sets must also be an open set. The proof is quite
 trivial but left as an exercise to the reader.)&lt;/p&gt;
@@ -118,8 +285,8 @@ for free!&lt;/p&gt;
 
 &lt;p&gt;Like for example when the player wants to go to sleep in the game.
 Minecraft first checks if the player does not have any hostile entities
-in the current chunk. Therefor the game must calculate the set of
-all entities in currently in the game world, which are also in the
+in the current chunk. Therefore the game must calculate the set of
+all entities currently in the game world, which are also in the
 currently inhabited chunk.&lt;/p&gt;
 
 &lt;p&gt;For this, Minecraft stores all entities as tuples \(e\in\mathbb{R}^3\times\mathbb{N}\),
@@ -168,26 +335,26 @@ condition:&lt;/p&gt;
 Minecraft world to sets of entities raises the problem of
 &lt;em&gt;restricting our open set&lt;/em&gt; but &lt;em&gt;increasing our number of entities therein&lt;/em&gt;.
 Imagine the following. You have your Minecraft map and play the game
-with your charachter \(p\) inside said map.
-Now you wish to poll the number of entities which are located in your
+with your character \(p\) inside said map.
+Now you wish to poll the number of entities that are located in your
 current chunk (the one your player resides in) and the ones adjacent to
 your current chunk. This would give you in total \(9\) chunks in which you poll
-for entities. Because you wish to let your charachter sleep in the game
-and the game does not let your charater sleep, if there are any monsters
+for entities. Because you wish to let your character sleep in the game
+and the game does not let your character sleep if there are any monsters
 (which are a subset of entities) near your bed, you need to check if
-\(\Gamma(V, \mathcal{F})\) has any monsers in it (where \(V\) is
+\(\Gamma(V, \mathcal{F})\) has any monster in it (where \(V\) is
 the chunk the player is in and the adjacent chunks).
 So now the game says everything is fine because \(\Gamma(V, \mathcal{F}) = \{p\}\),
 your player is the only entity in these chunks and you can go to bed.
 But when you wake up in Minecraft to your dismay you are getting attacked
 by a zombie, because actually there was one more entity nearby.
 There was indeed one zombie \(z \in \Gamma(V', \mathcal{F})\) where
-\(V'\subset V\) is just the players current chunk.
+\(V'\subset V\) is just the player’s current chunk.
 This problem/bug occurred, because the mapping which shows entities
 residing in an open set of our
 topology did not respect &lt;em&gt;restriction mappings&lt;/em&gt;. This means, even if
 one takes the subset of an open set, the correlating entities in this
-subset need not be a subset of the entities correlating to the supset.
+subset need not be a subset of the entities correlating to the superset.
 Indeed, in our case we had \(V'\subset V\) but
 \(\Gamma(V',\mathcal{F})=\{p,z\}\supset \{p\}=\Gamma(V,\mathcal{F})\)&lt;/p&gt;
 
@@ -211,7 +378,7 @@ open sets’ entities if these open sets are included in the prior open set.&lt;
 inside some set of chunks. But there is still some problem in the example
 we wrote one paragraph before. We still have not solved the problem
 that given our knowledge of \(\Gamma(V,\mathcal{F})\) where \(U\) is some
-open set (with the player inside) we want to infer that open subsets
+open set (with the player inside) we want to infer that, open subsets
 \(V'\subset V\) cannot have more entities or ones, that cannot be found
 inside \(V\).&lt;/p&gt;
 
@@ -226,14 +393,14 @@ which completes our requirements from before:&lt;/p&gt;
   &lt;li&gt;\(\text{res}^{V}_{V} = id\) &lt;!--__--&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;which define a sheaf. The sheaf axiom now states the following:&lt;/p&gt;
+&lt;p&gt;which defines a sheaf. The sheaf axiom now states the following:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;(&lt;em&gt;Locality&lt;/em&gt;) If \(\mathcal{U}=\bigcup_{i\in I} U_i\) is an open
 covering of an open set \(U\) and if \(s,t\in\Gamma(U,\mathcal{F})\)
 with \(\text{res}^U_{U_i}(s)=\text{res}^U_{U_i}(t)\), then \(s=t\)&lt;/li&gt;
   &lt;li&gt;(&lt;em&gt;Gluing&lt;/em&gt;) If \(\mathcal{U}=\bigcup_{i\in I} U_i\) is an open covering
-of an open set \(U\) and \(s_i\in U_i\)$ for \(i\in I\) holds
+of an open set \(U\) and \(s_i\in U_i\) for \(i\in I\) holds
 \(\text{res}^{U_i}_{U_i\cup U_j}(s_i) = \text{res}^{U_j}_{U_i\cup U_j}(s_j)\)
 then there must be exactly one \(s\in\Gamma(U,\mathcal{F})\) with
 \(\text{res}^U_{U_i}(s) = s_j\)&lt;/li&gt;
@@ -247,7 +414,7 @@ is then equal to \(e'\) is we restrict our focus back to \(V'\).&lt;/p&gt;
 &lt;p&gt;In our situation with the zombie before, we had looked at an open set
 \(V\) which was defined as the chunk with the player \(p\) inside glued together
 with the chunks adjacent to that one. We said \(\Gamma(V,\mathcal{F})\)
-only included the player, because this was the only entity which was
+only included the player, because this was the only entity that was
 mapped from \(V\) by \(\mathcal{F}\), but then we said there
 was actually one zombie \(z'\) (another entity) inside \(V'\), which
 we defined as the chunk the player was inside.&lt;/p&gt;
@@ -263,9 +430,9 @@ exist in any open set \(V\) that includes \(V'\).&lt;/p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;This concept might look daunting at first and maybe even useless
-because of its’ apparent abstractness. But in fact we are very far away
+because of its’ apparent abstractness. But in fact, we are very far away
 from some abstract useless construct as I tried to visualize in this
-blog post. In fact the construct of a sheaf is quite natural as it
+blog post. In fact, the construct of a sheaf is quite natural as it
 canonically allows us to track data attached to open sets (or as is the
 case in Minecraft: track entities in unions of chunks).&lt;/p&gt;
 
@@ -275,7 +442,7 @@ publish another post soon where I analyze some art I found
 particularity interesting using the structures defined in this post while
 also extending the notions of a sheaf to the ideas of stalks (which in
 our Minecraft example would allocate the entities in the smallest open
-set around some some point to said point; Or more concretely all the
+set around some point to said point; Or more concretely all the
 entities in a chunk are returned, if we enter some point inside said
 chunk) and possibly also the idea of germs.&lt;/p&gt;
 

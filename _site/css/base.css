@@ -1,9 +1,9 @@
 @charset "UTF-8";
-body { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; margin: 0; -webkit-font-smoothing: antialiased; background: #161616; color: #fff; }
+body { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; margin: 0; -webkit-font-smoothing: antialiased; background: #202020; color: #fff; }
 
 a { color: #598ecd; }
 
-.sidebar { position: fixed; top: 0px; padding: 15px; background: #0c0c0c; z-index: 1; width: 80px; box-shadow: 5px 0px 10px #060606; height: 100vh; font-family: Helvetica, sans-serif; }
+.sidebar { position: fixed; top: 0px; padding: 15px; background: #161616; z-index: 1; width: 80px; box-shadow: 5px 0px 10px #161616; height: 100vh; font-family: Helvetica, sans-serif; }
 
 .sidebar a { text-decoration: none; }
 
@@ -47,15 +47,15 @@ a { color: #598ecd; }
 
 .content h1 a { transition: 0.25s; }
 
-.content h1 a:hover { color: #3b87fa; transition: 0.25s; }
+.content h1 a:hover { color: #3B87FA; transition: 0.25s; }
 
 .content h2 { font-size: 30px; margin-bottom: 15px; transition: 0.25s; }
 
-.content h2:hover { color: #fa693b; transition: 0.25s; }
+.content h2:hover { color: #3B87FA; transition: 0.25s; }
 
 .content h3 { color: #d9d9d9; font-size: 25px; padding-bottom: 5px; margin-bottom: 10px; transition: 0.25s; }
 
-.content h3:hover { color: #7efa3b; transition: 0.25s; }
+.content h3:hover { color: #3B87FA; transition: 0.25s; }
 
 .content p { font-size: 16px; margin-top: 0; margin-bottom: 1.2em; line-height: 1.7em; }
 
@@ -109,6 +109,6 @@ table th, table td { border: 1px solid black; padding: 4px; }
 
 table th { padding: 8px; background: #0e0e0e; }
 
-table td { background: #131313; }
+table td { background: #303030; }
 
 /*# sourceMappingURL=base.css.map */
