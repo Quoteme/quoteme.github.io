@@ -7,25 +7,17 @@ title: "Projects"
   <h1>Projects</h1>
   <div class='projectOverview'>
     <div class='project'>
-      <a href="https://quoteme.github.io/math">
+      <a href="/math">
         <img class='preview' src="https://github.com/Quoteme/math/blob/master/social_preview.png?raw=true" alt="">
         <span class='title'>My Math stuff</span>
       </a>
     </div>
     <div class='project'>
-      <a href="http://quoteme.github.io/top2man">
+      <a href="/top2man">
         <img class='preview' src="https://i.imgur.com/OAqeQ43.png" alt="">
         <span class='title'>Top2Man</span>
       </a>
     </div>
-<!--
-    <div class='project'>
-      <a href="https://quoteme.github.io/skript/">
-        <img class='preview' src="https://i.imgur.com/3DSsCuD.png" alt="">
-        <span class='title'>Lecture notes</span>
-      </a>
-    </div>
--->
     <div class='project'>
       <a href="https://github.com/Quoteme/img2string/">
         <img class='preview' src="https://i.imgur.com/CmCh70g.gif" alt="">
@@ -57,7 +49,7 @@ title: "Projects"
       </a>
     </div>
     <div class='project'>
-      <a href="https://quoteme.github.io/KnowHowComputerHTML/">
+      <a href="/KnowHowComputerHTML/">
         <img class='preview' src="https://i.imgur.com/R5O38wV.png" alt="">
         <span class='title'>KnowHowComputer</span>
       </a>
@@ -69,13 +61,13 @@ title: "Projects"
       </a>
     </div>
     <div class='project'>
-      <a href="https://quoteme.github.io/qrcode/">
+      <a href="/qrcode/">
         <img class='preview' src="https://i.imgur.com/ibEuDVu.png" alt="">
         <span class='title'>QRCode</span>
       </a>
     </div>
     <div class='project'>
-      <a href="https://quoteme.github.io/nDrender/">
+      <a href="/nDrender/">
         <img class='preview' src="https://i.imgur.com/Wp8jf0g.gif" alt="">
         <span class='title'>nDrender</span>
       </a>

@@ -5,11 +5,7 @@ category: posts
 draft: false
 ---
 
-[Hier klicken um BildBesucher online auszuprobieren](https://quoteme.github.io/bildbesucher/)
-
----
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/eu6CCK4"><a href="//imgur.com/a/eu6CCK4">Bilder zu meinem Spiel: BildBesucher (https://quoteme.github.io/bildbesucher/)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+[Hier klicken um BildBesucher online auszuprobieren]({{site.url}}/bildbesucher/)
 
 ---
 
@@ -22,7 +18,7 @@ man Bilder online mit einem kleinen Character besuchen kann und von
 einem Bild zum nächsten weitergeleitet werden kann. Die Idee für das
 Spiel kam mir, als ich [XKCDs Hoverboard](https://xkcd.com/1608/)
 gespielt habe und davon sehr begeistert war. Den Quellcode kann
-man dafür auf der dazugehörigen [Github Seite](https://github.com/Quoteme/bildbesucher)
+man dafür auf der dazugehörigen [Github Seite]({{site.url}}/bildbesucher)
 ansehen/forken.
 
 Pläne sind momentan noch viele da, insbesondere soll die Zoom-Funktion
@@ -36,6 +32,10 @@ Andere wichtige Sachen, welche ich noch machen möchte sind:
 - Die Welt weiter ausbauen (mehr Bilder erstellen und mein momentanes
 	erweitern)
 - ???
+
+---
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/eu6CCK4"><a href="//imgur.com/a/eu6CCK4">Bilder zu meinem Spiel: BildBesucher ({{site.url}}/bildbesucher/)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ---
 

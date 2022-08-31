@@ -4,12 +4,12 @@ title: BildBesucher hat jetzt JSDoc-support
 category: posts
 ---
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/IX4jhgT"><a href="//imgur.com/a/IX4jhgT">Overview of my first jsdoc documentation (quoteme.github.io/bildbesucher/docs)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/IX4jhgT"><a href="//imgur.com/a/IX4jhgT">Overview of my first jsdoc documentation ({{site.url}}/bildbesucher/docs)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 Wie man es in dem obigen Bild sehen kann, habe ich heute
 [JSDoc](https://jsdoc.app/index.html)-support zu meinem Spiel
-[BildBesucher](http://github.com/quoteme/bildbesucher) hinzugefügt!
-Das bedeuted, wenn man auf [quoteme.github.io/bildbesucher/docs/](https://quoteme.github.io/bildbesucher/docs/)
+[BildBesucher]({{site.url}}/bildbesucher) hinzugefügt!
+Das bedeuted, wenn man auf [{{site.url}}/bildbesucher/docs/]({{site.url}}/bildbesucher/docs/)
 geht, kann man alle möglichen interessanten Infos über die Programmierung
 des Spiels erfahren. Das erleichtert in der Zukunft mir beispielsweise
 herauszufinden wofür eine bestimme Funktion gut war, oder Andere welche

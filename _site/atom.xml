@@ -4,7 +4,7 @@
  <title>Luca Leon Happel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-08-31T14:06:45+00:00</updated>
+ <updated>2022-08-31T14:25:14+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Luca Leon Happel</name>
@@ -1055,12 +1055,12 @@ Beispielsweise Gravitation auf natürliche Weise auftaucht.&lt;/p&gt;
      <updated>2020-04-18T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/BildBesucher_hat_jetzt_JSDoc-support</id>
      <content type="html">&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/IX4jhgT&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/IX4jhgT&quot;&gt;Overview of my first jsdoc documentation (quoteme.github.io/bildbesucher/docs)&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/IX4jhgT&quot;&gt;Overview of my first jsdoc documentation (http://localhost:4000/bildbesucher/docs)&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
   &lt;p&gt;Wie man es in dem obigen Bild sehen kann, habe ich heute
 &lt;a href=&quot;https://jsdoc.app/index.html&quot;&gt;JSDoc&lt;/a&gt;-support zu meinem Spiel
-&lt;a href=&quot;http://github.com/quoteme/bildbesucher&quot;&gt;BildBesucher&lt;/a&gt; hinzugefügt!
-Das bedeuted, wenn man auf &lt;a href=&quot;https://quoteme.github.io/bildbesucher/docs/&quot;&gt;quoteme.github.io/bildbesucher/docs/&lt;/a&gt;
+&lt;a href=&quot;http://localhost:4000/bildbesucher&quot;&gt;BildBesucher&lt;/a&gt; hinzugefügt!
+Das bedeuted, wenn man auf &lt;a href=&quot;http://localhost:4000/bildbesucher/docs/&quot;&gt;http://localhost:4000/bildbesucher/docs/&lt;/a&gt;
 geht, kann man alle möglichen interessanten Infos über die Programmierung
 des Spiels erfahren. Das erleichtert in der Zukunft mir beispielsweise
 herauszufinden wofür eine bestimme Funktion gut war, oder Andere welche
@@ -1091,40 +1091,40 @@ halten sollte.&lt;/p&gt;
      <link href="http://localhost:4000/posts/BildBesucher"/>
      <updated>2020-04-07T00:00:00+00:00</updated>
      <id>http://localhost:4000/posts/BildBesucher</id>
-     <content type="html">&lt;p&gt;&lt;a href=&quot;https://quoteme.github.io/bildbesucher/&quot;&gt;Hier klicken um BildBesucher online auszuprobieren&lt;/a&gt;&lt;/p&gt;
+     <content type="html">&lt;p&gt;&lt;a href=&quot;http://localhost:4000/bildbesucher/&quot;&gt;Hier klicken um BildBesucher online auszuprobieren&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/eu6CCK4&quot;&gt;
-  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/eu6CCK4&quot;&gt;Bilder zu meinem Spiel: BildBesucher (https://quoteme.github.io/bildbesucher/)&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
-
-  &lt;hr /&gt;
-
-  &lt;p&gt;Nach einiger Zeit bin habe ich mal wieder angefangen ein Spiel
+&lt;p&gt;Nach einiger Zeit bin habe ich mal wieder angefangen ein Spiel
 zu schreiben, somit hat die momentane Corona-Kriese wenigstens ein paar
 positive Eigenschaften.&lt;/p&gt;
 
-  &lt;p&gt;Das Spiel nenne ich BildBesucher, da es eigentlich nur darum geht, dass
+&lt;p&gt;Das Spiel nenne ich BildBesucher, da es eigentlich nur darum geht, dass
 man Bilder online mit einem kleinen Character besuchen kann und von
 einem Bild zum nächsten weitergeleitet werden kann. Die Idee für das
 Spiel kam mir, als ich &lt;a href=&quot;https://xkcd.com/1608/&quot;&gt;XKCDs Hoverboard&lt;/a&gt;
 gespielt habe und davon sehr begeistert war. Den Quellcode kann
-man dafür auf der dazugehörigen &lt;a href=&quot;https://github.com/Quoteme/bildbesucher&quot;&gt;Github Seite&lt;/a&gt;
+man dafür auf der dazugehörigen &lt;a href=&quot;http://localhost:4000/bildbesucher&quot;&gt;Github Seite&lt;/a&gt;
 ansehen/forken.&lt;/p&gt;
 
-  &lt;p&gt;Pläne sind momentan noch viele da, insbesondere soll die Zoom-Funktion
+&lt;p&gt;Pläne sind momentan noch viele da, insbesondere soll die Zoom-Funktion
 für die in-game Kamera möglichst schnell eingefügt werden, damit man
 etwas mehr von der gezeichneten Welt herausfinden kann.
 Andere wichtige Sachen, welche ich noch machen möchte sind:&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Das Portalsystem, damit man an manchen stellen auf eine andere Seite
+&lt;ul&gt;
+  &lt;li&gt;Das Portalsystem, damit man an manchen stellen auf eine andere Seite
   geschickt wird&lt;/li&gt;
-    &lt;li&gt;Das Ladesystem, damit man anhand der URL ein bestimmtes Level mit
+  &lt;li&gt;Das Ladesystem, damit man anhand der URL ein bestimmtes Level mit
   verschienen Eigenschaften (wie Position/etc) laden kann&lt;/li&gt;
-    &lt;li&gt;Die Welt weiter ausbauen (mehr Bilder erstellen und mein momentanes
+  &lt;li&gt;Die Welt weiter ausbauen (mehr Bilder erstellen und mein momentanes
   erweitern)&lt;/li&gt;
-    &lt;li&gt;???&lt;/li&gt;
-  &lt;/ul&gt;
+  &lt;li&gt;???&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/eu6CCK4&quot;&gt;
+  &lt;p&gt;&lt;a href=&quot;//imgur.com/a/eu6CCK4&quot;&gt;Bilder zu meinem Spiel: BildBesucher (http://localhost:4000/bildbesucher/)&lt;/a&gt;&amp;lt;/blockquote&amp;gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
   &lt;hr /&gt;
 
