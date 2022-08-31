@@ -4,8 +4,6 @@ title: BildBesucher hat jetzt JSDoc-support
 category: posts
 ---
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/IX4jhgT"><a href="//imgur.com/a/IX4jhgT">Overview of my first jsdoc documentation ({{site.url}}/bildbesucher/docs)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
 Wie man es in dem obigen Bild sehen kann, habe ich heute
 [JSDoc](https://jsdoc.app/index.html)-support zu meinem Spiel
 [BildBesucher]({{site.url}}/bildbesucher) hinzugefügt!
@@ -29,3 +27,8 @@ ich meine Arbeiten am besten annotiere.
 Dies könnte auch in ganz anderen Bereichen für mich nützlich sein, da
 ich somit weiß, dass man immer gute Buchhaltung für seine Kollegen
 halten sollte.
+
+---
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/IX4jhgT"><a href="//imgur.com/a/IX4jhgT">Overview of my first jsdoc documentation ({{site.url}}/bildbesucher/docs)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
