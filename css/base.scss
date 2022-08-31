@@ -11,7 +11,7 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   margin: 0;
   -webkit-font-smoothing: antialiased;
-  background: #161616;
+  background: #202020;
   color: #fff
 }
 
@@ -24,11 +24,11 @@ a {
   // left: 15px;
   top: 0px;
   padding: 15px;
-  background: #0c0c0c;
+  background: #161616;
   z-index: 1;
   width: $sidebarwidth;
   //border-right: 1px solid white;
-  box-shadow: 5px 0px 10px #060606;
+  box-shadow: 5px 0px 10px #161616;
   height: 100vh;
   font-family: Helvetica, sans-serif;
   a {
@@ -121,7 +121,7 @@ a {
     margin: 18px 0 5px 0;
 	a{
       &:hover{
-      	color: rgb(59, 135, 250);
+      	color: #3B87FA;
       	transition: 0.25s;
       }
 	  transition: 0.25s;
@@ -131,7 +131,7 @@ a {
     font-size: 30px;
     margin-bottom: 15px;
     &:hover{
-      color: rgb(250, 105, 59);
+      color: #FA693B;
       transition: 0.25s;
     }
 	transition: 0.25s;
@@ -142,7 +142,7 @@ a {
     padding-bottom: 5px;
     margin-bottom: 10px;
     &:hover{
-      color: rgb(126, 250, 59);
+      color: #7EFA3B;
       transition: 0.25s;
     }
 	transition: 0.25s;
@@ -289,6 +289,6 @@ table{
     background: #0e0e0e;
   }
   td {
-	background: #131313
+	background: #303030
   }
 }
