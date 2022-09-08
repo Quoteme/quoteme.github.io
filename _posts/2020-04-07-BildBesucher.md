@@ -35,7 +35,10 @@ Andere wichtige Sachen, welche ich noch machen möchte sind:
 
 ---
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/eu6CCK4"><a href="//imgur.com/a/eu6CCK4">Bilder zu meinem Spiel: BildBesucher ({{site.url}}/bildbesucher/)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/eu6CCK4">
+<a href="//imgur.com/a/eu6CCK4">Bilder zu meinem Spiel: BildBesucher ({{site.url}}/bildbesucher/)</a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ---
 

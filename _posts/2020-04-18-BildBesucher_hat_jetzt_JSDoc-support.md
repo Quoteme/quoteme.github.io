@@ -2,6 +2,7 @@
 layout: post
 title: BildBesucher hat jetzt JSDoc-support
 category: posts
+lang: de_DE
 ---
 
 Wie man es in dem obigen Bild sehen kann, habe ich heute
@@ -30,5 +31,8 @@ halten sollte.
 
 ---
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/IX4jhgT"><a href="//imgur.com/a/IX4jhgT">Overview of my first jsdoc documentation ({{site.url}}/bildbesucher/docs)</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/IX4jhgT">
+<a href="//imgur.com/a/IX4jhgT">Overview of my first jsdoc documentation ({{site.url}}/bildbesucher/docs)</a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 

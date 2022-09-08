@@ -6,7 +6,10 @@ date: 2021-04-06 Di 21:06 44
 category: posts
 ---
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/a9oSq6x"  ><a href="//imgur.com/a/a9oSq6x">Pacrach update 2020/04/06</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/a9oSq6x"  >
+<a href="//imgur.com/a/a9oSq6x">Pacrach update 2020/04/06</a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 Ich arbeite jetzt seit fünf Tagen (plus/minus ein Tag oder so) an einem
 neuen Spiel, welches ich "Pacratch" nenne, nach dem Kartenspiel,

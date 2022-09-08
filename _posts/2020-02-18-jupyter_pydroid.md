@@ -4,7 +4,10 @@ title: Jupyter Notebook auf Android
 category: posts
 ---
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="XKFMPSw"><a href="//imgur.com/XKFMPSw">Jupyter Notebook on Android</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<blockquote class="imgur-embed-pub" lang="en" data-id="XKFMPSw">
+<a href="//imgur.com/XKFMPSw">Jupyter Notebook on Android</a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 1. Installiere [Pydroid3](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3&hl=en_US)
 	und [Pydroid Repository](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3.quickinstallrepo&hl=en_US)

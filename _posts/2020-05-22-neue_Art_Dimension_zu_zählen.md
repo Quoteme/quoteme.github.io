@@ -4,6 +4,7 @@ title: neue Art Dimension zu zählen
 author: Luca Leon Happel
 date: 2020-05-22 Fr 14:16 21
 category: posts
+lang: de_DE
 draft: false
 ---
 
@@ -52,7 +53,10 @@ Räume zu übersetzen. Doch im Endeffekt waren die Formeln eigentlich die
 selben, nur habe ich es mir selber unnötig kompliziert gemacht, indem
 ich selber noch herumgeforscht habe:
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/3yjeSPI"><a href="//imgur.com/a/3yjeSPI">Meine Ideen zum Dimensionsbegriff</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/3yjeSPI">
+<a href="//imgur.com/a/3yjeSPI">Meine Ideen zum Dimensionsbegriff</a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ### Wie funktioniert dieser Dimensionsbegriff?
 

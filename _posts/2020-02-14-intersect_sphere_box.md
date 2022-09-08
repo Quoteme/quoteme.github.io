@@ -54,7 +54,10 @@ sich schneiden;
 Man muss prüfen ob die Projektionen der Sphäre und des Hyperwürfels sich
 auf jeder Achse schneiden.
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/rZpCzkF" data-context="false" ><a href="//imgur.com/a/rZpCzkF"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/rZpCzkF" data-context="false" >
+<a href="//imgur.com/a/rZpCzkF"></a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 {% highlight javascript %}
 // plane2circle :: Num a => [(a,a)] -> Real -> [a] -> ([a] -> Real) -> Boolean
