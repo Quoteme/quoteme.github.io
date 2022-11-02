@@ -2,8 +2,83 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="Refresh" content="0; url=./about" />
+		<!-- <meta http-equiv="Refresh" content="0; url=./about" /> -->
+    <script type="module" src="./other/submodules/top2manWebsiteBackground/src/main.mjs"></script>
+    <link rel="stylesheet" href="./other/submodules/top2manWebsiteBackground/css/master.css" type="text/css" media="all">
+    <style>
+#main {
+  position: fixed;
+  top: 25%;
+  left: 10vw;
+  z-index: 1;
+  color: white;
+  background-color: green;
+  width: calc(80% - 2*30px);
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.53);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10.1px);
+-webkit-backdrop-filter: blur(10.1px);
+padding: 30px;
+
+text-align: justify;
+color: #161616;
+font-family: "Helvetica";
+}
+
+#avatar {
+    max-width: 40vw;
+    max-height: 40vh;
+    border-radius: 16px;
+    float: left;
+    margin-right: 30px;
+
+}
+
+#continue_to_website {
+  float: right;
+}
+
+#continue_to_website img {
+  height: 60px;
+}
+    </style>
 	</head>
 	<body>
+    <div id="preview"></div>
+    <div id="main">
+        <img src="{{ site.github.owner_gravatar_url }}?s=150" id="avatar" />
+        <!-- <img src="https://avatars.githubusercontent.com/u/6796009?v=4" id="avatar" /> -->
+        <div>
+          <p>
+          Hi, I am <b>Luca Leon Happel</b>. I am a <b>Software Engineer</b> and <b>Mathematician</b>, who works on a multitude of different projects.</p>
+          <p>
+          I work at the Heinrich Heine university and frequently
+          collaborate with researchers at the Forschungszentrum Jülich.
+          I primarily work on computer aided linear algebra and software
+          engineering, although my main passion is discovering the
+          truths of our universe, which I also sometimes get paid for.
+          </p>
+
+          <p>
+          I love thinking about abstract ideas and am a collector of
+          functors and categories, which I use to model the world around
+          me using analogies to mathematics.
+          </p>
+
+          <p>
+          Programming allows me to visualize my ideas geometrically and
+          I would like to invite you to explore the mathematical realms
+          I have created.
+          </p>
+
+          <span id="continue_to_website">
+            <a href="about">
+              <img src="./images/forward_button_icon.png" alt="continue to website">
+            </a>
+          </span>
+        </div>
+    </div>
 	</body>
 </html>
