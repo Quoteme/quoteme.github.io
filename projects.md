@@ -106,11 +106,11 @@ title: "Projects"
     .project {
         width: 160px;
         margin: 5px;
-        border: 1px solid #000;
+        border: 1px solid #060606;
         height: auto;
         text-align: center;
         box-shadow: 2px 2px 2px #060606;
-        background: #0b0b0b;
+        background: #161616;
     }
     .project a {
         text-decoration: none;
@@ -123,7 +123,10 @@ title: "Projects"
     }
     .title {
         width: 100%;
-        color: #e2e2e2;
+        color: #ccc;
         font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0.4px;
+        font-family: Helvetica;
     }
 </style>
