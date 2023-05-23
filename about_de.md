@@ -3,8 +3,10 @@ layout: bio
 title: About me
 ---
 
-<span style="float: right">
-[🇬🇧](#about)
+<span class="language-select">
+<a href="about">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg">
+</a>
 <span>
 
 Ich bin Luca Leon Happel, ein momentan 23 jähriger Student in Düsseldorf

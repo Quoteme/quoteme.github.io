@@ -259,6 +259,15 @@ a {
   }
 }
 
+.language-select {
+  float: right;
+  img {
+    border: none !important;
+    height: 30px;
+    width: 60px;
+  }
+}
+
 table {
   border-collapse: collapse;
   th,
