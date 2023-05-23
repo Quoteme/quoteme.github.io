@@ -1,6 +1,7 @@
 ---
 #
 ---
+
 @charset "UTF-8";
 
 $sidebarwidth: 80px;
@@ -11,26 +12,20 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   margin: 0;
   -webkit-font-smoothing: antialiased;
-  background: #202020;
-  color: #fff
 }
 
 a {
-  color: #598ecd;
+  color: #227ce8;
 }
 
 .sidebar {
   position: fixed;
-  // left: 15px;
   top: 0px;
   padding: 15px;
-  background: #161616;
   z-index: 1;
   width: $sidebarwidth;
-  //border-right: 1px solid white;
-  box-shadow: 5px 0px 10px #161616;
-  height: 100vh;
   font-family: Helvetica, sans-serif;
+  height: 100vh;
   a {
     text-decoration: none;
   }
@@ -50,24 +45,24 @@ a {
       padding-left: 1px;
       font-size: 23px;
       letter-spacing: 5px;
-      color: rgb(250, 231, 59);
+      color: black;
     }
     #lname {
       font-size: 17px;
       font-weight: bold;
       letter-spacing: 1px;
-      color: rgb(250, 231, 59);
+      color: black;
     }
   }
   .meta {
     a {
       margin-left: 0px;
-      color: white;
+      color: black;
       &:hover {
-		transition: 0.25s;
         color: #227ce8;
+        transition: 0.25s;
       }
-	  transition: 0.25s;
+      transition: 0.25s;
     }
     margin-left: 4px;
     .icon {
@@ -78,15 +73,15 @@ a {
     margin: 15px 0 0 0;
     a {
       padding: 3px 0;
-      color: white;
+      color: black;
       font-weight: bold;
       font-size: 12px;
       display: block;
       &:hover {
         color: #227ce8;
-		transition: 0.25s;
+        transition: 0.25s;
       }
-	  transition: 0.25s;
+      transition: 0.25s;
     }
     ul {
       margin: 0;
@@ -101,71 +96,58 @@ a {
 
 .content {
   max-width: 650px;
-  margin-left: $sidebarwidth+$sidebarmarginright+$sidebarpaddingright;
+  margin-left: $sidebarwidth + $sidebarmarginright + $sidebarpaddingright;
   margin-right: 20px;
   margin-bottom: 50px;
   iframe {
-	  max-width: 100%;
+    max-width: 100%;
   }
-  h1, h2, h3, h4 {
-    color: #e9e9e9;
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #333;
     font-family: "Yanone Kaffeesatz", Helvetica, sans-serif;
     font-weight: 400;
     a {
-      color: #e9e9e9;
+      color: #111;
       text-decoration: none;
+      transition: 0.25s;
     }
+    transition: 0.25s;
   }
   h1 {
     font-size: 36px;
     margin: 18px 0 5px 0;
-	a{
-      &:hover{
-      	color: #3B87FA;
-      	transition: 0.25s;
-      }
-	  transition: 0.25s;
-	}
   }
   h2 {
     font-size: 30px;
     margin-bottom: 15px;
-    &:hover{
-      color: #3B87FA;
-      transition: 0.25s;
-    }
-	transition: 0.25s;
   }
   h3 {
-    color: #d9d9d9;
+    color: #777;
     font-size: 25px;
     padding-bottom: 5px;
     margin-bottom: 10px;
-    &:hover{
-      color: #3B87FA;
-      transition: 0.25s;
-    }
-	transition: 0.25s;
   }
   p {
     font-size: 16px;
     margin-top: 0;
     margin-bottom: 1.2em;
     line-height: 1.7em;
-  }
-  code {
-    max-width: 100%;
-    font-size: 12px;
-	display: inline-block;
-    background-color: #000;
-    border: 1px solid #000;
-    border-radius: 3px;
-    padding: 2px 3px;
-	overflow:auto;
+    code {
+      max-width: 100%;
+      display: inline-block;
+      font-size: 12px;
+      background-color: #eeeeee;
+      border: 1px solid #777777;
+      border-radius: 3px;
+      padding: 2px 3px;
+    }
   }
   img {
     padding: 3px;
-    border: 1px solid #060606;
+    border: 1px solid #eeeeee;
     max-width: 100%;
   }
   hr {
@@ -182,15 +164,15 @@ a {
   blockquote {
     font-style: italic;
     font-size: 14px;
-    padding: .25em 1em;
+    padding: 0.25em 1em;
     margin: 1em 1em 0 1em;
-    color: #aaa;
+    color: #444;
     cite {
       &:before {
-        content: '— ';
+        content: "— ";
       }
       display: block;
-      margin-top: .5em;
+      margin-top: 0.5em;
       text-align: right;
       color: #111;
       font-style: normal;
@@ -201,7 +183,7 @@ a {
     font-family: "Yanone Kaffeesatz", Helvetica, sans-serif;
     padding-left: 0px;
     font-size: 17px;
-    color: #bbb;
+    color: #777;
   }
   .aside {
     background-color: #eeeeee;
@@ -223,9 +205,9 @@ a {
       font-size: 15px;
       list-style: none;
       padding: 10px 18px;
-      margin: 10px;
-      color: #808080;
-      border-bottom: 1px solid #161616;
+      margin: 0;
+      color: #777777;
+      border-bottom: 1px solid #eee;
       span {
         float: right;
       }
@@ -277,18 +259,86 @@ a {
   }
 }
 
-table{
-  border-collapse: collapse;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  th, td {
-	border: 1px solid black;
-	padding: 4px;
+@media (prefers-color-scheme: dark) {
+  a {
+    color: #598ecd;
   }
-  th {
-    padding: 8px;
-    background: #0e0e0e;
+
+  body {
+    background: #202020;
+    color: #fff;
   }
-  td {
-	background: #303030
+
+  .sidebar {
+    background: #161616;
+    //border-right: 1px solid white;
+    box-shadow: 5px 0px 10px #161616;
+    .name {
+      #fname {
+        color: rgb(250, 231, 59);
+      }
+      #lname {
+        color: rgb(250, 231, 59);
+      }
+    }
+    .meta {
+      color: white;
+      &:hover {
+        color: #227ce8;
+      }
+      i {
+        color: white;
+      }
+    }
+    .sections {
+      a {
+        color: white;
+      }
+      &:hover {
+        color: #227ce8;
+      }
+    }
+  }
+
+  .content {
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: #e9e9e9;
+      a {
+        color: #e9e9e9;
+      }
+      &:hover {
+        color: #3b87fa;
+      }
+    }
+    img {
+      border: 1px solid #060606;
+    }
+    blockquote {
+      color: #aaa;
+    }
+    .listing {
+      li {
+        color: #808080;
+      }
+    }
+  }
+  table {
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    th,
+    td {
+      border: 1px solid black;
+      padding: 4px;
+    }
+    th {
+      padding: 8px;
+      background: #0e0e0e;
+    }
+    td {
+      background: #303030;
+    }
   }
 }
