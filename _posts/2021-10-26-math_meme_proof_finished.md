@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Math meme solve finished
+title: Math meme finished
 author: Luca Leon Happel
 date: 2021-10-21 Di 23:58:35
 category: posts
@@ -17,7 +17,7 @@ abstract algebra, but I failed and did not finish the question at that
 
 ## The proof
 
-Let $$f=x^2+bx+c\in\mathbb{R}[x]$$. 
+Let $$f=x^2+bx+c\in\mathbb{R}[x]$$.
 $$f$$ can either have one double root, iff the discriminant
 $$\Delta f=b^2-4c$$ is
 zero, or it can have two real roots iff $$\Delta f>0$$, or it can have

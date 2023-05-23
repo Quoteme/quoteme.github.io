@@ -35,4 +35,3 @@ halten sollte.
 <a href="//imgur.com/a/IX4jhgT">Overview of my first jsdoc documentation ({{site.url}}/bildbesucher/docs)</a>
 </blockquote>
 <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-

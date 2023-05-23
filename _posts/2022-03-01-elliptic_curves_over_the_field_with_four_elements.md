@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elliptic curves ofer the field with four elements (not finished)
+title: Elliptic curves over the field with four elements (not finished)
 author: Luca Leon Happel
 date: 2022-03-01 Di 20:35:13
 category: posts
@@ -12,9 +12,9 @@ draft: false
 1. [Introduction](#Introduction)
 2. [The Field $$\mathbb{F}_4$$ with four elements](#the-field-mathbbf_4-with-four-elements)
 3. [The affine plane](#the-affine-plane)
-    1. [Example of an reducible hypersurface](example-of-an-reducible-hypersurface)
-    2. [Example of an irreducible hypersurface](example-of-an-irreducible-hypersurface)
-    3. [Example of an irreducible hypersurface that is an elliptic curve](example-of-an-irreducible-hypersurface-that-is-an-elliptic-curve)
+   1. [Example of a reducible hypersurface](example-of-an-reducible-hypersurface)
+   2. [Example of an irreducible hypersurface](example-of-an-irreducible-hypersurface)
+   3. [Example of an irreducible hypersurface that is an elliptic curve](example-of-an-irreducible-hypersurface-that-is-an-elliptic-curve)
 
 ## Introduction
 
@@ -47,12 +47,11 @@ underlying functions. We use the affine real line $$\mathbb{A}^1_\mathbb{R}$$
 for this illustration. The green function is the product of the blue and
 red one and as can be seen, the green graph has exactly the same poles
 as the red and blue graph combined.
-
-Furthermore we define a hypersurface $$V(f)$$ to be _irreducible_ if the
+Furthermore, we define a hypersurface $$V(f)$$ to be _irreducible_ if the
 underlying polynomial $$f$$ is irreducible. A hypersurface is _reducible_
 if it is not irreducible.
 
-### Example of an reducible hypersurface
+### Example of a reducible hypersurface
 
 Consider $$f=(x-y)(x+y)$$ which is reducible in $$\mathbb{R}[x,y]$$ as it
 can be factored into the non-units: $$(x-y)$$ and $$(x+y)$$.
@@ -75,9 +74,7 @@ $$\mathbb{A}^2_\mathbb{R}$$.
 
 ![](https://i.imgur.com/p8mcDuu.png)
 
-This also happens to define an elliptic curve. Also note that an irreducible
+This also happens to define an elliptic curve. Also, note that an irreducible
 hypersurface need not be a connected space in the sense of topology.
 
 ## The projective space
-
-

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Math meme solve - When is R[x]/(x^2+bx+c) isomorphic to R^2 or C
+title: Math meme - When is R[x]/(x^2+bx+c) isomorphic to R^2 or C
 author: Luca Leon Happel
 date: 2020-12-03 Do 13:58 35
 category: posts
@@ -34,3 +34,5 @@ at $$\mathbb{R}[x] / (f)$$. And identify each part now.
   When performing polynomial division $$\frac{p(x)}{f(x)}, \> p(x)\in\mathbb{R}[x]$$
   if $$\deg(p(x))>2$$ we can always perform at least one step and
   the remainder must be of the form $$ax+b \in \mathbb{R}[x]/(f)$$
+
+The solution to this problem can be found in [this blog post](./math_meme_proof_finished)
