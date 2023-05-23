@@ -95,6 +95,7 @@ a {
 }
 
 .content {
+  text-align: justify;
   max-width: 650px;
   margin-left: $sidebarwidth + $sidebarmarginright + $sidebarpaddingright;
   margin-right: 20px;
@@ -322,6 +323,7 @@ table {
   }
 
   .content {
+    text-align: justify;
     h1,
     h2,
     h3,
