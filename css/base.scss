@@ -259,6 +259,18 @@ a {
   }
 }
 
+table {
+  border-collapse: collapse;
+  th,
+  td {
+    border: 1px solid #dadada;
+    padding: 4px;
+  }
+  th {
+    padding: 8px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   a {
     color: #598ecd;
@@ -275,10 +287,10 @@ a {
     box-shadow: 5px 0px 10px #161616;
     .name {
       #fname {
-        color: rgb(250, 231, 59);
+        color: white;
       }
       #lname {
-        color: rgb(250, 231, 59);
+        color: white;
       }
     }
     .meta {
