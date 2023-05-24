@@ -10,13 +10,11 @@ title: About me
 <span>
 
 I am Luca Leon Happel, a 23-year-old Student in Düsseldorf and a [top-100](https://xscode.com/profile/quoteme) on [GitHub](https://xscode.com/profile/quoteme) in
-categories like physics-engines and rigid-body-dynamics
-who currently lives in Mönchengladbach. My interests include mathematics,
+categories like physics-engines and rigid-body-dynamics.
+My interests include mathematics,
 computer science, technology and lots more.
 My friends and colleagues primarily know me for the extra mile I always
-put into my work in order to help them and myself.
-
-In case I was able to catch your interest, please do not hesitate to [contact me](#contact).
+put into my work to help them and myself.
 
 ### Education
 
@@ -47,17 +45,13 @@ In case I was able to catch your interest, please do not hesitate to [contact me
 | Top-1000 canvas-technology developer                              | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 | Top-150.000 programmer                                            | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 
-### Other skills
-
-My list of skills is very long and I could not list all of them so far.
-Therefore I compiled a short preview of some skills I currently possess.
-(Caution: This list is not updated regularly!)
+### Some other skills
 
 <details>
 <summary markdown="span">click to expand</summary>
 
-- "Advanced" knowledge about mathematics
-  - aiming for a Bachelor/Master degree in mathematics
+- "Advanced" knowledge of mathematics
+  - aiming for a Master degree in mathematics
 - Programming knowledge
   - Top 50 programmer in physics-engines and rigid-body-dynamics as well as top 1000 canvas-technology, and top 150,000 GitHub developer (Source: [www.xscode.com/profile/quoteme](https://xscode.com/profile/quoteme))
   - actively programming since age 13 (2012)
