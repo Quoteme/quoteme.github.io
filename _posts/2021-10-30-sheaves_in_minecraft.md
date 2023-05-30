@@ -54,12 +54,12 @@ digital world.
 
 Now the interesting part for us at least would be, how the game stores
 this world and its inhabitants. We know that the blocks are arranged in
-a lattice pattern which happens to be $$\mathbb{Z}^3$$ and because each
+a lattice pattern which happens to be $\mathbb{Z}^3$ and because each
 block can be identified by its type (_air_, _grass_, _dirt_, _wood_, ...)
 and there are just a finite number of unique blocks, we can store
 the blocky part of a Minecraft world as a subset
-$$M\subset \mathbb{Z}^3\times\mathbb{N}$$ by using a bijective mapping
-from the types of blocks to $$\mathbb{N}=\{0,1,2,\dots\}$$.
+$M\subset \mathbb{Z}^3\times\mathbb{N}$ by using a bijective mapping
+from the types of blocks to $\mathbb{N}=\{0,1,2,\dots\}$.
 
 Now how can Minecraft be able to process infinitely many blocks and
 render them to a screen? The answer is that this would be impossible,
@@ -67,39 +67,39 @@ because traversing every block in an infinite Minecraft world (which
 most Minecraft worlds are) would take a very long time, let
 alone rendering them. This would be impossible to render at a stable
 30FPS and the developers at Mojang decided to split the
-Minecraft world into chunks of $$16\times 16\times 256$$ (here we can
-neglect the last coordinate of our tuples in $$M$$, because the number
+Minecraft world into chunks of $16\times 16\times 256$ (here we can
+neglect the last coordinate of our tuples in $M$, because the number
 of different blocks is small enough that a computer can traverse
 them easily).
 
 ![Examples of chunks - chunkbounds shader](https://i.imgur.com/6sKQkg8.jpg)
 ![Examples of chunks - chunk edge indicator](https://i.imgur.com/I3ZECeE.png)
 
-These subsets of the world $$C_{x,y,z}\subset M\subset \mathbb{Z}^3\times\mathbb{N}$$
-are called chunks and exist for each $$x,y \in 16\mathbb{Z}, \> z\in 256\mathbb{Z}$$
-(technically the $$z$$ is fixed to $$0$$ because Minecraft has a finite
-height of $$256$$ blocks, but we will abstract/future proof a bit for now).
+These subsets of the world $C_{x,y,z}\subset M\subset \mathbb{Z}^3\times\mathbb{N}$
+are called chunks and exist for each $x,y \in 16\mathbb{Z}, \> z\in 256\mathbb{Z}$
+(technically the $z$ is fixed to $0$ because Minecraft has a finite
+height of $256$ blocks, but we will abstract/future proof a bit for now).
 
 <!--
 TODO: Link basis of topology
 -->
 
 So why are these chunks important for us? How do they relate to sheaves?
-Well, these $$C_{x,y,z}$$ form a
+Well, these $C_{x,y,z}$ form a
 [basis of a topology](https://en.wikipedia.org/wiki/Base_(topology))
-on $$M$$ if we name the "chunks" not "chunks"
+on $M$ if we name the "chunks" not "chunks"
 but "open sets" instead! This is quite
 natural because Minecraft creates a union of these chunks (the number
 of which is free for the user to decide, therefore possibly infinite)
 and then renders this union of chunks to the screen. This union of chunks
 would not be considered a chunk in Minecrafts' code, but we will refer to
 the union of chunks as "open set" nonetheless because this gives us our
-topological structure on $$M$$. (Bonus: to really prove that the
-$$C_{x,y,z}$$ form a topological basis, one must show that the finite
+topological structure on $M$. (Bonus: to really prove that the
+$C_{x,y,z}$ form a topological basis, one must show that the finite
 intersection of open sets must also be an open set. The proof is quite
 trivial but left as an exercise to the reader.)
 
-### So we have a topological space on our Minecraft world $$M$$, what now?
+### So we have a topological space on our Minecraft world $M$, what now?
 
 After having done all of this for the sake of rendering parts of our
 world on a computer in a finite time, we get some fundamentally needed
@@ -112,17 +112,17 @@ in the current chunk. Therefore the game must calculate the set of
 all entities currently in the game world, which are also in the
 currently inhabited chunk.
 
-For this, Minecraft stores all entities as tuples $$e\in\mathbb{R}^3\times\mathbb{N}$$,
-where $$\mathbb{N}$$ again denotes the type of enemy. But now, minecraft
-also has a functor $$\mathcal{F}: (\frac{\text{open}}{M})\to \mathcal{E}$$, where
-$$\mathcal{E}$$ is the category of entities, which has as objects just
+For this, Minecraft stores all entities as tuples $e\in\mathbb{R}^3\times\mathbb{N}$,
+where $\mathbb{N}$ again denotes the type of enemy. But now, minecraft
+also has a functor $\mathcal{F}: (\frac{\text{open}}{M})\to \mathcal{E}$, where
+$\mathcal{E}$ is the category of entities, which has as objects just
 sets of entities and as morphisms the surjective maps
-$$\phi: V \twoheadrightarrow V'\subset V$$ for $$V, V'\in \mathcal{E}$$
-and $$\left(\frac{\text{open}}{M}\right)$$ denotes the category of open sets over $$M$$
+$\phi: V \twoheadrightarrow V'\subset V$ for $V, V'\in \mathcal{E}$
+and $\left(\frac{\text{open}}{M}\right)$ denotes the category of open sets over $M$
 created by set inclusion as well.
 
 In tradition to the notation used by my professor Schröer, I will
-denote the application of this functor as $$\Gamma(U, \mathcal{F})=V$$.
+denote the application of this functor as $\Gamma(U, \mathcal{F})=V$.
 
 ### A quick recap in simple terms
 
@@ -132,7 +132,7 @@ following question using the mathematical/computer language:
 
 > Which entities (like zombies, skeleton, player, ...) are inside
 > the collection of the following chunks:
-> $$C_{x_1, y_1, z_1}, C_{x_2, y_2, z_2}, \dots$$ ?
+> $C_{x_1, y_1, z_1}, C_{x_2, y_2, z_2}, \dots$ ?
 
 And the formulation in mathematical lingo would be:
 
@@ -140,11 +140,11 @@ $$\begin{equation}
 \Gamma(\bigcup_{i\in I} C_{x_i, y_i, z_i}, \mathcal{F})=V
 \end{equation}$$
 
-where $$V$$ is the set of entities we are looking for. We can say as a
-rule, that for our purposes $$\mathcal{F}$$ must suffice the following
+where $V$ is the set of entities we are looking for. We can say as a
+rule, that for our purposes $\mathcal{F}$ must suffice the following
 condition:
 
-- For each open set $$U$$ of $$M$$, we have the set $$\Gamma(U, \mathcal{F})$$.
+- For each open set $U$ of $M$, we have the set $\Gamma(U, \mathcal{F})$.
 
 ### But who needs the structure of a sheaf for that? Doesn't a function suffice?
 
@@ -154,38 +154,38 @@ The problem with just mapping open sets of our
 Minecraft world to sets of entities raises the problem of
 _restricting our open set_ but _increasing our number of entities therein_.
 Imagine the following. You have your Minecraft map and play the game
-with your character $$p$$ inside said map.
+with your character $p$ inside said map.
 Now you wish to poll the number of entities that are located in your
 current chunk (the one your player resides in) and the ones adjacent to
-your current chunk. This would give you in total $$9$$ chunks in which you poll
+your current chunk. This would give you in total $9$ chunks in which you poll
 for entities. Because you wish to let your character sleep in the game
 and the game does not let your character sleep if there are any monsters
 (which are a subset of entities) near your bed, you need to check if
-$$\Gamma(V, \mathcal{F})$$ has any monster in it (where $$V$$ is
+$\Gamma(V, \mathcal{F})$ has any monster in it (where $V$ is
 the chunk the player is in and the adjacent chunks).
-So now the game says everything is fine because $$\Gamma(V, \mathcal{F}) = \{p\}$$,
+So now the game says everything is fine because $\Gamma(V, \mathcal{F}) = \{p\}$,
 your player is the only entity in these chunks and you can go to bed.
 But when you wake up in Minecraft to your dismay you are getting attacked
 by a zombie, because actually there was one more entity nearby.
-There was indeed one zombie $$z \in \Gamma(V', \mathcal{F})$$ where
-$$V'\subset V$$ is just the player's current chunk.
+There was indeed one zombie $z \in \Gamma(V', \mathcal{F})$ where
+$V'\subset V$ is just the player's current chunk.
 This problem/bug occurred, because the mapping which shows entities
 residing in an open set of our
 topology did not respect _restriction mappings_. This means, even if
 one takes the subset of an open set, the correlating entities in this
 subset need not be a subset of the entities correlating to the superset.
-Indeed, in our case we had $$V'\subset V$$ but
-$$\Gamma(V',\mathcal{F})=\{p,z\}\supset \{p\}=\Gamma(V,\mathcal{F})$$
+Indeed, in our case we had $V'\subset V$ but
+$\Gamma(V',\mathcal{F})=\{p,z\}\supset \{p\}=\Gamma(V,\mathcal{F})$
 
-We can solve this issue by requesting our function $$\mathcal{F}$$ must
+We can solve this issue by requesting our function $\mathcal{F}$ must
 fulfill the following criteria:
 
-- For each inclusion $$V'\subset V$$ there must be a function
-  $$\text{res}^{V}_{V'}:\Gamma(V,\mathcal{F})\to\Gamma(V',\mathcal{F})$$ <!--__-->
-- $$\text{res}^{V'}_{V''} \circ \text{res}^{V}_{V'} = \text{res}^{V}_{V''}$$ <!--__ -->
-- $$\text{res}^{V}_{V} = id$$ <!--__-->
+- For each inclusion $V'\subset V$ there must be a function
+  $\text{res}^{V}_{V'}:\Gamma(V,\mathcal{F})\to\Gamma(V',\mathcal{F})$ <!--__-->
+- $\text{res}^{V'}_{V''} \circ \text{res}^{V}_{V'} = \text{res}^{V}_{V''}$ <!--__ -->
+- $\text{res}^{V}_{V} = id$ <!--__-->
 
-This so far just means, that given some $$\Gamma(V,\mathcal{F})$$ which
+This so far just means, that given some $\Gamma(V,\mathcal{F})$ which
 is the set of entities inside some open set, we can look at smaller
 open sets' entities if these open sets are included in the prior open set.
 
@@ -194,51 +194,51 @@ open sets' entities if these open sets are included in the prior open set.
 So now we have done all of this to formalize our notion of entities
 inside some set of chunks. But there is still some problem in the example
 we wrote one paragraph before. We still have not solved the problem
-that given our knowledge of $$\Gamma(V,\mathcal{F})$$ where $$U$$ is some
+that given our knowledge of $\Gamma(V,\mathcal{F})$ where $U$ is some
 open set (with the player inside) we want to infer that, open subsets
-$$V'\subset V$$ cannot have more entities or ones, that cannot be found
-inside $$V$$.
+$V'\subset V$ cannot have more entities or ones, that cannot be found
+inside $V$.
 
 The problem which we are facing is that we are missing the **sheaf axiom**,
 which completes our requirements from before:
 
-- For each open set $$U$$ of $$M$$, we have the set $$\Gamma(U, \mathcal{F})$$.
-- For each inclusion $$V'\subset V$$ there must be a function
-  $$\text{res}^{V}_{V'}:\Gamma(V,\mathcal{F})\to\Gamma(V',\mathcal{F})$$ <!--__-->
-- $$\text{res}^{V'}_{V''} \circ \text{res}^{V}_{V'} = \text{res}^{V}_{V''}$$ <!--__ -->
-- $$\text{res}^{V}_{V} = id$$ <!--__-->
+- For each open set $U$ of $M$, we have the set $\Gamma(U, \mathcal{F})$.
+- For each inclusion $V'\subset V$ there must be a function
+  $\text{res}^{V}_{V'}:\Gamma(V,\mathcal{F})\to\Gamma(V',\mathcal{F})$ <!--__-->
+- $\text{res}^{V'}_{V''} \circ \text{res}^{V}_{V'} = \text{res}^{V}_{V''}$ <!--__ -->
+- $\text{res}^{V}_{V} = id$ <!--__-->
 
 which defines a sheaf. The sheaf axiom now states the following:
 
-- (_Locality_) If $$\mathcal{U}=\bigcup_{i\in I} U_i$$ is an open
-  covering of an open set $$U$$ and if $$s,t\in\Gamma(U,\mathcal{F})$$
-  with $$\text{res}^U_{U_i}(s)=\text{res}^U_{U_i}(t)$$, then $$s=t$$
-- (_Gluing_) If $$\mathcal{U}=\bigcup_{i\in I} U_i$$ is an open covering
-  of an open set $$U$$ and $$s_i\in U_i$$ for $$i\in I$$ holds
-  $$\text{res}^{U_i}_{U_i\cup U_j}(s_i) = \text{res}^{U_j}_{U_i\cup U_j}(s_j)$$
-  then there must be exactly one $$s\in\Gamma(U,\mathcal{F})$$ with
-  $$\text{res}^U_{U_i}(s) = s_j$$
+- (_Locality_) If $\mathcal{U}=\bigcup_{i\in I} U_i$ is an open
+  covering of an open set $U$ and if $s,t\in\Gamma(U,\mathcal{F})$
+  with $\text{res}^U_{U_i}(s)=\text{res}^U_{U_i}(t)$, then $s=t$
+- (_Gluing_) If $\mathcal{U}=\bigcup_{i\in I} U_i$ is an open covering
+  of an open set $U$ and $s_i\in U_i$ for $i\in I$ holds
+  $\text{res}^{U_i}_{U_i\cup U_j}(s_i) = \text{res}^{U_j}_{U_i\cup U_j}(s_j)$
+  then there must be exactly one $s\in\Gamma(U,\mathcal{F})$ with
+  $\text{res}^U_{U_i}(s) = s_j$
 
-And these basically state, that if there is some entity $$e'$$ in
-$$V'\subset V$$, ergo $$e'\in\Gamma(V', \mathcal{F})$$, then there
-must also be exactly one $$e\in\Gamma(V,\mathcal{F})$$ which
-is then equal to $$e'$$ is we restrict our focus back to $$V'$$.
+And these basically state, that if there is some entity $e'$ in
+$V'\subset V$, ergo $e'\in\Gamma(V', \mathcal{F})$, then there
+must also be exactly one $e\in\Gamma(V,\mathcal{F})$ which
+is then equal to $e'$ is we restrict our focus back to $V'$.
 
 In our situation with the zombie before, we had looked at an open set
-$$V$$ which was defined as the chunk with the player $$p$$ inside glued together
-with the chunks adjacent to that one. We said $$\Gamma(V,\mathcal{F})$$
+$V$ which was defined as the chunk with the player $p$ inside glued together
+with the chunks adjacent to that one. We said $\Gamma(V,\mathcal{F})$
 only included the player, because this was the only entity that was
-mapped from $$V$$ by $$\mathcal{F}$$, but then we said there
-was actually one zombie $$z'$$ (another entity) inside $$V'$$, which
+mapped from $V$ by $\mathcal{F}$, but then we said there
+was actually one zombie $z'$ (another entity) inside $V'$, which
 we defined as the chunk the player was inside.
 
 This clearly violates our sheaf axiom! Because by the _gluing_ property,
-we must have $$z\in\Gamma(V,\mathcal{F})$$ as it follows from
-$$z'\in\Gamma(V',\mathcal{F})$$ that there needs to be this $$z$$ with
-$$\text{res}^V_{V'}(z)=z'$$. So we know that because there is an open set
-with a zombie $$z'$$ inside, an entity $$z$$ that looks like this zombie if
-we restrict our focus to the open set where we found $$z'$$ must also
-exist in any open set $$V$$ that includes $$V'$$.
+we must have $z\in\Gamma(V,\mathcal{F})$ as it follows from
+$z'\in\Gamma(V',\mathcal{F})$ that there needs to be this $z$ with
+$\text{res}^V_{V'}(z)=z'$. So we know that because there is an open set
+with a zombie $z'$ inside, an entity $z$ that looks like this zombie if
+we restrict our focus to the open set where we found $z'$ must also
+exist in any open set $V$ that includes $V'$.
 
 ## Conclusion
 

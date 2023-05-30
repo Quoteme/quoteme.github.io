@@ -71,6 +71,16 @@
     };
     version = "2.6.0";
   };
+  gemoji = {
+    groups = ["default" "jekyll_plugins"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0vgklpmhdz98xayln5hhqv4ffdyrglzwdixkn5gsk9rj94pkymc0";
+      type = "gem";
+    };
+    version = "3.0.1";
+  };
   "http_parser.rb" = {
     groups = ["default"];
     platforms = [];
@@ -124,6 +134,17 @@
       type = "gem";
     };
     version = "1.4.0";
+  };
+  jekyll-spaceship = {
+    dependencies = ["gemoji" "jekyll" "nokogiri" "rainbow"];
+    groups = ["jekyll_plugins"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "142bp48vq9aqwpqig54anbv7ncwqv1h78mbqhckmnx0glnqlkyzh";
+      type = "gem";
+    };
+    version = "0.10.2";
   };
   jekyll-watch = {
     dependencies = ["listen"];
@@ -189,6 +210,27 @@
     };
     version = "0.4.0";
   };
+  mini_portile2 = {
+    groups = ["default" "jekyll_plugins"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0z7f38iq37h376n9xbl4gajdrnwzq284c9v1py4imw3gri2d5cj6";
+      type = "gem";
+    };
+    version = "2.8.2";
+  };
+  nokogiri = {
+    dependencies = ["mini_portile2" "racc"];
+    groups = ["default" "jekyll_plugins"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1mr2ibfk874ncv0qbdkynay738w2mfinlkhnbd5lyk5yiw5q1p10";
+      type = "gem";
+    };
+    version = "1.15.2";
+  };
   pathutil = {
     dependencies = ["forwardable-extended"];
     groups = ["default"];
@@ -209,6 +251,26 @@
       type = "gem";
     };
     version = "4.0.6";
+  };
+  racc = {
+    groups = ["default" "jekyll_plugins"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "09jgz6r0f7v84a7jz9an85q8vvmp743dqcsdm3z9c8rqcqv6pljq";
+      type = "gem";
+    };
+    version = "1.6.2";
+  };
+  rainbow = {
+    groups = ["default" "jekyll_plugins"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0smwg4mii0fm38pyb5fddbmrdpifwv22zv3d3px2xx497am93503";
+      type = "gem";
+    };
+    version = "3.1.1";
   };
   rb-fsevent = {
     groups = ["default"];

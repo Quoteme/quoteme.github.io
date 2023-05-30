@@ -14,25 +14,25 @@ forum:
 
 Here is my thought process:
 
-$$b^2-4c$$ is just the [discriminant](https://en.wikipedia.org/wiki/Discriminant)
-of the polynomial $$f(x) = x^2+bx+c$$, and I will refer to it from now
-on as $$\Delta(f)$$.
+$b^2-4c$ is just the [discriminant](https://en.wikipedia.org/wiki/Discriminant)
+of the polynomial $f(x) = x^2+bx+c$, and I will refer to it from now
+on as $\Delta(f)$.
 
-We know that if $$\Delta(f)>0$$ then the formula
-$$\frac{-b\pm\sqrt{b^2-4c}}{2} = -\frac{b}{2} \pm \sqrt{\left(\frac{b}{2}\right)^2 - c}$$
-gives us the zeros $$x_1, x_2 \in \mathbb{R}$$ of $$f$$. Let's look
-at $$\mathbb{R}[x] / (f)$$. And identify each part now.
+We know that if $\Delta(f)>0$ then the formula
+$\frac{-b\pm\sqrt{b^2-4c}}{2} = -\frac{b}{2} \pm \sqrt{\left(\frac{b}{2}\right)^2 - c}$
+gives us the zeros $x_1, x_2 \in \mathbb{R}$ of $f$. Let's look
+at $\mathbb{R}[x] / (f)$. And identify each part now.
 
 - The [principal ideal](https://en.wikipedia.org/wiki/Principal_ideal)
-  $$(f) \overbrace{=}^{\mathbb{R}[x] \text{ commutative}} \{ p(x)\cdot \underbrace{f(x)}_{x^2+bx+c \\ = (x-x_1)(x-x_2) } \mid p(x) \in \mathbb{R}[x]\}$$
+  $(f) \overbrace{=}^{\mathbb{R}[x] \text{ commutative}} \{ p(x)\cdot \underbrace{f(x)}_{x^2+bx+c \\ = (x-x_1)(x-x_2) } \mid p(x) \in \mathbb{R}[x]\}$
 
 - The [quotient ring](https://en.wikipedia.org/wiki/Quotient_ring)
-  $$\mathbb{R} [x]/(f)$$, which is the same as $$\mathbb{R}[x]/\sim$$ where
-  $$\sim$$ is an [equivalence relation](https://en.wikipedia.org/wiki/Equivalence_relation):
-  $$a\sim b \Leftrightarrow a-b \in (f)$$
+  $\mathbb{R} [x]/(f)$, which is the same as $\mathbb{R}[x]/\sim$ where
+  $\sim$ is an [equivalence relation](https://en.wikipedia.org/wiki/Equivalence_relation):
+  $a\sim b \Leftrightarrow a-b \in (f)$
 
-  When performing polynomial division $$\frac{p(x)}{f(x)}, \> p(x)\in\mathbb{R}[x]$$
-  if $$\deg(p(x))>2$$ we can always perform at least one step and
-  the remainder must be of the form $$ax+b \in \mathbb{R}[x]/(f)$$
+  When performing polynomial division $\frac{p(x)}{f(x)}, \> p(x)\in\mathbb{R}[x]$
+  if $\deg(p(x))>2$ we can always perform at least one step and
+  the remainder must be of the form $ax+b \in \mathbb{R}[x]/(f)$
 
 The solution to this problem can be found in [this blog post](./math_meme_proof_finished)

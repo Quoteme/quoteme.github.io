@@ -31,29 +31,29 @@ The proof mentioned on page 1 is viewable on [https://web.archive.org/web/202112
 
 Throughout this article we will choose the following symbols and notation:
 
-- $$M$$ a smooth manifold over a field $$K\subset \mathbb{R}$$
-- $$p\in M$$ a point in $$M$$
-- $$T_p M$$ the tangent space of $$M$$ at $$p$$
-- $$T_p^\ast M$$ the cotangent space of $$M$$ at $$p$$, which
-  consists of the linear functions $$\phi: T_p M \to K$$.
-  For finite tangent spaces $$T_p M$$, we can canonically
-  identify $$T_p^\ast M$$ with $$T_p M$$.
-- $$T M = \bigcup_{p\in M} \{p\}\times T_p M$$ and
-  $$T^\ast M = \bigcup_{p\in M} \{p\}\times T_p^\ast M$$
-  are the tangent/cotangent bundles of $$M$$
-- $$\Lambda^k(T^\ast M)$$ is the
+- $M$ a smooth manifold over a field $K\subset \mathbb{R}$
+- $p\in M$ a point in $M$
+- $T_p M$ the tangent space of $M$ at $p$
+- $T_p^\ast M$ the cotangent space of $M$ at $p$, which
+  consists of the linear functions $\phi: T_p M \to K$.
+  For finite tangent spaces $T_p M$, we can canonically
+  identify $T_p^\ast M$ with $T_p M$.
+- $T M = \bigcup_{p\in M} \{p\}\times T_p M$ and
+  $T^\ast M = \bigcup_{p\in M} \{p\}\times T_p^\ast M$
+  are the tangent/cotangent bundles of $M$
+- $\Lambda^k(T^\ast M)$ is the
   [k-th exterior product](https://en.wikipedia.org/wiki/Exterior_algebra)
-  of the cotangent bundle of $$M$$.
-  Its elements $$\mu_p\in\Lambda^k(T^\ast M)$$ are called
+  of the cotangent bundle of $M$.
+  Its elements $\mu_p\in\Lambda^k(T^\ast M)$ are called
   [k-coblades](https://en.wikipedia.org/wiki/Blade_(geometry)) and
-  allow to measure volumes on some tangentspace $$T_pM$$ in $$k$$-dimensions.
-- $$\Gamma(M, \Lambda^k(T^\ast M)) = \Gamma(\Lambda^k(T^\ast M))$$
+  allow to measure volumes on some tangentspace $T_pM$ in $k$-dimensions.
+- $\Gamma(M, \Lambda^k(T^\ast M)) = \Gamma(\Lambda^k(T^\ast M))$
   is the space of
   [global sections](https://en.wikipedia.org/wiki/Section_(fiber_bundle))
-  from the basespace $$M$$ to the total space $$\Lambda^k(T^\ast M)$$.
+  from the basespace $M$ to the total space $\Lambda^k(T^\ast M)$.
   We use this, because for an element
-  $$\omega:M \to \Lambda^k(T^\ast M)$$ 
-  in it, we can smoothly associate for each point $$p$$ on $$M$$
+  $\omega:M \to \Lambda^k(T^\ast M)$ 
+  in it, we can smoothly associate for each point $p$ on $M$
   a k-coblade.
 
 ## Formal definition

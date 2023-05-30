@@ -36,9 +36,9 @@ Doch kurz zusammengefasst, kann man mittels dieser Graphen die Dimension
 eines Raumes generallisieren. Diese Generallisierung kann man dann
 sogar auf andere mathematische Objekte ausdehnen, sodass man den
 Dimensionsbegriff generell erweitern kann. Somit wird es uns möglich, auch
-über "2.5"-Dimensionalen Raum zu reden, oder auch "$$\pi$$"-Dimensionale
+über "2.5"-Dimensionalen Raum zu reden, oder auch "$\pi$"-Dimensionale
 Räume zu betrachten. Wichtig ist dabei, dass wir nicht nur auf klassische
-Vektorräume bestehend aus Tupeln (z.B. $$\mathbb{R}^3$$) begrentz sind,
+Vektorräume bestehend aus Tupeln (z.B. $\mathbb{R}^3$) begrentz sind,
 sondern jede Menge, welche mit einer Metrik versehen ist, als unser
 Raum verwendet werden kann.
 
@@ -69,12 +69,12 @@ Betrachte folgende Graphen:
 
 Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
 so Herr Wolfram folgender Maßen gebildet: "Start at some point in the
-hypergraph. Then follow $$r$$ hyperedges in all possible ways. You've
+hypergraph. Then follow $r$ hyperedges in all possible ways. You've
 effectively made the analog of a "spherical ball" in the
 hypergraph.\"[^1]
 
 Nun kann man für beliebige Graphen einen Punkt wählen, und Zählen, wie
-viele Punkte in $$r$$ Schritten oder weniger erreichbar sind. Sollte
+viele Punkte in $r$ Schritten oder weniger erreichbar sind. Sollte
 diese Ausbreitung der eines Polynoms ähnlich sein, so kann man anhand
 des Grades dessen die Dimension bestimmen. Das genaue bestimmen ist
 jedoch nicht trivial und wird im Kapitel 4.6 vom Wolfram Physics
@@ -91,20 +91,20 @@ nur angelehnt ist.
 
 ##### Berechnung
 
-Sei $$ (M,d) $$ ein metrischer Raum.
+Sei $ (M,d) $ ein metrischer Raum.
 
--   $$M$$ ist Menge
--   $$d: M\times M \rightarrow \mathbb{R}_{\ge 0}$$ ist eine Metrik
+-   $M$ ist Menge
+-   $d: M\times M \rightarrow \mathbb{R}_{\ge 0}$ ist eine Metrik
 
-Sei $$V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|$$ die Anzahl aller
-Punkte eines Balles mit Radius $$r$$.
+Sei $V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|$ die Anzahl aller
+Punkte eines Balles mit Radius $r$.
 
 Sei
-$$\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r,x}}}{\log{\frac{r+1}{r}}}$$.
+$\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{\log\frac{V_{r+1,x}}{V_{r,x}}}{\log{\frac{r+1}{r}}}$.
 
 Nun gilt folgendes:
 
-$$
+$
 \text{dim}(M,d) = \begin{cases}
     \lim_{r\rightarrow \infty}\Delta_{r,x} & \text{wenn}\> |M|\ge\infty \wedge |V_{r,x}|<\infty\\
     \lim_{r\rightarrow \infty}\Delta_{r,x} & \text{(?) wenn}\> |M|\ge\infty \wedge |V_{r,x}|\ge\infty\\
@@ -114,11 +114,11 @@ $$
     \forall \epsilon,w\in\mathbb{R}_{\ge 0}
     \end{gather} & \text{wenn}\> |M|<\infty
 \end{cases}
-$$
+$
 
 ##### Beispiel 1
 
-$$
+$
 \begin{aligned}
     M      & = \mathbb{Z} \\
     d(x,y) & = |x+y| \\
@@ -126,14 +126,14 @@ $$
     \Delta_{r,x} &= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
     \lim_{r\rightarrow\infty}\Delta_{r,x} &= 1
 \end{aligned}
-$$
+$
 
 Hier stimmt die Dimension offensichtlich mit der herkömmlichen
 Definition überein.
 
 ##### Beispiel 2
 
-$$
+$
 \begin{aligned}
     M      & = \mathbb{Z}^2 \\
     d(x,y) & = |x_1+y_1 + x_2+y_2| \\
@@ -141,7 +141,7 @@ $$
     \Delta_{r,x} &= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
     \lim_{r\rightarrow\infty}\Delta_{r,x} &= 2
 \end{aligned}
-$$
+$
 
 ``` python
 import numpy as np
