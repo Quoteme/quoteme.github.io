@@ -16,22 +16,10 @@ stdenv.mkDerivation rec {
   buildInputs = with pkgs; [
     env
     bundler
+    bundix
     ruby
-    (writeShellScriptBin
-      "gojekyll"
-      ''
-        exec ${env}/bin/jekyll serve --watch --livereload
-      '')
   ];
-  # buildPhase = "ghc --make xmonadctl.hs";
-  # installPhase = ''
-  #   mkdir -p $out/bin
-  #   cp xmonadctl $out/bin/
-  #   chmod +x $out/bin/xmonadctl
-  # '';
-  shellHook = ''
-    echo "Run debug-server with \"gojekyll\""
-  '';
+  shellHook = builtins.readFile ./bin/shellHook.sh;
   meta = with lib; {
     author = "Luca Leon Happel";
     description = "My github pages website";
