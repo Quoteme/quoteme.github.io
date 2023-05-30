@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What are "differential forms"
+title: What is "differential forms"
 author: Luca Leon Happel
 date: 2022-05-27 Fr 02:05:32
 category: posts
@@ -15,7 +15,7 @@ Currently while visiting the "[KoMa](http://die-koma.org/)"
 (Konferenz der deutschsprachigen Mathematikfachschaften / conference of
 German-speaking mathematics students) I got into a lot of interesting
 conversations about geometry, topology and category theory. This set
-the stage for me to think about differential forms, because I wanted to
+the stage for me to think about differential forms because I wanted to
 understand how exactly these things look and feel like.
 
 ## My sketches
@@ -46,7 +46,7 @@ Throughout this article we will choose the following symbols and notation:
   of the cotangent bundle of $M$.
   Its elements $\mu_p\in\Lambda^k(T^\ast M)$ are called
   [k-coblades](https://en.wikipedia.org/wiki/Blade_(geometry)) and
-  allow to measure volumes on some tangentspace $T_pM$ in $k$-dimensions.
+  allow to measure volumes on some tangent space $T_pM$ in $k$-dimensions.
 - $\Gamma(M, \Lambda^k(T^\ast M)) = \Gamma(\Lambda^k(T^\ast M))$
   is the space of
   [global sections](https://en.wikipedia.org/wiki/Section_(fiber_bundle))
@@ -67,10 +67,10 @@ $$\omega \in \Gamma(M, \Lambda^k(T^\ast M))$$
 
 ## My interpretation
 
-Basically a differential 1-form can be visualized as appending
-a vector on to each point of our manifold. Because we work with a smooth
+Basically, a differential 1-form can be visualized as appending
+a vector onto each point of our manifold. Because we work with a smooth
 section, these vectors need to vary "smoothly" from one point to
 another. This means, if we wiggle the point we look at on our manifold
 just a tiny bit, the vector we have related to this point will also
-wiggle just a tiny bit. Also out corresponding vector cannot take any
+wiggle just a tiny bit. Also, our corresponding vector cannot take any
 sharp turns if we do not move our point in sharp turns.
