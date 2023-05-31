@@ -155,7 +155,7 @@ ax.grid()
 plt.show()
 ```
 
-![](../images/assets/unnamed-chunk-1-1.png)
+![](../res/assets/unnamed-chunk-1-1.png)
 
 Auch hier stimmen die Definitionen überein.
 
@@ -199,7 +199,7 @@ plt.show()
 # Nun berechnen wir V_r für jeden Punkt für verschiedene r
 ```
 
-![](../images/assets/unnamed-chunk-2-1.png)
+![](../res/assets/unnamed-chunk-2-1.png)
 
 ``` python
 rn = np.arange(0.1,2,0.025)
@@ -222,10 +222,10 @@ plt.xlabel('Radius $r$')
 plt.legend(['Durchschnittliche Anzahl an Punkten in $V_r$'])
 plt.show()
 
-# Delta berechnung
+# Delta-Berechnung
 ```
 
-![](../images/assets/unnamed-chunk-2-2.png)
+![](../res/assets/unnamed-chunk-2-2.png)
 
 ``` python
 dn = [rn[i] for i in range(1,len(rn)-1)]
@@ -240,7 +240,7 @@ plt.ylabel('$\Delta_r$')
 plt.legend(['Durchschnittliches $\Delta_r$', '$Hausdorff Dimension von Sierpiński-Dreieck\approx\log_2(3)$'])
 ```
 
-![](../images/assets/unnamed-chunk-2-3.png)
+![](../res/assets/unnamed-chunk-2-3.png)
 
 Dies bewegt sich nahe der [Hausdorff
 Dimension](https://de.wikipedia.org/wiki/Hausdorff-Dimension) von einem

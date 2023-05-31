@@ -4,7 +4,7 @@ title: Cohomology of various spaces
 author: Luca Leon Happel
 date: 2023-05-29 Mo 14:37
 category: posts
-draft: true
+draft: false
 ---
 
 ## Goals
@@ -15,14 +15,20 @@ Let us consider the following topological spaces:
 - $\mathbb{P}^n(\mathbb{R})$ which is the real projective space of dimension $n$
 - $T^n$ which is the product of $n$ circles.
 
-We want to calculate their homology and analyze the differences we encounter in regard to regular homology.
+We want to calculate their cohomology and analyze the differences we encounter regarding regular homology.
 
 ## Introduction
 
-### Homology
+### Cell/Simplicial complexes
 
-Let's first look at Homology. Homology is a method to work with holes of some space $X$.
-In this post, we will only look at "nice" spaces, which are given as **simplicial complexes**.
+(Co-)Homology is a method to work with holes of some topological space $X$. Not all spaces are
+"good", for calculating (co-)homology though. So for the rest of this article, we will
+restrict ourselves only to those spaces, which are "good enough" in the sense that
+calculating their (co-)homology will be easy for us.
+These "good" spaces are given as [cell complexes](https://en.wikipedia.org/wiki/CW_complex).
+But before we look at them, we will take a quick detour and look at their smaller cousins,
+the [simplicial complexes](https://en.wikipedia.org/wiki/Simplicial_complex)[^1].
+
 A simplicial complex is a space, which can be constructed by taking points,
 lines between points, faces between lines, and so on. Think of polytopes, like those you
 would generally run into if you play 3D-videogames. In the case of 3D-videogames, the
@@ -31,15 +37,21 @@ and so on. Someone just slapped some textures onto the faces of these simplicial
 generally, in 3D-videogames you do not run into simplicial complexes, which have a dimension greater than 3.
 
 <figure>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Simplicial_complex_example.svg/1280px-Simplicial_complex_example.svg.png" alt="Example of a simplicial complex"/>
-<figcaption>__Figure 1__: Example of a simplicial complex
+<a href="https://en.wikipedia.org/wiki/Simplicial_complex#/media/File:Simplicial_complex_example.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Simplicial_complex_example.svg/1280px-Simplicial_complex_example.svg.png" alt="Example of a simplicial complex"/></a>
+<figcaption>__Figure 1__: Example of a simplicial complex. 
+    Note that we may call any space which is homeomorphic to a simplicial complex, a simplicial complex.
 </figcaption>
 </figure>
 
-Now, we can construct the homology of a simplicial complex by looking at its _chain complex_.
+We construct cell complexes analogously, but instead of using $n$-simplices ("$n$-triangles"),
+we use $n$-disks ($n$-cells) which we glue together along their boundaries.
+
+### Homology
+
+Now, we can construct the homology of a cell complex by looking at its _chain complex_.
 Let's consider the Klein-bottle $K$ for example. First, we can look at its fundamental polygon.
 We can see, that there is only one vertex $v$, two sides $s,t$ and one face $f$. To construct the
-simplicial homology of our space, we construct modules out of each of these sets:
+homology of our space, we construct modules out of each of these sets:
 
 - $C_0 = \mathbb{Z}v$
 - $C_1 = \mathbb{Z}s \oplus \mathbb{Z}t$
@@ -70,3 +82,7 @@ Similarly, we would now like to look at the dual of the above definition. Consid
 - $C^0 = \text{Hom}(\mathbb{Z}v, \mathbb{Z})$
 - $C^1 = \text{Hom}(\mathbb{Z}s \oplus \mathbb{Z}t, \mathbb{Z})$
 - $C^2 = \text{Hom}(\mathbb{Z}f, \mathbb{Z})$
+
+---
+
+[^1]: Further information about simplicial complexes can be found in "Glen E. Bredon: Topology and Geometry" in Definition 21.1

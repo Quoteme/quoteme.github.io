@@ -30,12 +30,12 @@ ich es hier teile:
 ### Übungsaufgaben:
 
 
-<img src="../images/bachelor-seminar_haskell-aufgaben.png" alt="Bildschirmfoto von der Ausarbeitung">
+<img src="../res/bachelor-seminar_haskell-aufgaben.png" alt="Bildschirmfoto von der Ausarbeitung">
 
 - [Aufgaben](https://github.com/Quoteme/bachelor_seminar_haskell/blob/master/aufgaben/Vorlagen/Uebung.pdf)
 - [Musterlösungen](https://github.com/Quoteme/bachelor_seminar_haskell/blob/master/aufgaben/musterloesung.hs)
 
 # Ausarbeitung im Umfang einer Bachelorarbeit:
 
-<img src="../images/bachelor-seminar_haskell.png" alt="Bildschirmfoto von der Ausarbeitung">
+<img src="../res/bachelor-seminar_haskell.png" alt="Bildschirmfoto von der Ausarbeitung">
 [Ausarbeitung: Haskell - Angewandter „abstract nonsense“](https://github.com/Quoteme/bachelor_seminar_haskell/blob/master/ausarbeitung/article.pdf)

@@ -169,7 +169,7 @@ But when you wake up in Minecraft to your dismay you are getting attacked
 by a zombie, because actually there was one more entity nearby.
 There was indeed one zombie $z \in \Gamma(V', \mathcal{F})$ where
 $V'\subset V$ is just the player's current chunk.
-This problem/bug occurred, because the mapping which shows entities
+This problem/bug occurred because the mapping which shows entities
 residing in an open set of our
 topology did not respect _restriction mappings_. This means, even if
 one takes the subset of an open set, the correlating entities in this
@@ -199,7 +199,7 @@ open set (with the player inside) we want to infer that, open subsets
 $V'\subset V$ cannot have more entities or ones, that cannot be found
 inside $V$.
 
-The problem which we are facing is that we are missing the **sheaf axiom**,
+The problem we are facing is that we are missing the **sheaf axiom**,
 which completes our requirements from before:
 
 - For each open set $U$ of $M$, we have the set $\Gamma(U, \mathcal{F})$.
@@ -250,9 +250,9 @@ canonically allows us to track data attached to open sets (or as is the
 case in Minecraft: track entities in unions of chunks).
 
 This concept can be much further observed though, providing a rich
-theory not just applicable in algebraic geometry. In fact, I will try to
+theory not just applicable in algebraic geometry. I will try to
 publish another post soon where I analyze some art I found
-particularity interesting using the structures defined in this post while
+particularly interesting using the structures defined in this post while
 also extending the notions of a sheaf to the ideas of stalks (which in
 our Minecraft example would allocate the entities in the smallest open
 set around some point to said point; Or more concretely all the
