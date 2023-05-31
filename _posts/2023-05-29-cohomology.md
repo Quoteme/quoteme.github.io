@@ -4,7 +4,7 @@ title: Cohomology of various spaces
 author: Luca Leon Happel
 date: 2023-05-29 Mo 14:37
 category: posts
-draft: false
+draft: true
 ---
 
 ## Goals
@@ -57,6 +57,8 @@ homology of our space, we construct modules out of each of these sets:
 - $C_1 = \mathbb{Z}s \oplus \mathbb{Z}t$
 - $C_2 = \mathbb{Z}f$
 
+Note here, that we made a choice. Namely, we _chose_ to use $\mathbb{Z}$
+as a $\mathbb{Z}$-Module and not some other $R$-Module $M$![^2]
 This forms a **chain complex** by providing maps $\partial_n : C_{n} \to C_{n-1}$
 between each of these modules:
 
@@ -86,3 +88,4 @@ Similarly, we would now like to look at the dual of the above definition. Consid
 ---
 
 [^1]: Further information about simplicial complexes can be found in "Glen E. Bredon: Topology and Geometry" in Definition 21.1
+[^2]: In general, we will denote the _chain complex with coefficients in $M$_ as $C_*(X; M)$, where $M$ ist a $R$-Module for some ring $R$.
