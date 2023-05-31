@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Math meme - When is R[x]/(x^2+bx+c) isomorphic to R^2 or C
+title: Math meme - When is $\mathbb{R}[x]/(x^2+bx+c)$ isomorphic to $\mathbb{R}^2$ or $\mathbb{C}$
 author: Luca Leon Happel
 date: 2020-12-03 Do 13:58 35
 category: posts

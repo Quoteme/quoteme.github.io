@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is "differential forms"
+title: What are "differential forms"
 author: Luca Leon Happel
 date: 2022-05-27 Fr 02:05:32
 category: posts
