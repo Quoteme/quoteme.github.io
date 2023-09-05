@@ -25,6 +25,15 @@ put into my work to help them and myself.
 | Bachelor of Mathematics      | HHU Düsseldorf                | 2018-2022 |
 | Bachelor of Computer-Science | HHU Düsseldorf                | 2018-\*   |
 
+#### Conferences
+
+- KoMa (conference of german speaking mathematics student associations) 2022 in Jena
+  - We discussed general mathematics, studying mathematics at german universities and the future of mathematics
+  - I discussed differential forms especially
+- Lean for the Curious Mathematician 2023 in Düsseldorf
+  - We discussed Lean, a theorem prover and functional programming language
+  - I implemented the code for exterior algebras in Lean with a small team of professors and [Eric Wieser](https://scholar.google.com/citations?user=5YGAVE0AAAAJ&hl=de&oi=ao)
+
 ### Work experience
 
 | Experience                                           | Employer                             | Duration  |
