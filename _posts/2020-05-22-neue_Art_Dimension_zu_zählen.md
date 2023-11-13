@@ -62,10 +62,10 @@ ich selber noch herumgeforscht habe:
 
 Betrachte folgende Graphen:
 
--   ![2D Sphäre im
-    Gitter](https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png "fig:")
--   ![3D Sphäre im
-    Gitter](https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png "fig:")
+- ![2D Sphäre im
+Gitter](https://writings.stephenwolfram.com/data/uploads/2020/04/0414img31.png "fig:")
+- ![3D Sphäre im
+Gitter](https://writings.stephenwolfram.com/data/uploads/2020/04/0414img32.png "fig:")
 
 Beide stellen da, wie sich Sphären in einem Gitter ausbreiten. Das wird,
 so Herr Wolfram folgender Maßen gebildet: "Start at some point in the
@@ -93,8 +93,8 @@ nur angelehnt ist.
 
 Sei $ (M,d) $ ein metrischer Raum.
 
--   $M$ ist Menge
--   $d: M\times M \rightarrow \mathbb{R}_{\ge 0}$ ist eine Metrik
+- $M$ ist Menge
+- $d: M\times M \rightarrow \mathbb{R}_{\ge 0}$ ist eine Metrik
 
 Sei $V_{r,x} = |\{y \in M \mid d(x,y) \le r\}|$ die Anzahl aller
 Punkte eines Balles mit Radius $r$.
@@ -104,46 +104,46 @@ $\Delta_{r,x} = \frac{\log(V_{r+1,x})-\log(V_{r,x})}{\log(r+1)-\log(r)} = \frac{
 
 Nun gilt folgendes:
 
-$
+$$
 \text{dim}(M,d) = \begin{cases}
-    \lim_{r\rightarrow \infty}\Delta_{r,x} & \text{wenn}\> |M|\ge\infty \wedge |V_{r,x}|<\infty\\
-    \lim_{r\rightarrow \infty}\Delta_{r,x} & \text{(?) wenn}\> |M|\ge\infty \wedge |V_{r,x}|\ge\infty\\
-    \begin{gather}
-    v\in\mathbb{R}_{\ge 0} \text{ mit } \\
-    |\{\Delta_{v\pm\epsilon,x}\}| = \max |\{\Delta_{w\pm\epsilon,x}\}|\\
-    \forall \epsilon,w\in\mathbb{R}_{\ge 0}
-    \end{gather} & \text{wenn}\> |M|<\infty
+\lim*{r\rightarrow \infty}\Delta*{r,x} & \text{wenn}\> |M|\ge\infty \wedge |V*{r,x}|<\infty\\\\\\\\
+\lim*{r\rightarrow \infty}\Delta*{r,x} & \text{(?) wenn}\> |M|\ge\infty \wedge |V*{r,x}|\ge\infty\\\\\\\\
+\begin{gather}
+v\in\mathbb{R}_{\ge 0} \text{ mit } \\\\\\\\
+|\{\Delta_{v\pm\epsilon,x}\}| = \max |\{\Delta*{w\pm\epsilon,x}\}|\\\\\\\\
+\forall \epsilon,w\in\mathbb{R}*{\ge 0}
+\end{gather} & \text{wenn}\> |M|<\infty
 \end{cases}
-$
+$$
 
 ##### Beispiel 1
 
-$
+$$
 \begin{aligned}
-    M      & = \mathbb{Z} \\
-    d(x,y) & = |x+y| \\
-    V_{r,x}& = 2r \\
-    \Delta_{r,x} &= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    M      & = \mathbb{Z} \\\\\\
+    d(x,y) & = |x+y| \\\\\\
+    V_{r,x}& = 2r \\\\\\
+    \Delta_{r,x} &= \frac{- \log{\left(2 r \right)} + \log{\left(2 r + 2 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\\\\\
     \lim_{r\rightarrow\infty}\Delta_{r,x} &= 1
 \end{aligned}
-$
+$$
 
 Hier stimmt die Dimension offensichtlich mit der herkömmlichen
 Definition überein.
 
 ##### Beispiel 2
 
-$
+$$
 \begin{aligned}
-    M      & = \mathbb{Z}^2 \\
-    d(x,y) & = |x_1+y_1 + x_2+y_2| \\
-    V_{r,x}& = 2r^2+2r+1 \quad\forall x\in M\\
-    \Delta_{r,x} &= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\
+    M      & = \mathbb{Z}^2 \\\\\\\\
+    d(x,y) & = |x_1+y_1 + x_2+y_2| \\\\\\\\
+    V_{r,x}& = 2r^2+2r+1 \quad\forall x\in M\\\\\\\\
+    \Delta_{r,x} &= \frac{\log{\left(2 r + 2 \left(r + 1\right)^{2} + 3 \right)} - \log{\left(2 r^{2} + 2 r + 1 \right)}}{- \log{\left(r \right)} + \log{\left(r + 1 \right)}} \\\\\\\\
     \lim_{r\rightarrow\infty}\Delta_{r,x} &= 2
 \end{aligned}
-$
+$$
 
-``` python
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 V = lambda r: 2*r**2+2*r+1
@@ -163,7 +163,7 @@ Auch hier stimmen die Definitionen überein.
 
 Ein Sierpiński Dreieck kann folgender Maßen gebildet werden:
 
-``` python
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -201,7 +201,7 @@ plt.show()
 
 ![](../res/assets/unnamed-chunk-2-1.png)
 
-``` python
+```python
 rn = np.arange(0.1,2,0.025)
 d = np.hypot
 U = lambda r,p: [ q for q in points if d(*(p-q))<=r ]
@@ -227,7 +227,7 @@ plt.show()
 
 ![](../res/assets/unnamed-chunk-2-2.png)
 
-``` python
+```python
 dn = [rn[i] for i in range(1,len(rn)-1)]
 Delta = lambda i: (np.log(val[i+1])-np.log(val[i]))/(np.log(rn[i+1])-np.log(rn[i]))
 dval = [Delta(i) for i in range(len(dn))]
@@ -254,9 +254,6 @@ Auswirkung die Dimension auf die Krümmung des Raumes hat und wie somit,
 Beispielsweise Gravitation auf natürliche Weise auftaucht.
 
 [^1]: <https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out>
-
 [^2]: <https://www.wolframphysics.org/>
-
 [^3]: <https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/>
-
 [^4]: <https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/>
