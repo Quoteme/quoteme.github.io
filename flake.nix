@@ -11,9 +11,38 @@
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system}; in
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        env = (pkgs.bundlerEnv
+          {
+            name = "your-package";
+            rupy = pkgs.ruby;
+            gemfile = ./Gemfile;
+            lockfile = ./Gemfile.lock;
+            gemset = ./gemset.nix;
+          });
+        jekylldeps = with pkgs; [
+          env
+          bundler
+          bundix
+          pkgs.ruby
+        ];
+        jekyllextensions = with pkgs; [
+          # jekyll extensions
+          rubyPackages.webrick
+          rubyPackages.jekyll
+          rubyPackages.jekyll-watch
+          rubyPackages.jekyll-spaceship
+        ];
+      in
       {
-        devShells.default = import ./default.nix { inherit pkgs; };
+        devShells.default = pkgs.mkShell {
+          buildInputs = jekylldeps ++ jekyllextensions;
+          shellHook = builtins.readFile ./bin/shellHook.sh;
+        };
       }
     );
 }
