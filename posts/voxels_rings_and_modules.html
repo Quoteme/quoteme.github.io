@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>
+     Voxels, Rings and Modules - My observations on how games like minecraft relate to abstract algebra –  Luca Leon Happel
+  </title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-44432837-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-44432837-2');
+</script>
+
+ <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WTB4GCX');</script>
+<!-- End Google Tag Manager -->
+
+
+  <meta name="author" content="Luca Leon Happel">
+  <meta name="description" content="A place for my thoughts">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://quoteme.github.io//css/base.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="https://quoteme.github.io//css/pygments.css" type="text/css">
+  <link media="only screen and (max-device-width: 480px)" href="https://quoteme.github.io//css/mobile.css" type="text/css" rel="stylesheet">
+  <link media="only screen and (device-width: 768px)" href="https://quoteme.github.io//css/mobile.css" type="text/css" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="text/javascript" src="https://quoteme.github.io//js/application.js"></script>
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <section class="sidebar">
+  <a href="/" aria-label="Avatar">
+    <picture>
+      <source src="?s=150" type="image/png">
+    <img src="https://avatars.githubusercontent.com/u/6796009?v=4" height="75" width="75" class="avatar">
+  </source></picture></a>
+
+  <section class="name">
+    <a href="/">
+      <span id="fname">Luca</span>
+      <span id="lname">Happel</span>
+    </a>
+  </section>
+
+  <section class="meta">
+    <a href="" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><i class="fa fa-github"></i></a>
+    <a href="https://twitter.com/luca_happel" target="_blank" title="Follow me on Twitter" aria-label="Follow me on Twitter"><i class="fa fa-twitter"></i></a>
+    <a href="/atom.xml" title="Atom RSS feed" aria-label="Atom RSS feed"><i class="fa fa-rss"></i></a>
+  </section>
+
+  <section class="sections">
+    <ul>
+      <li><a href="/about">about</a></li>
+      <li><a href="/projects">projects</a></li>
+      <li><a href="/posts.html">posts</a></li>
+    </ul>
+  </section>
+</section>
+
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTB4GCX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <section class="content">
+  <h1>
+    <a href="/posts/voxels_rings_and_modules">Voxels, Rings and Modules - My observations on how games like minecraft relate to abstract algebra</a>
+  </h1>
+
+  <section class="byline">
+    November 26, 2020
+  </section>
+
+  <h3 id="introduction">Introduction</h3>
+
+<p>Last semester I studied <a href="https://en.wikipedia.org/wiki/Abstract_algebra">abstract algebra</a>
+in my fourth year of university. It way pretty tough and sadly I did
+not understand all the topics which is probably why I failed it in my
+first two attempts.</p>
+
+<p>Now I wish to change this and succeed in my next attempt.
+And what better way is there to learn for it, than by writing a video
+game? 😂</p>
+
+<p>I got to work on my game <a href="https://github.com/Quoteme/story">“Story”</a>
+and expanded on it’s worldbuilding. This made me want to actually code
+this world into my game, which then lead me to revisit my voxel-mesher.
+A voxel mesher is a program which takes in a set of 3-tuples
+$(x,y,z) \in \mathbb{Z}^3$ and creates a mesh out of it. Kinda like
+this:</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Voxels.svg" alt="Example of a Voxel Mesh"></p>
+
+<p>If you extend this definition and use 4-tuples $(x,y,z,type)\in\mathbb{Z}^4$
+you can even create meshes consisting of different materials with
+different textures and so on:</p>
+
+<p><img src="https://camo.githubusercontent.com/aaf2980eb37da3e0ed4b1f5c351642c788cd90316b018259a0f17f248fb2fca1/68747470733a2f2f692e696d6775722e636f6d2f496d65416c75332e676966" alt="Example of different types from my game story"></p>
+
+<h3 id="rings-and-modules">Rings and Modules</h3>
+
+<p>So, what does this have to do with
+<a href="https://en.wikipedia.org/wiki/Ring_(mathematics)">rings</a> and
+<a href="https://en.wikipedia.org/wiki/Module_(mathematics)">modules</a>?</p>
+
+<p>Well, first of a <em>Ring</em> like the integers $\mathbb{Z}={\dots,-2,-1,0,1,2,\dots}$
+together with an <a href="https://en.wikipedia.org/wiki/Abelian_group">abelian group</a>
+called addition $+$, a <a href="https://en.wikipedia.org/wiki/Monoid">monoid</a>
+called multiplication $\cdot$ and a $1$-Element is simply speaking
+just a set of numbers on which one can multiply, add and subtract
+every number from the other (but not necessarily divide).</p>
+
+<p>$(\mathbb{Z}, +, \cdot)$ forms a Ring, because we can add every element
+with another and the result will be in $\mathbb{Z}$. We can also
+multiply elements with each other, but when we divide for example $1$
+by $2$, the result one half is not an integer $\frac{1}{2} \notin \mathbb{Z}$.</p>
+
+<p>We can see this structure in our voxels, because they are indexed
+using integers (i.e. there is no voxel between the first and second one).</p>
+
+<p>Now on to the <em>Modules</em>. This is simply speaking just a Group under
+Addition together with the attribute that we can multiply each element
+with an element of our Ring. This group is basically just provides us
+with vector addition and the ring extends this to scalar multiplication.</p>
+
+<h3 id="how-is-this-related-to-our-voxels-then">How is this related to our voxels then?</h3>
+
+<p>Well, our Voxelspace (the set of all 3-tuples $(x,y,z)\in\mathbb{Z}^3$)
+is just a <em>module</em>! On first glance it might look like a
+<a href="https://en.wikipedia.org/wiki/Vector_space">vector space</a>, but because
+our voxels are arranged on a grid / indexed by integers and because they
+cannot leave this grid but we can move them around by whole numbers,
+they are in fact an addative group! (This means, we can move one voxel
+one voxel down, or 3 voxels right).
+Also, we can multiply the voxels with integers. This would correlate
+with multiplying the tuple component wise with our factor.</p>
+
+<h3 id="cool-but-how-is-this-useful">Cool, but how is this useful?</h3>
+
+<p>We can find a <a href="https://en.wikipedia.org/wiki/Generating_set_of_a_module">generating set</a>
+for this module which consists of three elements. These elements are
+the ones which lie in each cardinal direction
+${(1,0,0),(0,1,0),(0,0,1)}$. If we take $(1,0,0)$
+and look at the submodules it creates, then it will be similar to the
+red line in this image:</p>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="5P7as95">
+  <p><a href="https://imgur.com/5P7as95">View post on imgur.com</a></p>
+</blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<p>The blue line analogously represents the submodule generated by $(0,0,1)$.
+And from here on, we can observe that the number of elements of this
+generating set is 3. Therefor we can also conclude that this module
+is <a href="https://en.wikipedia.org/wiki/Finitely_generated_module">finitely generated</a>
+and kinda looks like a three dimensional vectorspace.</p>
+
+<h5 id="note">Note</h5>
+
+<p>At first I wanted to determine the length of the module and from there
+conclude that because this length is three, say that this relates to
+its three-dimensional representation. But this is false, because this
+module actually has infinite length, because we can for example
+pick $\langle(1,0,0)\rangle$ the submodule generated by $(1,0,0)$
+and then pick a prime number $p$ and look at the submodule generated by
+$\langle(p^n,0,0)\rangle, &gt; n\in\mathbb{N}$. This will lead a proper
+submodule for each $n$, kinda like in this image, where the
+y-Axis represents the $n$!</p>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="umB2aNP">
+  <p><a href="https://imgur.com/umB2aNP">View post on imgur.com</a></p>
+</blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<p>More on that in the <a href="https://www.reddit.com/r/math/comments/k30zol/voxels_rings_and_modules_my_observations_on_how/?utm_source=share&utm_medium=web2x&context=3">reddit thread</a>.</p>
+
+<!--
+
+Basically this gives intuition into what the length of a module is.
+The [length of a module](https://en.wikipedia.org/wiki/Length_of_a_module)
+is just the longest chain of submodules a module has, where a submodule
+is a proper subset of our module which is invariant under multiplication.
+
+In terms of voxels this means:
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="5P7as95">
+<a href="https://imgur.com/5P7as95">View post on imgur.com</a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+The blue arrow is a submodule, as is the red module. In fact, the entire
+floor is a submodule (the floor includes the red arrow as a submodule,
+and the floor also includes the blue arrow as a submodule). And all these
+submodules are submodules of my entire level which is a subset of a
+"voxelspace".
+
+Now the length of a submodule also makes sense intuitively! If we consider
+the entire level as a module, then we could pick the floor as a submodule
+and then we could pick the red arrow as a submodule of the floor submodule,
+and finally pick the empty-set as a submodule. But now we are stuck and
+have no more submodules of this _submodule_ of the red arrow _submodule_ of the
+floor _submodule_. (Actually, this is the longest chain of proper
+submodules one could take here). How many submodules are we deep now?
+The answer is _3_! Therefor this module is of length three, which
+correlates to a vectorspace of dimension _3_!
+
+-->
+
+<h3 id="final-words-of-wisdom">Final words of wisdom</h3>
+
+<p>Sometimes it is best to relax a bit and just be creative. Maybe imagine
+a weird video-game-universe where you would like to live in. And on closer
+inspection of these thoughts, you may just be surprised what gems lie
+uncovered hidden in your own imagination.</p>
+
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="httpss://twitter.com/luca_happel" target="_blank">
+        <img src="?s=142" height="50" width="50">
+      </a>
+
+      <p>
+        I'm a developer at GitHub. <a href="https://twitter.com/luca_happel" target="_blank">Follow me on Twitter</a>;
+        you'll enjoy my tweets and can contact me there.
+		<br>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="luca_happel">Tweet</a>
+      <a href="https://twitter.com/luca_happel" class="twitter-follow-button" data-show-count="false">Follow @luca_happel</a>
+      <script src="https://platform.twitter.com/widgets.js" type="text/javascript"></script>
+      </p>
+    </section>
+  </section>
+</section>
+
+</body>
+
+</html>

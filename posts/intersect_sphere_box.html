@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>
+     intersect.mjs und der Sphären/Boxen-Schnitt –  Luca Leon Happel
+  </title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-44432837-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-44432837-2');
+</script>
+
+ <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WTB4GCX');</script>
+<!-- End Google Tag Manager -->
+
+
+  <meta name="author" content="Luca Leon Happel">
+  <meta name="description" content="A place for my thoughts">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml">
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://quoteme.github.io//css/base.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="https://quoteme.github.io//css/pygments.css" type="text/css">
+  <link media="only screen and (max-device-width: 480px)" href="https://quoteme.github.io//css/mobile.css" type="text/css" rel="stylesheet">
+  <link media="only screen and (device-width: 768px)" href="https://quoteme.github.io//css/mobile.css" type="text/css" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <script type="text/javascript" src="https://quoteme.github.io//js/application.js"></script>
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <section class="sidebar">
+  <a href="/" aria-label="Avatar">
+    <picture>
+      <source src="?s=150" type="image/png">
+    <img src="https://avatars.githubusercontent.com/u/6796009?v=4" height="75" width="75" class="avatar">
+  </source></picture></a>
+
+  <section class="name">
+    <a href="/">
+      <span id="fname">Luca</span>
+      <span id="lname">Happel</span>
+    </a>
+  </section>
+
+  <section class="meta">
+    <a href="" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><i class="fa fa-github"></i></a>
+    <a href="https://twitter.com/luca_happel" target="_blank" title="Follow me on Twitter" aria-label="Follow me on Twitter"><i class="fa fa-twitter"></i></a>
+    <a href="/atom.xml" title="Atom RSS feed" aria-label="Atom RSS feed"><i class="fa fa-rss"></i></a>
+  </section>
+
+  <section class="sections">
+    <ul>
+      <li><a href="/about">about</a></li>
+      <li><a href="/projects">projects</a></li>
+      <li><a href="/posts.html">posts</a></li>
+    </ul>
+  </section>
+</section>
+
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTB4GCX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <section class="content">
+  <h1>
+    <a href="/posts/intersect_sphere_box">intersect.mjs und der Sphären/Boxen-Schnitt</a>
+  </h1>
+
+  <section class="byline">
+    February 14, 2020
+  </section>
+
+  <h3 id="problem">Problem</h3>
+
+<p>Momentan arbeite ich an meiner <a href="https://github.com/Quoteme/intersect">intersect.mjs</a>
+Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen
+geometrischen Strukturen in $$n$$ dimensionen zu erkennen.
+Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:</p>
+
+<figure class="highlight">
+  <pre><code class="language-javascript" data-lang="javascript"><span class="c1">// plane2circle :: Real a =&gt; [(a,a)] -&gt; a -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean</span>
+<span class="kd">const</span> <span class="nx">plane2circle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">d</span><span class="o">=</span><span class="nb">Math</span><span class="p">.</span><span class="nx">hypot</span><span class="p">)</span> <span class="o">=&gt;</span>
+	<span class="c1">//TODO</span></code></pre>
+</figure>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Abkürzung</th>
+      <th>Name</th>
+      <th>Eigenschaft</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">p</code></td>
+      <td>Hyperwürfel</td>
+      <td><code class="language-plaintext highlighter-rouge">[(a,a)]</code></td>
+      <td>Zwei Punkte im \(\mathbb{R}^n\)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">r</code></td>
+      <td>Radius</td>
+      <td><code class="language-plaintext highlighter-rouge">a</code></td>
+      <td>Radius der Sphäre</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">c</code></td>
+      <td>Position der Sphäre</td>
+      <td><code class="language-plaintext highlighter-rouge">[a]</code></td>
+      <td>Position des Zentrums der Sphäre</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">d</code></td>
+      <td>Maß</td>
+      <td><code class="language-plaintext highlighter-rouge">[a] -&gt; a</code></td>
+      <td>Ein verwendetes <a href="https://de.wikipedia.org/wiki/Ma%C3%9F_(Mathematik)#Definition">Maß</a> aus der Maßtheorie</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>hierbei verwende ich <a href="haskell.org">Haskell</a> Schreibkonventionen für die
+Eigenschaften. Also, <code class="language-plaintext highlighter-rouge">a</code> bedeuted, ein beliebiger Datentyp oder
+<code class="language-plaintext highlighter-rouge">[a,a]</code> deuted auf zwei beliebige Daten (die nicht gleich sein müssen,
+des selben Types hin. Da ich <code class="language-plaintext highlighter-rouge">Real a =&gt;...</code> am Anfang geschrieben habe,
+bedeuted dass: <code class="language-plaintext highlighter-rouge">[(a,a)]</code> ist eine Liste von Tupeln verschiedener reeller
+Zahlen: $$((a_{0<em>0},a</em>{0<em>1}),(a</em>{1<em>0},a</em>{1<em>1}),\dots), \quad a</em>{i_j} \in \mathbb{R}$$</p>
+
+<h3 id="lösung">Lösung</h3>
+
+<p>Damit ich diese Funktion dazu bringen konnte, zu funktionieren ist mir
+eine Lösung gekommen. Gegeben hatte ich bereits eine Funktion, welche
+prüft ob eine Hypersphäre und ein Punkt sich schneiden. Daher habe ich
+eine weitere Funktion geschrieben, welche prüft, ob sich ein Kreis und
+ein Intervall schneiden:</p>
+
+<figure class="highlight">
+  <pre><code class="language-javascript" data-lang="javascript"><span class="c1">// point2circle :: Num a =&gt; [a] -&gt; Real -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">point2circle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">q</span><span class="o">=</span><span class="nx">p</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">_</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">),</span><span class="nx">d</span><span class="o">=</span><span class="nb">Math</span><span class="p">.</span><span class="nx">hypot</span><span class="p">)</span> <span class="o">=&gt;</span>
+	<span class="nx">d</span><span class="p">(...</span><span class="nx">p</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">x</span><span class="p">,</span><span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span><span class="o">-</span><span class="nx">q</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="o">&lt;=</span> <span class="nx">r</span><span class="p">;</span>
+
+<span class="c1">// interval2circle :: Num a =&gt; a -&gt; Real -&gt; [a,a] -&gt; Boolean</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">interval2circle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">i</span><span class="p">,</span><span class="nx">d</span><span class="o">=</span><span class="nb">Math</span><span class="p">.</span><span class="nx">hypot</span><span class="p">)</span> <span class="o">=&gt;</span>
+	<span class="nx">point2circle</span><span class="p">([</span><span class="nx">c</span><span class="p">],</span> <span class="nx">r</span><span class="o">+</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="nx">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">[(</span><span class="nx">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="nx">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="nx">d</span><span class="p">)</span></code></pre>
+</figure>
+
+<p>Nun ist es ein Leiches, zu prüfen ob ein Hyperwürfel und eine Hypersphäre
+sich schneiden;
+Man muss prüfen ob die Projektionen der Sphäre und des Hyperwürfels sich
+auf jeder Achse schneiden.</p>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/rZpCzkF" data-context="false">
+  <p><a href="//imgur.com/a/rZpCzkF"></a></p>
+</blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<figure class="highlight">
+  <pre><code class="language-javascript" data-lang="javascript"><span class="c1">// plane2circle :: Num a =&gt; [(a,a)] -&gt; Real -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">plane2circle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">d</span><span class="o">=</span><span class="nb">Math</span><span class="p">.</span><span class="nx">hypot</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">p</span>
+	<span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">i</span><span class="p">,</span><span class="nx">j</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">interval2circle</span><span class="p">(</span><span class="nx">c</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span><span class="nx">r</span><span class="p">,</span><span class="nx">i</span><span class="p">,</span><span class="nx">d</span><span class="p">)</span> <span class="p">)</span>
+	<span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="o">==</span><span class="kc">true</span><span class="p">)</span></code></pre>
+</figure>
+
+<p>und diese Funktion können wir nun testen:</p>
+
+<figure class="highlight">
+  <pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">int</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./intersect.mjs</span><span class="dl">'</span>
+
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// true ✅</span>
+
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// false ✅</span>
+
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">int</span><span class="p">.</span><span class="nx">plane2circle</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">))</span> <span class="c1">// false ✅</span></code></pre>
+</figure>
+
+<p>besonders das letzte Ergebnis kann man leicht überprüfen:</p>
+
+<p><img src="https://i.imgur.com/aqI995m.png" alt="geometrischer Beweis"></p>
+
+<h3 id="fazit">Fazit</h3>
+
+<p>Das Problem <em>Schnitte zwischen höherdimensinalen Sphären und Würfeln</em>
+zu lösen war nicht all zu einfach auf den ersten Blick; doch verwendet
+man (wortwörtlich) verschiedene Perspektiven und ist bereit bereits
+bekannte Resultate (wie <code class="language-plaintext highlighter-rouge">point2circle</code>) zu verwenden und neue zu
+finden (wie <code class="language-plaintext highlighter-rouge">interval2circle</code>), so ist es doch ein Leichtes gewesen
+eine allgemeine Lösung zu finden.</p>
+
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="httpss://twitter.com/luca_happel" target="_blank">
+        <img src="?s=142" height="50" width="50">
+      </a>
+
+      <p>
+        I'm a developer at GitHub. <a href="https://twitter.com/luca_happel" target="_blank">Follow me on Twitter</a>;
+        you'll enjoy my tweets and can contact me there.
+		<br>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="luca_happel">Tweet</a>
+      <a href="https://twitter.com/luca_happel" class="twitter-follow-button" data-show-count="false">Follow @luca_happel</a>
+      <script src="https://platform.twitter.com/widgets.js" type="text/javascript"></script>
+      </p>
+    </section>
+  </section>
+</section>
+
+</body>
+
+</html>
