@@ -57,7 +57,7 @@
               adamvoss.vscode-languagetool-en
               valentjn.vscode-ltex
               # markdown
-              yzhang.markdown-all-in-one
+              # yzhang.markdown-all-in-one
               # R
               tianyishi.rmarkdown
               reditorsupport.r
