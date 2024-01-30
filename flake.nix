@@ -149,6 +149,21 @@
           buildInputs = editor ++ jekylldeps ++ jekyllextensions;
           shellHook = shellHook;
         };
+
+        # build jekyll blog
+        packages.default = pkgs.stdenv.mkDerivation {
+          name = "jekyll-site";
+          src = ./.;
+          buildInputs = jekylldeps ++ jekyllextensions;
+          buildPhase = ''
+            jekyll build
+          '';
+          installPhase = ''
+            mkdir -p $out
+            cp -r _site/* $out/
+          '';
+        };
+
       }
     );
 }
