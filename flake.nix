@@ -57,7 +57,7 @@
               adamvoss.vscode-languagetool-en
               valentjn.vscode-ltex
               # markdown
-              yzhang.markdown-all-in-one
+              # yzhang.markdown-all-in-one
               # R
               tianyishi.rmarkdown
               reditorsupport.r
@@ -149,6 +149,21 @@
           buildInputs = editor ++ jekylldeps ++ jekyllextensions;
           shellHook = shellHook;
         };
+
+        # build jekyll blog
+        packages.default = pkgs.stdenv.mkDerivation {
+          name = "jekyll-site";
+          src = ./.;
+          buildInputs = jekylldeps ++ jekyllextensions;
+          buildPhase = ''
+            jekyll build
+          '';
+          installPhase = ''
+            mkdir -p $out
+            cp -r _site/* $out/
+          '';
+        };
+
       }
     );
 }
