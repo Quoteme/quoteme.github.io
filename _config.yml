@@ -9,6 +9,10 @@ name: Luca Leon Happel
 url: https://quoteme.github.io/
 description: A place for my thoughts
 twitter: luca_happel
+instagram: lucaleonhappel
+github:
+  name: quoteme
+  owner_gravatar_url: https://avatars.githubusercontent.com/u/6796009?v=4
 
 # Conversion
 markdown            : kramdown
