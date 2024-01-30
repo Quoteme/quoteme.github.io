@@ -140,11 +140,17 @@ a {
       max-width: 100%;
       display: inline-block;
       font-size: 12px;
-      background-color: #eeeeee;
-      border: 1px solid #777777;
-      border-radius: 3px;
-      padding: 2px 3px;
+      padding-left: 8px;
+      padding-right: 8px;
+      color: #d70000;
     }
+  }
+  .highlight {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 3px;
   }
   img {
     padding: 3px;
@@ -364,5 +370,8 @@ table {
     td {
       background: #303030;
     }
+  }
+  p > code {
+    color: #ff6868 !important;
   }
 }
