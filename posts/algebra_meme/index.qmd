@@ -1,5 +1,5 @@
 ---
-title: "Prove that $Rx/(x^2+bx+c)$ is isomorphic to $R^2$ or $C$ - First try"
+title: "Prove that $\\mathbb{R}[x]/(x^2+bx+c)$ is isomorphic to $\\mathbb{R}^2$ or $\\mathbb{C}$ - First try"
 author: "Luca Leon Happel"
 date: "2020-12-03"
 categories: ["math", "algebra", "ring theory", "abstract algebra", "polynomial rings", "quotient rings", "isomorphisms"]

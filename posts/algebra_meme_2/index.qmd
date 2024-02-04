@@ -1,5 +1,5 @@
 ---
-title: "Prove that $Rx/(x^2+bx+c)$ is isomorphic to $R^2$ or $C$ - A proof"
+title: "Prove that $\\mathbb{R}[x]/(x^2+bx+c)$ is isomorphic to $\\mathbb{R}^2$ or $\\mathbb{C}$ - A proof"
 author: "Luca Leon Happel"
 date: "2021-10-21"
 categories: ["math", "algebra", "abstract algebra", "ring theory", "meme"]

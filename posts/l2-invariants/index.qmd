@@ -1,0 +1,50 @@
+---
+title: "$\\ell^2$-Invariants"
+author: "Luca Leon Happel"
+date: "2024-02-04"
+categories: ["mathematics", "topology", "algebra", "group theory", "ring theory", "measure theory", "functional analysis", "differential geometry", "differential topology", "algebraic topology"]
+---
+
+## Introduction
+
+This semester (WiSe 2023/24) I took a course about $\ell^2$-Invariants[^1] at the University of Düsseldorf. As a reminder, $\ell^2$ is the [Hibert space of __square-summable__ sequences](https://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions) of complex numbers. Meaning, a sequence $(a_n\in\mathbb{C})_{n=0}^\infty$ is in $\ell^2$ if and only if $\sum_{n=0}^\infty |a_n|^2 < \infty$. By defining an inner product on $\ell^2$ as $\langle a, b \rangle = \sum_{n=0}^\infty a_n \overline{b_n}$, we make $\ell^2$ to a complete complex inner product space, i.e. a Hilbert space.
+
+For context, this course was part of my master's degree in mathematics and it was the culmination of a series of courses about __Algebraic Topology__, which I attended for the past two and a half years.
+Previous courses concentrated primarily on the basics of algebraic topology, such as homology and cohomology, and their applications to the classification of manifolds and the computation of homotopy groups and cohomology rings.
+
+The tools in the form of algebraic structures and theorems that we learned in these coureses work well with finite CW-complexes and their finite coverings, after all we are just dealing with finitely generated modules in this case and concepts like determinants and betti numbers are well defined. However, when we want to study infinite CW-complexes, we need to use more sophisticated tools, such as $\ell^2$-Invariants, to understand the topology of these spaces.
+We can easily construct many infinite CW-complexes by considering infinite coverings of finite CW-complexes, and we can use $\ell^2$-Invariants to study the topology of these infinite coverings, as $\ell^2$-Invariants intrinsically cope better with infinite structures.
+
+### Example
+
+Let us consider the a bouqet of $n$ circles: $X_n = \bigvee_{i=1}^n S^1$
+
+```{python}
+import numpy as np
+import plotly.graph_objects as go
+n = 3
+theta = np.linspace(0, 2*np.pi, 100)
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=np.cos(n*theta)*np.cos(theta), y=np.cos(n*theta)*np.sin(theta), mode='lines', name=f'$X_{n}$'))
+fig.update_layout(width=500, height=500)
+```
+
+This will lead to the universal covering space $F_3 = \langle a_1,a_2,a_3 \rangle$, which is the free group in three generators $a_1,a_2,a_3$:
+
+
+
+<!-- In the previous semesters we learned that given a CW-Complex $X$, we can take a look at its covering spaces. In particular, we can find one such covering space $\tilde X \xrightarrow{p} X$ that is universal, i.e. it is simply connected and for every other covering $Y \xrightarrow{\beta} X$, we can find a mapping $\tilde X \xrightarrow{\alpha} Y$ such that the following diagram commutes:
+![](./universal_cover.png){fig-align="center"} -->
+
+<!-- 
+The connection between $\ell^2$-Invariants and Algebraic Topology has its roots in the study of covering spaces of reasonable (path-connected, locally path-connected and semilocally simply-connected) topological spaces, say CW-complexes. 
+
+
+
+By proposition 1.38 of Hatchers book "Algebraic Topology"[^2], we have a
+bijecttion between the set of covering spaces of $X$ and the set of subgroups of the fundamental group $\pi_1(X, x_0)$, where $x_0$ is a basepoint in $X$. Using proposition 1.39 as well, we have $\{X_N\}_{N\trianglelefteq \pi_1(X,x_0)}$ for the set of all _normal_ covering spaces of $X$ (i.e. the deck transformation group $N$ of the covering space $X_N \xrightarrow{p} X$ acts transitively on the fibers of $p$). -->
+
+
+
+[^1]: The course was held by [Jun.-Prof. Dr. Holger Kammeyer](https://www.math.uni-duesseldorf.de/~kammeyer/).
+[^2]: Allen Hatcher, "Algebraic Topology", Cambridge University Press, 2002. [Link to the book](https://pi.math.cornell.edu/~hatcher/AT/ATpage.html)
