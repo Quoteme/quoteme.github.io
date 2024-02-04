@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/l2-invariants/index.html",
       "/posts/surreal_numbers/index.html",
       "/posts/bachelor-seminar-haskell/index.html",
       "/posts/differential_forms/index.html",
