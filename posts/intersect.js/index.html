@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Luca Leon Happel">
+<meta name="dcterms.date" content="2020-02-14">
 
-<title>Luca Happel’s personal website - About</title>
+<title>Luca Happel’s personal website - intersect.mjs und der Sphären/Boxen-Schnitt</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./{{< var website.favicon >}}" rel="icon">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../{{< var website.favicon >}}" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,8 +65,10 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -73,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Luca Happel’s personal website</span>
     </a>
   </div>
@@ -84,11 +89,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html" rel="" target="">
+    <a class="nav-link" href="../../projects.html" rel="" target="">
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
@@ -120,236 +125,146 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">intersect.mjs und der Sphären/Boxen-Schnitt</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">javascript</div>
+                <div class="quarto-category">programming</div>
+                <div class="quarto-category">webgl</div>
+                <div class="quarto-category">math</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Luca Leon Happel </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 14, 2020</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-broadside column-page">
-  <div class="about-main">
-    <div class="about-entity" style="background-image: url('https://avatars2.githubusercontent.com/u/6796009')"></div>
-    <div class="about-contents"><header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="problem" class="level3">
+<h3 class="anchored" data-anchor-id="problem">Problem</h3>
+<p>Momentan arbeite ich an meiner <a href="https://github.com/Quoteme/intersect">intersect.mjs</a> Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen geometrischen Strukturen in <span class="math inline">\(n\)</span> dimensionen zu erkennen. Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:</p>
+<pre class="{javascript}"><code>// plane2circle :: Real a =&gt; [(a,a)] -&gt; a -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean
+const plane2circle = (p,r,c,d=Math.hypot) =&gt;
+    //TODO</code></pre>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Abkürzung</th>
+<th>Name</th>
+<th>Eigenschaft</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>p</code></td>
+<td>Hyperwürfel</td>
+<td><code>[(a,a)]</code></td>
+<td>Zwei Punkte im <span class="math inline">\(\mathbb{R}^n\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>r</code></td>
+<td>Radius</td>
+<td><code>a</code></td>
+<td>Radius der Sphäre</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>c</code></td>
+<td>Position der Sphäre</td>
+<td><code>[a]</code></td>
+<td>Position des Zentrums der Sphäre</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>d</code></td>
+<td>Maß</td>
+<td><code>[a] -&gt; a</code></td>
+<td>Ein verwendetes <a href="https://de.wikipedia.org/wiki/Ma%C3%9F_(Mathematik)#Definition">Maß</a> aus der Maßtheorie</td>
+</tr>
+</tbody>
+</table>
+<p>hierbei verwende ich <a href="haskell.org">Haskell</a> Schreibkonventionen für die Eigenschaften. Also, <code>a</code> bedeuted, ein beliebiger Datentyp oder <code>[a,a]</code> deuted auf zwei beliebige Daten (die nicht gleich sein müssen, des selben Types hin. Da ich <code>Real a =&gt;...</code> am Anfang geschrieben habe, bedeuted dass: <code>[(a,a)]</code> ist eine Liste von Tupeln verschiedener reeller Zahlen: <span class="math inline">\(((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\dots), \quad a_{i_j} \in \mathbb{R}\)</span></p>
+</section>
+<section id="lösung" class="level3">
+<h3 class="anchored" data-anchor-id="lösung">Lösung</h3>
+<p>Damit ich diese Funktion dazu bringen konnte, zu funktionieren ist mir eine Lösung gekommen. Gegeben hatte ich bereits eine Funktion, welche prüft ob eine Hypersphäre und ein Punkt sich schneiden. Daher habe ich eine weitere Funktion geschrieben, welche prüft, ob sich ein Kreis und ein Intervall schneiden:</p>
+<pre class="{javascript}"><code>// point2circle :: Num a =&gt; [a] -&gt; Real -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean
+export const point2circle = (p,r,q=p.map(_=&gt;0),d=Math.hypot) =&gt;
+    d(...p.map((x,i) =&gt; x-q[i])) &lt;= r;
+
+// interval2circle :: Num a =&gt; a -&gt; Real -&gt; [a,a] -&gt; Boolean
+export const interval2circle = (c,r,i,d=Math.hypot) =&gt;
+    point2circle([c], r+Math.abs(i[0]-i[1])/2, [(i[0]+i[1])/2], d)</code></pre>
+<p>Nun ist es ein Leiches, zu prüfen ob ein Hyperwürfel und eine Hypersphäre sich schneiden; Man muss prüfen ob die Projektionen der Sphäre und des Hyperwürfels sich auf jeder Achse schneiden.</p>
+<blockquote class="imgur-embed-pub blockquote" lang="en" data-id="a/rZpCzkF" data-context="false">
+<a href="//imgur.com/a/rZpCzkF"></a>
+</blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<pre class="{javascript}"><code>// plane2circle :: Num a =&gt; [(a,a)] -&gt; Real -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean
+export const plane2circle = (p,r,c,d=Math.hypot) =&gt; p
+    .map((i,j) =&gt; interval2circle(c[j],r,i,d) )
+    .every(e =&gt; e==true)</code></pre>
+<p>und diese Funktion können wir nun testen:</p>
+<pre class="{javascript}"><code>import * as int from './intersect.mjs'
+
+let p = [[0,1],[0,1],[0,1]]
+let r = 1
+let c = [0,0,0]
+console.log(int.plane2circle(p,r,c)) // true ✅
+
+let p = [[0,1],[0,1],[0,1]]
+let r = 1
+let c = [0,0,2]
+console.log(int.plane2circle(p,r,c)) // false ✅
+
+let p = [[0,1],[0,1]]
+let r = 1
+let c = [2,2]
+console.log(int.plane2circle(p,r,c)) // false ✅</code></pre>
+<p>besonders das letzte Ergebnis kann man leicht überprüfen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/aqI995m.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">geometrischer Beweis</figcaption>
+</figure>
 </div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>I am Luca Leon Happel, a 24-year-old Student in Düsseldorf and a <a href="https://xscode.com/profile/quoteme">top-100</a> on <a href="https://xscode.com/profile/quoteme">GitHub</a> in categories like physics-engines and rigid-body-dynamics. My interests include mathematics, computer science, technology and lots more. I work as a programmer for <a href="monti.ai">monti.ai</a> and as a student assistant at the Heinrich Heine University Düsseldorf.</p>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<table class="table">
-<colgroup>
-<col style="width: 42%">
-<col style="width: 43%">
-<col style="width: 13%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Achievement</th>
-<th>Place</th>
-<th>Duration</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Elementary school</td>
-<td>Erich-Kästner Grundschule</td>
-<td>2006-2010</td>
-</tr>
-<tr class="even">
-<td>Gymnasium</td>
-<td>Gymnasium an der Gartenstraße</td>
-<td>2010-2018</td>
-</tr>
-<tr class="odd">
-<td>Bachelor of Mathematics</td>
-<td>HHU Düsseldorf</td>
-<td>2018-2022</td>
-</tr>
-<tr class="even">
-<td>Bachelor of Computer-Science</td>
-<td>HHU Düsseldorf</td>
-<td>2018-*</td>
-</tr>
-</tbody>
-</table>
 </section>
-<section id="conferences" class="level2">
-<h2 data-anchor-id="conferences">Conferences</h2>
-<ul>
-<li>KoMa (conference of german speaking mathematics student associations) 2022 in Jena
-<ul>
-<li>We discussed general mathematics, studying mathematics at german universities and the future of mathematics</li>
-<li>I discussed differential forms especially</li>
-</ul></li>
-<li>Lean for the Curious Mathematician 2023 in Düsseldorf
-<ul>
-<li>We discussed Lean, a theorem prover and functional programming language</li>
-<li>I implemented the code for exterior algebras in Lean with a small team of professors and <a href="https://scholar.google.com/citations?user=5YGAVE0AAAAJ&amp;hl=de&amp;oi=ao">Eric Wieser</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="work-experience" class="level2">
-<h2 data-anchor-id="work-experience">Work experience</h2>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Experience</th>
-<th>Employer</th>
-<th>Duration</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>2-week work internship</td>
-<td>ProVita</td>
-<td>2017</td>
-</tr>
-<tr class="even">
-<td>Lifeguard</td>
-<td>NEW Volksbad Mönchengl.</td>
-<td>2018</td>
-</tr>
-<tr class="odd">
-<td>Research assistant for computer-aided linear algebra</td>
-<td>Heinrich Heine University Düsseldorf</td>
-<td>2020-2021</td>
-</tr>
-<tr class="even">
-<td>Research assistant for computer-aided linear algebra</td>
-<td>Heinrich Heine University Düsseldorf</td>
-<td>2021-2022</td>
-</tr>
-<tr class="odd">
-<td>SHK for abstract algebra</td>
-<td>Heinrich Heine University Düsseldorf</td>
-<td>2022-2022</td>
-</tr>
-<tr class="even">
-<td>Programmer and founder at <a href="monti.ai">monti.ai</a></td>
-<td>monti.ai</td>
-<td>2022-*</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="awards" class="level2">
-<h2 data-anchor-id="awards">Awards</h2>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Award</th>
-<th>Source</th>
-<th>Date</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Winner of “best game under development” with “Relic Hunters Zero”</td>
-<td><a href="https://www.bigfestival.com.br/big-festival-2015.html">Brazilian indie games festivals 2015</a></td>
-<td>2015</td>
-</tr>
-<tr class="even">
-<td>Top-100 physics-engine programmer</td>
-<td><a href="https://xscode.com/profile/quoteme">xscode.com</a> <a href="https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme">archive.org</a></td>
-<td>2021</td>
-</tr>
-<tr class="odd">
-<td>Top-100 rigid-body-dynamics programmer</td>
-<td><a href="https://xscode.com/profile/quoteme">xscode.com</a> <a href="https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme">archive.org</a></td>
-<td>2021</td>
-</tr>
-<tr class="even">
-<td>Top-1000 canvas-technology developer</td>
-<td><a href="https://xscode.com/profile/quoteme">xscode.com</a> <a href="https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme">archive.org</a></td>
-<td>2021</td>
-</tr>
-<tr class="odd">
-<td>Top-150.000 programmer</td>
-<td><a href="https://xscode.com/profile/quoteme">xscode.com</a> <a href="https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme">archive.org</a></td>
-<td>2021</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="some-other-skills" class="level2">
-<h2 data-anchor-id="some-other-skills">Some other skills</h2>
-<details>
-<summary>
-click to expand
-</summary>
-<ul>
-<li>“Advanced” knowledge of mathematics
-<ul>
-<li>aiming for a Master degree in mathematics</li>
-</ul></li>
-<li>Programming knowledge
-<ul>
-<li>Top 50 programmer in physics-engines and rigid-body-dynamics as well as top 1000 canvas-technology, and top 150,000 GitHub developer (Source: <a href="https://xscode.com/profile/quoteme">www.xscode.com/profile/quoteme</a>)</li>
-<li>actively programming since age 13 (2012)</li>
-<li>a lot of experience in (&gt;50 Projects): - <a href="https://github.com/Quoteme?tab=repositories&amp;q=&amp;type=&amp;language=javascript">JavaScript</a>
-<ul>
-<li>NodeJS</li>
-<li>CSS</li>
-<li>HTML</li>
-<li>Markdown</li>
-</ul></li>
-<li>advanced experience in (&gt;10 Projects): - <a href="https://github.com/Quoteme?tab=repositories&amp;q=&amp;type=&amp;language=haskell">Haskell</a> - Python (multiple courses in university)</li>
-<li>studied in university/school: - Python
-<ul>
-<li>JAVA</li>
-<li>C</li>
-<li>Assembler</li>
-<li>PHP</li>
-<li>SQL</li>
-<li>UML diagrams</li>
-</ul></li>
-<li>extraordinary experiences’
-<ul>
-<li>codeveloper of <a href="https://store.steampowered.com/app/382490/Relic_Hunters_Zero/?snr=1_7_7_151_150_1">relic hunters zero</a>
-<ul>
-<li>95% positive reviews from 6,444 (2020)</li>
-<li>winner of the “best game under development Brazilian indie games festivals 2015”</li>
-<li>honorable mention in “battle of games VI festival Cindemundo 2014”</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>Social expertise
-<ul>
-<li>very social, patient and reliable</li>
-<li>resilient in stressful situations</li>
-<li>children tend to like me</li>
-<li>always open to new cultures, experiences, people,…</li>
-</ul></li>
-<li>Languages - native in German - fluent in English - basic understanding of Turkish</li>
-</ul>
-</details>
+<section id="fazit" class="level3">
+<h3 class="anchored" data-anchor-id="fazit">Fazit</h3>
+<p>Das Problem <em>Schnitte zwischen höherdimensinalen Sphären und Würfeln</em> zu lösen war nicht all zu einfach auf den ersten Blick; doch verwendet man (wortwörtlich) verschiedene Perspektiven und ist bereit bereits bekannte Resultate (wie <code>point2circle</code>) zu verwenden und neue zu finden (wie <code>interval2circle</code>), so ist es doch ein Leichtes gewesen eine allgemeine Lösung zu finden.</p>
 
 
 </section>
-</main></div>
-  </div>
-  <div class="about-links">
-  <a href="https://www.linkedin.com/in/luca-leon-happel-a2a726218/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/Quoteme" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://www.instagram.com/lucaleonhappel/" class="about-link" rel="" target="">
-    <i class="bi bi-instagram"></i>
-     <span class="about-link-text">Instagram</span>
-  </a>
-  <a href="https://www.reddit.com/user/lalelul" class="about-link" rel="" target="">
-    <i class="bi bi-reddit"></i>
-     <span class="about-link-text">Reddit</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -485,6 +400,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
