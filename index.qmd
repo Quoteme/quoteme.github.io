@@ -1,0 +1,29 @@
+---
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+format:
+  html:
+    css: ./styles.css
+---
+
+<!--
+iframe to https://quoteme.github.io/top2manWebsiteBackground/ with full width
+and 300px height
+-->
+<div id="gimmick">
+<div id="aboutme">
+  <p>
+      <img src="https://avatars.githubusercontent.com/u/6796009?v=4" id="avatar" />
+      Hi, I am <b>Luca Leon Happel</b>. I am a <b>Software Engineer</b> and
+      <b>B.Sc in mathematics (algebraic geometry)</b>, who works the Heinrich Heine university, Forschungszentrum Jülich and Universitätsklinikum Düsseldorf.
+  </p>
+</div>
+<iframe src="https://quoteme.github.io/top2manWebsiteBackground/?meanX=0&meanY=0&meanZ=300&varianceX=3000&varianceY=100&varianceZ=1000" width="100%" height="300px" style="border: none;"></iframe>
+</div>

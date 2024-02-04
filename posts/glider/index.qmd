@@ -1,0 +1,22 @@
+---
+title: "Glider - A simple boids based video game"
+author: "Luca Leon Happel"
+date: "2020-02-27"
+categories: ["javascript", "game", "boids"]
+image: "screenshot.png"
+---
+
+Today, while revisiting my old laptop, I rediscovered a project from just over a year and a month ago:
+
+![Screenshot of the game](screenshot.png)
+
+Named [Glider](https://github.com/Quoteme/glider), this project can be experienced and played directly in a web browser, without any need for installation, at [http://quoteme.github.io/glider/](http://quoteme.github.io/glider/).
+
+The core intention of Glider was to serve as a proof-of-concept, demonstrating my capability to recreate a game akin to [LUFTRAUSERS](https://store.steampowered.com/app/233150/LUFTRAUSERS/?snr=1_7_7_151_150_1). Although my version, the "clone", offers a limited range of functions, it successfully fulfills the objective I set out to achieve.
+
+Key features include:
+
+A retro aesthetic
+Sophisticated enemy AI
+The option to choose from varying team numbers
+The facility to take control of any other glider in the game.

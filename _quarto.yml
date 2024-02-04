@@ -1,0 +1,28 @@
+project:
+  type: website
+
+website:
+  title: "{{< var website.title >}}"
+  favicon: "{{< var website.favicon >}}"
+  
+  navbar:
+    right:
+      - about.qmd
+      - projects.qmd
+      - icon: github
+        href: https://github.com/Quoteme/
+      - icon: linkedin
+        href: https://www.linkedin.com/in/luca-leon-happel-a2a726218/
+      - icon: instagram
+        href: https://www.instagram.com/lucaleonhappel/
+      - icon: reddit
+        href: https://www.reddit.com/user/lalelul
+format:
+  html:
+    css: styles.css
+    theme:
+      light: cosmo
+      dark: darkly
+
+
+

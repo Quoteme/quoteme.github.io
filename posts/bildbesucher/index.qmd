@@ -1,0 +1,27 @@
+---
+title: "Bildbesucher - A simple jump and run game"
+author: "Luca Leon Happel"
+date: "2020-04-07"
+categories: ["programming", "game", "art", "javascript", "html", "css"]
+image: "thumbnail.png"
+# reference-doc: 
+---
+
+
+Recently, I've started to develop a game again, finding a bit of a positive side during the current Corona crisis.
+
+I've named the game "BildBesucher," which is centered around the idea of exploring online images with a small character, moving from one picture to the next. This concept was inspired by my experience playing XKCD's "Hoverboard" (XKCD Hoverboard), which I greatly enjoyed. You can view and even fork the source code on the corresponding Github page.
+
+There are quite a few plans for the game's development. A key priority is to add a zoom function to the in-game camera soon, so players can discover more about the drawn world. Other important features I want to work on include:
+
+- A portal system for navigating to different pages at specific points.
+- A loading system to load specific levels via URL, with various properties like position and so on.
+- Expanding the world further by creating more images and enhancing the existing ones.
+- ???
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/eu6CCK4">
+<a href="//imgur.com/a/eu6CCK4">Bilder zu meinem Spiel: BildBesucher ({{site.url}}/bildbesucher/)</a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+PS: I hope to make more progress with my game this time around.

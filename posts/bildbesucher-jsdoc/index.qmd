@@ -1,0 +1,21 @@
+---
+title: "Bildbesucher - First time using JSDoc"
+author: "Luca Leon Happel"
+date: "2020-04-18"
+categories: ["JSDoc", "JavaScript", "game", "programming"]
+image: "thumbnail.png"
+---
+
+As you can see in the image above, today I've added JSDoc support to my game, BildBesucher. This means that by visiting [http://quoteme.github.io/bildbesucher/docs/](http://quoteme.github.io/bildbesucher/docs/), you can find all sorts of interesting information about the programming of the game. This will make it easier for me in the future to remember the purpose of specific functions, or for others who want to help with the project to quickly understand what I've written.
+
+Unfortunately, this required me to almost double the number of lines of code, but these changes are just comments, so they don't slow down the program!
+
+The goal of this whole exercise is to improve my programming style and enhance my teamwork skills, as I've learned how to annotate my work effectively.
+
+This could also be useful in other areas, as it reminds me of the importance of keeping good records for colleagues. I've learned that it's important to keep a good record of what I've done, so that others can understand it and help me improve it. This is often
+overlooked even in professional settings, but documentation is a key part of any project.
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/IX4jhgT">
+<a href="//imgur.com/a/IX4jhgT">Overview of my first jsdoc documentation ({{site.url}}/bildbesucher/docs)</a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>

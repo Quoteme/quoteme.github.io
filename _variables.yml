@@ -1,0 +1,10 @@
+profile:
+  image: https://avatars2.githubusercontent.com/u/6796009
+  name: Luca Happel
+  email: luca.happel@hhu.de
+
+website:
+  title: "Luca Happel's personal website"
+  favicon: "{{< var profile.icon >}}"
+  link: "quoteme.github.io"
+  url: "https://quoteme.github.io/"

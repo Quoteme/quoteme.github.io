@@ -1,0 +1,338 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am Luca Leon Happel, a 24-year-old Student in Düsseldorf and a top-100 on GitHub in categories like physics-engines and rigid-body-dynamics. My interests include mathematics, computer science, technology and lots more. I work as a programmer for monti.ai and as a student assistant at the Heinrich Heine University Düsseldorf."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "{{< var website.title >}}",
+    "section": "",
+    "text": "Hi, I am Luca Leon Happel. I am a Software Engineer and B.Sc in mathematics (algebraic geometry), who works the Heinrich Heine university, Forschungszentrum Jülich and Universitätsklinikum Düsseldorf.\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nSurreale Zahlen\n\n\n\n\n\n\n\nSeminar\n\n\nSurreale Zahlen\n\n\nabstract algebra\n\n\nring theory\n\n\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nHaskell - Angewandter „abstract nonsense“\n\n\n\n\n\n\n\nSeminar\n\n\nHaskell\n\n\nprogramming\n\n\nHeinrich-Heine Universität\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nWhat are „differential forms“\n\n\n\n\n\n\n\nmathematics\n\n\ndifferential geometry\n\n\ndifferential forms\n\n\ntangent space\n\n\ncotangent space\n\n\nmanifold\n\n\ntangent bundle\n\n\ncotangent bundle\n\n\nexterior algebra\n\n\nglobal section\n\n\n\n\n\n\n\n\n\n\n\nMay 27, 2022\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nElliptic curves over the field with four elements (not finished)\n\n\n\n\n\n\n\nmathematics\n\n\nalgebraic geometry\n\n\n\n\n\n\n\n\n\n\n\nMar 1, 2022\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nSheaves in Minecraft\n\n\n\n\n\n\n\nmath\n\n\nalgebraic geometry\n\n\nsheaves\n\n\ntopology\n\n\nMinecraft\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2021\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nProve that \\(Rx/(x^2+bx+c)\\) is isomorphic to \\(R^2\\) or \\(C\\) - A proof\n\n\n\n\n\n\n\nmath\n\n\nalgebra\n\n\nabstract algebra\n\n\nring theory\n\n\nmeme\n\n\n\n\n\n\n\n\n\n\n\nOct 21, 2021\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nProve that \\(Rx/(x^2+bx+c)\\) is isomorphic to \\(R^2\\) or \\(C\\) - First try\n\n\n\n\n\n\n\nmath\n\n\nalgebra\n\n\nring theory\n\n\nabstract algebra\n\n\npolynomial rings\n\n\nquotient rings\n\n\nisomorphisms\n\n\n\n\n\n\n\n\n\n\n\nDec 3, 2020\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nVoxels, Rings and Modules - My observations on how games like minecraft relate to abstract algebra\n\n\n\n\n\n\n\nmath\n\n\nalgebra\n\n\nvoxels\n\n\ngames\n\n\n\n\n\n\n\n\n\n\n\nNov 26, 2020\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nA new method to calculate dimension\n\n\n\n\n\n\n\nmath\n\n\nfractals\n\n\ndimension\n\n\ncalculus\n\n\ngeometry\n\n\n\n\n\n\n\n\n\n\n\nMay 22, 2020\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nBildbesucher - First time using JSDoc\n\n\n\n\n\n\n\nJSDoc\n\n\nJavaScript\n\n\ngame\n\n\nprogramming\n\n\n\n\n\n\n\n\n\n\n\nApr 18, 2020\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nBildbesucher - A simple jump and run game\n\n\n\n\n\n\n\nprogramming\n\n\ngame\n\n\nart\n\n\njavascript\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2020\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nMy first program in the AUR\n\n\n\n\n\n\n\nprogramming\n\n\naur\n\n\narchlinux\n\n\n\n\n\n\n\n\n\n\n\nMar 28, 2020\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nGlider - A simple boids based video game\n\n\n\n\n\n\n\njavascript\n\n\ngame\n\n\nboids\n\n\n\n\n\n\n\n\n\n\n\nFeb 27, 2020\n\n\nLuca Leon Happel\n\n\n\n\n\n\n  \n\n\n\n\nintersect.mjs und der Sphären/Boxen-Schnitt\n\n\n\n\n\n\n\njavascript\n\n\nprogramming\n\n\nwebgl\n\n\nmath\n\n\n\n\n\n\n\n\n\n\n\nFeb 14, 2020\n\n\nLuca Leon Happel\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\n\nAchievement\nPlace\nDuration\n\n\n\n\nElementary school\nErich-Kästner Grundschule\n2006-2010\n\n\nGymnasium\nGymnasium an der Gartenstraße\n2010-2018\n\n\nBachelor of Mathematics\nHHU Düsseldorf\n2018-2022\n\n\nBachelor of Computer-Science\nHHU Düsseldorf\n2018-*"
+  },
+  {
+    "objectID": "about.html#conferences",
+    "href": "about.html#conferences",
+    "title": "About",
+    "section": "Conferences",
+    "text": "Conferences\n\nKoMa (conference of german speaking mathematics student associations) 2022 in Jena\n\nWe discussed general mathematics, studying mathematics at german universities and the future of mathematics\nI discussed differential forms especially\n\nLean for the Curious Mathematician 2023 in Düsseldorf\n\nWe discussed Lean, a theorem prover and functional programming language\nI implemented the code for exterior algebras in Lean with a small team of professors and Eric Wieser"
+  },
+  {
+    "objectID": "about.html#work-experience",
+    "href": "about.html#work-experience",
+    "title": "About",
+    "section": "Work experience",
+    "text": "Work experience\n\n\n\nExperience\nEmployer\nDuration\n\n\n\n\n2-week work internship\nProVita\n2017\n\n\nLifeguard\nNEW Volksbad Mönchengl.\n2018\n\n\nResearch assistant for computer-aided linear algebra\nHeinrich Heine University Düsseldorf\n2020-2021\n\n\nResearch assistant for computer-aided linear algebra\nHeinrich Heine University Düsseldorf\n2021-2022\n\n\nSHK for abstract algebra\nHeinrich Heine University Düsseldorf\n2022-2022\n\n\nProgrammer and founder at monti.ai\nmonti.ai\n2022-*"
+  },
+  {
+    "objectID": "about.html#awards",
+    "href": "about.html#awards",
+    "title": "About",
+    "section": "Awards",
+    "text": "Awards\n\n\n\nAward\nSource\nDate\n\n\n\n\nWinner of “best game under development” with “Relic Hunters Zero”\nBrazilian indie games festivals 2015\n2015\n\n\nTop-100 physics-engine programmer\nxscode.com archive.org\n2021\n\n\nTop-100 rigid-body-dynamics programmer\nxscode.com archive.org\n2021\n\n\nTop-1000 canvas-technology developer\nxscode.com archive.org\n2021\n\n\nTop-150.000 programmer\nxscode.com archive.org\n2021"
+  },
+  {
+    "objectID": "about.html#some-other-skills",
+    "href": "about.html#some-other-skills",
+    "title": "About",
+    "section": "Some other skills",
+    "text": "Some other skills\n\n\nclick to expand\n\n\n“Advanced” knowledge of mathematics\n\naiming for a Master degree in mathematics\n\nProgramming knowledge\n\nTop 50 programmer in physics-engines and rigid-body-dynamics as well as top 1000 canvas-technology, and top 150,000 GitHub developer (Source: www.xscode.com/profile/quoteme)\nactively programming since age 13 (2012)\na lot of experience in (&gt;50 Projects): - JavaScript\n\nNodeJS\nCSS\nHTML\nMarkdown\n\nadvanced experience in (&gt;10 Projects): - Haskell - Python (multiple courses in university)\nstudied in university/school: - Python\n\nJAVA\nC\nAssembler\nPHP\nSQL\nUML diagrams\n\nextraordinary experiences’\n\ncodeveloper of relic hunters zero\n\n95% positive reviews from 6,444 (2020)\nwinner of the “best game under development Brazilian indie games festivals 2015”\nhonorable mention in “battle of games VI festival Cindemundo 2014”\n\n\n\nSocial expertise\n\nvery social, patient and reliable\nresilient in stressful situations\nchildren tend to like me\nalways open to new cultures, experiences, people,…\n\nLanguages - native in German - fluent in English - basic understanding of Turkish"
+  },
+  {
+    "objectID": "posts/intersect.js/index.html",
+    "href": "posts/intersect.js/index.html",
+    "title": "intersect.mjs und der Sphären/Boxen-Schnitt",
+    "section": "",
+    "text": "Problem\nMomentan arbeite ich an meiner intersect.mjs Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen geometrischen Strukturen in \\(n\\) dimensionen zu erkennen. Dabei ist gerade diese folgende Zeile zu einer Herausvorderung geworden:\n// plane2circle :: Real a =&gt; [(a,a)] -&gt; a -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean\nconst plane2circle = (p,r,c,d=Math.hypot) =&gt;\n    //TODO\n\n\n\nAbkürzung\nName\nEigenschaft\nBeschreibung\n\n\n\n\np\nHyperwürfel\n[(a,a)]\nZwei Punkte im \\(\\mathbb{R}^n\\)\n\n\nr\nRadius\na\nRadius der Sphäre\n\n\nc\nPosition der Sphäre\n[a]\nPosition des Zentrums der Sphäre\n\n\nd\nMaß\n[a] -&gt; a\nEin verwendetes Maß aus der Maßtheorie\n\n\n\nhierbei verwende ich Haskell Schreibkonventionen für die Eigenschaften. Also, a bedeuted, ein beliebiger Datentyp oder [a,a] deuted auf zwei beliebige Daten (die nicht gleich sein müssen, des selben Types hin. Da ich Real a =&gt;... am Anfang geschrieben habe, bedeuted dass: [(a,a)] ist eine Liste von Tupeln verschiedener reeller Zahlen: \\(((a_{0_0},a_{0_1}),(a_{1_0},a_{1_1}),\\dots), \\quad a_{i_j} \\in \\mathbb{R}\\)\n\n\nLösung\nDamit ich diese Funktion dazu bringen konnte, zu funktionieren ist mir eine Lösung gekommen. Gegeben hatte ich bereits eine Funktion, welche prüft ob eine Hypersphäre und ein Punkt sich schneiden. Daher habe ich eine weitere Funktion geschrieben, welche prüft, ob sich ein Kreis und ein Intervall schneiden:\n// point2circle :: Num a =&gt; [a] -&gt; Real -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean\nexport const point2circle = (p,r,q=p.map(_=&gt;0),d=Math.hypot) =&gt;\n    d(...p.map((x,i) =&gt; x-q[i])) &lt;= r;\n\n// interval2circle :: Num a =&gt; a -&gt; Real -&gt; [a,a] -&gt; Boolean\nexport const interval2circle = (c,r,i,d=Math.hypot) =&gt;\n    point2circle([c], r+Math.abs(i[0]-i[1])/2, [(i[0]+i[1])/2], d)\nNun ist es ein Leiches, zu prüfen ob ein Hyperwürfel und eine Hypersphäre sich schneiden; Man muss prüfen ob die Projektionen der Sphäre und des Hyperwürfels sich auf jeder Achse schneiden.\n\n\n\n\n// plane2circle :: Num a =&gt; [(a,a)] -&gt; Real -&gt; [a] -&gt; ([a] -&gt; Real) -&gt; Boolean\nexport const plane2circle = (p,r,c,d=Math.hypot) =&gt; p\n    .map((i,j) =&gt; interval2circle(c[j],r,i,d) )\n    .every(e =&gt; e==true)\nund diese Funktion können wir nun testen:\nimport * as int from './intersect.mjs'\n\nlet p = [[0,1],[0,1],[0,1]]\nlet r = 1\nlet c = [0,0,0]\nconsole.log(int.plane2circle(p,r,c)) // true ✅\n\nlet p = [[0,1],[0,1],[0,1]]\nlet r = 1\nlet c = [0,0,2]\nconsole.log(int.plane2circle(p,r,c)) // false ✅\n\nlet p = [[0,1],[0,1]]\nlet r = 1\nlet c = [2,2]\nconsole.log(int.plane2circle(p,r,c)) // false ✅\nbesonders das letzte Ergebnis kann man leicht überprüfen:\n\n\n\ngeometrischer Beweis\n\n\n\n\nFazit\nDas Problem Schnitte zwischen höherdimensinalen Sphären und Würfeln zu lösen war nicht all zu einfach auf den ersten Blick; doch verwendet man (wortwörtlich) verschiedene Perspektiven und ist bereit bereits bekannte Resultate (wie point2circle) zu verwenden und neue zu finden (wie interval2circle), so ist es doch ein Leichtes gewesen eine allgemeine Lösung zu finden."
+  },
+  {
+    "objectID": "posts/glider/index.html",
+    "href": "posts/glider/index.html",
+    "title": "Glider - A simple boids based video game",
+    "section": "",
+    "text": "Today, while revisiting my old laptop, I rediscovered a project from just over a year and a month ago:\n\n\n\nScreenshot of the game\n\n\nNamed Glider, this project can be experienced and played directly in a web browser, without any need for installation, at http://quoteme.github.io/glider/.\nThe core intention of Glider was to serve as a proof-of-concept, demonstrating my capability to recreate a game akin to LUFTRAUSERS. Although my version, the “clone”, offers a limited range of functions, it successfully fulfills the objective I set out to achieve.\nKey features include:\nA retro aesthetic Sophisticated enemy AI The option to choose from varying team numbers The facility to take control of any other glider in the game."
+  },
+  {
+    "objectID": "posts/first_program_in_AUR/index.html",
+    "href": "posts/first_program_in_AUR/index.html",
+    "title": "My first program in the AUR",
+    "section": "",
+    "text": "Recently I discovered some more of the incredibly useful features of my favorite text-editor Neovim:\n\nEntering :read !somefunction in Neovim causes the editor to execute the command somefunction and then insert the echoed response into the file you are currently editing at your cursor position.\n\nThis got me thinking… Maybe I could use this to make my programming more concise. And after installing figlet I was proven right:\n# Use `:read figlet \"Example\"`\n#     and then select the output and comment it out: `:'&lt;,'&gt;norm ^i# `\n#\n#  _____                           _\n# | ____|_  ____ _ _ __ ___  _ __ | | ___\n# |  _| \\ \\/ / _` | '_ ` _ \\| '_ \\| |/ _ \\\n# | |___ &gt;  &lt; (_| | | | | | | |_) | |  __/\n# |_____/_/\\_\\__,_|_| |_| |_| .__/|_|\\___|\n#                           |_|\necho \"It works!\"\nAnd after all this thinking I was stuck with an idea, which I had for quite some time already, but never really knew how to implement in vim:\nI can use this, to show complex math formulas in programs, as actual math formulas {: text-align: center}\nThe problem however was, that no package I searched for seemed to provide the ability to render math formulas as ASCII / ANSI / Unicode. And therefor I just set out to create my own program:\n\nprettymath\nThe programming was the easy part. Just write a python script that internally parses expressions using SymPy and then pretty prints them. But publishing this program with none more than ~50 lines of code was a real pain.\n\nPublish to GitHub\nCreate an account on https://aur.archlinux.org\nUse my .ssh/config\nGenerate an ssh key: $ ssh-keygen -f ~/.ssh/aur\nClone your future repository: git clone ssh://aur@aur.archlinux.org/your_package_name.git\nPut your PKGBUILD in there\nAdd, Commit, Push\n\n\nSSH Configuration\n$ cat .ssh/config\nHost aur.archlinux.org\nUser aur\nPreferredAuthentications publickey\nIdentityFile ~/.ssh/aur\n\nAnd after all this struggle, which even drove me to reddit because I had no clue anymore on what to do, I was able to install my package using the AUR:\nyay -S prettymath-git\n\n\n\nWhat does it do?\nAfter having installed prettymath-git, you can do stuff like this:\nbefore prettymath\nimport math\n\ndef normalDistribution(x):\n    return 1/sqrt(math.pi)*math.e**(-x**2)\nafter prettymath (:read !prettymath -u \"1/sqrt(pi) * e**(-x**2)\"; :norm ^i#)\nimport math\n\ndef normalDistribution(x):\n    #    2\n    #  -x\n    # e\n    # ────\n    #  √π\n    return 1/sqrt(math.pi)*math.e**(-x**2)"
+  },
+  {
+    "objectID": "posts/bildbesucher/index.html",
+    "href": "posts/bildbesucher/index.html",
+    "title": "Bildbesucher - A simple jump and run game",
+    "section": "",
+    "text": "Recently, I’ve started to develop a game again, finding a bit of a positive side during the current Corona crisis.\nI’ve named the game “BildBesucher,” which is centered around the idea of exploring online images with a small character, moving from one picture to the next. This concept was inspired by my experience playing XKCD’s “Hoverboard” (XKCD Hoverboard), which I greatly enjoyed. You can view and even fork the source code on the corresponding Github page.\nThere are quite a few plans for the game’s development. A key priority is to add a zoom function to the in-game camera soon, so players can discover more about the drawn world. Other important features I want to work on include:\n\nA portal system for navigating to different pages at specific points.\nA loading system to load specific levels via URL, with various properties like position and so on.\nExpanding the world further by creating more images and enhancing the existing ones.\n???\n\n\nBilder zu meinem Spiel: BildBesucher ({{site.url}}/bildbesucher/)\n\n\nPS: I hope to make more progress with my game this time around."
+  },
+  {
+    "objectID": "posts/bildbesucher-jsdoc/index.html",
+    "href": "posts/bildbesucher-jsdoc/index.html",
+    "title": "Bildbesucher - First time using JSDoc",
+    "section": "",
+    "text": "As you can see in the image above, today I’ve added JSDoc support to my game, BildBesucher. This means that by visiting http://quoteme.github.io/bildbesucher/docs/, you can find all sorts of interesting information about the programming of the game. This will make it easier for me in the future to remember the purpose of specific functions, or for others who want to help with the project to quickly understand what I’ve written.\nUnfortunately, this required me to almost double the number of lines of code, but these changes are just comments, so they don’t slow down the program!\nThe goal of this whole exercise is to improve my programming style and enhance my teamwork skills, as I’ve learned how to annotate my work effectively.\nThis could also be useful in other areas, as it reminds me of the importance of keeping good records for colleagues. I’ve learned that it’s important to keep a good record of what I’ve done, so that others can understand it and help me improve it. This is often overlooked even in professional settings, but documentation is a key part of any project.\n\nOverview of my first jsdoc documentation ({{site.url}}/bildbesucher/docs)"
+  },
+  {
+    "objectID": "posts/new_method_of_counting_dimensions/index.html",
+    "href": "posts/new_method_of_counting_dimensions/index.html",
+    "title": "A new method to calculate dimension",
+    "section": "",
+    "text": "A few days ago, I stumbled upon an article titled Finally We May Have a Path to the Fundamental Theory of Physics… and It’s Beautiful by Stephen Wolfram, an American scientist and the creator of WolframAlpha. His article discusses his new theory in physics, which is based on directed graphs and their transformations under specific rules. For more detailed information, here is the full version: www.wolframphysics.org/technical-introduction/.\nHis theory notably constructs mathematical spaces from these graphs, essentially nodes interconnected with each other."
+  },
+  {
+    "objectID": "posts/new_method_of_counting_dimensions/index.html#introduction-to-the-theory",
+    "href": "posts/new_method_of_counting_dimensions/index.html#introduction-to-the-theory",
+    "title": "A new method to calculate dimension",
+    "section": "",
+    "text": "A few days ago, I stumbled upon an article titled Finally We May Have a Path to the Fundamental Theory of Physics… and It’s Beautiful by Stephen Wolfram, an American scientist and the creator of WolframAlpha. His article discusses his new theory in physics, which is based on directed graphs and their transformations under specific rules. For more detailed information, here is the full version: www.wolframphysics.org/technical-introduction/.\nHis theory notably constructs mathematical spaces from these graphs, essentially nodes interconnected with each other."
+  },
+  {
+    "objectID": "posts/new_method_of_counting_dimensions/index.html#impact-on-dimensionality",
+    "href": "posts/new_method_of_counting_dimensions/index.html#impact-on-dimensionality",
+    "title": "A new method to calculate dimension",
+    "section": "Impact on Dimensionality",
+    "text": "Impact on Dimensionality\nThis raises the question of what this theory can reveal about the dimensionality of spaces. Much on this topic can be read in the article. In summary, using these graphs, the dimension of a space can be generalized. This generalization can then be extended to other mathematical objects, allowing for an expanded concept of dimension. This enables discussions about “2.5”-dimensional spaces or even “\\(\\pi\\)”-dimensional spaces. Importantly, we’re not limited to classical vector spaces made up of tuples (e.g., \\(\\mathbb{R}^3\\)); any set equipped with a metric can be used as our space.\nThe intriguing aspect here is that this new concept of dimension depends solely on a set and a metric defined on it, but a purely topological space doesn’t seem to suffice."
+  },
+  {
+    "objectID": "posts/new_method_of_counting_dimensions/index.html#my-initial-ideas",
+    "href": "posts/new_method_of_counting_dimensions/index.html#my-initial-ideas",
+    "title": "A new method to calculate dimension",
+    "section": "My Initial Ideas",
+    "text": "My Initial Ideas\nInitially, translating this concept to metric spaces was quite complex for me. However, in the end, the formulas were essentially the same. I made it unnecessarily complicated for myself by conducting my own research:\n\nMeine Ideen zum Dimensionsbegriff"
+  },
+  {
+    "objectID": "posts/new_method_of_counting_dimensions/index.html#how-does-this-concept-of-dimension-work",
+    "href": "posts/new_method_of_counting_dimensions/index.html#how-does-this-concept-of-dimension-work",
+    "title": "A new method to calculate dimension",
+    "section": "How Does This Concept of Dimension Work?",
+    "text": "How Does This Concept of Dimension Work?\nConsider the following graphs:\n\n\n\n\n2D Sphäre im Gitter\n\n\n\n\n\n3D Sphäre im Gitter\n\n\n\nBoth demonstrate how spheres spread in a lattice. According to Wolfram, this is formed by: “Start at some point in the hypergraph. Then follow \\(r\\) hyperedges in all possible ways. You’ve effectively made the analog of a ‘spherical ball’ in the hypergraph.”1\nFor any graph, one can choose a point and count how many points are reachable within \\(r\\) steps or fewer. If this spread resembles that of a polynomial, the degree can determine the dimension. However, determining the exact dimension is not trivial and is explained more thoroughly2 3 in Chapter 4.6 of the Wolfram Physics Project4."
+  },
+  {
+    "objectID": "posts/new_method_of_counting_dimensions/index.html#calculation-of-dimension",
+    "href": "posts/new_method_of_counting_dimensions/index.html#calculation-of-dimension",
+    "title": "A new method to calculate dimension",
+    "section": "Calculation of Dimension",
+    "text": "Calculation of Dimension\n\nNote\nThe following considers a version developed by me, which is inspired by the original.\n\n\nCalculation\nLet \\((M,d)\\) be a metric space.\n\\(M\\) is the set. \\(d: M\\times M \\rightarrow \\mathbb{R}_{\\ge 0}\\) is a metric. Let \\(V_{r,x} = |{y \\in M \\mid d(x,y) \\le r}|\\) be the number of points in a ball with radius \\(r\\).\nLet \\(\\Delta_{r,x} = \\frac{\\log(V_{r+1,x})-\\log(V_{r,x})}{\\log(r+1)-\\log(r)} = \\frac{\\log\\frac{V_{r+1,x}}{V_{r,x}}}{\\log{\\frac{r+1}{r}}}\\).\nNow, the following applies:\n\\[\n\\text{dim}(M,d) = \\begin{cases}\n\\lim_{r\\rightarrow \\infty}\\Delta_{r,x} & \\text{if}\\&gt; |M|\\ge\\infty \\wedge |V_{r,x}|&lt;\\infty\\\\\\\\\\\\\\\\\n\\lim_{r\\rightarrow \\infty}\\Delta_{r,x} & \\text{(?) if}\\&gt; |M|\\ge\\infty \\wedge |V_{r,x}|\\ge\\infty\\\\\\\\\\\\\\\\\n\\begin{gather}\nv\\in\\mathbb{R}_{\\ge 0} \\text{ with } \\\\\\\\\\\\\\\\\n|\\{\\Delta_{v\\pm\\epsilon,x}\\}| = \\max |\\{\\Delta_{w\\pm\\epsilon,x}\\}|\\\\\\\\\\\\\\\\\n\\forall \\epsilon,w\\in\\mathbb{R}_{\\ge 0}\n\\end{gather} & \\text{if}\\&gt; |M|&lt;\\infty\n\\end{cases}\n\\]\n\n\nExample 1\n\\[\n\\begin{aligned}\n    M      & = \\mathbb{Z}^2 \\\\\\\\\\\\\\\\\n    d(x,y) & = |x_1+y_1 + x_2+y_2| \\\\\\\\\\\\\\\\\n    V_{r,x}& = 2r^2+2r+1 \\quad\\forall x\\in M\\\\\\\\\\\\\\\\\n    \\Delta_{r,x} &= \\frac{\\log{\\left(2 r + 2 \\left(r + 1\\right)^{2} + 3 \\right)} - \\log{\\left(2 r^{2} + 2 r + 1 \\right)}}{- \\log{\\left(r \\right)} + \\log{\\left(r + 1 \\right)}} \\\\\\\\\\\\\\\\\n    \\lim_{r\\rightarrow\\infty}\\Delta_{r,x} &= 2\n\\end{aligned}\n\\]\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nV = lambda r: 2*r**2+2*r+1\nDelta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))\nxn = np.arange(0.1, 100,1)\nfig, ax = plt.subplots()\nax.plot(xn, Delta(xn))\nax.grid()\nplt.show()\n\n\n\n\n\n\nExample 2\n\\[\n\\begin{aligned}\n    M      & = \\mathbb{Z}^2 \\\\\\\\\\\\\\\\\n    d(x,y) & = |x_1+y_1 + x_2+y_2| \\\\\\\\\\\\\\\\\n    V_{r,x}& = 2r^2+2r+1 \\quad\\forall x\\in M\\\\\\\\\\\\\\\\\n    \\Delta_{r,x} &= \\frac{\\log{\\left(2 r + 2 \\left(r + 1\\right)^{2} + 3 \\right)} - \\log{\\left(2 r^{2} + 2 r + 1 \\right)}}{- \\log{\\left(r \\right)} + \\log{\\left(r + 1 \\right)}} \\\\\\\\\\\\\\\\\n    \\lim_{r\\rightarrow\\infty}\\Delta_{r,x} &= 2\n\\end{aligned}\n\\]\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nV = lambda r: 2*r**2+2*r+1\nDelta = lambda r: (np.log(V(r+1))-np.log(V(r)))/(np.log(r+1)-np.log(r))\nxn = np.arange(0.1, 100,1)\nfig, ax = plt.subplots()\nax.plot(xn, Delta(xn))\nax.grid()\nplt.show()\n\n\n\n\n\n\nExample 3\nThe Sierpiński-Triangle is a fractal with a dimension of \\(\\log(3)/\\log(2)\\). The following code calculates the dimension of the Sierpiński-Triangle.\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nsirp = lambda x: [[],[],[]] if x==[] else [ sirp(v) for v in x]\nrepeat = lambda f,x,n: f(x) if n==1 else f(repeat(f,x,n-1))\npoints = []\nstart  = np.array([1,1])\nangle  = 2*np.pi/3       # Winkel zwischen Punkten\nlength = 1               # Anfangslänge eines Punktes zum nächsten\ndecay  = 0.5             # Koeffizient, mit dem bei jeder Iterationstiefe die Länge zwischen Punkten sinkt\ndef calc(data, current_point=start, length=length):\n    if len(data)==0:\n        points.append(current_point)\n    for i in range(len(data)):\n        newpoint = current_point+np.array([\n            length * np.cos(angle * i),\n            length * np.sin(angle * i),\n        ])\n        calc(data[i], newpoint, length*decay)\n\n# Sierpiński Dreieck mit Rekursionstiefe rt\nrt = 6\ndata = repeat(sirp, [], rt)\ncalc(data)\n\n# Zeichnen\nx, y = np.array(points).T\nfig, ax = plt.subplots()\nax.scatter(x, y, s=1)\nplt.legend(['Ein Sierpiński Dreieck mit Rekursionstiefe $'+str(rt)+'$'])\nplt.show()\n\n\n\n\n\nrn = np.arange(0.1,2,0.025)\nd = np.hypot\nU = lambda r,p: [ q for q in points if d(*(p-q))&lt;=r ]\nV = lambda r,p: len(U(r,p))\ndef avg(r):\n    \"\"\"berechne die durchschnittliche Anzahl an Punkten in einer r großen Umgebung\n    \"\"\"\n    total = 0\n    for p in points:\n        total += V(r,p)\n    total /= len(points)\n    return total\n\nval = [avg(r) for r in rn]\nfig, ax = plt.subplots()\nax.plot(rn, val)\nplt.xlabel('Radius $r$')\nplt.legend(['Durchschnittliche Anzahl an Punkten in $V_r$'])\nplt.show()\n\n\n\n\n\ndn = [rn[i] for i in range(1,len(rn)-1)]\nDelta = lambda i: (np.log(val[i+1])-np.log(val[i]))/(np.log(rn[i+1])-np.log(rn[i]))\ndval = [Delta(i) for i in range(len(dn))]\n\nfig, ax = plt.subplots()\nax.plot(dn, dval)\nax.plot(dn, [np.log2(3) for _ in dn], '.:')\nplt.xlabel('Radius $r$')\nplt.ylabel('$\\Delta_r$')\nplt.legend(['Durchschnittliches $\\Delta_r$', 'Hausdorff Dimension von Sierpiński-Dreieck$\\approx\\log_2(3)$'])\n\n&lt;matplotlib.legend.Legend at 0x7fff2dddc650&gt;\n\n\nError in callback &lt;function _draw_all_if_interactive at 0x7fffcf4d8180&gt; (for post_execute), with arguments args (),kwargs {}:\n\n\nValueError: \nHausdorff Dimension von Sierpiński-Dreieck$\u0007pprox\\log_2(3)$\n                                          ^\nParseException: Expected end of text, found '$'  (at char 42), (line:1, col:43)\n\n\nValueError: \nHausdorff Dimension von Sierpiński-Dreieck$\u0007pprox\\log_2(3)$\n                                          ^\nParseException: Expected end of text, found '$'  (at char 42), (line:1, col:43)\n\n\n&lt;Figure size 672x480 with 1 Axes&gt;"
+  },
+  {
+    "objectID": "posts/new_method_of_counting_dimensions/index.html#footnotes",
+    "href": "posts/new_method_of_counting_dimensions/index.html#footnotes",
+    "title": "A new method to calculate dimension",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nhttps://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/#23_out↩︎\nhttps://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/↩︎\nhttps://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/↩︎\nhttps://www.wolframphysics.org/↩︎"
+  },
+  {
+    "objectID": "posts/voxels_rings_modules/index.html",
+    "href": "posts/voxels_rings_modules/index.html",
+    "title": "Voxels, Rings and Modules - My observations on how games like minecraft relate to abstract algebra",
+    "section": "",
+    "text": "Introduction\nLast semester I studied abstract algebra in my fourth year of university. It way pretty tough and sadly I did not understand all the topics which is probably why I failed it in my first two attempts.\nNow I wish to change this and succeed in my next attempt. And what better way is there to learn for it, than by writing a video game? 😂\nI got to work on my game “Story” and expanded on it’s worldbuilding. This made me want to actually code this world into my game, which then lead me to revisit my voxel-mesher. A voxel mesher is a program which takes in a set of 3-tuples \\((x,y,z) \\in \\mathbb{Z}^3\\) and creates a mesh out of it. Kinda like this:\n\n\n\nExample of a Voxel Mesh\n\n\nIf you extend this definition and use 4-tuples \\((x,y,z,type)\\in\\mathbb{Z}^4\\) you can even create meshes consisting of different materials with different textures and so on:\n\n\n\nExample of different types from my game story\n\n\n\n\nRings and Modules\nSo, what does this have to do with rings and modules?\nWell, first of a Ring like the integers \\(\\mathbb{Z}=\\{\\dots,-2,-1,0,1,2,\\dots\\}\\) together with an abelian group called addition \\(+\\), a monoid called multiplication \\(\\cdot\\) and a \\(1\\)-Element is simply speaking just a set of numbers on which one can multiply, add and subtract every number from the other (but not necessarily divide).\n\\((\\mathbb{Z}, +, \\cdot)\\) forms a Ring, because we can add every element with another and the result will be in \\(\\mathbb{Z}\\). We can also multiply elements with each other, but when we divide for example \\(1\\) by \\(2\\), the result one half is not an integer \\(\\frac{1}{2} \\notin \\mathbb{Z}\\).\nWe can see this structure in our voxels, because they are indexed using integers (i.e. there is no voxel between the first and second one).\nNow on to the Modules. This is simply speaking just a Group under Addition together with the attribute that we can multiply each element with an element of our Ring. This group is basically just provides us with vector addition and the ring extends this to scalar multiplication.\n\n\nHow is this related to our voxels then?\nWell, our Voxelspace (the set of all 3-tuples \\((x,y,z)\\in\\mathbb{Z}^3\\)) is just a module! On first glance it might look like a vector space, but because our voxels are arranged on a grid / indexed by integers and because they cannot leave this grid but we can move them around by whole numbers, they are in fact an addative group! (This means, we can move one voxel one voxel down, or 3 voxels right). Also, we can multiply the voxels with integers. This would correlate with multiplying the tuple component wise with our factor.\n\n\nCool, but how is this useful?\nWe can find a generating set for this module which consists of three elements. These elements are the ones which lie in each cardinal direction \\(\\{(1,0,0),(0,1,0),(0,0,1)\\}\\). If we take \\((1,0,0)\\) and look at the submodules it creates, then it will be similar to the red line in this image:\n\nView post on imgur.com\n\n\nThe blue line analogously represents the submodule generated by \\((0,0,1)\\). And from here on, we can observe that the number of elements of this generating set is 3. Therefor we can also conclude that this module is finitely generated and kinda looks like a three dimensional vectorspace.\n\nNote\nAt first I wanted to determine the length of the module and from there conclude that because this length is three, say that this relates to its three-dimensional representation. But this is false, because this module actually has infinite length, because we can for example pick \\(\\langle(1,0,0)\\rangle\\) the submodule generated by \\((1,0,0)\\) and then pick a prime number \\(p\\) and look at the submodule generated by \\(\\langle(p^n,0,0)\\rangle, \\&gt; n\\in\\mathbb{N}\\). This will lead a proper submodule for each \\(n\\), kinda like in this image, where the y-Axis represents the \\(n\\)!\n\nView post on imgur.com\n\n\nMore on that in the reddit thread.\n\n\n\n\nFinal words of wisdom\nSometimes it is best to relax a bit and just be creative. Maybe imagine a weird video-game-universe where you would like to live in. And on closer inspection of these thoughts, you may just be surprised what gems lie uncovered hidden in your own imagination."
+  },
+  {
+    "objectID": "posts/algebra_meme/index.html",
+    "href": "posts/algebra_meme/index.html",
+    "title": "Prove that \\(Rx/(x^2+bx+c)\\) is isomorphic to \\(R^2\\) or \\(C\\) - First try",
+    "section": "",
+    "text": "A few minutes ago I stumbled upon this meme on some math and science forum:\n\n\n\nProve that Rx/(x^2+bx+c) is isomorphic to R^2 or C\n\n\nHere is my thought process:\n\\(b^2-4c\\) is just the discriminant of the polynomial \\(f(x) = x^2+bx+c\\), and I will refer to it from now on as \\(\\Delta(f)\\).\nWe know that if \\(\\Delta(f)&gt;0\\) then the formula \\(\\frac{-b\\pm\\sqrt{b^2-4c}}{2} = -\\frac{b}{2} \\pm \\sqrt{\\left(\\frac{b}{2}\\right)^2 - c}\\) gives us the zeros \\(x_1, x_2 \\in \\mathbb{R}\\) of \\(f\\). Let’s look at \\(\\mathbb{R}[x] / (f)\\). And identify each part now.\n\nThe principal ideal \\((f) \\overbrace{=}^{\\mathbb{R}[x] \\text{ commutative}} \\{ p(x)\\cdot \\underbrace{f(x)}_{x^2+bx+c \\\\ = (x-x_1)(x-x_2) } \\mid p(x) \\in \\mathbb{R}[x]\\}\\)\nThe quotient ring \\(\\mathbb{R} [x]/(f)\\), which is the same as \\(\\mathbb{R}[x]/\\sim\\) where \\(\\sim\\) is an equivalence relation: \\(a\\sim b \\Leftrightarrow a-b \\in (f)\\)\nWhen performing polynomial division \\(\\frac{p(x)}{f(x)}, \\&gt; p(x)\\in\\mathbb{R}[x]\\) if \\(\\deg(p(x))&gt;2\\) we can always perform at least one step and the remainder must be of the form \\(ax+b \\in \\mathbb{R}[x]/(f)\\)\n\nThe solution to this problem can be found in this blog post"
+  },
+  {
+    "objectID": "posts/algebra_meme_2/index.html",
+    "href": "posts/algebra_meme_2/index.html",
+    "title": "Prove that \\(Rx/(x^2+bx+c)\\) is isomorphic to \\(R^2\\) or \\(C\\) - A proof",
+    "section": "",
+    "text": "Around one year ago I tried to solve the following riddle involving abstract algebra, but I failed and did not finish the question at that\n\n\n\nProve that Rx/(x^2+bx+c) is isomorphic to R^2 or C"
+  },
+  {
+    "objectID": "posts/algebra_meme_2/index.html#the-exercise",
+    "href": "posts/algebra_meme_2/index.html#the-exercise",
+    "title": "Prove that \\(Rx/(x^2+bx+c)\\) is isomorphic to \\(R^2\\) or \\(C\\) - A proof",
+    "section": "",
+    "text": "Around one year ago I tried to solve the following riddle involving abstract algebra, but I failed and did not finish the question at that\n\n\n\nProve that Rx/(x^2+bx+c) is isomorphic to R^2 or C"
+  },
+  {
+    "objectID": "posts/algebra_meme_2/index.html#the-proof",
+    "href": "posts/algebra_meme_2/index.html#the-proof",
+    "title": "Prove that \\(Rx/(x^2+bx+c)\\) is isomorphic to \\(R^2\\) or \\(C\\) - A proof",
+    "section": "The proof",
+    "text": "The proof\nLet \\(f=x^2+bx+c\\in\\mathbb{R}[x]\\). \\(f\\) can either have one double root, iff the discriminant \\(\\Delta f=b^2-4c\\) is zero, or it can have two real roots iff \\(\\Delta f&gt;0\\), or it can have two complex roots iff \\(\\Delta f&lt;0\\).\n\nNegative discriminant\nIf \\(\\Delta f&gt;0\\) we have \\(f(x)\\in\\mathbb{R}\\) with \\(x\\not\\in\\mathbb{R}\\). We can rewrite \\(f(x)=x^2+bx+c=0\\) to be \\(x^2+bx=-c\\), and therefor \\(x^2+bx\\in\\mathbb{R}\\). Also, because \\(\\Delta f&gt;0\\), we know that that we can split \\(f(x)\\) into its linear factors \\(f(x)=(x-w)(x-v)\\) with \\(w,v\\in\\mathbb{R}\\). This means that our number \\(x\\) will be equal to \\(0\\) if we subtract a real number from it, meaning it must be real, thereofr concluding that \\(\\mathbb{R}/(x^2+bx+c)\\cong \\mathbb{R}\\times \\mathbb{R}\\)\n\n\nPositive discriminant\nIn case our discriminant \\(\\Delta f\\) is positive we know that \\(f(x)\\) cannot be split into real linear monomial factors, which means that \\(x\\) cannot be a real number. Also, because \\(f\\) only has purely complex roots, \\(x\\) must be a purely complex number as well. Because \\(\\mathbb{R}[x]/(f)\\) is a vectorspace over \\(\\mathbb{R}\\) we know that \\(\\alpha x+\\beta=i\\) for \\(\\alpha, \\beta\\in \\mathbb{R}\\), concluding that \\(\\mathbb{R}[x]/(x^2+bx+c) \\cong \\mathbb{R}[i]=\\mathbb{C}\\)"
+  },
+  {
+    "objectID": "posts/algebra_meme_2/index.html#conclusion",
+    "href": "posts/algebra_meme_2/index.html#conclusion",
+    "title": "Prove that \\(Rx/(x^2+bx+c)\\) is isomorphic to \\(R^2\\) or \\(C\\) - A proof",
+    "section": "Conclusion",
+    "text": "Conclusion\nReading Bosch Algebra really helped me grasp some of the concepts like field extensions some more. I assume that this knowledge also took some time to ripen inside my brain, but after some time algebra finally makes more sense to me. Also I finished my exam about abstract algebra a few months ago! (While also studying for commutative algebra and already having finished my introductory course in algebraic geometry)."
+  },
+  {
+    "objectID": "posts/sheaves_in_minecraft/index.html",
+    "href": "posts/sheaves_in_minecraft/index.html",
+    "title": "Sheaves in Minecraft",
+    "section": "",
+    "text": "A few days ago, after my introductory class in topology, and right before my class about algebraic geometry, my friend Anastasia and I were asked by fellow topology students about our current topics in algebraic geometry. This then lead to the discussion about sheaves, as they saw my sketch of them in my lecture notes (because I mentioned that I typically only draw geometric sketches of ideas and proofs instead of writing actual sentences like most people).\n\n\n\nWe talked about this diagram\n\n\nAfter some explaining, they seemed to understand the concept somewhat, but I was unable to give them a deeper understanding. I assume this was caused by my inability to relate the importance of this structure to them in a practical way. So after some days, I started to imagine fictional conversations in my spare time where I would try to explain this topic to them again. I especially tried to focus on giving real-world examples of sheaves, which are not exactly linked to algebraic geometry, but, instead convey the idea of tracking data that is connected to open sets. And as I thought about this, I started to imagine video games, which typically provide very natural applications of impressively deep mathematical structures, leading me to relate the game Minecraft to algebraic geometry, or sheaves more exactly."
+  },
+  {
+    "objectID": "posts/sheaves_in_minecraft/index.html#introduction",
+    "href": "posts/sheaves_in_minecraft/index.html#introduction",
+    "title": "Sheaves in Minecraft",
+    "section": "",
+    "text": "A few days ago, after my introductory class in topology, and right before my class about algebraic geometry, my friend Anastasia and I were asked by fellow topology students about our current topics in algebraic geometry. This then lead to the discussion about sheaves, as they saw my sketch of them in my lecture notes (because I mentioned that I typically only draw geometric sketches of ideas and proofs instead of writing actual sentences like most people).\n\n\n\nWe talked about this diagram\n\n\nAfter some explaining, they seemed to understand the concept somewhat, but I was unable to give them a deeper understanding. I assume this was caused by my inability to relate the importance of this structure to them in a practical way. So after some days, I started to imagine fictional conversations in my spare time where I would try to explain this topic to them again. I especially tried to focus on giving real-world examples of sheaves, which are not exactly linked to algebraic geometry, but, instead convey the idea of tracking data that is connected to open sets. And as I thought about this, I started to imagine video games, which typically provide very natural applications of impressively deep mathematical structures, leading me to relate the game Minecraft to algebraic geometry, or sheaves more exactly."
+  },
+  {
+    "objectID": "posts/sheaves_in_minecraft/index.html#minecraft-as-a-game",
+    "href": "posts/sheaves_in_minecraft/index.html#minecraft-as-a-game",
+    "title": "Sheaves in Minecraft",
+    "section": "Minecraft as a game",
+    "text": "Minecraft as a game\nMinecraft is the most popular game in existence currently. Therefore it is very likely that you, the reader, have heard about it at some point in your life. But here is a quick recap of what Minecraft is and how it works (abstractly).\n\nWhat is Minecraft?\n\n\n\nExample view of minecraft\n\n\nIn Minecraft, you start a game as a digital character in a blocky world. There you start to collect resources by mining different materials (in the form of breaking blocks mainly) or slaying enemies which roam your digital world.\n\n\nHow does it technically work?\nNow the interesting part for us at least would be, how the game stores this world and its inhabitants. We know that the blocks are arranged in a lattice pattern which happens to be \\(\\mathbb{Z}^3\\) and because each block can be identified by its type (air, grass, dirt, wood, …) and there are just a finite number of unique blocks, we can store the blocky part of a Minecraft world as a subset \\(M\\subset \\mathbb{Z}^3\\times\\mathbb{N}\\) by using a bijective mapping from the types of blocks to \\(\\mathbb{N}=\\{0,1,2,\\dots\\}\\).\nNow how can Minecraft be able to process infinitely many blocks and render them to a screen? The answer is that this would be impossible, because traversing every block in an infinite Minecraft world (which most Minecraft worlds are) would take a very long time, let alone rendering them. This would be impossible to render at a stable 30FPS and the developers at Mojang decided to split the Minecraft world into chunks of \\(16\\times 16\\times 256\\) (here we can neglect the last coordinate of our tuples in \\(M\\), because the number of different blocks is small enough that a computer can traverse them easily).\n \nThese subsets of the world \\(C_{x,y,z}\\subset M\\subset \\mathbb{Z}^3\\times\\mathbb{N}\\) are called chunks and exist for each \\(x,y \\in 16\\mathbb{Z}, \\&gt; z\\in 256\\mathbb{Z}\\) (technically the \\(z\\) is fixed to \\(0\\) because Minecraft has a finite height of \\(256\\) blocks, but we will abstract/future proof a bit for now).\n\nSo why are these chunks important for us? How do they relate to sheaves? Well, these \\(C_{x,y,z}\\) form a basis of a topology on \\(M\\) if we name the “chunks” not “chunks” but “open sets” instead! This is quite natural because Minecraft creates a union of these chunks (the number of which is free for the user to decide, therefore possibly infinite) and then renders this union of chunks to the screen. This union of chunks would not be considered a chunk in Minecrafts’ code, but we will refer to the union of chunks as “open set” nonetheless because this gives us our topological structure on \\(M\\). (Bonus: to really prove that the \\(C_{x,y,z}\\) form a topological basis, one must show that the finite intersection of open sets must also be an open set. The proof is quite trivial but left as an exercise to the reader.)\n\n\nSo we have a topological space on our Minecraft world \\(M\\), what now?\nAfter having done all of this for the sake of rendering parts of our world on a computer in a finite time, we get some fundamentally needed game mechanics (which are not obviously related to the rendering pipeline) for free!\nLike for example when the player wants to go to sleep in the game. Minecraft first checks if the player does not have any hostile entities in the current chunk. Therefore the game must calculate the set of all entities currently in the game world, which are also in the currently inhabited chunk.\nFor this, Minecraft stores all entities as tuples \\(e\\in\\mathbb{R}^3\\times\\mathbb{N}\\), where \\(\\mathbb{N}\\) again denotes the type of enemy. But now, minecraft also has a functor \\(\\mathcal{F}: (\\frac{\\text{open}}{M})\\to \\mathcal{E}\\), where \\(\\mathcal{E}\\) is the category of entities, which has as objects just sets of entities and as morphisms the surjective maps \\(\\phi: V \\twoheadrightarrow V'\\subset V\\) for \\(V, V'\\in \\mathcal{E}\\) and \\(\\left(\\frac{\\text{open}}{M}\\right)\\) denotes the category of open sets over \\(M\\) created by set inclusion as well.\nIn tradition to the notation used by my professor Schröer, I will denote the application of this functor as \\(\\Gamma(U, \\mathcal{F})=V\\).\n\n\nA quick recap in simple terms\nWhat we did now, was define a mapping from the open sets in our Minecraft world to the sets of entities. This just allows us to ask the following question using the mathematical/computer language:\n\nWhich entities (like zombies, skeleton, player, …) are inside the collection of the following chunks: \\(C_{x_1, y_1, z_1}, C_{x_2, y_2, z_2}, \\dots\\) ?\n\nAnd the formulation in mathematical lingo would be:\n\\[\\begin{equation}\n\\Gamma(\\bigcup_{i\\in I} C_{x_i, y_i, z_i}, \\mathcal{F})=V\n\\end{equation}\\]\nwhere \\(V\\) is the set of entities we are looking for. We can say as a rule, that for our purposes \\(\\mathcal{F}\\) must suffice the following condition:\n\nFor each open set \\(U\\) of \\(M\\), we have the set \\(\\Gamma(U, \\mathcal{F})\\).\n\n\n\nBut who needs the structure of a sheaf for that? Doesn’t a function suffice?\n\n\n\nWell yes, but actually no\n\n\nThe problem with just mapping open sets of our Minecraft world to sets of entities raises the problem of restricting our open set but increasing our number of entities therein. Imagine the following. You have your Minecraft map and play the game with your character \\(p\\) inside said map. Now you wish to poll the number of entities that are located in your current chunk (the one your player resides in) and the ones adjacent to your current chunk. This would give you in total \\(9\\) chunks in which you poll for entities. Because you wish to let your character sleep in the game and the game does not let your character sleep if there are any monsters (which are a subset of entities) near your bed, you need to check if \\(\\Gamma(V, \\mathcal{F})\\) has any monster in it (where \\(V\\) is the chunk the player is in and the adjacent chunks). So now the game says everything is fine because \\(\\Gamma(V, \\mathcal{F}) = \\{p\\}\\), your player is the only entity in these chunks and you can go to bed. But when you wake up in Minecraft to your dismay you are getting attacked by a zombie, because actually there was one more entity nearby. There was indeed one zombie \\(z \\in \\Gamma(V', \\mathcal{F})\\) where \\(V'\\subset V\\) is just the player’s current chunk. This problem/bug occurred because the mapping which shows entities residing in an open set of our topology did not respect restriction mappings. This means, even if one takes the subset of an open set, the correlating entities in this subset need not be a subset of the entities correlating to the superset. Indeed, in our case we had \\(V'\\subset V\\) but \\(\\Gamma(V',\\mathcal{F})=\\{p,z\\}\\supset \\{p\\}=\\Gamma(V,\\mathcal{F})\\)\nWe can solve this issue by requesting our function \\(\\mathcal{F}\\) must fulfill the following criteria:\n\nFor each inclusion \\(V'\\subset V\\) there must be a function \\(\\text{res}^{V}_{V'}:\\Gamma(V,\\mathcal{F})\\to\\Gamma(V',\\mathcal{F})\\) \n\\(\\text{res}^{V'}_{V''} \\circ \\text{res}^{V}_{V'} = \\text{res}^{V}_{V''}\\) \n\\(\\text{res}^{V}_{V} = id\\) \n\nThis so far just means, that given some \\(\\Gamma(V,\\mathcal{F})\\) which is the set of entities inside some open set, we can look at smaller open sets’ entities if these open sets are included in the prior open set.\n\n\nThe last problem to solve\nSo now we have done all of this to formalize our notion of entities inside some set of chunks. But there is still some problem in the example we wrote one paragraph before. We still have not solved the problem that given our knowledge of \\(\\Gamma(V,\\mathcal{F})\\) where \\(U\\) is some open set (with the player inside) we want to infer that, open subsets \\(V'\\subset V\\) cannot have more entities or ones, that cannot be found inside \\(V\\).\nThe problem we are facing is that we are missing the sheaf axiom, which completes our requirements from before:\n\nFor each open set \\(U\\) of \\(M\\), we have the set \\(\\Gamma(U, \\mathcal{F})\\).\nFor each inclusion \\(V'\\subset V\\) there must be a function \\(\\text{res}^{V}_{V'}:\\Gamma(V,\\mathcal{F})\\to\\Gamma(V',\\mathcal{F})\\) \n\\(\\text{res}^{V'}_{V''} \\circ \\text{res}^{V}_{V'} = \\text{res}^{V}_{V''}\\) \n\\(\\text{res}^{V}_{V} = id\\) \n\nwhich defines a sheaf. The sheaf axiom now states the following:\n\n(Locality) If \\(\\mathcal{U}=\\bigcup_{i\\in I} U_i\\) is an open covering of an open set \\(U\\) and if \\(s,t\\in\\Gamma(U,\\mathcal{F})\\) with \\(\\text{res}^U_{U_i}(s)=\\text{res}^U_{U_i}(t)\\), then \\(s=t\\)\n(Gluing) If \\(\\mathcal{U}=\\bigcup_{i\\in I} U_i\\) is an open covering of an open set \\(U\\) and \\(s_i\\in U_i\\) for \\(i\\in I\\) holds \\(\\text{res}^{U_i}_{U_i\\cup U_j}(s_i) = \\text{res}^{U_j}_{U_i\\cup U_j}(s_j)\\) then there must be exactly one \\(s\\in\\Gamma(U,\\mathcal{F})\\) with \\(\\text{res}^U_{U_i}(s) = s_j\\)\n\nAnd these basically state, that if there is some entity \\(e'\\) in \\(V'\\subset V\\), ergo \\(e'\\in\\Gamma(V', \\mathcal{F})\\), then there must also be exactly one \\(e\\in\\Gamma(V,\\mathcal{F})\\) which is then equal to \\(e'\\) is we restrict our focus back to \\(V'\\).\nIn our situation with the zombie before, we had looked at an open set \\(V\\) which was defined as the chunk with the player \\(p\\) inside glued together with the chunks adjacent to that one. We said \\(\\Gamma(V,\\mathcal{F})\\) only included the player, because this was the only entity that was mapped from \\(V\\) by \\(\\mathcal{F}\\), but then we said there was actually one zombie \\(z'\\) (another entity) inside \\(V'\\), which we defined as the chunk the player was inside.\nThis clearly violates our sheaf axiom! Because by the gluing property, we must have \\(z\\in\\Gamma(V,\\mathcal{F})\\) as it follows from \\(z'\\in\\Gamma(V',\\mathcal{F})\\) that there needs to be this \\(z\\) with \\(\\text{res}^V_{V'}(z)=z'\\). So we know that because there is an open set with a zombie \\(z'\\) inside, an entity \\(z\\) that looks like this zombie if we restrict our focus to the open set where we found \\(z'\\) must also exist in any open set \\(V\\) that includes \\(V'\\)."
+  },
+  {
+    "objectID": "posts/sheaves_in_minecraft/index.html#conclusion",
+    "href": "posts/sheaves_in_minecraft/index.html#conclusion",
+    "title": "Sheaves in Minecraft",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis concept might look daunting at first and maybe even useless because of its’ apparent abstractness. But in fact, we are very far away from some abstract useless construct as I tried to visualize in this blog post. In fact, the construct of a sheaf is quite natural as it canonically allows us to track data attached to open sets (or as is the case in Minecraft: track entities in unions of chunks).\nThis concept can be much further observed though, providing a rich theory not just applicable in algebraic geometry. I will try to publish another post soon where I analyze some art I found particularly interesting using the structures defined in this post while also extending the notions of a sheaf to the ideas of stalks (which in our Minecraft example would allocate the entities in the smallest open set around some point to said point; Or more concretely all the entities in a chunk are returned, if we enter some point inside said chunk) and possibly also the idea of germs.\nUntil then I wish all of you good luck and fun applying abstract math with seemingly no application 😉."
+  },
+  {
+    "objectID": "posts/elliptic_curves_over_F4/index.html",
+    "href": "posts/elliptic_curves_over_F4/index.html",
+    "title": "Elliptic curves over the field with four elements (not finished)",
+    "section": "",
+    "text": "Table of contents\nIntroduction\nThe Field \\(\\mathbb{F}_4\\) with four elements\nThe affine plane\n\nExample of a reducible hypersurface\nExample of an irreducible hypersurface\nExample of an irreducible hypersurface that is an elliptic curve\n\nThe projective space"
+  },
+  {
+    "objectID": "posts/elliptic_curves_over_F4/index.html#table-of-contents",
+    "href": "posts/elliptic_curves_over_F4/index.html#table-of-contents",
+    "title": "Elliptic curves over the field with four elements (not finished)",
+    "section": "",
+    "text": "Table of contents\nIntroduction\nThe Field \\(\\mathbb{F}_4\\) with four elements\nThe affine plane\n\nExample of a reducible hypersurface\nExample of an irreducible hypersurface\nExample of an irreducible hypersurface that is an elliptic curve\n\nThe projective space"
+  },
+  {
+    "objectID": "posts/elliptic_curves_over_F4/index.html#introduction",
+    "href": "posts/elliptic_curves_over_F4/index.html#introduction",
+    "title": "Elliptic curves over the field with four elements (not finished)",
+    "section": "Introduction",
+    "text": "Introduction"
+  },
+  {
+    "objectID": "posts/elliptic_curves_over_F4/index.html#the-field-mathbbf_4-with-four-elements",
+    "href": "posts/elliptic_curves_over_F4/index.html#the-field-mathbbf_4-with-four-elements",
+    "title": "Elliptic curves over the field with four elements (not finished)",
+    "section": "The Field \\(\\mathbb{F}_4\\) with four elements",
+    "text": "The Field \\(\\mathbb{F}_4\\) with four elements"
+  },
+  {
+    "objectID": "posts/elliptic_curves_over_F4/index.html#the-affine-plane",
+    "href": "posts/elliptic_curves_over_F4/index.html#the-affine-plane",
+    "title": "Elliptic curves over the field with four elements (not finished)",
+    "section": "The affine plane",
+    "text": "The affine plane\nWe define the affine space \\(\\mathbb{A}^n_k\\) over a ground field \\(k\\) to be the set of all tuples \\((x_1, \\dots, x_n)\\) with elements in \\(k\\). In the case of \\(n=2\\) we call \\(\\mathbb{A}^n_k\\) affine plane. A variety \\(V(A)\\) for a subset \\(A\\subset k[X_1, \\dots, X_n]\\) of polynomials is the set points in \\(\\mathbb{A}^n_k\\) which are zeros for each polynomial in \\(A\\). We call \\(V(A)\\) a hypersurface, if \\(A=\\{f\\}\\) contains only one element.\nWe can define a topology on \\(\\mathbb{A}^n_k\\) by defining the open sets to be the sets \\(V(f)\\) for each \\(f\\in k[X_1,\\dots, X_n]\\). I will not go into detail as to why this results in a topology. As an example, we can always construct \\(V(f_1) \\cup\\dots\\cup V(f_r) = V(f_1\\cdot\\dots\\cdot f_r)\\)\n\nThis image shows how solution sets can be united by multiplying the underlying functions. We use the affine real line \\(\\mathbb{A}^1_\\mathbb{R}\\) for this illustration. The green function is the product of the blue and red one and as can be seen, the green graph has exactly the same poles as the red and blue graph combined. Furthermore, we define a hypersurface \\(V(f)\\) to be irreducible if the underlying polynomial \\(f\\) is irreducible. A hypersurface is reducible if it is not irreducible.\n\nExample of a reducible hypersurface\nConsider \\(f=(x-y)(x+y)\\) which is reducible in \\(\\mathbb{R}[x,y]\\) as it can be factored into the non-units: \\((x-y)\\) and \\((x+y)\\).\nThis can be seen in the graph of \\(V(f)\\), because \\(V(f)\\) can be split into two hypersurfaces \\(V(x-y)\\) and \\(V(x+y)\\).\n\n\n\nExample of an irreducible hypersurface\nConsider \\(f=x^2+y^2-1\\). This defines the circle \\(V(f) = S^1\\).\n\n\n\nExample of an irreducible hypersurface that is an elliptic curve\nAnother irreducible hypersurface is \\(V(y^2-x^3+x)\\) in \\(\\mathbb{A}^2_\\mathbb{R}\\).\n\nThis also happens to define an elliptic curve. Also, note that an irreducible hypersurface need not be a connected space in the sense of topology."
+  },
+  {
+    "objectID": "posts/elliptic_curves_over_F4/index.html#the-projective-space",
+    "href": "posts/elliptic_curves_over_F4/index.html#the-projective-space",
+    "title": "Elliptic curves over the field with four elements (not finished)",
+    "section": "The projective space",
+    "text": "The projective space"
+  },
+  {
+    "objectID": "posts/differential_forms/index.html",
+    "href": "posts/differential_forms/index.html",
+    "title": "What are „differential forms“",
+    "section": "",
+    "text": "Currently while visiting the “KoMa” (Konferenz der deutschsprachigen Mathematikfachschaften / conference of German-speaking mathematics students) I got into a lot of interesting conversations about geometry, topology and category theory. This set the stage for me to think about differential forms because I wanted to understand how exactly these things look and feel like."
+  },
+  {
+    "objectID": "posts/differential_forms/index.html#introduction",
+    "href": "posts/differential_forms/index.html#introduction",
+    "title": "What are „differential forms“",
+    "section": "",
+    "text": "Currently while visiting the “KoMa” (Konferenz der deutschsprachigen Mathematikfachschaften / conference of German-speaking mathematics students) I got into a lot of interesting conversations about geometry, topology and category theory. This set the stage for me to think about differential forms because I wanted to understand how exactly these things look and feel like."
+  },
+  {
+    "objectID": "posts/differential_forms/index.html#my-sketches",
+    "href": "posts/differential_forms/index.html#my-sketches",
+    "title": "What are „differential forms“",
+    "section": "My sketches",
+    "text": "My sketches\n\nNotes about differential forms\n\n\nThe proof mentioned on page 1 is viewable on https://web.archive.org/web/20211224033113/https://planetmath.org/tensorproductofdualspacesisadualspaceoftensorproduct"
+  },
+  {
+    "objectID": "posts/differential_forms/index.html#notation",
+    "href": "posts/differential_forms/index.html#notation",
+    "title": "What are „differential forms“",
+    "section": "Notation",
+    "text": "Notation\nThroughout this article we will choose the following symbols and notation:\n\n\\(M\\) a smooth manifold over a field \\(K\\subset \\mathbb{R}\\)\n\\(p\\in M\\) a point in \\(M\\)\n\\(T_p M\\) the tangent space of \\(M\\) at \\(p\\)\n\\(T_p^\\ast M\\) the cotangent space of \\(M\\) at \\(p\\), which consists of the linear functions \\(\\phi: T_p M \\to K\\). For finite tangent spaces \\(T_p M\\), we can canonically identify \\(T_p^\\ast M\\) with \\(T_p M\\).\n\\(T M = \\bigcup_{p\\in M} \\{p\\}\\times T_p M\\) and \\(T^\\ast M = \\bigcup_{p\\in M} \\{p\\}\\times T_p^\\ast M\\) are the tangent/cotangent bundles of \\(M\\)\n\\(\\Lambda^k(T^\\ast M)\\) is the k-th exterior product of the cotangent bundle of \\(M\\). Its elements \\(\\mu_p\\in\\Lambda^k(T^\\ast M)\\) are called k-coblades and allow to measure volumes on some tangent space \\(T_pM\\) in \\(k\\)-dimensions.\n\\(\\Gamma(M, \\Lambda^k(T^\\ast M)) = \\Gamma(\\Lambda^k(T^\\ast M))\\) is the space of global sections from the basespace \\(M\\) to the total space \\(\\Lambda^k(T^\\ast M)\\). We use this, because for an element \\(\\omega:M \\to \\Lambda^k(T^\\ast M)\\) in it, we can smoothly associate for each point \\(p\\) on \\(M\\) a k-coblade."
+  },
+  {
+    "objectID": "posts/differential_forms/index.html#formal-definition",
+    "href": "posts/differential_forms/index.html#formal-definition",
+    "title": "What are „differential forms“",
+    "section": "Formal definition",
+    "text": "Formal definition\nA differential form \\(\\omega\\) is defined as an element in the space of global sections over the kth exterior algebra of the cotangent bundle over a smooth manifold \\(M\\). We denote this as:\n\\[\\omega \\in \\Gamma(M, \\Lambda^k(T^\\ast M))\\]"
+  },
+  {
+    "objectID": "posts/differential_forms/index.html#my-interpretation",
+    "href": "posts/differential_forms/index.html#my-interpretation",
+    "title": "What are „differential forms“",
+    "section": "My interpretation",
+    "text": "My interpretation\nBasically, a differential 1-form can be visualized as appending a vector onto each point of our manifold. Because we work with a smooth section, these vectors need to vary “smoothly” from one point to another. This means, if we wiggle the point we look at on our manifold just a tiny bit, the vector we have related to this point will also wiggle just a tiny bit. Also, our corresponding vector cannot take any sharp turns if we do not move our point in sharp turns."
+  },
+  {
+    "objectID": "posts/bachelor-seminar-haskell/index.html",
+    "href": "posts/bachelor-seminar-haskell/index.html",
+    "title": "Haskell - Angewandter „abstract nonsense“",
+    "section": "",
+    "text": "Dieses Semester habe ich einen Kurs in der Heinrich-Heine Universität in Düsseldorf belegt, welcher sich mit verschiedenen Programmiersprachen beschäftigte. Dabei habe ich einen Vortrag über Haskell gehalten, welche eine Sprache ist, die mir sehr am Herzen liegt. Zu dem Seminar gehörte es, einen Vortag über 45 Minuten zu halten, zusammen mit dem Design eines Übungsblattes, welches die erlernten Fähigkeiten in 30 Minuten testen sollte. Außerdem sollte eine Ausarbeitung, welche im Umfang einer Bachelorarbeit war, angefertigt werden und es sollten zwei Rezensionen zu den angefertigten Bachelorarbeiten anderer Studienrenden angefertigt werden.\nDas Resultat ist meiner Meinung nach bei mir sehr gut ausgefallen, weshalb ich es hier teile:\n\n\n\n\n\n\n\n\n\n\nBildschirmfoto von der Ausarbeitung\n\n\n\nAufgaben\nMusterlösungen"
+  },
+  {
+    "objectID": "posts/bachelor-seminar-haskell/index.html#einleitung",
+    "href": "posts/bachelor-seminar-haskell/index.html#einleitung",
+    "title": "Haskell - Angewandter „abstract nonsense“",
+    "section": "",
+    "text": "Dieses Semester habe ich einen Kurs in der Heinrich-Heine Universität in Düsseldorf belegt, welcher sich mit verschiedenen Programmiersprachen beschäftigte. Dabei habe ich einen Vortrag über Haskell gehalten, welche eine Sprache ist, die mir sehr am Herzen liegt. Zu dem Seminar gehörte es, einen Vortag über 45 Minuten zu halten, zusammen mit dem Design eines Übungsblattes, welches die erlernten Fähigkeiten in 30 Minuten testen sollte. Außerdem sollte eine Ausarbeitung, welche im Umfang einer Bachelorarbeit war, angefertigt werden und es sollten zwei Rezensionen zu den angefertigten Bachelorarbeiten anderer Studienrenden angefertigt werden.\nDas Resultat ist meiner Meinung nach bei mir sehr gut ausgefallen, weshalb ich es hier teile:\n\n\n\n\n\n\n\n\n\n\nBildschirmfoto von der Ausarbeitung\n\n\n\nAufgaben\nMusterlösungen"
+  },
+  {
+    "objectID": "posts/surreal_numbers/index.html",
+    "href": "posts/surreal_numbers/index.html",
+    "title": "Surreale Zahlen",
+    "section": "",
+    "text": "In diesem Vortrag ging es darum zu zeigen, dass die surrealen Zahlen ein Körper sind. Ich arbeitete dabei unter der Annahme, dass wir bereits gezeigt haben, dass \\(\\boldsymbol{No}\\) ein geordneter Ring ist. Alles was somit noch zu zeigen war, war das multiplikative Inverse für beliebige nicht-nulle Elemente zu finden sind.\nGenaueres lässt sich in dem Handout nachlesen: Handout"
+  },
+  {
+    "objectID": "posts/surreal_numbers/index.html#boldsymbolno-ist-ein-körper",
+    "href": "posts/surreal_numbers/index.html#boldsymbolno-ist-ein-körper",
+    "title": "Surreale Zahlen",
+    "section": "",
+    "text": "In diesem Vortrag ging es darum zu zeigen, dass die surrealen Zahlen ein Körper sind. Ich arbeitete dabei unter der Annahme, dass wir bereits gezeigt haben, dass \\(\\boldsymbol{No}\\) ein geordneter Ring ist. Alles was somit noch zu zeigen war, war das multiplikative Inverse für beliebige nicht-nulle Elemente zu finden sind.\nGenaueres lässt sich in dem Handout nachlesen: Handout"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Here is a small list of projects I have worked on. Most are open source and can be found on my GitHub.\n\n\n\n\n\nMy math stuff\n\n\n\n\n\nTop2Man\n\n\n\n\n\nImg2String\n\n\n\n\n\n\n\nWebGLCS\n\n\n\n\n\nDimensionCrusher\n\n\n\n\n\nComplexGrapher\n\n\n\n\n\n\n\nFluchtpunkt3D\n\n\n\n\n\nKnowHowComputer\n\n\n\n\n\nRelic Hunter Zero (STEAM)\n\n\n\n\n\n\n\nMatrix Visualizer\n\n\n\n\n\nMore"
+  }
+]
