@@ -2,8 +2,11 @@
 title: "$\\ell^2$-Invariants"
 author: "Luca Leon Happel"
 date: "2024-02-04"
+date-modified: "2024-02-05"
 categories: ["mathematics", "topology", "algebra", "group theory", "ring theory", "measure theory", "functional analysis", "differential geometry", "differential topology", "algebraic topology"]
 ---
+
+> <span style="color: red">__WARNING__: This is a work in progress. I am currently writing this article and it is not finished yet. I will update it regularly and remove this warning once it is finished.</span>
 
 ## Introduction
 
@@ -17,19 +20,9 @@ We can easily construct many infinite CW-complexes by considering infinite cover
 
 ### Example
 
-Let us consider the a bouqet of $n$ circles: $X_n = \bigvee_{i=1}^n S^1$
+Let us consider a bouqet of $n$ circles: $X_n = \bigvee_{i=1}^n S^1$. The universal cover $\tilde X_n$ is just the cayley graph of the free group in $n$ generators, namely $F_n = \langle a_1,a_2,\dots, a_n \rangle$. $X_n$ clearly is a CW-complex, as it consists of one 0-cell and $n$ 1-cells. The universal cover $\tilde X_n$ is a tree and therefor also a CW-complex. Classical simplicial homology suffices to calculate the betti numbers of $X_n$ and $\tilde X_n$. We can obviously see that none of the circles in $X_n$ bounds a disk, so $H_1(X_n) = \mathbb{Z}^n$ and because $X_n$ is connected, $H_0(X_n) = \mathbb{Z}$. The universal cover $\tilde X_n$ is simply connected, so $H_1(\tilde X_n) = 0$ and $H_0(\tilde X_n) = \mathbb{Z}$. Using our classical toolset, we therefore have $b_0(X_n) = 1$, $b_1(X_n) = n$, $b_0(\tilde X_n) = 1$ and $b_1(\tilde X_n) = 0$.
 
-```{python}
-import numpy as np
-import plotly.graph_objects as go
-n = 3
-theta = np.linspace(0, 2*np.pi, 100)
-fig = go.Figure()
-fig.add_trace(go.Scatter(x=np.cos(n*theta)*np.cos(theta), y=np.cos(n*theta)*np.sin(theta), mode='lines', name=f'$X_{n}$'))
-fig.update_layout(width=500, height=500)
-```
-
-This will lead to the universal covering space $F_3 = \langle a_1,a_2,a_3 \rangle$, which is the free group in three generators $a_1,a_2,a_3$:
+Let us contrast that with the (currently not properly defined) $\ell^2$-betti numbers $b^{(2)}_1(F_n \curvearrowright\tilde{X_n}) = n-1$ and $b^{(2)}_k(F_n \curvearrowright\tilde{X_n}) = 0$ for $k\neq 1$. We can see, that 
 
 
 
