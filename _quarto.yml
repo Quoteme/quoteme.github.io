@@ -4,6 +4,7 @@ project:
 website:
   title: "{{< var website.title >}}"
   favicon: "{{< var website.favicon >}}"
+  description: "Personal website of {{< var profile.name >}}, including lots of math and computer science."
   
   navbar:
     right:
