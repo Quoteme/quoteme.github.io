@@ -6,5 +6,5 @@ profile:
 website:
   title: "Luca Happel's personal website"
   favicon: "{{< var profile.icon >}}"
-  link: "quoteme.github.io"
-  url: "https://quoteme.github.io/"
+  link: "lucah.tech"
+  url: "https://lucah.tech/"
