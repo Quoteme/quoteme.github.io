@@ -3,7 +3,7 @@ project:
 
 website:
   title: "{{< var website.title >}}"
-  favicon: "{{< var website.favicon >}}"
+  favicon: "https://avatars2.githubusercontent.com/u/6796009"
   description: "Personal website of {{< var profile.name >}}, including lots of math and computer science."
   
   navbar:
