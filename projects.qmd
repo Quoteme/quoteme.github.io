@@ -1,0 +1,32 @@
+---
+title: "Projects"
+image: https://avatars2.githubusercontent.com/u/6796009
+author: "Luca Leon Happe"
+lightbox: auto
+---
+
+Here is a small list of projects I have worked on. Most are open source and can be found on my [GitHub](https://github.com/Quoteme?tab=repositories).
+
+:::{layout-ncol="3"}
+[ ![My math stuff](https://github.com/Quoteme/math/blob/master/social_preview.png?raw=true){group="projects" width=5cm fig-align="left"} ](https://quoteme.github.io/math)
+
+[ ![Top2Man](https://i.imgur.com/OAqeQ43.png){group="projects" width=5cm fig-align="left"} ](https://quoteme.github.io/top2man)
+
+[ ![Img2String](https://i.imgur.com/CmCh70g.gif){group="projects" width=5cm fig-align="left"} ](https://github.com/Quoteme/img2string/)
+
+[ ![WebGLCS](https://i.imgur.com/Ysv2BVX.png){group="projects" width=5cm fig-align="left"} ](https://github.com/Quoteme/webglcs)
+
+[ ![DimensionCrusher](https://i.imgur.com/Xnfvpag.gif){group="projects" width=5cm fig-align="left"} ](https://github.com/Quoteme/dimensioncrusher)
+
+[ ![ComplexGrapher](https://i.imgur.com/MHf3Ltb.gif){group="projects" width=5cm fig-align="left"} ](https://github.com/Quoteme/complexGrapher)
+
+[ ![Fluchtpunkt3D](https://raw.githubusercontent.com/Quoteme/Fluchtpunkt3D/master/demo/test.gif){group="projects" width=4cm fig-align="left"} ](https://github.com/Quoteme/Fluchtpunkt3D)
+
+[ ![KnowHowComputer](https://i.imgur.com/R5O38wV.png){group="projects" width=4cm fig-align="left"} ](https://quoteme.github.io/KnowHowComputerHTML/)
+
+[ ![Relic Hunter Zero (STEAM)](https://i.imgur.com/05wgpP9.png){group="projects" width=4cm fig-align="left"} ](https://github.com/mventurelli/relichunterszero)
+
+[ ![Matrix Visualizer](https://i.imgur.com/47Bc1uJ.gif){group="projects" width=4cm fig-align="left"} ](https://github.com/Quoteme/matrixVisualizer)
+
+[ ![More](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){group="projects" width=4cm fig-align="left"} ](https://github.com/Quoteme?tab=repositories)
+:::
