@@ -25,7 +25,7 @@ and 300px height
       <b>B.Sc in mathematics (algebraic geometry)</b>, who works at the Heinrich Heine University, Forschungszentrum Jülich and Universitätsklinikum Düsseldorf.
   </p>
 </div>
-<iframe id="top2manframe" src="{{< var website.link >}}/top2manWebsiteBackground/?meanX=0&meanY=0&meanZ=300&varianceX=3000&varianceY=100&varianceZ=1000" width="100%" height="300px" style="border: none;"></iframe>
+<iframe id="top2manframe" src="" width="100%" height="300px" style="border: none;"></iframe>
 </div>
 
 <script>
