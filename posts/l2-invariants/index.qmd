@@ -11,11 +11,36 @@ format:
         code-summary: "Show the code"
 ---
 
+::: {.hidden}
+$$
+\newcommand{\foo}{E=mc^{2}}
+\usepackage{amssymb}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\ZZ}{\ooalign{Z\cr\hidewidth\kern0.1em\raisebox{-0.5ex}{Z}\hidewidth\cr}}
+\newcommand{\weaktopo}{\tau_\text{weak}}
+\newcommand{\strongtopo}{\tau_\text{strong}}
+\newcommand{\normtopo}{\tau_\text{norm}}
+\newcommand{\green}[1]{\textcolor{ForestGreen}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+\newcommand{\id}{\text{id}}
+\newcommand{\res}{\text{res}}
+\newcommand{\TopTwo}{\underline{\text{Top}^{(2)}}}
+\newcommand{\CW}[1]{\underline{#1\text{-CW}}}
+\newcommand{\ZZ}{%
+    \ooalign{Z\cr\hidewidth\raisebox{-0.5ex}{Z}\hidewidth\cr}%
+}
+$$
+:::
+
 > <span style="color: red">__WARNING__: This is a work in progress. I am currently writing this article and it is not finished yet. I will update it regularly and remove this warning once it is finished.</span>
 
 ## Introduction
 
-This semester (WiSe 2023/24) I took a course about $\ell^2$-Invariants[see @WEBSITE:1] at the University of Düsseldorf. As a reminder, $\ell^2$ is the [Hibert space of __square-summable__ sequences](https://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions) of complex numbers. Meaning, a sequence $(a_n\in\mathbb{C})_{n=0}^\infty$ is in $\ell^2$ if and only if $\sum_{n=0}^\infty |a_n|^2 < \infty$. By defining an inner product on $\ell^2$ as $\langle a, b \rangle = \sum_{n=0}^\infty a_n \overline{b_n}$, we make $\ell^2$ to a complete complex inner product space, i.e. a Hilbert space.
+This semester (WiSe 2023/24) I took a course about $\ell^2$-Invariants[see @WEBSITE:1] at the University of Düsseldorf. As a reminder, $\ell^2$ is the [Hibert space of __square-summable__ sequences](https://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions) of complex numbers. Meaning, a sequence $(a_n\in\C)_{n=0}^\infty$ is in $\ell^2$ if and only if $\sum_{n=0}^\infty |a_n|^2 < \infty$. By defining an inner product on $\ell^2$ as $\langle a, b \rangle = \sum_{n=0}^\infty a_n \overline{b_n}$, we make $\ell^2$ to a complete complex inner product space, i.e. a Hilbert space.
 
 For context, this course was part of my master's degree in mathematics and it was the culmination of a series of courses about __Algebraic Topology__, which I attended for the past two and a half years.
 Previous courses concentrated primarily on the basics of algebraic topology, such as homology and cohomology, and their applications to the classification of manifolds and the computation of homotopy groups and cohomology rings.
@@ -23,7 +48,7 @@ Previous courses concentrated primarily on the basics of algebraic topology, suc
 The tools in the form of algebraic structures and theorems that we learned in these coureses, like homology, work well with finite CW-complexes and their finite coverings, after all we are just dealing with finitely generated modules in these cases and concepts like determinants and betti numbers are well defined. However, when we want to study infinite CW-complexes, we need to use more sophisticated tools, such as $\ell^2$-Invariants, to understand the topology of these spaces.
 Something interesting happens, when we look at covering spaces of finite CW-complexes. By the Galois correspondence, we can associate a covering space $\bar X$ with a subgroup $H$ of the fundamental group $G$ of a base space $X$.[see @Hatcher1.38, Proposition 1.38] Now, we have a group action of $G$ on $\bar X$ and this added structure allows us to define the $\ell^2$ betti numbers $b_i^{(2)}(H \curvearrowright \bar X)$, $\ell^2$ homology groups $H_i^{(2)}(H \curvearrowright \bar X)$ and much more.
 
-Let us build some intuition before we proceed though. Consider the base space $X=S^1$, and a $d$ sheeted covering $\bar X_d$. The fundamental group of $X$ is $\mathbb{Z}$ and the fundamental group of $\bar X_d$ is $\mathbb{Z}/d\mathbb{Z}$. An early result in the study of $\ell^2$-Invariants is that for $d$-sheeted coverings $\bar X_d \to X$, the $\ell^2$-betti numbers of $\bar X_d$ are $b_i^{(2)}(\mathbb{Z}/d\mathbb{Z}\curvearrowright\bar X_d) = b_i(\bar X_d) / |\mathbb{Z}/d\mathbb{Z}| = b_i(\bar X_d) / d$. This is quite astounding, as betti numbers are commonly seen as "counting the number of $i$-dimensional holes" in a space, but here we see that the $\ell^2$-betti numbers are not integers, but rational numbers. So, geometrically, what does it mean for a space to have "one third of a hole"? Let us investigate for the case $d=3$.
+Let us build some intuition before we proceed though. Consider the base space $X=S^1$, and a $d$ sheeted covering $\bar X_d$. The fundamental group of $X$ is $\Z$ and the fundamental group of $\bar X_d$ is $\Z/d\Z$. An early result in the study of $\ell^2$-Invariants is that for $d$-sheeted coverings $\bar X_d \to X$, the $\ell^2$-betti numbers of $\bar X_d$ are $b_i^{(2)}(\Z/d\Z\curvearrowright\bar X_d) = b_i(\bar X_d) / |\Z/d\Z| = b_i(\bar X_d) / d$. This is quite astounding, as betti numbers are commonly seen as "counting the number of $i$-dimensional holes" in a space, but here we see that the $\ell^2$-betti numbers are not integers, but rational numbers. So, geometrically, what does it mean for a space to have "one third of a hole"? Let us investigate for the case $d=3$.
 
 ```{python}
 # 3d plotly plot of a a circle and a 3-sheeted covering right next to it
@@ -31,24 +56,24 @@ import plotly.graph_objects as go
 import numpy as np
 # S^1
 def s1()->(np.ndarray, np.ndarray, np.ndarray):
-	theta = np.linspace(0, 2*np.pi, 100)
-	x = np.cos(theta)
-	y = np.sin(theta)
-	z = np.zeros(100)
-	return x, y, z
+    theta = np.linspace(0, 2*np.pi, 100)
+    x = np.cos(theta)
+    y = np.sin(theta)
+    z = np.zeros(100)
+    return x, y, z
 # 3-sheeted covering
 def covering(sheets: int, handlestart: float = 1/8, subsections=100):
-	theta = np.linspace(0, (sheets-handlestart)*2*np.pi, subsections)
-	x = np.cos(theta)
-	y = np.sin(theta)
-	z = theta/(2*np.pi)
-	# Add a small handle from (1,0,0) to (1,0,`sheets`) in a small bow.
-	# This handle is just here to show that this covering is still homeomorphic to S^1.
-	# The preimages of (1,0,0) therefor would still be a discrete set of `sheets` points, not a line.
-	x = np.append(x, ( lambda v : (1-v**6)/10 )(np.linspace(-1,1, subsections)) + np.cos(np.linspace((sheets-handlestart)*2*np.pi, sheets*2*np.pi, subsections)))
-	y = np.append(y, ( lambda v : (1-v**6)/10 )(np.linspace(-1,1, subsections)) + np.sin(np.linspace((sheets-handlestart)*2*np.pi, sheets*2*np.pi, subsections)))
-	z = np.append(z, ( lambda v : (1-np.arctan(10*v)/np.arctan(10))*(sheets-handlestart)/2 )( np.linspace(-1, 1, subsections) ))
-	return x,y,z
+    theta = np.linspace(0, (sheets-handlestart)*2*np.pi, subsections)
+    x = np.cos(theta)
+    y = np.sin(theta)
+    z = theta/(2*np.pi)
+    # Add a small handle from (1,0,0) to (1,0,`sheets`) in a small bow.
+    # This handle is just here to show that this covering is still homeomorphic to S^1.
+    # The preimages of (1,0,0) therefor would still be a discrete set of `sheets` points, not a line.
+    x = np.append(x, ( lambda v : (1-v**6)/10 )(np.linspace(-1,1, subsections)) + np.cos(np.linspace((sheets-handlestart)*2*np.pi, sheets*2*np.pi, subsections)))
+    y = np.append(y, ( lambda v : (1-v**6)/10 )(np.linspace(-1,1, subsections)) + np.sin(np.linspace((sheets-handlestart)*2*np.pi, sheets*2*np.pi, subsections)))
+    z = np.append(z, ( lambda v : (1-np.arctan(10*v)/np.arctan(10))*(sheets-handlestart)/2 )( np.linspace(-1, 1, subsections) ))
+    return x,y,z
 # draw the plot
 fig = go.Figure()
 fig.add_trace((lambda v: go.Scatter3d(x=v[0], y=v[1], z=v[2], mode='lines', name='S^1'))(s1()))
@@ -59,7 +84,7 @@ fig.show()
 It is clear, that the betti numbers of the circle $S^1$ are $b_0(S^1) = 1$ and $b_1(S^1) = 1$.
 The same is the case for any $n$-sheeted covering. In particular, we have $b_0(\bar X_3) = 1$ and $b_1(\bar X_3) = 1$. 
 When we take a look at the $\ell^2$-betti numbers, we must take into account the action of the __deck transformation group__[see @Hatcher.DeckTransform]
-$\text{Deck}(p) = \mathbb{Z}/3\mathbb{Z}$ on $\bar X_3$, where $p: \bar X_d \to X$ is the canonical projection.
+$\text{Deck}(p) = \Z/3\Z$ on $\bar X_3$, where $p: \bar X_d \to X$ is the canonical projection.
 
 ```{python}
 import plotly.express as px
@@ -68,74 +93,74 @@ import pandas as pd
 
 # Function to generate circle coordinates for a given t of rotation around the x-axis
 def get_frame(t):
-	x,y,z = covering(3)
-	x = (1-t)*x+t*x/np.hypot(x,y)
-	y = (1-t)*y+t*y/np.hypot(x,y)
-	z = z*(1-t)
-	return x, y, z
+    x,y,z = covering(3)
+    x = (1-t)*x+t*x/np.hypot(x,y)
+    y = (1-t)*y+t*y/np.hypot(x,y)
+    z = z*(1-t)
+    return x, y, z
 
 # Generate data for each frame
 ts = np.linspace(0, 1, 20)
 df = pd.DataFrame()
 
 for t in ts:
-	x, y, z = get_frame(t)
-	temp_df = pd.DataFrame({'x': x, 'y': y, 'z': z, 't': t})
-	df = pd.concat([df, temp_df])
+    x, y, z = get_frame(t)
+    temp_df = pd.DataFrame({'x': x, 'y': y, 'z': z, 't': t})
+    df = pd.concat([df, temp_df])
 
 # Initial plot using Plotly Express
 fig = px.line_3d(df, x='x', y='y', z='z', animation_frame='t')
 
 # Fixing the axis ranges
 fig.update_layout(
-	scene=dict(
-		xaxis=dict(range=[-1.3,1.3], autorange=False),
-		yaxis=dict(range=[-1.3,1.3], autorange=False),
-		zaxis=dict(range=[0,3], autorange=False),
-		aspectmode='cube',  # This ensures equal aspect ratio for all axes
-	),
-	title="Homotopy between id and p",
-	updatemenus=[{
-		"buttons": [
-			{
-				"args": [None, {"frame": {"duration": 50, "redraw": True}, "fromcurrent": True}],
-				"label": "Play",
-				"method": "animate"
-			},
-			{
-				"args": [[None], {"frame": {"duration": 0, "redraw": True}, "mode": "immediate", "transition": {"duration": 0}}],
-				"label": "Pause",
-				"method": "animate"
-			}
-		],
-		"direction": "left",
-		"pad": {"r": 10, "t": 87},
-		"showactive": False,
-		"type": "buttons",
-		"x": 0.1,
-		"xanchor": "right",
-		"y": 0,
-		"yanchor": "top"
-	}],
-	sliders=[{
-		"steps": [{"args": [[f"{t}"], {"frame": {"duration": 50, "redraw": True}, "mode": "immediate"}], 
-				   "label": f"{t}", "method": "animate"} for t in ts],
-	}]
+    scene=dict(
+        xaxis=dict(range=[-1.3,1.3], autorange=False),
+        yaxis=dict(range=[-1.3,1.3], autorange=False),
+        zaxis=dict(range=[0,3], autorange=False),
+        aspectmode='cube',  # This ensures equal aspect ratio for all axes
+    ),
+    title="Homotopy between id and p",
+    updatemenus=[{
+        "buttons": [
+            {
+                "args": [None, {"frame": {"duration": 50, "redraw": True}, "fromcurrent": True}],
+                "label": "Play",
+                "method": "animate"
+            },
+            {
+                "args": [[None], {"frame": {"duration": 0, "redraw": True}, "mode": "immediate", "transition": {"duration": 0}}],
+                "label": "Pause",
+                "method": "animate"
+            }
+        ],
+        "direction": "left",
+        "pad": {"r": 10, "t": 87},
+        "showactive": False,
+        "type": "buttons",
+        "x": 0.1,
+        "xanchor": "right",
+        "y": 0,
+        "yanchor": "top"
+    }],
+    sliders=[{
+        "steps": [{"args": [[f"{t}"], {"frame": {"duration": 50, "redraw": True}, "mode": "immediate"}], 
+                   "label": f"{t}", "method": "animate"} for t in ts],
+    }]
 )
 # Show figure
 fig.show()
 ```
 
-Maybe it is already somewhat obvious, that there is a canonical [group action](https://en.wikipedia.org/wiki/Group_action) from $\mathbb{Z}/3\mathbb{Z}$ on $\bar X_3$. This action, the deck transformation, permutes the three preimages of each point in $S^1$ using [Cayley's theorem](https://en.wikipedia.org/wiki/Cayley%27s_theorem). The result of applying the deck transformation to $\bar X_3$ therefore is a 3-sheeted covering of $S^1$ again and is an isomorphism of covering spaces from $\bar X_3$ to $\bar X_3$. As an example, let us consider some point $x$ on $\bar X_3$. $\text{Deck}(p) \cong \mathbb{Z}/3\mathbb{Z} \cong \langle g | g^3 = 0\rangle$ acts on $x$ by $g.x = x + 1$, if $x$ is not in the topmost sheet, otherwise it pushes $x$ down to the bottom sheet, assuming we embed $\bar X_3$ into $\mathbb{R}^3$ in the obvious way. In the following plot, we can see what happens to both a single point and the whole covering space under the action of the deck transformation. From left to right, we apply $g$ not at all, once and then twice.
+Maybe it is already somewhat obvious, that there is a canonical [group action](https://en.wikipedia.org/wiki/Group_action) from $\Z/3\Z$ on $\bar X_3$. This action, the deck transformation, permutes the three preimages of each point in $S^1$ using [Cayley's theorem](https://en.wikipedia.org/wiki/Cayley%27s_theorem). The result of applying the deck transformation to $\bar X_3$ therefore is a 3-sheeted covering of $S^1$ again and is an isomorphism of covering spaces from $\bar X_3$ to $\bar X_3$. As an example, let us consider some point $x$ on $\bar X_3$. $\text{Deck}(p) \cong \Z/3\Z \cong \langle g | g^3 = 0\rangle$ acts on $x$ by $g.x = x + 1$, if $x$ is not in the topmost sheet, otherwise it pushes $x$ down to the bottom sheet, assuming we embed $\bar X_3$ into $\R^3$ in the obvious way. In the following plot, we can see what happens to both a single point and the whole covering space under the action of the deck transformation. From left to right, we apply $g$ not at all, once and then twice.
 
 ```{python}
 from plotly.subplots import make_subplots
 # the individual point we want to track under the action of the deck transformation
 angle = np.pi*7/8
 point = ( 
-	np.cos(angle),
-	np.sin(angle),
-	angle/(2*np.pi)
+    np.cos(angle),
+    np.sin(angle),
+    angle/(2*np.pi)
  )
 # group action. Because Z/3Z is cyclic, we only need to define the generator
 g = lambda v: (v[0],v[1],v[2]+1 if v[2] < 2 else 0)
@@ -157,12 +182,12 @@ fig.add_trace(go.Scatter3d(x=[g(g(point))[0]], y=[g(g(point))[1]], z=[g(g(point)
 
 # legend
 fig.update_layout(
-	title="Group action of the cyclic group with three elements on our covering space",
+    title="Group action of the cyclic group with three elements on our covering space",
 )
 fig.show()
 ```
 
-It seems that $\ell^2$-betti numbers somehow measure "how much each symmetry contributes to the betti-number", but we still need to make this precise. In this example however, there are three symmetries, $b_1(X_3) = 1$ and $b_1(\mathbb{Z}/3\mathbb{Z}\curvearrowright X_3) = 1/3$, so our intuition kinda makes sense.
+It seems that $\ell^2$-betti numbers somehow measure "how much each symmetry contributes to the betti-number", but we still need to make this precise. In this example however, there are three symmetries, $b_1(X_3) = 1$ and $b_1(\Z/3\Z\curvearrowright X_3) = 1/3$, so our intuition kinda makes sense.
 
 ### Futher Motivation
 
@@ -174,25 +199,42 @@ One of the main goals in this lecture was for us to reach Lück's theorem:
 
 For clearance, the definition of a residual chain is as follows:
 
-> __Definition 1.1__: _A sequence $G=G_0 \ge G_1 \ge G_2 \ge \dots$ of subgroups of a group $G$ is called a __residual chain__ if for each $i\ge 0$ the index $[G:G_i]$ is finite and the intersection $\bigcap_{i\ge 0} G_i = \{1\}$_.
+::: {#def-residual-chain}
+_A sequence $G=G_0 \ge G_1 \ge G_2 \ge \dots$ of subgroups of a group $G$ is called a __residual chain__ if for each $i\ge 0$ the index $[G:G_i]$ is finite and the intersection $\bigcap_{i\ge 0} G_i = \{1\}$_.
+:::
 
-So a simple and fitting example of a residual chain would be the sequence $G_i = \mathbb{Z}/2^i\mathbb{Z}$ for $i\ge 1$ and $G_0 = \mathbb{Z}$ in the case of $G=\mathbb{Z}$, as we had before with $S^1$ and its universal covering space $\tilde X = \mathbb{R}$. By plugging in Lück's theorem, we get:
+So a simple and fitting example of a residual chain would be the sequence $G_i = \Z/2^i\Z$ for $i\ge 1$ and $G_0 = \Z$ in the case of $G=\Z$, as we had before with $S^1$ and its universal covering space $\tilde X = \R$. By plugging in Lück's theorem, we get:
 
 $$
 \begin{align*}
 & \lim_{i\to\infty} \frac{b_n^{(2)}(\bar X_i)}{[G:G_i]} &= b_n^{(2)}(G\curvearrowright \tilde X) \\
-\Leftrightarrow& \lim_{i\to\infty} \frac{b_n^{(2)}(\bar X_i)}{2^i} &= b_n^{(2)}(\mathbb{Z}\curvearrowright \mathbb{R}) \\
-\Leftrightarrow& \lim_{i\to\infty} \frac{\frac{1}{2^i}}{2^i} &= b_n^{(2)}(\mathbb{Z}\curvearrowright \mathbb{R}) \\
+\Leftrightarrow& \lim_{i\to\infty} \frac{b_n^{(2)}(\bar X_i)}{2^i} &= b_n^{(2)}(\Z\curvearrowright \R) \\
+\Leftrightarrow& \lim_{i\to\infty} \frac{\frac{1}{2^i}}{2^i} &= b_n^{(2)}(\Z\curvearrowright \R) \\
 \Leftrightarrow& 0
 \end{align*}
 $$
 
-In fact, we can generalize this to $b_n^{(2)}(\tilde { \mathbb{T}^k }) = 0$, where $\mathbb{T}^k$ is the $k$-dimensional torus and therefor $\tilde { \mathbb{T}^k } \cong \mathbb{R}^k$, which is in stark contrast to the usual betti numbers $b_n(\tilde { \mathbb{T}^k }) = \binom{k}{n}$.
+In fact, we can generalize this to $b_n^{(2)}(\tilde { \mathbb{T}^k }) = 0$, where $\mathbb{T}^k$ is the $k$-dimensional torus and therefor $\tilde { \mathbb{T}^k } \cong \R^k$, which is in stark contrast to the usual betti numbers $b_n(\tilde { \mathbb{T}^k }) = \binom{k}{n}$.
 
-## Construction of $\ell^2$-Cell Complexes
+## Constructing The $\ell^2$-Completion Of Cellular Chain Complexes
 
+Instead of talking only about coverings of CW-complexes, we will now talk about general CW-complexes, which come equipped with a special kind of group action. We will call these $G$-CW-complexes. The definition of a $G$-CW-complex is as follows:
 
+:::{#def-G-CW-complex}
+_A $G$-CW-complex is a CW-complex $X$ together with an action by a discrete group $G$ such that each open cell $E$ of $X$ is mapped to another open cell $gE$ by the action of $g\in G$. If $gE\cap E \neq \emptyset$, then $g$ must fix $E$ pointwise._
+:::
 
-[^1]: The course was held by [Jun.-Prof. Dr. Holger Kammeyer](https://www.math.uni-duesseldorf.de/~kammeyer/).
-[^2]: Allen Hatcher, "Algebraic Topology", Cambridge University Press, 2002. [Link to the book](https://pi.math.cornell.edu/~hatcher/AT/ATpage.html)
-[^2]: Allen Hatcher, "Algebraic Topology", Cambridge University Press, 2002. [Link to the book](https://pi.math.cornell.edu/~hatcher/AT/ATpage.html)
+This is a generalisation of the observations we made earlier, as the deck transformation group $\text{Deck}(p)$ is a discrete group and the action of $\text{Deck}(p)$ on $\bar X_d$ is a $G$-action which satisfies the conditions of the definition.
+
+By this definition, we know that open $i$-cells of any $G$-CW-complex $X$ are mapped onto open $i$-cells. Let us recall that a [CW-complex](https://en.wikipedia.org/wiki/CW_complex) by definition allows for a filtration into $i$-skeletons $\emptyset = X_{-1} \subseteq X_0 \subseteq X_1 \subseteq \dots \subseteq X_n = X$, where each $X_i$ is obtained by attaching $i$-cells to $X_{i-1}$. Let us also recall the definition of $\TopTwo$:
+
+> ![Definition of $\TopTwo$](2024-02-10-18-41-35.png)
+> Definition of $\TopTwo$ from [@IntroToAlgTop]
+
+Because each CW complex also is a topological space and by the inclusion of the $( i-1 )$-skeletons into the $i$-skeletons, we can define the cellular chain complex $C_*(X)$ of a $G$-CW-complex $X$ as $C_i(X) = H_i(X_i, X_{i-1})$. This construction is similar to how one defines cellular homology for CW-complexes[see @IntroToAlgTop, Definition 6.21] and the idea here is that we use the fact that $X_{i-1} \to X_i$ is a cofibration to get an isomorphism between $H_i(X_i, X_{i-1})$ and $H_i(X_i/X_{i-1}, X_{i-1}/X_{i-1}) \cong \tilde H_i(X_i/X_{i-1})$ [see @IntroToAlgTop, Proposition 5.6]. In pictures, we can think of $C_i(X)$ as counting the number of $i$-dimensional holes in $X_i$, after we collapse the $(i-1)$-skeleton to a point as is illustrated in @fig-cellular-chain-torus with a torus.
+
+![Construction of $C_2(\mathbb{T})$ given $\mathbb{T}$ as a CW-complex with four 2-cells, eight 1-cells and four 0-cells.](./chain_complex.png){#fig-cellular-chain-torus}
+
+Notice that for each $g\in G$ we have a homeomorphism in $\TopTwo$: $g: (X_i, X_{i-1}) \xrightarrow{\sim} (X_i, X_{i-1})$. This self-homomorphism induces an automorphism on the homology group $H_i(X_i, X_{i-1})$, because by @def-G-CW-complex the action of $g$ on $X_i$ is cellular, meaning $g$ sends each $i$-cell to exactly one other $i$-cell or itself. This means, that we can apply each $g$ to some cell $i$-cells $c_i$ and the result will again be in $C_i(X)$. Furthermore, by construction $C_i(X)$ is an abelian group and as such it is a $\Z$-module. Pairing this with the group action, we have that $C_i(X)$ is a left $\Z G$-module, where $\Z G$ is the [group ring](https://en.wikipedia.org/wiki/Group_ring) of $G$ over $\Z$. This means, for any $c$ in $C_i(X)$, we can define $\left(\sum_g \lambda_g g\right).c \in C_i(X)$ for $\lambda_g\in\Z$ and $g\in G$.
+
+Implicitly, we made a choice in our construction. When we choose a specific filtration of $X$ into $i$-skeletons, we also choose a specific cellular chain complex $C_*(X)$.
