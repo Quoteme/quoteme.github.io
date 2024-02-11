@@ -5,6 +5,9 @@ date: "2024-02-04"
 date-modified: "2024-02-05"
 categories: ["mathematics", "topology", "algebra", "group theory", "ring theory", "measure theory", "functional analysis", "differential geometry", "differential topology", "algebraic topology"]
 bibliography: references.bib
+filters:
+   - lightbox
+lightbox: auto
 format:
     html:
         code-fold: true
@@ -33,6 +36,11 @@ $$
 \newcommand{\ZZ}{%
     \ooalign{Z\cr\hidewidth\raisebox{-0.5ex}{Z}\hidewidth\cr}%
 }
+% specific for this document
+\newcommand{\cellOne}{\textcolor{green}{1}}
+\newcommand{\cellTwo}{\textcolor{red}{2}}
+\newcommand{\cellThree}{\textcolor{brown}{3}}
+\newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
 $$
 :::
 
@@ -237,4 +245,36 @@ Because each CW complex also is a topological space and by the inclusion of the 
 
 Notice that for each $g\in G$ we have a homeomorphism in $\TopTwo$: $g: (X_i, X_{i-1}) \xrightarrow{\sim} (X_i, X_{i-1})$. This self-homomorphism induces an automorphism on the homology group $H_i(X_i, X_{i-1})$, because by @def-G-CW-complex the action of $g$ on $X_i$ is cellular, meaning $g$ sends each $i$-cell to exactly one other $i$-cell or itself. This means, that we can apply each $g$ to some cell $i$-cells $c_i$ and the result will again be in $C_i(X)$. Furthermore, by construction $C_i(X)$ is an abelian group and as such it is a $\Z$-module. Pairing this with the group action, we have that $C_i(X)$ is a left $\Z G$-module, where $\Z G$ is the [group ring](https://en.wikipedia.org/wiki/Group_ring) of $G$ over $\Z$. This means, for any $c$ in $C_i(X)$, we can define $\left(\sum_g \lambda_g g\right).c \in C_i(X)$ for $\lambda_g\in\Z$ and $g\in G$.
 
-Implicitly, we made a choice in our construction. When we choose a specific filtration of $X$ into $i$-skeletons, we also choose a specific cellular chain complex $C_*(X)$.
+### Independence of the Choice of Filtration
+
+Implicitly, we made a choice in our construction. When we chose a specific filtration of $X$ into $i$-skeletons, we also chose a specific cellular chain complex $C_*(X)$. Here comes our group action into play. In @fig-cellular-chain-torus as an example we may chose $G = C_2$ to be the cyclic group with two elements and the action of $C_2$ on $\mathbb{T}$ to be the permutation of the green cell with the brown cell and the red cell with the yellow cell. Esentially $C_2$ acts by mirroring the $x$-axis as seen in @fig-cellular-chain-torus-g-action.
+
+![The action of $C_2$ on $\mathbb{T}$](./chain_complex_g-action.png){#fig-cellular-chain-torus-g-action}
+
+This gives us the following pushout diagram as in Theorem 3.2 [see @IntroToEll2Inv]:
+
+$$
+\begin{CD}
+\coprod_{i\in I_n} G/H_i \times S^{n-1} @>q_n>> X_{n-1} \\
+@Vi_nVV @Vj_nVV\\
+\coprod_{i\in I_n} G/H_i \times D^n @>Q_n>> X_n
+\end{CD}
+$$
+
+This pushout diagram just tells us that the torus is constructed by attaching $G$-equivant cells. Here $q_n$ is the map, that attaches the boundary of $n$-disks to our $(n-1)$-Skeleton. $i_n$ and $j_n$ are the respective inclusion maps. $Q_n$ is the attachment map determining how the $n$-cells are glued into the $n$-skeleton. Let us understand what $I_n$ and $H_i$ are next. For that, we first label all our $n$ cells. In this example, we only really care for the $n=2$ case, so let us do that.
+
+![Labeling of the 2-cells of the torus](./chain_complex_two-cells_labeled.png){#fig-labeling-torus}
+
+Labeling each $n$-cell gives us an index set $J_n := \{\cellOne, \cellTwo, \cellThree, \cellFour\}$. By cayleys theorem, we know that $G$ is isomorphic to a subgroup of the symmetric group $S_4$ and as such permutes the index set $J_n$, which means we can take a look at the orbit set $I_n := G\backslash J_n = \{\{\cellOne,\cellThree\}, \{\cellTwo,\cellFour\}\}$. Well, why would we even want to look at this orbit set? The answer is, that this reduces the number of unique $n$-cells by taking into account, that we can access all $n$-cells in the same orbit just by applying our group action!
+
+![The action of $C_2 = \langle g \rangle$ on the 2-cells of the torus](./chain_complex_g-action_orbits.png){group="torus_orbits"}
+
+![Representative of the orbit $\{\cellOne,\cellThree\}$.](./chain_complex_orbits_represetatives_1.png){group="torus_orbits"}
+
+![Representative of the orbit $\{\cellTwo,\cellFour\}$.](./chain_complex_orbits_represetatives_2.png){group="torus_orbits"}
+
+How can we reconstruct our space from this information now? Well, each of the representatives is just a copy of $D^2$, a $n$-disk. If we were to multiply this by $G$, then we might end up with too many $n$-disks. If, for example, we would have chosen $G=V_4=\langle r, s\rangle$ to be the Klein four group, and we would let $\langle r \rangle \cong C_2$ act just as before and $\langle s\rangle$ trivially, then by $V_4 \cellTwo = \{\cellTwo, \cellFour\}$, but $V_4 \times D^2 \cong \coprod^4 D^2$ and we would end up with four $2$-disks instead of the two we would have hoped for. To avoid this, we need to take the quotient of $G$ acting on $D^2$ by the stabilizer $H_k$ of a representative of the orbit $k$. In our example with $V_4$, we have $H_{\{\cellOne, \cellThree\}} = H_{\{\cellTwo, \cellFour\}} = \langle s\rangle$ and therefor $V_4/H_{\{\cellOne, \cellThree\}} \times D^2 \cong \coprod^2 D^2 \cong D^2$. This is the reason, why we have the orbit set $I_n$ and the stabilizer groups $H_i$ in our pushout diagram.
+
+So, we really only need one one $n$-cell for each $G$-orbit. If we were to do that, we will end up with a _cellular basis_ of our $G$-CW complex. In our example with $G=C_2$, this would be the case if we were to only have two $2$-cells: $\cellOne\cup\cellTwo$ and $\cellThree\cup\cellFour$. This yields a $\Z G$-isomorphism $\bigoplus_{i\in I_n} \Z(G/H_i) \cong C_*(X)$ [see @IntroToEll2Inv, Proposition 3.6].
+
+### The $\ell^2$-Completion
