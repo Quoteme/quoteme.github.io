@@ -4,6 +4,7 @@ author: "Luca Leon Happel"
 date: "2020-11-26"
 categories: ["math", "algebra", "voxels", "games"]
 image: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Voxels.svg"
+draft: true
 ---
 
 ### Introduction

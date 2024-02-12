@@ -22,6 +22,7 @@ $$
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\ZZ}{\ooalign{Z\cr\hidewidth\kern0.1em\raisebox{-0.5ex}{Z}\hidewidth\cr}}
+\newcommand{\colim}{\text{colim}}
 \newcommand{\weaktopo}{\tau_\text{weak}}
 \newcommand{\strongtopo}{\tau_\text{strong}}
 \newcommand{\normtopo}{\tau_\text{norm}}
@@ -30,6 +31,7 @@ $$
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\orange}[1]{\textcolor{orange}{#1}}
 \newcommand{\id}{\text{id}}
+\newcommand{\im}{\text{im}\>}
 \newcommand{\res}{\text{res}}
 \newcommand{\TopTwo}{\underline{\text{Top}^{(2)}}}
 \newcommand{\CW}[1]{\underline{#1\text{-CW}}}
@@ -265,7 +267,7 @@ This pushout diagram just tells us that the torus is constructed by attaching $G
 
 ![Labeling of the 2-cells of the torus](./chain_complex_two-cells_labeled.png){#fig-labeling-torus}
 
-Labeling each $n$-cell gives us an index set $J_n := \{\cellOne, \cellTwo, \cellThree, \cellFour\}$. By cayleys theorem, we know that $G$ is isomorphic to a subgroup of the symmetric group $S_4$ and as such permutes the index set $J_n$, which means we can take a look at the orbit set $I_n := G\backslash J_n = \{\{\cellOne,\cellThree\}, \{\cellTwo,\cellFour\}\}$. Well, why would we even want to look at this orbit set? The answer is, that this reduces the number of unique $n$-cells by taking into account, that we can access all $n$-cells in the same orbit just by applying our group action!
+Labeling each $n$-cell gives us an index set $J_n := \{\cellOne, \cellTwo, \cellThree, \cellFour\}$. By cayleys theorem, we know that $G$ is isomorphic to a subgroup of the symmetric group $S_4$ and as such permutes the index set $J_n$, which means we can take a look at the orbit set $I_n := G\backslash J_n = \{\cellOne,\cellThree\}, \{\cellTwo,\cellFour\}$. Well, why would we even want to look at this orbit set? The answer is, that this reduces the number of unique $n$-cells by taking into account, that we can access all $n$-cells in the same orbit just by applying our group action!
 
 ![The action of $C_2 = \langle g \rangle$ on the 2-cells of the torus](./chain_complex_g-action_orbits.png){group="torus_orbits"}
 
@@ -273,8 +275,26 @@ Labeling each $n$-cell gives us an index set $J_n := \{\cellOne, \cellTwo, \cell
 
 ![Representative of the orbit $\{\cellTwo,\cellFour\}$.](./chain_complex_orbits_represetatives_2.png){group="torus_orbits"}
 
-How can we reconstruct our space from this information now? Well, each of the representatives is just a copy of $D^2$, a $n$-disk. If we were to multiply this by $G$, then we might end up with too many $n$-disks. If, for example, we would have chosen $G=V_4=\langle r, s\rangle$ to be the Klein four group, and we would let $\langle r \rangle \cong C_2$ act just as before and $\langle s\rangle$ trivially, then by $V_4 \cellTwo = \{\cellTwo, \cellFour\}$, but $V_4 \times D^2 \cong \coprod^4 D^2$ and we would end up with four $2$-disks instead of the two we would have hoped for. To avoid this, we need to take the quotient of $G$ acting on $D^2$ by the stabilizer $H_k$ of a representative of the orbit $k$. In our example with $V_4$, we have $H_{\{\cellOne, \cellThree\}} = H_{\{\cellTwo, \cellFour\}} = \langle s\rangle$ and therefor $V_4/H_{\{\cellOne, \cellThree\}} \times D^2 \cong \coprod^2 D^2 \cong D^2$. This is the reason, why we have the orbit set $I_n$ and the stabilizer groups $H_i$ in our pushout diagram.
+How can we reconstruct our space from this information now? Well, each of the representatives is just a copy of $D^2$, a $n$-disk. If we were to multiply this by $G$, then we might end up with too many $n$-disks. If, for example, we would have chosen $G=V_4=\langle r, s\rangle$ to be the Klein four group, and we would let $\langle r \rangle \cong C_2$ act just as before and $\langle s\rangle$ trivially, then by $V_4 \cellTwo = \{\cellTwo, \cellFour\}$, but $V_4 \times D^2 \cong \coprod^4 D^2$ and we would end up with four $2$-disks instead of the two we would have hoped for. To avoid this, we need to take the quotient of $G$ acting on $D^2$ by the stabilizer $H_k$ of a representative of the orbit $k$. In our example with $V_4$, we have $H_{\{\cellOne, \cellThree\}} = H_{\{\cellTwo, \cellFour\}} = \langle s\rangle$ and therefor $V_4/H_{\{\cellOne, \cellThree\}} \times D^2 \cong \coprod^2 D^2$. This is the reason, why we have the orbit set $I_n$ and the stabilizer groups $H_i$ in our pushout diagram.
 
 So, we really only need one one $n$-cell for each $G$-orbit. If we were to do that, we will end up with a _cellular basis_ of our $G$-CW complex. In our example with $G=C_2$, this would be the case if we were to only have two $2$-cells: $\cellOne\cup\cellTwo$ and $\cellThree\cup\cellFour$. This yields a $\Z G$-isomorphism $\bigoplus_{i\in I_n} \Z(G/H_i) \cong C_*(X)$ [see @IntroToEll2Inv, Proposition 3.6].
 
 ### The $\ell^2$-Completion
+
+Finally we can take a look at the $\ell^2$-chain completion of $C_*(X)$, which is defined as $\ell^2 G \otimes_{\Z G} C_*(X)$. The $\ell^2$-completion of a $\Z G$-module $M$ is defined as $\ell^2G \otimes_{\Z G} M$, which is functorial and extends itself to the $\ell^2$-chain completion of a $G$-CW complex $X$. Here, it is important that $C_*$ is functorial also, and as such $\ell^2 G \otimes_{\Z G} C_*(X)$ is functorial as well. This in turn is important, because it means, that the differentials $d_*^{(2)}$ are given as $\id \otimes d_*$.
+
+## Applications
+
+Let us now take a look at some applications of the $\ell^2$-completion of cellular chain complexes. We will start with the $\ell^2$-homology groups and the $\ell^2$-betti numbers of $S^\infty := \colim_n S^n$ with the group $G:=\prod_{n=0}^\infty \Z/2\Z$ acting on it. It can easily be seen that $S^\infty$ is a $G$-CW complex, where $g = (g_1, g_2, \dots ) \in G$ acts on $S^\infty$ by letting $g_i\in \Z/2\Z$ permute the two $i$-cells.
+
+![$\colim_n S^n$. Here it is easy to see how $G$ acts on $S^\infty$](./s_infty.png){#fig-colim-Sn}
+
+By following the familiar pattern of defining homology using our differentials, we can define $\ell^2$-homology the same way:
+
+$$
+H_n^{(2)}(G\curvearrowright S^\infty) := \ker d_n^{(2)} / \im d_{n+1}^{(2)}
+$$
+
+We wish to use proposition 3.6 [see @IntroToEll2Inv] to calculate the $\ell^2$-homology groups of $S^\infty$. For that, we need to find a cellular basis of $S^\infty$. We can do that by taking a look at the orbit set $I_n = G\backslash J_n$ and the stabilizer groups $H_i$. In this case, we have $J_n = \{\{\cellOne_n, \cellTwo_n\}\}$ and $I_n = \{\{\cellOne_n, \cellTwo_n\}\}$, where $\cellOne_n$ and $\cellTwo_n$ are the two $n$-cells of $S^\infty$. For each $n$, we therefor only have one orbit. This also tells us what our stabilizer groups are: $H_{\{\cellOne_n, \cellTwo_n\}} = \prod_{k=1}^{n-1} \Z / 2\Z \times \{e\} \times \prod_{k=n+1}^\infty \Z / 2\Z$.
+
+By proposition 3.6, we now have $C_n(S^\infty) \cong \bigoplus_{i\in I_n} \Z(G/H_i) = \Z ( \prod_{k=1}^\infty ( \Z / 2\Z ) / ( \prod_{k=1}^{n-1} \Z / 2\Z \times \{e\} \times \prod_{k=n+1}^\infty \Z / 2\Z ) ) \cong \Z(\Z / 2\Z )$. Now, we only need to calculate the $\ell^2$-completion by taking the tensor product with $\ell^2 G$. We thus get by proposition 3.7 [see @IntroToEll2Inv] that $\ell^2 G \otimes_{\Z G} C_n(S^\infty) \cong \ell^2 G \otimes_{\Z G} \Z(\Z / 2\Z ) \cong \ell^2(\Z / 2\Z ) \cong \C[\iota]/(\iota^2-1)$. The differentials $d_n^{(2)}$ are given as $\id \otimes d_n$. For $n>0$ we know, that $d_n$ cannot be surjective, because $d_n(\cellOne_n)$ must be one of $\pm\cellOne_{n-1}+\cellTwo_{n-1}$ or $\pm\cellOne_{n-1}-\cellTwo_{n-1}$ and the same holds for $d_n(\cellTwo_n)$. No matter which of these options holds for $\cellOne_n$ and $\cellTwo_n$, we have that $\cellOne_{n-1}, \cellTwo_{n-1} \notin \im d_n$.
