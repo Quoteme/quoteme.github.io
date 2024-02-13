@@ -6,6 +6,7 @@ website:
   favicon: "favicon.png"
   description: "Personal website of {{< var profile.name >}}, including lots of math and computer science."
   open-graph: true
+  google-analytics: "G-LEVM9WYR7J"
   
   navbar:
     right:
