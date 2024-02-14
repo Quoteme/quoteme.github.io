@@ -30,6 +30,7 @@ $$
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\orange}[1]{\textcolor{orange}{#1}}
+\newcommand{\tr}{\text{tr}}
 \newcommand{\id}{\text{id}}
 \newcommand{\im}{\text{im}\>}
 \newcommand{\res}{\text{res}}
@@ -295,6 +296,176 @@ $$
 H_n^{(2)}(G\curvearrowright S^\infty) := \ker d_n^{(2)} / \im d_{n+1}^{(2)}
 $$
 
-We wish to use proposition 3.6 [see @IntroToEll2Inv] to calculate the $\ell^2$-homology groups of $S^\infty$. For that, we need to find a cellular basis of $S^\infty$. We can do that by taking a look at the orbit set $I_n = G\backslash J_n$ and the stabilizer groups $H_i$. In this case, we have $J_n = \{\{\cellOne_n, \cellTwo_n\}\}$ and $I_n = \{\{\cellOne_n, \cellTwo_n\}\}$, where $\cellOne_n$ and $\cellTwo_n$ are the two $n$-cells of $S^\infty$. For each $n$, we therefor only have one orbit. This also tells us what our stabilizer groups are: $H_{\{\cellOne_n, \cellTwo_n\}} = \prod_{k=1}^{n-1} \Z / 2\Z \times \{e\} \times \prod_{k=n+1}^\infty \Z / 2\Z$.
+We wish to use proposition 3.6 [see @IntroToEll2Inv] to calculate the $\ell^2$-homology groups of $S^\infty$. For that, we need to find a cellular basis of $S^\infty$. We can do that by taking a look at the orbit set $I_n = G\backslash J_n$ and the stabilizer groups $H_i$. In this case, we have $J_n = \{\cellOne_n, \cellTwo_n\}$ and $I_n = \{\{\cellOne_n, \cellTwo_n\}\}$, where $\cellOne_n$ and $\cellTwo_n$ are the two $n$-cells of $S^\infty$. For each $n$, we therefor only have one orbit. This also tells us what our stabilizer groups are: $H_{\{\cellOne_n, \cellTwo_n\}} = \prod_{k=1}^{n-1} \Z / 2\Z \times \{e\} \times \prod_{k=n+1}^\infty \Z / 2\Z$. One can see this visually quite well: We mirror the $n$-th basis vector of $\R^\infty$ using the $n$-th component of $G$ and leave the other components untouched. Now, we have two $n$-cells for each basis vector and these are permuted exactly by the $n$-th component of $G$. All other components of $G$ leave the $n$-th basis vector untouched and therefor also the $n$-th $n$-cell. Thus, the stabilizer group of $G$ that leaves the $n$-cells untouched is exactly the subgroup of $G$ that leaves the $n$-th basis vector untouched.
 
-By proposition 3.6, we now have $C_n(S^\infty) \cong \bigoplus_{i\in I_n} \Z(G/H_i) = \Z ( \prod_{k=1}^\infty ( \Z / 2\Z ) / ( \prod_{k=1}^{n-1} \Z / 2\Z \times \{e\} \times \prod_{k=n+1}^\infty \Z / 2\Z ) ) \cong \Z(\Z / 2\Z )$. Now, we only need to calculate the $\ell^2$-completion by taking the tensor product with $\ell^2 G$. We thus get by proposition 3.7 [see @IntroToEll2Inv] that $\ell^2 G \otimes_{\Z G} C_n(S^\infty) \cong \ell^2 G \otimes_{\Z G} \Z(\Z / 2\Z ) \cong \ell^2(\Z / 2\Z ) \cong \C[\iota]/(\iota^2-1)$. The differentials $d_n^{(2)}$ are given as $\id \otimes d_n$. For $n>0$ we know, that $d_n$ cannot be surjective, because $d_n(\cellOne_n)$ must be one of $\pm\cellOne_{n-1}+\cellTwo_{n-1}$ or $\pm\cellOne_{n-1}-\cellTwo_{n-1}$ and the same holds for $d_n(\cellTwo_n)$. No matter which of these options holds for $\cellOne_n$ and $\cellTwo_n$, we have that $\cellOne_{n-1}, \cellTwo_{n-1} \notin \im d_n$.
+By proposition 3.6, we now have $C_n(S^\infty) \cong \bigoplus_{i\in I_n} \Z(G/H_i) = \Z ( \prod_{k=1}^\infty ( \Z / 2\Z ) / ( \prod_{k=1}^{n-1} \Z / 2\Z \times \{e\} \times \prod_{k=n+1}^\infty \Z / 2\Z ) ) \cong \Z(\Z / 2\Z )$. Now, we only need to calculate the $\ell^2$-completion by taking the tensor product with $\ell^2 G$. We thus get by proposition 3.7 [see @IntroToEll2Inv] that $\ell^2 G \otimes_{\Z G} C_n(S^\infty) \cong \ell^2 G \otimes_{\Z G} \Z(\Z / 2\Z ) \cong \ell^2(\Z / 2\Z ) \cong \C[\iota]/(\iota^2-1)$. The differentials $d_n^{(2)}$ are given as $\id \otimes d_n$. For $n>0$ we know, that $d_n$ cannot be surjective, because $d_n(\cellOne_n)$ must be one of $\pm\cellOne_{n-1}+\cellTwo_{n-1}$ or $\pm\cellOne_{n-1}-\cellTwo_{n-1}$ and the same holds for $d_n(\cellTwo_n)$. No matter which of these options holds for $\cellOne_n$ and $\cellTwo_n$, we have that $\cellOne_{n-1}, \cellTwo_{n-1} \notin \im d_n$. For the sake of convenience, we may choose the CW structure of $S^\infty$ such that $d_n(\cellOne_n) = d_n(\cellTwo_n) = -\cellOne_{n-1}+\cellTwo_{n-1}$ for $n\ge 1$. 
+
+```{python}
+import plotly.graph_objects as go
+
+def get_frame_line1(t):
+    t = t if t <= 1 else 1
+    t = t if t >= 0 else 0
+    x = -np.sin(np.linspace(-np.pi,t*np.pi-np.pi,100))
+    y = 0*np.linspace(-np.pi,t*np.pi-np.pi,100)
+    z = np.cos(np.linspace(-np.pi,t*np.pi-np.pi,100))
+    return x, y, z
+
+def get_frame_line2(t):
+    t = t if t <= 1 else 1
+    t = t if t >= 0 else 0
+    x = np.sin(np.linspace(-np.pi,t*np.pi-np.pi,100))
+    y = 0*np.linspace(-np.pi,t*np.pi-np.pi,100)
+    z = np.cos(np.linspace(-np.pi,t*np.pi-np.pi,100))
+    return x, y, z
+
+def get_frame_surface1(t):
+    t = t if t <= 1 else 1
+    t = t if t >= 0 else 0
+    if t == 0:
+        x = 0*np.linspace(-1, 1, 100)
+        z = 0*np.linspace(-1, 1, 100)
+        x, z = np.meshgrid(x, z)
+        y = 0 * x
+        return x, y, z
+    # slice of a disk that slowly increases its angle
+    # kinda like a pizza slice
+    # top is (0,0,1), bottom is (0,0,0)
+    # grows along the surface spanned by (1,0,0) and (0,0,1)
+
+    # Define the radial and angular grids
+    theta = np.linspace(-t*np.pi*2 -np.pi/2, -np.pi/2, 100)
+    phi = np.linspace(0, np.pi / 2, 100)
+    theta, phi = np.meshgrid(theta, phi)
+
+    # Spherical to Cartesian coordinates conversion
+    x = np.sin(phi) * np.cos(theta)
+    y = np.cos(phi)
+    z = np.sin(phi) * np.sin(theta)
+    return x, y, z
+
+
+def get_frame_surface2(t):
+    x,y,z = get_frame_surface1(t)
+    y = -y
+    return x,y,z
+
+# Generate data for each frame
+ts = np.linspace(0, 1, 100)
+line_df = pd.DataFrame()
+surface_df = pd.DataFrame()
+
+for t in ts:
+    x1, y1, z1 = get_frame_line1(2*t)
+    x2, y2, z2 = get_frame_line2(2*t)
+    x3, y3, z3 = get_frame_surface1(4*(t-0.5))
+    x4, y4, z4 = get_frame_surface2(4*(t-0.75))
+
+    temp_line_df = pd.DataFrame({
+        'x1': x1, 'y1': y1, 'z1': z1,
+        'x2': x2, 'y2': y2, 'z2': z2,
+        't': t})
+    line_df = pd.concat([line_df, temp_line_df])
+
+    temp_surface_df = pd.DataFrame({
+        'x3': x3.flatten(), 'y3': y3.flatten(), 'z3': z3.flatten(),
+        'x4': x4.flatten(), 'y4': y4.flatten(), 'z4': z4.flatten(),
+        't': [t] * 10000})  # 10000 = 100x100
+    surface_df = pd.concat([surface_df, temp_surface_df])
+
+frames = []
+for t in ts:
+    line_row = line_df[line_df['t'] == t]
+    surface_row = surface_df[surface_df['t'] == t]
+    frames.append(go.Frame(
+        data=[
+            go.Scatter3d(x=line_row['x1'], y=line_row['y1'], z=line_row['z1'], mode='lines', line=dict(color='green', width=2)),
+            go.Scatter3d(x=line_row['x2'], y=line_row['y2'], z=line_row['z2'], mode='lines', line=dict(color='red', width=2)),
+            go.Surface(x=surface_row['x3'].values.reshape(100, 100), y=surface_row['y3'].values.reshape(100, 100), z=surface_row['z3'].values.reshape(100, 100), colorscale='reds', showscale=False),
+            go.Surface(x=surface_row['x4'].values.reshape(100, 100), y=surface_row['y4'].values.reshape(100, 100), z=surface_row['z4'].values.reshape(100, 100), colorscale='greens', showscale=False)
+        ],
+        name=str(t)
+    ))
+
+# Create a figure using plotly.graph_objects
+fig = go.Figure(
+    layout=go.Layout(
+        updatemenus=[dict(
+            type="buttons",
+            buttons=[dict(label="Play",
+                          method="animate",
+                          args=[None, {"frame": {"duration": 75, "redraw": True},
+                                       "fromcurrent": True}]),
+                    dict(label="Pause",
+                         method="animate",
+                         args=[[None], {"frame": {"duration": 0, "redraw": False},
+                                        "mode": "immediate",
+                                        "transition": {"duration": 0}}])],
+            
+        )],
+        sliders=[
+            dict(
+                active=0,
+                steps=[dict(method="animate",
+                            args=[[f"{t}"], {"frame": {"duration": 75, "redraw": True},
+                                             "mode": "immediate",
+                                             "transition": {"duration": 0}}]) for t in ts]
+            )
+        ]
+    ),
+    frames=frames
+)
+
+# Add initial data
+fig.add_trace(go.Scatter3d(
+    x=line_df['x1'].iloc[0:100], y=line_df['y1'].iloc[0:100], z=line_df['z1'].iloc[0:100],
+    mode='lines', line=dict(color='green', width=2)))
+fig.add_trace(go.Scatter3d(
+    x=line_df['x2'].iloc[0:100], y=line_df['y2'].iloc[0:100], z=line_df['z2'].iloc[0:100],
+    mode='lines', line=dict(color='red', width=2)))
+# surface plots
+fig.add_trace(go.Surface(
+    x=surface_df['x3'].iloc[0:10000].values.reshape(100, 100),
+    y=surface_df['y3'].iloc[0:10000].values.reshape(100, 100),
+    z=surface_df['z3'].iloc[0:10000].values.reshape(100, 100),
+    colorscale='reds', showscale=False))
+fig.add_trace(go.Surface(
+    x=surface_df['x4'].iloc[0:10000].values.reshape(100, 100),
+    y=surface_df['y4'].iloc[0:10000].values.reshape(100, 100),
+    z=surface_df['z4'].iloc[0:10000].values.reshape(100, 100),
+    colorscale='greens', showscale=False))
+
+# Layout configuration
+fig.update_layout(
+    scene=dict(
+        xaxis=dict(range=[-1, 1], autorange=False),
+        yaxis=dict(range=[-1, 1], autorange=False),
+        zaxis=dict(range=[-1, 1], autorange=False),
+    ),
+    title_text="Attachment maps for the 1 and 2 cells",
+)
+
+# Show the figure
+fig.show()
+```
+
+We can now calculate $H_0^{(2)}(G\curvearrowright S^\infty) = \ker d_0^{(2)} / \im d_1^{(2)}$. We know that $\ker d_0^{(2)} = \{\cellOne_0, \cellTwo_0\}$, because $d_0^{(2)}(\cellOne_0) = d_0^{(2)}(\cellTwo_0) = 0$. For $n\ge 1$ we have seen that $d_n(\cellOne_n) = d_n(\cellTwo_n) = -\cellOne_{n-1}+\cellTwo_{n-1}$ and as such $\ker d_0^{(2)} / \im d_1^{(2)} \cong \C[\iota]/(\iota^2-1)$. For $n\ge 1$ we can see that $H_n^{(2)}(G\curvearrowright S^\infty) = 0$.
+
+Finally, we can calculate the $\ell^2$-Betti numbers:
+
+$$
+\begin{align*}
+b_n^{(2)}(G\curvearrowright S^\infty) 
+&= \dim_{\mathcal{R}G} H_n^{(2)}(G\curvearrowright S^\infty) \\
+&= \tr_{\mathcal{R}G} \left( \id_{H_n^{(2)}(G\curvearrowright S^\infty)} \right) \\
+&= \begin{cases} 
+    2 & \text{if } n=0 \\
+    0 & \text{if } n\ge 1 
+\end{cases}
+&= \begin{cases} 2 & \text{if } n=0 \\ 0 & \text{if } n\ge 1 \end{cases}
+\end{align*}
+$$
+
+Here $\mathcal{R}(G)$ denotes the _group von Neumann algebra_, which is the weak closure of the unital $*$-subalgebra $\rho(\C G)\subset B(\ell^2 G)$, where $\rho: \C G \to B(\ell^2 G)$ is the right regular representation of $\C G$ on $\ell^2 G$, given by $\rho : \C G \to B(\ell^2 G), \> \rho(h)g = gh$. The trace $\tr_{\mathcal{R}G}$ is the unique trace on $\mathcal{R}(G)$ that is invariant under the action of $G$ defined by $\tr_{\mathcal{R}(G)}: \mathcal{R}(G) \to \C, \> T\mapsto \langle e, T e\rangle$. Furthermore, $B(\ell^2 G)$ is the space of bounded operators on $\ell^2 G$.
+
+From this, we can simply calculate that $b_n^{(2)}(G\curvearrowright S^\infty) = \tr_{\mathcal{R}G} \left( \id_{H_n^{(2)}(G\curvearrowright S^\infty)} \right) = \langle e,  \id_{H_n^{(2)}(G\curvearrowright S^\infty)} e \rangle = 0$ for $n\ge 1$ and $b_0^{(2)}(G\curvearrowright S^\infty) = \tr_{\mathcal{R}G} \left( \id_{H_0^{(2)}(G\curvearrowright S^\infty)} \right) = \langle e,  \id_{H_0^{(2)}(G\curvearrowright S^\infty)} e \rangle = 2$.
