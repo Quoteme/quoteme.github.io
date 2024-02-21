@@ -22,10 +22,9 @@ website:
         href: https://www.reddit.com/user/lalelul
 format:
   html:
+    include-in-header:
+      - file: "macros.html"
     css: styles.css
     theme:
       light: cosmo
       dark: darkly
-
-
-
