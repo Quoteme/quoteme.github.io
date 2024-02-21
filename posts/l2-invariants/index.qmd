@@ -16,7 +16,6 @@ format:
 
 ::: {.hidden}
 $$
-\newcommand{\foo}{E=mc^{2}}
 \usepackage{amssymb}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\R}{\mathbb{R}}
