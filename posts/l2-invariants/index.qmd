@@ -4,40 +4,437 @@ author: "Luca Leon Happel"
 date: "2024-02-04"
 date-modified: "2024-02-05"
 categories: ["mathematics", "topology", "algebra", "group theory", "ring theory", "measure theory", "functional analysis", "differential geometry", "differential topology", "algebraic topology"]
+description: >
+    This article is about the $\ell^2$-Invariants of $G$-CW-complexes. We will start by constructing the $\ell^2$-completion of cellular chain complexes and then take a look at some applications of the $\ell^2$-completion of cellular chain complexes. We will calculate the $\ell^2$-homology groups and the $\ell^2$-betti numbers of $S^\infty := \colim_n S^n$ with the group $G:=\prod_{n=0}^\infty \Z/2\Z$ acting on it. We will also take a look at the $\ell^2$-betti numbers of the torus and the $\ell^2$-betti numbers of the universal covering space of the torus. Finally, we will take a look at Lück's theorem and its implications for the $\ell^2$-betti numbers of the universal covering space of a connected, compact CW-complex whose fundamental group is residually finite.
+bibliography: references.bib
+filters:
+   - lightbox
+lightbox: auto
+format:
+    html:
+        code-fold: true
+        code-summary: "Show the code"
 ---
 
 > <span style="color: red">__WARNING__: This is a work in progress. I am currently writing this article and it is not finished yet. I will update it regularly and remove this warning once it is finished.</span>
 
 ## Introduction
 
-This semester (WiSe 2023/24) I took a course about $\ell^2$-Invariants[^1] at the University of Düsseldorf. As a reminder, $\ell^2$ is the [Hibert space of __square-summable__ sequences](https://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions) of complex numbers. Meaning, a sequence $(a_n\in\mathbb{C})_{n=0}^\infty$ is in $\ell^2$ if and only if $\sum_{n=0}^\infty |a_n|^2 < \infty$. By defining an inner product on $\ell^2$ as $\langle a, b \rangle = \sum_{n=0}^\infty a_n \overline{b_n}$, we make $\ell^2$ to a complete complex inner product space, i.e. a Hilbert space.
+This semester (WiSe 2023/24) I took a course about $\ell^2$-Invariants[see @WEBSITE:1] at the University of Düsseldorf. As a reminder, $\ell^2$ is the [Hibert space of __square-summable__ sequences](https://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions) of complex numbers. Meaning, a sequence $(a_n\in\C)_{n=0}^\infty$ is in $\ell^2$ if and only if $\sum_{n=0}^\infty |a_n|^2 < \infty$. By defining an inner product on $\ell^2$ as $\langle a, b \rangle = \sum_{n=0}^\infty a_n \overline{b_n}$, we make $\ell^2$ to a complete complex inner product space, i.e. a Hilbert space.
 
 For context, this course was part of my master's degree in mathematics and it was the culmination of a series of courses about __Algebraic Topology__, which I attended for the past two and a half years.
 Previous courses concentrated primarily on the basics of algebraic topology, such as homology and cohomology, and their applications to the classification of manifolds and the computation of homotopy groups and cohomology rings.
 
-The tools in the form of algebraic structures and theorems that we learned in these coureses work well with finite CW-complexes and their finite coverings, after all we are just dealing with finitely generated modules in this case and concepts like determinants and betti numbers are well defined. However, when we want to study infinite CW-complexes, we need to use more sophisticated tools, such as $\ell^2$-Invariants, to understand the topology of these spaces.
-We can easily construct many infinite CW-complexes by considering infinite coverings of finite CW-complexes, and we can use $\ell^2$-Invariants to study the topology of these infinite coverings, as $\ell^2$-Invariants intrinsically cope better with infinite structures.
+The tools in the form of algebraic structures and theorems that we learned in these coureses, like homology, work well with finite CW-complexes and their finite coverings, after all we are just dealing with finitely generated modules in these cases and concepts like determinants and betti numbers are well defined. However, when we want to study infinite CW-complexes, we need to use more sophisticated tools, such as $\ell^2$-Invariants, to understand the topology of these spaces.
+Something interesting happens, when we look at covering spaces of finite CW-complexes. By the Galois correspondence, we can associate a covering space $\bar X$ with a subgroup $H$ of the fundamental group $G$ of a base space $X$.[see @Hatcher1.38, Proposition 1.38] Now, we have a group action of $G$ on $\bar X$ and this added structure allows us to define the $\ell^2$ betti numbers $b_i^{(2)}(H \curvearrowright \bar X)$, $\ell^2$ homology groups $H_i^{(2)}(H \curvearrowright \bar X)$ and much more.
 
-### Example
+Let us build some intuition before we proceed though. Consider the base space $X=S^1$, and a $d$ sheeted covering $\bar X_d$. The fundamental group of $X$ is $\Z$ and the fundamental group of $\bar X_d$ is $\Z/d\Z$. An early result in the study of $\ell^2$-Invariants is that for $d$-sheeted coverings $\bar X_d \to X$, the $\ell^2$-betti numbers of $\bar X_d$ are $b_i^{(2)}(\Z/d\Z\curvearrowright\bar X_d) = b_i(\bar X_d) / |\Z/d\Z| = b_i(\bar X_d) / d$. This is quite astounding, as betti numbers are commonly seen as "counting the number of $i$-dimensional holes" in a space, but here we see that the $\ell^2$-betti numbers are not integers, but rational numbers. So, geometrically, what does it mean for a space to have "one third of a hole"? Let us investigate for the case $d=3$.
 
-Let us consider a bouqet of $n$ circles: $X_n = \bigvee_{i=1}^n S^1$. The universal cover $\tilde X_n$ is just the cayley graph of the free group in $n$ generators, namely $F_n = \langle a_1,a_2,\dots, a_n \rangle$. $X_n$ clearly is a CW-complex, as it consists of one 0-cell and $n$ 1-cells. The universal cover $\tilde X_n$ is a tree and therefor also a CW-complex. Classical simplicial homology suffices to calculate the betti numbers of $X_n$ and $\tilde X_n$. We can obviously see that none of the circles in $X_n$ bounds a disk, so $H_1(X_n) = \mathbb{Z}^n$ and because $X_n$ is connected, $H_0(X_n) = \mathbb{Z}$. The universal cover $\tilde X_n$ is simply connected, so $H_1(\tilde X_n) = 0$ and $H_0(\tilde X_n) = \mathbb{Z}$. Using our classical toolset, we therefore have $b_0(X_n) = 1$, $b_1(X_n) = n$, $b_0(\tilde X_n) = 1$ and $b_1(\tilde X_n) = 0$.
+```{python}
+# 3d plotly plot of a a circle and a 3-sheeted covering right next to it
+import plotly.graph_objects as go
+import numpy as np
+# S^1
+def s1()->(np.ndarray, np.ndarray, np.ndarray):
+    theta = np.linspace(0, 2*np.pi, 100)
+    x = np.cos(theta)
+    y = np.sin(theta)
+    z = np.zeros(100)
+    return x, y, z
+# 3-sheeted covering
+def covering(sheets: int, handlestart: float = 1/8, subsections=100):
+    theta = np.linspace(0, (sheets-handlestart)*2*np.pi, subsections)
+    x = np.cos(theta)
+    y = np.sin(theta)
+    z = theta/(2*np.pi)
+    # Add a small handle from (1,0,0) to (1,0,`sheets`) in a small bow.
+    # This handle is just here to show that this covering is still homeomorphic to S^1.
+    # The preimages of (1,0,0) therefor would still be a discrete set of `sheets` points, not a line.
+    x = np.append(x, ( lambda v : (1-v**6)/10 )(np.linspace(-1,1, subsections)) + np.cos(np.linspace((sheets-handlestart)*2*np.pi, sheets*2*np.pi, subsections)))
+    y = np.append(y, ( lambda v : (1-v**6)/10 )(np.linspace(-1,1, subsections)) + np.sin(np.linspace((sheets-handlestart)*2*np.pi, sheets*2*np.pi, subsections)))
+    z = np.append(z, ( lambda v : (1-np.arctan(10*v)/np.arctan(10))*(sheets-handlestart)/2 )( np.linspace(-1, 1, subsections) ))
+    return x,y,z
+# draw the plot
+fig = go.Figure()
+fig.add_trace((lambda v: go.Scatter3d(x=v[0], y=v[1], z=v[2], mode='lines', name='S^1'))(s1()))
+fig.add_trace((lambda v: go.Scatter3d(x=v[0], y=v[1], z=v[2], mode='lines', name=f'{3}-sheeted covering'))(covering(3)))
+fig.show()
+```
 
-Let us contrast that with the (currently not properly defined) $\ell^2$-betti numbers $b^{(2)}_1(F_n \curvearrowright\tilde{X_n}) = n-1$ and $b^{(2)}_k(F_n \curvearrowright\tilde{X_n}) = 0$ for $k\neq 1$. We can see, that 
+It is clear, that the betti numbers of the circle $S^1$ are $b_0(S^1) = 1$ and $b_1(S^1) = 1$.
+The same is the case for any $n$-sheeted covering. In particular, we have $b_0(\bar X_3) = 1$ and $b_1(\bar X_3) = 1$. 
+When we take a look at the $\ell^2$-betti numbers, we must take into account the action of the __deck transformation group__[see @Hatcher.DeckTransform]
+$\text{Deck}(p) = \Z/3\Z$ on $\bar X_3$, where $p: \bar X_d \to X$ is the canonical projection.
+
+```{python}
+import plotly.express as px
+import numpy as np
+import pandas as pd
+
+# Function to generate circle coordinates for a given t of rotation around the x-axis
+def get_frame(t):
+    x,y,z = covering(3)
+    x = (1-t)*x+t*x/np.hypot(x,y)
+    y = (1-t)*y+t*y/np.hypot(x,y)
+    z = z*(1-t)
+    return x, y, z
+
+# Generate data for each frame
+ts = np.linspace(0, 1, 20)
+df = pd.DataFrame()
+
+for t in ts:
+    x, y, z = get_frame(t)
+    temp_df = pd.DataFrame({'x': x, 'y': y, 'z': z, 't': t})
+    df = pd.concat([df, temp_df])
+
+# Initial plot using Plotly Express
+fig = px.line_3d(df, x='x', y='y', z='z', animation_frame='t')
+
+# Fixing the axis ranges
+fig.update_layout(
+    scene=dict(
+        xaxis=dict(range=[-1.3,1.3], autorange=False),
+        yaxis=dict(range=[-1.3,1.3], autorange=False),
+        zaxis=dict(range=[0,3], autorange=False),
+        aspectmode='cube',  # This ensures equal aspect ratio for all axes
+    ),
+    title="Homotopy between id and p",
+    updatemenus=[{
+        "buttons": [
+            {
+                "args": [None, {"frame": {"duration": 50, "redraw": True}, "fromcurrent": True}],
+                "label": "Play",
+                "method": "animate"
+            },
+            {
+                "args": [[None], {"frame": {"duration": 0, "redraw": True}, "mode": "immediate", "transition": {"duration": 0}}],
+                "label": "Pause",
+                "method": "animate"
+            }
+        ],
+        "direction": "left",
+        "pad": {"r": 10, "t": 87},
+        "showactive": False,
+        "type": "buttons",
+        "x": 0.1,
+        "xanchor": "right",
+        "y": 0,
+        "yanchor": "top"
+    }],
+    sliders=[{
+        "steps": [{"args": [[f"{t}"], {"frame": {"duration": 50, "redraw": True}, "mode": "immediate"}], 
+                   "label": f"{t}", "method": "animate"} for t in ts],
+    }]
+)
+# Show figure
+fig.show()
+```
+
+Maybe it is already somewhat obvious, that there is a canonical [group action](https://en.wikipedia.org/wiki/Group_action) from $\Z/3\Z$ on $\bar X_3$. This action, the deck transformation, permutes the three preimages of each point in $S^1$ using [Cayley's theorem](https://en.wikipedia.org/wiki/Cayley%27s_theorem). The result of applying the deck transformation to $\bar X_3$ therefore is a 3-sheeted covering of $S^1$ again and is an isomorphism of covering spaces from $\bar X_3$ to $\bar X_3$. As an example, let us consider some point $x$ on $\bar X_3$. $\text{Deck}(p) \cong \Z/3\Z \cong \langle g | g^3 = 0\rangle$ acts on $x$ by $g.x = x + 1$, if $x$ is not in the topmost sheet, otherwise it pushes $x$ down to the bottom sheet, assuming we embed $\bar X_3$ into $\R^3$ in the obvious way. In the following plot, we can see what happens to both a single point and the whole covering space under the action of the deck transformation. From left to right, we apply $g$ not at all, once and then twice.
+
+```{python}
+from plotly.subplots import make_subplots
+# the individual point we want to track under the action of the deck transformation
+angle = np.pi*7/8
+point = ( 
+    np.cos(angle),
+    np.sin(angle),
+    angle/(2*np.pi)
+ )
+# group action. Because Z/3Z is cyclic, we only need to define the generator
+g = lambda v: (v[0],v[1],v[2]+1 if v[2] < 2 else 0)
+
+# covering [0]
+fig = make_subplots(rows=1, cols=3, specs=[[{'type': 'scene'}, {'type': 'scene'}, {'type': 'scene'}]])
+fig.add_trace((lambda v: go.Scatter3d(x=v[0], y=v[1], z=v[2], mode='lines', name='[0]'))(covering(3)), row=1, col=1)
+# add a little red dot to show what happens to one individual point
+fig.add_trace(go.Scatter3d(x=[point[0]], y=[point[1]], z=[point[2]], mode='markers', name="x", marker=dict(size=5, color='red')), row=1, col=1)
+
+# covering [1]
+fig.add_trace((lambda v: go.Scatter3d(x=v[0], y=v[1], z=v[2], mode='lines', name='[1]'))(covering(3, 0, 100)), row=1, col=2)
+fig.add_trace(go.Scatter3d(x=[g(point)[0]], y=[g(point)[1]], z=[g(point)[2]], mode='markers', name="g.x", marker=dict(size=5, color='red')), row=1, col=2)
+
+# covering [2]
+fig.add_trace((lambda v: go.Scatter3d(x=v[0], y=v[1], z=v[2], mode='lines', name='[2]'))(covering(3, 1/8, 100)), row=1, col=3)
+fig.add_trace(go.Scatter3d(x=[g(g(point))[0]], y=[g(g(point))[1]], z=[g(g(point))[2]], mode='markers', name="g.g.x", marker=dict(size=5, color='red')), row=1, col=3)
 
 
+# legend
+fig.update_layout(
+    title="Group action of the cyclic group with three elements on our covering space",
+)
+fig.show()
+```
 
-<!-- In the previous semesters we learned that given a CW-Complex $X$, we can take a look at its covering spaces. In particular, we can find one such covering space $\tilde X \xrightarrow{p} X$ that is universal, i.e. it is simply connected and for every other covering $Y \xrightarrow{\beta} X$, we can find a mapping $\tilde X \xrightarrow{\alpha} Y$ such that the following diagram commutes:
-![](./universal_cover.png){fig-align="center"} -->
+It seems that $\ell^2$-betti numbers somehow measure "how much each symmetry contributes to the betti-number", but we still need to make this precise. In this example however, there are three symmetries, $b_1(X_3) = 1$ and $b_1(\Z/3\Z\curvearrowright X_3) = 1/3$, so our intuition kinda makes sense.
 
-<!-- 
-The connection between $\ell^2$-Invariants and Algebraic Topology has its roots in the study of covering spaces of reasonable (path-connected, locally path-connected and semilocally simply-connected) topological spaces, say CW-complexes. 
+### Futher Motivation
+
+One of the main goals in this lecture was for us to reach Lück's theorem:
+
+> __Lück's theorem__: _Let $X$ be a connected, compact CW-complex whose fundamental group $G=\pi_1(X)$ is residually finite. Then for every residual chain $(G_i)$ in $G$ and every $n\ge 0$ we have_
+> $$\lim_{i\to\infty} \frac{b_n^{(2)}(\bar X_i)}{[G:G_i]} = b_n^{(2)}(G\curvearrowright \tilde X)$$
+> _where $\bar X_i \to X$ is the covering space associated with $G_i$ and $\tilde X$ is the universal covering space of $X$._
+
+For clearance, the definition of a residual chain is as follows:
+
+::: {#def-residual-chain}
+_A sequence $G=G_0 \ge G_1 \ge G_2 \ge \dots$ of subgroups of a group $G$ is called a __residual chain__ if for each $i\ge 0$ the index $[G:G_i]$ is finite and the intersection $\bigcap_{i\ge 0} G_i = \{1\}$_.
+:::
+
+So a simple and fitting example of a residual chain would be the sequence $G_i = \Z/2^i\Z$ for $i\ge 1$ and $G_0 = \Z$ in the case of $G=\Z$, as we had before with $S^1$ and its universal covering space $\tilde X = \R$. By plugging in Lück's theorem, we get:
+
+$$
+\begin{align*}
+& \lim_{i\to\infty} \frac{b_n^{(2)}(\bar X_i)}{[G:G_i]} &= b_n^{(2)}(G\curvearrowright \tilde X) \\
+\Leftrightarrow& \lim_{i\to\infty} \frac{b_n^{(2)}(\bar X_i)}{2^i} &= b_n^{(2)}(\Z\curvearrowright \R) \\
+\Leftrightarrow& \lim_{i\to\infty} \frac{\frac{1}{2^i}}{2^i} &= b_n^{(2)}(\Z\curvearrowright \R) \\
+\Leftrightarrow& 0
+\end{align*}
+$$
+
+In fact, we can generalize this to $b_n^{(2)}(\tilde { \mathbb{T}^k }) = 0$, where $\mathbb{T}^k$ is the $k$-dimensional torus and therefor $\tilde { \mathbb{T}^k } \cong \R^k$, which is in stark contrast to the usual betti numbers $b_n(\tilde { \mathbb{T}^k }) = \binom{k}{n}$.
+
+## Constructing The $\ell^2$-Completion Of Cellular Chain Complexes
+
+Instead of talking only about coverings of CW-complexes, we will now talk about general CW-complexes, which come equipped with a special kind of group action. We will call these $G$-CW-complexes. The definition of a $G$-CW-complex is as follows:
+
+:::{#def-G-CW-complex}
+_A $G$-CW-complex is a CW-complex $X$ together with an action by a discrete group $G$ such that each open cell $E$ of $X$ is mapped to another open cell $gE$ by the action of $g\in G$. If $gE\cap E \neq \emptyset$, then $g$ must fix $E$ pointwise._
+:::
+
+This is a generalisation of the observations we made earlier, as the deck transformation group $\text{Deck}(p)$ is a discrete group and the action of $\text{Deck}(p)$ on $\bar X_d$ is a $G$-action which satisfies the conditions of the definition.
+
+By this definition, we know that open $i$-cells of any $G$-CW-complex $X$ are mapped onto open $i$-cells. Let us recall that a [CW-complex](https://en.wikipedia.org/wiki/CW_complex) by definition allows for a filtration into $i$-skeletons $\emptyset = X_{-1} \subseteq X_0 \subseteq X_1 \subseteq \dots \subseteq X_n = X$, where each $X_i$ is obtained by attaching $i$-cells to $X_{i-1}$. Let us also recall the definition of $\TopTwo$:
+
+> ![Definition of $\TopTwo$](2024-02-10-18-41-35.png)
+> Definition of $\TopTwo$ from [@IntroToAlgTop]
+
+Because each CW complex also is a topological space and by the inclusion of the $( i-1 )$-skeletons into the $i$-skeletons, we can define the cellular chain complex $C_*(X)$ of a $G$-CW-complex $X$ as $C_i(X) = H_i(X_i, X_{i-1})$. This construction is similar to how one defines cellular homology for CW-complexes[see @IntroToAlgTop, Definition 6.21] and the idea here is that we use the fact that $X_{i-1} \to X_i$ is a cofibration to get an isomorphism between $H_i(X_i, X_{i-1})$ and $H_i(X_i/X_{i-1}, X_{i-1}/X_{i-1}) \cong \tilde H_i(X_i/X_{i-1})$ [see @IntroToAlgTop, Proposition 5.6]. In pictures, we can think of $C_i(X)$ as counting the number of $i$-dimensional holes in $X_i$, after we collapse the $(i-1)$-skeleton to a point as is illustrated in @fig-cellular-chain-torus with a torus.
+
+![Construction of $C_2(\mathbb{T})$ given $\mathbb{T}$ as a CW-complex with four 2-cells, eight 1-cells and four 0-cells.](./chain_complex.png){#fig-cellular-chain-torus}
+
+Notice that for each $g\in G$ we have a homeomorphism in $\TopTwo$: $g: (X_i, X_{i-1}) \xrightarrow{\sim} (X_i, X_{i-1})$. This self-homomorphism induces an automorphism on the homology group $H_i(X_i, X_{i-1})$, because by @def-G-CW-complex the action of $g$ on $X_i$ is cellular, meaning $g$ sends each $i$-cell to exactly one other $i$-cell or itself. This means, that we can apply each $g$ to some cell $i$-cells $c_i$ and the result will again be in $C_i(X)$. Furthermore, by construction $C_i(X)$ is an abelian group and as such it is a $\Z$-module. Pairing this with the group action, we have that $C_i(X)$ is a left $\Z G$-module, where $\Z G$ is the [group ring](https://en.wikipedia.org/wiki/Group_ring) of $G$ over $\Z$. This means, for any $c$ in $C_i(X)$, we can define $\left(\sum_g \lambda_g g\right).c \in C_i(X)$ for $\lambda_g\in\Z$ and $g\in G$.
+
+### Independence of the Choice of Filtration
+
+Implicitly, we made a choice in our construction. When we chose a specific filtration of $X$ into $i$-skeletons, we also chose a specific cellular chain complex $C_*(X)$. Here comes our group action into play. In @fig-cellular-chain-torus as an example we may chose $G = C_2$ to be the cyclic group with two elements and the action of $C_2$ on $\mathbb{T}$ to be the permutation of the green cell with the brown cell and the red cell with the yellow cell. Esentially $C_2$ acts by mirroring the $x$-axis as seen in @fig-cellular-chain-torus-g-action.
+
+![The action of $C_2$ on $\mathbb{T}$](./chain_complex_g-action.png){#fig-cellular-chain-torus-g-action}
+
+This gives us the following pushout diagram as in Theorem 3.2 [see @IntroToEll2Inv]:
+
+$$
+\begin{CD}
+\coprod_{i\in I_n} G/H_i \times S^{n-1} @>q_n>> X_{n-1} \\
+@Vi_nVV @Vj_nVV\\
+\coprod_{i\in I_n} G/H_i \times D^n @>Q_n>> X_n
+\end{CD}
+$$
+
+This pushout diagram just tells us that the torus is constructed by attaching $G$-equivant cells. Here $q_n$ is the map, that attaches the boundary of $n$-disks to our $(n-1)$-Skeleton. $i_n$ and $j_n$ are the respective inclusion maps. $Q_n$ is the attachment map determining how the $n$-cells are glued into the $n$-skeleton. Let us understand what $I_n$ and $H_i$ are next. For that, we first label all our $n$ cells. In this example, we only really care for the $n=2$ case, so let us do that.
+
+![Labeling of the 2-cells of the torus](./chain_complex_two-cells_labeled.png){#fig-labeling-torus}
+
+Labeling each $n$-cell gives us an index set $J_n := \{\cellOne, \cellTwo, \cellThree, \cellFour\}$. By cayleys theorem, we know that $G$ is isomorphic to a subgroup of the symmetric group $S_4$ and as such permutes the index set $J_n$, which means we can take a look at the orbit set $I_n := G\backslash J_n = \{\cellOne,\cellThree\}, \{\cellTwo,\cellFour\}$. Well, why would we even want to look at this orbit set? The answer is, that this reduces the number of unique $n$-cells by taking into account, that we can access all $n$-cells in the same orbit just by applying our group action!
+
+![The action of $C_2 = \langle g \rangle$ on the 2-cells of the torus](./chain_complex_g-action_orbits.png){group="torus_orbits"}
+
+![Representative of the orbit $\{\cellOne,\cellThree\}$.](./chain_complex_orbits_represetatives_1.png){group="torus_orbits"}
+
+![Representative of the orbit $\{\cellTwo,\cellFour\}$.](./chain_complex_orbits_represetatives_2.png){group="torus_orbits"}
+
+How can we reconstruct our space from this information now? Well, each of the representatives is just a copy of $D^2$, a $n$-disk. If we were to multiply this by $G$, then we might end up with too many $n$-disks. If, for example, we would have chosen $G=V_4=\langle r, s\rangle$ to be the Klein four group, and we would let $\langle r \rangle \cong C_2$ act just as before and $\langle s\rangle$ trivially, then by $V_4 \cellTwo = \{\cellTwo, \cellFour\}$, but $V_4 \times D^2 \cong \coprod^4 D^2$ and we would end up with four $2$-disks instead of the two we would have hoped for. To avoid this, we need to take the quotient of $G$ acting on $D^2$ by the stabilizer $H_k$ of a representative of the orbit $k$. In our example with $V_4$, we have $H_{\{\cellOne, \cellThree\}} = H_{\{\cellTwo, \cellFour\}} = \langle s\rangle$ and therefor $V_4/H_{\{\cellOne, \cellThree\}} \times D^2 \cong \coprod^2 D^2$. This is the reason, why we have the orbit set $I_n$ and the stabilizer groups $H_i$ in our pushout diagram.
+
+So, we really only need one one $n$-cell for each $G$-orbit. If we were to do that, we will end up with a _cellular basis_ of our $G$-CW complex. In our example with $G=C_2$, this would be the case if we were to only have two $2$-cells: $\cellOne\cup\cellTwo$ and $\cellThree\cup\cellFour$. This yields a $\Z G$-isomorphism $\bigoplus_{i\in I_n} \Z(G/H_i) \cong C_*(X)$ [see @IntroToEll2Inv, Proposition 3.6].
+
+### The $\ell^2$-Completion
+
+Finally we can take a look at the $\ell^2$-chain completion of $C_*(X)$, which is defined as $\ell^2 G \otimes_{\Z G} C_*(X)$. The $\ell^2$-completion of a $\Z G$-module $M$ is defined as $\ell^2G \otimes_{\Z G} M$, which is functorial and extends itself to the $\ell^2$-chain completion of a $G$-CW complex $X$. Here, it is important that $C_*$ is functorial also, and as such $\ell^2 G \otimes_{\Z G} C_*(X)$ is functorial as well. This in turn is important, because it means, that the differentials $d_*^{(2)}$ are given as $\id \otimes d_*$.
+
+## Applications
+
+Let us now take a look at some applications of the $\ell^2$-completion of cellular chain complexes. We will start with the $\ell^2$-homology groups and the $\ell^2$-betti numbers of $S^\infty := \colim_n S^n$ with the group $G:=\prod_{n=0}^\infty \Z/2\Z$ acting on it. It can easily be seen that $S^\infty$ is a $G$-CW complex, where $g = (g_1, g_2, \dots ) \in G$ acts on $S^\infty$ by letting $g_i\in \Z/2\Z$ permute the two $i$-cells.
+
+![$\colim_n S^n$. Here it is easy to see how $G$ acts on $S^\infty$](./s_infty.png){#fig-colim-Sn}
+
+By following the familiar pattern of defining homology using our differentials, we can define $\ell^2$-homology the same way:
+
+$$
+H_n^{(2)}(G\curvearrowright S^\infty) := \ker d_n^{(2)} / \im d_{n+1}^{(2)}
+$$
+
+We wish to use proposition 3.6 [see @IntroToEll2Inv] to calculate the $\ell^2$-homology groups of $S^\infty$. For that, we need to find a cellular basis of $S^\infty$. We can do that by taking a look at the orbit set $I_n = G\backslash J_n$ and the stabilizer groups $H_i$. In this case, we have $J_n = \{\cellOne_n, \cellTwo_n\}$ and $I_n = \{\{\cellOne_n, \cellTwo_n\}\}$, where $\cellOne_n$ and $\cellTwo_n$ are the two $n$-cells of $S^\infty$. For each $n$, we therefor only have one orbit. This also tells us what our stabilizer groups are: $H_{\{\cellOne_n, \cellTwo_n\}} = \prod_{k=1}^{n-1} \Z / 2\Z \times \{e\} \times \prod_{k=n+1}^\infty \Z / 2\Z$. One can see this visually quite well: We mirror the $n$-th basis vector of $\R^\infty$ using the $n$-th component of $G$ and leave the other components untouched. Now, we have two $n$-cells for each basis vector and these are permuted exactly by the $n$-th component of $G$. All other components of $G$ leave the $n$-th basis vector untouched and therefor also the $n$-th $n$-cell. Thus, the stabilizer group of $G$ that leaves the $n$-cells untouched is exactly the subgroup of $G$ that leaves the $n$-th basis vector untouched.
+
+By proposition 3.6, we now have $C_n(S^\infty) \cong \bigoplus_{i\in I_n} \Z(G/H_i) = \Z ( \prod_{k=1}^\infty ( \Z / 2\Z ) / ( \prod_{k=1}^{n-1} \Z / 2\Z \times \{e\} \times \prod_{k=n+1}^\infty \Z / 2\Z ) ) \cong \Z(\Z / 2\Z )$. Now, we only need to calculate the $\ell^2$-completion by taking the tensor product with $\ell^2 G$. We thus get by proposition 3.7 [see @IntroToEll2Inv] that $\ell^2 G \otimes_{\Z G} C_n(S^\infty) \cong \ell^2 G \otimes_{\Z G} \Z(\Z / 2\Z ) \cong \ell^2(\Z / 2\Z ) \cong \C[\iota]/(\iota^2-1)$. The differentials $d_n^{(2)}$ are given as $\id \otimes d_n$. For $n>0$ we know, that $d_n$ cannot be surjective, because $d_n(\cellOne_n)$ must be one of $\pm\cellOne_{n-1}+\cellTwo_{n-1}$ or $\pm\cellOne_{n-1}-\cellTwo_{n-1}$ and the same holds for $d_n(\cellTwo_n)$. No matter which of these options holds for $\cellOne_n$ and $\cellTwo_n$, we have that $\cellOne_{n-1}, \cellTwo_{n-1} \notin \im d_n$. For the sake of convenience, we may choose the CW structure of $S^\infty$ such that $d_n(\cellOne_n) = d_n(\cellTwo_n) = -\cellOne_{n-1}+\cellTwo_{n-1}$ for $n\ge 1$. 
+
+```{python}
+import plotly.graph_objects as go
+
+def get_frame_line1(t):
+    t = t if t <= 1 else 1
+    t = t if t >= 0 else 0
+    x = -np.sin(np.linspace(-np.pi,t*np.pi-np.pi,100))
+    y = 0*np.linspace(-np.pi,t*np.pi-np.pi,100)
+    z = np.cos(np.linspace(-np.pi,t*np.pi-np.pi,100))
+    return x, y, z
+
+def get_frame_line2(t):
+    t = t if t <= 1 else 1
+    t = t if t >= 0 else 0
+    x = np.sin(np.linspace(-np.pi,t*np.pi-np.pi,100))
+    y = 0*np.linspace(-np.pi,t*np.pi-np.pi,100)
+    z = np.cos(np.linspace(-np.pi,t*np.pi-np.pi,100))
+    return x, y, z
+
+def get_frame_surface1(t):
+    t = t if t <= 1 else 1
+    t = t if t >= 0 else 0
+    if t == 0:
+        x = 0*np.linspace(-1, 1, 100)
+        z = 0*np.linspace(-1, 1, 100)
+        x, z = np.meshgrid(x, z)
+        y = 0 * x
+        return x, y, z
+    # slice of a disk that slowly increases its angle
+    # kinda like a pizza slice
+    # top is (0,0,1), bottom is (0,0,0)
+    # grows along the surface spanned by (1,0,0) and (0,0,1)
+
+    # Define the radial and angular grids
+    theta = np.linspace(-t*np.pi*2 -np.pi/2, -np.pi/2, 100)
+    phi = np.linspace(0, np.pi / 2, 100)
+    theta, phi = np.meshgrid(theta, phi)
+
+    # Spherical to Cartesian coordinates conversion
+    x = np.sin(phi) * np.cos(theta)
+    y = np.cos(phi)
+    z = np.sin(phi) * np.sin(theta)
+    return x, y, z
 
 
+def get_frame_surface2(t):
+    x,y,z = get_frame_surface1(t)
+    y = -y
+    return x,y,z
 
-By proposition 1.38 of Hatchers book "Algebraic Topology"[^2], we have a
-bijecttion between the set of covering spaces of $X$ and the set of subgroups of the fundamental group $\pi_1(X, x_0)$, where $x_0$ is a basepoint in $X$. Using proposition 1.39 as well, we have $\{X_N\}_{N\trianglelefteq \pi_1(X,x_0)}$ for the set of all _normal_ covering spaces of $X$ (i.e. the deck transformation group $N$ of the covering space $X_N \xrightarrow{p} X$ acts transitively on the fibers of $p$). -->
+# Generate data for each frame
+ts = np.linspace(0, 1, 100)
+line_df = pd.DataFrame()
+surface_df = pd.DataFrame()
 
+for t in ts:
+    x1, y1, z1 = get_frame_line1(2*t)
+    x2, y2, z2 = get_frame_line2(2*t)
+    x3, y3, z3 = get_frame_surface1(4*(t-0.5))
+    x4, y4, z4 = get_frame_surface2(4*(t-0.75))
 
+    temp_line_df = pd.DataFrame({
+        'x1': x1, 'y1': y1, 'z1': z1,
+        'x2': x2, 'y2': y2, 'z2': z2,
+        't': t})
+    line_df = pd.concat([line_df, temp_line_df])
 
-[^1]: The course was held by [Jun.-Prof. Dr. Holger Kammeyer](https://www.math.uni-duesseldorf.de/~kammeyer/).
-[^2]: Allen Hatcher, "Algebraic Topology", Cambridge University Press, 2002. [Link to the book](https://pi.math.cornell.edu/~hatcher/AT/ATpage.html)
+    temp_surface_df = pd.DataFrame({
+        'x3': x3.flatten(), 'y3': y3.flatten(), 'z3': z3.flatten(),
+        'x4': x4.flatten(), 'y4': y4.flatten(), 'z4': z4.flatten(),
+        't': [t] * 10000})  # 10000 = 100x100
+    surface_df = pd.concat([surface_df, temp_surface_df])
+
+frames = []
+for t in ts:
+    line_row = line_df[line_df['t'] == t]
+    surface_row = surface_df[surface_df['t'] == t]
+    frames.append(go.Frame(
+        data=[
+            go.Scatter3d(x=line_row['x1'], y=line_row['y1'], z=line_row['z1'], mode='lines', line=dict(color='green', width=2)),
+            go.Scatter3d(x=line_row['x2'], y=line_row['y2'], z=line_row['z2'], mode='lines', line=dict(color='red', width=2)),
+            go.Surface(x=surface_row['x3'].values.reshape(100, 100), y=surface_row['y3'].values.reshape(100, 100), z=surface_row['z3'].values.reshape(100, 100), colorscale='reds', showscale=False),
+            go.Surface(x=surface_row['x4'].values.reshape(100, 100), y=surface_row['y4'].values.reshape(100, 100), z=surface_row['z4'].values.reshape(100, 100), colorscale='greens', showscale=False)
+        ],
+        name=str(t)
+    ))
+
+# Create a figure using plotly.graph_objects
+fig = go.Figure(
+    layout=go.Layout(
+        updatemenus=[dict(
+            type="buttons",
+            buttons=[dict(label="Play",
+                          method="animate",
+                          args=[None, {"frame": {"duration": 75, "redraw": True},
+                                       "fromcurrent": True}]),
+                    dict(label="Pause",
+                         method="animate",
+                         args=[[None], {"frame": {"duration": 0, "redraw": False},
+                                        "mode": "immediate",
+                                        "transition": {"duration": 0}}])],
+            
+        )],
+        sliders=[
+            dict(
+                active=0,
+                steps=[dict(method="animate",
+                            args=[[f"{t}"], {"frame": {"duration": 75, "redraw": True},
+                                             "mode": "immediate",
+                                             "transition": {"duration": 0}}]) for t in ts]
+            )
+        ]
+    ),
+    frames=frames
+)
+
+# Add initial data
+fig.add_trace(go.Scatter3d(
+    x=line_df['x1'].iloc[0:100], y=line_df['y1'].iloc[0:100], z=line_df['z1'].iloc[0:100],
+    mode='lines', line=dict(color='green', width=2)))
+fig.add_trace(go.Scatter3d(
+    x=line_df['x2'].iloc[0:100], y=line_df['y2'].iloc[0:100], z=line_df['z2'].iloc[0:100],
+    mode='lines', line=dict(color='red', width=2)))
+# surface plots
+fig.add_trace(go.Surface(
+    x=surface_df['x3'].iloc[0:10000].values.reshape(100, 100),
+    y=surface_df['y3'].iloc[0:10000].values.reshape(100, 100),
+    z=surface_df['z3'].iloc[0:10000].values.reshape(100, 100),
+    colorscale='reds', showscale=False))
+fig.add_trace(go.Surface(
+    x=surface_df['x4'].iloc[0:10000].values.reshape(100, 100),
+    y=surface_df['y4'].iloc[0:10000].values.reshape(100, 100),
+    z=surface_df['z4'].iloc[0:10000].values.reshape(100, 100),
+    colorscale='greens', showscale=False))
+
+# Layout configuration
+fig.update_layout(
+    scene=dict(
+        xaxis=dict(range=[-1, 1], autorange=False),
+        yaxis=dict(range=[-1, 1], autorange=False),
+        zaxis=dict(range=[-1, 1], autorange=False),
+    ),
+    title_text="Attachment maps for the 1 and 2 cells",
+)
+
+# Show the figure
+fig.show()
+```
+
+We can now calculate $H_0^{(2)}(G\curvearrowright S^\infty) = \ker d_0^{(2)} / \im d_1^{(2)}$. We know that $\ker d_0^{(2)} = \{\cellOne_0, \cellTwo_0\}$, because $d_0^{(2)}(\cellOne_0) = d_0^{(2)}(\cellTwo_0) = 0$. For $n\ge 1$ we have seen that $d_n(\cellOne_n) = d_n(\cellTwo_n) = -\cellOne_{n-1}+\cellTwo_{n-1}$ and as such $\ker d_0^{(2)} / \im d_1^{(2)} \cong \C[\iota]/(\iota^2-1)$. For $n\ge 1$ we can see that $H_n^{(2)}(G\curvearrowright S^\infty) = 0$.
+
+Finally, we can calculate the $\ell^2$-Betti numbers:
+
+$$
+\begin{align*}
+b_n^{(2)}(G\curvearrowright S^\infty) 
+&= \dim_{\mathcal{R}G} H_n^{(2)}(G\curvearrowright S^\infty) \\
+&= \tr_{\mathcal{R}G} \left( \id_{H_n^{(2)}(G\curvearrowright S^\infty)} \right) \\
+&= \begin{cases} 
+    2 & \text{if } n=0 \\
+    0 & \text{if } n\ge 1 
+\end{cases}
+&= \begin{cases} 2 & \text{if } n=0 \\ 0 & \text{if } n\ge 1 \end{cases}
+\end{align*}
+$$
+
+Here $\mathcal{R}(G)$ denotes the _group von Neumann algebra_, which is the weak closure of the unital $*$-subalgebra $\rho(\C G)\subset B(\ell^2 G)$, where $\rho: \C G \to B(\ell^2 G)$ is the right regular representation of $\C G$ on $\ell^2 G$, given by $\rho : \C G \to B(\ell^2 G), \> \rho(h)g = gh$. The trace $\tr_{\mathcal{R}G}$ is the unique trace on $\mathcal{R}(G)$ that is invariant under the action of $G$ defined by $\tr_{\mathcal{R}(G)}: \mathcal{R}(G) \to \C, \> T\mapsto \langle e, T e\rangle$. Furthermore, $B(\ell^2 G)$ is the space of bounded operators on $\ell^2 G$.
+
+From this, we can simply calculate that $b_n^{(2)}(G\curvearrowright S^\infty) = \tr_{\mathcal{R}G} \left( \id_{H_n^{(2)}(G\curvearrowright S^\infty)} \right) = \langle e,  \id_{H_n^{(2)}(G\curvearrowright S^\infty)} e \rangle = 0$ for $n\ge 1$ and $b_0^{(2)}(G\curvearrowright S^\infty) = \tr_{\mathcal{R}G} \left( \id_{H_0^{(2)}(G\curvearrowright S^\infty)} \right) = \langle e,  \id_{H_0^{(2)}(G\curvearrowright S^\infty)} e \rangle = 2$.

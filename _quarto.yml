@@ -5,6 +5,8 @@ website:
   title: "{{< var website.title >}}"
   favicon: "favicon.png"
   description: "Personal website of {{< var profile.name >}}, including lots of math and computer science."
+  open-graph: true
+  google-analytics: "G-LEVM9WYR7J"
   
   navbar:
     right:
@@ -20,10 +22,9 @@ website:
         href: https://www.reddit.com/user/lalelul
 format:
   html:
+    include-in-header:
+      - file: "macros.html"
     css: styles.css
     theme:
       light: cosmo
       dark: darkly
-
-
-
