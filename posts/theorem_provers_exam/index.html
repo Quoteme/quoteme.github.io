@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Luca Leon Happel">
+<meta name="dcterms.date" content="2024-02-21">
+
+<title>Luca Happel’s personal website - Automated theorem proving</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LEVM9WYR7J"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
+</script>
+<meta property="og:title" content="Luca Happel’s personal website - Automated theorem proving">
+<meta property="og:description" content="Personal website of Luca Happel, including lots of math and computer science.">
+<meta property="og:image" content="https://lucah.tech/posts/theorem_provers_exam/thumbnail.svg">
+<meta property="og:site_name" content="{{< var website.title >}}">
+</head><body class="nav-fixed fullcontent"><div style="display: none;">
+    $$
+    \usepackage{amssymb}
+    \newcommand{\C}{\mathbb{C}}
+    \newcommand{\R}{\mathbb{R}}
+    \newcommand{\Z}{\mathbb{Z}}
+    \newcommand{\ZZ}{\ooalign{Z\cr\hidewidth\kern0.1em\raisebox{-0.5ex}{Z}\hidewidth\cr}}
+    \newcommand{\colim}{\text{colim}}
+    \newcommand{\weaktopo}{\tau_\text{weak}}
+    \newcommand{\strongtopo}{\tau_\text{strong}}
+    \newcommand{\normtopo}{\tau_\text{norm}}
+    \newcommand{\green}[1]{\textcolor{ForestGreen}{#1}}
+    \newcommand{\red}[1]{\textcolor{red}{#1}}
+    \newcommand{\blue}[1]{\textcolor{blue}{#1}}
+    \newcommand{\orange}[1]{\textcolor{orange}{#1}}
+    \newcommand{\tr}{\text{tr}}
+    \newcommand{\id}{\text{id}}
+    \newcommand{\im}{\text{im}\&gt;}
+    \newcommand{\res}{\text{res}}
+    \newcommand{\TopTwo}{\underline{\text{Top}^{(2)}}}
+    \newcommand{\CW}[1]{\underline{#1\text{-CW}}}
+    \newcommand{\ZZ}{%
+    \ooalign{Z\cr\hidewidth\raisebox{-0.5ex}{Z}\hidewidth\cr}%
+    }
+    % specific for this document
+    \newcommand{\cellOne}{\textcolor{green}{1}}
+    \newcommand{\cellTwo}{\textcolor{red}{2}}
+    \newcommand{\cellThree}{\textcolor{brown}{3}}
+    \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
+    $$
+</div>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Luca Happel’s personal website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Quoteme/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/luca-leon-happel-a2a726218/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/lucaleonhappel/"> <i class="bi bi-instagram" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.reddit.com/user/lalelul"> <i class="bi bi-reddit" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Automated theorem proving</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">mathematics</div>
+                <div class="quarto-category">logic</div>
+                <div class="quarto-category">automated theorem proving</div>
+                <div class="quarto-category">lean4</div>
+                <div class="quarto-category">formal verification</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Luca Leon Happel </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 21, 2024</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">February 21, 2024</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div class="hidden">
+<p><span class="math display">\[
+\newcommand{\a}{\text{a}}
+\newcommand{\b}{\text{b}}
+\newcommand{\f}{\text{f}}
+\newcommand{\g}{\text{g}}
+\newcommand{\T}{\mathbb{T}}
+\]</span></p>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>If you are a programmer, most likely you know that feeling you get when you work on your code for too long, that maybe, however unlikely, there is a bug in your code. You have tested it, you have written unit tests, but still, you are not sure. You are not sure if your code is correct. This is where formal verification comes in. Formal verification is the process of proving that a program is correct. This can be done in many ways, but one of the most interesting ways is automated theorem proving. In this article, I will provide a glimpse into automated theorem proving and show you how to use the Lean4 programming language to prove theorems. This is not really intended as an introduction to Lean4 or automated theorem proving, but rather as a demonstration of what I learned after half holding a seminar about it, attending half a year of a course about it at the <a href="https://www.hhu.de/">university of Düsseldorf</a> and particiating at the conference <a href="https://lftcm2023.github.io/">Lean for the Curious Mathematician 2023</a>.</p>
+</section>
+<section id="from-functional-programming-to-automated-theorem-proving" class="level2">
+<h2 class="anchored" data-anchor-id="from-functional-programming-to-automated-theorem-proving">From functional programming to automated theorem proving</h2>
+<p>Lean4 is a functional programming language. This means that it is a programming language that is based on the <span class="math inline">\(\lambda\)</span>-calculus. The <span class="math inline">\(\lambda\)</span>-calculus is a formal system in mathematical logic for expressing computation based on function abstraction and application using variable binding and substitution. In Lean4, we write programs by defining functions, composing them in clever ways and finally applying them to specific arguemnts. In this regard, Lean4 is very similar to <a href="https://www.haskell.org/">Haskell</a>, about which <a href="posts/bachelor-seminar-haskell/">I held a talk a year ago</a>.</p>
+<p>By enriching the <span class="math inline">\(\lambda\)</span>-calculus with a sufficiently strong type system like in Lean4, we can use the resulting programming language to write programs that are provably correct. The foundation of this is the <a href="https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence">Curry-Howard correspondence</a>, whose motto is “propositions as types, proofs as terms”. In <span class="math inline">\(\lambda\)</span>-calculus, terms are well-defined mathematical objects as are types.</p>
+<p>A quick example here would be:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #008800; font-weight: bold">def</span><span style="color: #bbbbbb"> </span>swap<span style="color: #bbbbbb"> </span><span style="color: #333333">{</span>α<span style="color: #bbbbbb"> </span>β<span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span><span style="color: #333399; font-weight: bold">Type</span><span style="color: #333333">}</span><span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>p<span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span>α<span style="color: #bbbbbb"> </span><span style="color: #007020">×</span><span style="color: #bbbbbb"> </span>β<span style="color: #333333">)</span><span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span>β<span style="color: #bbbbbb"> </span><span style="color: #007020">×</span><span style="color: #bbbbbb"> </span>α<span style="color: #bbbbbb"> </span><span style="color: #333333">:=</span><span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>p<span style="color: #007020">.</span>snd<span style="color: #333333">,</span><span style="color: #bbbbbb"> </span>p<span style="color: #007020">.</span>fst<span style="color: #333333">)</span>
+
+
+<span style="color: #008800; font-weight: bold">theorem</span><span style="color: #bbbbbb"> </span>swap_swap<span style="color: #bbbbbb"> </span><span style="color: #333333">{</span>α<span style="color: #bbbbbb"> </span>β<span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span><span style="color: #333399; font-weight: bold">Type</span><span style="color: #333333">}</span><span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>p<span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span>α<span style="color: #bbbbbb"> </span><span style="color: #007020">×</span><span style="color: #bbbbbb"> </span>β<span style="color: #333333">)</span><span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span>swap<span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>swap<span style="color: #bbbbbb"> </span>p<span style="color: #333333">)</span><span style="color: #bbbbbb"> </span><span style="color: #007020">=</span><span style="color: #bbbbbb"> </span>p<span style="color: #bbbbbb"> </span><span style="color: #333333">:=</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008800; font-weight: bold">match</span><span style="color: #bbbbbb"> </span>p<span style="color: #bbbbbb"> </span><span style="color: #008800; font-weight: bold">with</span>
+<span style="color: #bbbbbb">  </span><span style="color: #007020">|</span><span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>a<span style="color: #333333">,</span><span style="color: #bbbbbb"> </span>b<span style="color: #333333">)</span><span style="color: #bbbbbb"> </span><span style="color: #007020">=&gt;</span><span style="color: #bbbbbb"> </span>rfl
+</pre></div>
+
+<p>Here we we define a function <code>{lean4} swap</code> that swaps the elements of a pair. We then prove that <code>{lean4} swap</code> is involutive, i.e.&nbsp;that <code>{lean4} swap (swap p) = p</code> for all pairs <code>p</code>. The <code>{lean4} theorem</code> keyword is used to define a theorem, but is just syntactic sugar for defining a function that represents a proof. Notice that we state our theorem using Lean4’s type system and then provide a proof using Lean4’s programming language. The proof is verified by the Lean4 compiler, which checks if each step in the program has valid types. If we were to change the proof to the following:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #008800; font-weight: bold">theorem</span><span style="color: #bbbbbb"> </span>swap_swap<span style="color: #bbbbbb"> </span><span style="color: #333333">{</span>α<span style="color: #bbbbbb"> </span>β<span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span><span style="color: #333399; font-weight: bold">Type</span><span style="color: #333333">}</span><span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>p<span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span>α<span style="color: #bbbbbb"> </span><span style="color: #007020">×</span><span style="color: #bbbbbb"> </span>β<span style="color: #333333">)</span><span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span>swap<span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>swap<span style="color: #bbbbbb"> </span>p<span style="color: #333333">)</span><span style="color: #bbbbbb"> </span><span style="color: #007020">≠</span><span style="color: #bbbbbb"> </span>p<span style="color: #bbbbbb"> </span><span style="color: #333333">:=</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008800; font-weight: bold">match</span><span style="color: #bbbbbb"> </span>p<span style="color: #bbbbbb"> </span><span style="color: #008800; font-weight: bold">with</span>
+<span style="color: #bbbbbb">  </span><span style="color: #007020">|</span><span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>a<span style="color: #333333">,</span><span style="color: #bbbbbb"> </span>b<span style="color: #333333">)</span><span style="color: #bbbbbb"> </span><span style="color: #007020">=&gt;</span><span style="color: #bbbbbb"> </span>rfl
+</pre></div>
+
+<p>The Lean4 compiler would throw the following error regarding the <code>{lean4} rlf</code> function:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span>type<span style="color: #bbbbbb"> </span>mismatch
+<span style="color: #bbbbbb">  </span>rfl
+has<span style="color: #bbbbbb"> </span>type
+<span style="color: #bbbbbb">  </span><span style="color: #007020">?</span>m<span style="color: #007020">.</span><span style="color: #6600EE; font-weight: bold">149</span><span style="color: #bbbbbb"> </span><span style="color: #007020">=</span><span style="color: #bbbbbb"> </span><span style="color: #007020">?</span>m<span style="color: #007020">.</span><span style="color: #6600EE; font-weight: bold">149</span><span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span><span style="color: #333399; font-weight: bold">Prop</span>
+but<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>expected<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span><span style="color: #008800; font-weight: bold">have</span><span style="color: #bbbbbb"> </span>type
+<span style="color: #bbbbbb">  </span>swap<span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>swap<span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>a<span style="color: #333333">,</span><span style="color: #bbbbbb"> </span>b<span style="color: #333333">))</span><span style="color: #bbbbbb"> </span><span style="color: #007020">≠</span><span style="color: #bbbbbb"> </span><span style="color: #333333">(</span>a<span style="color: #333333">,</span><span style="color: #bbbbbb"> </span>b<span style="color: #333333">)</span><span style="color: #bbbbbb"> </span><span style="color: #333333">:</span><span style="color: #bbbbbb"> </span><span style="color: #333399; font-weight: bold">Prop</span>
+</pre></div>
+
+<section id="untyped-lambda-calculus" class="level3">
+<h3 class="anchored" data-anchor-id="untyped-lambda-calculus">Untyped <span class="math inline">\(\lambda\)</span>-calculus</h3>
+<p>Let <span class="math inline">\(V = \{x,y,z, \dots\}\)</span> be a set, which we call the set of variables and let <span class="math inline">\(K = \{\a,\b,\f,\g, \dots\}\)</span> be a set, which we call the set of constants. We can now define the set of terms <span class="math inline">\(\Lambda\)</span> <em>inductively</em> as follows:</p>
+<table class="table">
+<colgroup>
+<col style="width: 85%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Rule</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>If <span class="math inline">\(x \in V\)</span>, then <span class="math inline">\(x \in \Lambda\)</span></td>
+<td>Variable</td>
+</tr>
+<tr class="even">
+<td>If <span class="math inline">\(\f \in K\)</span>, then <span class="math inline">\(\f \in \Lambda\)</span></td>
+<td>Constant</td>
+</tr>
+<tr class="odd">
+<td>If <span class="math inline">\(s,t \in \Lambda\)</span>, then <span class="math inline">\((st) \in \Lambda\)</span></td>
+<td>Application</td>
+</tr>
+<tr class="even">
+<td>If <span class="math inline">\(x \in V\)</span> and <span class="math inline">\(t \in \Lambda\)</span>, then <span class="math inline">\((\lambda x.t) \in \Lambda\)</span></td>
+<td>Abstraction</td>
+</tr>
+</tbody>
+</table>
+<p>Using the notation of the <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form">Backus–Naur form</a>, we can define <span class="math inline">\(\Lambda\)</span> succinctly as follows:</p>
+<p><span class="math display">\[
+\Lambda ::= V \mid K \mid \Lambda \Lambda \mid \lambda V.\Lambda
+\]</span></p>
+<p>This strongly resembles the <a href="https://leanprover.github.io/functional_programming_in_lean/getting-to-know/datatypes-and-patterns.html">syntax of Lean4</a> and also <a href="https://wiki.haskell.org/Type">that of Haskell</a>.</p>
+</section>
+<section id="simply-typed-lambda-calculus" class="level3">
+<h3 class="anchored" data-anchor-id="simply-typed-lambda-calculus">Simply typed <span class="math inline">\(\lambda\)</span>-calculus</h3>
+<p>In the simply typed <span class="math inline">\(\lambda\)</span>-calculus, we enrich the untyped <span class="math inline">\(\lambda\)</span>-calculus with a type system. We define the set of types <span class="math inline">\(\T\)</span> <em>inductively</em> using a set of <em>base types</em> <span class="math inline">\(\T_0\)</span> as follows:</p>
+<ol type="1">
+<li>If <span class="math inline">\(A \in \T_0\)</span>, then <span class="math inline">\(A \in \T\)</span></li>
+<li>If <span class="math inline">\(A,B \in \T\)</span>, then <span class="math inline">\(A \to B \in \T\)</span></li>
+</ol>
+<p>Using the notation of the <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form">Backus–Naur form</a> again, we can define <span class="math inline">\(\T\)</span> succinctly as follows:</p>
+<p><span class="math display">\[
+\T ::= \T_0 \mid \T \to \T
+\]</span></p>
+<p>Using the set of types <span class="math inline">\(\T\)</span>, we can now define the set of typed terms <span class="math inline">\(\Lambda_\T\)</span> <em>inductively</em> using the Backus–Naur form as follows:</p>
+<p><span class="math display">\[
+\begin{align*}
+\Lambda_\T &amp;::= V \mid K \mid \Lambda_\T \Lambda_\T \mid \lambda V:\T.\Lambda_\T \\
+           &amp; \text{where } \\
+           &amp; V \text{ is the infinite set of variables } \\
+           &amp; K \text{ is the set of constants } \\
+\end{align*}
+\]</span></p>
+</section>
+<section id="type-inference" class="level3">
+<h3 class="anchored" data-anchor-id="type-inference">Type inference</h3>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

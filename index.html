@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -50,7 +50,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -59,6 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -102,9 +109,9 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 </script>
-<meta property="og:title" content="">
+<meta property="og:title" content="Luca Happel’s personal website">
 <meta property="og:image" content="https://lucah.tech/posts/surreal_numbers/thumbnail.png">
-<meta property="og:site-name" content="{{< var website.title >}}">
+<meta property="og:site_name" content="{{< var website.title >}}">
 <meta property="og:image:height" content="297">
 <meta property="og:image:width" content="557">
 </head><body class="nav-fixed"><div style="display: none;">
@@ -142,6 +149,33 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="./styles.css">
 
@@ -149,10 +183,10 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Luca Happel’s personal website</span>
     </a>
@@ -164,38 +198,38 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html" rel="" target="">
- <span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="./projects.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/Quoteme/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/Quoteme/"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/luca-leon-happel-a2a726218/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/luca-leon-happel-a2a726218/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/lucaleonhappel/" rel="" target=""><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://www.instagram.com/lucaleonhappel/"> <i class="bi bi-instagram" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.reddit.com/user/lalelul" rel="" target=""><i class="bi bi-reddit" role="img">
+    <a class="nav-link" href="https://www.reddit.com/user/lalelul"> <i class="bi bi-reddit" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -205,9 +239,10 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(14)</span></div><div class="category" data-category="Haskell">Haskell <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Heinrich-Heine Universität">Heinrich-Heine Universität <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JSDoc">JSDoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JavaScript">JavaScript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Minecraft">Minecraft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Seminar">Seminar <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Surreale Zahlen">Surreale Zahlen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="abstract algebra">abstract algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="algebra">algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="algebraic geometry">algebraic geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="algebraic topology">algebraic topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="archlinux">archlinux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="art">art <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aur">aur <span class="quarto-category-count">(1)</span></div><div class="category" data-category="boids">boids <span class="quarto-category-count">(1)</span></div><div class="category" data-category="calculus">calculus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cotangent bundle">cotangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cotangent space">cotangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="css">css <span class="quarto-category-count">(1)</span></div><div class="category" data-category="differential forms">differential forms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="differential geometry">differential geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="differential topology">differential topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dimension">dimension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="exterior algebra">exterior algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fractals">fractals <span class="quarto-category-count">(1)</span></div><div class="category" data-category="functional analysis">functional analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="game">game <span class="quarto-category-count">(3)</span></div><div class="category" data-category="geometry">geometry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="global section">global section <span class="quarto-category-count">(1)</span></div><div class="category" data-category="group theory">group theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="html">html <span class="quarto-category-count">(1)</span></div><div class="category" data-category="isomorphisms">isomorphisms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="javascript">javascript <span class="quarto-category-count">(3)</span></div><div class="category" data-category="manifold">manifold <span class="quarto-category-count">(1)</span></div><div class="category" data-category="math">math <span class="quarto-category-count">(5)</span></div><div class="category" data-category="mathematics">mathematics <span class="quarto-category-count">(3)</span></div><div class="category" data-category="measure theory">measure theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="meme">meme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="polynomial rings">polynomial rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="programming">programming <span class="quarto-category-count">(5)</span></div><div class="category" data-category="quotient rings">quotient rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ring theory">ring theory <span class="quarto-category-count">(4)</span></div><div class="category" data-category="sheaves">sheaves <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tangent bundle">tangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tangent space">tangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="topology">topology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="webgl">webgl <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="Haskell">Haskell <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Heinrich-Heine Universität">Heinrich-Heine Universität <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JSDoc">JSDoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JavaScript">JavaScript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Minecraft">Minecraft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Seminar">Seminar <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Surreale Zahlen">Surreale Zahlen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="abstract algebra">abstract algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="algebra">algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="algebraic geometry">algebraic geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="algebraic topology">algebraic topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="archlinux">archlinux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="art">art <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aur">aur <span class="quarto-category-count">(1)</span></div><div class="category" data-category="automated theorem proving">automated theorem proving <span class="quarto-category-count">(1)</span></div><div class="category" data-category="boids">boids <span class="quarto-category-count">(1)</span></div><div class="category" data-category="calculus">calculus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cotangent bundle">cotangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cotangent space">cotangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="css">css <span class="quarto-category-count">(1)</span></div><div class="category" data-category="differential forms">differential forms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="differential geometry">differential geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="differential topology">differential topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dimension">dimension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="exterior algebra">exterior algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="formal verification">formal verification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fractals">fractals <span class="quarto-category-count">(1)</span></div><div class="category" data-category="functional analysis">functional analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="game">game <span class="quarto-category-count">(3)</span></div><div class="category" data-category="geometry">geometry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="global section">global section <span class="quarto-category-count">(1)</span></div><div class="category" data-category="group theory">group theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="html">html <span class="quarto-category-count">(1)</span></div><div class="category" data-category="isomorphisms">isomorphisms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="javascript">javascript <span class="quarto-category-count">(3)</span></div><div class="category" data-category="lean4">lean4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="logic">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="manifold">manifold <span class="quarto-category-count">(1)</span></div><div class="category" data-category="math">math <span class="quarto-category-count">(5)</span></div><div class="category" data-category="mathematics">mathematics <span class="quarto-category-count">(4)</span></div><div class="category" data-category="measure theory">measure theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="meme">meme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="polynomial rings">polynomial rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="programming">programming <span class="quarto-category-count">(5)</span></div><div class="category" data-category="quotient rings">quotient rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ring theory">ring theory <span class="quarto-category-count">(4)</span></div><div class="category" data-category="sheaves">sheaves <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tangent bundle">tangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tangent space">tangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="topology">topology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="webgl">webgl <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
 
 
 
@@ -240,19 +275,70 @@ and 300px height
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="mathematics,topology,algebra,group theory,ring theory,measure theory,functional analysis,differential geometry,differential topology,algebraic topology" data-listing-date-sort="1707001200000" data-listing-file-modified-sort="1708522679468" data-listing-date-modified-sort="1707087600000" data-listing-reading-time-sort="25">
+<div class="quarto-post image-right" data-index="0" data-categories="mathematics,logic,automated theorem proving,lean4,formal verification" data-listing-date-sort="1708470000000" data-listing-file-modified-sort="1708572616971" data-listing-date-modified-sort="1708470000000" data-listing-reading-time-sort="5" data-listing-word-count-sort="987">
 <div class="thumbnail">
-<p><a href="./posts/l2-invariants/index.html"> <p class="card-img-top"><img src="posts/l2-invariants/2024-02-10-18-41-35.png" alt="Definition of \TopTwo"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/theorem_provers_exam/index.html" class="no-external"></a></p><a href="./posts/theorem_provers_exam/index.html" class="no-external">
+<p><img src="./posts/theorem_provers_exam/thumbnail.svg" class="thumbnail-image"></p>
+</a><p><a href="./posts/theorem_provers_exam/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/l2-invariants/index.html">
 <h3 class="no-anchor listing-title">
-<span class="math inline">\(\ell^2\)</span>-Invariants
+<a href="./posts/theorem_provers_exam/index.html" class="no-external">Automated theorem proving</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/theorem_provers_exam/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('mathematics'); return false;">
+mathematics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('logic'); return false;">
+logic
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('automated theorem proving'); return false;">
+automated theorem proving
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('lean4'); return false;">
+lean4
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('formal verification'); return false;">
+formal verification
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/theorem_provers_exam/index.html" class="no-external"><span class="math display">\[
+\newcommand{\a}{\text{a}}
+\newcommand{\b}{\text{b}}
+\newcommand{\f}{\text{f}}
+\newcommand{\g}{\text{g}}
+\newcommand{\T}{\mathbb{T}}
+\]</span></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/theorem_provers_exam/index.html" class="no-external">
+<div class="listing-date">
+Feb 21, 2024
+</div>
+<div class="listing-author">
+Luca Leon Happel
 </div>
 </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="mathematics,topology,algebra,group theory,ring theory,measure theory,functional analysis,differential geometry,differential topology,algebraic topology" data-listing-date-sort="1707001200000" data-listing-file-modified-sort="1708570667380" data-listing-date-modified-sort="1707087600000" data-listing-reading-time-sort="25" data-listing-word-count-sort="4937">
+<div class="thumbnail">
+<p><a href="./posts/l2-invariants/index.html" class="no-external"></a></p><a href="./posts/l2-invariants/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/l2-invariants/2024-02-10-18-41-35.png" alt="Definition of \TopTwo"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/l2-invariants/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/l2-invariants/index.html" class="no-external"><span class="math inline">\(\ell^2\)</span>-Invariants</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/l2-invariants/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('mathematics'); return false;">
 mathematics
@@ -285,14 +371,12 @@ differential topology
 algebraic topology
 </div>
 </div>
-<a href="./posts/l2-invariants/index.html">
 <div class="listing-description">
-<p>This article is about the <span class="math inline">\(\ell^2\)</span>-Invariants of <span class="math inline">\(G\)</span>-CW-complexes. We will start by constructing the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes and then take a look at some applications of the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes. We will calculate the <span class="math inline">\(\ell^2\)</span>-homology groups and the <span class="math inline">\(\ell^2\)</span>-betti numbers of <span class="math inline">\(S^\infty := \colim_n S^n\)</span> with the group <span class="math inline">\(G:=\prod_{n=0}^\infty \Z/2\Z\)</span> acting on it. We will also take a look at the <span class="math inline">\(\ell^2\)</span>-betti numbers of the torus and the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of the torus. Finally, we will take a look at Lück’s theorem and its implications for the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of a connected, compact CW-complex whose fundamental group is residually finite.</p>
+<a href="./posts/l2-invariants/index.html" class="no-external">This article is about the <span class="math inline">\(\ell^2\)</span>-Invariants of <span class="math inline">\(G\)</span>-CW-complexes. We will start by constructing the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes and then take a look at some applications of the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes. We will calculate the <span class="math inline">\(\ell^2\)</span>-homology groups and the <span class="math inline">\(\ell^2\)</span>-betti numbers of <span class="math inline">\(S^\infty := \colim_n S^n\)</span> with the group <span class="math inline">\(G:=\prod_{n=0}^\infty \Z/2\Z\)</span> acting on it. We will also take a look at the <span class="math inline">\(\ell^2\)</span>-betti numbers of the torus and the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of the torus. Finally, we will take a look at Lück’s theorem and its implications for the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of a connected, compact CW-complex whose fundamental group is residually finite. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/l2-invariants/index.html">
+<a href="./posts/l2-invariants/index.html" class="no-external">
 <div class="listing-date">
 Feb 4, 2024
 </div>
@@ -302,19 +386,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Seminar,Surreale Zahlen,abstract algebra,ring theory" data-listing-date-sort="1700089200000" data-listing-file-modified-sort="1707319548515" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="2" data-categories="Seminar,Surreale Zahlen,abstract algebra,ring theory" data-listing-date-sort="1700089200000" data-listing-file-modified-sort="1707319548515" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
 <div class="thumbnail">
-<p><a href="./posts/surreal_numbers/index.html"> <img src="./posts/surreal_numbers/thumbnail.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/surreal_numbers/index.html" class="no-external"></a></p><a href="./posts/surreal_numbers/index.html" class="no-external">
+<p><img src="./posts/surreal_numbers/thumbnail.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/surreal_numbers/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/surreal_numbers/index.html">
 <h3 class="no-anchor listing-title">
-Surreale Zahlen
+<a href="./posts/surreal_numbers/index.html" class="no-external">Surreale Zahlen</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/surreal_numbers/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Seminar'); return false;">
 Seminar
@@ -329,14 +413,12 @@ abstract algebra
 ring theory
 </div>
 </div>
-<a href="./posts/surreal_numbers/index.html">
 <div class="listing-description">
-In diesem Vortrag ging es darum zu zeigen, dass die surrealen Zahlen ein Körper sind. Ich arbeitete dabei unter der Annahme, dass wir bereits gezeigt haben, dass <span class="math inline">\(\bo…</span>
+<a href="./posts/surreal_numbers/index.html" class="no-external">In diesem Vortrag ging es darum zu zeigen, dass die surrealen Zahlen ein Körper sind. Ich arbeitete dabei unter der Annahme, dass wir bereits gezeigt haben, dass <span class="math inline">\(\boldsymbo…</span></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/surreal_numbers/index.html">
+<a href="./posts/surreal_numbers/index.html" class="no-external">
 <div class="listing-date">
 Nov 16, 2023
 </div>
@@ -346,19 +428,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Seminar,Haskell,programming,Heinrich-Heine Universität" data-listing-date-sort="1674428400000" data-listing-file-modified-sort="1707319548507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="3" data-categories="Seminar,Haskell,programming,Heinrich-Heine Universität" data-listing-date-sort="1674428400000" data-listing-file-modified-sort="1707319548507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="130">
 <div class="thumbnail">
-<p><a href="./posts/bachelor-seminar-haskell/index.html"> <img src="./posts/bachelor-seminar-haskell/thumbnail.jpg" class="thumbnail-image"> </a></p>
+<p><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external"></a></p><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">
+<p><img src="./posts/bachelor-seminar-haskell/thumbnail.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/bachelor-seminar-haskell/index.html">
 <h3 class="no-anchor listing-title">
-Haskell - Angewandter „abstract nonsense“
+<a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">Haskell - Angewandter „abstract nonsense“</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/bachelor-seminar-haskell/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Seminar'); return false;">
 Seminar
@@ -373,14 +455,12 @@ programming
 Heinrich-Heine Universität
 </div>
 </div>
-<a href="./posts/bachelor-seminar-haskell/index.html">
 <div class="listing-description">
-Dieses Semester habe ich einen Kurs in der Heinrich-Heine Universität in Düsseldorf belegt, welcher sich mit verschiedenen Programmiersprachen beschäftigte. Dabei habe ich…
+<a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">Dieses Semester habe ich einen Kurs in der Heinrich-Heine Universität in Düsseldorf belegt, welcher sich mit verschiedenen Programmiersprachen beschäftigte. Dabei habe ich…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/bachelor-seminar-haskell/index.html">
+<a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">
 <div class="listing-date">
 Jan 23, 2023
 </div>
@@ -390,19 +470,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="mathematics,differential geometry,differential forms,tangent space,cotangent space,manifold,tangent bundle,cotangent bundle,exterior algebra,global section" data-listing-date-sort="1653602400000" data-listing-file-modified-sort="1707319548507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="4" data-categories="mathematics,differential geometry,differential forms,tangent space,cotangent space,manifold,tangent bundle,cotangent bundle,exterior algebra,global section" data-listing-date-sort="1653602400000" data-listing-file-modified-sort="1707319548507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="377">
 <div class="thumbnail">
-<p><a href="./posts/differential_forms/index.html"> <img src="https://i.imgur.com/pJlb0qT.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/differential_forms/index.html" class="no-external"></a></p><a href="./posts/differential_forms/index.html" class="no-external">
+<p><img src="https://i.imgur.com/pJlb0qT.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/differential_forms/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/differential_forms/index.html">
 <h3 class="no-anchor listing-title">
-What are „differential forms“
+<a href="./posts/differential_forms/index.html" class="no-external">What are „differential forms“</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/differential_forms/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('mathematics'); return false;">
 mathematics
@@ -435,14 +515,12 @@ exterior algebra
 global section
 </div>
 </div>
-<a href="./posts/differential_forms/index.html">
 <div class="listing-description">
-Currently while visiting the “KoMa” (Konferenz der deutschsprachigen Mathematikfachschaften / conference of German-speaking mathematics students) I got into a lot of interesting conversations about geometry…
+<a href="./posts/differential_forms/index.html" class="no-external">Currently while visiting the “KoMa” (Konferenz der deutschsprachigen Mathematikfachschaften / conference of German-speaking mathematics students) I got into a lot of…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/differential_forms/index.html">
+<a href="./posts/differential_forms/index.html" class="no-external">
 <div class="listing-date">
 May 27, 2022
 </div>
@@ -452,19 +530,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="mathematics,algebraic geometry" data-listing-date-sort="1646089200000" data-listing-file-modified-sort="1707319548508" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="5" data-categories="mathematics,algebraic geometry" data-listing-date-sort="1646089200000" data-listing-file-modified-sort="1707319548508" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="332">
 <div class="thumbnail">
-<p><a href="./posts/elliptic_curves_over_F4/index.html"> <p class="card-img-top"><img src="https://i.imgur.com/FoVlqcE.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external"></a></p><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/elliptic_curves_over_F4/index.html">
 <h3 class="no-anchor listing-title">
-Elliptic curves over the field with four elements (not finished)
+<a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">Elliptic curves over the field with four elements (not finished)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/elliptic_curves_over_F4/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('mathematics'); return false;">
 mathematics
@@ -473,14 +551,12 @@ mathematics
 algebraic geometry
 </div>
 </div>
-<a href="./posts/elliptic_curves_over_F4/index.html">
 <div class="listing-description">
-We define the <em>affine space</em> <span class="math inline">\(\mathbb{A}^n_k\)</span> over a ground field <span class="math inline">\(k\)</span> to be the set of all tuples <span class="math inline">\((x_1, \dots, x_n)\)</span> with elements in <span class="math inline">\(k\)</span>. In the case of <span class="math inline">\(n=2\)</span> …<span class="math inline"></span><em></em><em></em><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><em></em><span class="math inline"></span>
+<a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">We define the <em>affine space</em> <span class="math inline">\(\mathbb{A}^n_k\)</span> over a ground field <span class="math inline">\(k\)</span> to be the set of all tuples <span class="math inline">\((x_1, \dots, x_n)\)</span> with elements in <span class="math inline">\(k\)</span>. In the case of <span class="math inline">\(n=2\)</span> we…<span class="math inline"></span><em></em><em></em><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><em></em><span class="math inline"></span></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/elliptic_curves_over_F4/index.html">
+<a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">
 <div class="listing-date">
 Mar 1, 2022
 </div>
@@ -490,19 +566,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="math,algebraic geometry,sheaves,topology,Minecraft" data-listing-date-sort="1635458400000" data-listing-file-modified-sort="1707319548510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
+<div class="quarto-post image-right" data-index="6" data-categories="math,algebraic geometry,sheaves,topology,Minecraft" data-listing-date-sort="1635458400000" data-listing-file-modified-sort="1707319548510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1845">
 <div class="thumbnail">
-<p><a href="./posts/sheaves_in_minecraft/index.html"> <img src="https://i.imgur.com/IvIs8F3.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/sheaves_in_minecraft/index.html" class="no-external"></a></p><a href="./posts/sheaves_in_minecraft/index.html" class="no-external">
+<p><img src="https://i.imgur.com/IvIs8F3.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/sheaves_in_minecraft/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/sheaves_in_minecraft/index.html">
 <h3 class="no-anchor listing-title">
-Sheaves in Minecraft
+<a href="./posts/sheaves_in_minecraft/index.html" class="no-external">Sheaves in Minecraft</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/sheaves_in_minecraft/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
 math
@@ -520,14 +596,12 @@ topology
 Minecraft
 </div>
 </div>
-<a href="./posts/sheaves_in_minecraft/index.html">
 <div class="listing-description">
-A few days ago, after my introductory class in topology, and right before my class…
+<a href="./posts/sheaves_in_minecraft/index.html" class="no-external">A few days ago, after my introductory class in topology, and right before my class about algebraic geometry, my friend Anastasia and I were asked by fellow topology students…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/sheaves_in_minecraft/index.html">
+<a href="./posts/sheaves_in_minecraft/index.html" class="no-external">
 <div class="listing-date">
 Oct 29, 2021
 </div>
@@ -537,19 +611,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="math,algebra,abstract algebra,ring theory,meme" data-listing-date-sort="1634767200000" data-listing-file-modified-sort="1707319548506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="7" data-categories="math,algebra,abstract algebra,ring theory,meme" data-listing-date-sort="1634767200000" data-listing-file-modified-sort="1707319548506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="250">
 <div class="thumbnail">
-<p><a href="./posts/algebra_meme_2/index.html"> <img src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/algebra_meme_2/index.html" class="no-external"></a></p><a href="./posts/algebra_meme_2/index.html" class="no-external">
+<p><img src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/algebra_meme_2/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/algebra_meme_2/index.html">
 <h3 class="no-anchor listing-title">
-Prove that <span class="math inline">\(\mathbb{R}[x]/(x^2+bx+c)\)</span> is isomorphic to <span class="math inline">\(\mathbb{R}^2\)</span> or <span class="math inline">\(\mathbb{C}\)</span> - A proof
+<a href="./posts/algebra_meme_2/index.html" class="no-external">Prove that <span class="math inline">\(\mathbb{R}[x]/(x^2+bx+c)\)</span> is isomorphic to <span class="math inline">\(\mathbb{R}^2\)</span> or <span class="math inline">\(\mathbb{C}\)</span> - A proof</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/algebra_meme_2/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
 math
@@ -567,14 +641,12 @@ ring theory
 meme
 </div>
 </div>
-<a href="./posts/algebra_meme_2/index.html">
 <div class="listing-description">
-Around one year ago I tried to solve the following riddle involving abstract algebra, but I failed and did not finish the question at that
+<a href="./posts/algebra_meme_2/index.html" class="no-external">Around one year ago I tried to solve the following riddle involving abstract algebra, but I failed and did not finish the question at that</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/algebra_meme_2/index.html">
+<a href="./posts/algebra_meme_2/index.html" class="no-external">
 <div class="listing-date">
 Oct 21, 2021
 </div>
@@ -584,19 +656,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="math,algebra,ring theory,abstract algebra,polynomial rings,quotient rings,isomorphisms" data-listing-date-sort="1606950000000" data-listing-file-modified-sort="1707319548506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="8" data-categories="math,algebra,ring theory,abstract algebra,polynomial rings,quotient rings,isomorphisms" data-listing-date-sort="1606950000000" data-listing-file-modified-sort="1707319548506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
 <div class="thumbnail">
-<p><a href="./posts/algebra_meme/index.html"> <img src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/algebra_meme/index.html" class="no-external"></a></p><a href="./posts/algebra_meme/index.html" class="no-external">
+<p><img src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/algebra_meme/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/algebra_meme/index.html">
 <h3 class="no-anchor listing-title">
-Prove that <span class="math inline">\(\mathbb{R}[x]/(x^2+bx+c)\)</span> is isomorphic to <span class="math inline">\(\mathbb{R}^2\)</span> or <span class="math inline">\(\mathbb{C}\)</span> - First try
+<a href="./posts/algebra_meme/index.html" class="no-external">Prove that <span class="math inline">\(\mathbb{R}[x]/(x^2+bx+c)\)</span> is isomorphic to <span class="math inline">\(\mathbb{R}^2\)</span> or <span class="math inline">\(\mathbb{C}\)</span> - First try</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/algebra_meme/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
 math
@@ -620,14 +692,12 @@ quotient rings
 isomorphisms
 </div>
 </div>
-<a href="./posts/algebra_meme/index.html">
 <div class="listing-description">
-A few minutes ago I stumbled upon this meme on some math and science forum:
+<a href="./posts/algebra_meme/index.html" class="no-external">A few minutes ago I stumbled upon this meme on some math and science forum:</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/algebra_meme/index.html">
+<a href="./posts/algebra_meme/index.html" class="no-external">
 <div class="listing-date">
 Dec 3, 2020
 </div>
@@ -637,19 +707,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="math,fractals,dimension,calculus,geometry" data-listing-date-sort="1590098400000" data-listing-file-modified-sort="1707319548510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="9" data-categories="math,fractals,dimension,calculus,geometry" data-listing-date-sort="1590098400000" data-listing-file-modified-sort="1707319548510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
 <div class="thumbnail">
-<p><a href="./posts/new_method_of_counting_dimensions/index.html"> <img src="./posts/new_method_of_counting_dimensions/thumbnail.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external"></a></p><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">
+<p><img src="./posts/new_method_of_counting_dimensions/thumbnail.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/new_method_of_counting_dimensions/index.html">
 <h3 class="no-anchor listing-title">
-A new method to calculate dimension
+<a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">A new method to calculate dimension</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
 math
@@ -667,14 +737,12 @@ calculus
 geometry
 </div>
 </div>
-<a href="./posts/new_method_of_counting_dimensions/index.html">
 <div class="listing-description">
-A few days ago, I stumbled upon an article titled Finally We May Have a Path to the Fundamental Theory of Physics… and It’s Beautiful by Stephen Wolfram, an American scientist and the creator of WolframAlpha. His article discusses his new theory in physics, which is based on directed graphs and their transformations under…
+<a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">A few days ago, I stumbled upon an article titled Finally We May Have a Path to the Fundamental Theory of Physics… and It’s Beautiful by Stephen Wolfram, an American…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/new_method_of_counting_dimensions/index.html">
+<a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">
 <div class="listing-date">
 May 22, 2020
 </div>
@@ -684,19 +752,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="JSDoc,JavaScript,game,programming" data-listing-date-sort="1587160800000" data-listing-file-modified-sort="1707319548507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="10" data-categories="JSDoc,JavaScript,game,programming" data-listing-date-sort="1587160800000" data-listing-file-modified-sort="1707319548507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
 <div class="thumbnail">
-<p><a href="./posts/bildbesucher-jsdoc/index.html"> <img src="./posts/bildbesucher-jsdoc/thumbnail.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external"></a></p><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">
+<p><img src="./posts/bildbesucher-jsdoc/thumbnail.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/bildbesucher-jsdoc/index.html">
 <h3 class="no-anchor listing-title">
-Bildbesucher - First time using JSDoc
+<a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">Bildbesucher - First time using JSDoc</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/bildbesucher-jsdoc/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('JSDoc'); return false;">
 JSDoc
@@ -711,14 +779,12 @@ game
 programming
 </div>
 </div>
-<a href="./posts/bildbesucher-jsdoc/index.html">
 <div class="listing-description">
-As you can see in the image above, today I’ve added JSDoc support to my game, BildBesucher. This means that by visiting http://quoteme.github.io/bildbesucher/docs/, you can find all sorts of interesting information about the programming of the game. This will make it easier for me in the future to remember the purpose of specific…
+<a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">As you can see in the image above, today I’ve added JSDoc support to my game, BildBesucher. This means that by visiting http://quoteme.github.io/bildbesucher/docs/, you can…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/bildbesucher-jsdoc/index.html">
+<a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">
 <div class="listing-date">
 Apr 18, 2020
 </div>
@@ -728,19 +794,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="programming,game,art,javascript,html,css" data-listing-date-sort="1586210400000" data-listing-file-modified-sort="1707319548507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="11" data-categories="programming,game,art,javascript,html,css" data-listing-date-sort="1586210400000" data-listing-file-modified-sort="1707319548507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
 <div class="thumbnail">
-<p><a href="./posts/bildbesucher/index.html"> <img src="./posts/bildbesucher/thumbnail.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/bildbesucher/index.html" class="no-external"></a></p><a href="./posts/bildbesucher/index.html" class="no-external">
+<p><img src="./posts/bildbesucher/thumbnail.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/bildbesucher/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/bildbesucher/index.html">
 <h3 class="no-anchor listing-title">
-Bildbesucher - A simple jump and run game
+<a href="./posts/bildbesucher/index.html" class="no-external">Bildbesucher - A simple jump and run game</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/bildbesucher/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('programming'); return false;">
 programming
@@ -761,14 +827,12 @@ html
 css
 </div>
 </div>
-<a href="./posts/bildbesucher/index.html">
 <div class="listing-description">
-Recently, I’ve started to develop a game again, finding a bit of a positive side during the current Corona crisis.
+<a href="./posts/bildbesucher/index.html" class="no-external">Recently, I’ve started to develop a game again, finding a bit of a positive side during the current Corona crisis.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/bildbesucher/index.html">
+<a href="./posts/bildbesucher/index.html" class="no-external">
 <div class="listing-date">
 Apr 7, 2020
 </div>
@@ -778,19 +842,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="programming,aur,archlinux" data-listing-date-sort="1585350000000" data-listing-file-modified-sort="1707319548508" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="12" data-categories="programming,aur,archlinux" data-listing-date-sort="1585350000000" data-listing-file-modified-sort="1707319548508" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="416">
 <div class="thumbnail">
-<p><a href="./posts/first_program_in_AUR/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/first_program_in_AUR/index.html" class="no-external"></a></p><a href="./posts/first_program_in_AUR/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/first_program_in_AUR/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/first_program_in_AUR/index.html">
 <h3 class="no-anchor listing-title">
-My first program in the AUR
+<a href="./posts/first_program_in_AUR/index.html" class="no-external">My first program in the AUR</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/first_program_in_AUR/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('programming'); return false;">
 programming
@@ -802,14 +866,12 @@ aur
 archlinux
 </div>
 </div>
-<a href="./posts/first_program_in_AUR/index.html">
 <div class="listing-description">
-Recently I discovered some more of the incredibly useful features of my favorite text-editor Neovim:
+<a href="./posts/first_program_in_AUR/index.html" class="no-external">Recently I discovered some more of the incredibly useful features of my favorite text-editor Neovim:</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/first_program_in_AUR/index.html">
+<a href="./posts/first_program_in_AUR/index.html" class="no-external">
 <div class="listing-date">
 Mar 28, 2020
 </div>
@@ -819,19 +881,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="javascript,game,boids" data-listing-date-sort="1582758000000" data-listing-file-modified-sort="1707319548508" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="13" data-categories="javascript,game,boids" data-listing-date-sort="1582758000000" data-listing-file-modified-sort="1707319548508" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107">
 <div class="thumbnail">
-<p><a href="./posts/glider/index.html"> <img src="./posts/glider/screenshot.png" class="thumbnail-image"> </a></p>
+<p><a href="./posts/glider/index.html" class="no-external"></a></p><a href="./posts/glider/index.html" class="no-external">
+<p><img src="./posts/glider/screenshot.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/glider/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/glider/index.html">
 <h3 class="no-anchor listing-title">
-Glider - A simple boids based video game
+<a href="./posts/glider/index.html" class="no-external">Glider - A simple boids based video game</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/glider/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('javascript'); return false;">
 javascript
@@ -843,14 +905,12 @@ game
 boids
 </div>
 </div>
-<a href="./posts/glider/index.html">
 <div class="listing-description">
-Today, while revisiting my old laptop, I rediscovered a project from just over a year and a month ago:
+<a href="./posts/glider/index.html" class="no-external">Today, while revisiting my old laptop, I rediscovered a project from just over a year and a month ago:</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/glider/index.html">
+<a href="./posts/glider/index.html" class="no-external">
 <div class="listing-date">
 Feb 27, 2020
 </div>
@@ -860,19 +920,19 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="javascript,programming,webgl,math" data-listing-date-sort="1581634800000" data-listing-file-modified-sort="1707319548508" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="14" data-categories="javascript,programming,webgl,math" data-listing-date-sort="1581634800000" data-listing-file-modified-sort="1707319548508" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="408">
 <div class="thumbnail">
-<p><a href="./posts/intersect.js/index.html"> <p class="card-img-top"><img src="https://i.imgur.com/aqI995m.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/intersect.js/index.html" class="no-external"></a></p><a href="./posts/intersect.js/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/intersect.js/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/intersect.js/index.html">
 <h3 class="no-anchor listing-title">
-intersect.mjs und der Sphären/Boxen-Schnitt
+<a href="./posts/intersect.js/index.html" class="no-external">intersect.mjs und der Sphären/Boxen-Schnitt</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/intersect.js/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('javascript'); return false;">
 javascript
@@ -887,14 +947,12 @@ webgl
 math
 </div>
 </div>
-<a href="./posts/intersect.js/index.html">
 <div class="listing-description">
-Momentan arbeite ich an meiner intersect.mjs Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen geometrischen Strukturen in <span class="math inline">\(n\)</span> dimensionen zu erkennen. Dabei ist gerade diese folgende Zeile zu einer…
+<a href="./posts/intersect.js/index.html" class="no-external">Momentan arbeite ich an meiner intersect.mjs Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen geometrischen Strukturen in <span class="math inline">\(n\)</span> dimensionen zu…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/intersect.js/index.html">
+<a href="./posts/intersect.js/index.html" class="no-external">
 <div class="listing-date">
 Feb 14, 2020
 </div>
@@ -950,6 +1008,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1018,13 +1103,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1103,10 +1190,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1116,8 +1202,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1130,6 +1225,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1173,6 +1387,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1198,6 +1413,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1258,6 +1499,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
