@@ -7,9 +7,6 @@ categories: ["mathematics", "topology", "algebra", "group theory", "ring theory"
 description: >
     This article is about the $\ell^2$-Invariants of $G$-CW-complexes. We will start by constructing the $\ell^2$-completion of cellular chain complexes and then take a look at some applications of the $\ell^2$-completion of cellular chain complexes. We will calculate the $\ell^2$-homology groups and the $\ell^2$-betti numbers of $S^\infty := \colim_n S^n$ with the group $G:=\prod_{n=0}^\infty \Z/2\Z$ acting on it. We will also take a look at the $\ell^2$-betti numbers of the torus and the $\ell^2$-betti numbers of the universal covering space of the torus. Finally, we will take a look at Lück's theorem and its implications for the $\ell^2$-betti numbers of the universal covering space of a connected, compact CW-complex whose fundamental group is residually finite.
 bibliography: references.bib
-filters:
-   - lightbox
-lightbox: auto
 format:
     html:
         code-fold: true

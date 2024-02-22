@@ -42,12 +42,27 @@
               '';
             });
         };
+        pygments2_18overlay = final: prev: {
+          # change the version and source of the pygments package
+          python312Packages.pygments = prev.python312Packages.pygments.overridePythonAttrs (old: {
+            src = (pkgs.fetchFromGitHub {
+              owner = "pygments";
+              repo = "pygments";
+              rev = "26ffe8f472d18ed190a5ced00335682c618037d4";
+              sha256 = "sha256-dbV7qLsSh88RKBbg1CI8OooSfsWZF7HVjAiIEj9pTMo="; # TODO
+            });
+            # propagatedBuildInputs = prev.python312Packages.pygments.propagatedBuildInputs ++ [ prev.python312Packages.pandocfilters ];
+            # buildInputs = prev.python312Packages.pygments.buildInputs ++ [ prev.python312Packages.pandocfilters ];
+            # nativeBuildInputs = prev.python312Packages.pygments.nativeBuildInputs ++ [ prev.python312Packages.pandocfilters ];
+          });
+        };
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
           overlays = [
             inputs.nix-vscode-extensions.overlays.default
             quarto1_4overlay
+            pygments2_18overlay
             (self: super: {
               quarto = super.quarto.override {
                 extraRPackages = [ ];
@@ -66,6 +81,17 @@
         ];
       in
       {
+        # default shell 
+        devShells.default = pkgs.mkShell {
+          name = "blog-shell";
+          buildInputs = dependencies;
+          shellHook = ''
+            export PYGMENTIZE=${pkgs.python312Packages.pygments}/bin/pygmentize
+            export PATH=${pkgs.quarto}/bin:${pkgs.python312Packages.pygments}/bin:${pkgs.python312}/bin:$PATH
+            export PYTHONPATH=${pkgs.python312Packages.pygments}/lib/python3.12/site-packages:${pkgs.python311Packages.pandocfilters}/lib/python3.11/site-packages
+          '';
+        };
+
         # build quarto blog
         packages.default = pkgs.stdenv.mkDerivation {
           name = "build-blog";

@@ -5,14 +5,13 @@ date: "2024-02-21"
 date-modified: "2024-02-21"
 categories: ["mathematics", "logic", "automated theorem proving", "lean4", "formal verification"]
 bibliography: references.bib
-filters:
-   - lightbox
-lightbox: auto
 format:
     html:
         code-fold: true
         code-summary: "Show the code"
 image: "thumbnail.svg"
+filters: 
+  - ./lean4.py
 ---
 
 ::: {.hidden}
@@ -39,6 +38,7 @@ A quick example here would be:
 
 ```{lean4}
 def swap {α β : Type} (p : α × β) : β × α := (p.snd, p.fst)
+
 
 theorem swap_swap {α β : Type} (p : α × β) : swap (swap p) = p :=
   match p with
