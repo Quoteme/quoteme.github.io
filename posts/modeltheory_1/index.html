@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Luca Leon Happe">
+<meta name="author" content="Luca Leon Happel">
+<meta name="dcterms.date" content="2024-03-02">
 
-<title>Luca Happel’s personal website - Projects</title>
+<title>Luca Happel’s personal website - Modeltheory 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,28 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,9 +80,8 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 </script>
-<meta property="og:title" content="Luca Happel’s personal website - Projects">
+<meta property="og:title" content="Luca Happel’s personal website - Modeltheory 1">
 <meta property="og:description" content="Personal website of Luca Happel, including lots of math and computer science.">
-<meta property="og:image" content="https://avatars2.githubusercontent.com/u/6796009">
 <meta property="og:site_name" content="{{< var website.title >}}">
 </head><body class="nav-fixed fullcontent"><div style="display: none;">
     $$
@@ -119,18 +116,47 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
     $$
 </div>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 
 
 
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Luca Happel’s personal website</span>
     </a>
   </div>
@@ -141,11 +167,11 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
@@ -177,157 +203,132 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Modeltheory 1</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">mathematics</div>
+                <div class="quarto-category">logic</div>
+                <div class="quarto-category">modeltheory</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Luca Leon Happel </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 2, 2024</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">March 2, 2024</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Projects</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Luca Leon Happe </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
 
 
-</header>
+<section id="what-this-post-is-about" class="level1">
+<h1>What this post is about</h1>
+<p>This semester, I participate in the course “Modeltheory 1” at the University of Düsseldorf. Further information about the course can be found <a href="https://www.math.uni-duesseldorf.de/~internet/MT1-V-W23/">here</a>. The course closely follewed the book <a href="https://katalog.ulb.hhu.de/Record/990037258690206443">“A Course in Model Theory”</a> by Tent, Ziegler. Model theory is a branch of mathematical logic that deals with the relation between a formal language and its interpretations, or models. This course is the third in a series of courses on model theory. The first course was called “introduction to modeltheory” and the second was a course on “o-minimal structures”, which are a special topic in model theory.</p>
+<p>In the introductory course, we learned about:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>languages</td>
+<td>Sets of symbols, like the language of groups <span class="math inline">\(L_{\text{Grp}} = \{e,*,(\cdot)^{-1}\}\)</span></td>
+</tr>
+<tr class="even">
+<td>structures</td>
+<td>Interpretations of the symbols of a language in a given set, like the group <span class="math inline">\((0, +, x \mapsto -x)\)</span> over the set <span class="math inline">\(\mathbb{Z}\)</span></td>
+</tr>
+<tr class="odd">
+<td>theories</td>
+<td>Sets of sentences<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> in a language, like the theory of groups <span class="math inline">\(T_{\text{Grp}} = \{\forall x \forall y \forall z (x * (y * z) = (x * y) * z), \forall x (x * e = x), \forall x (x * x^{-1} = e)\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In the second course, we learned about o-minimal structures, which are notable, because their definable sets are very simple. For example, in the real numbers, the definable sets are exactly the finite unions of points and intervals if we only use the symbols <span class="math inline">\(0, 1, +, -, \cdot, \leq\)</span>. One of the main results of the course was that the theory of the real numbers with these symbols and the exponential function is o-minimal.</p>
+<p>In this course, we learned about the following topics:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Types and saturated structures</td>
+<td><span style="color: red">TODO</span></td>
+</tr>
+<tr class="even">
+<td>Dimension and Morley rank</td>
+<td><span style="color: red">TODO</span></td>
+</tr>
+<tr class="odd">
+<td>Imaginary elements</td>
+<td><span style="color: red">TODO</span></td>
+</tr>
+</tbody>
+</table>
+<p>As an exercise for my upcoming exam in this course, I will write a summary of the topics we learned about and provide some examples and hopefully some code to illustrate the concepts.</p>
+</section>
+<section id="what-i-learned" class="level1">
+<h1>What I learned</h1>
+<section id="types-and-saturated-structures" class="level2">
+<h2 class="anchored" data-anchor-id="types-and-saturated-structures">Types and saturated structures</h2>
 
 
-<p>Here is a small list of projects I have worked on. Most are open source and can be found on my <a href="https://github.com/Quoteme?tab=repositories">GitHub</a>.</p>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://github.com/Quoteme/math/blob/master/social_preview.png?raw=true" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm"></p>
-<figcaption>My math stuff</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://i.imgur.com/OAqeQ43.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm"></p>
-<figcaption>Top2Man</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://i.imgur.com/CmCh70g.gif" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm"></p>
-<figcaption>Img2String</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://i.imgur.com/Ysv2BVX.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm"></p>
-<figcaption>WebGLCS</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://i.imgur.com/Xnfvpag.gif" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm"></p>
-<figcaption>DimensionCrusher</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://i.imgur.com/MHf3Ltb.gif" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm"></p>
-<figcaption>ComplexGrapher</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://raw.githubusercontent.com/Quoteme/Fluchtpunkt3D/master/demo/test.gif" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:4cm"></p>
-<figcaption>Fluchtpunkt3D</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://i.imgur.com/R5O38wV.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:4cm"></p>
-<figcaption>KnowHowComputer</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://i.imgur.com/05wgpP9.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:4cm"></p>
-<figcaption>Relic Hunter Zero (STEAM)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://i.imgur.com/47Bc1uJ.gif" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:4cm"></p>
-<figcaption>Matrix Visualizer</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:4cm"></p>
-<figcaption>More</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">My math stuff</span>
-<span class="glightbox-desc lightbox-desc-2">Top2Man</span>
-<span class="glightbox-desc lightbox-desc-3">Img2String</span>
-<span class="glightbox-desc lightbox-desc-4">WebGLCS</span>
-<span class="glightbox-desc lightbox-desc-5">DimensionCrusher</span>
-<span class="glightbox-desc lightbox-desc-6">ComplexGrapher</span>
-<span class="glightbox-desc lightbox-desc-7">Fluchtpunkt3D</span>
-<span class="glightbox-desc lightbox-desc-8">KnowHowComputer</span>
-<span class="glightbox-desc lightbox-desc-9">Relic Hunter Zero (STEAM)</span>
-<span class="glightbox-desc lightbox-desc-10">Matrix Visualizer</span>
-<span class="glightbox-desc lightbox-desc-11">More</span>
-</div>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
-</main> <!-- /main -->
+<ol>
+<li id="fn1"><p>A sentence is a formula without free variables. We wont go into the details of what a formula is, but intuitively it is a string of symbols and variables in our language, that follows some rules.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -860,31 +861,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 
