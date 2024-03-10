@@ -13,8 +13,6 @@ format:
         code-summary: "Show the code"
 ---
 
-> <span style="color: red">__WARNING__: This is a work in progress. I am currently writing this article and it is not finished yet. I will update it regularly and remove this warning once it is finished.</span>
-
 ## Introduction
 
 This semester (WiSe 2023/24) I took a course about $\ell^2$-Invariants[see @WEBSITE:1] at the University of Düsseldorf. As a reminder, $\ell^2$ is the [Hibert space of __square-summable__ sequences](https://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions) of complex numbers. Meaning, a sequence $(a_n\in\C)_{n=0}^\infty$ is in $\ell^2$ if and only if $\sum_{n=0}^\infty |a_n|^2 < \infty$. By defining an inner product on $\ell^2$ as $\langle a, b \rangle = \sum_{n=0}^\infty a_n \overline{b_n}$, we make $\ell^2$ to a complete complex inner product space, i.e. a Hilbert space.
