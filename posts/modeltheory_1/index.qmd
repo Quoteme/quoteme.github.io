@@ -1,0 +1,44 @@
+---
+title: "Modeltheory 1"
+author: "Luca Leon Happel"
+date: "2024-03-02"
+date-modified: "2024-03-02"
+categories: ["mathematics", "logic", "modeltheory"]
+# bibliography: references.bib
+format:
+    html:
+        code-fold: true
+        code-summary: "Show the code"
+# image: "thumbnail.svg"
+draft: true
+---
+
+# What this post is about
+
+This semester, I participate in the course "Modeltheory 1" at the University of Düsseldorf. Further information about the course can be found [here](https://www.math.uni-duesseldorf.de/~internet/MT1-V-W23/). The course closely follewed the book ["A Course in Model Theory"](https://katalog.ulb.hhu.de/Record/990037258690206443) by Tent, Ziegler. Model theory is a branch of mathematical logic that deals with the relation between a formal language and its interpretations, or models. This course is the third in a series of courses on model theory. The first course was called "introduction to modeltheory" and the second was a course on "o-minimal structures", which are a special topic in model theory.
+
+In the introductory course, we learned about:
+
+| Topic | Description |
+| --- | --- |
+| languages | Sets of symbols, like the language of groups $L_{\text{Grp}} = \{e,*,(\cdot)^{-1}\}$ |
+| structures | Interpretations of the symbols of a language in a given set, like the group $(0, +, x \mapsto -x)$ over the set $\mathbb{Z}$ |
+| theories | Sets of sentences[^1] in a language, like the theory of groups $T_{\text{Grp}} = \{\forall x \forall y \forall z (x * (y * z) = (x * y) * z), \forall x (x * e = x), \forall x (x * x^{-1} = e)\}$ |
+
+In the second course, we learned about o-minimal structures, which are notable, because their definable sets are very simple. For example, in the real numbers, the definable sets are exactly the finite unions of points and intervals if we only use the symbols $0, 1, +, -, \cdot, \leq$. One of the main results of the course was that the theory of the real numbers with these symbols and the exponential function is o-minimal.
+
+In this course, we learned about the following topics:
+
+| Topic | Description |
+| --- | --- |
+| Types and saturated structures | <span style="color: red">TODO</span> |
+| Dimension and Morley rank | <span style="color: red">TODO</span> |
+| Imaginary elements | <span style="color: red">TODO</span> |
+
+As an exercise for my upcoming exam in this course, I will write a summary of the topics we learned about and provide some examples and hopefully some code to illustrate the concepts.
+
+# What I learned
+
+## Types and saturated structures
+
+[^1]: A sentence is a formula without free variables. We wont go into the details of what a formula is, but intuitively it is a string of symbols and variables in our language, that follows some rules.
