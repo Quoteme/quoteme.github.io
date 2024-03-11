@@ -13,9 +13,10 @@
     z-index: 1;
     width: 80%;
     overflow: auto;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.75);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* FIXME: blur does not work that well anymore since quarto 1.4 */
     backdrop-filter: blur(7px) grayscale(0.8);
     -webkit-backdrop-filter: blur(10.1px);
     padding: 1em 1em 0em 1em;
