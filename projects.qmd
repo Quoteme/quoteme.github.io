@@ -8,25 +8,25 @@ lightbox: auto
 Here is a small list of projects I have worked on. Most are open source and can be found on my [GitHub](https://github.com/Quoteme?tab=repositories).
 
 :::{layout-ncol="3"}
-[ ![My math stuff](https://github.com/Quoteme/math/blob/master/social_preview.png?raw=true){group="projects" width=5cm fig-align="left"} ](https://quoteme.github.io/math)
+![<a href="https://quoteme.github.io/math">My math stuff</a>](https://github.com/Quoteme/math/blob/master/social_preview.png?raw=true){group="projects" width=5cm fig-align="left"}
 
-[ ![Top2Man](https://i.imgur.com/OAqeQ43.png){group="projects" width=5cm fig-align="left"} ](https://quoteme.github.io/top2man)
+![<a href="https://quoteme.github.io/top2man">Top2Man</a>](https://i.imgur.com/OAqeQ43.png){group="projects" width=5cm fig-align="left"}
 
-[ ![Img2String](https://i.imgur.com/CmCh70g.gif){group="projects" width=5cm fig-align="left"} ](https://github.com/Quoteme/img2string/)
+![<a href="https://github.com/Quoteme/img2string/">Img2String</a>](https://i.imgur.com/CmCh70g.gif){group="projects" width=5cm fig-align="left"}
 
-[ ![WebGLCS](https://i.imgur.com/Ysv2BVX.png){group="projects" width=5cm fig-align="left"} ](https://github.com/Quoteme/webglcs)
+![<a href="https://github.com/Quoteme/webglcs">WebGLCS</a>](https://i.imgur.com/Ysv2BVX.png){group="projects" width=5cm fig-align="left"}
 
-[ ![DimensionCrusher](https://i.imgur.com/Xnfvpag.gif){group="projects" width=5cm fig-align="left"} ](https://github.com/Quoteme/dimensioncrusher)
+![<a href="https://github.com/Quoteme/dimensioncrusher">DimensionCrusher</a>](https://i.imgur.com/Xnfvpag.gif){group="projects" width=5cm fig-align="left"}
 
-[ ![ComplexGrapher](https://i.imgur.com/MHf3Ltb.gif){group="projects" width=5cm fig-align="left"} ](https://github.com/Quoteme/complexGrapher)
+![<a href="https://github.com/Quoteme/complexGrapher">ComplexGrapher</a>](https://i.imgur.com/MHf3Ltb.gif){group="projects" width=5cm fig-align="left"}
 
-[ ![Fluchtpunkt3D](https://raw.githubusercontent.com/Quoteme/Fluchtpunkt3D/master/demo/test.gif){group="projects" width=4cm fig-align="left"} ](https://github.com/Quoteme/Fluchtpunkt3D)
+![<a href="https://github.com/Quoteme/Fluchtpunkt3D">Fluchtpunkt3D</a>](https://raw.githubusercontent.com/Quoteme/Fluchtpunkt3D/master/demo/test.gif){group="projects" width=4cm fig-align="left"}
 
-[ ![KnowHowComputer](https://i.imgur.com/R5O38wV.png){group="projects" width=4cm fig-align="left"} ](https://quoteme.github.io/KnowHowComputerHTML/)
+![<a href="https://quoteme.github.io/KnowHowComputerHTML/">KnowHowComputer</a>](https://i.imgur.com/R5O38wV.png){group="projects" width=4cm fig-align="left"}
 
-[ ![Relic Hunter Zero (STEAM)](https://i.imgur.com/05wgpP9.png){group="projects" width=4cm fig-align="left"} ](https://github.com/mventurelli/relichunterszero)
+![<a href="https://github.com/mventurelli/relichunterszero">Relic Hunter Zero (STEAM)</a>](https://i.imgur.com/05wgpP9.png){group="projects" width=4cm fig-align="left"}
 
-[ ![Matrix Visualizer](https://i.imgur.com/47Bc1uJ.gif){group="projects" width=4cm fig-align="left"} ](https://github.com/Quoteme/matrixVisualizer)
+![<a href="https://github.com/Quoteme/matrixVisualizer">Matrix Visualizer</a>](https://i.imgur.com/47Bc1uJ.gif){group="projects" width=4cm fig-align="left"}
 
-[ ![More](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){group="projects" width=4cm fig-align="left"} ](https://github.com/Quoteme?tab=repositories)
+![<a href="https://github.com/Quoteme?tab=repositories">More</a>](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){group="projects" width=4cm fig-align="left"}
 :::
