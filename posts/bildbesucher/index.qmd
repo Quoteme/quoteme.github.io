@@ -19,9 +19,18 @@ There are quite a few plans for the game's development. A key priority is to add
 - Expanding the world further by creating more images and enhancing the existing ones.
 - ???
 
+## Screenshots
+
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/eu6CCK4">
 <a href="//imgur.com/a/eu6CCK4">Bilder zu meinem Spiel: BildBesucher ({{site.url}}/bildbesucher/)</a>
 </blockquote>
 <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+## Video
+
+<video width="100%" controls>
+  <source src="https://private-user-images.githubusercontent.com/6796009/369940426-b1b9aa33-6338-4cc6-aedd-69011beb9816.webm?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjc4NzAyMTUsIm5iZiI6MTcyNzg2OTkxNSwicGF0aCI6Ii82Nzk2MDA5LzM2OTk0MDQyNi1iMWI5YWEzMy02MzM4LTRjYzYtYWVkZC02OTAxMWJlYjk4MTYud2VibT9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEwMDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMDAyVDExNTE1NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTY1MGE5ZTk2MGM1NmUyZDcwNjFiNmJiYjYyYTY3MzMxN2M1ZTIzZDk0OGJiM2M0MGNjOTFlYWE3YWRkYjhhZjgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.CNKrytWYFi2DpJa9hmAb79HncUGi8MsX0g45bujoafI" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 PS: I hope to make more progress with my game this time around.
