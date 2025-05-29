@@ -189,6 +189,48 @@
     "text": "A few minutes ago I stumbled upon this meme on some math and science forum:\n\n\n\nProve that Rx/(x^2+bx+c) is isomorphic to R^2 or C\n\n\nHere is my thought process:\n\\(b^2-4c\\) is just the discriminant of the polynomial \\(f(x) = x^2+bx+c\\), and I will refer to it from now on as \\(\\Delta(f)\\).\nWe know that if \\(\\Delta(f)&gt;0\\) then the formula \\(\\frac{-b\\pm\\sqrt{b^2-4c}}{2} = -\\frac{b}{2} \\pm \\sqrt{\\left(\\frac{b}{2}\\right)^2 - c}\\) gives us the zeros \\(x_1, x_2 \\in \\mathbb{R}\\) of \\(f\\). Let’s look at \\(\\mathbb{R}[x] / (f)\\). And identify each part now.\n\nThe principal ideal \\((f) \\overbrace{=}^{\\mathbb{R}[x] \\text{ commutative}} \\{ p(x)\\cdot \\underbrace{f(x)}_{x^2+bx+c \\\\ = (x-x_1)(x-x_2) } \\mid p(x) \\in \\mathbb{R}[x]\\}\\)\nThe quotient ring \\(\\mathbb{R} [x]/(f)\\), which is the same as \\(\\mathbb{R}[x]/\\sim\\) where \\(\\sim\\) is an equivalence relation: \\(a\\sim b \\Leftrightarrow a-b \\in (f)\\)\nWhen performing polynomial division \\(\\frac{p(x)}{f(x)}, \\&gt; p(x)\\in\\mathbb{R}[x]\\) if \\(\\deg(p(x))&gt;2\\) we can always perform at least one step and the remainder must be of the form \\(ax+b \\in \\mathbb{R}[x]/(f)\\)\n\nThe solution to this problem can be found in this blog post"
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am Luca Leon Happel, a 24-year-old Student in Düsseldorf and a top-100 on GitHub in categories like physics-engines and rigid-body-dynamics. My interests include mathematics, computer science, technology and lots more. I work as a programmer for monti.ai and as a student assistant at the Heinrich Heine University Düsseldorf."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\n\nAchievement\nPlace\nDuration\n\n\n\n\nGymnasium\nGymnasium an der Gartenstraße\n2010-2018\n\n\nBachelor of Mathematics\nHHU Düsseldorf\n2018-2022\n\n\nBachelor of Computer-Science\nHHU Düsseldorf\n2018-*"
+  },
+  {
+    "objectID": "about.html#conferences",
+    "href": "about.html#conferences",
+    "title": "About",
+    "section": "Conferences",
+    "text": "Conferences\n\n\n\nConference\nDate\nPlace\nDescription\n\n\n\n\nKoMa (conference of german speaking mathematics student associations)\n2022\nJena\nWe discussed general mathematics, studying mathematics at german universities and the future of mathematics. I discussed differential forms especially\n\n\nLean for the Curious Mathematician\n2023\nDüsseldorf\nWe discussed Lean, a theorem prover and functional programming language. I implemented the code for exterior algebras in Lean with a small team of professors and Eric Wieser\n\n\nHomology Growth in Topology and Group Theory\n2024\nBonn\nWe discussed various advanced topics in topology and group theory. I attended this conference in preparation for my masters thesis."
+  },
+  {
+    "objectID": "about.html#work-experience",
+    "href": "about.html#work-experience",
+    "title": "About",
+    "section": "Work experience",
+    "text": "Work experience\n\n\n\nExperience\nEmployer\nDuration\n\n\n\n\n2-week work internship\nProVita\n2017\n\n\nLifeguard\nNEW Volksbad Mönchengl.\n2018\n\n\nResearch assistant for computer-aided linear algebra\nHeinrich Heine University Düsseldorf\n2020-2021\n\n\nResearch assistant for computer-aided linear algebra\nHeinrich Heine University Düsseldorf\n2021-2022\n\n\nSHK for abstract algebra\nHeinrich Heine University Düsseldorf\n2022-2022\n\n\nProgrammer and founder at monti.ai\nmonti.ai\n2022-*"
+  },
+  {
+    "objectID": "about.html#awards",
+    "href": "about.html#awards",
+    "title": "About",
+    "section": "Awards",
+    "text": "Awards\n\n\n\nAward\nSource\nDate\n\n\n\n\nWinner of “best game under development” with “Relic Hunters Zero”\nBrazilian indie games festivals 2015\n2015\n\n\nTop-100 physics-engine programmer\nxscode.com archive.org\n2021\n\n\nTop-100 rigid-body-dynamics programmer\nxscode.com archive.org\n2021\n\n\nTop-1000 canvas-technology developer\nxscode.com archive.org\n2021\n\n\nTop-150.000 programmer\nxscode.com archive.org\n2021"
+  },
+  {
+    "objectID": "about.html#some-other-skills",
+    "href": "about.html#some-other-skills",
+    "title": "About",
+    "section": "Some other skills",
+    "text": "Some other skills\n\n\nclick to expand\n\n\n“Advanced” knowledge of mathematics\n\naiming for a Master degree in mathematics\n\nProgramming knowledge\n\nTop 50 programmer in physics-engines and rigid-body-dynamics as well as top 1000 canvas-technology, and top 150,000 GitHub developer (Source: www.xscode.com/profile/quoteme)\nactively programming since age 13 (2012)\nexperienced in web deveopment\n\nNodeJS, CSS, HTML, PHP, Python (flask, fastapi, …) …\nSQL (MySQL, PostgreSQL, SQLite …)\n\nvarious other programming languages I like\n\nHaskell\nPython\nJAVA\nC\n\nprojects I am proud of\n\ncodeveloper of relic hunters zero\n\n95% positive reviews from 6,444 (2020)\nwinner of the “best game under development Brazilian indie games festivals 2015”\nhonorable mention in “battle of games VI festival Cindemundo 2014”\n\n\n\nLanguages\n\nnative in German\nfluent in English\nbasic understanding of Turkish and Russian"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "{{< var website.title >}}",
@@ -334,47 +376,5 @@
     "title": "Automated theorem proving",
     "section": "From functional programming to automated theorem proving",
     "text": "From functional programming to automated theorem proving\nLean4 is a functional programming language. This means that it is a programming language that is based on the \\(\\lambda\\)-calculus. The \\(\\lambda\\)-calculus is a formal system in mathematical logic for expressing computation based on function abstraction and application using variable binding and substitution. In Lean4, we write programs by defining functions, composing them in clever ways and finally applying them to specific arguemnts. In this regard, Lean4 is very similar to Haskell, about which I held a talk a year ago.\nBy enriching the \\(\\lambda\\)-calculus with a sufficiently strong type system like in Lean4, we can use the resulting programming language to write programs that are provably correct. The foundation of this is the Curry-Howard correspondence, whose motto is “propositions as types, proofs as terms”. In \\(\\lambda\\)-calculus, terms are well-defined mathematical objects as are types.\nA quick example of the power that a strong type system provides us with would be the following Lean4 code snippet:\ndef swap {α β : Type} (p : α × β) : β × α := (p.snd, p.fst)\n\ntheorem swap_swap {α β : Type} (p : α × β) : swap (swap p) = p :=\n  match p with\n  | (a, b) =&gt; rfl\n\n\nHere we define a function swap that swaps the elements of a pair. We then prove that swap is involutive, i.e. that swap (swap p) = p for all pairs p. The theorem keyword is used to define a theorem, but is just syntactic sugar for defining a function that represents a proof. Notice that we state our theorem using Lean4’s type system and then provide a proof using Lean4’s programming language. The proof is verified by the Lean4 compiler, which checks if each step in the program has valid types. If we were to change the proof to the following:\ntheorem swap_swap {α β : Type} (p : α × β) : swap (swap p) ≠ p :=\n  match p with\n  | (a, b) =&gt; rfl\n\n\nThe Lean4 compiler would throw the following error regarding the rlf function:\ntype mismatch\n  rfl\nhas type\n  ?m.149 = ?m.149 : Prop\nbut is expected to have type\n  swap (swap (a, b)) ≠ (a, b) : Prop\n\n\nNotice that the error message is very helpful (if you know how to decode it) and it tells us exactly what went wrong. It tells us that rfl (the reflexivity axiom, which states that for all \\(a\\), we have \\(a=a\\)) has type ?m.149 = ?m.149 : Prop, but the term we provided has type swap (swap (a, b)) ≠ (a, b) : Prop. We did not get this error message previously, because previously we wanted to show that swap (swap p) = p, which we did by unfolding the definition of swap using the match keyword and then using the rfl function to show that (a,b) = (a,b). This last step is where everything went wrong in the second proof. After unpacking we get swap (swap (a, b)) = (a, b), and now by applying rfl we get a term (a,b) = (a,b), which is not what we wanted to show. We wanted to show that swap (swap (a, b)) ≠ (a, b), which is not true, and thus we get a type error.\n\nUntyped \\(\\lambda\\)-calculus\nLet \\(V = \\{x,y,z, \\dots\\}\\) be a set, which we call the set of variables and let \\(K = \\{\\a,\\b,\\f,\\g, \\dots\\}\\) be a set, which we call the set of constants. We can now define the set of terms \\(\\Lambda\\) inductively as follows:\n\n\n\n\n\n\n\nRule\nName\n\n\n\n\nIf \\(x \\in V\\), then \\(x \\in \\Lambda\\)\nVariable\n\n\nIf \\(\\f \\in K\\), then \\(\\f \\in \\Lambda\\)\nConstant\n\n\nIf \\(s,t \\in \\Lambda\\), then \\((st) \\in \\Lambda\\)\nApplication\n\n\nIf \\(x \\in V\\) and \\(t \\in \\Lambda\\), then \\((\\lambda x.t) \\in \\Lambda\\)\nAbstraction\n\n\n\nUsing the notation of the Backus–Naur form, we can define \\(\\Lambda\\) succinctly as follows:\n\\[\n\\Lambda ::= V \\mid K \\mid \\Lambda \\Lambda \\mid \\lambda V.\\Lambda\n\\]\nThis strongly resembles the syntax of Lean4 and also that of Haskell.\n\n\nSimply typed \\(\\lambda\\)-calculus\nIn the simply typed \\(\\lambda\\)-calculus, we enrich the untyped \\(\\lambda\\)-calculus with a type system. We define the set of types \\(\\T\\) inductively using a set of base types \\(\\T_0\\) as follows:\n\nIf \\(A \\in \\T_0\\), then \\(A \\in \\T\\)\nIf \\(A,B \\in \\T\\), then \\(A \\to B \\in \\T\\)\n\nUsing the notation of the Backus–Naur form again, we can define \\(\\T\\) succinctly as follows:\n\\[\n\\T ::= \\T_0 \\mid \\T \\to \\T\n\\]\nUsing the set of types \\(\\T\\), we can now define the set of typed terms \\(\\Lambda_\\T\\) inductively using the Backus–Naur form as follows:\n\\[\n\\begin{align*}\n\\Lambda_\\T &::= V \\mid K \\mid \\Lambda_\\T \\Lambda_\\T \\mid \\lambda V:\\T.\\Lambda_\\T \\\\\n           & \\text{where } \\\\\n           & V \\text{ is the infinite set of variables } \\\\\n           & K \\text{ is the set of constants } \\\\\n\\end{align*}\n\\]\n\n\nType inference\nUsing typed \\(\\lambda\\)-calculus as a basis for our programming language, we can now associate a type with each valid term. For example:\n\\[\n\\begin{align*}\n(+1) &= \\lambda x : \\N \\to \\N. x+1 & : \\N \\to \\N \\\\\n\\text{hello} &= \\text{IO.println} \\, \\text{\"Hello, world!\"} & : \\text{IO} \\, \\text{Unit} \\\\\n\\f &= \\lambda \\g : \\alpha \\to \\alpha. g \\, g & : (\\alpha \\to \\alpha) \\to \\alpha \\to \\alpha\n\\end{align*}\n\\]\nNot all terms have a type, however. For example, assume \\(\\a, \\b \\in K\\) are some constants. We say, that our context \\(\\Gamma\\) consists of \\(\\a, \\b : \\kappa\\), denoted as \\(\\Gamma, \\, \\a, \\b : \\kappa\\), say in the context \\(\\Gamma\\), it holds that \\(\\a, \\b\\) are of type \\(\\kappa\\). Then the term \\(\\a \\b\\) does not have a type, because we cannot infer a type for \\(\\a\\) and \\(\\b\\), as we cannot apply \\(\\a\\) to \\(\\b\\).\nLean4 and other programming languages with sufficiently strong type systems can infer the type of a term. This is called type inference. For example, in Lean4, we can write the following code:\ndef f x := x + 1\n\n\nThis snippet defines a function f that takes an argument x and returns x + 1. We did not specify the type of x, but Lean4 can infer that x is of type ℕ, because we used 1, which is of type ℕ, in the expression x + 1 and if the second parameter of the + function is of type ℕ, then the first parameter must also be of type ℕ (although this is not true in general, but we do not care about this here).\nImplicitly we used the context \\(\\Gamma\\), such that 1:ℕ. To achieve a fully sound and rigorous type inference, we would have to specify the context \\(\\Gamma\\) beforehand and we need to define some general rules for type inference. These rules are:\n\\[\n\\begin{align*}\n\\text{Konst} & \\frac{}{\\Gamma \\vdash \\a : \\kappa} & \\text{if } \\Gamma, \\a : \\kappa \\\\\n\\text{Var} & \\frac{\\Gamma, \\, x : \\tau \\vdash t : \\sigma}{\\Gamma \\vdash \\lambda x : \\tau.t : \\tau \\to \\sigma} \\\\\n\\text{App} & \\frac{\\Gamma \\vdash t : \\sigma \\to \\tau \\quad \\Gamma \\vdash s : \\sigma}{\\Gamma \\vdash t \\, s : \\tau} \\\\\n\\text{Abs} & \\frac{\\Gamma, \\, x : \\tau \\vdash t : \\sigma}{\\Gamma \\vdash ( \\lambda x : \\tau.t ) : \\tau \\to \\sigma} \\\\\n\\end{align*}\n\\]\n\n\nType Inference Example\nA simple example of type inference would be the following:\nConsider the term \\(\\lambda x. x + 1\\). To determine its type under the context \\(\\Gamma\\), we use the rules of type inference as outlined above. Let’s break down the process step by step.\n\nVariable Rule (Var):\n\nThe term is an abstraction \\(\\lambda x.t\\) where \\(t = x + 1\\). We assume \\(x : \\N\\) as part of our context for the body \\(t\\) of the abstraction. This is because we are dealing with addition and the constant 1 is of type \\(\\N\\).\n\nApplication Rule (App):\n\nThe subterm \\(x + 1\\) is an application of the addition function to \\(x\\) and \\(1\\). In \\(\\Gamma\\), the addition function has the type \\(\\N \\to \\N \\to \\N\\). This means it takes two arguments of type \\(\\N\\) and returns a result of type \\(\\N\\). Since \\(x : \\N\\) and \\(1 : \\N\\), the term \\(x + 1\\) is well-typed and has the type \\(\\N\\).\n\nAbstraction Rule (Abs):\n\nWe now return to our original term \\(\\lambda x. x + 1\\). Since the body of the abstraction \\(x + 1\\) has type \\(\\N\\) and we assumed \\(x : \\N\\), the whole abstraction has the type \\(\\N \\to \\N\\). Therefore, the term \\(\\lambda x. x + 1\\) is well-typed under the context \\(\\Gamma\\) and has the type \\(\\N \\to \\N\\). This represents a function that takes a natural number as input and returns a natural number as output.\nThis results in the following derivation:"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I am Luca Leon Happel, a 24-year-old Student in Düsseldorf and a top-100 on GitHub in categories like physics-engines and rigid-body-dynamics. My interests include mathematics, computer science, technology and lots more. I work as a programmer for monti.ai and as a student assistant at the Heinrich Heine University Düsseldorf."
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\n\nAchievement\nPlace\nDuration\n\n\n\n\nGymnasium\nGymnasium an der Gartenstraße\n2010-2018\n\n\nBachelor of Mathematics\nHHU Düsseldorf\n2018-2022\n\n\nBachelor of Computer-Science\nHHU Düsseldorf\n2018-*"
-  },
-  {
-    "objectID": "about.html#conferences",
-    "href": "about.html#conferences",
-    "title": "About",
-    "section": "Conferences",
-    "text": "Conferences\n\n\n\nConference\nDate\nPlace\nDescription\n\n\n\n\nKoMa (conference of german speaking mathematics student associations)\n2022\nJena\nWe discussed general mathematics, studying mathematics at german universities and the future of mathematics. I discussed differential forms especially\n\n\nLean for the Curious Mathematician\n2023\nDüsseldorf\nWe discussed Lean, a theorem prover and functional programming language. I implemented the code for exterior algebras in Lean with a small team of professors and Eric Wieser\n\n\nHomology Growth in Topology and Group Theory\n2024\nBonn\nWe discussed various advanced topics in topology and group theory. I attended this conference in preparation for my masters thesis."
-  },
-  {
-    "objectID": "about.html#work-experience",
-    "href": "about.html#work-experience",
-    "title": "About",
-    "section": "Work experience",
-    "text": "Work experience\n\n\n\nExperience\nEmployer\nDuration\n\n\n\n\n2-week work internship\nProVita\n2017\n\n\nLifeguard\nNEW Volksbad Mönchengl.\n2018\n\n\nResearch assistant for computer-aided linear algebra\nHeinrich Heine University Düsseldorf\n2020-2021\n\n\nResearch assistant for computer-aided linear algebra\nHeinrich Heine University Düsseldorf\n2021-2022\n\n\nSHK for abstract algebra\nHeinrich Heine University Düsseldorf\n2022-2022\n\n\nProgrammer and founder at monti.ai\nmonti.ai\n2022-*"
-  },
-  {
-    "objectID": "about.html#awards",
-    "href": "about.html#awards",
-    "title": "About",
-    "section": "Awards",
-    "text": "Awards\n\n\n\nAward\nSource\nDate\n\n\n\n\nWinner of “best game under development” with “Relic Hunters Zero”\nBrazilian indie games festivals 2015\n2015\n\n\nTop-100 physics-engine programmer\nxscode.com archive.org\n2021\n\n\nTop-100 rigid-body-dynamics programmer\nxscode.com archive.org\n2021\n\n\nTop-1000 canvas-technology developer\nxscode.com archive.org\n2021\n\n\nTop-150.000 programmer\nxscode.com archive.org\n2021"
-  },
-  {
-    "objectID": "about.html#some-other-skills",
-    "href": "about.html#some-other-skills",
-    "title": "About",
-    "section": "Some other skills",
-    "text": "Some other skills\n\n\nclick to expand\n\n\n“Advanced” knowledge of mathematics\n\naiming for a Master degree in mathematics\n\nProgramming knowledge\n\nTop 50 programmer in physics-engines and rigid-body-dynamics as well as top 1000 canvas-technology, and top 150,000 GitHub developer (Source: www.xscode.com/profile/quoteme)\nactively programming since age 13 (2012)\nexperienced in web deveopment\n\nNodeJS, CSS, HTML, PHP, Python (flask, fastapi, …) …\nSQL (MySQL, PostgreSQL, SQLite …)\n\nvarious other programming languages I like\n\nHaskell\nPython\nJAVA\nC\n\nprojects I am proud of\n\ncodeveloper of relic hunters zero\n\n95% positive reviews from 6,444 (2020)\nwinner of the “best game under development Brazilian indie games festivals 2015”\nhonorable mention in “battle of games VI festival Cindemundo 2014”\n\n\n\nLanguages\n\nnative in German\nfluent in English\nbasic understanding of Turkish and Russian"
   }
 ]
