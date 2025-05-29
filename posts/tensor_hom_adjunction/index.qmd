@@ -1,0 +1,58 @@
+---
+title: "Coalgebras and the tensor-hom adjunction"
+author: "Luca Leon Happel"
+date: "2025-05-29 19:47"
+categories: ["math", "algebra"]
+image: "https://i.imgur.com/5gUWnRL.png"
+draft: true
+---
+
+As I often tend to do, I read a few articles about math (category theory and
+algebra in particual) on Wikipedia. Again, I stumbled upon the article of 
+[Coalgebras][https://en.wikipedia.org/wiki/Coalgebra]. Especially the
+$\Delta:C \to C\otimes C $ seemed sus to me.
+
+In a $K$-algebra, I have a clear feel about what the dual map $(\cdot):C\otimes C \to C$
+does. But in a coalgebra? This most likely is just a result of my inexperience
+with coalgebras, but I wanted to understand this better.
+
+## Coalgebras formed as duals of finite dimensional algebras
+
+My first step to get a better understanding of coalgebras was to look at the
+coalgebra that is dual to a finite dimensional algebra. My favorite ones are
+the unital associative algebras [Clifford algebras](https://en.wikipedia.org/wiki/Clifford_algebra),
+for which $\mathbb{C}$, $\mathbb{R}[\epsilon]/(\epsilon^2)$ and the exterior
+algebras over some field $K$ are examples. I like these algebras most, because I
+have previously written about them: [my post about differential forms](../differential_forms/) which includes exterior algebras, and
+[my post about the dual numbers]( ../algebra_meme_2/ ).
+After I played around with these algebras a bit, I realized that their duals
+(which are coalgebras) are actually quite simple to understand. In particular,
+using the [Tensor-Hom adjunction](https://en.wikipedia.org/wiki/Tensor%E2%80%93hom_adjunction)
+(which is basically just gloryfied currying in the category of $R$-modules?),
+we can even get some neat insights into the coalgebra structure.
+This technique works for any finite dimensional algebra:
+
+Let $F\in (\text{Field})$ and $U,V,W\in(\text{FinVec}_F)$, where $(\text{FinVec}_F)$
+is the category of finite dimensional vector spaces over $F$.
+Then we have the following adjunction:
+
+$$
+\begin{align*}
+\text{Hom}(U\otimes V,W) &\cong \text{Hom}(U,\text{Hom}(V,W)) \\
+\end{align*}
+$$
+
+We may choose $V=U=W$ and in this case we get the adjunction
+$\text{Hom}(V\otimes V,V) \cong \text{Hom}(V,\text{Hom}(V,V))$.
+
+Let us now take a look at the dual $C=V^*$ of $V$. This is a
+coalgebra and because $V$ is finite dimensional, we can have a equip it with a
+basis: the dual basis $\{e_i^*\}_{i\in I}$, where $e_i$ is a basis of $V$.
+
+Now, $\Delta:C \to C\otimes C$ is the map that satisfies the following
+commutative diagrams:
+
+![commutative diagrams for ](https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Defining_diagrams_of_coalgebra.png/960px-Defining_diagrams_of_coalgebra.png)
+
+Clearly, because $C$ is again a finite dimensional vector space, we can use the
+adjunction to rewrite the map $\Delta$ as follows:
