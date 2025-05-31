@@ -81,9 +81,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -240,7 +240,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="SGFza2VsbA==">Haskell <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVpbnJpY2gtSGVpbmUgVW5pdmVyc2l05HQ=">Heinrich-Heine Universität <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SlNEb2M=">JSDoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YVNjcmlwdA==">JavaScript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWluZWNyYWZ0">Minecraft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2VtaW5hcg==">Seminar <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U3VycmVhbGUgWmFobGVu">Surreale Zahlen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWJzdHJhY3QgYWxnZWJyYQ==">abstract algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YWxnZWJyYQ==">algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YWxnZWJyYWljIGdlb21ldHJ5">algebraic geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YWxnZWJyYWljIHRvcG9sb2d5">algebraic topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJjaGxpbnV4">archlinux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJ0">art <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXVy">aur <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXV0b21hdGVkIHRoZW9yZW0gcHJvdmluZw==">automated theorem proving <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ym9pZHM=">boids <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2FsY3VsdXM=">calculus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50IGJ1bmRsZQ==">cotangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50IHNwYWNl">cotangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Nz">css <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsIGZvcm1z">differential forms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsIGdlb21ldHJ5">differential geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsIHRvcG9sb2d5">differential topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGltZW5zaW9u">dimension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXh0ZXJpb3IgYWxnZWJyYQ==">exterior algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9ybWFsIHZlcmlmaWNhdGlvbg==">formal verification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJhY3RhbHM=">fractals <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVuY3Rpb25hbCBhbmFseXNpcw==">functional analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2FtZQ==">game <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2VvbWV0cnk=">geometry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2xvYmFsIHNlY3Rpb24=">global section <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JvdXAgdGhlb3J5">group theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHRtbA==">html <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aXNvbW9ycGhpc21z">isomorphisms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="amF2YXNjcmlwdA==">javascript <span class="quarto-category-count">(3)</span></div><div class="category" data-category="bGVhbjQ=">lean4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFuaWZvbGQ=">manifold <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWF0aA==">math <span class="quarto-category-count">(5)</span></div><div class="category" data-category="bWF0aGVtYXRpY3M=">mathematics <span class="quarto-category-count">(4)</span></div><div class="category" data-category="bWVhc3VyZSB0aGVvcnk=">measure theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVtZQ==">meme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9seW5vbWlhbCByaW5ncw==">polynomial rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZ3JhbW1pbmc=">programming <span class="quarto-category-count">(5)</span></div><div class="category" data-category="cXVvdGllbnQgcmluZ3M=">quotient rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmluZyB0aGVvcnk=">ring theory <span class="quarto-category-count">(4)</span></div><div class="category" data-category="c2hlYXZlcw==">sheaves <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCBidW5kbGU=">tangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCBzcGFjZQ==">tangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9wb2xvZ3k=">topology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="d2ViZ2w=">webgl <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(16)</span></div><div class="category" data-category="SGFza2VsbA==">Haskell <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVpbnJpY2gtSGVpbmUgVW5pdmVyc2l05HQ=">Heinrich-Heine Universität <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SlNEb2M=">JSDoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YVNjcmlwdA==">JavaScript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWluZWNyYWZ0">Minecraft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2VtaW5hcg==">Seminar <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U3VycmVhbGUgWmFobGVu">Surreale Zahlen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWJzdHJhY3QgYWxnZWJyYQ==">abstract algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YWxnZWJyYQ==">algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YWxnZWJyYWljIGdlb21ldHJ5">algebraic geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YWxnZWJyYWljIHRvcG9sb2d5">algebraic topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJjaGxpbnV4">archlinux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJ0">art <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXVy">aur <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXV0b21hdGVkIHRoZW9yZW0gcHJvdmluZw==">automated theorem proving <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ym9pZHM=">boids <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2FsY3VsdXM=">calculus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2F0ZWdvcnkgdGhlb3J5">category theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50IGJ1bmRsZQ==">cotangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50IHNwYWNl">cotangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Nz">css <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsIGZvcm1z">differential forms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsIGdlb21ldHJ5">differential geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsIHRvcG9sb2d5">differential topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGltZW5zaW9u">dimension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXh0ZXJpb3IgYWxnZWJyYQ==">exterior algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9ybWFsIHZlcmlmaWNhdGlvbg==">formal verification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJhY3RhbHM=">fractals <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVuY3Rpb25hbCBhbmFseXNpcw==">functional analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2FtZQ==">game <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2VvbWV0cnk=">geometry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2xvYmFsIHNlY3Rpb24=">global section <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JvdXAgdGhlb3J5">group theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHRtbA==">html <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aXNvbW9ycGhpc21z">isomorphisms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="amF2YXNjcmlwdA==">javascript <span class="quarto-category-count">(3)</span></div><div class="category" data-category="bGVhbjQ=">lean4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFuaWZvbGQ=">manifold <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWF0aA==">math <span class="quarto-category-count">(5)</span></div><div class="category" data-category="bWF0aGVtYXRpY3M=">mathematics <span class="quarto-category-count">(5)</span></div><div class="category" data-category="bWVhc3VyZSB0aGVvcnk=">measure theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVtZQ==">meme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b29w">oop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9seW5vbWlhbCByaW5ncw==">polynomial rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZ3JhbW1pbmc=">programming <span class="quarto-category-count">(5)</span></div><div class="category" data-category="cXVvdGllbnQgcmluZ3M=">quotient rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmluZyB0aGVvcnk=">ring theory <span class="quarto-category-count">(4)</span></div><div class="category" data-category="c2hlYXZlcw==">sheaves <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCBidW5kbGU=">tangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCBzcGFjZQ==">tangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9wb2xvZ3k=">topology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="d2ViZ2w=">webgl <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -276,7 +276,46 @@ and 300px height
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="bWF0aGVtYXRpY3MsbG9naWMsYXV0b21hdGVkIHRoZW9yZW0gcHJvdmluZyxsZWFuNCxmb3JtYWwgdmVyaWZpY2F0aW9u" data-listing-date-sort="1708470000000" data-listing-file-modified-sort="1732016614102" data-listing-date-modified-sort="1708556400000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1841">
+<div class="quarto-post image-right" data-index="0" data-categories="bWF0aGVtYXRpY3MsY2F0ZWdvcnkgdGhlb3J5LG9vcA==" data-listing-date-sort="1748697600000" data-listing-file-modified-sort="1748702523682" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1058">
+<div class="thumbnail">
+<p><a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external"></a></p><a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/interfaces_as_list_of_propositions/onion.png" alt="Onion architecture"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">Interfaces as List of Propositions</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">Or: Applying the Howard-Curry correspondence to OOP interfaces using the calculus of constructions</a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">
+mathematics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Y2F0ZWdvcnkgdGhlb3J5'); return false;">
+category theory
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('b29w'); return false;">
+oop
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">This post came to be due to my close friend Stefan Schulz with whom I studied computer science and mathematics at the University of Düsseldorf, after we had a discussion about the way interfaces are used in object-oriented programming languages like Java. It turns out, that we can regard these as a list of propositions, which can be proven by implementing the interface. This is closely related to the Howard-Curry correspondence and some functional programming concepts. </a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">
+<div class="listing-date">
+May 31, 2025
+</div>
+<div class="listing-author">
+Luca Leon Happel
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="bWF0aGVtYXRpY3MsbG9naWMsYXV0b21hdGVkIHRoZW9yZW0gcHJvdmluZyxsZWFuNCxmb3JtYWwgdmVyaWZpY2F0aW9u" data-listing-date-sort="1708470000000" data-listing-file-modified-sort="1732016614102" data-listing-date-modified-sort="1708556400000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1841">
 <div class="thumbnail">
 <p><a href="./posts/theorem_provers_exam/index.html" class="no-external"></a></p><a href="./posts/theorem_provers_exam/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/theorem_provers_exam/thumbnail.svg" class="thumbnail-image"></p>
@@ -327,7 +366,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="bWF0aGVtYXRpY3MsdG9wb2xvZ3ksYWxnZWJyYSxncm91cCB0aGVvcnkscmluZyB0aGVvcnksbWVhc3VyZSB0aGVvcnksZnVuY3Rpb25hbCBhbmFseXNpcyxkaWZmZXJlbnRpYWwgZ2VvbWV0cnksZGlmZmVyZW50aWFsIHRvcG9sb2d5LGFsZ2VicmFpYyB0b3BvbG9neQ==" data-listing-date-sort="1707001200000" data-listing-file-modified-sort="1732016614095" data-listing-date-modified-sort="1707087600000" data-listing-reading-time-sort="25" data-listing-word-count-sort="4903">
+<div class="quarto-post image-right" data-index="2" data-categories="bWF0aGVtYXRpY3MsdG9wb2xvZ3ksYWxnZWJyYSxncm91cCB0aGVvcnkscmluZyB0aGVvcnksbWVhc3VyZSB0aGVvcnksZnVuY3Rpb25hbCBhbmFseXNpcyxkaWZmZXJlbnRpYWwgZ2VvbWV0cnksZGlmZmVyZW50aWFsIHRvcG9sb2d5LGFsZ2VicmFpYyB0b3BvbG9neQ==" data-listing-date-sort="1707001200000" data-listing-file-modified-sort="1732016614095" data-listing-date-modified-sort="1707087600000" data-listing-reading-time-sort="25" data-listing-word-count-sort="4903">
 <div class="thumbnail">
 <p><a href="./posts/l2-invariants/index.html" class="no-external"></a></p><a href="./posts/l2-invariants/index.html" class="no-external">
 <p class="card-img-top"><img src="posts/l2-invariants/2024-02-10-18-41-35.png" alt="Definition of \TopTwo"  class="thumbnail-image card-img"/></p>
@@ -387,7 +426,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="U2VtaW5hcixTdXJyZWFsZSBaYWhsZW4sYWJzdHJhY3QgYWxnZWJyYSxyaW5nIHRoZW9yeQ==" data-listing-date-sort="1700089200000" data-listing-file-modified-sort="1732016614102" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
+<div class="quarto-post image-right" data-index="3" data-categories="U2VtaW5hcixTdXJyZWFsZSBaYWhsZW4sYWJzdHJhY3QgYWxnZWJyYSxyaW5nIHRoZW9yeQ==" data-listing-date-sort="1700089200000" data-listing-file-modified-sort="1732016614102" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
 <div class="thumbnail">
 <p><a href="./posts/surreal_numbers/index.html" class="no-external"></a></p><a href="./posts/surreal_numbers/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/surreal_numbers/thumbnail.png" class="thumbnail-image"></p>
@@ -429,7 +468,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="U2VtaW5hcixIYXNrZWxsLHByb2dyYW1taW5nLEhlaW5yaWNoLUhlaW5lIFVuaXZlcnNpdOR0" data-listing-date-sort="1674428400000" data-listing-file-modified-sort="1732016614089" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="130">
+<div class="quarto-post image-right" data-index="4" data-categories="U2VtaW5hcixIYXNrZWxsLHByb2dyYW1taW5nLEhlaW5yaWNoLUhlaW5lIFVuaXZlcnNpdOR0" data-listing-date-sort="1674428400000" data-listing-file-modified-sort="1732016614089" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="130">
 <div class="thumbnail">
 <p><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external"></a></p><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/bachelor-seminar-haskell/thumbnail.jpg" class="thumbnail-image"></p>
@@ -471,7 +510,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="bWF0aGVtYXRpY3MsZGlmZmVyZW50aWFsIGdlb21ldHJ5LGRpZmZlcmVudGlhbCBmb3Jtcyx0YW5nZW50IHNwYWNlLGNvdGFuZ2VudCBzcGFjZSxtYW5pZm9sZCx0YW5nZW50IGJ1bmRsZSxjb3RhbmdlbnQgYnVuZGxlLGV4dGVyaW9yIGFsZ2VicmEsZ2xvYmFsIHNlY3Rpb24=" data-listing-date-sort="1653602400000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="377">
+<div class="quarto-post image-right" data-index="5" data-categories="bWF0aGVtYXRpY3MsZGlmZmVyZW50aWFsIGdlb21ldHJ5LGRpZmZlcmVudGlhbCBmb3Jtcyx0YW5nZW50IHNwYWNlLGNvdGFuZ2VudCBzcGFjZSxtYW5pZm9sZCx0YW5nZW50IGJ1bmRsZSxjb3RhbmdlbnQgYnVuZGxlLGV4dGVyaW9yIGFsZ2VicmEsZ2xvYmFsIHNlY3Rpb24=" data-listing-date-sort="1653602400000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="377">
 <div class="thumbnail">
 <p><a href="./posts/differential_forms/index.html" class="no-external"></a></p><a href="./posts/differential_forms/index.html" class="no-external">
 <p><img loading="lazy" src="https://i.imgur.com/pJlb0qT.png" class="thumbnail-image"></p>
@@ -531,7 +570,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="bWF0aGVtYXRpY3MsYWxnZWJyYWljIGdlb21ldHJ5" data-listing-date-sort="1646089200000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="332">
+<div class="quarto-post image-right" data-index="6" data-categories="bWF0aGVtYXRpY3MsYWxnZWJyYWljIGdlb21ldHJ5" data-listing-date-sort="1646089200000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="332">
 <div class="thumbnail">
 <p><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external"></a></p><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -567,7 +606,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="bWF0aCxhbGdlYnJhaWMgZ2VvbWV0cnksc2hlYXZlcyx0b3BvbG9neSxNaW5lY3JhZnQ=" data-listing-date-sort="1635458400000" data-listing-file-modified-sort="1732016614097" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1845">
+<div class="quarto-post image-right" data-index="7" data-categories="bWF0aCxhbGdlYnJhaWMgZ2VvbWV0cnksc2hlYXZlcyx0b3BvbG9neSxNaW5lY3JhZnQ=" data-listing-date-sort="1635458400000" data-listing-file-modified-sort="1732016614097" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1845">
 <div class="thumbnail">
 <p><a href="./posts/sheaves_in_minecraft/index.html" class="no-external"></a></p><a href="./posts/sheaves_in_minecraft/index.html" class="no-external">
 <p><img loading="lazy" src="https://i.imgur.com/IvIs8F3.png" class="thumbnail-image"></p>
@@ -612,7 +651,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="bWF0aCxhbGdlYnJhLGFic3RyYWN0IGFsZ2VicmEscmluZyB0aGVvcnksbWVtZQ==" data-listing-date-sort="1634767200000" data-listing-file-modified-sort="1732016614088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="250">
+<div class="quarto-post image-right" data-index="8" data-categories="bWF0aCxhbGdlYnJhLGFic3RyYWN0IGFsZ2VicmEscmluZyB0aGVvcnksbWVtZQ==" data-listing-date-sort="1634767200000" data-listing-file-modified-sort="1732016614088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="250">
 <div class="thumbnail">
 <p><a href="./posts/algebra_meme_2/index.html" class="no-external"></a></p><a href="./posts/algebra_meme_2/index.html" class="no-external">
 <p><img loading="lazy" src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image"></p>
@@ -657,7 +696,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="bWF0aCxhbGdlYnJhLHJpbmcgdGhlb3J5LGFic3RyYWN0IGFsZ2VicmEscG9seW5vbWlhbCByaW5ncyxxdW90aWVudCByaW5ncyxpc29tb3JwaGlzbXM=" data-listing-date-sort="1606950000000" data-listing-file-modified-sort="1732016614088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
+<div class="quarto-post image-right" data-index="9" data-categories="bWF0aCxhbGdlYnJhLHJpbmcgdGhlb3J5LGFic3RyYWN0IGFsZ2VicmEscG9seW5vbWlhbCByaW5ncyxxdW90aWVudCByaW5ncyxpc29tb3JwaGlzbXM=" data-listing-date-sort="1606950000000" data-listing-file-modified-sort="1732016614088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
 <div class="thumbnail">
 <p><a href="./posts/algebra_meme/index.html" class="no-external"></a></p><a href="./posts/algebra_meme/index.html" class="no-external">
 <p><img loading="lazy" src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image"></p>
@@ -708,7 +747,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="bWF0aCxmcmFjdGFscyxkaW1lbnNpb24sY2FsY3VsdXMsZ2VvbWV0cnk=" data-listing-date-sort="1590098400000" data-listing-file-modified-sort="1732016614096" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
+<div class="quarto-post image-right" data-index="10" data-categories="bWF0aCxmcmFjdGFscyxkaW1lbnNpb24sY2FsY3VsdXMsZ2VvbWV0cnk=" data-listing-date-sort="1590098400000" data-listing-file-modified-sort="1732016614096" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
 <div class="thumbnail">
 <p><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external"></a></p><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/new_method_of_counting_dimensions/thumbnail.png" class="thumbnail-image"></p>
@@ -753,7 +792,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="SlNEb2MsSmF2YVNjcmlwdCxnYW1lLHByb2dyYW1taW5n" data-listing-date-sort="1587160800000" data-listing-file-modified-sort="1732016614089" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
+<div class="quarto-post image-right" data-index="11" data-categories="SlNEb2MsSmF2YVNjcmlwdCxnYW1lLHByb2dyYW1taW5n" data-listing-date-sort="1587160800000" data-listing-file-modified-sort="1732016614089" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
 <div class="thumbnail">
 <p><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external"></a></p><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/bildbesucher-jsdoc/thumbnail.png" class="thumbnail-image"></p>
@@ -795,7 +834,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="cHJvZ3JhbW1pbmcsZ2FtZSxhcnQsamF2YXNjcmlwdCxodG1sLGNzcw==" data-listing-date-sort="1586210400000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="198">
+<div class="quarto-post image-right" data-index="12" data-categories="cHJvZ3JhbW1pbmcsZ2FtZSxhcnQsamF2YXNjcmlwdCxodG1sLGNzcw==" data-listing-date-sort="1586210400000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="198">
 <div class="thumbnail">
 <p><a href="./posts/bildbesucher/index.html" class="no-external"></a></p><a href="./posts/bildbesucher/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/bildbesucher/thumbnail.png" class="thumbnail-image"></p>
@@ -843,7 +882,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="cHJvZ3JhbW1pbmcsYXVyLGFyY2hsaW51eA==" data-listing-date-sort="1585350000000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="416">
+<div class="quarto-post image-right" data-index="13" data-categories="cHJvZ3JhbW1pbmcsYXVyLGFyY2hsaW51eA==" data-listing-date-sort="1585350000000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="416">
 <div class="thumbnail">
 <p><a href="./posts/first_program_in_AUR/index.html" class="no-external"></a></p><a href="./posts/first_program_in_AUR/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -882,7 +921,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="amF2YXNjcmlwdCxnYW1lLGJvaWRz" data-listing-date-sort="1582758000000" data-listing-file-modified-sort="1732016614091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107">
+<div class="quarto-post image-right" data-index="14" data-categories="amF2YXNjcmlwdCxnYW1lLGJvaWRz" data-listing-date-sort="1582758000000" data-listing-file-modified-sort="1732016614091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107">
 <div class="thumbnail">
 <p><a href="./posts/glider/index.html" class="no-external"></a></p><a href="./posts/glider/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/glider/screenshot.png" class="thumbnail-image"></p>
@@ -921,7 +960,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="amF2YXNjcmlwdCxwcm9ncmFtbWluZyx3ZWJnbCxtYXRo" data-listing-date-sort="1581634800000" data-listing-file-modified-sort="1732016614091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="408">
+<div class="quarto-post image-right" data-index="15" data-categories="amF2YXNjcmlwdCxwcm9ncmFtbWluZyx3ZWJnbCxtYXRo" data-listing-date-sort="1581634800000" data-listing-file-modified-sort="1732016614091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="408">
 <div class="thumbnail">
 <p><a href="./posts/intersect.js/index.html" class="no-external"></a></p><a href="./posts/intersect.js/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
