@@ -1,0 +1,9 @@
+---
+title: "Fiber bundls in programming"
+author: "Luca Leon Happel"
+date: "2025-06-02 12:45"
+categories: ["math", "topology", "programming", "meme"]
+draft: true
+---
+
+
