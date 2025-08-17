@@ -2,8 +2,15 @@
 title: "Fiber bundls in programming"
 author: "Luca Leon Happel"
 date: "2025-06-02 12:45"
-categories: ["math", "topology", "programming", "meme"]
+categories: ["math", "topology", "programming"]
 draft: true
 ---
 
+Test
 
+:::{#def-fiber-bundle}
+A _fiber bundle_ is a structure in topology that consists of a base space, a
+total space, and a projection map that relates the two. It is a way to describe
+how one space can be "glued" together from many copies of another space, called
+the fiber.
+:::

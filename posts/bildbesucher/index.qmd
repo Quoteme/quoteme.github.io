@@ -2,7 +2,7 @@
 title: "Bildbesucher - A simple jump and run game"
 author: "Luca Leon Happel"
 date: "2020-04-07"
-categories: ["programming", "game", "art", "javascript", "html", "css"]
+categories: ["programming", "game"]
 image: "thumbnail.png"
 # reference-doc: 
 ---

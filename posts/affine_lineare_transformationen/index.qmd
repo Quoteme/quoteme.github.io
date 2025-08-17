@@ -1,0 +1,9 @@
+---
+title: "Affine lineare Transformationen als lineare Transformationen auf dem projektiven Raum"
+author: "Luca Leon Happel"
+date: "2025-08-17"
+categories: ["math", "algebra"]
+image: "./thumbnail.png"
+---
+
+{{< pdf notizen.pdf width=100% height=800 >}}

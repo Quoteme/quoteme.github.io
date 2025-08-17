@@ -2,7 +2,7 @@
 title: "My first program in the AUR"
 author: "Luca Leon Happel"
 date: "2020-03-28"
-categories: ["programming", "aur", "archlinux"]
+categories: ["programming", "linux"]
 ---
 
 Recently I discovered some more of the incredibly useful features of

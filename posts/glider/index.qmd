@@ -2,7 +2,7 @@
 title: "Glider - A simple boids based video game"
 author: "Luca Leon Happel"
 date: "2020-02-27"
-categories: ["javascript", "game", "boids"]
+categories: ["programming", "game", "boids"]
 image: "screenshot.png"
 ---
 
