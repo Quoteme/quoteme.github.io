@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Luca Leon Happel">
-<meta name="dcterms.date" content="2020-04-07">
+<meta name="dcterms.date" content="2025-08-17">
 
-<title>Bildbesucher - A simple jump and run game – Luca Happel’s personal website</title>
+<title>Affine lineare Transformationen als lineare Transformationen auf dem projektiven Raum – Luca Happel’s personal website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,12 +80,12 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 </script>
-<meta property="og:title" content="Bildbesucher - A simple jump and run game – Luca Happel’s personal website">
+<meta property="og:title" content="Affine lineare Transformationen als lineare Transformationen auf dem projektiven Raum – Luca Happel’s personal website">
 <meta property="og:description" content="Personal website of Luca Happel, including lots of math and computer science.">
-<meta property="og:image" content="https://lucah.tech/posts/bildbesucher/thumbnail.png">
+<meta property="og:image" content="https://lucah.tech/posts/affine_lineare_transformationen/thumbnail.png">
 <meta property="og:site_name" content="{{< var website.title >}}">
-<meta property="og:image:height" content="452">
-<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="243">
+<meta property="og:image:width" content="284">
 </head><body class="nav-fixed fullcontent"><div style="display: none;">
     $$
     \usepackage{amssymb}
@@ -180,10 +180,10 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Bildbesucher - A simple jump and run game</h1>
+      <h1 class="title">Affine lineare Transformationen als lineare Transformationen auf dem projektiven Raum</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">programming</div>
-                <div class="quarto-category">game</div>
+                <div class="quarto-category">math</div>
+                <div class="quarto-category">algebra</div>
               </div>
                   </div>
   </div>
@@ -201,7 +201,7 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 7, 2020</p>
+        <p class="date">August 17, 2025</p>
       </div>
     </div>
     
@@ -220,31 +220,9 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 
 
 
-<p>Recently, I’ve started to develop a game again, finding a bit of a positive side during the current Corona crisis.</p>
-<p>I’ve named the game “BildBesucher,” which is centered around the idea of exploring online images with a small character, moving from one picture to the next. This concept was inspired by my experience playing XKCD’s “Hoverboard” (XKCD Hoverboard), which I greatly enjoyed. You can view and even fork the source code on the corresponding Github page.</p>
-<p>There are quite a few plans for the game’s development. A key priority is to add a zoom function to the in-game camera soon, so players can discover more about the drawn world. Other important features I want to work on include:</p>
-<ul>
-<li>A portal system for navigating to different pages at specific points.</li>
-<li>A loading system to load specific levels via URL, with various properties like position and so on.</li>
-<li>Expanding the world further by creating more images and enhancing the existing ones.</li>
-<li>???</li>
-</ul>
-<section id="screenshots" class="level2">
-<h2 class="anchored" data-anchor-id="screenshots">Screenshots</h2>
-<blockquote class="imgur-embed-pub blockquote" lang="en" data-id="a/eu6CCK4">
-<a href="//imgur.com/a/eu6CCK4">Bilder zu meinem Spiel: BildBesucher ({{site.url}}/bildbesucher/)</a>
-</blockquote>
-<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-</section>
-<section id="video" class="level2">
-<h2 class="anchored" data-anchor-id="video">Video</h2>
-<video width="100%" controls="">
-<source src="https://private-user-images.githubusercontent.com/6796009/369940426-b1b9aa33-6338-4cc6-aedd-69011beb9816.webm?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjc4NzAyMTUsIm5iZiI6MTcyNzg2OTkxNSwicGF0aCI6Ii82Nzk2MDA5LzM2OTk0MDQyNi1iMWI5YWEzMy02MzM4LTRjYzYtYWVkZC02OTAxMWJlYjk4MTYud2VibT9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEwMDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMDAyVDExNTE1NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTY1MGE5ZTk2MGM1NmUyZDcwNjFiNmJiYjYyYTY3MzMxN2M1ZTIzZDk0OGJiM2M0MGNjOTFlYWE3YWRkYjhhZjgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.CNKrytWYFi2DpJa9hmAb79HncUGi8MsX0g45bujoafI" type="video/mp4">
-<p>Your browser does not support the video tag. </p>
-<p>PS: I hope to make more progress with my game this time around.</p>
+<p><object data="notizen.pdf" type="application/pdf" width="100%" height="800"><a href="notizen.pdf" download="">Download PDF file.</a></object></p>
 
 
-</video></section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
