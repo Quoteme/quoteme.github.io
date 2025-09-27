@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/one_forms/index.html",
       "/posts/affine_lineare_transformationen/index.html",
       "/posts/interfaces_as_list_of_propositions/index.html",
       "/posts/theorem_provers_exam/index.html",

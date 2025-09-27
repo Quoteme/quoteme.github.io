@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.33">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,17 +33,20 @@ ul.task-list li input[type="checkbox"] {
 <link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8b864f0777c60eecff11d75b6b2e1175.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-40974550d552471a4a1ff4e6eea605fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4f6ef9e1008d110208eda0b922b95caf.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-a98ec624fb63d9b712fc3a6f62e2b305.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-317fa9c8a93cbaa92631be92f51646c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-a98ec624fb63d9b712fc3a6f62e2b305.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,7 +117,169 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 <meta property="og:site_name" content="{{< var website.title >}}">
 <meta property="og:image:height" content="243">
 <meta property="og:image:width" content="284">
-</head><body class="nav-fixed"><div style="display: none;">
+</head><body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script><div style="display: none;">
     $$
     \usepackage{amssymb}
     \newcommand{\N}{\mathbb{N}}
@@ -240,9 +405,10 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(17)</span></div><div class="category" data-category="SGFza2VsbA==">Haskell <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVpbnJpY2gtSGVpbmUgVW5pdmVyc2l05HQ=">Heinrich-Heine Universität <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SlNEb2M=">JSDoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YVNjcmlwdA==">JavaScript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWluZWNyYWZ0">Minecraft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2VtaW5hcg==">Seminar <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U3VycmVhbGUgWmFobGVu">Surreale Zahlen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWJzdHJhY3QgYWxnZWJyYQ==">abstract algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YWxnZWJyYQ==">algebra <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YWxnZWJyYWljIGdlb21ldHJ5">algebraic geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YWxnZWJyYWljIHRvcG9sb2d5">algebraic topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXV0b21hdGVkIHRoZW9yZW0gcHJvdmluZw==">automated theorem proving <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ym9pZHM=">boids <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2FsY3VsdXM=">calculus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2F0ZWdvcnkgdGhlb3J5">category theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50IGJ1bmRsZQ==">cotangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50IHNwYWNl">cotangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsIGZvcm1z">differential forms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsIGdlb21ldHJ5">differential geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsIHRvcG9sb2d5">differential topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGltZW5zaW9u">dimension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXh0ZXJpb3IgYWxnZWJyYQ==">exterior algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9ybWFsIHZlcmlmaWNhdGlvbg==">formal verification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJhY3RhbHM=">fractals <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVuY3Rpb25hbCBhbmFseXNpcw==">functional analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2FtZQ==">game <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2VvbWV0cnk=">geometry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2xvYmFsIHNlY3Rpb24=">global section <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JvdXAgdGhlb3J5">group theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aXNvbW9ycGhpc21z">isomorphisms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="amF2YXNjcmlwdA==">javascript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGVhbjQ=">lean4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGludXg=">linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFuaWZvbGQ=">manifold <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWF0aA==">math <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bWF0aGVtYXRpY3M=">mathematics <span class="quarto-category-count">(5)</span></div><div class="category" data-category="bWVhc3VyZSB0aGVvcnk=">measure theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVtZQ==">meme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b29w">oop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9seW5vbWlhbCByaW5ncw==">polynomial rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZ3JhbW1pbmc=">programming <span class="quarto-category-count">(6)</span></div><div class="category" data-category="cXVvdGllbnQgcmluZ3M=">quotient rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmluZyB0aGVvcnk=">ring theory <span class="quarto-category-count">(4)</span></div><div class="category" data-category="c2hlYXZlcw==">sheaves <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCBidW5kbGU=">tangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCBzcGFjZQ==">tangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9wb2xvZ3k=">topology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="d2ViZ2w=">webgl <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(18)</span></div><div class="category" data-category="YWJzdHJhY3QlMjBhbGdlYnJh">abstract algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YWxnZWJyYQ==">algebra <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YWxnZWJyYWljJTIwZ2VvbWV0cnk=">algebraic geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YWxnZWJyYWljJTIwdG9wb2xvZ3k=">algebraic topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXV0b21hdGVkJTIwdGhlb3JlbSUyMHByb3Zpbmc=">automated theorem proving <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ym9pZHM=">boids <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2FsY3VsdXM=">calculus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2F0ZWdvcnklMjB0aGVvcnk=">category theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50JTIwYnVuZGxl">cotangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50JTIwc3BhY2U=">cotangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwZm9ybXM=">differential forms <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk=">differential geometry <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwdG9wb2xvZ3k=">differential topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGltZW5zaW9u">dimension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXh0ZXJpb3IlMjBhbGdlYnJh">exterior algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9ybWFsJTIwdmVyaWZpY2F0aW9u">formal verification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJhY3RhbHM=">fractals <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVuY3Rpb25hbCUyMGFuYWx5c2lz">functional analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2FtZQ==">game <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2VvbWV0cnk=">geometry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2xvYmFsJTIwc2VjdGlvbg==">global section <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JvdXAlMjB0aGVvcnk=">group theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGFza2VsbA==">Haskell <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVpbnJpY2gtSGVpbmUlMjBVbml2ZXJzaXQlQzMlQTR0">Heinrich-Heine Universität <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aXNvbW9ycGhpc21z">isomorphisms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YVNjcmlwdA==">JavaScript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="amF2YXNjcmlwdA==">javascript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SlNEb2M=">JSDoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGVhbjQ=">lean4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGludXg=">linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFuaWZvbGQ=">manifold <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWF0aA==">math <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bWF0aGVtYXRpY3M=">mathematics <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bWVhc3VyZSUyMHRoZW9yeQ==">measure theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVtZQ==">meme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWluZWNyYWZ0">Minecraft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b29w">oop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9seW5vbWlhbCUyMHJpbmdz">polynomial rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZ3JhbW1pbmc=">programming <span class="quarto-category-count">(6)</span></div><div class="category" data-category="cXVvdGllbnQlMjByaW5ncw==">quotient rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmluZyUyMHRoZW9yeQ==">ring theory <span class="quarto-category-count">(4)</span></div><div class="category" data-category="U2VtaW5hcg==">Seminar <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c2hlYXZlcw==">sheaves <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3VycmVhbGUlMjBaYWhsZW4=">Surreale Zahlen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCUyMGJ1bmRsZQ==">tangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCUyMHNwYWNl">tangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9wb2xvZ3k=">topology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="d2ViZ2w=">webgl <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
 
 
 
@@ -276,12 +442,49 @@ and 300px height
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="bWF0aCxhbGdlYnJh" data-listing-date-sort="1755381600000" data-listing-file-modified-sort="1755439444433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
-<div class="thumbnail">
-<p><a href="./posts/affine_lineare_transformationen/index.html" class="no-external"></a></p><a href="./posts/affine_lineare_transformationen/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/affine_lineare_transformationen/thumbnail.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/affine_lineare_transformationen/index.html" class="no-external"></a></p>
+<div class="quarto-post image-right" data-index="0" data-categories="bWF0aGVtYXRpY3MlMkNkaWZmZXJlbnRpYWwlMjBnZW9tZXRyeSUyQ2RpZmZlcmVudGlhbCUyMGZvcm1z" data-listing-date-sort="1758924000000" data-listing-file-modified-sort="1758945189744" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="849">
+<div class="thumbnail"><a href="./posts/one_forms/index.html" class="no-external">
+
+<p class="card-img-top"><img src="posts/one_forms/index_files/figure-html/tbl-initial-visualization-output-1.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/one_forms/index.html" class="no-external">Differentials, 0-forms and 1-forms – Placing (real) analysis on a rigorous footing</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/one_forms/index.html" class="no-external"></a>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk='); return false;">differential geometry</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZm9ybXM='); return false;">differential forms</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/one_forms/index.html" class="no-external">
+I have written about differential form before (What are „differential forms), but there I have never adressed the elephant in the room, of <em>why</em>, we should consider <span class="math inline">\(df\)</span> as…<em></em><span class="math inline"></span><span class="math inline"></span>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/one_forms/index.html" class="no-external">
+<div class="listing-date">
+Sep 27, 2025
+</div>
+<div class="listing-author">
+Luca Leon Happel
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="bWF0aCUyQ2FsZ2VicmE=" data-listing-date-sort="1755381600000" data-listing-file-modified-sort="1755439444433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
+<div class="thumbnail"><a href="./posts/affine_lineare_transformationen/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/affine_lineare_transformationen/thumbnail.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/affine_lineare_transformationen/index.html" class="no-external">Affine lineare Transformationen als lineare Transformationen auf dem projektiven Raum</a>
@@ -290,16 +493,15 @@ and 300px height
 <a href="./posts/affine_lineare_transformationen/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">
-math
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">
-algebra
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/affine_lineare_transformationen/index.html" class="no-external"><object data="notizen.pdf" type="application/pdf" width="100%" height="800">Download PDF file.</object></a>
-</div>
+<div class="delink listing-description"><a href="./posts/affine_lineare_transformationen/index.html" class="no-external">
+<object data="notizen.pdf" type="application/pdf" width="100%" height="800">Download PDF file.</object>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/affine_lineare_transformationen/index.html" class="no-external">
@@ -312,12 +514,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="bWF0aGVtYXRpY3MsY2F0ZWdvcnkgdGhlb3J5LG9vcA==" data-listing-date-sort="1748697600000" data-listing-file-modified-sort="1748702523682" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1058">
-<div class="thumbnail">
-<p><a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external"></a></p><a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="2" data-categories="bWF0aGVtYXRpY3MlMkNjYXRlZ29yeSUyMHRoZW9yeSUyQ29vcA==" data-listing-date-sort="1748697600000" data-listing-file-modified-sort="1748702523682" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1058">
+<div class="thumbnail"><a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">
+
 <p class="card-img-top"><img src="posts/interfaces_as_list_of_propositions/onion.png" alt="Onion architecture"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external"></a></p>
-</div>
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">Interfaces as List of Propositions</a>
@@ -326,19 +528,17 @@ Luca Leon Happel
 <a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">Or: Applying the Howard-Curry correspondence to OOP interfaces using the calculus of constructions</a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">
-mathematics
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2F0ZWdvcnklMjB0aGVvcnk='); return false;">category theory</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('b29w'); return false;">oop</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y2F0ZWdvcnkgdGhlb3J5'); return false;">
-category theory
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('b29w'); return false;">
-oop
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">This post came to be due to my close friend Stefan Schulz with whom I studied computer science and mathematics at the University of Düsseldorf, after we had a discussion about the way interfaces are used in object-oriented programming languages like Java. It turns out, that we can regard these as a list of propositions, which can be proven by implementing the interface. This is closely related to the Howard-Curry correspondence and some functional programming concepts. </a>
-</div>
+<div class="delink listing-description"><a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">
+<p>This post came to be due to my close friend Stefan Schulz with whom I studied computer science and mathematics at the University of Düsseldorf, after we had a discussion about the way interfaces are used in object-oriented programming languages like Java. It turns out, that we can regard these as a list of propositions, which can be proven by implementing the interface. This is closely related to the Howard-Curry correspondence and some functional programming concepts.</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">
@@ -351,12 +551,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="bWF0aGVtYXRpY3MsbG9naWMsYXV0b21hdGVkIHRoZW9yZW0gcHJvdmluZyxsZWFuNCxmb3JtYWwgdmVyaWZpY2F0aW9u" data-listing-date-sort="1708470000000" data-listing-file-modified-sort="1732016614102" data-listing-date-modified-sort="1708556400000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1841">
-<div class="thumbnail">
-<p><a href="./posts/theorem_provers_exam/index.html" class="no-external"></a></p><a href="./posts/theorem_provers_exam/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/theorem_provers_exam/thumbnail.svg" class="thumbnail-image"></p>
-</a><p><a href="./posts/theorem_provers_exam/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="3" data-categories="bWF0aGVtYXRpY3MlMkNsb2dpYyUyQ2F1dG9tYXRlZCUyMHRoZW9yZW0lMjBwcm92aW5nJTJDbGVhbjQlMkNmb3JtYWwlMjB2ZXJpZmljYXRpb24=" data-listing-date-sort="1708470000000" data-listing-file-modified-sort="1758945434605" data-listing-date-modified-sort="1708556400000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1841">
+<div class="thumbnail"><a href="./posts/theorem_provers_exam/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/theorem_provers_exam/thumbnail.svg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/theorem_provers_exam/index.html" class="no-external">Automated theorem proving</a>
@@ -365,31 +565,27 @@ Luca Leon Happel
 <a href="./posts/theorem_provers_exam/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">
-mathematics
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bG9naWM='); return false;">logic</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YXV0b21hdGVkJTIwdGhlb3JlbSUyMHByb3Zpbmc='); return false;">automated theorem proving</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGVhbjQ='); return false;">lean4</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Zm9ybWFsJTIwdmVyaWZpY2F0aW9u'); return false;">formal verification</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('bG9naWM='); return false;">
-logic
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YXV0b21hdGVkIHRoZW9yZW0gcHJvdmluZw=='); return false;">
-automated theorem proving
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bGVhbjQ='); return false;">
-lean4
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Zm9ybWFsIHZlcmlmaWNhdGlvbg=='); return false;">
-formal verification
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/theorem_provers_exam/index.html" class="no-external"><span class="math display">\[
+<div class="delink listing-description"><a href="./posts/theorem_provers_exam/index.html" class="no-external">
+<span class="math display">\[
 \newcommand{\a}{\text{a}}
 \newcommand{\b}{\text{b}}
 \newcommand{\f}{\text{f}}
 \newcommand{\g}{\text{g}}
 \newcommand{\T}{\mathbb{T}}
-\]</span></a>
-</div>
+\]</span>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/theorem_provers_exam/index.html" class="no-external">
@@ -402,12 +598,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="bWF0aGVtYXRpY3MsdG9wb2xvZ3ksYWxnZWJyYSxncm91cCB0aGVvcnkscmluZyB0aGVvcnksbWVhc3VyZSB0aGVvcnksZnVuY3Rpb25hbCBhbmFseXNpcyxkaWZmZXJlbnRpYWwgZ2VvbWV0cnksZGlmZmVyZW50aWFsIHRvcG9sb2d5LGFsZ2VicmFpYyB0b3BvbG9neQ==" data-listing-date-sort="1707001200000" data-listing-file-modified-sort="1732016614095" data-listing-date-modified-sort="1707087600000" data-listing-reading-time-sort="25" data-listing-word-count-sort="4903">
-<div class="thumbnail">
-<p><a href="./posts/l2-invariants/index.html" class="no-external"></a></p><a href="./posts/l2-invariants/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="4" data-categories="bWF0aGVtYXRpY3MlMkN0b3BvbG9neSUyQ2FsZ2VicmElMkNncm91cCUyMHRoZW9yeSUyQ3JpbmclMjB0aGVvcnklMkNtZWFzdXJlJTIwdGhlb3J5JTJDZnVuY3Rpb25hbCUyMGFuYWx5c2lzJTJDZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnklMkNkaWZmZXJlbnRpYWwlMjB0b3BvbG9neSUyQ2FsZ2VicmFpYyUyMHRvcG9sb2d5" data-listing-date-sort="1707001200000" data-listing-file-modified-sort="1732016614095" data-listing-date-modified-sort="1707087600000" data-listing-reading-time-sort="25" data-listing-word-count-sort="4903">
+<div class="thumbnail"><a href="./posts/l2-invariants/index.html" class="no-external">
+
 <p class="card-img-top"><img src="posts/l2-invariants/2024-02-10-18-41-35.png" alt="Definition of \TopTwo"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/l2-invariants/index.html" class="no-external"></a></p>
-</div>
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/l2-invariants/index.html" class="no-external"><span class="math inline">\(\ell^2\)</span>-Invariants</a>
@@ -416,40 +612,31 @@ Luca Leon Happel
 <a href="./posts/l2-invariants/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">
-mathematics
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dG9wb2xvZ3k='); return false;">topology</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z3JvdXAlMjB0aGVvcnk='); return false;">group theory</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmluZyUyMHRoZW9yeQ=='); return false;">ring theory</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWVhc3VyZSUyMHRoZW9yeQ=='); return false;">measure theory</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZnVuY3Rpb25hbCUyMGFuYWx5c2lz'); return false;">functional analysis</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk='); return false;">differential geometry</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwdG9wb2xvZ3k='); return false;">differential topology</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljJTIwdG9wb2xvZ3k='); return false;">algebraic topology</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dG9wb2xvZ3k='); return false;">
-topology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">
-algebra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z3JvdXAgdGhlb3J5'); return false;">
-group theory
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmluZyB0aGVvcnk='); return false;">
-ring theory
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWVhc3VyZSB0aGVvcnk='); return false;">
-measure theory
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuY3Rpb25hbCBhbmFseXNpcw=='); return false;">
-functional analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsIGdlb21ldHJ5'); return false;">
-differential geometry
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsIHRvcG9sb2d5'); return false;">
-differential topology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljIHRvcG9sb2d5'); return false;">
-algebraic topology
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/l2-invariants/index.html" class="no-external">This article is about the <span class="math inline">\(\ell^2\)</span>-Invariants of <span class="math inline">\(G\)</span>-CW-complexes. We will start by constructing the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes and then take a look at some applications of the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes. We will calculate the <span class="math inline">\(\ell^2\)</span>-homology groups and the <span class="math inline">\(\ell^2\)</span>-betti numbers of <span class="math inline">\(S^\infty := \colim_n S^n\)</span> with the group <span class="math inline">\(G:=\prod_{n=0}^\infty \Z/2\Z\)</span> acting on it. We will also take a look at the <span class="math inline">\(\ell^2\)</span>-betti numbers of the torus and the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of the torus. Finally, we will take a look at Lück’s theorem and its implications for the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of a connected, compact CW-complex whose fundamental group is residually finite. </a>
-</div>
+<div class="delink listing-description"><a href="./posts/l2-invariants/index.html" class="no-external">
+<p>This article is about the <span class="math inline">\(\ell^2\)</span>-Invariants of <span class="math inline">\(G\)</span>-CW-complexes. We will start by constructing the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes and then take a look at some applications of the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes. We will calculate the <span class="math inline">\(\ell^2\)</span>-homology groups and the <span class="math inline">\(\ell^2\)</span>-betti numbers of <span class="math inline">\(S^\infty := \colim_n S^n\)</span> with the group <span class="math inline">\(G:=\prod_{n=0}^\infty \Z/2\Z\)</span> acting on it. We will also take a look at the <span class="math inline">\(\ell^2\)</span>-betti numbers of the torus and the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of the torus. Finally, we will take a look at Lück’s theorem and its implications for the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of a connected, compact CW-complex whose fundamental group is residually finite.</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/l2-invariants/index.html" class="no-external">
@@ -462,12 +649,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="U2VtaW5hcixTdXJyZWFsZSBaYWhsZW4sYWJzdHJhY3QgYWxnZWJyYSxyaW5nIHRoZW9yeQ==" data-listing-date-sort="1700089200000" data-listing-file-modified-sort="1732016614102" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
-<div class="thumbnail">
-<p><a href="./posts/surreal_numbers/index.html" class="no-external"></a></p><a href="./posts/surreal_numbers/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/surreal_numbers/thumbnail.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/surreal_numbers/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="5" data-categories="U2VtaW5hciUyQ1N1cnJlYWxlJTIwWmFobGVuJTJDYWJzdHJhY3QlMjBhbGdlYnJhJTJDcmluZyUyMHRoZW9yeQ==" data-listing-date-sort="1700089200000" data-listing-file-modified-sort="1732016614102" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
+<div class="thumbnail"><a href="./posts/surreal_numbers/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/surreal_numbers/thumbnail.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/surreal_numbers/index.html" class="no-external">Surreale Zahlen</a>
@@ -476,22 +663,19 @@ Luca Leon Happel
 <a href="./posts/surreal_numbers/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('U2VtaW5hcg=='); return false;">
-Seminar
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2VtaW5hcg=='); return false;">Seminar</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3VycmVhbGUlMjBaYWhsZW4='); return false;">Surreale Zahlen</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QlMjBhbGdlYnJh'); return false;">abstract algebra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmluZyUyMHRoZW9yeQ=='); return false;">ring theory</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3VycmVhbGUgWmFobGVu'); return false;">
-Surreale Zahlen
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QgYWxnZWJyYQ=='); return false;">
-abstract algebra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmluZyB0aGVvcnk='); return false;">
-ring theory
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/surreal_numbers/index.html" class="no-external">In diesem Vortrag ging es darum zu zeigen, dass die surrealen Zahlen ein Körper sind. Ich arbeitete dabei unter der Annahme, dass wir bereits gezeigt haben, dass <span class="math inline">\(\boldsymbo…</span></a>
-</div>
+<div class="delink listing-description"><a href="./posts/surreal_numbers/index.html" class="no-external">
+In diesem Vortrag ging es darum zu zeigen, dass die surrealen Zahlen ein Körper sind. Ich arbeitete dabei unter der Annahme, dass wir bereits gezeigt haben, dass <span class="math inline">\(\boldsymbo…</span>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/surreal_numbers/index.html" class="no-external">
@@ -504,12 +688,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="U2VtaW5hcixIYXNrZWxsLHByb2dyYW1taW5nLEhlaW5yaWNoLUhlaW5lIFVuaXZlcnNpdOR0" data-listing-date-sort="1674428400000" data-listing-file-modified-sort="1732016614089" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="130">
-<div class="thumbnail">
-<p><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external"></a></p><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/bachelor-seminar-haskell/thumbnail.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="6" data-categories="U2VtaW5hciUyQ0hhc2tlbGwlMkNwcm9ncmFtbWluZyUyQ0hlaW5yaWNoLUhlaW5lJTIwVW5pdmVyc2l0JUMzJUE0dA==" data-listing-date-sort="1674428400000" data-listing-file-modified-sort="1732016614089" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="130">
+<div class="thumbnail"><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/bachelor-seminar-haskell/thumbnail.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">Haskell - Angewandter „abstract nonsense“</a>
@@ -518,22 +702,19 @@ Luca Leon Happel
 <a href="./posts/bachelor-seminar-haskell/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('U2VtaW5hcg=='); return false;">
-Seminar
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2VtaW5hcg=='); return false;">Seminar</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SGFza2VsbA=='); return false;">Haskell</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SGVpbnJpY2gtSGVpbmUlMjBVbml2ZXJzaXQlQzMlQTR0'); return false;">Heinrich-Heine Universität</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('SGFza2VsbA=='); return false;">
-Haskell
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">
-programming
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('SGVpbnJpY2gtSGVpbmUgVW5pdmVyc2l05HQ='); return false;">
-Heinrich-Heine Universität
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">Dieses Semester habe ich einen Kurs in der Heinrich-Heine Universität in Düsseldorf belegt, welcher sich mit verschiedenen Programmiersprachen beschäftigte. Dabei habe ich…</a>
-</div>
+<div class="delink listing-description"><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">
+Dieses Semester habe ich einen Kurs in der Heinrich-Heine Universität in Düsseldorf belegt, welcher sich mit verschiedenen Programmiersprachen beschäftigte. Dabei habe ich…
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">
@@ -546,12 +727,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="bWF0aGVtYXRpY3MsZGlmZmVyZW50aWFsIGdlb21ldHJ5LGRpZmZlcmVudGlhbCBmb3Jtcyx0YW5nZW50IHNwYWNlLGNvdGFuZ2VudCBzcGFjZSxtYW5pZm9sZCx0YW5nZW50IGJ1bmRsZSxjb3RhbmdlbnQgYnVuZGxlLGV4dGVyaW9yIGFsZ2VicmEsZ2xvYmFsIHNlY3Rpb24=" data-listing-date-sort="1653602400000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="377">
-<div class="thumbnail">
-<p><a href="./posts/differential_forms/index.html" class="no-external"></a></p><a href="./posts/differential_forms/index.html" class="no-external">
-<p><img loading="lazy" src="https://i.imgur.com/pJlb0qT.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/differential_forms/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="7" data-categories="bWF0aGVtYXRpY3MlMkNkaWZmZXJlbnRpYWwlMjBnZW9tZXRyeSUyQ2RpZmZlcmVudGlhbCUyMGZvcm1zJTJDdGFuZ2VudCUyMHNwYWNlJTJDY290YW5nZW50JTIwc3BhY2UlMkNtYW5pZm9sZCUyQ3RhbmdlbnQlMjBidW5kbGUlMkNjb3RhbmdlbnQlMjBidW5kbGUlMkNleHRlcmlvciUyMGFsZ2VicmElMkNnbG9iYWwlMjBzZWN0aW9u" data-listing-date-sort="1653602400000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="377">
+<div class="thumbnail"><a href="./posts/differential_forms/index.html" class="no-external">
+
+<img loading="lazy" src="https://i.imgur.com/pJlb0qT.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/differential_forms/index.html" class="no-external">What are „differential forms“</a>
@@ -560,40 +741,31 @@ Luca Leon Happel
 <a href="./posts/differential_forms/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">
-mathematics
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk='); return false;">differential geometry</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZm9ybXM='); return false;">differential forms</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGFuZ2VudCUyMHNwYWNl'); return false;">tangent space</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y290YW5nZW50JTIwc3BhY2U='); return false;">cotangent space</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWFuaWZvbGQ='); return false;">manifold</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGFuZ2VudCUyMGJ1bmRsZQ=='); return false;">tangent bundle</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y290YW5nZW50JTIwYnVuZGxl'); return false;">cotangent bundle</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZXh0ZXJpb3IlMjBhbGdlYnJh'); return false;">exterior algebra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2xvYmFsJTIwc2VjdGlvbg=='); return false;">global section</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsIGdlb21ldHJ5'); return false;">
-differential geometry
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsIGZvcm1z'); return false;">
-differential forms
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGFuZ2VudCBzcGFjZQ=='); return false;">
-tangent space
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y290YW5nZW50IHNwYWNl'); return false;">
-cotangent space
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWFuaWZvbGQ='); return false;">
-manifold
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGFuZ2VudCBidW5kbGU='); return false;">
-tangent bundle
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y290YW5nZW50IGJ1bmRsZQ=='); return false;">
-cotangent bundle
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZXh0ZXJpb3IgYWxnZWJyYQ=='); return false;">
-exterior algebra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2xvYmFsIHNlY3Rpb24='); return false;">
-global section
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/differential_forms/index.html" class="no-external">Currently while visiting the “KoMa” (Konferenz der deutschsprachigen Mathematikfachschaften / conference of German-speaking mathematics students) I got into a lot of…</a>
-</div>
+<div class="delink listing-description"><a href="./posts/differential_forms/index.html" class="no-external">
+Currently while visiting the “KoMa” (Konferenz der deutschsprachigen Mathematikfachschaften / conference of German-speaking mathematics students) I got into a lot of…
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/differential_forms/index.html" class="no-external">
@@ -606,12 +778,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="bWF0aGVtYXRpY3MsYWxnZWJyYWljIGdlb21ldHJ5" data-listing-date-sort="1646089200000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="332">
-<div class="thumbnail">
-<p><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external"></a></p><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="8" data-categories="bWF0aGVtYXRpY3MlMkNhbGdlYnJhaWMlMjBnZW9tZXRyeQ==" data-listing-date-sort="1646089200000" data-listing-file-modified-sort="1732016614090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="332">
+<div class="thumbnail"><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">
+
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external"></a></p>
-</div>
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">Elliptic curves over the field with four elements (not finished)</a>
@@ -620,16 +792,15 @@ Luca Leon Happel
 <a href="./posts/elliptic_curves_over_F4/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">
-mathematics
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljJTIwZ2VvbWV0cnk='); return false;">algebraic geometry</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljIGdlb21ldHJ5'); return false;">
-algebraic geometry
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">We define the <em>affine space</em> <span class="math inline">\(\mathbb{A}^n_k\)</span> over a ground field <span class="math inline">\(k\)</span> to be the set of all tuples <span class="math inline">\((x_1, \dots, x_n)\)</span> with elements in <span class="math inline">\(k\)</span>. In the case of <span class="math inline">\(n=2\)</span> we…<span class="math inline"></span><em></em><em></em><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><em></em><span class="math inline"></span></a>
-</div>
+<div class="delink listing-description"><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">
+We define the <em>affine space</em> <span class="math inline">\(\mathbb{A}^n_k\)</span> over a ground field <span class="math inline">\(k\)</span> to be the set of all tuples <span class="math inline">\((x_1, \dots, x_n)\)</span> with elements in <span class="math inline">\(k\)</span>. In the case of <span class="math inline">\(n=2\)</span> we…<span class="math inline"></span><em></em><em></em><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><em></em><span class="math inline"></span>
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">
@@ -642,12 +813,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="bWF0aCxhbGdlYnJhaWMgZ2VvbWV0cnksc2hlYXZlcyx0b3BvbG9neSxNaW5lY3JhZnQ=" data-listing-date-sort="1635458400000" data-listing-file-modified-sort="1732016614097" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1845">
-<div class="thumbnail">
-<p><a href="./posts/sheaves_in_minecraft/index.html" class="no-external"></a></p><a href="./posts/sheaves_in_minecraft/index.html" class="no-external">
-<p><img loading="lazy" src="https://i.imgur.com/IvIs8F3.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/sheaves_in_minecraft/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="9" data-categories="bWF0aCUyQ2FsZ2VicmFpYyUyMGdlb21ldHJ5JTJDc2hlYXZlcyUyQ3RvcG9sb2d5JTJDTWluZWNyYWZ0" data-listing-date-sort="1635458400000" data-listing-file-modified-sort="1732016614097" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1845">
+<div class="thumbnail"><a href="./posts/sheaves_in_minecraft/index.html" class="no-external">
+
+<img loading="lazy" src="https://i.imgur.com/IvIs8F3.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/sheaves_in_minecraft/index.html" class="no-external">Sheaves in Minecraft</a>
@@ -656,25 +827,21 @@ Luca Leon Happel
 <a href="./posts/sheaves_in_minecraft/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">
-math
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljJTIwZ2VvbWV0cnk='); return false;">algebraic geometry</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2hlYXZlcw=='); return false;">sheaves</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dG9wb2xvZ3k='); return false;">topology</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWluZWNyYWZ0'); return false;">Minecraft</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljIGdlb21ldHJ5'); return false;">
-algebraic geometry
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2hlYXZlcw=='); return false;">
-sheaves
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dG9wb2xvZ3k='); return false;">
-topology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWluZWNyYWZ0'); return false;">
-Minecraft
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/sheaves_in_minecraft/index.html" class="no-external">A few days ago, after my introductory class in topology, and right before my class about algebraic geometry, my friend Anastasia and I were asked by fellow topology students…</a>
-</div>
+<div class="delink listing-description"><a href="./posts/sheaves_in_minecraft/index.html" class="no-external">
+A few days ago, after my introductory class in topology, and right before my class about algebraic geometry, my friend Anastasia and I were asked by fellow topology students…
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/sheaves_in_minecraft/index.html" class="no-external">
@@ -687,12 +854,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="bWF0aCxhbGdlYnJhLGFic3RyYWN0IGFsZ2VicmEscmluZyB0aGVvcnksbWVtZQ==" data-listing-date-sort="1634767200000" data-listing-file-modified-sort="1732016614088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="250">
-<div class="thumbnail">
-<p><a href="./posts/algebra_meme_2/index.html" class="no-external"></a></p><a href="./posts/algebra_meme_2/index.html" class="no-external">
-<p><img loading="lazy" src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/algebra_meme_2/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="10" data-categories="bWF0aCUyQ2FsZ2VicmElMkNhYnN0cmFjdCUyMGFsZ2VicmElMkNyaW5nJTIwdGhlb3J5JTJDbWVtZQ==" data-listing-date-sort="1634767200000" data-listing-file-modified-sort="1732016614088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="250">
+<div class="thumbnail"><a href="./posts/algebra_meme_2/index.html" class="no-external">
+
+<img loading="lazy" src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/algebra_meme_2/index.html" class="no-external">Prove that <span class="math inline">\(\mathbb{R}[x]/(x^2+bx+c)\)</span> is isomorphic to <span class="math inline">\(\mathbb{R}^2\)</span> or <span class="math inline">\(\mathbb{C}\)</span> - A proof</a>
@@ -701,25 +868,21 @@ Luca Leon Happel
 <a href="./posts/algebra_meme_2/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">
-math
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QlMjBhbGdlYnJh'); return false;">abstract algebra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmluZyUyMHRoZW9yeQ=='); return false;">ring theory</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWVtZQ=='); return false;">meme</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">
-algebra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QgYWxnZWJyYQ=='); return false;">
-abstract algebra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmluZyB0aGVvcnk='); return false;">
-ring theory
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWVtZQ=='); return false;">
-meme
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/algebra_meme_2/index.html" class="no-external">Around one year ago I tried to solve the following riddle involving abstract algebra, but I failed and did not finish the question at that</a>
-</div>
+<div class="delink listing-description"><a href="./posts/algebra_meme_2/index.html" class="no-external">
+Around one year ago I tried to solve the following riddle involving abstract algebra, but I failed and did not finish the question at that
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/algebra_meme_2/index.html" class="no-external">
@@ -732,12 +895,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="bWF0aCxhbGdlYnJhLHJpbmcgdGhlb3J5LGFic3RyYWN0IGFsZ2VicmEscG9seW5vbWlhbCByaW5ncyxxdW90aWVudCByaW5ncyxpc29tb3JwaGlzbXM=" data-listing-date-sort="1606950000000" data-listing-file-modified-sort="1732016614088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
-<div class="thumbnail">
-<p><a href="./posts/algebra_meme/index.html" class="no-external"></a></p><a href="./posts/algebra_meme/index.html" class="no-external">
-<p><img loading="lazy" src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/algebra_meme/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="11" data-categories="bWF0aCUyQ2FsZ2VicmElMkNyaW5nJTIwdGhlb3J5JTJDYWJzdHJhY3QlMjBhbGdlYnJhJTJDcG9seW5vbWlhbCUyMHJpbmdzJTJDcXVvdGllbnQlMjByaW5ncyUyQ2lzb21vcnBoaXNtcw==" data-listing-date-sort="1606950000000" data-listing-file-modified-sort="1732016614088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
+<div class="thumbnail"><a href="./posts/algebra_meme/index.html" class="no-external">
+
+<img loading="lazy" src="https://i.imgur.com/5gUWnRL.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/algebra_meme/index.html" class="no-external">Prove that <span class="math inline">\(\mathbb{R}[x]/(x^2+bx+c)\)</span> is isomorphic to <span class="math inline">\(\mathbb{R}^2\)</span> or <span class="math inline">\(\mathbb{C}\)</span> - First try</a>
@@ -746,31 +909,25 @@ Luca Leon Happel
 <a href="./posts/algebra_meme/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">
-math
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmluZyUyMHRoZW9yeQ=='); return false;">ring theory</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QlMjBhbGdlYnJh'); return false;">abstract algebra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cG9seW5vbWlhbCUyMHJpbmdz'); return false;">polynomial rings</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cXVvdGllbnQlMjByaW5ncw=='); return false;">quotient rings</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aXNvbW9ycGhpc21z'); return false;">isomorphisms</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">
-algebra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmluZyB0aGVvcnk='); return false;">
-ring theory
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QgYWxnZWJyYQ=='); return false;">
-abstract algebra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cG9seW5vbWlhbCByaW5ncw=='); return false;">
-polynomial rings
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cXVvdGllbnQgcmluZ3M='); return false;">
-quotient rings
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aXNvbW9ycGhpc21z'); return false;">
-isomorphisms
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/algebra_meme/index.html" class="no-external">A few minutes ago I stumbled upon this meme on some math and science forum:</a>
-</div>
+<div class="delink listing-description"><a href="./posts/algebra_meme/index.html" class="no-external">
+A few minutes ago I stumbled upon this meme on some math and science forum:
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/algebra_meme/index.html" class="no-external">
@@ -783,12 +940,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="bWF0aCxmcmFjdGFscyxkaW1lbnNpb24sY2FsY3VsdXMsZ2VvbWV0cnk=" data-listing-date-sort="1590098400000" data-listing-file-modified-sort="1732016614096" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
-<div class="thumbnail">
-<p><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external"></a></p><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/new_method_of_counting_dimensions/thumbnail.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="12" data-categories="bWF0aCUyQ2ZyYWN0YWxzJTJDZGltZW5zaW9uJTJDY2FsY3VsdXMlMkNnZW9tZXRyeQ==" data-listing-date-sort="1590098400000" data-listing-file-modified-sort="1732016614096" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
+<div class="thumbnail"><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/new_method_of_counting_dimensions/thumbnail.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">A new method to calculate dimension</a>
@@ -797,25 +954,21 @@ Luca Leon Happel
 <a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">
-math
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZnJhY3RhbHM='); return false;">fractals</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGltZW5zaW9u'); return false;">dimension</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2FsY3VsdXM='); return false;">calculus</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2VvbWV0cnk='); return false;">geometry</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZnJhY3RhbHM='); return false;">
-fractals
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGltZW5zaW9u'); return false;">
-dimension
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y2FsY3VsdXM='); return false;">
-calculus
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2VvbWV0cnk='); return false;">
-geometry
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">A few days ago, I stumbled upon an article titled Finally We May Have a Path to the Fundamental Theory of Physics… and It’s Beautiful by Stephen Wolfram, an American…</a>
-</div>
+<div class="delink listing-description"><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">
+A few days ago, I stumbled upon an article titled Finally We May Have a Path to the Fundamental Theory of Physics… and It’s Beautiful by Stephen Wolfram, an American…
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">
@@ -828,12 +981,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="SlNEb2MsSmF2YVNjcmlwdCxnYW1lLHByb2dyYW1taW5n" data-listing-date-sort="1587160800000" data-listing-file-modified-sort="1732016614089" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
-<div class="thumbnail">
-<p><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external"></a></p><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/bildbesucher-jsdoc/thumbnail.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="13" data-categories="SlNEb2MlMkNKYXZhU2NyaXB0JTJDZ2FtZSUyQ3Byb2dyYW1taW5n" data-listing-date-sort="1587160800000" data-listing-file-modified-sort="1732016614089" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
+<div class="thumbnail"><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/bildbesucher-jsdoc/thumbnail.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">Bildbesucher - First time using JSDoc</a>
@@ -842,22 +995,19 @@ Luca Leon Happel
 <a href="./posts/bildbesucher-jsdoc/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SlNEb2M='); return false;">
-JSDoc
+
+<div class="listing-category" onclick="window.quartoListingCategory('SlNEb2M='); return false;">JSDoc</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SmF2YVNjcmlwdA=='); return false;">JavaScript</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZQ=='); return false;">game</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YVNjcmlwdA=='); return false;">
-JavaScript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZQ=='); return false;">
-game
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">
-programming
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">As you can see in the image above, today I’ve added JSDoc support to my game, BildBesucher. This means that by visiting http://quoteme.github.io/bildbesucher/docs/, you can…</a>
-</div>
+<div class="delink listing-description"><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">
+As you can see in the image above, today I’ve added JSDoc support to my game, BildBesucher. This means that by visiting http://quoteme.github.io/bildbesucher/docs/, you can…
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">
@@ -870,12 +1020,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="cHJvZ3JhbW1pbmcsZ2FtZQ==" data-listing-date-sort="1586210400000" data-listing-file-modified-sort="1755439531123" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="198">
-<div class="thumbnail">
-<p><a href="./posts/bildbesucher/index.html" class="no-external"></a></p><a href="./posts/bildbesucher/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/bildbesucher/thumbnail.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/bildbesucher/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="14" data-categories="cHJvZ3JhbW1pbmclMkNnYW1l" data-listing-date-sort="1586210400000" data-listing-file-modified-sort="1755439531123" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="198">
+<div class="thumbnail"><a href="./posts/bildbesucher/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/bildbesucher/thumbnail.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/bildbesucher/index.html" class="no-external">Bildbesucher - A simple jump and run game</a>
@@ -884,16 +1034,15 @@ Luca Leon Happel
 <a href="./posts/bildbesucher/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">
-programming
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZQ=='); return false;">game</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZQ=='); return false;">
-game
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/bildbesucher/index.html" class="no-external">Recently, I’ve started to develop a game again, finding a bit of a positive side during the current Corona crisis.</a>
-</div>
+<div class="delink listing-description"><a href="./posts/bildbesucher/index.html" class="no-external">
+Recently, I’ve started to develop a game again, finding a bit of a positive side during the current Corona crisis.
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/bildbesucher/index.html" class="no-external">
@@ -906,12 +1055,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="cHJvZ3JhbW1pbmcsbGludXg=" data-listing-date-sort="1585350000000" data-listing-file-modified-sort="1755439547879" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="416">
-<div class="thumbnail">
-<p><a href="./posts/first_program_in_AUR/index.html" class="no-external"></a></p><a href="./posts/first_program_in_AUR/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="15" data-categories="cHJvZ3JhbW1pbmclMkNsaW51eA==" data-listing-date-sort="1585350000000" data-listing-file-modified-sort="1755439547879" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="416">
+<div class="thumbnail"><a href="./posts/first_program_in_AUR/index.html" class="no-external">
+
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/first_program_in_AUR/index.html" class="no-external"></a></p>
-</div>
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/first_program_in_AUR/index.html" class="no-external">My first program in the AUR</a>
@@ -920,16 +1069,15 @@ Luca Leon Happel
 <a href="./posts/first_program_in_AUR/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">
-programming
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGludXg='); return false;">linux</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('bGludXg='); return false;">
-linux
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/first_program_in_AUR/index.html" class="no-external">Recently I discovered some more of the incredibly useful features of my favorite text-editor Neovim:</a>
-</div>
+<div class="delink listing-description"><a href="./posts/first_program_in_AUR/index.html" class="no-external">
+Recently I discovered some more of the incredibly useful features of my favorite text-editor Neovim:
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/first_program_in_AUR/index.html" class="no-external">
@@ -942,12 +1090,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="cHJvZ3JhbW1pbmcsZ2FtZSxib2lkcw==" data-listing-date-sort="1582758000000" data-listing-file-modified-sort="1755439616674" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107">
-<div class="thumbnail">
-<p><a href="./posts/glider/index.html" class="no-external"></a></p><a href="./posts/glider/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/glider/screenshot.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/glider/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="16" data-categories="cHJvZ3JhbW1pbmclMkNnYW1lJTJDYm9pZHM=" data-listing-date-sort="1582758000000" data-listing-file-modified-sort="1755439616674" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107">
+<div class="thumbnail"><a href="./posts/glider/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/glider/screenshot.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/glider/index.html" class="no-external">Glider - A simple boids based video game</a>
@@ -956,19 +1104,17 @@ Luca Leon Happel
 <a href="./posts/glider/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">
-programming
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZQ=='); return false;">game</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ym9pZHM='); return false;">boids</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZQ=='); return false;">
-game
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ym9pZHM='); return false;">
-boids
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/glider/index.html" class="no-external">Today, while revisiting my old laptop, I rediscovered a project from just over a year and a month ago:</a>
-</div>
+<div class="delink listing-description"><a href="./posts/glider/index.html" class="no-external">
+Today, while revisiting my old laptop, I rediscovered a project from just over a year and a month ago:
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/glider/index.html" class="no-external">
@@ -981,12 +1127,12 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="amF2YXNjcmlwdCxwcm9ncmFtbWluZyx3ZWJnbCxtYXRo" data-listing-date-sort="1581634800000" data-listing-file-modified-sort="1732016614091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="408">
-<div class="thumbnail">
-<p><a href="./posts/intersect.js/index.html" class="no-external"></a></p><a href="./posts/intersect.js/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="17" data-categories="amF2YXNjcmlwdCUyQ3Byb2dyYW1taW5nJTJDd2ViZ2wlMkNtYXRo" data-listing-date-sort="1581634800000" data-listing-file-modified-sort="1732016614091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="408">
+<div class="thumbnail"><a href="./posts/intersect.js/index.html" class="no-external">
+
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/intersect.js/index.html" class="no-external"></a></p>
-</div>
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/intersect.js/index.html" class="no-external">intersect.mjs und der Sphären/Boxen-Schnitt</a>
@@ -995,22 +1141,19 @@ Luca Leon Happel
 <a href="./posts/intersect.js/index.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('amF2YXNjcmlwdA=='); return false;">
-javascript
+
+<div class="listing-category" onclick="window.quartoListingCategory('amF2YXNjcmlwdA=='); return false;">javascript</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d2ViZ2w='); return false;">webgl</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">
-programming
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('d2ViZ2w='); return false;">
-webgl
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">
-math
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/intersect.js/index.html" class="no-external">Momentan arbeite ich an meiner intersect.mjs Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen geometrischen Strukturen in <span class="math inline">\(n\)</span> dimensionen zu…</a>
-</div>
+<div class="delink listing-description"><a href="./posts/intersect.js/index.html" class="no-external">
+Momentan arbeite ich an meiner intersect.mjs Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen geometrischen Strukturen in <span class="math inline">\(n\)</span> dimensionen zu…
+</a></div>
 </div>
 <div class="metadata">
 <a href="./posts/intersect.js/index.html" class="no-external">
@@ -1024,388 +1167,258 @@ Luca Leon Happel
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/lucah\.tech");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
       });
     }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/lucah\.tech");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1413,185 +1426,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 
