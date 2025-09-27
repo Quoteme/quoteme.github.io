@@ -174,5 +174,14 @@ x_0 &\mapsto \left(\lambda \mapsto \lambda \cdot \underbrace{\left(\lim_{h \to 0
 $$
 
 After this, we can now generalize $d$ to the *exterior derivative* real 
-manifolds $\Omega$, by considering $bigwedge^0 \Omega$ as $\Omega$ and extendint
+manifolds $\Omega$, by considering $\bigwedge^0 \Omega$ as $\Omega$ and extendint
 the above definiton to work on $\Omega$ as well and not just $\mathbb{R}$.
+
+Additionally, this might give some insights into what
+$$
+\int_a^b f(x) dx
+$$
+could mean. Due to the Riemann integral, we like to think about summming up
+increasingly small rectangles of height $f(x)$ and width $dx$. Here we again
+take the approach of wrapping the sum in a lazily evaluated formula to which we
+apply this limit post-processing which we get from $dx$ for free.
