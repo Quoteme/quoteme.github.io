@@ -12,6 +12,7 @@
   outputs = { self, nixpkgs, flake-utils, ... }@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
+        pythonPackages = ps: with ps; [ plotly numpy pandas matplotlib ];
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
@@ -19,29 +20,21 @@
             (self: super: {
               quarto = super.quarto.override {
                 extraRPackages = [ ];
-                extraPythonPackages = ps:
-                  with ps; [
-                    plotly
-                    numpy
-                    pandas
-                    matplotlib
-                  ];
+                extraPythonPackages = pythonPackages;
               };
             })
           ];
         };
-        dependencies = with pkgs; [ quarto ];
+        dependencies = with pkgs; [
+          quarto
+          (python3.withPackages pythonPackages)
+        ];
       in {
         # default shell 
         devShells.default = with pkgs;
           mkShell {
             name = "blog-shell";
             buildInputs = dependencies;
-            shellHook = ''
-              export PYGMENTIZE=${python313Packages.pygments}/bin/pygmentize
-              export PATH=${quarto}/bin:${python313Packages.pygments}/bin:${python313}/bin:$PATH
-              export PYTHONPATH=${python313Packages.pygments}/lib/python3.13/site-packages:${python311Packages.pandocfilters}/lib/python3.11/site-packages
-            '';
           };
 
         # build quarto blog
