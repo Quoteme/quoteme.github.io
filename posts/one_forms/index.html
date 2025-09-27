@@ -444,7 +444,7 @@ Table&nbsp;1: Derivative visualized
 \frac{df}{dx}\Bigg{|}_{ x_0 } := \lim_{h\to 0} \frac{f(x_0 + h)- f(x_0)}{h}
 \tag{1}\]</span></span></p>
 <p>Implicitly we have evaluated our derivative at the position <span class="math inline">\(x_0\)</span>. By varying this <span class="math inline">\(x_0\)</span>, we get the derivative as it is often practically used, and it may also be written <span class="math inline">\(\frac{df}{dx}(x)\)</span>.</p>
-<div id="2a096ad5" class="cell" data-execution_count="2">
+<div id="875e0abb" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -498,7 +498,10 @@ dg &amp;: \mathbb{R} \to \mathbb{R}^* \\
 x_0 &amp;\mapsto \left(\lambda \mapsto \lambda \cdot \underbrace{\left(\lim_{h \to 0} g(x_0 + h) - g(x_0)\right)}_{\text{scalar, because of } g \in C^0(\mathbb{R})}\right)
 \end{align*}
 \]</span></p>
-<p>After this, we can now generalize <span class="math inline">\(d\)</span> to the <em>exterior derivative</em> real manifolds <span class="math inline">\(\Omega\)</span>, by considering <span class="math inline">\(bigwedge^0 \Omega\)</span> as <span class="math inline">\(\Omega\)</span> and extendint the above definiton to work on <span class="math inline">\(\Omega\)</span> as well and not just <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>After this, we can now generalize <span class="math inline">\(d\)</span> to the <em>exterior derivative</em> real manifolds <span class="math inline">\(\Omega\)</span>, by considering <span class="math inline">\(\bigwedge^0 \Omega\)</span> as <span class="math inline">\(\Omega\)</span> and extendint the above definiton to work on <span class="math inline">\(\Omega\)</span> as well and not just <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Additionally, this might give some insights into what <span class="math display">\[
+\int_a^b f(x) dx
+\]</span> could mean. Due to the Riemann integral, we like to think about summming up increasingly small rectangles of height <span class="math inline">\(f(x)\)</span> and width <span class="math inline">\(dx\)</span>. Here we again take the approach of wrapping the sum in a lazily evaluated formula to which we apply this limit post-processing which we get from <span class="math inline">\(dx\)</span> for free.</p>
 
 
 
