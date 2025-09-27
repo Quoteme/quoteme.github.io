@@ -1,0 +1,178 @@
+---
+title: "Differentials, 0-forms and 1-forms – Placing (real) analysis on a rigorous footing"
+author: "Luca Leon Happel"
+date: "2025/09/27"
+categories: ["mathematics", "differential geometry", "differential forms",]
+---
+
+I have written about differential form before ([What are „differential
+forms](../differential_forms/)), but there I have never adressed the elephant in
+the room, of *why*, we should consider $df$ as a covector field. Neither have I
+given any explanation about *what* $dx$ could mean. Even less so, what
+$\frac{df}{dx}$ could be.
+
+```{python}
+#| echo: false
+#| label: tbl-initial-visualization
+#| tbl-cap: "Derivative visualized"
+# Example using Python and matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import numpy as np
+f = lambda x: np.sin(x) + 1
+x = np.linspace(0, 0.7*np.pi, 100)
+y = f(x)
+plt.plot(x, y)
+x0 = 0.1*np.pi
+l = 0.7
+plt.text(
+  x0,
+  0.05,
+  "$x_0$",
+  ha="center",
+  va="bottom"
+)
+plt.grid(True, linestyle='--')
+plt.plot(x0, 0, 'bo', markersize=8)
+plt.gca().arrow(x0, 0, l, 0, width=0.05, head_width=0.1, fc="black", length_includes_head=True)
+plt.text(
+  x0+l/2,
+  0.05,
+  "$dx|_{x_0}$",
+  ha="center",
+  va="bottom"
+)
+plt.gca().arrow(x0, f(x0), l, 0, width=0.05, head_width=0.1, fc="black", alpha=0.2, length_includes_head=True)
+plt.gca().arrow(x0+l, f(x0), 0, f(x0+l)-f(x0), width=0.05, head_width=0.1, fc="red", length_includes_head=True)
+plt.text(
+  x0+l+0.05,
+  f(x0) + (f(x0+l) - f(x0))/2,
+  "$df|_{x_0}$",
+  ha="left",
+  va="center"
+)
+plt.show()
+```
+
+In this plot, we can see the typical representation of how one can calculate the
+derivative of a function $f$ using <span style="color: red">*rise*</span> over 
+<span style="color: black">*run*</span>. By taking the limit as $dx$ approaches
+$0$, we get the traditional derivative 
+$$
+\frac{df}{dx}\Bigg{|}_{ x_0 } := \lim_{h\to 0} \frac{f(x_0 + h)- f(x_0)}{h}
+$$ {#eq-traditional-definition}
+
+Implicitly we have evaluated our derivative at the position $x_0$. By varying
+this $x_0$, we get the derivative as it is often practically used, and it may
+also be written $\frac{df}{dx}(x)$.
+
+```{python}
+#| echo: false
+# Example using Python and matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import numpy as np
+f = lambda x: np.sin(x) + 1
+dfdx = lambda x: np.cos(x)
+x = np.linspace(0, 1.3*np.pi, 100)
+plt.grid(True, linestyle='--')
+plt.plot(x, f(x))
+plt.plot(x, dfdx(x))
+plt.legend([" $f(x)$ ", " $\\frac{df}{dx}(x)$ "])
+plt.show()
+```
+
+But how does this relate do $dx$ being some covector field? As a reminder, a
+covectorfield is just a mapping from points in an underlying topological space to
+covectors – also known as _linear functions_ or _forms_ (remembder that bilinear
+forms are just linear functions in two arguments, so the name _form_ does not
+seem too out of place here).
+
+Well, lets take a step back and analyze @eq-traditional-definition again.
+If we take a @tbl-initial-visualization, we can see that the $df|_{x_0}$ here
+corresponds to a small nudge in the $f$ direction starting at $x_0$, which is
+$f(x_0 + h) - f(x_0)$ in the limit above. 
+
+How does this relate to $dx$? Here the first misunderstanding might occure. 
+After all $x$ is a real number, not a function like $f$, so how can $d$ take
+both real numbers and functions as a parameter? The solution here is,
+that standard notation overloads the term "$x$".
+The $x$ in the defintion $f(x) = \text{sin}(x)+1$ is a parameter of $f$ and
+therefor in a different scope then the $x$ which is used in $dx$. The $x$ in
+$dx$ actually stands for a particular family of projections:
+
+$$
+\begin{align*}
+x &: \mathbb{R} \to \mathbb{R} & x(v_1) = v_1 \\
+  &: \mathbb{R}^2 \to \mathbb{R} & x\begin{pmatrix}
+v_1 \\
+v_2
+\end{pmatrix} = v_1 \\
+  &: \mathbb{R}^3 \to \mathbb{R} & x\begin{pmatrix}
+v_1 \\
+v_2 \\
+v_3
+\end{pmatrix} = v_1 \\
+& \vdots \\
+  &: \mathbb{R}^d \to \mathbb{R} & x\begin{pmatrix}
+v_1 \\
+\vdots \\
+v_d
+\end{pmatrix} = v_1 \\
+\end{align*}
+$$
+
+where we may pick the apropriate one depending on the current context. 
+If we would like to be pedantic though, we could also fomalize the signature of $x$ as follows
+
+$$
+x : \bigsqcup_{i=1, dots} \mathbb{R}^i \to \mathbb{R}, \quad (v_i)_{i=1, \dots, d} \mapsto v_1
+$$
+
+By doing this, we get some consistency between $df|x_0$ which corresponds to
+$$\lim_{h\to 0} f(x_0 + h) - f(x_0)$$ and $dx|x_0$, which corresponds to 
+$$\lim_{h\to 0} x(x_0 + h) - x(x_0) = \lim_{h\to 0} x_0 + h - x_0 = \lim_{h\to 0} h$$
+
+Now we run into quite the conundrum though. If we were to simply define $df|_{x_0} = \lim_{h\to 0} f(x_0 + h) - f(x_0)$,
+we would run into the problem, that we calculate our limits too eagerly. We
+would then get
+$$\frac{df|_{x_0}}{dx|_{x_0}} = \frac{\lim_{h\to 0} f(x_0 + h) - f(x_0)} {\lim_{h\to 0} h} = \frac{0}{0}$$
+where the denominator would be zero, making the result _undefined_.
+To solve this problem, we wish to "defer" the evaluation of our limits until the
+end. We wish to "extract" the limits from any of the algebraic manipulations we
+wish to apply to $df$ and $dx$ until we are ready to do so. This leads us to our
+first definition of *the differential* $d$
+
+$$
+\begin{align*}
+d &: \underbrace{C^0(\mathbb{R})}_{f} \to \underbrace{\mathbb{R}}_{x_0} \to (\underbrace{\mathbb{R}}_{h} \to \mathbb{R}) \\
+df|_{x_0} &= h \mapsto f(x_0 + h) - f(x_0)
+\end{align*}
+$$
+
+We use the notation of [currying](https://en.wikipedia.org/wiki/Currying) here
+for simplicity. Now we can postpone any limits until the end:
+$$
+\frac{df}{dx}\Bigg|_{x_0} = h \mapsto \frac{f(x_0 + h) - f(x_0)}{x(x_0+h) - x(x_0)} \\
+$$
+And we may use [coercion](https://lean-lang.org/functional_programming_in_lean/Overloading-and-Type-Classes/Coercions/)
+to simplify our notation, so that $\frac{df}{dx}\bigg|_{x_0}$ and $\lim_{h \to 0}\frac{df}{dx}\bigg|_{x_0}(h)$
+may be used interchangeably (the notation for that would be 
+$\uparrow\frac{df}{dx}\bigg|_{x_0} = \lim_{h \to 0}\frac{df}{dx}\bigg|_{x_0}(h)$).
+This means, that for any formula, the limit may only be taken as a "post
+processing" effect on it.
+
+Because both $f$ and $x$ (or any differentiable function $g$) must be 
+differentiable at each point $x_0$, which means that the limit above must exist
+there, we can in fact regard $dg$ as a covector field:
+
+$$
+\begin{align*}
+dg &: \mathbb{R} \to \mathbb{R}^* \\
+x_0 &\mapsto \left(\lambda \mapsto \lambda \cdot \underbrace{\left(\lim_{h \to 0} g(x_0 + h) - g(x_0)\right)}_{\text{scalar, because of } g \in C^0(\mathbb{R})}\right)
+\end{align*}
+$$
+
+After this, we can now generalize $d$ to the *exterior derivative* real 
+manifolds $\Omega$, by considering $bigwedge^0 \Omega$ as $\Omega$ and extendint
+the above definiton to work on $\Omega$ as well and not just $\mathbb{R}$.
