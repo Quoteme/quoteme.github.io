@@ -88,7 +88,7 @@
         "\\end{aligned}\n",
         "$$"
       ],
-      "id": "ab26c0e3"
+      "id": "fefa9519"
     },
     {
       "cell_type": "code",
@@ -104,7 +104,7 @@
         "ax.grid()\n",
         "plt.show()"
       ],
-      "id": "9caf2e9a",
+      "id": "de56b15d",
       "execution_count": null,
       "outputs": []
     },
@@ -124,7 +124,7 @@
         "\\end{aligned}\n",
         "$$"
       ],
-      "id": "773e3169"
+      "id": "99eff4df"
     },
     {
       "cell_type": "code",
@@ -140,7 +140,7 @@
         "ax.grid()\n",
         "plt.show()"
       ],
-      "id": "ec0f4722",
+      "id": "5da7d627",
       "execution_count": null,
       "outputs": []
     },
@@ -152,7 +152,7 @@
         "\n",
         "The Sierpiński-Triangle is a fractal with a dimension of $\\log(3)/\\log(2)$. The following code calculates the dimension of the Sierpiński-Triangle."
       ],
-      "id": "980dd455"
+      "id": "78c93548"
     },
     {
       "cell_type": "code",
@@ -190,7 +190,7 @@
         "plt.legend(['Ein Sierpiński Dreieck mit Rekursionstiefe $'+str(rt)+'$'])\n",
         "plt.show()"
       ],
-      "id": "76063690",
+      "id": "a1447329",
       "execution_count": null,
       "outputs": []
     },
@@ -218,7 +218,7 @@
         "plt.legend(['Durchschnittliche Anzahl an Punkten in $V_r$'])\n",
         "plt.show()"
       ],
-      "id": "72cc1b96",
+      "id": "b30e4bf4",
       "execution_count": null,
       "outputs": []
     },
@@ -237,7 +237,7 @@
         "plt.ylabel('$\\Delta_r$')\n",
         "plt.legend(['Durchschnittliches $\\Delta_r$', 'Hausdorff Dimension von Sierpiński-Dreieck$\\approx\\log_2(3)$'])"
       ],
-      "id": "dba75baf",
+      "id": "b9f09a9d",
       "execution_count": null,
       "outputs": []
     },
@@ -250,7 +250,7 @@
         "[^3]: <https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/>\n",
         "[^4]: <https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/>"
       ],
-      "id": "237f2ce4"
+      "id": "0c278573"
     }
   ],
   "metadata": {
