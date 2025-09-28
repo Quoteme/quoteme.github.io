@@ -106,7 +106,7 @@
         "\treturn 1/sqrt(math.pi)*math.e**(-x**2)\n",
         "```"
       ],
-      "id": "41a9544d"
+      "id": "cac31b20"
     }
   ],
   "metadata": {
