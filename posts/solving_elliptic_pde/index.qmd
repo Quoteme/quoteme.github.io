@@ -134,4 +134,7 @@ This is where I stopped and I made no further progess. I would have liked to
 introduce the finite element method here though, which would have resulted in a
 sparse system of linear equations, whose solution would result in an approximate
 solution of our elliptic partial differential equation.
+This would have relied on the Lax-Milgram theorem, which allows writing
+differential equations of order 2 in a weak form, which results in an equation
+only of order 1.
 :::
