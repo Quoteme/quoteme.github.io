@@ -1,9 +1,9 @@
 ---
 title: "Solving elliptic differential "
 author: "Luca Leon Happel"
-date: "2025-08-17"
+date: "2025-09-31"
 categories: ["math", "algebra"]
-image: "./thumbnail.png"
+image: "./assets/laplacian.png"
 ---
 
 Assume you are given an [elliptic differential equaiton](https://en.wikipedia.org/wiki/Elliptic_partial_differential_equation)
