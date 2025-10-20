@@ -1,0 +1,43 @@
+---
+title: "Types in model theory"
+author: "Luca Leon Happel"
+date: "2025-10-20"
+categories: ["math", "model theory"]
+---
+
+In model theory a type is something different than a type in type theory.
+When i first learned about types in model theory around two years ago, I was
+told there would not be an obvious connection to type theory. A few days ago I
+thought about types in model theory again though and I noticed that indeed,
+there actually is a connection.
+
+This result heavily relies on my previous post [about interfaces as lists of
+propositions](../interfaces_as_list_of_propositions/), so it would be great if
+you, dear reader, would give it a read before. If you prefer to skip it, the
+gist was that interfaces in Java specify multiple attributes/methods/... which
+each have signatures that require specific implementations for a given Type `T`.
+Given such an interface `I` which exposes a method `I.f: {T} -> X -> Y`, where
+the curly braces `{T}` indicate that `T` is an implicit argument of `I.f` and 
+`X` and `Y` may depend on it. Because interfaces generally specify multiple
+attributes/methods/..., we may regard them as lists of propositions.
+Propositions instead of just signatures, because interfaces may also define more
+complex restirctions on `T`.
+
+In model theory a type, or an $n$-type of $\mathcal{M}$ is a set $p(x) of 
+formulas in $L(A)$, where $x=(x_1, \dots, x_n)$ are free variables and $L$ is a 
+language, $\mathcal{M}$ a structure for $L$ and $A$ is a subset of $M$, which is
+the universe of $\mathcal{M}$. We write $L(A) := L \cup \{c_a : a \in A\}$ for
+the language obtained by extending $L$ with symbols $c_a$. We also require that
+for each finite $p_0(x) \subseteq p(x)$, there must be a $b \in M$ such that
+$b$ satisfies $p_0(x), i.e. $\mathcal{M}\model p_0(b)$.
+
+## The connection
+
+Assume that $p_0(x)$ only consists of finitely many such formulas. We regard the
+requirement $\mathcal{M}\model p_0(b)$ as "$b$ satisfies all propositions
+$p_0'(b) \in p_0(b)$. We can regard $p_0(b) as a list, as it is finite by our
+assumption. This establies our connection because we previously defined
+interfaces as lists of propositions. As we found out in our previous blog post
+that interfaces may again be regarded as dependent types (just of the form
+that they are lists of propositions), we can now regard model theoretic types as
+a special kind of types in type theory.
