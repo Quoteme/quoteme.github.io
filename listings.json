@@ -2,8 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/types-in-model-theory/index.html",
       "/posts/one_forms/index.html",
       "/posts/affine_lineare_transformationen/index.html",
+      "/posts/solving_elliptic_pde/index.html",
       "/posts/interfaces_as_list_of_propositions/index.html",
       "/posts/theorem_provers_exam/index.html",
       "/posts/l2-invariants/index.html",
