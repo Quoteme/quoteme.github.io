@@ -33,6 +33,7 @@ the Heinrich Heine University Düsseldorf.
 | Gymnasium                    | Gymnasium an der Gartenstraße | 2010-2018 |
 | Bachelor of Mathematics      | HHU Düsseldorf                | 2018-2022 |
 | Bachelor of Computer-Science | HHU Düsseldorf                | 2018-\*   |
+| Master of Mathematics        | HHU Düsseldorf                | 2022-2026 |
 
 ## Conferences
 
