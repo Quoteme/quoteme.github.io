@@ -21,11 +21,11 @@ and 300px height
 <div id="aboutme">
   <p>
       <img src="https://avatars.githubusercontent.com/u/6796009?v=4" id="avatar" />
-      Hi, I am <b>Luca Leon Happel</b>. I am a <b>software developer</b>/<b>(computer-/techno-)mathematician</b> and
-      <b>B.Sc in mathematics (algebraic geometry)</b>, who works at the Heinrich Heine University, Forschungszentrum Jülich, Universitätsklinikum Düsseldorf and Universitätsklinikum Aachen.
-      I previously earned multiple awards in different countries for my software
-      development skills and innovation, securing multiple million-euro funding
-      for my projects.
+      Hi, I am <b>Luca Leon Happel</b>. I am a <b>(computer-/techno-)mathematician</b> and
+      <b>B.Sc in mathematics (algebraic geometry)</b>, who works at
+      multiple high class universities and hospitals throughout Germany.
+      I earned multiple awards for my work and secured funding
+      for my project in cancer treatment.
   </p>
 </div>
 <iframe id="top2manframe" src="" width="100%" height="300px" style="border: none;"></iframe>
