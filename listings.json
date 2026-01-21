@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/bachelorarbeit/index.html",
       "/posts/masterarbeit/index.html",
       "/posts/solving_elliptic_pde/index.html",
       "/posts/types-in-model-theory/index.html",
