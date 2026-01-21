@@ -1,0 +1,20 @@
+---
+title: "Masterarbeit"
+author: "Luca Leon Happel"
+date: "2026-01-21 14:30"
+categories:
+  - math
+  - algebra
+  - geometry
+image: "./assets/weierstrassform.png"
+---
+
+I [already published my masters thesis](/posts/masterarbeit/) here on my
+website.
+So why don't I also publish my bachelors thesis?
+
+Check it out, if you like :)
+
+[Bachelorarbeit](/bachelorarbeit)
+
+
