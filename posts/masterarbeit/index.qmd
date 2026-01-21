@@ -1,0 +1,19 @@
+---
+title: "Masterarbeit"
+author: "Luca Leon Happel"
+date: "2026-01-21"
+categories:
+  - math
+  - algebra
+  - topology
+  - category theory
+image: "./assets/universal_covering.png"
+---
+
+I am currently writing my masters thesis about the connection between
+a generalization of the reidemeister-torsion (called $\ell^2$-alexander torsion)
+and the [thurston norm](https://en.wikipedia.org/wiki/Thurston_norm) of 3-manifolds.
+
+Check it out, if you like :)
+
+[masterarbeit](/masterarbeit)
