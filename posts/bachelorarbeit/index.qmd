@@ -1,5 +1,5 @@
 ---
-title: "Masterarbeit"
+title: "Bachelorarbeit"
 author: "Luca Leon Happel"
 date: "2026-01-21 14:30"
 categories:
