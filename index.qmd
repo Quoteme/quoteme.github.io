@@ -26,7 +26,7 @@ and 300px height
       multiple high class universities and hospitals throughout Germany.
       I earned multiple awards for my works 
       (e.g. in <b>AI, medical software development,...</b>) and secured funding
-      for my project in cancer treatment.
+      for my project in cancer treatment. [Read more about me...](./about.html)
   </p>
 </div>
 <iframe id="top2manframe" src="" width="100%" height="300px" style="border: none;"></iframe>
