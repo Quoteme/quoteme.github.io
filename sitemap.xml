@@ -2,23 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lucah.tech/about.html</loc>
-    <lastmod>2026-01-09T00:52:46.837Z</lastmod>
+    <lastmod>2026-01-26T03:51:02.564Z</lastmod>
   </url>
   <url>
     <loc>https://lucah.tech/projects.html</loc>
     <lastmod>2026-01-09T00:51:11.422Z</lastmod>
   </url>
   <url>
-    <loc>https://lucah.tech/posts/bildbesucher-jsdoc/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.403Z</lastmod>
+    <loc>https://lucah.tech/posts/knot-theory-peripheral-system/index.html</loc>
+    <lastmod>2026-01-26T04:04:02.915Z</lastmod>
   </url>
   <url>
-    <loc>https://lucah.tech/posts/differential_forms/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.404Z</lastmod>
+    <loc>https://lucah.tech/posts/theorem_provers_exam/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.421Z</lastmod>
   </url>
   <url>
-    <loc>https://lucah.tech/posts/bildbesucher/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.403Z</lastmod>
+    <loc>https://lucah.tech/posts/sheaves_in_minecraft/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/l2-invariants/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.408Z</lastmod>
   </url>
   <url>
     <loc>https://lucah.tech/posts/intersect.js/index.html</loc>
@@ -29,68 +33,92 @@
     <lastmod>2026-01-09T00:51:11.410Z</lastmod>
   </url>
   <url>
-    <loc>https://lucah.tech/posts/first_program_in_AUR/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.404Z</lastmod>
+    <loc>https://lucah.tech/posts/interfaces_as_list_of_propositions/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.405Z</lastmod>
   </url>
   <url>
-    <loc>https://lucah.tech/posts/algebra_meme/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.401Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lucah.tech/posts/elliptic_curves_over_F4/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.404Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lucah.tech/posts/types-in-model-theory/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.421Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lucah.tech/posts/solving_elliptic_pde/index.html</loc>
-    <lastmod>2026-01-21T13:00:06.533Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lucah.tech/posts/affine_lineare_transformationen/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.400Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lucah.tech/posts/bachelorarbeit/index.html</loc>
-    <lastmod>2026-01-21T13:37:32.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lucah.tech/posts/masterarbeit/index.html</loc>
-    <lastmod>2026-01-21T13:34:25.557Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lucah.tech/posts/new_method_of_counting_dimensions/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.410Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lucah.tech/posts/glider/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.404Z</lastmod>
+    <loc>https://lucah.tech/posts/go2jasmin/index.html</loc>
+    <lastmod>2026-01-26T04:10:05.974Z</lastmod>
   </url>
   <url>
     <loc>https://lucah.tech/posts/bachelor-seminar-haskell/index.html</loc>
     <lastmod>2026-01-09T00:51:11.403Z</lastmod>
   </url>
   <url>
-    <loc>https://lucah.tech/posts/interfaces_as_list_of_propositions/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.405Z</lastmod>
+    <loc>https://lucah.tech/posts/glider/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.404Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/new_method_of_counting_dimensions/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/corne-psp/index.html</loc>
+    <lastmod>2026-01-26T04:45:15.072Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/masterarbeit/index.html</loc>
+    <lastmod>2026-01-21T13:34:25.557Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/bachelorarbeit/index.html</loc>
+    <lastmod>2026-01-21T13:37:32.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/affine_lineare_transformationen/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.400Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/webglcs/index.html</loc>
+    <lastmod>2026-01-26T04:39:40.957Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/solving_elliptic_pde/index.html</loc>
+    <lastmod>2026-01-21T13:00:06.533Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/types-in-model-theory/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.421Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/elliptic_curves_over_F4/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.404Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/lets-game-dev-community-challenge-2/index.html</loc>
+    <lastmod>2026-01-26T04:23:45.710Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/algebra_meme/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.401Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/first_program_in_AUR/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.404Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/relic-hunters-zero/index.html</loc>
+    <lastmod>2026-01-26T04:27:22.578Z</lastmod>
   </url>
   <url>
     <loc>https://lucah.tech/posts/surreal_numbers/index.html</loc>
     <lastmod>2026-01-09T00:51:11.420Z</lastmod>
   </url>
   <url>
-    <loc>https://lucah.tech/posts/l2-invariants/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.408Z</lastmod>
+    <loc>https://lucah.tech/posts/lets-game-dev-community-challenge/index.html</loc>
+    <lastmod>2026-01-26T04:17:07.353Z</lastmod>
   </url>
   <url>
-    <loc>https://lucah.tech/posts/sheaves_in_minecraft/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.410Z</lastmod>
+    <loc>https://lucah.tech/posts/bildbesucher/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.403Z</lastmod>
   </url>
   <url>
-    <loc>https://lucah.tech/posts/theorem_provers_exam/index.html</loc>
-    <lastmod>2026-01-09T00:51:11.421Z</lastmod>
+    <loc>https://lucah.tech/posts/differential_forms/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.404Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucah.tech/posts/bildbesucher-jsdoc/index.html</loc>
+    <lastmod>2026-01-09T00:51:11.403Z</lastmod>
   </url>
   <url>
     <loc>https://lucah.tech/posts/algebra_meme_2/index.html</loc>
@@ -98,6 +126,6 @@
   </url>
   <url>
     <loc>https://lucah.tech/index.html</loc>
-    <lastmod>2026-01-09T01:08:59.745Z</lastmod>
+    <lastmod>2026-01-26T03:53:05.195Z</lastmod>
   </url>
 </urlset>

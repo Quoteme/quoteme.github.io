@@ -5,13 +5,17 @@
       "/posts/bachelorarbeit/index.html",
       "/posts/masterarbeit/index.html",
       "/posts/solving_elliptic_pde/index.html",
-      "/posts/types-in-model-theory/index.html",
+      "/posts/corne-psp/index.html",
       "/posts/one_forms/index.html",
       "/posts/affine_lineare_transformationen/index.html",
+      "/posts/webglcs/index.html",
+      "/posts/types-in-model-theory/index.html",
       "/posts/interfaces_as_list_of_propositions/index.html",
       "/posts/theorem_provers_exam/index.html",
       "/posts/l2-invariants/index.html",
       "/posts/surreal_numbers/index.html",
+      "/posts/knot-theory-peripheral-system/index.html",
+      "/posts/go2jasmin/index.html",
       "/posts/bachelor-seminar-haskell/index.html",
       "/posts/differential_forms/index.html",
       "/posts/elliptic_curves_over_F4/index.html",
@@ -23,7 +27,10 @@
       "/posts/bildbesucher/index.html",
       "/posts/first_program_in_AUR/index.html",
       "/posts/glider/index.html",
-      "/posts/intersect.js/index.html"
+      "/posts/intersect.js/index.html",
+      "/posts/relic-hunters-zero/index.html",
+      "/posts/lets-game-dev-community-challenge-2/index.html",
+      "/posts/lets-game-dev-community-challenge/index.html"
     ]
   }
 ]
