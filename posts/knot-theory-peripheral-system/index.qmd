@@ -1,0 +1,14 @@
+---
+title: "Knot theory - peripheral system"
+author: "Luca Leon Happel"
+date: "2023-05-05"
+categories: ["math", "algebra", "abstract algebra", "knot theory"]
+image: "thumbnail.jpg"
+abstract: |
+  In knot theory, the peripheral system is an important concept that
+  helps to classify and distinguish different knots.
+  In this video I animated it for an oberseminar at Heinrich Heine University
+  during my masters degree in mathematics.
+---
+
+{{< video https://www.youtube.com/watch?v=Fl50Xv-3_K4 >}}

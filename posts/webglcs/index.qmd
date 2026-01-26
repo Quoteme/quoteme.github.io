@@ -1,0 +1,33 @@
+---
+title: "WebGLCS"
+subtitle: "My first online multiplayer 3D game (written from scratch)"
+author: "Luca Leon Happel"
+date: "19.04.2017"
+categories: ["computer science", "game development"]
+image: "https://camo.githubusercontent.com/54f926defabf895bcb021405306688fe808a09a5d0a0ed5cfe5dfe6b69bff379/68747470733a2f2f692e696d6775722e636f6d2f674f326d77514b2e676966"
+abstract: |
+  I was kinda obsessed with the game [Cave Story](https://www.cavestory.org/download/cave-story.php)
+  for a long time. I wanted to expand on it, make it look better (3D, lighting,
+  ...) and also be able to play it with my friends online.
+  Remind you, back then in 2015-2027 the software-development landscape was
+  much harsher than today. There were no game engines that would allow you to
+  all that! (At least I did not know of any?). Also, my budget was 0€, so
+  I needed to get creative. This is the result:
+---
+
+::: {.callout-note}
+For more about this project, and its source code, check out the
+[GitHub repository: https://github.com/quoteme/webglcs](https://github.com/quoteme/webglcs)
+:::
+
+
+{{< video https://www.youtube.com/watch?v=IAljMlhOTHg >}}
+
+{{< video https://www.youtube.com/watch?v=MnpLH9CaTo0 >}}
+
+{{< video https://www.youtube.com/watch?v=Obs-zvlVAZQ >}}
+
+{{< video https://www.youtube.com/watch?v=FrQlllvOCHM >}}
+
+{{< video https://www.youtube.com/watch?v=PwuEYUH51O0 >}}
+

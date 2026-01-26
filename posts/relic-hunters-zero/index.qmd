@@ -1,0 +1,15 @@
+---
+title: "The game for which I got a price in Brazil"
+subtitle: "Relic Hunters Zero on Android and Steam"
+author: "Luca Leon Happel"
+date: "01.08.2015"
+categories: ["computer science", "game development"]
+image: "thumbnail.jpg"
+abstract: |
+  This game was a collaborative effort by a lot of people. I contributed by
+  fixing some minor bugs and (this was kinda unthinkable for a LOT of people
+  back then) porthing this game to Android.
+---
+
+
+{{< video https://www.youtube.com/watch?v=67AKJbnRBW0 >}}

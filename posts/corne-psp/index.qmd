@@ -1,0 +1,18 @@
+---
+title: "Corne + 2 PSP joysticks/dual trackpoint (Rust/RMK)"
+author: "Luca Leon Happel"
+date: "2025-10-30"
+categories: ["computer science", "compilers", "hardware", "esp32", "keyboard", "rust"]
+image: "thumbnail.jpeg"
+abstract: |
+  I designed, wired, built, and programmed (completely from scrarch, because no
+  software previously supported 2 joysticks) an egronomic keyboard using some
+  trash PSP parts.
+  This led PCBWAY to sponsor me :)
+---
+
+I wanted to have a ThinkPad like experience with my first ergo keyboard, because I really liked the trackpoint. I got these PSP joysticks for really cheap and they work even better than a trackpoint. Because I couldn't get zmk or qmk to work correctly with this custom design, I just wrote the Rust code myself using RMK (this allows me to use the keyboard both in wired and wireless mode without any compromises and both joysticks work fine).
+
+I used a 3d print design I found online and extruded it upwards to fit two 2000mAh lithium ion batteries (this made the keyboard kinda chunky).
+
+Code: [https://github.com/Quoteme/corne-rmk](https://github.com/Quoteme/corne-rmk) (maybe check out the "joystick" branch, not main, because I still work on them)

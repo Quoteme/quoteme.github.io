@@ -1,0 +1,19 @@
+---
+title: "My frist competitive programming challenge"
+subtitle: "super platform land - Game++ - Community Challange #2"
+author: "Luca Leon Happel"
+date: "2014-05-20"
+categories: ["computer science", "compilers"]
+image: "thumbnail.png"
+abstract: |
+  From a young age I was fascinated by programming video games.
+  Ultimately this culminated in my participation in various competitive
+  programming challenges (and even winning some high ranking university
+  led challenges many years later!).
+  This video shows my first competitive programming challenge,
+  which I participated in when I was only 14 years old.
+---
+
+
+
+{{< video https://www.youtube.com/watch?v=05DxxxFK6hs >}}

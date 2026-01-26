@@ -1,0 +1,19 @@
+---
+title: "Go2Jasmin"
+author: "Luca Leon Happel"
+date: "2023-01-30"
+categories: ["computer science", "compilers"]
+image: "thumbnail.png"
+abstract: |
+  Writing assembly code by hand is tedious and error-prone.
+  Go2Jasmin is a compiler that translates a subset of the Go programming
+  language into Jasmin assembly code for the Java Virtual Machine (JVM).
+  This was a project I did during my bachelor's degree in computer science
+  for a good grade and for fun. Ultimately I decided to skip my bachelor's
+  degree in computer science to pursue a PhD in computer science afterwards,
+  so this project was only really for fun (and its good grade never proved
+  useful).
+---
+
+
+{{< video https://www.youtube.com/watch?v=vn3cpA_hBnc >}}

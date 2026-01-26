@@ -1,0 +1,22 @@
+---
+title: "My second competitive programming challenge"
+subtitle: "super platform land - Game++ - Community Challange #3"
+author: "Luca Leon Happel"
+date: "2014-07-15"
+categories: ["computer science", "game development"]
+image: "thumbnail.png"
+abstract: |
+  In this video I showcase my submission for the Game++ Community Challenge #3,
+  my second competitive programming challenge.
+  Back when I was 14, the landscape of game development and competitive
+  programming was quite different from today. Tools and resources were not as
+  readily available, making it a unique experience to participate in such
+  challenges.
+  I was especially proud of integrating the gamepad api into my JavaScript game.
+  This required more "low-level" programming compared to what I was used to
+  previously. In fact, this was (and possibly still is?) kinda unique for web
+  games, as most web games rely on keyboard and mouse inputs.
+---
+
+
+{{< video https://www.youtube.com/watch?v=t8qwlrSQaPc >}}
