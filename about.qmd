@@ -23,75 +23,75 @@ I am Luca Leon Happel, a <span id="current_age">24</span>-year-old
 Student in Düsseldorf and a [top-100](https://xscode.com/profile/quoteme) on [GitHub](https://xscode.com/profile/quoteme) in
 categories like physics-engines and rigid-body-dynamics.
 My interests include mathematics, computer science, technology and lots more.
-I work as a programmer for [monti.ai](monti.ai) and as a student assistant at
-the Heinrich Heine University Düsseldorf.
+I work as a programmer (AI-dev./server admin/fullstack dev./...) and cofounder for _monti_:
+
+- websites:
+  - [https://monti.med.uni-duesseldorf.de/](https://monti.med.uni-duesseldorf.de/)
+  - [https://monti.hhu.de/](https://monti.hhu.de/)
+  - [https://monti.ukaachen.de/](https://monti.ukaachen.de/)
+- app: [https://apps.apple.com/de/app/monti/id6468419072](https://apps.apple.com/de/app/monti/id6468419072?l=en-GB)
 
 ## Education
 
 | Achievement                  | Place                         | Duration  |
 | ---------------------------- | ----------------------------- | --------- |
-| Gymnasium                    | Gymnasium an der Gartenstraße | 2010-2018 |
-| Bachelor of Mathematics      | HHU Düsseldorf                | 2018-2022 |
-| Bachelor of Computer-Science | HHU Düsseldorf                | 2018-\*   |
-| Master of Mathematics        | HHU Düsseldorf                | 2022-2026 |
+| PhD. in Computer-Science     | HHU Düsseldorf                | 2026-*    |
+| M.Sc. in Mathematics         | HHU Düsseldorf                | 2022-2026 |
+| B.Sc. in Computer-Science    | HHU Düsseldorf                | 2018-*    |
+| B.Sc. Mathematics            | HHU Düsseldorf                | 2018-2022 |
+| Abitur (Gymnasium)           | Gymnasium an der Gartenstraße | 2010-2018 |
+
+::: {.callout-note}
+I finished all courses for my bachelors degree in computer science, but skipped
+it to instead do a PhD in computer science after my masters degree in
+mathematics.
+:::
 
 ## Conferences
 
 | Conference | Date | Place | Description |
 | ---------- | ---- | ----- | ----------- |
-| [KoMa](https://die-koma.org/) (conference of german speaking mathematics student associations) | 2022 | Jena | We discussed general mathematics, studying mathematics at german universities and the future of mathematics. I discussed differential forms especially |
-| [Lean for the Curious Mathematician](https://lftcm2023.github.io/) | 2023 | Düsseldorf | We discussed Lean, a theorem prover and functional programming language. I implemented the code for exterior algebras in Lean with a small team of professors and [Eric Wieser](https://scholar.google.com/citations?user=5YGAVE0AAAAJ&hl=de&oi=ao) |
 | [Homology Growth in Topology and Group Theory](https://www.mpim-bonn.mpg.de/HOGRO2024) | 2024 | Bonn | We discussed various advanced topics in topology and group theory. I attended this conference in preparation for my masters thesis. |
+| [Lean for the Curious Mathematician](https://lftcm2023.github.io/) | 2023 | Düsseldorf | We discussed Lean, a theorem prover and functional programming language. I implemented the code for exterior algebras in Lean with a small team of professors and [Eric Wieser](https://scholar.google.com/citations?user=5YGAVE0AAAAJ&hl=de&oi=ao) |
+| [KoMa](https://die-koma.org/) (conference of german speaking mathematics student associations) | 2022 | Jena | We discussed general mathematics, studying mathematics at german universities and the future of mathematics. I discussed differential forms especially |
 
 ## Work experience
 
 | Experience                                           | Employer                             | Duration  |
 | ---------------------------------------------------- | ------------------------------------ | --------- |
-| 2-week work internship                               | ProVita                              | 2017      |
-| Lifeguard                                            | NEW Volksbad Mönchengl.              | 2018      |
-| Research assistant for computer-aided linear algebra | Heinrich Heine University Düsseldorf | 2020-2021 |
-| Research assistant for computer-aided linear algebra | Heinrich Heine University Düsseldorf | 2021-2022 |
+| Research Associate (Full-time) (official title: "Wissenschaftlicher Mitarbeiter in Vollzeit") at the _monti_ project       | Univ.-Prof. Dr. Sascha Dietrich, Department of Hematology, Oncology, and Clinical Immunology, Düsseldorf University Hospital                             | 2022-*    |
 | SHK for abstract algebra                             | Heinrich Heine University Düsseldorf | 2022-2022 |
-| Programmer and founder at [monti.ai](monti.ai)       | monti.ai                             | 2022-*    |
+| Research assistant for computer-aided linear algebra | Heinrich Heine University Düsseldorf | 2021-2022 |
+| Research assistant for computer-aided linear algebra | Heinrich Heine University Düsseldorf | 2020-2021 |
+| Lifeguard                                            | NEW Volksbad Mönchengl.              | 2018      |
+| 2-week work internship                               | ProVita                              | 2017      |
 
 ## Awards
 
 | Award                                                             | Source                                                                                                                                | Date |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| HHU/CEDUS Ideenwettbewerb (two times 1# place for _monti_, our AI startup) | [https://www.instagram.com/p/Cur3k_1M70h/](https://www.instagram.com/p/Cur3k_1M70h/) | 2023 |
 | Winner of "best game under development" with "Relic Hunters Zero" | [Brazilian indie games festivals 2015](https://www.bigfestival.com.br/big-festival-2015.html)                                         | 2015 |
 | Top-100 physics-engine programmer                                 | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 | Top-100 rigid-body-dynamics programmer                            | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 | Top-1000 canvas-technology developer                              | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 | Top-150.000 programmer                                            | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
 
-## Some other skills
 
-<details>
-<summary markdown="span">click to expand</summary>
+## Languages
 
-- "Advanced" knowledge of mathematics
-  - aiming for a Master degree in mathematics
-- Programming knowledge
-  - Top 50 programmer in physics-engines and rigid-body-dynamics as well as top 1000 canvas-technology, and top 150,000 GitHub developer (Source: [www.xscode.com/profile/quoteme](https://xscode.com/profile/quoteme))
-  - actively programming since age 13 (2012)
-  - experienced in web deveopment
-    - NodeJS, CSS, HTML, PHP, Python (flask, fastapi, ...) ...
-    - SQL (MySQL, PostgreSQL, SQLite ...)
-  - various other programming languages I like
-    - Haskell
-    - Python
-    - JAVA
-    - C
-  - projects I am proud of
-    - codeveloper of [relic hunters zero](https://store.steampowered.com/app/382490/Relic_Hunters_Zero/?snr=1_7_7_151_150_1)
-      - 95% positive reviews from 6,444 (2020)
-      - winner of the "best game under development Brazilian indie games festivals 2015"
-      - honorable mention in "battle of games VI festival Cindemundo 2014"
-- Languages 
-  - native in German 
-  - fluent in English 
-  - basic understanding of Turkish and Russian
-</details>
+- **German:** Native
+- **English:** Fluent (written and spoken)
+- **French:** Basic knowledge
+- **Russian:** A2/B1
+- **Turkish:** A2
+
+## Qualifications
+
+- **Programming Paradigms:** Proficiency in various programming paradigms, including **functional programming** (Haskell, Nix, ...), **imperative programming** (Python, C/C++/Rust, Java, ...), and **theoretical foundations** (Type Theory, Lambda Calculus, ...), as well as their implementations (Lean4, Idris, ...).
+- experience in medical software development and regulatory requirements
+  - Developer for medical smartwatch manufacturers [MMT](https://www.mmt.ch/) and [Corsano](https://corsano.com/)
+
 
 <script>
 function updateAge() {
