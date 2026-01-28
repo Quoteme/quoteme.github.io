@@ -412,6 +412,19 @@ window.Quarto = {
 
 
 
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I did not finish writing this post. Kinda got busy…</p>
+</div>
+</div>
 <p>In model theory a type is something different than a type in type theory. When i first learned about types in model theory around two years ago, I was told there would not be an obvious connection to type theory. A few days ago I thought about types in model theory again though and I noticed that indeed, there actually is a connection.</p>
 <p>This result heavily relies on my previous post <a href="../interfaces_as_list_of_propositions/">about interfaces as lists of propositions</a>, so it would be great if you, dear reader, would give it a read before. If you prefer to skip it, the gist was that interfaces in Java specify multiple attributes/methods/… which each have signatures that require specific implementations for a given Type <code>T</code>. Given such an interface <code>I</code> which exposes a method <code>I.f: {T} -&gt; X -&gt; Y</code>, where the curly braces <code>{T}</code> indicate that <code>T</code> is an implicit argument of <code>I.f</code> and <code>X</code> and <code>Y</code> may depend on it. Because interfaces generally specify multiple attributes/methods/…, we may regard them as lists of propositions. Propositions instead of just signatures, because interfaces may also define more complex restirctions on <code>T</code>.</p>
 <p>In model theory a type, or an <span class="math inline">\(n\)</span>-type of <span class="math inline">\(\mathcal{M}\)</span> is a set $p(x) of formulas in <span class="math inline">\(L(A)\)</span>, where <span class="math inline">\(x=(x_1, \dots, x_n)\)</span> are free variables and <span class="math inline">\(L\)</span> is a language, <span class="math inline">\(\mathcal{M}\)</span> a structure for <span class="math inline">\(L\)</span> and <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(M\)</span>, which is the universe of <span class="math inline">\(\mathcal{M}\)</span>. We write <span class="math inline">\(L(A) := L \cup \{c_a : a \in A\}\)</span> for the language obtained by extending <span class="math inline">\(L\)</span> with symbols <span class="math inline">\(c_a\)</span>. We also require that for each finite <span class="math inline">\(p_0(x) \subseteq p(x)\)</span>, there must be a <span class="math inline">\(b \in M\)</span> such that <span class="math inline">\(b\)</span> satisfies $p_0(x), i.e.&nbsp;<span class="math inline">\(\mathcal{M}\model p_0(b)\)</span>.</p>
