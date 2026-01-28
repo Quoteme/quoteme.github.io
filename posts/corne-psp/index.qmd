@@ -16,3 +16,5 @@ I wanted to have a ThinkPad like experience with my first ergo keyboard, because
 I used a 3d print design I found online and extruded it upwards to fit two 2000mAh lithium ion batteries (this made the keyboard kinda chunky).
 
 Code: [https://github.com/Quoteme/corne-rmk](https://github.com/Quoteme/corne-rmk) (maybe check out the "joystick" branch, not main, because I still work on them)
+
+Reddit post: [https://www.reddit.com/r/ErgoMechKeyboards/comments/1otcfzr/corne_2_psp_joysticksdual_trackpoint_rustrmk/](https://www.reddit.com/r/ErgoMechKeyboards/comments/1otcfzr/corne_2_psp_joysticksdual_trackpoint_rustrmk/)
