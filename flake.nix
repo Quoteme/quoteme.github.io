@@ -27,6 +27,7 @@
         };
         dependencies = with pkgs; [
           quarto
+          git
           (python3.withPackages pythonPackages)
         ];
       in {
