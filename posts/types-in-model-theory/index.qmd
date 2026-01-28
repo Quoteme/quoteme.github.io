@@ -5,6 +5,11 @@ date: "2025-10-20"
 categories: ["math", "model theory"]
 ---
 
+
+::: {.callout-warning}
+I did not finish writing this post. Kinda got busy...
+:::
+
 In model theory a type is something different than a type in type theory.
 When i first learned about types in model theory around two years ago, I was
 told there would not be an obvious connection to type theory. A few days ago I
