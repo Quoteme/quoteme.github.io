@@ -1,3 +1,4 @@
 /.quarto/
 /_site/
 /.direnv/
+.DS_Store
