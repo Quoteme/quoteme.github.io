@@ -77,7 +77,35 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-publications .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-subtitle','listing-description','listing-image','listing-tags','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-subtitle","listing-description","listing-image","listing-tags","listing-date","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-publications'] = new List('listing-publications', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-blog .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -91,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-blog'] = new List('listing-blog', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -113,7 +141,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 </script>
-<meta property="og:title" content="Luca Happel’s personal website">
+<link rel="alternate" type="application/rss+xml" title="{{< var website.title >}}" href="index.xml" data-external="1"><meta property="og:title" content="Luca Happel’s personal website">
 <meta property="og:image" content="https://lucah.tech/posts/masterarbeit/assets/universal_covering.png">
 <meta property="og:site_name" content="{{< var website.title >}}">
 <meta property="og:image:height" content="1030">
@@ -406,7 +434,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(31)</span></div><div class="category" data-category="My1tYW5pZm9sZHM=">3-manifolds <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWJzdHJhY3QlMjBhbGdlYnJh">abstract algebra <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YWxnZWJyYQ==">algebra <span class="quarto-category-count">(9)</span></div><div class="category" data-category="YWxnZWJyYWljJTIwZ2VvbWV0cnk=">algebraic geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YWxnZWJyYWljJTIwdG9wb2xvZ3k=">algebraic topology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YXV0b21hdGVkJTIwdGhlb3JlbSUyMHByb3Zpbmc=">automated theorem proving <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ym9pZHM=">boids <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2FsY3VsdXM=">calculus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2F0ZWdvcnklMjB0aGVvcnk=">category theory <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y29tcGlsZXJz">compilers <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Y29tcHV0ZXIlMjBzY2llbmNl">computer science <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Y290YW5nZW50JTIwYnVuZGxl">cotangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50JTIwc3BhY2U=">cotangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwZm9ybXM=">differential forms <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk=">differential geometry <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwdG9wb2xvZ3k=">differential topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGltZW5zaW9u">dimension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXNwMzI=">esp32 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXh0ZXJpb3IlMjBhbGdlYnJh">exterior algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9ybWFsJTIwdmVyaWZpY2F0aW9u">formal verification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJhY3RhbHM=">fractals <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVuY3Rpb25hbCUyMGFuYWx5c2lz">functional analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2FtZQ==">game <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2FtZSUyMGRldmVsb3BtZW50">game development <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2VvbWV0cnk=">geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Z2xvYmFsJTIwc2VjdGlvbg==">global section <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JvdXAlMjB0aGVvcnk=">group theory <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aGFyZHdhcmU=">hardware <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGFza2VsbA==">Haskell <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVpbnJpY2gtSGVpbmUlMjBVbml2ZXJzaXQlQzMlQTR0">Heinrich-Heine Universität <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aXNvbW9ycGhpc21z">isomorphisms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YVNjcmlwdA==">JavaScript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="amF2YXNjcmlwdA==">javascript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SlNEb2M=">JSDoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a2V5Ym9hcmQ=">keyboard <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a25vdCUyMHRoZW9yeQ==">knot theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGVhbjQ=">lean4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGludXg=">linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFuaWZvbGQ=">manifold <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWF0aA==">math <span class="quarto-category-count">(11)</span></div><div class="category" data-category="bWF0aGVtYXRpY3M=">mathematics <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bWVhc3VyZSUyMHRoZW9yeQ==">measure theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVtZQ==">meme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWluZWNyYWZ0">Minecraft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9kZWwlMjB0aGVvcnk=">model theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b29w">oop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9seW5vbWlhbCUyMHJpbmdz">polynomial rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZ3JhbW1pbmc=">programming <span class="quarto-category-count">(6)</span></div><div class="category" data-category="cXVvdGllbnQlMjByaW5ncw==">quotient rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmluZyUyMHRoZW9yeQ==">ring theory <span class="quarto-category-count">(4)</span></div><div class="category" data-category="cnVzdA==">rust <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2VtaW5hcg==">Seminar <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c2hlYXZlcw==">sheaves <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3VycmVhbGUlMjBaYWhsZW4=">Surreale Zahlen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCUyMGJ1bmRsZQ==">tangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCUyMHNwYWNl">tangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9wb2xvZ3k=">topology <span class="quarto-category-count">(3)</span></div><div class="category" data-category="d2ViZ2w=">webgl <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(32)</span></div><div class="category" data-category="My1tYW5pZm9sZHM=">3-manifolds <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWJzdHJhY3QlMjBhbGdlYnJh">abstract algebra <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YWxnZWJyYQ==">algebra <span class="quarto-category-count">(9)</span></div><div class="category" data-category="YWxnZWJyYWljJTIwZ2VvbWV0cnk=">algebraic geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YWxnZWJyYWljJTIwdG9wb2xvZ3k=">algebraic topology <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YXV0b21hdGVkJTIwdGhlb3JlbSUyMHByb3Zpbmc=">automated theorem proving <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ym9pZHM=">boids <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2FsY3VsdXM=">calculus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2F0ZWdvcnklMjB0aGVvcnk=">category theory <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y29tcGlsZXJz">compilers <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Y29tcHV0ZXIlMjBzY2llbmNl">computer science <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Y290YW5nZW50JTIwYnVuZGxl">cotangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y290YW5nZW50JTIwc3BhY2U=">cotangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwZm9ybXM=">differential forms <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk=">differential geometry <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwdG9wb2xvZ3k=">differential topology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGltZW5zaW9u">dimension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXNwMzI=">esp32 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXh0ZXJpb3IlMjBhbGdlYnJh">exterior algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9ybWFsJTIwdmVyaWZpY2F0aW9u">formal verification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJhY3RhbHM=">fractals <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVuY3Rpb25hbCUyMGFuYWx5c2lz">functional analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2FtZQ==">game <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2FtZSUyMGRldmVsb3BtZW50">game development <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2VvbWV0cnk=">geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Z2xvYmFsJTIwc2VjdGlvbg==">global section <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JvdXAlMjB0aGVvcnk=">group theory <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aGFyZHdhcmU=">hardware <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGFza2VsbA==">Haskell <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVpbnJpY2gtSGVpbmUlMjBVbml2ZXJzaXQlQzMlQTR0">Heinrich-Heine Universität <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aXNvbW9ycGhpc21z">isomorphisms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YVNjcmlwdA==">JavaScript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="amF2YXNjcmlwdA==">javascript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SlNEb2M=">JSDoc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a2V5Ym9hcmQ=">keyboard <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a25vdCUyMHRoZW9yeQ==">knot theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGVhbjQ=">lean4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGludXg=">linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFuaWZvbGQ=">manifold <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWF0aA==">math <span class="quarto-category-count">(11)</span></div><div class="category" data-category="bWF0aGVtYXRpY3M=">mathematics <span class="quarto-category-count">(6)</span></div><div class="category" data-category="bWVhc3VyZSUyMHRoZW9yeQ==">measure theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVtZQ==">meme <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWluZWNyYWZ0">Minecraft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9kZWwlMjB0aGVvcnk=">model theory <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b29w">oop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9seW5vbWlhbCUyMHJpbmdz">polynomial rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvZ3JhbW1pbmc=">programming <span class="quarto-category-count">(6)</span></div><div class="category" data-category="cXVvdGllbnQlMjByaW5ncw==">quotient rings <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmluZyUyMHRoZW9yeQ==">ring theory <span class="quarto-category-count">(4)</span></div><div class="category" data-category="cnVzdA==">rust <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2VtaW5hcg==">Seminar <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c2hlYXZlcw==">sheaves <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3VycmVhbGUlMjBaYWhsZW4=">Surreale Zahlen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCUyMGJ1bmRsZQ==">tangent bundle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFuZ2VudCUyMHNwYWNl">tangent space <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9wb2xvZ3k=">topology <span class="quarto-category-count">(3)</span></div><div class="category" data-category="d2ViZ2w=">webgl <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -437,11 +465,92 @@ and 300px height
   }
   document.getElementById("top2manframe").src = top2man.prefix + top2man.website + top2man.postsfix;
 </script>
+<section id="publications" class="level2">
+<h2 class="anchored" data-anchor-id="publications">Publications</h2>
+<div id="listing-publications" class="quarto-listing quarto-listing-container-default">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-publications-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-publications'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1754258400000">
+<div class="thumbnail"><a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">
 
+<img loading="lazy" src="images/digital-demo-day.png" class="thumbnail-image">
 
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">monti – AI for Patient Monitoring</a>
+</h3>
+<div class="listing-subtitle">
+<a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">AI-based clinical monitoring with advanced ML on high‑security patient data</a>
+</div>
+<div class="delink listing-description"><a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">
+</a><p><a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">AI‑based monitoring platform developed at University Hospital Düsseldorf, using advanced AI methods on high‑security clinical patient data to detect complications in heart and oncology patients. <br> - </a><a href="https://doi.org/10.1093/ehjdh/ztaf004">10.1093/ehjdh/ztaf004</a>. <br> - <a href="https://lucah.tech/digital-demo-day/assets/activity.html">Example data</a></p>
+</div>
+</div>
+<div class="metadata">
+<a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">
+<div class="listing-date">
+Aug 4, 2025
+</div>
+<div class="metadata-value listing-tags">
+journal,AI,clinical-monitoring
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="blog-posts" class="level2">
+<h2 class="anchored" data-anchor-id="blog-posts">Blog Posts</h2>
+<div id="listing-blog" class="quarto-listing quarto-listing-container-default">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-blog-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-blog'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="YWxnZWJyYSUyQ2dyb3VwJTIwdGhlb3J5" data-listing-date-sort="1770505200000" data-listing-file-modified-sort="1770477310219" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="215">
 <div class="thumbnail"><a href="./posts/commutator/index.html" class="no-external">
@@ -478,10 +587,10 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="YWxnZWJyYWljJTIwdG9wb2xvZ3klMkMzLW1hbmlmb2xkcw==" data-listing-date-sort="1770418800000" data-listing-file-modified-sort="1770651742223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="563">
+<div class="quarto-post image-right" data-index="1" data-categories="YWxnZWJyYWljJTIwdG9wb2xvZ3klMkMzLW1hbmlmb2xkcw==" data-listing-date-sort="1770418800000" data-listing-file-modified-sort="1770761502909" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
 <div class="thumbnail"><a href="./posts/l2-alexander-torsion-thurston-norm/index.html" class="no-external">
 
-<p class="card-img-top"><img src="posts/l2-alexander-torsion-thurston-norm/main-theorem.png" alt="Main Theorem"  class="thumbnail-image card-img"/></p>
+<img loading="lazy" src="./posts/l2-alexander-torsion-thurston-norm/jsj_not_isotopic_boundary_component_not_disjoint.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -1642,10 +1751,16 @@ Luca Leon Happel
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+<nav id="blog-pagination" class="listing-pagination" aria-label="Page Navigation">
   <ul class="pagination"></ul>
 </nav>
-</div></main> <!-- /main -->
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1731,7 +1846,7 @@ Luca Leon Happel
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/lucah\.tech");
+        var filterRegex = new RegExp("https:\/\/lucah\.tech\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
