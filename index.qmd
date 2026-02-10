@@ -9,9 +9,9 @@ listing:
           using advanced AI methods on high‑security clinical patient data to 
           detect complications in heart and oncology patients.
           <br>
-          - [10.1093/ehjdh/ztaf004](https://doi.org/10.1093/ehjdh/ztaf004).
+          {{< ai orcid >}} [10.1093/ehjdh/ztaf004](https://doi.org/10.1093/ehjdh/ztaf004).
           <br>
-          - [Example data](https://lucah.tech/digital-demo-day/assets/activity.html)
+          {{< bi bar-chart >}} [Example data](https://lucah.tech/digital-demo-day/assets/activity.html)
         image: "images/digital-demo-day.png"
         path: "https://doi.org/10.1093/ehjdh/ztaf004"
         tags: ["journal", "AI", "clinical-monitoring"]
