@@ -3,6 +3,7 @@ title: "The $\\ell^2$-Alexander torsion and the Thurston norm"
 author: "Luca Leon Happel"
 date: "2026-02-07"
 categories: ["algebraic topology", "3-manifolds"]
+image: "jsj_not_isotopic_boundary_component_not_disjoint.png"
 lightbox: auto
 ---
 
@@ -99,11 +100,6 @@ no framed knots!):
   clipboard-write"
   allowfullscreen></iframe>
 
-The individual tori above are have a globe texture each:
-
-:::{layout-ncol="2"}
-![geometric toral splitting](geometric-toral-splitting.png){group="definitions" width=5cm fig-align="left"}
-:::
 
 A surface $\iota : S \hookrightarrow M$ is _incompressible_, if it induces an injection
 on the fundamental groups, i.e. $\pi_1(\iota) : \pi_1(S) \hookrightarrow \pi_1(M)$ is
@@ -152,3 +148,12 @@ This covers "disjoint" and "incompressible". What does it mean for a torus to
 _not_ be isotopic to a boundary component?
 Lets consider an example:
 
+:::{layout-ncol="2"}
+![Two tori which are embedded in a cube with two cylinders removed which are *not* disjoint, but which are both *not* isotopic to the single boundary component](jsj_not_isotopic_boundary_component_not_disjoint.png){group="jsj-steps" width=50% fig-align="center"}
+
+![A finite family of disjoint, pairwise-nonisotopic incompressible tori in $M$ which are not isotopic to boundary components](jsj_not_isotopic_boundary_component_disjoint.png){group="jsj-steps" width=50% fig-align="center"}
+
+![Clearly both of these tori clearly cannot be isotopic to the boundary](jsj_double_torus.png){group="jsj-steps" width=50% fig-align="center"}
+
+![By inflating each torus, we are able to completely cover $M$](jsj_covering_M.png){group="jsj-steps" width=50% fig-align="center"}
+:::

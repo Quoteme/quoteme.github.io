@@ -1,11 +1,35 @@
 ---
 listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
+  - id: publications
+    contents: 
+      - title: "monti – AI for Patient Monitoring"
+        subtitle: "AI-based clinical monitoring with advanced ML on high‑security patient data"
+        description: >
+          AI‑based monitoring platform developed at University Hospital Düsseldorf,
+          using advanced AI methods on high‑security clinical patient data to 
+          detect complications in heart and oncology patients.
+          <br>
+          - [10.1093/ehjdh/ztaf004](https://doi.org/10.1093/ehjdh/ztaf004).
+          <br>
+          - [Example data](https://lucah.tech/digital-demo-day/assets/activity.html)
+        image: "images/digital-demo-day.png"
+        path: "https://doi.org/10.1093/ehjdh/ztaf004"
+        tags: ["journal", "AI", "clinical-monitoring"]
+        date: 2025-08-04
+    feed: true
+    sort: "date desc"
+    type: default
+    categories: true
+    sort-ui: true
+    filter-ui: true
+  - id: blog
+    contents: posts
+    feed: true
+    sort: "date desc"
+    type: default
+    categories: true
+    sort-ui: true
+    filter-ui: true
 page-layout: full
 title-block-banner: true
 format:
@@ -42,3 +66,13 @@ and 300px height
   }
   document.getElementById("top2manframe").src = top2man.prefix + top2man.website + top2man.postsfix;
 </script>
+
+## Publications
+
+::: {#publications}
+:::
+
+## Blog Posts
+
+::: {#blog}
+:::

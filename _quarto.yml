@@ -2,12 +2,13 @@ project:
   type: website
 
 website:
+  site-url: "https://lucah.tech/"
   title: "{{< var website.title >}}"
   favicon: "favicon.png"
   description: "Personal website of {{< var profile.name >}}, including lots of math and computer science."
   open-graph: true
   google-analytics: "G-LEVM9WYR7J"
-  
+
   navbar:
     right:
       - about.qmd
