@@ -47,6 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-ccd81253fefb92e9cd3f9eb5b5d87b54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -92,7 +93,7 @@ gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
 <meta property="og:site_name" content="{{< var website.title >}}">
 <meta property="og:image:height" content="800">
 <meta property="og:image:width" content="800">
-</head><body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+</head><body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -409,7 +410,25 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-manifold-m" id="toc-the-manifold-m" class="nav-link active" data-scroll-target="#the-manifold-m">The manifold <span class="math inline">\(M\)</span></a>
+  <ul>
+  <li><a href="#irreducible" id="toc-irreducible" class="nav-link" data-scroll-target="#irreducible">Irreducible</a></li>
+  <li><a href="#infinite-fundamental-group" id="toc-infinite-fundamental-group" class="nav-link" data-scroll-target="#infinite-fundamental-group">Infinite fundamental group</a>
+  <ul>
+  <li><a href="#seifert-manifolds" id="toc-seifert-manifolds" class="nav-link" data-scroll-target="#seifert-manifolds">Seifert manifolds</a></li>
+  <li><a href="#geometrically-atoroidal" id="toc-geometrically-atoroidal" class="nav-link" data-scroll-target="#geometrically-atoroidal">geometrically atoroidal</a></li>
+  </ul></li>
+  <li><a href="#closed" id="toc-closed" class="nav-link" data-scroll-target="#closed">closed</a></li>
+  <li><a href="#graph-manifolds" id="toc-graph-manifolds" class="nav-link" data-scroll-target="#graph-manifolds">Graph manifolds</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -429,6 +448,10 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>Not finished yet…</p>
+<p>Most of the screenshots of definitions/theorems are taken from:</p>
+<ul>
+<li>Introduction to 3-manifolds by Wolfgang Lück at Bonn Germany</li>
+</ul>
 </div>
 </div>
 <p>My masters thesis is about the following statement from the 2019 paper “The <span class="math inline">\(L^2\)</span>-torsion function and the Thurston norm of 3-manifolds” by Friedl and Lück:</p>
@@ -486,7 +509,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="infinite-connected-sum-3-manifolds-tehora-rogue.png" class="lightbox" data-gallery="screenshots" title="Screenshot from “Portals to Non-Euclidean Worlds” by Tehora Rogue"><img src="infinite-connected-sum-3-manifolds-tehora-rogue.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm" alt="Screenshot from “Portals to Non-Euclidean Worlds” by Tehora Rogue"></a></p>
+<p><a href="infinite-connected-sum-3-manifolds-tehora-rogue.png" class="lightbox" data-gallery="screenshots" title="Screenshot from “Portals to Non-Euclidean Worlds” by Tehora Rogue"><img src="infinite-connected-sum-3-manifolds-tehora-rogue.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="Screenshot from “Portals to Non-Euclidean Worlds” by Tehora Rogue"></a></p>
 </figure>
 </div>
 <figcaption>Screenshot from “Portals to Non-Euclidean Worlds” by <a href="https://www.youtube.com/@tehorarogue">Tehora Rogue</a></figcaption>
@@ -507,7 +530,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="thurston-geometrization-conjecture.png" class="lightbox" data-gallery="definitions" title="Thurston’s geometrization theorem (formerly conjecture, but famously proved by Perelmann)"><img src="thurston-geometrization-conjecture.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm" alt="Thurston’s geometrization theorem (formerly conjecture, but famously proved by Perelmann)"></a></p>
+<p><a href="thurston-geometrization-conjecture.png" class="lightbox" data-gallery="definitions" title="Thurston’s geometrization theorem (formerly conjecture, but famously proved by Perelmann)"><img src="thurston-geometrization-conjecture.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="Thurston’s geometrization theorem (formerly conjecture, but famously proved by Perelmann)"></a></p>
 </figure>
 </div>
 <figcaption>Thurston’s geometrization theorem (formerly conjecture, but famously proved by Perelmann)</figcaption>
@@ -524,7 +547,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="geometric-toral-splitting-pre.png" class="lightbox" data-gallery="definitions" title="theorm of uniqueness"><img src="geometric-toral-splitting-pre.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm" alt="theorm of uniqueness"></a></p>
+<p><a href="geometric-toral-splitting-pre.png" class="lightbox" data-gallery="definitions" title="theorm of uniqueness"><img src="geometric-toral-splitting-pre.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="theorm of uniqueness"></a></p>
 </figure>
 </div>
 <figcaption>theorm of uniqueness</figcaption>
@@ -536,7 +559,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="geometric-toral-splitting.png" class="lightbox" data-gallery="definitions" title="geometric toral splitting"><img src="geometric-toral-splitting.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm" alt="geometric toral splitting"></a></p>
+<p><a href="geometric-toral-splitting.png" class="lightbox" data-gallery="definitions" title="geometric toral splitting"><img src="geometric-toral-splitting.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="geometric toral splitting"></a></p>
 </figure>
 </div>
 <figcaption>geometric toral splitting</figcaption>
@@ -557,7 +580,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="jsj/01.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 1"><img src="jsj/01.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm" alt="JSJ Step 1"></a></p>
+<p><a href="jsj/01.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 1"><img src="jsj/01.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="JSJ Step 1"></a></p>
 </figure>
 </div>
 <figcaption>JSJ Step 1</figcaption>
@@ -574,7 +597,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="jsj/02.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 2"><img src="jsj/02.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm" alt="JSJ Step 2"></a></p>
+<p><a href="jsj/02.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 2"><img src="jsj/02.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="JSJ Step 2"></a></p>
 </figure>
 </div>
 <figcaption>JSJ Step 2</figcaption>
@@ -591,7 +614,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="jsj/03-m.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 3 (meridian)"><img src="jsj/03-m.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm" alt="JSJ Step 3 (meridian)"></a></p>
+<p><a href="jsj/03-m.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 3 (meridian)"><img src="jsj/03-m.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="JSJ Step 3 (meridian)"></a></p>
 </figure>
 </div>
 <figcaption>JSJ Step 3 (meridian)</figcaption>
@@ -603,7 +626,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="jsj/03-l.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 3 (longitude)"><img src="jsj/03-l.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm" alt="JSJ Step 3 (longitude)"></a></p>
+<p><a href="jsj/03-l.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 3 (longitude)"><img src="jsj/03-l.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="JSJ Step 3 (longitude)"></a></p>
 </figure>
 </div>
 <figcaption>JSJ Step 3 (longitude)</figcaption>
@@ -620,7 +643,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="jsj/04.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 4 (example of two possible such obstructions. The grey tubes are ment to symbolize space removed from \mathbb{R}^3)"><img src="jsj/04.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:5cm" alt="JSJ Step 4 (example of two possible such obstructions. The grey tubes are ment to symbolize space removed from \mathbb{R}^3)"></a></p>
+<p><a href="jsj/04.png" class="lightbox" data-gallery="jsj-steps" title="JSJ Step 4 (example of two possible such obstructions. The grey tubes are ment to symbolize space removed from \mathbb{R}^3)"><img src="jsj/04.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="JSJ Step 4 (example of two possible such obstructions. The grey tubes are ment to symbolize space removed from \mathbb{R}^3)"></a></p>
 </figure>
 </div>
 <figcaption>JSJ Step 4 (example of two possible such obstructions. The grey tubes are ment to symbolize space removed from <span class="math inline">\(\mathbb{R}^3\)</span>)</figcaption>
@@ -632,7 +655,7 @@ Warning
 <p>This also explains what it means for <span class="math inline">\(M\)</span> to have “incompressible boundary”: <span class="math display">\[
 \pi_1(\partial M) \hookrightarrow \pi_1(M) \text{ is injective}
 \]</span></p>
-<p>This covers “disjoint” and “incompressible”. What does it mean for a torus to <em>not</em> be isotopic to a boundary component? Lets consider an example:</p>
+<p>This covers “disjoint” and “incompressible”. What does it mean for a torus to <strong>not</strong> be <strong>isotopic to a boundary component</strong>? Lets consider an example:</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -640,7 +663,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="jsj_not_isotopic_boundary_component_not_disjoint.png" class="lightbox" data-gallery="jsj-steps" title="Two tori which are embedded in a cube with two cylinders removed which are not disjoint, but which are both not isotopic to the single boundary component"><img src="jsj_not_isotopic_boundary_component_not_disjoint.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Two tori which are embedded in a cube with two cylinders removed which are not disjoint, but which are both not isotopic to the single boundary component"></a></p>
+<p><a href="jsj_not_isotopic_boundary_component_not_disjoint.png" class="lightbox" data-gallery="jsj-steps" title="Two tori which are embedded in a cube with two cylinders removed which are not disjoint, but which are both not isotopic to the single boundary component"><img src="jsj_not_isotopic_boundary_component_not_disjoint.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Two tori which are embedded in a cube with two cylinders removed which are not disjoint, but which are both not isotopic to the single boundary component"></a></p>
 </figure>
 </div>
 <figcaption>Two tori which are embedded in a cube with two cylinders removed which are <em>not</em> disjoint, but which are both <em>not</em> isotopic to the single boundary component</figcaption>
@@ -652,7 +675,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="jsj_not_isotopic_boundary_component_disjoint.png" class="lightbox" data-gallery="jsj-steps" title="A finite family of disjoint, pairwise-nonisotopic incompressible tori in M which are not isotopic to boundary components"><img src="jsj_not_isotopic_boundary_component_disjoint.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="A finite family of disjoint, pairwise-nonisotopic incompressible tori in M which are not isotopic to boundary components"></a></p>
+<p><a href="jsj_not_isotopic_boundary_component_disjoint.png" class="lightbox" data-gallery="jsj-steps" title="A finite family of disjoint, pairwise-nonisotopic incompressible tori in M which are not isotopic to boundary components"><img src="jsj_not_isotopic_boundary_component_disjoint.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A finite family of disjoint, pairwise-nonisotopic incompressible tori in M which are not isotopic to boundary components"></a></p>
 </figure>
 </div>
 <figcaption>A finite family of disjoint, pairwise-nonisotopic incompressible tori in <span class="math inline">\(M\)</span> which are not isotopic to boundary components</figcaption>
@@ -666,7 +689,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="jsj_double_torus.png" class="lightbox" data-gallery="jsj-steps" title="Clearly both of these tori clearly cannot be isotopic to the boundary"><img src="jsj_double_torus.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Clearly both of these tori clearly cannot be isotopic to the boundary"></a></p>
+<p><a href="jsj_double_torus.png" class="lightbox" data-gallery="jsj-steps" title="Clearly both of these tori clearly cannot be isotopic to the boundary"><img src="jsj_double_torus.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Clearly both of these tori clearly cannot be isotopic to the boundary"></a></p>
 </figure>
 </div>
 <figcaption>Clearly both of these tori clearly cannot be isotopic to the boundary</figcaption>
@@ -678,7 +701,7 @@ Warning
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="jsj_covering_M.png" class="lightbox" data-gallery="jsj-steps" title="By inflating each torus, we are able to completely cover M"><img src="jsj_covering_M.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="By inflating each torus, we are able to completely cover M"></a></p>
+<p><a href="jsj_covering_M.png" class="lightbox" data-gallery="jsj-steps" title="By inflating each torus, we are able to completely cover M"><img src="jsj_covering_M.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="By inflating each torus, we are able to completely cover M"></a></p>
 </figure>
 </div>
 <figcaption>By inflating each torus, we are able to completely cover <span class="math inline">\(M\)</span></figcaption>
@@ -687,6 +710,202 @@ Warning
 </div>
 </div>
 </div>
+<p>As an example of a torus which is isotopic to a boundary component is given here (for <span class="math inline">\(\partial M \cong \mathbb{T}\)</span>)</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="iso_to_boundary.png" class="lightbox" data-gallery="jsj-steps" title="A torus which is isomorphic to a boundary component of M"><img src="iso_to_boundary.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A torus which is isomorphic to a boundary component of M"></a></p>
+</figure>
+</div>
+<figcaption>A torus which is isomorphic to a boundary component of <span class="math inline">\(M\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<section id="seifert-manifolds" class="level4">
+<h4 class="anchored" data-anchor-id="seifert-manifolds">Seifert manifolds</h4>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="seifert-manifold.png" class="lightbox" data-gallery="seifert-manifold" title="seifert manifold are 3-manifolds with one of these geometries (a metric tensor)"><img src="seifert-manifold.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="seifert manifold are 3-manifolds with one of these geometries (a metric tensor)"></a></p>
+</figure>
+</div>
+<figcaption>seifert manifold are 3-manifolds with one of these geometries (a metric tensor)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="thurston-geometrization-conjecture-seifert-highlighted.png" class="lightbox" data-gallery="seifert-manifold" title="All seifert manifolds in the geometrization conjecture highlighted. The only ones missing are marked in red"><img src="thurston-geometrization-conjecture-seifert-highlighted.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="All seifert manifolds in the geometrization conjecture highlighted. The only ones missing are marked in red"></a></p>
+</figure>
+</div>
+<figcaption>All seifert manifolds in the geometrization conjecture highlighted. The only ones missing are marked in red</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Specifically, these <strong>are Seifert manifolds</strong>:</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="seifert/s2r.png" class="lightbox" data-gallery="seifert-manifold" title="S^2 \times \mathbb{R}  see video"><img src="seifert/s2r.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="S^2 \times \mathbb{R}  see video"></a></p>
+</figure>
+</div>
+<figcaption><span class="math inline">\(S^2 \times \mathbb{R}\)</span> <a href="https://www.youtube.com/watch?v=yqUv2JO2BCs"><i class="bi-youtube " style="" role="img" aria-hidden="true"></i> see video</a></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="seifert/r3.png" class="lightbox" data-gallery="seifert-manifold" title="\mathbb{R}^3"><img src="seifert/r3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="\mathbb{R}^3"></a></p>
+</figure>
+</div>
+<figcaption><span class="math inline">\(\mathbb{R}^3\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="seifert/h2r.png" class="lightbox" data-gallery="seifert-manifold" title="\mathbb{H}^2 \times \mathbb{R}  see video"><img src="seifert/h2r.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="\mathbb{H}^2 \times \mathbb{R}  see video"></a></p>
+</figure>
+</div>
+<figcaption><span class="math inline">\(\mathbb{H}^2 \times \mathbb{R}\)</span> <a href="https://www.youtube.com/watch?v=K7BwHjs0Il0"><i class="bi-youtube " style="" role="img" aria-hidden="true"></i> see video</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="seifert/s3.png" class="lightbox" data-gallery="seifert-manifold" title="S^3  see video"><img src="seifert/s3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="S^3  see video"></a></p>
+</figure>
+</div>
+<figcaption><span class="math inline">\(S^3\)</span> <a href="https://www.youtube.com/watch?v=yY9GAyJtuJ0"><i class="bi-youtube " style="" role="img" aria-hidden="true"></i> see video</a></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="seifert/nil.png" class="lightbox" data-gallery="seifert-manifold" title="\text{Nil}  see video"><img src="seifert/nil.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="\text{Nil}  see video"></a></p>
+</figure>
+</div>
+<figcaption><span class="math inline">\(\text{Nil}\)</span> <a href="https://www.youtube.com/watch?v=FNX1rZotjjI"><i class="bi-youtube " style="" role="img" aria-hidden="true"></i> see video</a></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="seifert/sl2r.png" class="lightbox" data-gallery="seifert-manifold" title="\widetilde{\text{Sl}(2, \mathbb{R})}  see video"><img src="seifert/sl2r.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="\widetilde{\text{Sl}(2, \mathbb{R})}  see video"></a></p>
+</figure>
+</div>
+<figcaption><span class="math inline">\(\widetilde{\text{Sl}(2, \mathbb{R})}\)</span> <a href="https://www.youtube.com/watch?v=0_m6RLH889Q"><i class="bi-youtube " style="" role="img" aria-hidden="true"></i> see video</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>and these are <strong>not seifert manifolds</strong>:</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="not-seifert/h3.png" class="lightbox" data-gallery="seifert-manifold" title="\mathbb{H3}  see video"><img src="not-seifert/h3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="\mathbb{H3}  see video"></a></p>
+</figure>
+</div>
+<figcaption><span class="math inline">\(\mathbb{H3}\)</span> <a href="https://www.youtube.com/watch?v=yqUv2JO2BCs&amp;t=160s"><i class="bi-youtube " style="" role="img" aria-hidden="true"></i> see video</a></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="not-seifert/solv.png" class="lightbox" data-gallery="seifert-manifold" title="\text{Solv}  see video"><img src="not-seifert/solv.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="\text{Solv}  see video"></a></p>
+</figure>
+</div>
+<figcaption><span class="math inline">\(\text{Solv}\)</span> <a href="https://www.youtube.com/watch?v=2LotRqzibdM"><i class="bi-youtube " style="" role="img" aria-hidden="true"></i> see video</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="geometrically-atoroidal" class="level4">
+<h4 class="anchored" data-anchor-id="geometrically-atoroidal">geometrically atoroidal</h4>
+</section>
+</section>
+<section id="closed" class="level3">
+<h3 class="anchored" data-anchor-id="closed">closed</h3>
+<p>A manifold without bounadary which is compact is called <em>closed</em>, so <span class="math inline">\(M\)</span> must have <strong>empty boundary</strong>.</p>
+</section>
+<section id="graph-manifolds" class="level3">
+<h3 class="anchored" data-anchor-id="graph-manifolds">Graph manifolds</h3>
+<p>By Wolfang Lück’s talk as mentioned above, we have this definition:</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="graph-manifold.png" class="lightbox" data-gallery="graph-manifold" title="graph manifolds"><img src="graph-manifold.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="graph manifolds"></a></p>
+</figure>
+</div>
+<figcaption>graph manifolds</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="jsj-geometric-toral-splitting.png" class="lightbox" data-gallery="graph-manifold" title="(geometric) toral/JSJ splitting"><img src="jsj-geometric-toral-splitting.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="(geometric) toral/JSJ splitting"></a></p>
+</figure>
+</div>
+<figcaption>(geometric) toral/JSJ splitting</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>And we have already inspected this under <a href="#infinite-fundamental-group">infinite-fundamental-group</a></p>
 
 
 </section>
