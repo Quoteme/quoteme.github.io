@@ -5,12 +5,20 @@ date: "2026-02-07"
 categories: ["algebraic topology", "3-manifolds"]
 image: "jsj_not_isotopic_boundary_component_not_disjoint.png"
 lightbox: auto
+format:
+  html:
+    toc: true
+    toc-depth: 6
 ---
 
 
 
 ::: {.callout-warning}
 Not finished yet...
+
+Most of the screenshots of definitions/theorems are taken from:
+
+- Introduction to 3-manifolds by Wolfgang Lück at Bonn Germany
 :::
 
 My masters thesis is about the following statement from the 
@@ -64,7 +72,7 @@ In this video the relevant section shows this infinite tiling where 3-manifolds
 with different geometries are glued together in an alternating pattern:
 
 :::{layout-ncol="2"}
-![Screenshot from "Portals to Non-Euclidean Worlds" by [Tehora Rogue](https://www.youtube.com/@tehorarogue)](infinite-connected-sum-3-manifolds-tehora-rogue.png){group="screenshots" width=5cm fig-align="left"}
+![Screenshot from "Portals to Non-Euclidean Worlds" by [Tehora Rogue](https://www.youtube.com/@tehorarogue)](infinite-connected-sum-3-manifolds-tehora-rogue.png){group="screenshots" fig-align="left"}
 :::
 
 
@@ -78,7 +86,7 @@ Aka. $\|\pi_1(M)\| = \infty$. We use this to apply the famous Thurston
 geometrization theorem (these slides are from Lücks "Introduction to 3-manifolds" talk in Bonn):
 
 :::{layout-ncol="2"}
-![Thurston's geometrization theorem (formerly conjecture, but famously proved by Perelmann)](thurston-geometrization-conjecture.png){group="definitions" width=5cm fig-align="left"}
+![Thurston's geometrization theorem (formerly conjecture, but famously proved by Perelmann)](thurston-geometrization-conjecture.png){group="definitions" fig-align="left"}
 :::
 
 
@@ -86,9 +94,9 @@ geometrization theorem (these slides are from Lücks "Introduction to 3-manifold
 What is a "geometric toral splitting" you may ask?
 
 :::{layout-ncol="2"}
-![theorm of uniqueness](geometric-toral-splitting-pre.png){group="definitions" width=5cm fig-align="left"}
+![theorm of uniqueness](geometric-toral-splitting-pre.png){group="definitions" fig-align="left"}
 
-![geometric toral splitting](geometric-toral-splitting.png){group="definitions" width=5cm fig-align="left"}
+![geometric toral splitting](geometric-toral-splitting.png){group="definitions" fig-align="left"}
 :::
 
 Here is a tool to play around this this definition (it only includes tori, and
@@ -106,7 +114,7 @@ on the fundamental groups, i.e. $\pi_1(\iota) : \pi_1(S) \hookrightarrow \pi_1(M
 injective. 
 
 :::{layout-ncol="2"}
-![JSJ Step 1](jsj/01.png){group="jsj-steps" width=5cm fig-align="left"}
+![JSJ Step 1](jsj/01.png){group="jsj-steps" fig-align="left"}
 :::
 
 What could cause $\pi_1(\iota)$ to fail at being injective? 
@@ -119,7 +127,7 @@ of the torus, so if either of those is sent to zero by $\pi_1$, then
 $\pi_1(\iota)$ cannot be injective.
 
 :::{layout-ncol="2"}
-![JSJ Step 2](jsj/02.png){group="jsj-steps" width=5cm fig-align="left"}
+![JSJ Step 2](jsj/02.png){group="jsj-steps" fig-align="left"}
 :::
 
 Remember, that either of these loops will dissapear, if the ambient manifold $M$
@@ -127,16 +135,16 @@ contains a disk (a _compressing disk_), which will allow these loops to be
 contracted to a point:
 
 :::{layout-ncol="2"}
-![JSJ Step 3 (meridian)](jsj/03-m.png){group="jsj-steps" width=5cm fig-align="left"}
+![JSJ Step 3 (meridian)](jsj/03-m.png){group="jsj-steps" fig-align="left"}
 
-![JSJ Step 3 (longitude)](jsj/03-l.png){group="jsj-steps" width=5cm fig-align="left"}
+![JSJ Step 3 (longitude)](jsj/03-l.png){group="jsj-steps" fig-align="left"}
 :::
 
 Well, these disks cannot exist, iff $M$ contains some obstruction to prevent
 such complressing disks.
 
 :::{layout-ncol="2"}
-![JSJ Step 4 (example of two possible such obstructions. The grey tubes are ment to symbolize space removed from $\mathbb{R}^3$)](jsj/04.png){group="jsj-steps" width=5cm fig-align="left"}
+![JSJ Step 4 (example of two possible such obstructions. The grey tubes are ment to symbolize space removed from $\mathbb{R}^3$)](jsj/04.png){group="jsj-steps" fig-align="left"}
 :::
 
 This also explains what it means for $M$ to have "incompressible boundary":
@@ -145,15 +153,78 @@ $$
 $$
 
 This covers "disjoint" and "incompressible". What does it mean for a torus to
-_not_ be isotopic to a boundary component?
+__not__ be __isotopic to a boundary component__?
 Lets consider an example:
 
 :::{layout-ncol="2"}
-![Two tori which are embedded in a cube with two cylinders removed which are *not* disjoint, but which are both *not* isotopic to the single boundary component](jsj_not_isotopic_boundary_component_not_disjoint.png){group="jsj-steps" width=50% fig-align="center"}
+![Two tori which are embedded in a cube with two cylinders removed which are *not* disjoint, but which are both *not* isotopic to the single boundary component](jsj_not_isotopic_boundary_component_not_disjoint.png){group="jsj-steps" fig-align="center"}
 
-![A finite family of disjoint, pairwise-nonisotopic incompressible tori in $M$ which are not isotopic to boundary components](jsj_not_isotopic_boundary_component_disjoint.png){group="jsj-steps" width=50% fig-align="center"}
+![A finite family of disjoint, pairwise-nonisotopic incompressible tori in $M$ which are not isotopic to boundary components](jsj_not_isotopic_boundary_component_disjoint.png){group="jsj-steps" fig-align="center"}
 
-![Clearly both of these tori clearly cannot be isotopic to the boundary](jsj_double_torus.png){group="jsj-steps" width=50% fig-align="center"}
+![Clearly both of these tori clearly cannot be isotopic to the boundary](jsj_double_torus.png){group="jsj-steps" fig-align="center"}
 
-![By inflating each torus, we are able to completely cover $M$](jsj_covering_M.png){group="jsj-steps" width=50% fig-align="center"}
+![By inflating each torus, we are able to completely cover $M$](jsj_covering_M.png){group="jsj-steps" fig-align="center"}
 :::
+
+As an example of a torus which is isotopic to a boundary component is given
+here (for $\partial M \cong \mathbb{T}$)
+
+:::{layout-ncol="2"}
+![A torus which is isomorphic to a boundary component of $M$](iso_to_boundary.png){group="jsj-steps" fig-align="center"}
+:::
+
+#### Seifert manifolds
+
+:::{layout-ncol="2"}
+![seifert manifold are 3-manifolds with one of these geometries (a metric tensor)](seifert-manifold.png){group="seifert-manifold" fig-align="center"}
+
+![All seifert manifolds in the geometrization conjecture highlighted. The only ones missing are marked in red](thurston-geometrization-conjecture-seifert-highlighted.png){group="seifert-manifold" fig-align="center"}
+:::
+
+Specifically, these __are Seifert manifolds__:
+
+:::{layout-ncol="3"}
+
+![$S^2 \times \mathbb{R}$ [{{< bi youtube >}} see video](https://www.youtube.com/watch?v=yqUv2JO2BCs)](seifert/s2r.png){group="seifert-manifold" fig-align="center"}
+
+
+![$\mathbb{R}^3$](seifert/r3.png){group="seifert-manifold" fig-align="center"}
+
+
+![$\mathbb{H}^2 \times \mathbb{R}$ [{{< bi youtube >}} see video](https://www.youtube.com/watch?v=K7BwHjs0Il0)](seifert/h2r.png){group="seifert-manifold" fig-align="center"}
+
+
+![$S^3$ [{{< bi youtube >}} see video](https://www.youtube.com/watch?v=yY9GAyJtuJ0)](seifert/s3.png){group="seifert-manifold" fig-align="center"}
+
+![$\text{Nil}$ [{{< bi youtube >}} see video](https://www.youtube.com/watch?v=FNX1rZotjjI)](seifert/nil.png){group="seifert-manifold" fig-align="center"}
+
+![$\widetilde{\text{Sl}(2, \mathbb{R})}$ [{{< bi youtube >}} see video](https://www.youtube.com/watch?v=0_m6RLH889Q)](seifert/sl2r){group="seifert-manifold" fig-align="center"}
+:::
+
+and these are __not seifert manifolds__:
+
+:::{layout-ncol="3"}
+![$\mathbb{H3}$ [{{< bi youtube >}} see video](https://www.youtube.com/watch?v=yqUv2JO2BCs&t=160s)](not-seifert/h3.png){group="seifert-manifold" fig-align="center"}
+
+![$\text{Solv}$ [{{< bi youtube >}} see video](https://www.youtube.com/watch?v=2LotRqzibdM)](not-seifert/solv.png){group="seifert-manifold" fig-align="center"}
+:::
+
+
+#### geometrically atoroidal
+
+### closed
+
+A manifold without bounadary which is compact is called *closed*, so $M$ must
+have **empty boundary**.
+
+### Graph manifolds
+
+By Wolfang Lück's talk as mentioned above, we have this definition:
+
+:::{layout-ncol="2"}
+![graph manifolds](graph-manifold.png){group="graph-manifold" fig-align="center"}
+
+![(geometric) toral/JSJ splitting](jsj-geometric-toral-splitting.png){group="graph-manifold" fig-align="center"}
+:::
+
+And we have already inspected this under [infinite-fundamental-group](#infinite-fundamental-group)
