@@ -5,10 +5,9 @@ date: "2025-10-30"
 categories: ["computer science", "compilers", "hardware", "esp32", "keyboard", "rust"]
 image: "thumbnail.jpeg"
 abstract: |
-  I designed, wired, built, and programmed (completely from scrarch, because no
-  software previously supported 2 joysticks) an egronomic keyboard using some
-  trash PSP parts.
-  This led PCBWAY to sponsor me :)
+  I designed, wired, built, and programmed (completely from scratch,
+  because no software previously supported 2 joysticks) an ergonomic keyboard 
+  using some trash PSP parts. This led PCBWAY to sponsor me :)
 ---
 
 I wanted to have a ThinkPad like experience with my first ergo keyboard, because I really liked the trackpoint. I got these PSP joysticks for really cheap and they work even better than a trackpoint. Because I couldn't get zmk or qmk to work correctly with this custom design, I just wrote the Rust code myself using RMK (this allows me to use the keyboard both in wired and wireless mode without any compromises and both joysticks work fine).
