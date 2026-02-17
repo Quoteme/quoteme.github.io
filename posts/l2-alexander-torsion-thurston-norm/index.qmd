@@ -25,6 +25,8 @@ My masters thesis is about the following statement from the
 2019 paper "The $L^2$-torsion function and the Thurston norm of 3-manifolds"
 by Friedl and Lück:
 
+# The main theorem
+
 ![Main Theorem](./main-theorem.png)
 
 Let us first unravel what this theorem really means step by step.
@@ -228,3 +230,31 @@ By Wolfang Lück's talk as mentioned above, we have this definition:
 :::
 
 And we have already inspected this under [infinite-fundamental-group](#infinite-fundamental-group)
+
+### the spin structure $\mathfrak{s} \in \text{Spin}^c(M)$
+
+We will not look too much into what this means. By Liu we know that omitting
+this parameter in the function $\rho$ from the main theorem, we still obtain the
+same asymptotic degree. In fact, omitting this parameter yields a family of
+functions $[\rho] = \{\rho(t) \cdot t^r \mid \exists r \in \mathbb{R}\}$ 
+
+This however does not change $\deg(\rho)$. For clarity though, we have
+
+
+:::{layout-ncol="2"}
+![Definition of $\text{Spin}(V)$ (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)](spin.png){group="spin" fig-align="center"}
+
+![Definition of $\text{Cl}(V, Q)$ (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Clifford_algebra, p3)](clifford.png){group="spin" fig-align="center"}
+
+![Complexification of $\text{Spin}$ (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p158)](complexification.png){group="spin" fig-align="center"}
+
+
+![Complexification of $\text{Cl}(V, Q)$ (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)](clifford-complexification.png)
+
+![$\text{Spin}^c$ principle bundle (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p159)](spinc-principle-bundle.png)
+:::
+
+Because $\text{Spin}^c(V)$ is the double cover of Lie groups[^double-cover] of 
+$\text{SO}(V) \times U_1$, we can use these to describe spinor bundles.
+
+[^double-cover]: The $L^2$-torsion function and the Thurston norm of 3-manifolds - Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p158
