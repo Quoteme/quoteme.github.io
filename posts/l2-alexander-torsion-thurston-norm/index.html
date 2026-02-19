@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ccd81253fefb92e9cd3f9eb5b5d87b54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-08799928d293638fe9563d5c5a2794e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -415,7 +415,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-manifold-m" id="toc-the-manifold-m" class="nav-link active" data-scroll-target="#the-manifold-m">The manifold <span class="math inline">\(M\)</span></a>
+  <li><a href="#the-main-theorem" id="toc-the-main-theorem" class="nav-link active" data-scroll-target="#the-main-theorem">The main theorem</a>
+  <ul>
+  <li><a href="#the-manifold-m" id="toc-the-manifold-m" class="nav-link" data-scroll-target="#the-manifold-m">The manifold <span class="math inline">\(M\)</span></a>
   <ul>
   <li><a href="#irreducible" id="toc-irreducible" class="nav-link" data-scroll-target="#irreducible">Irreducible</a></li>
   <li><a href="#infinite-fundamental-group" id="toc-infinite-fundamental-group" class="nav-link" data-scroll-target="#infinite-fundamental-group">Infinite fundamental group</a>
@@ -425,6 +427,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#closed" id="toc-closed" class="nav-link" data-scroll-target="#closed">closed</a></li>
   <li><a href="#graph-manifolds" id="toc-graph-manifolds" class="nav-link" data-scroll-target="#graph-manifolds">Graph manifolds</a></li>
+  <li><a href="#the-spin-structure-mathfraks-in-textspincm" id="toc-the-spin-structure-mathfraks-in-textspincm" class="nav-link" data-scroll-target="#the-spin-structure-mathfraks-in-textspincm">the spin structure <span class="math inline">\(\mathfrak{s} \in \text{Spin}^c(M)\)</span></a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -455,6 +459,8 @@ Warning
 </div>
 </div>
 <p>My masters thesis is about the following statement from the 2019 paper “The <span class="math inline">\(L^2\)</span>-torsion function and the Thurston norm of 3-manifolds” by Friedl and Lück:</p>
+<section id="the-main-theorem" class="level1">
+<h1>The main theorem</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./main-theorem.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Main Theorem"><img src="./main-theorem.png" class="img-fluid figure-img" alt="Main Theorem"></a></p>
@@ -906,12 +912,85 @@ Warning
 </div>
 </div>
 <p>And we have already inspected this under <a href="#infinite-fundamental-group">infinite-fundamental-group</a></p>
+</section>
+<section id="the-spin-structure-mathfraks-in-textspincm" class="level3">
+<h3 class="anchored" data-anchor-id="the-spin-structure-mathfraks-in-textspincm">the spin structure <span class="math inline">\(\mathfrak{s} \in \text{Spin}^c(M)\)</span></h3>
+<p>We will not look too much into what this means. By Liu we know that omitting this parameter in the function <span class="math inline">\(\rho\)</span> from the main theorem, we still obtain the same asymptotic degree. In fact, omitting this parameter yields a family of functions <span class="math inline">\([\rho] = \{\rho(t) \cdot t^r \mid \exists r \in \mathbb{R}\}\)</span></p>
+<p>This however does not change <span class="math inline">\(\deg(\rho)\)</span>. For clarity though, we have</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="spin.png" class="lightbox" data-gallery="spin" title="Definition of \text{Spin}(V) (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)"><img src="spin.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Definition of \text{Spin}(V) (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)"></a></p>
+</figure>
+</div>
+<figcaption>Definition of <span class="math inline">\(\text{Spin}(V)\)</span> (The <span class="math inline">\(L^2\)</span>-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="clifford.png" class="lightbox" data-gallery="spin" title="Definition of \text{Cl}(V, Q) (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Clifford_algebra, p3)"><img src="clifford.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Definition of \text{Cl}(V, Q) (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Clifford_algebra, p3)"></a></p>
+</figure>
+</div>
+<figcaption>Definition of <span class="math inline">\(\text{Cl}(V, Q)\)</span> (The <span class="math inline">\(L^2\)</span>-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Clifford_algebra, p3)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="complexification.png" class="lightbox" data-gallery="spin" title="Complexification of \text{Spin} (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p158)"><img src="complexification.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Complexification of \text{Spin} (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p158)"></a></p>
+</figure>
+</div>
+<figcaption>Complexification of <span class="math inline">\(\text{Spin}\)</span> (The <span class="math inline">\(L^2\)</span>-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p158)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="clifford-complexification.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="Complexification of \text{Cl}(V, Q) (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)"><img src="clifford-complexification.png" class="img-fluid figure-img" alt="Complexification of \text{Cl}(V, Q) (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)"></a></p>
+<figcaption>Complexification of <span class="math inline">\(\text{Cl}(V, Q)\)</span> (The <span class="math inline">\(L^2\)</span>-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="spinc-principle-bundle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="\text{Spin}^c principle bundle (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p159)"><img src="spinc-principle-bundle.png" class="img-fluid figure-img" alt="\text{Spin}^c principle bundle (The L^2-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p159)"></a></p>
+<figcaption><span class="math inline">\(\text{Spin}^c\)</span> principle bundle (The <span class="math inline">\(L^2\)</span>-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p159)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Because <span class="math inline">\(\text{Spin}^c(V)\)</span> is the double cover of Lie groups<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of <span class="math inline">\(\text{SO}(V) \times U_1\)</span>, we can use these to describe spinor bundles.</p>
 
 
 </section>
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The <span class="math inline">\(L^2\)</span>-torsion function and the Thurston norm of 3-manifolds - Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p158<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

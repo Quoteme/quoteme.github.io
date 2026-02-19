@@ -1,0 +1,118 @@
+/* Mathematical Callout Blocks - SCSS Version */
+
+// Color variables
+$definition-color: #2563eb;
+$definition-bg: #eff6ff;
+$proposition-color: #059669;
+$proposition-bg: #ecfdf5;
+$lemma-color: #7c3aed;
+$lemma-bg: #f3e8ff;
+$corollary-color: #dc2626;
+$corollary-bg: #fef2f2;
+$proof-color: #6b7280;
+$proof-bg: #f9fafb;
+
+// Mixin for callout styling
+@mixin callout-style($color, $background) {
+  border-left: 4px solid $color;
+  background-color: $background;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+
+  .callout-title {
+    font-weight: bold;
+    color: darken($color, 10%);
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Counter initialization
+body {
+  counter-reset: definition proposition lemma corollary;
+}
+
+// Callout definitions
+.callout-definition {
+  @include callout-style($definition-color, $definition-bg);
+  counter-increment: definition;
+
+  .callout-title::before {
+    content: "Definition " counter(definition) ": ";
+  }
+}
+
+.callout-proposition {
+  @include callout-style($proposition-color, $proposition-bg);
+  counter-increment: proposition;
+
+  .callout-title::before {
+    content: "Proposition " counter(proposition) ": ";
+  }
+}
+
+.callout-lemma {
+  @include callout-style($lemma-color, $lemma-bg);
+  counter-increment: lemma;
+
+  .callout-title::before {
+    content: "Lemma " counter(lemma) ": ";
+  }
+}
+
+.callout-corollary {
+  @include callout-style($corollary-color, $corollary-bg);
+  counter-increment: corollary;
+
+  .callout-title::before {
+    content: "Corollary " counter(corollary) ": ";
+  }
+}
+
+// Proof callout with special QED styling
+.callout-proof {
+  @include callout-style($proof-color, $proof-bg);
+  position: relative;
+
+  .callout-title::before {
+    content: "Proof: ";
+  }
+
+  // QED symbol
+  &::after {
+    content: "∎";
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    font-weight: bold;
+    color: $proof-color;
+  }
+}
+
+// Optional: Dark mode support
+@media (prefers-color-scheme: dark) {
+  .callout-definition {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-left-color: lighten($definition-color, 20%);
+  }
+
+  .callout-proposition {
+    background-color: rgba(5, 150, 105, 0.1);
+    border-left-color: lighten($proposition-color, 20%);
+  }
+
+  .callout-lemma {
+    background-color: rgba(124, 58, 237, 0.1);
+    border-left-color: lighten($lemma-color, 20%);
+  }
+
+  .callout-corollary {
+    background-color: rgba(220, 38, 38, 0.1);
+    border-left-color: lighten($corollary-color, 20%);
+  }
+
+  .callout-proof {
+    background-color: rgba(107, 114, 128, 0.1);
+    border-left-color: lighten($proof-color, 20%);
+  }
+}
