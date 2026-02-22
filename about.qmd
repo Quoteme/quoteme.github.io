@@ -106,3 +106,12 @@ function init() {
 }
 init();
 </script>
+
+<style type="text/css">
+/* make bullet points behave correctly even for centered text */
+ul {
+  display: table;
+  margin: 0 auto;
+  text-align: left;
+}
+</style>
