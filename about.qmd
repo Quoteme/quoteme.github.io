@@ -29,7 +29,8 @@ I work as a programmer (AI-dev./server admin/fullstack dev./...) and cofounder f
   - [https://monti.med.uni-duesseldorf.de/](https://monti.med.uni-duesseldorf.de/)
   - [https://monti.hhu.de/](https://monti.hhu.de/)
   - [https://monti.ukaachen.de/](https://monti.ukaachen.de/)
-- app: [https://apps.apple.com/de/app/monti/id6468419072](https://apps.apple.com/de/app/monti/id6468419072?l=en-GB)
+- app:
+  - [https://apps.apple.com/de/app/monti/id6468419072](https://apps.apple.com/de/app/monti/id6468419072?l=en-GB)
 
 ## Education
 

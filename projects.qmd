@@ -2,31 +2,68 @@
 title: "Projects"
 image: https://avatars2.githubusercontent.com/u/6796009
 author: "Luca Leon Happe"
-lightbox: auto
+listing:
+  - id: projects
+    type: grid
+    contents: 
+      - title: Corne + 2 PSP joysticks/dual trackpoint (Rust/RMK)
+        author: Luca Leon Happel
+        path: https://github.com/Quoteme/corne-rmk
+        image: https://camo.githubusercontent.com/0158d3047464d2583a9d62c893ef1f5555cd7021ae6199202652c693c445cf64/68747470733a2f2f692e726564642e69742f773469303169663462663067312e6a706567
+        date: 2025-11-23
+      - title: monti
+        author:
+          - Luca Leon Happel
+          - Lars Müller
+          - Prof. Malte Jacobsen
+          - Prof. Guido Kobbe
+          - Prof. Markus Kollman
+        image: assets/monti-backend-screenshot.png
+        date: 2025-08-04
+        path: https://monti.med.uni-duesseldorf.de/
+      - title: My math stuff
+        author: Luca Leon Happel
+        image: https://github.com/Quoteme/math/blob/master/social_preview.png?raw=true
+        path: https://quoteme.github.io/math
+      - title: Top2Man
+        author: Luca Leon Happel
+        image: ./assets/kompakteTop2ManUnorientiertKreuzkz6.png
+        path: https://quoteme.github.io/top2man
+      - title: Img2String
+        author: Luca Leon Happel
+        image: https://i.imgur.com/CmCh70g.gif
+        path: https://github.com/Quoteme/img2string/
+      - title: WebGLCS
+        author: Luca Leon Happel
+        image: https://i.imgur.com/Ysv2BVX.png
+        path: https://github.com/Quoteme/webglcs
+      - title: DimensionCrusher
+        author: Luca Leon Happel
+        image: https://i.imgur.com/Xnfvpag.gif
+        path: https://github.com/Quoteme/dimensioncrusher
+      - title: ComplexGrapher
+        author: Luca Leon Happel
+        image: https://i.imgur.com/MHf3Ltb.gif
+        path: https://github.com/Quoteme/complexGrapher
+      - title: Fluchtpunkt3D
+        author: Luca Leon Happel
+        image: https://raw.githubusercontent.com/Quoteme/Fluchtpunkt3D/master/demo/test.gif
+        path: https://github.com/Quoteme/Fluchtpunkt3D
+      - title: KnowHowComputer
+        author: Luca Leon Happel
+        image: https://i.imgur.com/R5O38wV.png
+        path: https://quoteme.github.io/KnowHowComputerHTML/
+        date: 2016-10-01
+      - title: Relic Hunter Zero (STEAM)
+        author: Luca Leon Happel
+        image: https://i.imgur.com/05wgpP9.png
+        path: https://github.com/mventurelli/relichunterszero
+      - title: Matrix Visualizer
+        author: Luca Leon Happel
+        image: https://i.imgur.com/47Bc1uJ.gif
+        path: https://github.com/Quoteme/matrixVisualizer
+      - title: More
+        author: Luca Leon Happel
+        image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+        path: https://github.com/Quoteme?tab=repositories
 ---
-
-Here is a small list of projects I have worked on. Most are open source and can be found on my [GitHub](https://github.com/Quoteme?tab=repositories).
-
-:::{layout-ncol="3"}
-![<a href="https://quoteme.github.io/math">My math stuff</a>](https://github.com/Quoteme/math/blob/master/social_preview.png?raw=true){group="projects" width=5cm fig-align="left"}
-
-![<a href="https://quoteme.github.io/top2man">Top2Man</a>](https://i.imgur.com/OAqeQ43.png){group="projects" width=5cm fig-align="left"}
-
-![<a href="https://github.com/Quoteme/img2string/">Img2String</a>](https://i.imgur.com/CmCh70g.gif){group="projects" width=5cm fig-align="left"}
-
-![<a href="https://github.com/Quoteme/webglcs">WebGLCS</a>](https://i.imgur.com/Ysv2BVX.png){group="projects" width=5cm fig-align="left"}
-
-![<a href="https://github.com/Quoteme/dimensioncrusher">DimensionCrusher</a>](https://i.imgur.com/Xnfvpag.gif){group="projects" width=5cm fig-align="left"}
-
-![<a href="https://github.com/Quoteme/complexGrapher">ComplexGrapher</a>](https://i.imgur.com/MHf3Ltb.gif){group="projects" width=5cm fig-align="left"}
-
-![<a href="https://github.com/Quoteme/Fluchtpunkt3D">Fluchtpunkt3D</a>](https://raw.githubusercontent.com/Quoteme/Fluchtpunkt3D/master/demo/test.gif){group="projects" width=4cm fig-align="left"}
-
-![<a href="https://quoteme.github.io/KnowHowComputerHTML/">KnowHowComputer</a>](https://i.imgur.com/R5O38wV.png){group="projects" width=4cm fig-align="left"}
-
-![<a href="https://github.com/mventurelli/relichunterszero">Relic Hunter Zero (STEAM)</a>](https://i.imgur.com/05wgpP9.png){group="projects" width=4cm fig-align="left"}
-
-![<a href="https://github.com/Quoteme/matrixVisualizer">Matrix Visualizer</a>](https://i.imgur.com/47Bc1uJ.gif){group="projects" width=4cm fig-align="left"}
-
-![<a href="https://github.com/Quoteme?tab=repositories">More</a>](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){group="projects" width=4cm fig-align="left"}
-:::
