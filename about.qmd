@@ -6,7 +6,7 @@ about:
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/luca-leon-happel-a2a726218/
+      href: https://www.linkedin.com/in/lucahappel/
     - icon: github
       text: Github
       href: https://github.com/Quoteme
