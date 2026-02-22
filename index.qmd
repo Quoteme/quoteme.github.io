@@ -11,7 +11,7 @@ listing:
           <br>
           {{< ai orcid >}} [10.1093/ehjdh/ztaf004](https://doi.org/10.1093/ehjdh/ztaf004).
           <br>
-          {{< bi bar-chart >}} [Example data](https://lucah.tech/digital-demo-day/assets/activity.html)
+          {{< bi bar-chart >}} [Example data](https://happel.ai/digital-demo-day/assets/activity.html)
           <br>
           __European Heart Journal - Digital Health__
         image: "images/digital-demo-day.png"

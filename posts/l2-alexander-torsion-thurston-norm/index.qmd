@@ -105,7 +105,7 @@ Here is a tool to play around this this definition (it only includes tori, and
 no framed knots!):
 
 <iframe width="560" height="315"
-  src="https://lucah.tech/jsjdecomp/"
+  src="https://happel.ai/jsjdecomp/"
   title="JSJDecomp" frameborder="0" allow="accelerometer;
   clipboard-write"
   allowfullscreen></iframe>
