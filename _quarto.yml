@@ -27,6 +27,12 @@ website:
       - icon: reddit
         aria-label: Reddit
         href: https://www.reddit.com/user/lalelul
+  page-footer:
+    center:
+      - text: "Impressum"
+        href: "impressum.qmd"
+      - text: "Datenschutz"
+        href: "datenschutz.qmd"
 format:
   html:
     include-in-header:
