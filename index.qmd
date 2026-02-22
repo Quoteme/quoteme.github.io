@@ -1,4 +1,5 @@
 ---
+image: https://avatars2.githubusercontent.com/u/6796009
 listing:
   - id: publications
     contents: 
@@ -21,7 +22,7 @@ listing:
     feed: true
     sort: "date desc"
     type: default
-    categories: true
+    categories: cloud
     sort-ui: true
     filter-ui: true
   - id: blog
@@ -29,7 +30,7 @@ listing:
     feed: true
     sort: "date desc"
     type: default
-    categories: true
+    categories: cloud
     sort-ui: true
     filter-ui: true
 page-layout: full

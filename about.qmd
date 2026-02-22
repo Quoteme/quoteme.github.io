@@ -2,7 +2,7 @@
 title: "About"
 image: https://avatars2.githubusercontent.com/u/6796009
 about:
-  template: broadside
+  template: solana
   links:
     - icon: linkedin
       text: LinkedIn

@@ -14,12 +14,16 @@ website:
       - about.qmd
       - projects.qmd
       - icon: github
+        aria-label: GitHub
         href: https://github.com/Quoteme/
       - icon: linkedin
+        aria-label: Linkedin
         href: https://www.linkedin.com/in/lucahappel/
       - icon: instagram
+        aria-label: Instagram
         href: https://www.instagram.com/lucaleonhappel/
       - icon: reddit
+        aria-label: Reddit
         href: https://www.reddit.com/user/lalelul
 format:
   html:
