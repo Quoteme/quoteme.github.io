@@ -1,7 +1,7 @@
 profile:
-  image: "https://avatars2.githubusercontent.com/u/6796009"
+  image: https://avatars2.githubusercontent.com/u/6796009
   name: "Luca Happel"
-  email: "luca.happel@hhu.de"
+  email: "luca@happel.ai"
 
 website:
   title: "Luca Happel's personal website"

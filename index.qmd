@@ -1,5 +1,4 @@
 ---
-image: https://avatars2.githubusercontent.com/u/6796009
 listing:
   - id: publications
     contents: 
@@ -44,20 +43,19 @@ format:
 iframe to https://quoteme.github.io/top2manWebsiteBackground/ with full width
 and 300px height
 -->
-<div id="gimmick">
-<div id="aboutme">
-  <p>
-      <img src="https://avatars.githubusercontent.com/u/6796009?v=4" id="avatar" />
-      Hi, I am <b>Luca Leon Happel</b>. I am a <b>computer scientist/mathematician</b> and
-      <b>B.Sc in mathematics</b>, who works at
-      multiple high class universities and hospitals throughout Germany.
-      I earned multiple awards for my works 
-      (e.g. in <b>AI, medical software development,...</b>) and secured funding
-      for my project in cancer treatment. [Read more about me...](./about.html)
-  </p>
-</div>
+::: {#gimmick}
+::: {#aboutme}
+![]({{< var profile.image >}}){#avatar}
+Hi, I am __Luca Leon Happel__. 
+I am a __computer scientist/mathematician__ and
+__B.Sc in mathematics__, who works at
+multiple high class universities and hospitals throughout Germany.
+I earned multiple awards for my works 
+(e.g. in __AI, medical software development,...__) and secured funding
+for my project in cancer treatment. [Read more about me...](./about.html)
+:::
 <iframe id="top2manframe" src="" width="100%" height="300px" style="border: none;"></iframe>
-</div>
+:::
 
 <script>
   // for some reason quarto's shortcodes do not work inside iframe src="" attribute
