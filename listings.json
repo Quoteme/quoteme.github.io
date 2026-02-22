@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/projects.html",
+    "items": []
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/bitwarden-git-code-signing/index.html",
