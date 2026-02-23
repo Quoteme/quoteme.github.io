@@ -2,7 +2,7 @@
 title: "Surreale Zahlen"
 author: "Luca Leon Happel"
 date: "2023-11-16"
-categories: ["Seminar", "Surreale Zahlen", "abstract algebra", "ring theory"]
+categories: ["Seminar", "Surreale Zahlen", "abstract algebra", "ring theory", "Deutsch"]
 image: "thumbnail.png"
 ---
 

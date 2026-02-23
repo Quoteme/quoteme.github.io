@@ -2,7 +2,7 @@
 title: "Knot theory - peripheral system"
 author: "Luca Leon Happel"
 date: "2023-05-05"
-categories: ["math", "algebra", "abstract algebra", "knot theory"]
+categories: ["math", "algebra", "abstract algebra", "knot theory", "English"]
 image: "thumbnail.jpg"
 abstract: |
   In knot theory, the peripheral system is an important concept that

@@ -3,7 +3,7 @@ title: "My second competitive programming challenge"
 subtitle: "super platform land - Game++ - Community Challange #3"
 author: "Luca Leon Happel"
 date: "2014-07-15"
-categories: ["computer science", "game development"]
+categories: ["computer science", "game development", "English"]
 image: "thumbnail.png"
 abstract: |
   In this video I showcase my submission for the Game++ Community Challenge #3,

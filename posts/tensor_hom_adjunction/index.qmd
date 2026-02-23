@@ -2,7 +2,7 @@
 title: "Coalgebras and the tensor-hom adjunction"
 author: "Luca Leon Happel"
 date: "2025-05-29 19:47"
-categories: ["math", "algebra"]
+categories: ["math", "algebra", "English"]
 image: "https://i.imgur.com/5gUWnRL.png"
 draft: true
 ---

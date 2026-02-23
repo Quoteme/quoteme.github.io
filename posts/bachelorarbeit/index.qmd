@@ -6,6 +6,7 @@ categories:
   - math
   - algebra
   - geometry
+  - Deutsch
 image: "./assets/weierstrassform.png"
 ---
 

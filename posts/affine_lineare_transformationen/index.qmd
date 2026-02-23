@@ -2,7 +2,7 @@
 title: "Affine lineare Transformationen als lineare Transformationen auf dem projektiven Raum"
 author: "Luca Leon Happel"
 date: "2025-08-17"
-categories: ["math", "algebra"]
+categories: ["math", "algebra", "Deutsch"]
 image: "./thumbnail.png"
 abstract: Kurze Notizen, wie man affin-lineare Transformationen auf dem $\mathbb{R}^n$ als lineare Transformationen auf dem $\mathbb{R}^{n+1}$ betrachten kann.
 ---

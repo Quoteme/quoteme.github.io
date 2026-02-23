@@ -2,7 +2,7 @@
 title: "Elliptic curves over the field with four elements (not finished)"
 author: "Luca Leon Happel"
 date: "2022-03-01"
-categories: ["mathematics", "algebraic geometry"]
+categories: ["mathematics", "algebraic geometry", "English"]
 ---
 
 ## Table of contents

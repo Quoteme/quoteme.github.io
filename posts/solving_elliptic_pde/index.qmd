@@ -2,7 +2,7 @@
 title: "Solving elliptic differential equations"
 author: "Luca Leon Happel"
 date: "2025-09-31"
-categories: ["math", "algebra"]
+categories: ["math", "algebra", "English"]
 image: "./assets/laplacian.png"
 ---
 

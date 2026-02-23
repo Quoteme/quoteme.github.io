@@ -3,7 +3,7 @@ title: "Automated theorem proving"
 author: "Luca Leon Happel"
 date: "2024-02-21"
 date-modified: "2024-02-22"
-categories: ["mathematics", "logic", "automated theorem proving", "lean4", "formal verification"]
+categories: ["mathematics", "logic", "automated theorem proving", "lean4", "formal verification", "English"]
 bibliography: references.bib
 format:
     html:

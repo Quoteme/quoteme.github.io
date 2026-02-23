@@ -3,7 +3,7 @@ title: "My frist competitive programming challenge"
 subtitle: "super platform land - Game++ - Community Challange #2"
 author: "Luca Leon Happel"
 date: "2014-05-20"
-categories: ["computer science", "compilers"]
+categories: ["computer science", "compilers", "English"]
 image: "thumbnail.png"
 abstract: |
   From a young age I was fascinated by programming video games.

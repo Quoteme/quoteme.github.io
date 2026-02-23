@@ -2,7 +2,7 @@
 title: "What are „differential forms“"
 author: "Luca Leon Happel"
 date: "2022-05-27"
-categories: ["mathematics", "differential geometry", "differential forms", "tangent space", "cotangent space", "manifold", "tangent bundle", "cotangent bundle", "exterior algebra", "global section"]
+categories: ["mathematics", "differential geometry", "differential forms", "tangent space", "cotangent space", "manifold", "tangent bundle", "cotangent bundle", "exterior algebra", "global section", "English"]
 image: "https://i.imgur.com/pJlb0qT.png"
 ---
 

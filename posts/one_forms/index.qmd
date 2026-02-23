@@ -2,7 +2,7 @@
 title: "Differentials, 0-forms and 1-forms – Placing (real) analysis on a rigorous footing"
 author: "Luca Leon Happel"
 date: "2025/09/27"
-categories: ["mathematics", "differential geometry", "differential forms",]
+categories: ["mathematics", "differential geometry", "differential forms", "English"]
 ---
 
 I have written about differential form before ([What are „differential

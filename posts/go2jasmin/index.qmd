@@ -2,7 +2,7 @@
 title: "Go2Jasmin"
 author: "Luca Leon Happel"
 date: "2023-01-30"
-categories: ["computer science", "compilers"]
+categories: ["computer science", "compilers", "English"]
 image: "thumbnail.png"
 abstract: |
   Writing assembly code by hand is tedious and error-prone.

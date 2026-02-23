@@ -2,7 +2,7 @@
 title: "Corne + 2 PSP joysticks/dual trackpoint (Rust/RMK)"
 author: "Luca Leon Happel"
 date: "2025-10-30"
-categories: ["computer science", "compilers", "hardware", "esp32", "keyboard", "rust"]
+categories: ["computer science", "compilers", "hardware", "esp32", "keyboard", "rust", "English"]
 image: "thumbnail.jpeg"
 abstract: |
   I designed, wired, built, and programmed (completely from scratch,

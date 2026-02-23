@@ -2,7 +2,7 @@
 title: "Haskell - Angewandter „abstract nonsense“"
 author: "Luca Leon Happel"
 date: "2023-01-23"
-categories: ["Seminar", "Haskell", "programming", "Heinrich-Heine Universität"]
+categories: ["Seminar", "Haskell", "programming", "Heinrich-Heine Universität", "Deutsch"]
 image: "thumbnail.jpg"
 ---
 

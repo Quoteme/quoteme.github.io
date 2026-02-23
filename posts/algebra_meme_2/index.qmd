@@ -2,7 +2,7 @@
 title: "Prove that $\\mathbb{R}[x]/(x^2+bx+c)$ is isomorphic to $\\mathbb{R}^2$ or $\\mathbb{C}$ - A proof"
 author: "Luca Leon Happel"
 date: "2021-10-21"
-categories: ["math", "algebra", "abstract algebra", "ring theory", "meme"]
+categories: ["math", "algebra", "abstract algebra", "ring theory", "meme", "English"]
 image: "https://i.imgur.com/5gUWnRL.png"
 ---
 

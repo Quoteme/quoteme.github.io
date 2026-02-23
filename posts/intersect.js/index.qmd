@@ -2,7 +2,7 @@
 title: "intersect.mjs und der Sphären/Boxen-Schnitt"
 author: "Luca Leon Happel"
 date: "2020-02-14"
-categories: ["javascript", "programming", "webgl", "math"]
+categories: ["javascript", "programming", "webgl", "math", "Deutsch"]
 ---
 
 ### Problem

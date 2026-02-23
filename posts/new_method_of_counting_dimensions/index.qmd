@@ -2,7 +2,7 @@
 title: "A new method to calculate dimension"
 author: "Luca Leon Happel"
 date: "2020-05-22"
-categories: ["math", "fractals", "dimension", "calculus", "geometry"]
+categories: ["math", "fractals", "dimension", "calculus", "geometry", "English"]
 image: "thumbnail.png"
 ---
 

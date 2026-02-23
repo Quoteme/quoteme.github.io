@@ -2,7 +2,7 @@
 title: "Sheaves in Minecraft"
 author: "Luca Leon Happel"
 date: "2021-10-29"
-categories: ["math", "algebraic geometry", "sheaves", "topology", "Minecraft"]
+categories: ["math", "algebraic geometry", "sheaves", "topology", "Minecraft", "English"]
 image: "https://i.imgur.com/IvIs8F3.png"
 ---
 

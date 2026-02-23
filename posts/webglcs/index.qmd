@@ -3,7 +3,7 @@ title: "WebGLCS"
 subtitle: "My first online multiplayer 3D game (written from scratch)"
 author: "Luca Leon Happel"
 date: "2017-04-19"
-categories: ["computer science", "game development"]
+categories: ["computer science", "game development", "English"]
 image: "https://camo.githubusercontent.com/54f926defabf895bcb021405306688fe808a09a5d0a0ed5cfe5dfe6b69bff379/68747470733a2f2f692e696d6775722e636f6d2f674f326d77514b2e676966"
 abstract: |
   I was kinda obsessed with the game [Cave Story](https://www.cavestory.org/download/cave-story.php)

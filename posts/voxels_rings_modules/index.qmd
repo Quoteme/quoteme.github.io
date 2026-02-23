@@ -2,7 +2,7 @@
 title: "Voxels, Rings and Modules - My observations on how games like minecraft relate to abstract algebra"
 author: "Luca Leon Happel"
 date: "2020-11-26"
-categories: ["math", "algebra", "voxels", "games"]
+categories: ["math", "algebra", "voxels", "games", "English"]
 image: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Voxels.svg"
 draft: true
 ---

@@ -2,7 +2,7 @@
 title: "Bildbesucher - First time using JSDoc"
 author: "Luca Leon Happel"
 date: "2020-04-18"
-categories: ["JSDoc", "JavaScript", "game", "programming"]
+categories: ["JSDoc", "JavaScript", "game", "programming", "English"]
 image: "thumbnail.png"
 ---
 

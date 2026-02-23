@@ -2,7 +2,7 @@
 title: "Bitwarden for Git Commit Signing"
 author: "Luca Leon Happel"
 date: "2026-02-18"
-categories: ["cyber security", "encryption", "git", "programming"]
+categories: ["cyber security", "encryption", "git", "programming", "English"]
 image: "thumbnail.png"
 abstract: |
   Signing Git commits is a crucial practice for ensuring the authenticity and

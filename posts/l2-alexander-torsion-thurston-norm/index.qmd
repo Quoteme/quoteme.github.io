@@ -2,7 +2,7 @@
 title: "The $\\ell^2$-Alexander torsion and the Thurston norm"
 author: "Luca Leon Happel"
 date: "2026-02-07"
-categories: ["algebraic topology", "3-manifolds"]
+categories: ["algebraic topology", "3-manifolds", "English"]
 image: "jsj_not_isotopic_boundary_component_not_disjoint.png"
 lightbox: auto
 format:

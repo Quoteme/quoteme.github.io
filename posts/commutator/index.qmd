@@ -2,7 +2,7 @@
 title: "Commutator subgroups, derived series and their geometric interpretation"
 author: "Luca Leon Happel"
 date: "2026-02-8"
-categories: [ "algebra", "group theory"]
+categories: ["algebra", "group theory", "English"]
 ---
 
 Given a group $G$, the commutator $[G,G]$ is defined as
