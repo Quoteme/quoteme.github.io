@@ -14,16 +14,13 @@ listing:
           {{< bi bar-chart >}} [Example data](https://happel.ai/digital-demo-day/assets/activity.html)
           <br>
           __European Heart Journal - Digital Health__
-        image: "images/digital-demo-day.png"
+        image: "assets/digital-demo-day.png"
         path: "https://doi.org/10.1093/ehjdh/ztaf004"
         tags: ["journal", "AI", "clinical-monitoring"]
         date: 2025-08-04
     feed: true
     sort: "date desc"
     type: default
-    categories: cloud
-    sort-ui: true
-    filter-ui: true
   - id: blog
     contents: posts
     feed: true
