@@ -2,7 +2,7 @@
 title: |
   The exponential map of lie groups
 subtitle: |
-  Or: what $e^x$ and $\pi$ actually are all about
+  Or: what $e^x$ and $\pi$ actually are all about and some funny connections betwee _machine learning_, _sailing_ and the _stock market_
 author: "Luca Leon Happel"
 date: "2026-02-27"
 categories: ["algebra", "geometry", "machine learning", "English"]
@@ -273,15 +273,17 @@ We now still need to twist the $(x,y,z)$-part of the movement, so that when we p
 We need:
 
 $$
-(0,0,0, \phi, 0) \rrr (1,0,0, 0, 0) = (\cos(\phi), 0, \sin(\phi), \phi, 0) \\
-(0,0,0, \phi, 0) \rrr (0,1,0, 0, 0) = (-\sin(\phi), 0, \cos(\phi), \phi, 0) \\
-\dots
-(0,0,0, 0, \psi) \rrr (1,0,0, 0, 0) = (\cos(\psi), \sin(\psi), 0, 0, \psi) \\
-(0,0,0, 0, \psi) \rrr (0,1,0, 0, 0) = (-\sin(\psi), \cos(\psi), 0, 0, \psi) \\
-\dots
+\begin{aligned}
+(0,0,0, \phi, 0) &\circ (1,0,0, 0, 0) = (\cos(\phi), 0, \sin(\phi), \phi, 0) \\
+(0,0,0, \phi, 0) &\circ (0,1,0, 0, 0) = (-\sin(\phi), 0, \cos(\phi), \phi, 0) \\
+\dots \\
+(0,0,0, 0, \psi) &\circ (1,0,0, 0, 0) = (\cos(\psi), \sin(\psi), 0, 0, \psi) \\
+(0,0,0, 0, \psi) &\circ (0,1,0, 0, 0) = (-\sin(\psi), \cos(\psi), 0, 0, \psi) \\
+\dots \\
+\end{aligned}
 $$
 
-Here $\rrr$ is the group operation. What if we wish to animate the movement of the player then? We use the exponential map! By currying, we only need to gradually increase $t$ from $0$ to $1$, and we already have a linear interpolation of the movement.
+Here $\circ$ is the group operation. What if we wish to animate the movement of the player then? We use the exponential map! By currying, we only need to gradually increase $t$ from $0$ to $1$, and we already have a linear interpolation of the movement.
 
 ### Finally understanding highschool mathematics $e^x$ and $\pi$
 
