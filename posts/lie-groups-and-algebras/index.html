@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Luca Leon Happel">
+<meta name="dcterms.date" content="2026-02-27">
+
+<title>The exponential map of lie groups – {{&lt; var website.title &gt;}}</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LEVM9WYR7J"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
+</script>
+<meta property="og:title" content="The exponential map of lie groups – Luca Happel’s personal website">
+<meta property="og:description" content="Luca Happel’s personal website, including lots of math and computer science.">
+<meta property="og:image" content="https://happel.ai/posts/lie-groups-and-algebras/{{< var profile.image >}}">
+<meta property="og:site_name" content="{{< var website.title >}}">
+</head><body class="nav-fixed fullcontent quarto-light"><div style="display: none;">
+    $$
+    \usepackage{amssymb}
+    \newcommand{\N}{\mathbb{N}}
+    \newcommand{\C}{\mathbb{C}}
+    \newcommand{\R}{\mathbb{R}}
+    \newcommand{\Z}{\mathbb{Z}}
+    \newcommand{\ZZ}{\ooalign{Z\cr\hidewidth\kern0.1em\raisebox{-0.5ex}{Z}\hidewidth\cr}}
+    \newcommand{\colim}{\text{colim}}
+    \newcommand{\weaktopo}{\tau_\text{weak}}
+    \newcommand{\strongtopo}{\tau_\text{strong}}
+    \newcommand{\normtopo}{\tau_\text{norm}}
+    \newcommand{\green}[1]{\textcolor{ForestGreen}{#1}}
+    \newcommand{\red}[1]{\textcolor{red}{#1}}
+    \newcommand{\blue}[1]{\textcolor{blue}{#1}}
+    \newcommand{\orange}[1]{\textcolor{orange}{#1}}
+    \newcommand{\tr}{\text{tr}}
+    \newcommand{\id}{\text{id}}
+    \newcommand{\im}{\text{im}\&gt;}
+    \newcommand{\res}{\text{res}}
+    \newcommand{\TopTwo}{\underline{\text{Top}^{(2)}}}
+    \newcommand{\CW}[1]{\underline{#1\text{-CW}}}
+    \newcommand{\ZZ}{%
+    \ooalign{Z\cr\hidewidth\raisebox{-0.5ex}{Z}\hidewidth\cr}%
+    }
+    % specific for this document
+    \newcommand{\cellOne}{\textcolor{green}{1}}
+    \newcommand{\cellTwo}{\textcolor{red}{2}}
+    \newcommand{\cellThree}{\textcolor{brown}{3}}
+    \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
+    $$
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Luca Happel’s personal website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Quoteme/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/lucahappel/"> <i class="bi bi-linkedin" role="img" aria-label="Linkedin">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/lucaleonhappel/"> <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.reddit.com/user/lalelul"> <i class="bi bi-reddit" role="img" aria-label="Reddit">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><p>The exponential map of lie groups</p></h1>
+            <p class="subtitle lead"></p><p>Or: what <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span> actually are all about</p><p></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">algebra</div>
+                <div class="quarto-category">geometry</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Luca Leon Happel </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 27, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="block-title">Abstract</div>
+      <p>We wish to understand what <span class="math inline">\(\exp(x)\)</span> is. We relate compound interest with sailing and along the way find out what <span class="math inline">\(\pi\)</span> and <span class="math inline">\(e\)</span> have in common.</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Everyone knows the exponential function <span class="math inline">\(\exp(x)\)</span>, and everyone knows the number <span class="math inline">\(e\)</span>. But what are they really?</p>
+<p>In this post, we will explore the exponential map in the context of Lie groups and Lie algebras. We will relate it to sailing, playing minecraft and compound interest, and along the way we will uncover the deep connections between these concepts and the fundamental constants of mathematics.</p>
+<section id="the-exponential-function-and-compound-interest" class="level2">
+<h2 class="anchored" data-anchor-id="the-exponential-function-and-compound-interest">The exponential function and compound interest</h2>
+<p>Traditionally, the exponential function is defined as the limit of compound interest. If you invest an amount of money <span class="math inline">\(m\)</span> at a certain interest rate <span class="math inline">\(x\)</span> per year, and the interest is compounded <span class="math inline">\(n\)</span> times per year, then after one year you will have:</p>
+<p><span class="math display">\[
+A = m \cdot \left(1 + \frac{x}{n}\right)^{n}
+\]</span></p>
+<p>As <span class="math inline">\(n\)</span> approaches infinity, this expression converges to:</p>
+<p><span class="math display">\[
+A = m \cdot e^{x}
+\]</span></p>
+<p>The significance of this limit is that it tells us how much money we would have, if we were to compound our interest continuously. In the real world, the best banks can do is decrease the compounding period to a day, or even an hour, but mathematically we can imagine compounding infinitely often, which leads us to the exponential function.</p>
+<p><span class="math display">\[
+\text{exp}(x) = \lim_{n \to \infty} \left(1 + \frac{x}{n}\right)^{n}
+\]</span></p>
+</section>
+<section id="sailing-a-boat-on-the-globe" class="level2">
+<h2 class="anchored" data-anchor-id="sailing-a-boat-on-the-globe">Sailing a boat on the globe</h2>
+<p>Let us consider a boat sailing on the surface of the Earth, which we can model as a sphere. If we pick some starting point on the globe, we can describe the boat’s position using two angles: latitude <span class="math inline">\(\textcolor{orange}{\phi}\)</span> and longitude <span class="math inline">\(\textcolor{purple}{\psi}\)</span> and additionally we can also consider the boat’s orientation, which can be described by a third angle <span class="math inline">\(\textcolor{teal}{\alpha}\)</span>.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/globe-sailing-earth.png" class="lightbox" data-gallery="sailing" title="Image of a boat sailing on the globe."><img src="../../assets/globe-sailing-earth.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Image of a boat sailing on the globe."></a></p>
+</figure>
+</div>
+<figcaption>Image of a boat sailing on the globe.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-position-encoded.png" class="lightbox" data-gallery="sailing" title="Starting point of the boat indicated using a line"><img src="../../assets/boat-position-encoded.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Starting point of the boat indicated using a line"></a></p>
+</figure>
+</div>
+<figcaption>Starting point of the boat indicated using a line</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-phi-wire.png" class="lightbox" data-gallery="sailing" title="Angle \textcolor{orange}{\phi} of the boat"><img src="../../assets/boat-phi-wire.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Angle \textcolor{orange}{\phi} of the boat"></a></p>
+</figure>
+</div>
+<figcaption>Angle <span class="math inline">\(\textcolor{orange}{\phi}\)</span> of the boat</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-psi-wire.png" class="lightbox" data-gallery="sailing" title="Angle \textcolor{purple}{\psi} of the boat"><img src="../../assets/boat-psi-wire.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Angle \textcolor{purple}{\psi} of the boat"></a></p>
+</figure>
+</div>
+<figcaption>Angle <span class="math inline">\(\textcolor{purple}{\psi}\)</span> of the boat</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Each possible position of the boat can be represented as a point on the sphere, or equivalently as a pair of angles <span class="math inline">\((\textcolor{orange}{\phi}, \textcolor{purple}{\psi})\)</span>, or as a rotation of the sphere that takes the boat from its starting position to its current position. This rotation/transformation can be represented as a matrix, and the set of all such transformations forms a mathematical structure called a Lie group.</p>
+<section id="the-lie-group-of-rotations-so3" class="level3">
+<h3 class="anchored" data-anchor-id="the-lie-group-of-rotations-so3">The Lie group of rotations: <span class="math inline">\(SO(3)\)</span></h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is a Lie group?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A <strong>Lie group</strong> is a group that is also a smooth manifold, meaning you can smoothly move between its elements.</p>
+<p><strong>Formally:</strong> A Lie group <span class="math inline">\(G\)</span> is a set equipped with</p>
+<ul>
+<li>a smooth multiplication <span class="math inline">\(G \times G \to G\)</span>, <span class="math inline">\((g, h) \mapsto gh\)</span>,</li>
+<li>a smooth inversion <span class="math inline">\(G \to G\)</span>, <span class="math inline">\(g \mapsto g^{-1}\)</span>,</li>
+<li>an identity element <span class="math inline">\(e \in G\)</span>,</li>
+</ul>
+<p>satisfying the usual group axioms (associativity, identity, inverse).</p>
+<p><strong>Intuition:</strong> You may think of a group as a collection of actions you can <em>do</em> and <em>undo</em>. Walking one step forward and one step backward cancel out; rotating a knob 30° clockwise and then 30° counter-clockwise returns you to where you started. The key is that every action has an <em>undo</em>.</p>
+<p><strong>Standard examples:</strong></p>
+<ul>
+<li>The <strong>real numbers</strong> <span class="math inline">\((\mathbb{R}, +)\)</span> form a Lie group: adding <span class="math inline">\(x\)</span> is undone by adding <span class="math inline">\(-x\)</span>, and you can smoothly slide along the number line.</li>
+<li>The <strong>unit circle</strong> <span class="math inline">\(S^1 = \{z \in \mathbb{C} \mid |z| = 1\}\)</span> with complex multiplication forms a Lie group: rotating the circle by angle <span class="math inline">\(\theta\)</span> is undone by rotating by <span class="math inline">\(-\theta\)</span>.</li>
+</ul>
+<p><strong>Weird but useful example:</strong> Adding interest to your bank account like the stock market does is a Lie group action: One month you gain say 5%, so if you started with <span class="math inline">\(x€\)</span>, you will have <span class="math inline">\(x€ \cdot 1.05\)</span> after that month. The next month you gain 3%, so you will have <span class="math inline">\(x€ \cdot 1.05 \cdot 1.03\)</span>. Now, if the following month, you lose 8%, you will have <span class="math inline">\(x€ \cdot 1.05 \cdot 1.03 \cdot 0.92\)</span>. If you started with <span class="math inline">\(x=1000€\)</span>, then you would be left with:</p>
+<div id="28e8392a" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1000</span> <span class="op">*</span> <span class="fl">1.05</span> <span class="op">*</span> <span class="fl">1.03</span> <span class="op">*</span> <span class="fl">0.92</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>994.98</code></pre>
+</div>
+</div>
+<p>And you would have lost money. Nontheless, for every gain, there is a loss that undoes it, and for every loss, there is a gain that undoes it, making the process of compounding interest/the stock market a Lie group action on your bank account balance.</p>
+</div>
+</div>
+</div>
+<p>As the boat sails, it changes its position on the sphere, and we can represent this change using a Lie group called <span class="math inline">\(SO(3)\)</span>, which describes rotations in three-dimensional space. We have</p>
+<p><span class="math display">\[
+\begin{aligned}
+SO(3) &amp;= \{ R \in \mathbb{R}^{3 \times 3} \mid R^T R = I,\ \det(R) = 1 \} \\
+&amp;= \{ R_x(\textcolor{teal}{\alpha})\, R_y(\textcolor{orange}{\phi})\, R_z(\textcolor{purple}{\psi}) \mid \textcolor{teal}{\alpha}, \textcolor{orange}{\phi}, \textcolor{purple}{\psi} \in \mathbb{R} \}
+\end{aligned}
+\]</span></p>
+<p>The boat’s position at latitude <span class="math inline">\(\textcolor{orange}{\phi}\)</span> and longitude <span class="math inline">\(\textcolor{purple}{\psi}\)</span> corresponds to the combined rotation <span class="math inline">\(R_z(\textcolor{purple}{\psi})\, R_y(\textcolor{orange}{\phi})\)</span>, where</p>
+<p><span class="math display">\[
+\begin{aligned}
+R_x(\textcolor{teal}{\alpha}) &amp;=
+\begin{pmatrix}
+  1 &amp; 0                           &amp; 0                            \\
+  0 &amp; \cos\textcolor{teal}{\alpha} &amp; -\sin\textcolor{teal}{\alpha} \\
+  0 &amp; \sin\textcolor{teal}{\alpha} &amp;  \cos\textcolor{teal}{\alpha}
+\end{pmatrix} \\[8pt]
+R_y(\textcolor{orange}{\phi}) &amp;=
+\begin{pmatrix}
+  \cos\textcolor{orange}{\phi}  &amp; 0 &amp; \sin\textcolor{orange}{\phi} \\
+  0                             &amp; 1 &amp; 0                            \\
+  -\sin\textcolor{orange}{\phi} &amp; 0 &amp; \cos\textcolor{orange}{\phi}
+\end{pmatrix} \\[8pt]
+R_z(\textcolor{purple}{\psi}) &amp;=
+\begin{pmatrix}
+  \cos\textcolor{purple}{\psi} &amp; -\sin\textcolor{purple}{\psi} &amp; 0 \\
+  \sin\textcolor{purple}{\psi} &amp;  \cos\textcolor{purple}{\psi} &amp; 0 \\
+  0                            &amp;  0                            &amp; 1
+\end{pmatrix} \\[8pt]
+R_z(\textcolor{purple}{\psi})\,R_y(\textcolor{orange}{\phi}) &amp;=
+\begin{pmatrix}
+  \cos\textcolor{purple}{\psi}\cos\textcolor{orange}{\phi}  &amp; -\sin\textcolor{purple}{\psi} &amp;  \cos\textcolor{purple}{\psi}\sin\textcolor{orange}{\phi} \\
+  \sin\textcolor{purple}{\psi}\cos\textcolor{orange}{\phi}  &amp;  \cos\textcolor{purple}{\psi} &amp;  \sin\textcolor{purple}{\psi}\sin\textcolor{orange}{\phi} \\
+  -\sin\textcolor{orange}{\phi}                             &amp;  0                            &amp;  \cos\textcolor{orange}{\phi}
+\end{pmatrix}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="the-lie-algebra-of-rotations-mathfrakso3" class="level3">
+<h3 class="anchored">The Lie algebra of rotations: <span class="math inline">\(\mathfrak{so}(3)\)</span></h3>
+<p>From the starting point of the boat, we can also consider the possible directions in which the boat can sail. Just encoding positions is no fun, we actually would like to sail on our boat after all!</p>
+<div style="display:flex; gap:1rem;">
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; flex:1;">
+<tbody><tr>
+<td style="padding:0;">
+<video controls="" autoplay="" loop="" muted="" style="width:100%; display:block;">
+<source src="../../assets/sphere-boat-phi.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</td>
+</tr>
+<tr>
+<td style="text-align:center; padding:0.4rem;">
+Sailing by varying the angle <span class="math inline">\(\textcolor{orange}{\phi}\)</span> (moving forward)
+</td>
+</tr>
+</tbody></table>
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; flex:1;">
+<tbody><tr>
+<td style="padding:0;">
+<video controls="" autoplay="" loop="" muted="" style="width:100%; display:block;">
+<source src="../../assets/sphere-boat-psi.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</td>
+</tr>
+<tr>
+<td style="text-align:center; padding:0.4rem;">
+Sailing by varying the angle <span class="math inline">\(\textcolor{purple}{\psi}\)</span> (this happens when the wind drifts you off course)
+</td>
+</tr>
+</tbody></table>
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; flex:1;">
+<tbody><tr>
+<td style="padding:0;">
+<video controls="" autoplay="" loop="" muted="" style="width:100%; display:block;">
+<source src="../../assets/sphere-boat-alpha.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</td>
+</tr>
+<tr>
+<td style="text-align:center; padding:0.4rem;">
+Sailing by varying the angle <span class="math inline">\(\textcolor{teal}{\alpha}\)</span> (turning the boat)
+</td>
+</tr>
+</tbody></table>
+</div>
+<p>We can sail by varying the angles <span class="math inline">\(\textcolor{orange}{\phi}\)</span>, <span class="math inline">\(\textcolor{purple}{\psi}\)</span> and <span class="math inline">\(\textcolor{teal}{\alpha}\)</span>, and we can do so by choosing very small changes in these angles, and then applying these more and more times. The smaller the angle, the more we need to apply it, but the better our result will approximate a smooth sailing path on the globe (see the similarity to the limit definition of the exponential function?).</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-tangent-space.png" class="lightbox" data-gallery="sailing" title="Tangent space of the sphere, its Lie-Algebra"><img src="../../assets/boat-tangent-space.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Tangent space of the sphere, its Lie-Algebra"></a></p>
+</figure>
+</div>
+<figcaption>Tangent space of the sphere, its Lie-Algebra</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This is similar to video game character movement, where you have a discrete set of controls (e.g.&nbsp;move forward, turn left, turn right) that you can apply repeatedly to navigate the character through the game world. For each frame that passed/tick inside the game which took a time <span class="math inline">\(\Delta t\)</span> to execute, you apply a small change <span class="math inline">\(\Delta v\)</span> to the character’s position and orientation, and by applying these changes repeatedly, you can create smooth movement through the game world. If we were to double our tick speed (i.e.&nbsp;halve <span class="math inline">\(\Delta t\)</span>), we would need to apply these smaller changes <span class="math inline">\(\Delta v\)</span> twice as often to achieve the “same movement”, albeit with smoother results! This is exactly the same as the limit definition of the exponential function, where we apply smaller and smaller changes more and more often to achieve a smooth transformation.</p>
+<p>These directions (<span class="math inline">\(\color{orange}{\phi}\)</span>, <span class="math inline">\(\color{purple}{\psi}\)</span>, <span class="math inline">\(\color{teal}{\alpha}\)</span> for smaller and smaller angles) form a vector space called the Lie algebra <span class="math inline">\(\mathfrak{so}(3)\)</span> associated with the Lie group <span class="math inline">\(SO(3)\)</span>. This is also the tangent space of <span class="math inline">\(SO(3)\)</span> at the identity element, which is the starting point of the boat.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is a Lie algebra?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A <strong>Lie algebra</strong> is a vector space <span class="math inline">\(\mathfrak{g}\)</span> equipped with a bilinear operation called the <strong>Lie bracket</strong> <span class="math display">\[[\cdot,\cdot] : \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}\]</span> satisfying:</p>
+<ol type="1">
+<li><strong>Antisymmetry:</strong> <span class="math inline">\([X, Y] = -[Y, X]\)</span></li>
+<li><strong>Jacobi identity:</strong> <span class="math inline">\([X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0\)</span></li>
+</ol>
+<p><strong>Intuition:</strong> Where a Lie group captures finite, reversible transformations, the Lie algebra captures their infinitesimal, linearised versions — the <em>directions</em> you can move from a given point. If a Lie group is the surface of a globe, the Lie algebra is the tangent plane at the identity, telling you which ways you can sail.</p>
+<p><strong>Example — <span class="math inline">\(\mathfrak{so}(3)\)</span>:</strong> The Lie algebra of <span class="math inline">\(SO(3)\)</span> consists of <span class="math inline">\(3\times 3\)</span> skew-symmetric matrices (i.e.&nbsp;matrices with <span class="math inline">\(A^T = -A\)</span>), with the bracket given by the matrix commutator <span class="math inline">\([A,B] = AB - BA\)</span>. The three basis elements are the infinitesimal generators of rotations around each axis: <span class="math display">\[
+L_x = \begin{pmatrix} 0&amp;0&amp;0\\ 0&amp;0&amp;-1\\ 0&amp;1&amp;0 \end{pmatrix},\quad
+L_y = \begin{pmatrix} 0&amp;0&amp;1\\ 0&amp;0&amp;0\\ -1&amp;0&amp;0 \end{pmatrix},\quad
+L_z = \begin{pmatrix} 0&amp;-1&amp;0\\ 1&amp;0&amp;0\\ 0&amp;0&amp;0 \end{pmatrix}
+\]</span> Their brackets reproduce the familiar cross-product relations: <span class="math inline">\([L_x, L_y] = L_z\)</span>, <span class="math inline">\([L_y, L_z] = L_x\)</span>, <span class="math inline">\([L_z, L_x] = L_y\)</span>.</p>
+<hr>
+<p>Notice however, that after having moved, say by <span class="math inline">\(R_y(\frac{\pi}{2})\)</span>, applying <span class="math inline">\(R_x(\frac{\pi}{2})\)</span> no longer corresponds to turning the boat, but rather to being turned by the wind! This is because the transformations do not commute, and the order in which we apply them matters.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-starting.png" class="lightbox" data-gallery="sailing" title="Starting point of the boat"><img src="../../assets/boat-starting.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Starting point of the boat"></a></p>
+</figure>
+</div>
+<figcaption>Starting point of the boat</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-y.png" class="lightbox" data-gallery="sailing" title="Applying R_y(\frac{\pi}{2}) to the boat"><img src="../../assets/boat-y.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Applying R_y(\frac{\pi}{2}) to the boat"></a></p>
+</figure>
+</div>
+<figcaption>Applying <span class="math inline">\(R_y(\frac{\pi}{2})\)</span> to the boat</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-yx.png" class="lightbox" data-gallery="sailing" title="Applying R_x(\frac{\pi}{2}) after R_y(\frac{\pi}{2})"><img src="../../assets/boat-yx.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Applying R_x(\frac{\pi}{2}) after R_y(\frac{\pi}{2})"></a></p>
+</figure>
+</div>
+<figcaption>Applying <span class="math inline">\(R_x(\frac{\pi}{2})\)</span> after <span class="math inline">\(R_y(\frac{\pi}{2})\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-starting.png" class="lightbox" data-gallery="sailing" title="Starting point of the boat"><img src="../../assets/boat-starting.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Starting point of the boat"></a></p>
+</figure>
+</div>
+<figcaption>Starting point of the boat</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-x.png" class="lightbox" data-gallery="sailing" title="Applying R_x(\frac{\pi}{2}) to the boat"><img src="../../assets/boat-x.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Applying R_x(\frac{\pi}{2}) to the boat"></a></p>
+</figure>
+</div>
+<figcaption>Applying <span class="math inline">\(R_x(\frac{\pi}{2})\)</span> to the boat</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/boat-xy.png" class="lightbox" data-gallery="sailing" title="Applying R_y(\frac{\pi}{2}) after R_x(\frac{\pi}{2})"><img src="../../assets/boat-xy.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Applying R_y(\frac{\pi}{2}) after R_x(\frac{\pi}{2})"></a></p>
+</figure>
+</div>
+<figcaption>Applying <span class="math inline">\(R_y(\frac{\pi}{2})\)</span> after <span class="math inline">\(R_x(\frac{\pi}{2})\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The Lie bracket encodes this information, but in the infinitesimal limit.</p>
+</div>
+</div>
+</div>
+<section id="the-exponential-map-of-lie-groups" class="level2">
+<h2 class="anchored" data-anchor-id="the-exponential-map-of-lie-groups">The exponential map of Lie groups</h2>
+<p>Recall the videos above: sailing the boat by a tiny angle <span class="math inline">\(\varepsilon\)</span> over and over again traces out a smooth curve on the globe for <span class="math inline">\(\color{orange}{\phi}\)</span> and <span class="math inline">\(\color{purple}{\psi}\)</span> and by also including <span class="math inline">\(\color{teal}{\alpha}\)</span>, the boat can even turn while sailing. The <strong>exponential map</strong> makes this precise — it turns an infinitesimal direction (an element of the Lie algebra) into a finite transformation (an element of the Lie group), by following that direction for one unit of “time”:</p>
+<p><span class="math display">\[
+\exp : \mathfrak{g} \longrightarrow G, \qquad \exp(X) = \lim_{n \to \infty} \left(e + \frac{X}{n}\right)^n
+\]</span></p>
+<p>For matrix Lie groups this limit is just the familiar matrix power series:</p>
+<p><span class="math display">\[
+\exp(X) = \sum_{k=0}^{\infty} \frac{X^k}{k!} = I + X + \frac{X^2}{2!} + \frac{X^3}{3!} + \cdots
+\]</span></p>
+<p><strong>Connection to the sailing animation:</strong> each generator <span class="math inline">\(X \in \mathfrak{so}(3)\)</span> describes an infinitesimal rotation — the direction the boat is heading at <span class="math inline">\(t=0\)</span>. Applying it over and over in tiny steps, exactly as in the videos, produces the finite rotation <span class="math inline">\(\exp(X) \in SO(3)\)</span>. This is the same limit we saw for compound interest: more, smaller steps converging to the smooth exponential.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The exponential map definition
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(G\)</span> be a Lie group with Lie algebra <span class="math inline">\(\mathfrak{g} = T_e G\)</span> (the tangent space at the identity). For each <span class="math inline">\(X \in \mathfrak{g}\)</span> there is a unique smooth “one-parameter subgroup” <span class="math display">\[\gamma_X : \mathbb{R} \to G, \quad \gamma_X(0) = e,\quad \gamma_X'(0) = X\]</span> The exponential map is then defined by <span class="math display">\[\exp(X) := \gamma_X(1)\]</span> It satisfies <span class="math inline">\(\exp(sX) = \gamma_X(s)\)</span> for all <span class="math inline">\(s \in \mathbb{R}\)</span>, and its derivative at <span class="math inline">\(0\)</span> is the identity: <span class="math inline">\(d\exp_0 = \mathrm{id}_{\mathfrak{g}}\)</span>.</p>
+<p>A one-parameter subgroup, although called a “subgroup”, is just a morphism from <span class="math inline">\((\mathbb{R}, +)\)</span> to <span class="math inline">\(G\)</span>. By requiring <span class="math inline">\(\gamma_X'(0) = X\)</span>, we already uniquely determine <span class="math inline">\(\gamma_X\)</span> as the solution to the initial value problem, because of the Lie-grouphomomorphism requirement.</p>
+</div>
+</div>
+</div>
+<section id="finally-understanding-highschool-mathematics-ex-and-pi" class="level3">
+<h3 class="anchored" data-anchor-id="finally-understanding-highschool-mathematics-ex-and-pi">Finally understanding highschool mathematics <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span></h3>
+<p>With compound interest, we also also given a Lie group: <span class="math inline">\((\mathbb{R}_{&gt;0}, \cdot)\)</span>. Here <span class="math inline">\(1\)</span> is the unit (we may also regard it as 100% of our money). “Sailing” here is multiplying by a factor of <span class="math inline">\(1 + x\)</span>, were <span class="math inline">\(x\)</span> is the interest rate. The Lie algebra is <span class="math inline">\((\mathbb{R}, +)\)</span>, which is again the tangent space of <span class="math inline">\((\mathbb{R}_{&gt;0}, \cdot)\)</span> at <span class="math inline">\(1\)</span>. We may pick some direction <span class="math inline">\(X \in \mathbb{R}\)</span>, which is the interest rate that we want to apply. If we would set our stepsize/<span class="math inline">\(\Delta t\)</span> to <span class="math inline">\(1\)</span>, we would only apply the interest once. Kinda like playing a game on 1FPS. If we would set our stepsize to <span class="math inline">\(0.5\)</span>, we would apply the interest twice and so on and in the limit, we want to have a map <span class="math inline">\(\exp : (\mathbb{R}, +) \times (\mathbb{R}, +) \to (\mathbb{R}_{&gt;0}, \cdot)\)</span> that has <span class="math inline">\(\frac{d}{dt} \exp(X)(t) = X\)</span> and by abuse of notation, we have <span class="math inline">\(\exp(X)(1) = \exp(X)\)</span>, our trusty old friend from highschool. In particular, we have <span class="math inline">\(\exp(1) = e\)</span>.</p>
+<p>As a further consequence, we get that <span class="math inline">\(\pi = \log(-1)\)</span> for <span class="math inline">\(\log\)</span> the inverse function (as a morphism of sets) of <span class="math inline">\(\exp : (\mathbb{R}, +) \to (S^1, \cdot)\)</span>, where <span class="math inline">\(S^1\)</span> is the unit circle in the complex plane. Or another way to see this, is to say that <span class="math inline">\(2\pi \mathbb{Z} = \text{ker}(exp)\)</span>, which means that <span class="math inline">\(2\pi\)</span> (and <span class="math inline">\(-2\pi\)</span>) is the answer to the question “how long would I need to travel along the unit circle with unit velocity to get back to where I started, so that any other such length that leads back to the start is just a multiple of this answer?”.</p>
+<!-- <video controls autoplay loop muted style="width:50%; display:block;"> -->
+<!--   <source src="/assets/pi.webm" type="video/webm"> -->
+<!--   Your browser does not support the video tag. -->
+<!-- </video> -->
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; margin:auto; width:50%;">
+<tbody><tr>
+<td style="padding:0;">
+<video controls="" autoplay="" loop="" muted="" style="width:100%; display:block;">
+<source src="../../assets/pi.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</td>
+</tr>
+<tr>
+<td style="text-align:center; padding:0.4rem;">
+Traveling along the unit circle with unit velocity, we get back to where we started after <span class="math inline">\(2\pi\)</span> units of time
+</td>
+</tr>
+</tbody></table>
+<p>In both cases the problem in the end boils down to calculating the integrals</p>
+<p><span class="math display">\[
+e = \int_0^1 \gamma_1(t) dt
+\]</span></p>
+<p>with <span class="math inline">\(\gamma_1\)</span> the one-parameter subgroup of <span class="math inline">\((\mathbb{R}_{&gt;0}, \cdot)\)</span> with <span class="math inline">\(\gamma_1'(0) = 1\)</span>, and</p>
+<p><span class="math display">\[
+0 = \int_0^{2\pi} \gamma_1(t) dt
+\]</span></p>
+<p>with <span class="math inline">\(\gamma_1\)</span> the one-parameter subgroup of <span class="math inline">\(S^1\)</span> with <span class="math inline">\(\gamma_1'(0) = 1\)</span>.</p>
+
+
+</section>
+</section>
+</section></section></main></div>
+
+
+
+ <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/happel\.ai\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+ <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../impressum.html">
+<p>Impressum</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../datenschutz.html">
+<p>Datenschutz</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

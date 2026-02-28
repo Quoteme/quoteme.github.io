@@ -1,11 +1,8 @@
 [
   {
-    "listing": "/projects.html",
-    "items": []
-  },
-  {
     "listing": "/index.html",
     "items": [
+      "/posts/lie-groups-and-algebras/index.html",
       "/posts/bitwarden-git-code-signing/index.html",
       "/posts/commutator/index.html",
       "/posts/l2-alexander-torsion-thurston-norm/index.html",
@@ -39,5 +36,9 @@
       "/posts/lets-game-dev-community-challenge-2/index.html",
       "/posts/lets-game-dev-community-challenge/index.html"
     ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": []
   }
 ]
