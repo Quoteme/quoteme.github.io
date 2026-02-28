@@ -245,7 +245,7 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title"><p>The exponential map of lie groups</p></h1>
-            <p class="subtitle lead"></p><p>Or: what <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span> actually are all about</p><p></p>
+            <p class="subtitle lead"></p><p>Or: what <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span> actually are all about and some funny connections betwee <em>machine learning</em>, <em>sailing</em> and the <em>stock market</em></p><p></p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">algebra</div>
                 <div class="quarto-category">geometry</div>
@@ -397,9 +397,9 @@ What is a Lie group?
 <li>The <strong>unit circle</strong> <span class="math inline">\(S^1 = \{z \in \mathbb{C} \mid |z| = 1\}\)</span> with complex multiplication forms a Lie group: rotating the circle by angle <span class="math inline">\(\theta\)</span> is undone by rotating by <span class="math inline">\(-\theta\)</span>.</li>
 </ul>
 <p><strong>Weird but useful example:</strong> Adding interest to your bank account like the stock market does is a Lie group action: One month you gain say 5%, so if you started with <span class="math inline">\(x€\)</span>, you will have <span class="math inline">\(x€ \cdot 1.05\)</span> after that month. The next month you gain 3%, so you will have <span class="math inline">\(x€ \cdot 1.05 \cdot 1.03\)</span>. Now, if the following month, you lose 8%, you will have <span class="math inline">\(x€ \cdot 1.05 \cdot 1.03 \cdot 0.92\)</span>. If you started with <span class="math inline">\(x=1000€\)</span>, then you would be left with:</p>
-<div id="28e8392a" class="cell" data-execution_count="1">
+<div id="506e55be" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1000</span> <span class="op">*</span> <span class="fl">1.05</span> <span class="op">*</span> <span class="fl">1.03</span> <span class="op">*</span> <span class="fl">0.92</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>994.98</code></pre>
 </div>
 </div>
@@ -499,10 +499,10 @@ Sailing by varying the angle <span class="math inline">\(\textcolor{teal}{\alpha
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../../assets/boat-tangent-space.png" class="lightbox" data-gallery="sailing" title="Tangent space of the sphere, its Lie-Algebra"><img src="../../assets/boat-tangent-space.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Tangent space of the sphere, its Lie-Algebra"></a></p>
+<p><a href="../../assets/boat-tangent-space.png" class="lightbox" data-gallery="sailing" title="Tangent space of the sphere. If we consider the subgroup of SO(3) that only includes rotations around the y-axis and z-axis, then the tangent space at the identity element (the starting point of the boat) is spanned by the seen 2d-plane. We may imagine a third direction, which would encode the rotation of our boat, as can be seen here"><img src="../../assets/boat-tangent-space.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Tangent space of the sphere. If we consider the subgroup of SO(3) that only includes rotations around the y-axis and z-axis, then the tangent space at the identity element (the starting point of the boat) is spanned by the seen 2d-plane. We may imagine a third direction, which would encode the rotation of our boat, as can be seen here"></a></p>
 </figure>
 </div>
-<figcaption>Tangent space of the sphere, its Lie-Algebra</figcaption>
+<figcaption>Tangent space of the sphere. If we consider the subgroup of <span class="math inline">\(SO(3)\)</span> that only includes rotations around the <span class="math inline">\(y\)</span>-axis and <span class="math inline">\(z\)</span>-axis, then the tangent space at the identity element (the starting point of the boat) is spanned by the seen 2d-plane. We may imagine a third direction, which would encode the rotation of our boat, as can be seen <a href="https://www.youtube.com/watch?v=0_m6RLH889Q&amp;t=664s">here</a></figcaption>
 </figure>
 </div>
 </div>
@@ -645,6 +645,23 @@ The exponential map definition
 </div>
 </div>
 </div>
+<p>The main benefit here is, that we can now choose directions in the Lie algebra given a lie group, and we can (by currying) walk along the geodesic that starts at the identity element of the Lie group and has the chosen direction (and velocity!) for any amount of time we like.</p>
+<section id="the-exponential-map-in-minecraft" class="level3">
+<h3 class="anchored" data-anchor-id="the-exponential-map-in-minecraft">The exponential map in Minecraft</h3>
+<p>So in minecraft, you are normally given a “spawn point” <span class="math inline">\(p \in \mathbb{R}^3\)</span>. Players can then move around in this world by pressing the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd>, <kbd>Space</kbd> and <kbd>Shift</kbd> keys, which correspond to moving forward, left, backward, right, up and down respectively. Assuming that minecraft would be infinitly big and players could move freely without collision detection, this would already form a lie group (in this case <span class="math inline">\((\mathbb{R}^3, +)\)</span>). But players can also move their camera! So in this case, the underlying manifold would be more like <span class="math inline">\(\mathbb{R}^3 \times S^2\)</span>, where <span class="math inline">\(S^2\)</span> encodes the camera orientation. By using two angles for <span class="math inline">\(S^2\)</span>, we can define each possible point in this manifold using three numbers <span class="math inline">\((x,y,z, \phi, \psi)\)</span>.</p>
+<p>We now still need to twist the <span class="math inline">\((x,y,z)\)</span>-part of the movement, so that when we press <kbd>W</kbd>, we move forward in the direction that our camera is facing, and not just along the <span class="math inline">\(x\)</span>-axis. We need:</p>
+<p><span class="math display">\[
+\begin{aligned}
+(0,0,0, \phi, 0) &amp;\circ (1,0,0, 0, 0) = (\cos(\phi), 0, \sin(\phi), \phi, 0) \\
+(0,0,0, \phi, 0) &amp;\circ (0,1,0, 0, 0) = (-\sin(\phi), 0, \cos(\phi), \phi, 0) \\
+\dots \\
+(0,0,0, 0, \psi) &amp;\circ (1,0,0, 0, 0) = (\cos(\psi), \sin(\psi), 0, 0, \psi) \\
+(0,0,0, 0, \psi) &amp;\circ (0,1,0, 0, 0) = (-\sin(\psi), \cos(\psi), 0, 0, \psi) \\
+\dots \\
+\end{aligned}
+\]</span></p>
+<p>Here <span class="math inline">\(\circ\)</span> is the group operation. What if we wish to animate the movement of the player then? We use the exponential map! By currying, we only need to gradually increase <span class="math inline">\(t\)</span> from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>, and we already have a linear interpolation of the movement.</p>
+</section>
 <section id="finally-understanding-highschool-mathematics-ex-and-pi" class="level3">
 <h3 class="anchored" data-anchor-id="finally-understanding-highschool-mathematics-ex-and-pi">Finally understanding highschool mathematics <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span></h3>
 <p>With compound interest, we also also given a Lie group: <span class="math inline">\((\mathbb{R}_{&gt;0}, \cdot)\)</span>. Here <span class="math inline">\(1\)</span> is the unit (we may also regard it as 100% of our money). “Sailing” here is multiplying by a factor of <span class="math inline">\(1 + x\)</span>, were <span class="math inline">\(x\)</span> is the interest rate. The Lie algebra is <span class="math inline">\((\mathbb{R}, +)\)</span>, which is again the tangent space of <span class="math inline">\((\mathbb{R}_{&gt;0}, \cdot)\)</span> at <span class="math inline">\(1\)</span>. We may pick some direction <span class="math inline">\(X \in \mathbb{R}\)</span>, which is the interest rate that we want to apply. If we would set our stepsize/<span class="math inline">\(\Delta t\)</span> to <span class="math inline">\(1\)</span>, we would only apply the interest once. Kinda like playing a game on 1FPS. If we would set our stepsize to <span class="math inline">\(0.5\)</span>, we would apply the interest twice and so on and in the limit, we want to have a map <span class="math inline">\(\exp : (\mathbb{R}, +) \times (\mathbb{R}, +) \to (\mathbb{R}_{&gt;0}, \cdot)\)</span> that has <span class="math inline">\(\frac{d}{dt} \exp(X)(t) = X\)</span> and by abuse of notation, we have <span class="math inline">\(\exp(X)(1) = \exp(X)\)</span>, our trusty old friend from highschool. In particular, we have <span class="math inline">\(\exp(1) = e\)</span>.</p>
@@ -673,12 +690,58 @@ e = \int_0^1 \gamma_1(t) dt
 \]</span></p>
 <p>with <span class="math inline">\(\gamma_1\)</span> the one-parameter subgroup of <span class="math inline">\((\mathbb{R}_{&gt;0}, \cdot)\)</span> with <span class="math inline">\(\gamma_1'(0) = 1\)</span>, and</p>
 <p><span class="math display">\[
-0 = \int_0^{2\pi} \gamma_1(t) dt
+1 = \int_0^{2\pi} \gamma_1(t) dt
 \]</span></p>
 <p>with <span class="math inline">\(\gamma_1\)</span> the one-parameter subgroup of <span class="math inline">\(S^1\)</span> with <span class="math inline">\(\gamma_1'(0) = 1\)</span>.</p>
-
-
 </section>
+</section>
+<section id="closing-thoughts-relation-to-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="closing-thoughts-relation-to-machine-learning">Closing thoughts (relation to machine learning)</h2>
+<p>Moving along a manifold along geodesics is a fundamental operation in geometry and especially in recent times this method has seen a lot of use in machine learning, where the underlying data is often assumed to be a manifold. Especially in the context of optimization, we often want to move along the steepest descent direction, which is a direction in the tangent space of the manifold, like in <strong>gradient descent</strong>:</p>
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; margin:auto; width:50%;">
+<tbody><tr>
+<td style="padding:0;">
+<video controls="" autoplay="" loop="" muted="" style="width:100%; display:block;">
+<source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4c/Gradient_Descent_in_2D.webm/Gradient_Descent_in_2D.webm.480p.vp9.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</td>
+</tr>
+<tr>
+<td style="text-align:center; padding:0.4rem;">
+Gradient descent on a 2d function, where the red dot moves along the steepest descent direction (the tangent space) to find a local minimum
+</td>
+</tr>
+</tbody></table>
+<p>Machine learning models are often trained by minimizing a loss function, which measures how well the model is performing on a given task. Take a look at an <strong>autoencoder</strong> in machine learning:</p>
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; margin:auto; width:50%;">
+<tbody><tr>
+<td style="padding:0;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Autoencoder_schema.png" alt="Schema of an autoencoder, a type of neural network that learns to compress and reconstruct data. The latent space in the middle can be thought of as a manifold, and the training process involves moving along this manifold to find good representations of the data." style="width:100%; display:block;">
+</td>
+</tr>
+<tr>
+<td style="text-align:center; padding:0.4rem;">
+Schema of an autoencoder, a type of neural network that learns to compress and reconstruct data. The latent space in the middle can be thought of as a manifold, and the training process involves moving along this manifold to find good representations of the data.
+</td>
+</tr>
+</tbody></table>
+<p>Basically an autoencoder is just a glorified way to find a “hopefully best” section <span class="math inline">\(\sigma\)</span> (called <strong>decoder</strong>) to the retract <span class="math inline">\(\rho\)</span> (called <strong>encoder</strong>), as in this figure (here <span class="math inline">\(\sigma\)</span> takes in noisy data and outputs a clean representation, and <span class="math inline">\(\rho\)</span> takes in clean data and outputs a compressed representation. Saying they are sections and retracts boils down to <span class="math inline">\(\sigma \circ \rho = \mathrm{id}\)</span>):</p>
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; margin:auto; width:50%;">
+<tbody><tr>
+<td style="padding:0;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Denoising-autoencoder.png" alt="A denoising autoencoder, which is a type of autoencoder that learns to reconstruct clean data from noisy input. The training process involves moving along the manifold of clean data representations to find good reconstructions." style="width:100%; display:block;">
+</td>
+</tr>
+<tr>
+<td style="text-align:center; padding:0.4rem;">
+A denoising autoencoder, which is a type of autoencoder that learns to reconstruct clean data from noisy input. The training process involves moving along the manifold of clean data representations to find good reconstructions.
+</td>
+</tr>
+</tbody></table>
+<p>So what we do is, we restrict ourself to a certain subcategory <span class="math inline">\(\mathcal{C}\)</span> whose objects are the noisy/denoised data manifolds and whose morphisms are some subset of functions between these. We specifically require for all <span class="math inline">\(f : X \to Y\)</span> in <span class="math inline">\(\mathcal{C}\)</span> that we have some bolts and nuts that we can turn to tune <span class="math inline">\(f\)</span> (e.g.&nbsp;the weights), which we reguire to be lie groups (as is common in machine learning, where the weights are often just real numbers, due to using compositions of linear functions and non-linearities weighed by real numbers). We can now define a loss function <span class="math inline">\(L : X \times X \to \mathbb{R}\)</span>, which measures how well a morphism <span class="math inline">\(f\)</span> is doing at a point by applying <span class="math inline">\(L(x, f(x))\)</span> or we may form <span class="math inline">\(\int L(x, f(x)) dx\)</span> to get a more global measure of how well <span class="math inline">\(f\)</span> performs.</p>
+<p>Now, we can use the exponential map to move along the manifold and find those nuts and bolts that minimize the loss function.</p>
+
+
 </section>
 </section></section></main></div>
 
