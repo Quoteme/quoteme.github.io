@@ -5,7 +5,7 @@ subtitle: |
   Or: what $e^x$ and $\pi$ actually are all about
 author: "Luca Leon Happel"
 date: "2026-02-27"
-categories: ["algebra", "geometry", "English"]
+categories: ["algebra", "geometry", "machine learning", "English"]
 abstract: |
   We wish to understand what $\exp(x)$ is. We relate compound interest with
   sailing and along the way find out what $\pi$ and $e$ have in common.
@@ -324,3 +324,56 @@ $$
 $$
 
 with $\gamma_1$ the one-parameter subgroup of $S^1$ with $\gamma_1'(0) = 1$.
+
+## Closing thoughts (relation to machine learning)
+
+Moving along a manifold along geodesics is a fundamental operation in geometry and especially in recent times this method has seen a lot of use in machine learning, where the underlying data is often assumed to be a manifold.
+Especially in the context of optimization, we often want to move along the steepest descent direction, which is a direction in the tangent space of the manifold, like in __gradient descent__:
+
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; margin:auto; width:50%;">
+  <tr>
+    <td style="padding:0;">
+      <video controls autoplay loop muted style="width:100%; display:block;">
+        <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4c/Gradient_Descent_in_2D.webm/Gradient_Descent_in_2D.webm.480p.vp9.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align:center; padding:0.4rem;">Gradient descent on a 2d function, where the red dot moves along the steepest descent direction (the tangent space) to find a local minimum</td>
+  </tr>
+</table>
+
+Machine learning models are often trained by minimizing a loss function, which measures how well the model is performing on a given task.
+Take a look at an __autoencoder__ in machine learning:
+
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; margin:auto; width:50%;">
+  <tr>
+    <td style="padding:0;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Autoencoder_schema.png" alt="Schema of an autoencoder, a type of neural network that learns to compress and reconstruct data. The latent space in the middle can be thought of as a manifold, and the training process involves moving along this manifold to find good representations of the data." style="width:100%; display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align:center; padding:0.4rem;">Schema of an autoencoder, a type of neural network that learns to compress and reconstruct data. The latent space in the middle can be thought of as a manifold, and the training process involves moving along this manifold to find good representations of the data.</td>
+  </tr>
+</table>
+
+Basically an autoencoder is just a glorified way to find a "hopefully best" section $\sigma$ (called __decoder__) to the retract $\rho$ (called __encoder__), as in this figure
+(here $\sigma$ takes in noisy data and outputs a clean representation, and $\rho$ takes in clean data and outputs a compressed representation. Saying they are sections and retracts boils down to $\sigma \circ \rho = \mathrm{id}$):
+
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; margin:auto; width:50%;">
+  <tr>
+    <td style="padding:0;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Denoising-autoencoder.png" alt="A denoising autoencoder, which is a type of autoencoder that learns to reconstruct clean data from noisy input. The training process involves moving along the manifold of clean data representations to find good reconstructions." style="width:100%; display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align:center; padding:0.4rem;">A denoising autoencoder, which is a type of autoencoder that learns to reconstruct clean data from noisy input. The training process involves moving along the manifold of clean data representations to find good reconstructions.</td>
+  </tr>
+</table>
+
+So what we do is, we restrict ourself to a certain subcategory $\mathcal{C}$ whose objects are the noisy/denoised data manifolds and whose morphisms are some subset of functions between these.
+We specifically require for all $f : X \to Y$ in $\mathcal{C}$ that we have some bolts and nuts that we can turn to tune $f$ (e.g. the weights), which we reguire to be lie groups (as is common in machine learning, where the weights are often just real numbers, due to using compositions of linear functions and non-linearities weighed by real numbers).
+We can now define a loss function $L : X \times X \to \mathbb{R}$, which measures how well a morphism $f$ is doing at a point by applying $L(x, f(x))$ or we may form $\int L(x, f(x)) dx$ to get a more global measure of how well $f$ performs.
+
+Now, we can use the exponential map to move along the manifold and find those nuts and bolts that minimize the loss function.
