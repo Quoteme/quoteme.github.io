@@ -5,3 +5,5 @@
 *.quarto_ipynb
 _freeze/
 _site/
+
+**/*.quarto_ipynb
