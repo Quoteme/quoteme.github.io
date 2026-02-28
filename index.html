@@ -84,9 +84,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-description','listing-image','listing-tags','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-description','listing-image','listing-tags','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-subtitle","listing-description","listing-image","listing-tags","listing-date","listing-categories"],
+      searchColumns: ["listing-title","listing-subtitle","listing-description","listing-image","listing-tags","listing-date"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -112,10 +112,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       page: 25,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -268,11 +268,9 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block"></header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="My1tYW5pZm9sZHM="><span class="quarto-category-count category-cloud-1">3-manifolds</span></div><div class="category" data-category="YWJzdHJhY3QlMjBhbGdlYnJh"><span class="quarto-category-count category-cloud-2">abstract algebra</span></div><div class="category" data-category="YWxnZWJyYQ=="><span class="quarto-category-count category-cloud-3">algebra</span></div><div class="category" data-category="YWxnZWJyYWljJTIwZ2VvbWV0cnk="><span class="quarto-category-count category-cloud-1">algebraic geometry</span></div><div class="category" data-category="YWxnZWJyYWljJTIwdG9wb2xvZ3k="><span class="quarto-category-count category-cloud-1">algebraic topology</span></div><div class="category" data-category="YXV0b21hdGVkJTIwdGhlb3JlbSUyMHByb3Zpbmc="><span class="quarto-category-count category-cloud-1">automated theorem proving</span></div><div class="category" data-category="Ym9pZHM="><span class="quarto-category-count category-cloud-1">boids</span></div><div class="category" data-category="Y2FsY3VsdXM="><span class="quarto-category-count category-cloud-1">calculus</span></div><div class="category" data-category="Y2F0ZWdvcnklMjB0aGVvcnk="><span class="quarto-category-count category-cloud-1">category theory</span></div><div class="category" data-category="Y29tcGlsZXJz"><span class="quarto-category-count category-cloud-1">compilers</span></div><div class="category" data-category="Y29tcHV0ZXIlMjBzY2llbmNl"><span class="quarto-category-count category-cloud-2">computer science</span></div><div class="category" data-category="Y290YW5nZW50JTIwYnVuZGxl"><span class="quarto-category-count category-cloud-1">cotangent bundle</span></div><div class="category" data-category="Y290YW5nZW50JTIwc3BhY2U="><span class="quarto-category-count category-cloud-1">cotangent space</span></div><div class="category" data-category="Y3liZXIlMjBzZWN1cml0eQ=="><span class="quarto-category-count category-cloud-1">cyber security</span></div><div class="category" data-category="RGV1dHNjaA=="><span class="quarto-category-count category-cloud-2">Deutsch</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwZm9ybXM="><span class="quarto-category-count category-cloud-1">differential forms</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk="><span class="quarto-category-count category-cloud-1">differential geometry</span></div><div class="category" data-category="ZGlmZmVyZW50aWFsJTIwdG9wb2xvZ3k="><span class="quarto-category-count category-cloud-1">differential topology</span></div><div class="category" data-category="ZGltZW5zaW9u"><span class="quarto-category-count category-cloud-1">dimension</span></div><div class="category" data-category="ZW5jcnlwdGlvbg=="><span class="quarto-category-count category-cloud-1">encryption</span></div><div class="category" data-category="RW5nbGlzaA=="><span class="quarto-category-count category-cloud-8">English</span></div><div class="category" data-category="ZXNwMzI="><span class="quarto-category-count category-cloud-1">esp32</span></div><div class="category" data-category="ZXh0ZXJpb3IlMjBhbGdlYnJh"><span class="quarto-category-count category-cloud-1">exterior algebra</span></div><div class="category" data-category="Zm9ybWFsJTIwdmVyaWZpY2F0aW9u"><span class="quarto-category-count category-cloud-1">formal verification</span></div><div class="category" data-category="ZnJhY3RhbHM="><span class="quarto-category-count category-cloud-1">fractals</span></div><div class="category" data-category="ZnVuY3Rpb25hbCUyMGFuYWx5c2lz"><span class="quarto-category-count category-cloud-1">functional analysis</span></div><div class="category" data-category="Z2FtZQ=="><span class="quarto-category-count category-cloud-1">game</span></div><div class="category" data-category="Z2FtZSUyMGRldmVsb3BtZW50"><span class="quarto-category-count category-cloud-1">game development</span></div><div class="category" data-category="Z2VvbWV0cnk="><span class="quarto-category-count category-cloud-1">geometry</span></div><div class="category" data-category="Z2l0"><span class="quarto-category-count category-cloud-1">git</span></div><div class="category" data-category="Z2xvYmFsJTIwc2VjdGlvbg=="><span class="quarto-category-count category-cloud-1">global section</span></div><div class="category" data-category="Z3JvdXAlMjB0aGVvcnk="><span class="quarto-category-count category-cloud-1">group theory</span></div><div class="category" data-category="aGFyZHdhcmU="><span class="quarto-category-count category-cloud-1">hardware</span></div><div class="category" data-category="SGFza2VsbA=="><span class="quarto-category-count category-cloud-1">Haskell</span></div><div class="category" data-category="SGVpbnJpY2gtSGVpbmUlMjBVbml2ZXJzaXQlQzMlQTR0"><span class="quarto-category-count category-cloud-1">Heinrich-Heine Universität</span></div><div class="category" data-category="aXNvbW9ycGhpc21z"><span class="quarto-category-count category-cloud-1">isomorphisms</span></div><div class="category" data-category="SmF2YVNjcmlwdA=="><span class="quarto-category-count category-cloud-1">JavaScript</span></div><div class="category" data-category="amF2YXNjcmlwdA=="><span class="quarto-category-count category-cloud-1">javascript</span></div><div class="category" data-category="SlNEb2M="><span class="quarto-category-count category-cloud-1">JSDoc</span></div><div class="category" data-category="a2V5Ym9hcmQ="><span class="quarto-category-count category-cloud-1">keyboard</span></div><div class="category" data-category="a25vdCUyMHRoZW9yeQ=="><span class="quarto-category-count category-cloud-1">knot theory</span></div><div class="category" data-category="bGVhbjQ="><span class="quarto-category-count category-cloud-1">lean4</span></div><div class="category" data-category="bGludXg="><span class="quarto-category-count category-cloud-1">linux</span></div><div class="category" data-category="bG9naWM="><span class="quarto-category-count category-cloud-1">logic</span></div><div class="category" data-category="bWFuaWZvbGQ="><span class="quarto-category-count category-cloud-1">manifold</span></div><div class="category" data-category="bWF0aA=="><span class="quarto-category-count category-cloud-4">math</span></div><div class="category" data-category="bWF0aGVtYXRpY3M="><span class="quarto-category-count category-cloud-2">mathematics</span></div><div class="category" data-category="bWVhc3VyZSUyMHRoZW9yeQ=="><span class="quarto-category-count category-cloud-1">measure theory</span></div><div class="category" data-category="bWVtZQ=="><span class="quarto-category-count category-cloud-1">meme</span></div><div class="category" data-category="TWluZWNyYWZ0"><span class="quarto-category-count category-cloud-1">Minecraft</span></div><div class="category" data-category="bW9kZWwlMjB0aGVvcnk="><span class="quarto-category-count category-cloud-1">model theory</span></div><div class="category" data-category="b29w"><span class="quarto-category-count category-cloud-1">oop</span></div><div class="category" data-category="cG9seW5vbWlhbCUyMHJpbmdz"><span class="quarto-category-count category-cloud-1">polynomial rings</span></div><div class="category" data-category="cHJvZ3JhbW1pbmc="><span class="quarto-category-count category-cloud-3">programming</span></div><div class="category" data-category="cXVvdGllbnQlMjByaW5ncw=="><span class="quarto-category-count category-cloud-1">quotient rings</span></div><div class="category" data-category="cmluZyUyMHRoZW9yeQ=="><span class="quarto-category-count category-cloud-2">ring theory</span></div><div class="category" data-category="cnVzdA=="><span class="quarto-category-count category-cloud-1">rust</span></div><div class="category" data-category="U2VtaW5hcg=="><span class="quarto-category-count category-cloud-1">Seminar</span></div><div class="category" data-category="c2hlYXZlcw=="><span class="quarto-category-count category-cloud-1">sheaves</span></div><div class="category" data-category="U3VycmVhbGUlMjBaYWhsZW4="><span class="quarto-category-count category-cloud-1">Surreale Zahlen</span></div><div class="category" data-category="dGFuZ2VudCUyMGJ1bmRsZQ=="><span class="quarto-category-count category-cloud-1">tangent bundle</span></div><div class="category" data-category="dGFuZ2VudCUyMHNwYWNl"><span class="quarto-category-count category-cloud-1">tangent space</span></div><div class="category" data-category="dG9wb2xvZ3k="><span class="quarto-category-count category-cloud-1">topology</span></div><div class="category" data-category="d2ViZ2w="><span class="quarto-category-count category-cloud-1">webgl</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
@@ -363,7 +361,7 @@ journal,AI,clinical-monitoring
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="YWxnZWJyYSUyQ2dlb21ldHJ5" data-listing-date-sort="1772146800000" data-listing-file-modified-sort="1772251023333" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2935">
+<div class="quarto-post image-right" data-index="0" data-categories="YWxnZWJyYSUyQ2dlb21ldHJ5JTJDbWFjaGluZSUyMGxlYXJuaW5nJTJDRW5nbGlzaA==" data-listing-date-sort="1772146800000" data-listing-file-modified-sort="1772268614144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3591">
 <div class="thumbnail"><a href="./posts/lie-groups-and-algebras/index.html" class="no-external">
 
 <p class="card-img-top"><img src="assets/globe-sailing-earth.png" alt="Image of a boat sailing on the globe."  class="thumbnail-image card-img"/></p>
@@ -375,13 +373,6 @@ journal,AI,clinical-monitoring
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/lie-groups-and-algebras/index.html" class="no-external">Or: what <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span> actually are all about </a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2VvbWV0cnk='); return false;">geometry</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/lie-groups-and-algebras/index.html" class="no-external">
 <p>We wish to understand what <span class="math inline">\(\exp(x)\)</span> is. We relate compound interest with sailing and along the way find out what <span class="math inline">\(\pi\)</span> and <span class="math inline">\(e\)</span> have in common.</p>
@@ -411,19 +402,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/bitwarden-git-code-signing/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y3liZXIlMjBzZWN1cml0eQ=='); return false;">cyber security</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZW5jcnlwdGlvbg=='); return false;">encryption</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">git</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/bitwarden-git-code-signing/index.html" class="no-external">
 <p>Signing Git commits is a crucial practice for ensuring the authenticity and integrity of your code and the work you have done. It allows you to verify that the commits that were made by you and your team have not been tampered with. In this post, I’ll show you how to use Bitwarden, a popular password manager, to sign your Git commits.</p>
 </a></div>
@@ -451,15 +429,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/commutator/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z3JvdXAlMjB0aGVvcnk='); return false;">group theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/commutator/index.html" class="no-external">
 Given a group <span class="math inline">\(G\)</span>, the commutator <span class="math inline">\([G,G]\)</span> is defined as
@@ -489,15 +458,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/l2-alexander-torsion-thurston-norm/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljJTIwdG9wb2xvZ3k='); return false;">algebraic topology</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('My1tYW5pZm9sZHM='); return false;">3-manifolds</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/l2-alexander-torsion-thurston-norm/index.html" class="no-external">
 Not finished yet…
 </a></div>
@@ -525,17 +485,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/bachelorarbeit/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2VvbWV0cnk='); return false;">geometry</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGV1dHNjaA=='); return false;">Deutsch</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/bachelorarbeit/index.html" class="no-external">
 I already published my masters thesis here on my website. So why don’t I also publish my bachelors thesis?
@@ -565,19 +514,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/masterarbeit/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('dG9wb2xvZ3k='); return false;">topology</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2F0ZWdvcnklMjB0aGVvcnk='); return false;">category theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGV1dHNjaA=='); return false;">Deutsch</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/masterarbeit/index.html" class="no-external">
 I am currently writing my masters thesis about the connection between a generalization of the reidemeister-torsion (called <span class="math inline">\(\ell^2\)</span>-alexander torsion) and the thurston norm…
 </a></div>
@@ -605,15 +541,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/solving_elliptic_pde/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/solving_elliptic_pde/index.html" class="no-external">
 Assume you are given an elliptic differential equaiton possibly of the form:
@@ -643,23 +570,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/corne-psp/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXIlMjBzY2llbmNl'); return false;">computer science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGlsZXJz'); return false;">compilers</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('aGFyZHdhcmU='); return false;">hardware</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZXNwMzI='); return false;">esp32</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('a2V5Ym9hcmQ='); return false;">keyboard</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cnVzdA=='); return false;">rust</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/corne-psp/index.html" class="no-external">
 <p>I designed, wired, built, and programmed (completely from scratch, because no software previously supported 2 joysticks) an ergonomic keyboard using some trash PSP parts. This led PCBWAY to sponsor me :)</p>
 </a></div>
@@ -687,15 +597,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/types-in-model-theory/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bW9kZWwlMjB0aGVvcnk='); return false;">model theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/types-in-model-theory/index.html" class="no-external">
 I did not finish writing this post. Kinda got busy…
@@ -725,17 +626,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/one_forms/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk='); return false;">differential geometry</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZm9ybXM='); return false;">differential forms</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/one_forms/index.html" class="no-external">
 I have written about differential form before (What are „differential forms), but there I have never adressed the elephant in the room, of <em>why</em>, we should consider <span class="math inline">\(df\)</span> as…<em></em><span class="math inline"></span><span class="math inline"></span>
 </a></div>
@@ -763,15 +653,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/affine_lineare_transformationen/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGV1dHNjaA=='); return false;">Deutsch</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/affine_lineare_transformationen/index.html" class="no-external">
 <p>Kurze Notizen, wie man affin-lineare Transformationen auf dem <span class="math inline">\(\mathbb{R}^n\)</span> als lineare Transformationen auf dem <span class="math inline">\(\mathbb{R}^{n+1}\)</span> betrachten kann.</p>
@@ -801,17 +682,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">Or: Applying the Howard-Curry correspondence to OOP interfaces using the calculus of constructions</a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2F0ZWdvcnklMjB0aGVvcnk='); return false;">category theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('b29w'); return false;">oop</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/interfaces_as_list_of_propositions/index.html" class="no-external">
 <p>This post came to be due to my close friend Stefan Schulz with whom I studied computer science and mathematics at the University of Düsseldorf, after we had a discussion about the way interfaces are used in object-oriented programming languages like Java. It turns out, that we can regard these as a list of propositions, which can be proven by implementing the interface. This is closely related to the Howard-Curry correspondence and some functional programming concepts.</p>
 </a></div>
@@ -839,21 +709,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/theorem_provers_exam/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bG9naWM='); return false;">logic</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YXV0b21hdGVkJTIwdGhlb3JlbSUyMHByb3Zpbmc='); return false;">automated theorem proving</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bGVhbjQ='); return false;">lean4</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Zm9ybWFsJTIwdmVyaWZpY2F0aW9u'); return false;">formal verification</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/theorem_provers_exam/index.html" class="no-external">
 <span class="math display">\[
@@ -889,31 +744,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/l2-invariants/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('dG9wb2xvZ3k='); return false;">topology</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z3JvdXAlMjB0aGVvcnk='); return false;">group theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cmluZyUyMHRoZW9yeQ=='); return false;">ring theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWVhc3VyZSUyMHRoZW9yeQ=='); return false;">measure theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVuY3Rpb25hbCUyMGFuYWx5c2lz'); return false;">functional analysis</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk='); return false;">differential geometry</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwdG9wb2xvZ3k='); return false;">differential topology</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljJTIwdG9wb2xvZ3k='); return false;">algebraic topology</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/l2-invariants/index.html" class="no-external">
 <p>This article is about the <span class="math inline">\(\ell^2\)</span>-Invariants of <span class="math inline">\(G\)</span>-CW-complexes. We will start by constructing the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes and then take a look at some applications of the <span class="math inline">\(\ell^2\)</span>-completion of cellular chain complexes. We will calculate the <span class="math inline">\(\ell^2\)</span>-homology groups and the <span class="math inline">\(\ell^2\)</span>-betti numbers of <span class="math inline">\(S^\infty := \colim_n S^n\)</span> with the group <span class="math inline">\(G:=\prod_{n=0}^\infty \Z/2\Z\)</span> acting on it. We will also take a look at the <span class="math inline">\(\ell^2\)</span>-betti numbers of the torus and the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of the torus. Finally, we will take a look at Lück’s theorem and its implications for the <span class="math inline">\(\ell^2\)</span>-betti numbers of the universal covering space of a connected, compact CW-complex whose fundamental group is residually finite.</p>
 </a></div>
@@ -941,19 +771,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/surreal_numbers/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2VtaW5hcg=='); return false;">Seminar</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3VycmVhbGUlMjBaYWhsZW4='); return false;">Surreale Zahlen</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QlMjBhbGdlYnJh'); return false;">abstract algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cmluZyUyMHRoZW9yeQ=='); return false;">ring theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGV1dHNjaA=='); return false;">Deutsch</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/surreal_numbers/index.html" class="no-external">
 In diesem Vortrag ging es darum zu zeigen, dass die surrealen Zahlen ein Körper sind. Ich arbeitete dabei unter der Annahme, dass wir bereits gezeigt haben, dass <span class="math inline">\(\boldsymbo…</span>
@@ -983,19 +800,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/knot-theory-peripheral-system/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QlMjBhbGdlYnJh'); return false;">abstract algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('a25vdCUyMHRoZW9yeQ=='); return false;">knot theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/knot-theory-peripheral-system/index.html" class="no-external">
 <p>In knot theory, the peripheral system is an important concept that helps to classify and distinguish different knots. In this video I animated it for an oberseminar at Heinrich Heine University during my masters degree in mathematics.</p>
 </a></div>
@@ -1023,15 +827,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/go2jasmin/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXIlMjBzY2llbmNl'); return false;">computer science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGlsZXJz'); return false;">compilers</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/go2jasmin/index.html" class="no-external">
 <p>Writing assembly code by hand is tedious and error-prone. Go2Jasmin is a compiler that translates a subset of the Go programming language into Jasmin assembly code for the Java Virtual Machine (JVM). This was a project I did during my bachelor’s degree in computer science for a good grade and for fun. Ultimately I decided to skip my bachelor’s degree in computer science to pursue a PhD in computer science afterwards, so this project was only really for fun (and its good grade never proved useful).</p>
@@ -1061,19 +856,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/bachelor-seminar-haskell/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2VtaW5hcg=='); return false;">Seminar</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SGFza2VsbA=='); return false;">Haskell</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SGVpbnJpY2gtSGVpbmUlMjBVbml2ZXJzaXQlQzMlQTR0'); return false;">Heinrich-Heine Universität</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGV1dHNjaA=='); return false;">Deutsch</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/bachelor-seminar-haskell/index.html" class="no-external">
 Dieses Semester habe ich einen Kurs in der Heinrich-Heine Universität in Düsseldorf belegt, welcher sich mit verschiedenen Programmiersprachen beschäftigte. Dabei habe ich…
 </a></div>
@@ -1101,31 +883,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/differential_forms/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZ2VvbWV0cnk='); return false;">differential geometry</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGlmZmVyZW50aWFsJTIwZm9ybXM='); return false;">differential forms</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('dGFuZ2VudCUyMHNwYWNl'); return false;">tangent space</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y290YW5nZW50JTIwc3BhY2U='); return false;">cotangent space</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWFuaWZvbGQ='); return false;">manifold</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('dGFuZ2VudCUyMGJ1bmRsZQ=='); return false;">tangent bundle</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y290YW5nZW50JTIwYnVuZGxl'); return false;">cotangent bundle</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZXh0ZXJpb3IlMjBhbGdlYnJh'); return false;">exterior algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2xvYmFsJTIwc2VjdGlvbg=='); return false;">global section</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/differential_forms/index.html" class="no-external">
 Currently while visiting the “KoMa” (Konferenz der deutschsprachigen Mathematikfachschaften / conference of German-speaking mathematics students) I got into a lot of…
@@ -1155,15 +912,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/elliptic_curves_over_F4/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aGVtYXRpY3M='); return false;">mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljJTIwZ2VvbWV0cnk='); return false;">algebraic geometry</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/elliptic_curves_over_F4/index.html" class="no-external">
 We define the <em>affine space</em> <span class="math inline">\(\mathbb{A}^n_k\)</span> over a ground field <span class="math inline">\(k\)</span> to be the set of all tuples <span class="math inline">\((x_1, \dots, x_n)\)</span> with elements in <span class="math inline">\(k\)</span>. In the case of <span class="math inline">\(n=2\)</span> we…<span class="math inline"></span><em></em><em></em><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><em></em><span class="math inline"></span>
 </a></div>
@@ -1191,21 +939,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/sheaves_in_minecraft/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljJTIwZ2VvbWV0cnk='); return false;">algebraic geometry</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2hlYXZlcw=='); return false;">sheaves</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('dG9wb2xvZ3k='); return false;">topology</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWluZWNyYWZ0'); return false;">Minecraft</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/sheaves_in_minecraft/index.html" class="no-external">
 A few days ago, after my introductory class in topology, and right before my class about algebraic geometry, my friend Anastasia and I were asked by fellow topology students…
@@ -1235,21 +968,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/algebra_meme_2/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QlMjBhbGdlYnJh'); return false;">abstract algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cmluZyUyMHRoZW9yeQ=='); return false;">ring theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWVtZQ=='); return false;">meme</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/algebra_meme_2/index.html" class="no-external">
 Around one year ago I tried to solve the following riddle involving abstract algebra, but I failed and did not finish the question at that
 </a></div>
@@ -1277,25 +995,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/algebra_meme/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYQ=='); return false;">algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cmluZyUyMHRoZW9yeQ=='); return false;">ring theory</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWJzdHJhY3QlMjBhbGdlYnJh'); return false;">abstract algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cG9seW5vbWlhbCUyMHJpbmdz'); return false;">polynomial rings</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cXVvdGllbnQlMjByaW5ncw=='); return false;">quotient rings</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('aXNvbW9ycGhpc21z'); return false;">isomorphisms</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/algebra_meme/index.html" class="no-external">
 A few minutes ago I stumbled upon this meme on some math and science forum:
@@ -1325,21 +1024,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnJhY3RhbHM='); return false;">fractals</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGltZW5zaW9u'); return false;">dimension</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2FsY3VsdXM='); return false;">calculus</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2VvbWV0cnk='); return false;">geometry</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/new_method_of_counting_dimensions/index.html" class="no-external">
 A few days ago, I stumbled upon an article titled Finally We May Have a Path to the Fundamental Theory of Physics… and It’s Beautiful by Stephen Wolfram, an American…
 </a></div>
@@ -1367,19 +1051,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/bildbesucher-jsdoc/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('SlNEb2M='); return false;">JSDoc</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YVNjcmlwdA=='); return false;">JavaScript</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZQ=='); return false;">game</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/bildbesucher-jsdoc/index.html" class="no-external">
 As you can see in the image above, today I’ve added JSDoc support to my game, BildBesucher. This means that by visiting http://quoteme.github.io/bildbesucher/docs/, you can…
@@ -1409,15 +1080,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/bildbesucher/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZQ=='); return false;">game</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/bildbesucher/index.html" class="no-external">
 Recently, I’ve started to develop a game again, finding a bit of a positive side during the current Corona crisis.
 </a></div>
@@ -1445,15 +1107,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/first_program_in_AUR/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bGludXg='); return false;">linux</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/first_program_in_AUR/index.html" class="no-external">
 Recently I discovered some more of the incredibly useful features of my favorite text-editor Neovim:
@@ -1483,17 +1136,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/glider/index.html" class="no-external"></a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZQ=='); return false;">game</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ym9pZHM='); return false;">boids</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/glider/index.html" class="no-external">
 Today, while revisiting my old laptop, I rediscovered a project from just over a year and a month ago:
 </a></div>
@@ -1521,19 +1163,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/intersect.js/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('amF2YXNjcmlwdA=='); return false;">javascript</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvZ3JhbW1pbmc='); return false;">programming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('d2ViZ2w='); return false;">webgl</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWF0aA=='); return false;">math</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGV1dHNjaA=='); return false;">Deutsch</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/intersect.js/index.html" class="no-external">
 Momentan arbeite ich an meiner intersect.mjs Bibliothek, welche dafür da ist Kollisionen und Schnitte von verschiedenen geometrischen Strukturen in <span class="math inline">\(n\)</span> dimensionen zu…
@@ -1563,15 +1192,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/webglcs/index.html" class="no-external">My first online multiplayer 3D game (written from scratch)</a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXIlMjBzY2llbmNl'); return false;">computer science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZSUyMGRldmVsb3BtZW50'); return false;">game development</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/webglcs/index.html" class="no-external">
 </a><p><a href="./posts/webglcs/index.html" class="no-external">I was kinda obsessed with the game </a><a href="https://www.cavestory.org/download/cave-story.php">Cave Story</a> for a long time. I wanted to expand on it, make it look better (3D, lighting, …) and also be able to play it with my friends online. Remind you, back then in 2015-2027 the software-development landscape was much harsher than today. There were no game engines that would allow you to all that! (At least I did not know of any?). Also, my budget was 0€, so I needed to get creative. This is the result:</p>
 </div>
@@ -1599,15 +1219,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/relic-hunters-zero/index.html" class="no-external">Relic Hunters Zero on Android and Steam</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXIlMjBzY2llbmNl'); return false;">computer science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZSUyMGRldmVsb3BtZW50'); return false;">game development</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/relic-hunters-zero/index.html" class="no-external">
 <p>This game was a collaborative effort by a lot of people. I contributed by fixing some minor bugs and (this was kinda unthinkable for a LOT of people back then) porthing this game to Android.</p>
@@ -1637,15 +1248,6 @@ Luca Leon Happel
 <div class="listing-subtitle">
 <a href="./posts/lets-game-dev-community-challenge-2/index.html" class="no-external">super platform land - Game++ - Community Challange #3</a>
 </div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXIlMjBzY2llbmNl'); return false;">computer science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2FtZSUyMGRldmVsb3BtZW50'); return false;">game development</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
-</div>
 <div class="delink listing-description"><a href="./posts/lets-game-dev-community-challenge-2/index.html" class="no-external">
 <p>In this video I showcase my submission for the Game++ Community Challenge #3, my second competitive programming challenge. Back when I was 14, the landscape of game development and competitive programming was quite different from today. Tools and resources were not as readily available, making it a unique experience to participate in such challenges. I was especially proud of integrating the gamepad api into my JavaScript game. This required more “low-level” programming compared to what I was used to previously. In fact, this was (and possibly still is?) kinda unique for web games, as most web games rely on keyboard and mouse inputs.</p>
 </a></div>
@@ -1673,15 +1275,6 @@ Luca Leon Happel
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/lets-game-dev-community-challenge/index.html" class="no-external">super platform land - Game++ - Community Challange #2</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0ZXIlMjBzY2llbmNl'); return false;">computer science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGlsZXJz'); return false;">compilers</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5nbGlzaA=='); return false;">English</div>
-
 </div>
 <div class="delink listing-description"><a href="./posts/lets-game-dev-community-challenge/index.html" class="no-external">
 <p>From a young age I was fascinated by programming video games. Ultimately this culminated in my participation in various competitive programming challenges (and even winning some high ranking university led challenges many years later!). This video shows my first competitive programming challenge, which I participated in when I was only 14 years old.</p>
