@@ -5,7 +5,7 @@ subtitle: |
   Or: what $e^x$ and $\pi$ actually are all about
 author: "Luca Leon Happel"
 date: "2026-02-27"
-categories: ["algebra", "geometry"]
+categories: ["algebra", "geometry", "English"]
 abstract: |
   We wish to understand what $\exp(x)$ is. We relate compound interest with
   sailing and along the way find out what $\pi$ and $e$ have in common.
