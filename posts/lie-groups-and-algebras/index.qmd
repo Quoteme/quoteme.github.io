@@ -263,6 +263,26 @@ It satisfies $\exp(sX) = \gamma_X(s)$ for all $s \in \mathbb{R}$, and its deriva
 A one-parameter subgroup, although called a "subgroup", is just a morphism from $(\mathbb{R}, +)$ to $G$. By requiring $\gamma_X'(0) = X$, we already uniquely determine $\gamma_X$ as the solution to the initial value problem, because of the Lie-grouphomomorphism requirement.
 :::
 
+The main benefit here is, that we can now choose directions in the Lie algebra given a lie group, and we can (by currying) walk along the geodesic that starts at the identity element of the Lie group and has the chosen direction (and velocity!) for any amount of time we like.
+
+### The exponential map in Minecraft
+
+So in minecraft, you are normally given a "spawn point" $p \in \mathbb{R}^3$. Players can then move around in this world by pressing the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd>, <kbd>Space</kbd> and <kbd>Shift</kbd> keys, which correspond to moving forward, left, backward, right, up and down respectively. Assuming that minecraft would be infinitly big and players could move freely without collision detection, this would already form a lie group (in this case $(\mathbb{R}^3, +)$). But players can also move their camera! So in this case, the underlying manifold would be more like $\mathbb{R}^3 \times S^2$, where $S^2$ encodes the camera orientation. By using two angles for $S^2$, we can define each possible point in this manifold using three numbers $(x,y,z, \phi, \psi)$.
+
+We now still need to twist the $(x,y,z)$-part of the movement, so that when we press <kbd>W</kbd>, we move forward in the direction that our camera is facing, and not just along the $x$-axis. 
+We need:
+
+$$
+(0,0,0, \phi, 0) \rrr (1,0,0, 0, 0) = (\cos(\phi), 0, \sin(\phi), \phi, 0) \\
+(0,0,0, \phi, 0) \rrr (0,1,0, 0, 0) = (-\sin(\phi), 0, \cos(\phi), \phi, 0) \\
+\dots
+(0,0,0, 0, \psi) \rrr (1,0,0, 0, 0) = (\cos(\psi), \sin(\psi), 0, 0, \psi) \\
+(0,0,0, 0, \psi) \rrr (0,1,0, 0, 0) = (-\sin(\psi), \cos(\psi), 0, 0, \psi) \\
+\dots
+$$
+
+Here $\rrr$ is the group operation. What if we wish to animate the movement of the player then? We use the exponential map! By currying, we only need to gradually increase $t$ from $0$ to $1$, and we already have a linear interpolation of the movement.
+
 ### Finally understanding highschool mathematics $e^x$ and $\pi$
 
 With compound interest, we also also given a Lie group: $(\mathbb{R}_{>0}, \cdot)$.
