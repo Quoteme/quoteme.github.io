@@ -1,6 +1,8 @@
 ---
 title: |
   Covering Spaces and Their Geometries Visualized
+subtitle: |
+  Super Mario 64, video gamess and hyperbolic geometry
 author: "Luca Leon Happel"
 date: "20260-3-01"
 categories: ["topology", "geometry", "visualization", "English"]
@@ -104,9 +106,9 @@ This is actually what [Bismuth](https://www.youtube.com/@Bismuth9) describes in 
 
 Casting from `float` to `short` gives rise to the retraction $\rho: P \to B$ and its section $\sigma: B \to P$ which lifts $(0,0,0)$ to $(0,0,0)$,  is exploted in SM64 speed running. In particular $P$ is a covering space of $B$ with fiber $F:= \ker(\rho)$, which are all points, where Mario transitions from one "parallel universe" to the next.
 
-In SM64 this covering space structure is used by giving Mario extremely high velocity $v$ (a tangent vector at Marios position in $P$). The exponential map is then used to move Mario along the geodesic $\exp_p(tv)$ for $t \in \mathbb{R}$. But due to hardware limitations, only discrete steps $t_1, \dots, t_k$ for some $k in \mathbb{N}$ of this geodesic are actually calculated for collision detection. [More on how this is related to the exponential map of Lie groups can be found in my previous post.](../lie-groups-and-algebras/)
+In SM64 this covering space structure is used by giving Mario extremely high velocity $v$ (a tangent vector at Marios position in $P$). The exponential map is then used to move Mario along the geodesic $\exp_v(t)$ for $t \in \mathbb{R}$. But due to hardware limitations, only discrete steps $t_1, \dots, t_k$ for some $k in \mathbb{N}$ of this geodesic are actually calculated for collision detection. [More on how this is related to the exponential map of Lie groups can be found in my previous post. Throughout this post, I will assume the Lie group of SM64 to have its unit at the position $p$.](../lie-groups-and-algebras/)
 
-By carefully choosing Marios position $p in P$ and velocity $v in T_p P$, the SM64 community was able to reach a desired positions $q$ in $B$ up to collision detection (for reaching some door, collecting a star, etc.). They did this by checking which $t_1, \dots, t_k$ SM64 actually uses for calculations and then making the right choices, so that $\rho(\exp_p(tv_i)) = q$ for some $i$ and for all other $j \neq i$ $\rho(\exp_p(tv_j))$ is not a position that would trigger a collision detection with negative consequences (like resetting $v$).
+By carefully choosing Marios position $p in P$ and velocity $v in T_p P$, the SM64 community was able to reach a desired positions $q$ in $B$ up to collision detection (for reaching some door, collecting a star, etc.). They did this by checking which $t_1, \dots, t_k$ SM64 actually uses for calculations and then making the right choices, so that $\rho(\exp_v(t_i)) = q$ for some $i$ and for all other $j \neq i$ $\rho(\exp_v(t_j))$ is not a position that would trigger a collision detection with negative consequences (like resetting $v$).
 
 ![Schematic of picking the correct $v$ as shown in [Bismuth](https://www.youtube.com/@Bismuth9)s Video](/assets/covering-space/parallel_universes_sm64.png){width="33%"}
 
@@ -191,10 +193,57 @@ And if we form the universal cover of this space, we get the following hyperboli
 ![The universal cover of the double doughnut is a hyperbolic space, where we only shrink the xy plane, but not the height](/assets/covering-space/double-torus-universal-cover-to-scale.png){group="bobs_home"}
 :::
 
+:::{.callout-note collapse="true"}
+## Definition: Hyperbolic Space
+
+The **$n$-dimensional hyperbolic space** $\mathbb{H}^n$ is the unique (up to isometry) simply connected, complete Riemannian manifold of constant sectional curvature $K = -1$.
+
+Two standard models make this concrete:
+
+**Poincaré half-space model.** Take the open upper half-space
+$$\mathbb{H}^n := \{(x_1,\dots,x_n)\in\mathbb{R}^n \mid x_n > 0\}$$
+equipped with the Riemannian metric whose components on the coordinate tangent vectors are
+$$g_{ij}(p) \;=\; g_p\!\left(\frac{\partial}{\partial x_i}\bigg|_p,\; \frac{\partial}{\partial x_j}\bigg|_p\right) \;=\; \frac{1}{p_n^2}\,\delta_{ij}.$$
+Geodesics are semicircles (or rays) orthogonal to the boundary hyperplane $\{x_n = 0\}$.
+
+**Poincaré disk model.** Take the open unit ball $\mathbb{D}^n = \{x\in\mathbb{R}^n \mid \|x\|<1\}$ with metric
+$$g_{ij}(p) \;=\; g_p\!\left(\frac{\partial}{\partial x^i}\bigg|_p,\; \frac{\partial}{\partial x^j}\bigg|_p\right) \;=\; \frac{4}{\bigl(1-\|p\|^2\bigr)^2}\,\delta_{ij}.$$
+This model is **conformal**: angles between curves equal their Euclidean counterparts.
+
+Each point $p \in \mathbb{H}^n$ has tangent vectors $\frac{\partial}{\partial x^i} in T_p M$ (which we write as the partial derivatives) at $p$ given local coordinates (i.e. a basis $\text{span}\{x^1,\dots,x^n\} = T_p M$). The collection $\bigl\{\frac{\partial}{\partial x^1}\big|_p,\dots,\frac{\partial}{\partial x^n}\big|_p\bigr\}$ forms a basis of $T_pM$.
+
+A **Riemannian metric** on a smooth manifold $M$ is a family of inner products
+$$g_p : T_pM \times T_pM \;\longrightarrow\; \mathbb{R}, \qquad p \in M,$$
+varying smoothly in $p$, such that each $g_p$ is symmetric and positive-definite. In local coordinates the metric is completely determined by its values on basis tangent vectors:
+$$g_{ij}(p) \;:=\; g_p\!\left(\frac{\partial}{\partial x^i}\bigg|_p,\; \frac{\partial}{\partial x^j}\bigg|_p\right), \qquad g_{ij} = g_{ji},$$
+with the matrix $(g_{ij}(p))$ positive-definite at every point. The length of a tangent vector $v = \sum_i v^i \frac{\partial}{\partial x^i}\in T_pM$ is then $\|v\|_g = \sqrt{\sum_{i,j} g_{ij}(p)\, v^i v^j}$.
+
+For the Poincaré half-space model in dimension 2, the metric evaluates on the coordinate tangent vectors $\frac{\partial}{\partial x}, \frac{\partial}{\partial y} \in T_pM$ as
+$$g_p\!\left(\frac{\partial}{\partial x^i}\bigg|_p,\;\frac{\partial}{\partial x^j}\bigg|_p\right) = \frac{1}{y^2}\,\delta_{ij},$$
+i.e.\ the coordinate tangent vectors are orthogonal and each has length $\frac{1}{y}$ — shrinking to zero as $p$ approaches the boundary $y\to 0$, which is what makes the space "infinitely large" near the boundary.
+
+Often people write these metrics as $ds^2 = \sum_{i,j} g_{ij}\,dx^i\,dx^j$, where each $dx^i$ is a **covector** (1-form), i.e.\ an element of the dual space $T_p^*M$. For finite dimensional vectorspaces there is a canonical isomorphism between them and their dual: given the coordinate basis $\bigl\{\frac{\partial}{\partial x^1},\dots,\frac{\partial}{\partial x^n}\bigr\}$ of $T_pM$, there is a unique **dual basis** $\{dx^1,\dots,dx^n\}$ of $T_p^*M$ defined by
+$$dx^i\!\left(\frac{\partial}{\partial x^j}\right) = \delta^i{}_j.$$
+This extends to isomorphisms $T_pM \to T_p^*M$. 
+Under this identification, the bilinear form $g_p$ on $T_pM \times T_pM$ is represented by the symmetric tensor $\sum_{i,j} g_{ij}\,dx^i \otimes dx^j$ acting on pairs of tangent vectors via
+$$\left(\sum_{i,j} g_{ij}\,dx^i\otimes dx^j\right)\!\!\left(\frac{\partial}{\partial x^k},\frac{\partial}{\partial x^l}\right) = g_{kl},$$
+which recovers exactly the inner products $g_p\!\left(\frac{\partial}{\partial x^k},\frac{\partial}{\partial x^l}\right)$ from before. So both descriptions carry identical information;
+
+For this reason, we may also write for the Poincaré half-space model in dimension 2:
+
+$$ds^2 = \frac{1}{y^2}\,(dx^2 + dy^2).$$
+
+The key difference from Euclidean geometry is that a circle of radius $r$ has circumference $2\pi\sinh r > 2\pi r$, and volumes grow **exponentially** rather than polynomially:
+$$\operatorname{Vol}(B(r)) = \operatorname{Vol}(S^{n-1})\int_0^r \sinh^{n-1}(t)\,dt.$$
+
+
+:::
+
 ---
 
 Further references:
 
-{{< video https://youtu.be/QcLfb0PhfO0?t=470 >}}
-
-I drew _heavy inspiration_ from this video "Not Knot" by the Geometry Center / Geometry Supercomputer Project in 1991, directed by Charlie Gunn and Delle Maxwell.
+1. {{< video https://youtu.be/QcLfb0PhfO0?t=470 >}}
+  I drew _heavy inspiration_ from this video "Not Knot" by the Geometry Center / Geometry Supercomputer Project in 1991, directed by Charlie Gunn and Delle Maxwell.
+2. {{< video https://youtu.be/yqUv2JO2BCs?t=143 >}}
+  A video about different geometries on $\mathbb{R}^3$
