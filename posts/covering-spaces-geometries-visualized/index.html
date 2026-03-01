@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Luca Leon Happel">
+
+<title>Covering Spaces and Their Geometries Visualized – {{&lt; var website.title &gt;}}</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a98ec624fb63d9b712fc3a6f62e2b305.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LEVM9WYR7J"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LEVM9WYR7J', { 'anonymize_ip': true});
+</script>
+<meta property="og:title" content="Covering Spaces and Their Geometries Visualized – Luca Happel’s personal website">
+<meta property="og:description" content="Luca Happel’s personal website, including lots of math and computer science.">
+<meta property="og:image" content="https://happel.ai/posts/covering-spaces-geometries-visualized/{{< var profile.image >}}">
+<meta property="og:site_name" content="{{< var website.title >}}">
+</head><body class="nav-fixed fullcontent quarto-light"><div style="display: none;">
+    $$
+    \usepackage{amssymb}
+    \newcommand{\N}{\mathbb{N}}
+    \newcommand{\C}{\mathbb{C}}
+    \newcommand{\R}{\mathbb{R}}
+    \newcommand{\Z}{\mathbb{Z}}
+    \newcommand{\ZZ}{\ooalign{Z\cr\hidewidth\kern0.1em\raisebox{-0.5ex}{Z}\hidewidth\cr}}
+    \newcommand{\colim}{\text{colim}}
+    \newcommand{\weaktopo}{\tau_\text{weak}}
+    \newcommand{\strongtopo}{\tau_\text{strong}}
+    \newcommand{\normtopo}{\tau_\text{norm}}
+    \newcommand{\green}[1]{\textcolor{ForestGreen}{#1}}
+    \newcommand{\red}[1]{\textcolor{red}{#1}}
+    \newcommand{\blue}[1]{\textcolor{blue}{#1}}
+    \newcommand{\orange}[1]{\textcolor{orange}{#1}}
+    \newcommand{\tr}{\text{tr}}
+    \newcommand{\id}{\text{id}}
+    \newcommand{\im}{\text{im}\&gt;}
+    \newcommand{\res}{\text{res}}
+    \newcommand{\TopTwo}{\underline{\text{Top}^{(2)}}}
+    \newcommand{\CW}[1]{\underline{#1\text{-CW}}}
+    \newcommand{\ZZ}{%
+    \ooalign{Z\cr\hidewidth\raisebox{-0.5ex}{Z}\hidewidth\cr}%
+    }
+    % specific for this document
+    \newcommand{\cellOne}{\textcolor{green}{1}}
+    \newcommand{\cellTwo}{\textcolor{red}{2}}
+    \newcommand{\cellThree}{\textcolor{brown}{3}}
+    \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
+    $$
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Luca Happel’s personal website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Quoteme/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/lucahappel/"> <i class="bi bi-linkedin" role="img" aria-label="Linkedin">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/lucaleonhappel/"> <i class="bi bi-instagram" role="img" aria-label="Instagram">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.reddit.com/user/lalelul"> <i class="bi bi-reddit" role="img" aria-label="Reddit">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><p>Covering Spaces and Their Geometries Visualized</p></h1>
+            <p class="subtitle lead"></p><p>Super Mario 64, video gamess and hyperbolic geometry</p><p></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">topology</div>
+                <div class="quarto-category">geometry</div>
+                <div class="quarto-category">visualization</div>
+                <div class="quarto-category">English</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Luca Leon Happel </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 1, 20260</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="block-title">Abstract</div>
+      <p>We explore covering spaces — spaces that locally look like the “repetitions” of a base space. A key insight is, that we can gain hyperbolic geometry by looking at the universal cover of a surface of genus <span class="math inline">\(g \geq 2\)</span>.</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Covering spaces are a fundamental concept in topology. Some typical examples can be seen <a href="../l2-invariants/">in this previous post</a>.</p>
+<div id="def-covering-space" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> A <strong>covering space</strong> of a topological space <span class="math inline">\(X\)</span> is a topological space <span class="math inline">\(C\)</span> together with a continuous surjective map <span class="math inline">\(p: C \to X\)</span> such that for every point <span class="math inline">\(x \in X\)</span>, there exists an open neighborhood <span class="math inline">\(U\)</span> of <span class="math inline">\(x\)</span> such that <span class="math inline">\(p^{-1}(U) \cong F \times U\)</span> for some discrete set <span class="math inline">\(F\)</span> (called the fiber over <span class="math inline">\(x\)</span>), and the map <span class="math inline">\(p\)</span> restricted to each component of <span class="math inline">\(p^{-1}(U)\)</span> is a homeomorphism onto <span class="math inline">\(U\)</span>.</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Covering_space_diagram.svg/960px-Covering_space_diagram.svg.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Typical example illustrating a covering space"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Covering_space_diagram.svg/960px-Covering_space_diagram.svg.png" class="img-fluid figure-img" style="width:33.0%" alt="Typical example illustrating a covering space"></a></p>
+<figcaption>Typical example illustrating a covering space</figcaption>
+</figure>
+</div>
+<div id="def-universal-cover" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> A <strong>universal cover</strong> of a topological space <span class="math inline">\(X\)</span> is a covering space <span class="math inline">\(\tilde{X}\)</span> of <span class="math inline">\(X\)</span> that is simply connected, meaning that it has no nontrivial loops. The universal cover is unique up to homeomorphism and serves as a “universal” object in the category of covering spaces of <span class="math inline">\(X\)</span>.</p>
+</div>
+<section id="the-universal-cover-of-a-doughnut" class="level2">
+<h2 class="anchored" data-anchor-id="the-universal-cover-of-a-doughnut">The universal cover of a doughnut</h2>
+<p>A filled torus (a doughnut) is a surface of genus 1. There exists a deformation retract from the doughnut to a circle, so the fundamental group of the doughnut is <span class="math inline">\(\pi_1(T^2) \cong \mathbb{Z}\)</span>.</p>
+<p>But what does any of that even mean? Let’s visualize the universal cover of the doughnut. Let us start with Bob, who lives in the following little world:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/road-image.png" class="lightbox" data-gallery="bob" title="Bob’s world"><img src="../../assets/covering-space/road-image.png" class="img-fluid figure-img" style="width:33.0%" alt="Bob’s world"></a></p>
+<figcaption>Bob’s world</figcaption>
+</figure>
+</div>
+<p>When Bob drives along the road past the stop sign, he will eventually return to the same point at which he started. However, he would reach invisible walls, it he intended to walk along the grass, or jump to the sky. The road is the only way to get around, and it loops back on itself.</p>
+<p>Topologically, Bobs world is a doughnut, and the road is a loop around the hole of the doughnut. If we were to stretch it (don’t worry, this wont harm Bob, he does not even notice!), we would get the following picture:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/road-trip-1-alt.png" class="lightbox" data-gallery="bob" title="Bob’s world stretched"><img src="../../assets/covering-space/road-trip-1-alt.png" class="img-fluid figure-img" style="width:33.0%" alt="Bob’s world stretched"></a></p>
+<figcaption>Bob’s world stretched</figcaption>
+</figure>
+</div>
+<p>These kinds of worlds typically occur in video games, and famously the ideas which I will elaborate on in this post were used in the Super Mario 64 community to “hack” the game to achieve various speedrunning goals:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/wjge1bVobN0?t=1373" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>(This is where the famous “but first, we will need to talk about parallel universes” quote comes from. In the SM64 community, covering spaces are known as “parallel universes”). Weather intentional (like in Pacman) or unintentional (like in Super Mario 64, due to floating point arithmetic), it is often the case that walking in a straight line long enough will eventually lead you back to the same point.</p>
+<p>In the case of SM64 however, only the collision detection code is affected by this floating point arithmetic, but not the rendering engine. So there actually are some differences between the “parallel universes” in SM64. In particular, when Mario moves to a different parallel universe, the same collisions are still detected, although he is rendered as floating in an empty space. We can encode this also in Bobs world:</p>
+<p>Lets assume, we would double, triple, quadruple, etc. Bobs world and stack these copies on top of each other. Bob would never notice, as long as each copy is just a “shallow” copy, meaning that each movement in the <em>fundamental domain</em> (the original world) is mirrored in the copies. In this case, we would have a covering space of Bobs world, and the original world would be the base space.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/road-trip-1-alt.png" class="lightbox" data-gallery="bob" title="Bob’s world stacked once"><img src="../../assets/covering-space/road-trip-1-alt.png" class="img-fluid figure-img" alt="Bob’s world stacked once"></a></p>
+<figcaption>Bob’s world stacked once</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/road-trip-2-alt.png" class="lightbox" data-gallery="bob" title="Bob’s world stacked twice"><img src="../../assets/covering-space/road-trip-2-alt.png" class="img-fluid figure-img" alt="Bob’s world stacked twice"></a></p>
+<figcaption>Bob’s world stacked twice</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/road-trip-3-alt.png" class="lightbox" data-gallery="bob" title="Bob’s world stacked three times"><img src="../../assets/covering-space/road-trip-3-alt.png" class="img-fluid figure-img" alt="Bob’s world stacked three times"></a></p>
+<figcaption>Bob’s world stacked three times</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>You could now imagine if we would do the same for SM64. Only there, we would not render any of the terrain, but only Mario himself for the copies.</p>
+<p>If we were to keep stacking these copies, we would get the following picture:</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/road-trip-4.png" class="lightbox" data-gallery="bob" title="Bob’s world stacked four times"><img src="../../assets/covering-space/road-trip-4.png" class="img-fluid figure-img" alt="Bob’s world stacked four times"></a></p>
+<figcaption>Bob’s world stacked four times</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/road-trip-6.png" class="lightbox" data-gallery="bob" title="Bob’s world stacked five times"><img src="../../assets/covering-space/road-trip-6.png" class="img-fluid figure-img" alt="Bob’s world stacked five times"></a></p>
+<figcaption>Bob’s world stacked five times</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/road-trip-7.png" class="lightbox" data-gallery="bob" title="Bob’s world stacked five times"><img src="../../assets/covering-space/road-trip-7.png" class="img-fluid figure-img" alt="Bob’s world stacked five times"></a></p>
+<figcaption>Bob’s world stacked five times</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/road-trip-20-alt-gaps.png" class="lightbox" data-gallery="bob" title="Bob’s world stacked five times"><img src="../../assets/covering-space/road-trip-20-alt-gaps.png" class="img-fluid figure-img" alt="Bob’s world stacked five times"></a></p>
+<figcaption>Bob’s world stacked five times</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/universal-cover.png" class="lightbox" data-gallery="bob" title="Bob’s world stacked \infty times"><img src="../../assets/covering-space/universal-cover.png" class="img-fluid figure-img" alt="Bob’s world stacked \infty times"></a></p>
+<figcaption>Bob’s world stacked <span class="math inline">\(\infty\)</span> times</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I sometimes changed the ground texture and was too lazy to rerender all the images, so please excuse this inconsistency in the images.</p>
+</div>
+</div>
+<section id="further-elabotrtion-regarding-super-mario-64" class="level3">
+<h3 class="anchored" data-anchor-id="further-elabotrtion-regarding-super-mario-64">Further elabotrtion regarding Super Mario 64</h3>
+<p>This is actually what <a href="https://www.youtube.com/@Bismuth9">Bismuth</a> describes in <a href="https://www.youtube.com/watch?v=wjge1bVobN0">his video: “Super Mario 64 Tool-assisted speedrun world record explained”</a> in the case of the <span class="math inline">\(T^3\)</span>, the world of SM64. The <span class="math inline">\(T^3\)</span> is the 3-dimensional torus, which is the product of three circles. Look at this short clip from his video:</p>
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; flex:1;">
+<tbody><tr>
+<td style="padding:0;">
+<video controls="" style="width:100%; display:block;">
+<source src="../../assets/covering-space/sm64-bismuth-world-record.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</td>
+</tr>
+<tr>
+<td style="text-align:center; padding:0.4rem;">
+The world of Super Mario 64 is more or less a 3-dimensional torus <span class="math inline">\(T^3\)</span>. Marios position is stored as a float, but cast down to a short for the collision detection, meaning that only values up between <span class="math inline">\(-32768\)</span> and <span class="math inline">\(32767\)</span> are actually detected as different positions for the collision detection. Therefor marios position detection is calculated in <span class="math inline">\(B:= (\mathbb{R}/65536\mathbb{Z})^3\)</span>, and his actual position is calculated in <span class="math inline">\(P:=(\mathbb{R} / (1.17549435 \times 10^{-38})\mathbb{Z})^3\)</span>, here we still need to mod out, because of Nintendo 64 IEEE‑754 floating point arithmetic.
+</td>
+</tr>
+</tbody></table>
+<p>Casting from <code>float</code> to <code>short</code> gives rise to the retraction <span class="math inline">\(\rho: P \to B\)</span> and its section <span class="math inline">\(\sigma: B \to P\)</span> which lifts <span class="math inline">\((0,0,0)\)</span> to <span class="math inline">\((0,0,0)\)</span>, is exploted in SM64 speed running. In particular <span class="math inline">\(P\)</span> is a covering space of <span class="math inline">\(B\)</span> with fiber <span class="math inline">\(F:= \ker(\rho)\)</span>, which are all points, where Mario transitions from one “parallel universe” to the next.</p>
+<p>In SM64 this covering space structure is used by giving Mario extremely high velocity <span class="math inline">\(v\)</span> (a tangent vector at Marios position in <span class="math inline">\(P\)</span>). The exponential map is then used to move Mario along the geodesic <span class="math inline">\(\exp_v(t)\)</span> for <span class="math inline">\(t \in \mathbb{R}\)</span>. But due to hardware limitations, only discrete steps <span class="math inline">\(t_1, \dots, t_k\)</span> for some <span class="math inline">\(k in \mathbb{N}\)</span> of this geodesic are actually calculated for collision detection. <a href="../lie-groups-and-algebras/">More on how this is related to the exponential map of Lie groups can be found in my previous post. Throughout this post, I will assume the Lie group of SM64 to have its unit at the position <span class="math inline">\(p\)</span>.</a></p>
+<p>By carefully choosing Marios position <span class="math inline">\(p in P\)</span> and velocity <span class="math inline">\(v in T_p P\)</span>, the SM64 community was able to reach a desired positions <span class="math inline">\(q\)</span> in <span class="math inline">\(B\)</span> up to collision detection (for reaching some door, collecting a star, etc.). They did this by checking which <span class="math inline">\(t_1, \dots, t_k\)</span> SM64 actually uses for calculations and then making the right choices, so that <span class="math inline">\(\rho(\exp_v(t_i)) = q\)</span> for some <span class="math inline">\(i\)</span> and for all other <span class="math inline">\(j \neq i\)</span> <span class="math inline">\(\rho(\exp_v(t_j))\)</span> is not a position that would trigger a collision detection with negative consequences (like resetting <span class="math inline">\(v\)</span>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/parallel_universes_sm64.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Schematic of picking the correct v as shown in Bismuths Video"><img src="../../assets/covering-space/parallel_universes_sm64.png" class="img-fluid figure-img" style="width:33.0%" alt="Schematic of picking the correct v as shown in Bismuths Video"></a></p>
+<figcaption>Schematic of picking the correct <span class="math inline">\(v\)</span> as shown in <a href="https://www.youtube.com/@Bismuth9">Bismuth</a>s Video</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="hyperbolic-geometry-from-the-universal-cover-widetildes1-vee-s1" class="level2">
+<h2 class="anchored" data-anchor-id="hyperbolic-geometry-from-the-universal-cover-widetildes1-vee-s1">Hyperbolic geometry from the universal cover <span class="math inline">\(\widetilde{S^1 \vee S^1}\)</span></h2>
+<p>In the previous example we considered a space which has only one road looping back on itself. The number of times you would walk around the road to get back to the “same” point (or an equivalent point in a different copy) can be encoded using this “winding number” trick:</p>
+<p>Assume Bob had a dog “Snoopy” on a leash and it walks along the road, while Bob was standing still. If the dog follows the road once and comes back to Bob, this results in the leash being wrapped around the hole in his space: In other words, Bob would need to walk around the hole once to untangle it.</p>
+<p>In fact, we could encode in which copy of Bobs world Snoopy is, by counting how many times the leash is wrapped around the hole.</p>
+<p>This “wrapping a leash around the hole” action that Snoopy can perform is actually a <a href="https://en.wikipedia.org/wiki/Group_action">group action</a> of <span class="math inline">\(\mathbb{Z}\)</span> on the base space (Bobs space): For each integer <span class="math inline">\(n \in \mathbb{Z}\)</span>, Snoopy can wrap the leash around the hole <span class="math inline">\(n\)</span> times, and <span class="math inline">\(n-m\)</span> corresponds to Snoopy walking around the hole <span class="math inline">\(n\)</span> times clockwise and then <span class="math inline">\(m\)</span> times counterclockwise.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="def-fundamental-group" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Definition: Fundamental Group)</strong></span> Let <span class="math inline">\(X\)</span> be a topological space and <span class="math inline">\(x_0 \in X\)</span> a basepoint. A <strong>loop</strong> based at <span class="math inline">\(x_0\)</span> is a continuous map <span class="math inline">\(\gamma: [0,1] \to X\)</span> with <span class="math inline">\(\gamma(0) = \gamma(1) = x_0\)</span>. Two loops <span class="math inline">\(\gamma, \delta\)</span> are <strong>homotopic relative to <span class="math inline">\(x_0\)</span></strong> (written <span class="math inline">\(\gamma \simeq \delta\)</span>) if there exists a continuous map <span class="math inline">\(H: [0,1] \times [0,1] \to X\)</span> such that <span class="math display">\[H(s,0) = \gamma(s), \quad H(s,1) = \delta(s), \quad H(0,t) = H(1,t) = x_0\]</span> for all <span class="math inline">\(s,t \in [0,1]\)</span>. This is an equivalence relation; denote the equivalence class of <span class="math inline">\(\gamma\)</span> by <span class="math inline">\([\gamma]\)</span>.</p>
+<p>The <strong>fundamental group</strong> of <span class="math inline">\(X\)</span> at <span class="math inline">\(x_0\)</span> is <span class="math display">\[\pi_1(X, x_0) \;:=\; \bigl\{[\gamma] \mid \gamma \text{ is a loop based at } x_0\bigr\}\]</span> equipped with the group operation of <em>concatenation</em>: <span class="math display">\[[\gamma] \cdot [\delta] := [\gamma * \delta], \qquad (\gamma * \delta)(s) := \begin{cases} \gamma(2s) &amp; s \in [0,\tfrac{1}{2}] \\ \delta(2s-1) &amp; s \in [\tfrac{1}{2},1] \end{cases}\]</span> The identity element is the class of the constant loop <span class="math inline">\([c_{x_0}]\)</span>, and the inverse of <span class="math inline">\([\gamma]\)</span> is <span class="math inline">\([\bar\gamma]\)</span> where <span class="math inline">\(\bar\gamma(s) := \gamma(1-s)\)</span>.</p>
+<p>If <span class="math inline">\(X\)</span> is path-connected, the isomorphism type of <span class="math inline">\(\pi_1(X,x_0)\)</span> is independent of the basepoint <span class="math inline">\(x_0\)</span>, and we write simply <span class="math inline">\(\pi_1(X)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>If we would think of the invisible walls in Bobs world as actual walls, say by a street lamp, we would get the following picture:</p>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/snoopy/snoopy_-1.jpg" class="lightbox" data-gallery="snoopy" title="Snoopy being tangled -1 times around the hole/lamp"><img src="../../assets/covering-space/snoopy/snoopy_-1.jpg" class="img-fluid figure-img" alt="Snoopy being tangled -1 times around the hole/lamp"></a></p>
+<figcaption>Snoopy being tangled <span class="math inline">\(-1\)</span> times around the hole/lamp</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/snoopy/snoopy_0.jpg" class="lightbox" data-gallery="snoopy" title="Snoopy being tangled 0 times around the hole/lamp"><img src="../../assets/covering-space/snoopy/snoopy_0.jpg" class="img-fluid figure-img" alt="Snoopy being tangled 0 times around the hole/lamp"></a></p>
+<figcaption>Snoopy being tangled <span class="math inline">\(0\)</span> times around the hole/lamp</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/snoopy/snoopy_1.jpg" class="lightbox" data-gallery="snoopy" title="Snoopy being tangled 1 times around the hole/lamp"><img src="../../assets/covering-space/snoopy/snoopy_1.jpg" class="img-fluid figure-img" alt="Snoopy being tangled 1 times around the hole/lamp"></a></p>
+<figcaption>Snoopy being tangled <span class="math inline">\(1\)</span> times around the hole/lamp</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/snoopy/snoopy_2.jpg" class="lightbox" data-gallery="snoopy" title="Snoopy being tangled 1+1=2 times around the hole/lamp"><img src="../../assets/covering-space/snoopy/snoopy_2.jpg" class="img-fluid figure-img" alt="Snoopy being tangled 1+1=2 times around the hole/lamp"></a></p>
+<figcaption>Snoopy being tangled <span class="math inline">\(1+1=2\)</span> times around the hole/lamp</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>So we have that one line removed in Bobs space results in an infinite (<span class="math inline">\(\mathbb{Z}\)</span>) amount of copies in the universal cover, but what is we would remove two lines?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/two_holes_removed_two_leashes.png" class="lightbox" data-gallery="bob" title="A world with two lines removed. Now there are two ways (red and blue) for a leash to get tangled up and “all their combinations” (there are two generators of the fundamental group of this space)"><img src="../../assets/two_holes_removed_two_leashes.png" class="img-fluid figure-img" style="width:33.0%" alt="A world with two lines removed. Now there are two ways (red and blue) for a leash to get tangled up and “all their combinations” (there are two generators of the fundamental group of this space)"></a></p>
+<figcaption>A world with two lines removed. Now there are two ways (red and blue) for a leash to get tangled up and “all their combinations” (there are two generators of the fundamental group of this space)</figcaption>
+</figure>
+</div>
+<p>Let’s “unfold” this world again, like we did with the torus and the world, where moving through the wall along the road “teleported” Bob back to the other side. I will place a small house and some water into this barren world, so bob can have a nice place to live:</p>
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; flex:1;">
+<tbody><tr>
+<td style="padding:0;">
+<video autoplay="" loop="" muted="" style="width:100%; display:block;">
+<source src="../../assets/double-torus-unfold.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</td>
+</tr>
+<tr>
+<td style="text-align:center; padding:0.4rem;">
+Unfolding the space with two lines removed (Bobs home) to a double doughnut.
+</td>
+</tr>
+</tbody></table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is <strong>not</strong> the space where Super Mario 64 takes place! SM64 would be the space <span class="math inline">\(T^3\)</span> (a 3-dimensional torus). We would get this space by removing putting portals from the left to the right, from the top to the bottom and from the floor to the ceiling in a box, which was Bobs road-trip world from before!</p>
+</div>
+</div>
+<p>In this double dougnut world, the fundamental group would be the free group on two generators:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/F2_Cayley_Graph.svg/960px-F2_Cayley_Graph.svg.png" class="lightbox" data-gallery="bobs_home" title="\pi_1(S^1 \vee S^1) \cong F_2"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/F2_Cayley_Graph.svg/960px-F2_Cayley_Graph.svg.png" class="img-fluid figure-img" style="width:33.0%" alt="\pi_1(S^1 \vee S^1) \cong F_2"></a></p>
+<figcaption><span class="math inline">\(\pi_1(S^1 \vee S^1) \cong F_2\)</span></figcaption>
+</figure>
+</div>
+<p>And if we form the universal cover of this space, we get the following hyperbolic space (notice that I shrinked copies the the base space/“parallel universes”), because hyperbolic space does not fit into the Euclidean plane:</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/double-torus-universal-cover-alt.png" class="lightbox" data-gallery="bobs_home" title="The universal cover of the double doughnut is a hyperbolic space"><img src="../../assets/covering-space/double-torus-universal-cover-alt.png" class="img-fluid figure-img" alt="The universal cover of the double doughnut is a hyperbolic space"></a></p>
+<figcaption>The universal cover of the double doughnut is a hyperbolic space</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../assets/covering-space/double-torus-universal-cover-to-scale.png" class="lightbox" data-gallery="bobs_home" title="The universal cover of the double doughnut is a hyperbolic space, where we only shrink the xy plane, but not the height"><img src="../../assets/covering-space/double-torus-universal-cover-to-scale.png" class="img-fluid figure-img" alt="The universal cover of the double doughnut is a hyperbolic space, where we only shrink the xy plane, but not the height"></a></p>
+<figcaption>The universal cover of the double doughnut is a hyperbolic space, where we only shrink the xy plane, but not the height</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Hyperbolic Space
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <strong><span class="math inline">\(n\)</span>-dimensional hyperbolic space</strong> <span class="math inline">\(\mathbb{H}^n\)</span> is the unique (up to isometry) simply connected, complete Riemannian manifold of constant sectional curvature <span class="math inline">\(K = -1\)</span>.</p>
+<p>Two standard models make this concrete:</p>
+<p><strong>Poincaré half-space model.</strong> Take the open upper half-space <span class="math display">\[\mathbb{H}^n := \{(x_1,\dots,x_n)\in\mathbb{R}^n \mid x_n &gt; 0\}\]</span> equipped with the Riemannian metric whose components on the coordinate tangent vectors are <span class="math display">\[g_{ij}(p) \;=\; g_p\!\left(\frac{\partial}{\partial x_i}\bigg|_p,\; \frac{\partial}{\partial x_j}\bigg|_p\right) \;=\; \frac{1}{p_n^2}\,\delta_{ij}.\]</span> Geodesics are semicircles (or rays) orthogonal to the boundary hyperplane <span class="math inline">\(\{x_n = 0\}\)</span>.</p>
+<p><strong>Poincaré disk model.</strong> Take the open unit ball <span class="math inline">\(\mathbb{D}^n = \{x\in\mathbb{R}^n \mid \|x\|&lt;1\}\)</span> with metric <span class="math display">\[g_{ij}(p) \;=\; g_p\!\left(\frac{\partial}{\partial x^i}\bigg|_p,\; \frac{\partial}{\partial x^j}\bigg|_p\right) \;=\; \frac{4}{\bigl(1-\|p\|^2\bigr)^2}\,\delta_{ij}.\]</span> This model is <strong>conformal</strong>: angles between curves equal their Euclidean counterparts.</p>
+<p>Each point <span class="math inline">\(p \in \mathbb{H}^n\)</span> has tangent vectors <span class="math inline">\(\frac{\partial}{\partial x^i} in T_p M\)</span> (which we write as the partial derivatives) at <span class="math inline">\(p\)</span> given local coordinates (i.e.&nbsp;a basis <span class="math inline">\(\text{span}\{x^1,\dots,x^n\} = T_p M\)</span>). The collection <span class="math inline">\(\bigl\{\frac{\partial}{\partial x^1}\big|_p,\dots,\frac{\partial}{\partial x^n}\big|_p\bigr\}\)</span> forms a basis of <span class="math inline">\(T_pM\)</span>.</p>
+<p>A <strong>Riemannian metric</strong> on a smooth manifold <span class="math inline">\(M\)</span> is a family of inner products <span class="math display">\[g_p : T_pM \times T_pM \;\longrightarrow\; \mathbb{R}, \qquad p \in M,\]</span> varying smoothly in <span class="math inline">\(p\)</span>, such that each <span class="math inline">\(g_p\)</span> is symmetric and positive-definite. In local coordinates the metric is completely determined by its values on basis tangent vectors: <span class="math display">\[g_{ij}(p) \;:=\; g_p\!\left(\frac{\partial}{\partial x^i}\bigg|_p,\; \frac{\partial}{\partial x^j}\bigg|_p\right), \qquad g_{ij} = g_{ji},\]</span> with the matrix <span class="math inline">\((g_{ij}(p))\)</span> positive-definite at every point. The length of a tangent vector <span class="math inline">\(v = \sum_i v^i \frac{\partial}{\partial x^i}\in T_pM\)</span> is then <span class="math inline">\(\|v\|_g = \sqrt{\sum_{i,j} g_{ij}(p)\, v^i v^j}\)</span>.</p>
+<p>For the Poincaré half-space model in dimension 2, the metric evaluates on the coordinate tangent vectors <span class="math inline">\(\frac{\partial}{\partial x}, \frac{\partial}{\partial y} \in T_pM\)</span> as <span class="math display">\[g_p\!\left(\frac{\partial}{\partial x^i}\bigg|_p,\;\frac{\partial}{\partial x^j}\bigg|_p\right) = \frac{1}{y^2}\,\delta_{ij},\]</span> i.e.&nbsp;the coordinate tangent vectors are orthogonal and each has length <span class="math inline">\(\frac{1}{y}\)</span> — shrinking to zero as <span class="math inline">\(p\)</span> approaches the boundary <span class="math inline">\(y\to 0\)</span>, which is what makes the space “infinitely large” near the boundary.</p>
+<p>Often people write these metrics as <span class="math inline">\(ds^2 = \sum_{i,j} g_{ij}\,dx^i\,dx^j\)</span>, where each <span class="math inline">\(dx^i\)</span> is a <strong>covector</strong> (1-form), i.e.&nbsp;an element of the dual space <span class="math inline">\(T_p^*M\)</span>. For finite dimensional vectorspaces there is a canonical isomorphism between them and their dual: given the coordinate basis <span class="math inline">\(\bigl\{\frac{\partial}{\partial x^1},\dots,\frac{\partial}{\partial x^n}\bigr\}\)</span> of <span class="math inline">\(T_pM\)</span>, there is a unique <strong>dual basis</strong> <span class="math inline">\(\{dx^1,\dots,dx^n\}\)</span> of <span class="math inline">\(T_p^*M\)</span> defined by <span class="math display">\[dx^i\!\left(\frac{\partial}{\partial x^j}\right) = \delta^i{}_j.\]</span> This extends to isomorphisms <span class="math inline">\(T_pM \to T_p^*M\)</span>. Under this identification, the bilinear form <span class="math inline">\(g_p\)</span> on <span class="math inline">\(T_pM \times T_pM\)</span> is represented by the symmetric tensor <span class="math inline">\(\sum_{i,j} g_{ij}\,dx^i \otimes dx^j\)</span> acting on pairs of tangent vectors via <span class="math display">\[\left(\sum_{i,j} g_{ij}\,dx^i\otimes dx^j\right)\!\!\left(\frac{\partial}{\partial x^k},\frac{\partial}{\partial x^l}\right) = g_{kl},\]</span> which recovers exactly the inner products <span class="math inline">\(g_p\!\left(\frac{\partial}{\partial x^k},\frac{\partial}{\partial x^l}\right)\)</span> from before. So both descriptions carry identical information;</p>
+<p>For this reason, we may also write for the Poincaré half-space model in dimension 2:</p>
+<p><span class="math display">\[ds^2 = \frac{1}{y^2}\,(dx^2 + dy^2).\]</span></p>
+<p>The key difference from Euclidean geometry is that a circle of radius <span class="math inline">\(r\)</span> has circumference <span class="math inline">\(2\pi\sinh r &gt; 2\pi r\)</span>, and volumes grow <strong>exponentially</strong> rather than polynomially: <span class="math display">\[\operatorname{Vol}(B(r)) = \operatorname{Vol}(S^{n-1})\int_0^r \sinh^{n-1}(t)\,dt.\]</span></p>
+</div>
+</div>
+</div>
+<hr>
+<p>Further references:</p>
+<ol type="1">
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/QcLfb0PhfO0?t=470" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> I drew <em>heavy inspiration</em> from this video “Not Knot” by the Geometry Center / Geometry Supercomputer Project in 1991, directed by Charlie Gunn and Delle Maxwell.</li>
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yqUv2JO2BCs?t=143" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> A video about different geometries on <span class="math inline">\(\mathbb{R}^3\)</span></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/happel\.ai\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../impressum.html">
+<p>Impressum</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../datenschutz.html">
+<p>Datenschutz</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
