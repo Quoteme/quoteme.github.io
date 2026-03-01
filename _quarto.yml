@@ -7,7 +7,6 @@ website:
   favicon: "favicon.png"
   description: "Personal website of {{< var profile.name >}}, including lots of math and computer science."
   open-graph:
-    image: "{{< var profile.image >}}"
     description: Luca Happel's personal website, including lots of math and computer science.
   google-analytics: "G-LEVM9WYR7J"
 
