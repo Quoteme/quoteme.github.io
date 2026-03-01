@@ -267,14 +267,45 @@ window.Quarto = {
 <div id="def-covering-space" class="definition theorem">
 <p><span class="theorem-title"><strong>Definition 1</strong></span> A <strong>covering space</strong> of a topological space <span class="math inline">\(X\)</span> is a topological space <span class="math inline">\(C\)</span> together with a continuous surjective map <span class="math inline">\(p: C \to X\)</span> such that for every point <span class="math inline">\(x \in X\)</span>, there exists an open neighborhood <span class="math inline">\(U\)</span> of <span class="math inline">\(x\)</span> such that <span class="math inline">\(p^{-1}(U) \cong F \times U\)</span> for some discrete set <span class="math inline">\(F\)</span> (called the fiber over <span class="math inline">\(x\)</span>), and the map <span class="math inline">\(p\)</span> restricted to each component of <span class="math inline">\(p^{-1}(U)\)</span> is a homeomorphism onto <span class="math inline">\(U\)</span>.</p>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="def-homeomorphism" class="definition theorem">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> A <strong>homeomorphism</strong> between topological spaces <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is a bijective map <span class="math inline">\(f: X \to Y\)</span> such that both <span class="math inline">\(f\)</span> and its inverse <span class="math inline">\(f^{-1}: Y \to X\)</span> are continuous. Explicitly:</p>
+<ol type="1">
+<li><span class="math inline">\(f\)</span> is a bijection,</li>
+<li><span class="math inline">\(f\)</span> is continuous (preimages of open sets are open),</li>
+<li><span class="math inline">\(f^{-1}\)</span> is continuous (images of open sets are open, i.e.&nbsp;<span class="math inline">\(f\)</span> is an <em>open map</em>).</li>
+</ol>
+<p>If such an <span class="math inline">\(f\)</span> exists, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are called <strong>homeomorphic</strong>, written <span class="math inline">\(X \cong Y\)</span>.</p>
+<p>Homeomorphisms are precisely the <strong>isomorphisms in the category <span class="math inline">\(\mathbf{Top}\)</span></strong> of topological spaces and continuous maps.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Covering_space_diagram.svg/960px-Covering_space_diagram.svg.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Typical example illustrating a covering space"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Covering_space_diagram.svg/960px-Covering_space_diagram.svg.png" class="img-fluid figure-img" style="width:33.0%" alt="Typical example illustrating a covering space"></a></p>
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/2/26/Mug_and_Torus_morph.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Example of a homeomorphism between a doughnut and a coffee cup"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Mug_and_Torus_morph.gif" class="img-fluid figure-img" alt="Example of a homeomorphism between a doughnut and a coffee cup"></a></p>
+<figcaption>Example of a homeomorphism between a doughnut and a coffee cup</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Covering_space_diagram.svg/960px-Covering_space_diagram.svg.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Typical example illustrating a covering space"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Covering_space_diagram.svg/960px-Covering_space_diagram.svg.png" class="img-fluid figure-img" style="width:33.0%" alt="Typical example illustrating a covering space"></a></p>
 <figcaption>Typical example illustrating a covering space</figcaption>
 </figure>
 </div>
 <div id="def-universal-cover" class="definition theorem">
-<p><span class="theorem-title"><strong>Definition 2</strong></span> A <strong>universal cover</strong> of a topological space <span class="math inline">\(X\)</span> is a covering space <span class="math inline">\(\tilde{X}\)</span> of <span class="math inline">\(X\)</span> that is simply connected, meaning that it has no nontrivial loops. The universal cover is unique up to homeomorphism and serves as a “universal” object in the category of covering spaces of <span class="math inline">\(X\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 3</strong></span> A <strong>universal cover</strong> of a topological space <span class="math inline">\(X\)</span> is a covering space <span class="math inline">\(\tilde{X}\)</span> of <span class="math inline">\(X\)</span> that is simply connected, meaning that it has no nontrivial loops. The universal cover is unique up to homeomorphism and serves as a “universal” object in the category of covering spaces of <span class="math inline">\(X\)</span>.</p>
 </div>
 <section id="the-universal-cover-of-a-doughnut" class="level2">
 <h2 class="anchored" data-anchor-id="the-universal-cover-of-a-doughnut">The universal cover of a doughnut</h2>
@@ -377,6 +408,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>The infinitely stacked world <span class="math inline">\(D^2 \times \mathbb{R}^2\)</span> is the <em>universal cover</em> of Bobs world <span class="math inline">\(S^1 \times D^2\)</span>, as it is simply connected and covers Bobs world (see <a href="#def-universal-cover">the definition of universal cover</a> above).</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -392,7 +424,7 @@ Caution
 </div>
 <section id="further-elabotrtion-regarding-super-mario-64" class="level3">
 <h3 class="anchored" data-anchor-id="further-elabotrtion-regarding-super-mario-64">Further elabotrtion regarding Super Mario 64</h3>
-<p>This is actually what <a href="https://www.youtube.com/@Bismuth9">Bismuth</a> describes in <a href="https://www.youtube.com/watch?v=wjge1bVobN0">his video: “Super Mario 64 Tool-assisted speedrun world record explained”</a> in the case of the <span class="math inline">\(T^3\)</span>, the world of SM64. The <span class="math inline">\(T^3\)</span> is the 3-dimensional torus, which is the product of three circles. Look at this short clip from his video:</p>
+<p>The universal covering of Super Mario 64s maps is actually what <a href="https://www.youtube.com/@Bismuth9">Bismuth</a> describes in <a href="https://www.youtube.com/watch?v=wjge1bVobN0">his video: “Super Mario 64 Tool-assisted speedrun world record explained”</a>. The worlds of SM64 or rather the maps in Super Mario 64, are all homeomorphic to <span class="math inline">\(T^3\)</span> (meaning they are pretty much the same, see <a href="#def-homeomorphism">the definition of homeomorphisms</a>). The <span class="math inline">\(T^3\)</span> is the 3-dimensional torus, which is the product of three circles. Look at this short clip from his video:</p>
 <table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; flex:1;">
 <tbody><tr>
 <td style="padding:0;">
@@ -412,7 +444,7 @@ The world of Super Mario 64 is more or less a 3-dimensional torus <span class="m
 <p>By carefully choosing Marios position <span class="math inline">\(p in P\)</span> and velocity <span class="math inline">\(v in T_p P\)</span>, the SM64 community was able to reach a desired positions <span class="math inline">\(q\)</span> in <span class="math inline">\(B\)</span> up to collision detection (for reaching some door, collecting a star, etc.). They did this by checking which <span class="math inline">\(t_1, \dots, t_k\)</span> SM64 actually uses for calculations and then making the right choices, so that <span class="math inline">\(\rho(\exp_v(t_i)) = q\)</span> for some <span class="math inline">\(i\)</span> and for all other <span class="math inline">\(j \neq i\)</span> <span class="math inline">\(\rho(\exp_v(t_j))\)</span> is not a position that would trigger a collision detection with negative consequences (like resetting <span class="math inline">\(v\)</span>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../../assets/covering-space/parallel_universes_sm64.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Schematic of picking the correct v as shown in Bismuths Video"><img src="../../assets/covering-space/parallel_universes_sm64.png" class="img-fluid figure-img" style="width:33.0%" alt="Schematic of picking the correct v as shown in Bismuths Video"></a></p>
+<p><a href="../../assets/covering-space/parallel_universes_sm64.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Schematic of picking the correct v as shown in Bismuths Video"><img src="../../assets/covering-space/parallel_universes_sm64.png" class="img-fluid figure-img" style="width:33.0%" alt="Schematic of picking the correct v as shown in Bismuths Video"></a></p>
 <figcaption>Schematic of picking the correct <span class="math inline">\(v\)</span> as shown in <a href="https://www.youtube.com/@Bismuth9">Bismuth</a>s Video</figcaption>
 </figure>
 </div>
@@ -425,7 +457,7 @@ The world of Super Mario 64 is more or less a 3-dimensional torus <span class="m
 <p>In fact, we could encode in which copy of Bobs world Snoopy is, by counting how many times the leash is wrapped around the hole.</p>
 <p>This “wrapping a leash around the hole” action that Snoopy can perform is actually a <a href="https://en.wikipedia.org/wiki/Group_action">group action</a> of <span class="math inline">\(\mathbb{Z}\)</span> on the base space (Bobs space): For each integer <span class="math inline">\(n \in \mathbb{Z}\)</span>, Snoopy can wrap the leash around the hole <span class="math inline">\(n\)</span> times, and <span class="math inline">\(n-m\)</span> corresponds to Snoopy walking around the hole <span class="math inline">\(n\)</span> times clockwise and then <span class="math inline">\(m\)</span> times counterclockwise.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -434,10 +466,10 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="def-fundamental-group" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Definition: Fundamental Group)</strong></span> Let <span class="math inline">\(X\)</span> be a topological space and <span class="math inline">\(x_0 \in X\)</span> a basepoint. A <strong>loop</strong> based at <span class="math inline">\(x_0\)</span> is a continuous map <span class="math inline">\(\gamma: [0,1] \to X\)</span> with <span class="math inline">\(\gamma(0) = \gamma(1) = x_0\)</span>. Two loops <span class="math inline">\(\gamma, \delta\)</span> are <strong>homotopic relative to <span class="math inline">\(x_0\)</span></strong> (written <span class="math inline">\(\gamma \simeq \delta\)</span>) if there exists a continuous map <span class="math inline">\(H: [0,1] \times [0,1] \to X\)</span> such that <span class="math display">\[H(s,0) = \gamma(s), \quad H(s,1) = \delta(s), \quad H(0,t) = H(1,t) = x_0\]</span> for all <span class="math inline">\(s,t \in [0,1]\)</span>. This is an equivalence relation; denote the equivalence class of <span class="math inline">\(\gamma\)</span> by <span class="math inline">\([\gamma]\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 4 (Definition: Fundamental Group)</strong></span> Let <span class="math inline">\(X\)</span> be a topological space and <span class="math inline">\(x_0 \in X\)</span> a basepoint. A <strong>loop</strong> based at <span class="math inline">\(x_0\)</span> is a continuous map <span class="math inline">\(\gamma: [0,1] \to X\)</span> with <span class="math inline">\(\gamma(0) = \gamma(1) = x_0\)</span>. Two loops <span class="math inline">\(\gamma, \delta\)</span> are <strong>homotopic relative to <span class="math inline">\(x_0\)</span></strong> (written <span class="math inline">\(\gamma \simeq \delta\)</span>) if there exists a continuous map <span class="math inline">\(H: [0,1] \times [0,1] \to X\)</span> such that <span class="math display">\[H(s,0) = \gamma(s), \quad H(s,1) = \delta(s), \quad H(0,t) = H(1,t) = x_0\]</span> for all <span class="math inline">\(s,t \in [0,1]\)</span>. This is an equivalence relation; denote the equivalence class of <span class="math inline">\(\gamma\)</span> by <span class="math inline">\([\gamma]\)</span>.</p>
 <p>The <strong>fundamental group</strong> of <span class="math inline">\(X\)</span> at <span class="math inline">\(x_0\)</span> is <span class="math display">\[\pi_1(X, x_0) \;:=\; \bigl\{[\gamma] \mid \gamma \text{ is a loop based at } x_0\bigr\}\]</span> equipped with the group operation of <em>concatenation</em>: <span class="math display">\[[\gamma] \cdot [\delta] := [\gamma * \delta], \qquad (\gamma * \delta)(s) := \begin{cases} \gamma(2s) &amp; s \in [0,\tfrac{1}{2}] \\ \delta(2s-1) &amp; s \in [\tfrac{1}{2},1] \end{cases}\]</span> The identity element is the class of the constant loop <span class="math inline">\([c_{x_0}]\)</span>, and the inverse of <span class="math inline">\([\gamma]\)</span> is <span class="math inline">\([\bar\gamma]\)</span> where <span class="math inline">\(\bar\gamma(s) := \gamma(1-s)\)</span>.</p>
 <p>If <span class="math inline">\(X\)</span> is path-connected, the isomorphism type of <span class="math inline">\(\pi_1(X,x_0)\)</span> is independent of the basepoint <span class="math inline">\(x_0\)</span>, and we write simply <span class="math inline">\(\pi_1(X)\)</span>.</p>
 </div>
@@ -545,7 +577,7 @@ Warning
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -554,7 +586,7 @@ Definition: Hyperbolic Space
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The <strong><span class="math inline">\(n\)</span>-dimensional hyperbolic space</strong> <span class="math inline">\(\mathbb{H}^n\)</span> is the unique (up to isometry) simply connected, complete Riemannian manifold of constant sectional curvature <span class="math inline">\(K = -1\)</span>.</p>
 <p>Two standard models make this concrete:</p>
