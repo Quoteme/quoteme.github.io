@@ -7,6 +7,10 @@ website:
   favicon: "favicon.png"
   description: "Personal website of {{< var profile.name >}}, including lots of math and computer science."
   open-graph:
+    image: https://avatars2.githubusercontent.com/u/6796009
+    description: Luca Happel's personal website, including lots of math and computer science.
+  twitter-card:
+    image: https://avatars2.githubusercontent.com/u/6796009
     description: Luca Happel's personal website, including lots of math and computer science.
   google-analytics: "G-LEVM9WYR7J"
 

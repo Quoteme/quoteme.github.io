@@ -11,6 +11,13 @@ abstract: |
   A key insight is, that we can gain hyperbolic geometry by looking at the
   universal cover of a surface of genus $g \geq 2$.
 lightbox: auto
+open-graph:
+  image: /assets/covering-space/double-torus-universal-cover-alt.png
+  description: Visualization of the universal cover of a surface of genus 2, which is a hyperbolic space.
+twitter-card:
+  image: /assets/covering-space/double-torus-universal-cover-alt.pn g
+  description: Visualization of the universal cover of a surface of genus 2, which is a hyperbolic space.
+thumbnail: /assets/covering-space/double-torus-universal-cover-alt.png
 ---
 
 Covering spaces are a fundamental concept in topology.
@@ -36,13 +43,13 @@ There exists a deformation retract from the doughnut to a circle, so the fundame
 But what does any of that even mean? Let's visualize the universal cover of the doughnut.
 Let us start with Bob, who lives in the following little world:
 
-![Bob's world](../../assets/covering-space/road-image.png){width="33%" group="bob"}
+![Bob's world](/assets/covering-space/road-image.png){width="33%" group="bob"}
 
 When Bob drives along the road past the stop sign, he will eventually return to the same point at which he started. However, he would reach invisible walls, it he intended to walk along the grass, or jump to the sky. The road is the only way to get around, and it loops back on itself.
 
 Topologically, Bobs world is a doughnut, and the road is a loop around the hole of the doughnut. If we were to stretch it (don't worry, this wont harm Bob, he does not even notice!), we would get the following picture:
 
-![Bob's world stretched](../../assets/covering-space/road-trip-1-alt.png){width="33%" group="bob"}
+![Bob's world stretched](/assets/covering-space/road-trip-1-alt.png){width="33%" group="bob"}
 
 These kinds of worlds typically occur in video games, and famously the ideas which I will elaborate on in this post were used in the Super Mario 64 community to "hack" the game to achieve various speedrunning goals: 
 
@@ -55,11 +62,11 @@ In the case of SM64 however, only the collision detection code is affected by th
 Lets assume, we would double, triple, quadruple, etc. Bobs world and stack these copies on top of each other. Bob would never notice, as long as each copy is just a "shallow" copy, meaning that each movement in the _fundamental domain_ (the original world) is mirrored in the copies. In this case, we would have a covering space of Bobs world, and the original world would be the base space.
 
 :::{layout-ncol="3"}
-![Bob's world stacked once](../../assets/covering-space/road-trip-1-alt.png){group="bob"}
+![Bob's world stacked once](/assets/covering-space/road-trip-1-alt.png){group="bob"}
 
-![Bob's world stacked twice](../../assets/covering-space/road-trip-2-alt.png){group="bob"}
+![Bob's world stacked twice](/assets/covering-space/road-trip-2-alt.png){group="bob"}
 
-![Bob's world stacked three times](../../assets/covering-space/road-trip-3-alt.png){group="bob"}
+![Bob's world stacked three times](/assets/covering-space/road-trip-3-alt.png){group="bob"}
 :::
 
 You could now imagine if we would do the same for SM64. Only there, we would not render any of the terrain, but only Mario himself for the copies.
@@ -67,15 +74,15 @@ You could now imagine if we would do the same for SM64. Only there, we would not
 If we were to keep stacking these copies, we would get the following picture:
 
 :::{layout-ncol="2"}
-![Bob's world stacked four times](../../assets/covering-space/road-trip-4.png){group="bob"}
+![Bob's world stacked four times](/assets/covering-space/road-trip-4.png){group="bob"}
 
-![Bob's world stacked five times](../../assets/covering-space/road-trip-6.png){group="bob"}
+![Bob's world stacked five times](/assets/covering-space/road-trip-6.png){group="bob"}
 
-![Bob's world stacked five times](../../assets/covering-space/road-trip-7.png){group="bob"}
+![Bob's world stacked five times](/assets/covering-space/road-trip-7.png){group="bob"}
 
-![Bob's world stacked five times](../../assets/covering-space/road-trip-20-alt-gaps.png){group="bob"}
+![Bob's world stacked five times](/assets/covering-space/road-trip-20-alt-gaps.png){group="bob"}
 
-![Bob's world stacked $\infty$ times](../../assets/covering-space/universal-cover.png){group="bob"}
+![Bob's world stacked $\infty$ times](/assets/covering-space/universal-cover.png){group="bob"}
 :::
 
 :::{.callout-caution}
@@ -145,18 +152,18 @@ If $X$ is path-connected, the isomorphism type of $\pi_1(X,x_0)$ is independent 
 If we would think of the invisible walls in Bobs world as actual walls, say by a street lamp, we would get the following picture:
 
 ::::{layout-ncol="4"}
-![Snoopy being tangled $-1$ times around the hole/lamp](../../assets/covering-space/snoopy/snoopy_-1.jpg){group="snoopy"}
+![Snoopy being tangled $-1$ times around the hole/lamp](/assets/covering-space/snoopy/snoopy_-1.jpg){group="snoopy"}
 
-![Snoopy being tangled $0$ times around the hole/lamp](../../assets/covering-space/snoopy/snoopy_0.jpg){group="snoopy"}
+![Snoopy being tangled $0$ times around the hole/lamp](/assets/covering-space/snoopy/snoopy_0.jpg){group="snoopy"}
 
-![Snoopy being tangled $1$ times around the hole/lamp](../../assets/covering-space/snoopy/snoopy_1.jpg){group="snoopy"}
+![Snoopy being tangled $1$ times around the hole/lamp](/assets/covering-space/snoopy/snoopy_1.jpg){group="snoopy"}
 
-![Snoopy being tangled $1+1=2$ times around the hole/lamp](../../assets/covering-space/snoopy/snoopy_2.jpg){group="snoopy"}
+![Snoopy being tangled $1+1=2$ times around the hole/lamp](/assets/covering-space/snoopy/snoopy_2.jpg){group="snoopy"}
 :::
 
 So we have that one line removed in Bobs space results in an infinite ($\mathbb{Z}$) amount of copies in the universal cover, but what is we would remove two lines?
 
-![A world with two lines removed. Now there are two ways (red and blue) for a leash to get tangled up and "all their combinations" (there are two generators of the fundamental group of this space)](../../assets/two_holes_removed_two_leashes.png){width="33%" group="bob"}
+![A world with two lines removed. Now there are two ways (red and blue) for a leash to get tangled up and "all their combinations" (there are two generators of the fundamental group of this space)](/assets/two_holes_removed_two_leashes.png){width="33%" group="bob"}
 
 Let's "unfold" this world again, like we did with the torus and the world, where moving through the wall along the road "teleported" Bob back to the other side.
 I will place a small house and some water into this barren world, so bob can have a nice place to live:
