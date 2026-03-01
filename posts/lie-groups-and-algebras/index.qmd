@@ -361,7 +361,7 @@ Take a look at an __autoencoder__ in machine learning:
 </table>
 
 Basically an autoencoder is just a glorified way to find a "hopefully best" section $\sigma$ (called __decoder__) to the retract $\rho$ (called __encoder__), as in this figure
-(here $\sigma$ takes in noisy data and outputs a clean representation, and $\rho$ takes in clean data and outputs a compressed representation. Saying they are sections and retracts boils down to $\sigma \circ \rho = \mathrm{id}$):
+(here $\rho$ takes in noisy data and outputs a clean representation, and $\sigma$ takes in clean data and outputs a compressed representation. Saying they are sections and retracts boils down to $\sigma \circ \rho = \mathrm{id}$):
 
 <table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; margin:auto; width:50%;">
   <tr>
