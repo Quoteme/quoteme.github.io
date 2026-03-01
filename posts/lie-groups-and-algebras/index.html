@@ -396,10 +396,10 @@ What is a Lie group?
 <li>The <strong>real numbers</strong> <span class="math inline">\((\mathbb{R}, +)\)</span> form a Lie group: adding <span class="math inline">\(x\)</span> is undone by adding <span class="math inline">\(-x\)</span>, and you can smoothly slide along the number line.</li>
 <li>The <strong>unit circle</strong> <span class="math inline">\(S^1 = \{z \in \mathbb{C} \mid |z| = 1\}\)</span> with complex multiplication forms a Lie group: rotating the circle by angle <span class="math inline">\(\theta\)</span> is undone by rotating by <span class="math inline">\(-\theta\)</span>.</li>
 </ul>
-<p><strong>Weird but useful example:</strong> Adding interest to your bank account like the stock market does is a Lie group action: One month you gain say 5%, so if you started with <span class="math inline">\(x€\)</span>, you will have <span class="math inline">\(x€ \cdot 1.05\)</span> after that month. The next month you gain 3%, so you will have <span class="math inline">\(x€ \cdot 1.05 \cdot 1.03\)</span>. Now, if the following month, you lose 8%, you will have <span class="math inline">\(x€ \cdot 1.05 \cdot 1.03 \cdot 0.92\)</span>. If you started with <span class="math inline">\(x=1000€\)</span>, then you would be left with:</p>
-<div id="506e55be" class="cell" data-execution_count="1">
+<p><strong>Weird but useful example:</strong> Adding interest to your bank account like the stock market does is a Lie group action: One month you gain say 5%, so if you started with <span class="math inline">\(x\text{€}\)</span>, you will have <span class="math inline">\(x\text{€} \cdot 1.05\)</span> after that month. The next month you gain 3%, so you will have <span class="math inline">\(x\text{€} \cdot 1.05 \cdot 1.03\)</span>. Now, if the following month, you lose 8%, you will have <span class="math inline">\(x\text{€} \cdot 1.05 \cdot 1.03 \cdot 0.92\)</span>. If you started with <span class="math inline">\(x=1000\text{€}\)</span>, then you would be left with:</p>
+<div id="c796b4f6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1000</span> <span class="op">*</span> <span class="fl">1.05</span> <span class="op">*</span> <span class="fl">1.03</span> <span class="op">*</span> <span class="fl">0.92</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>994.98</code></pre>
 </div>
 </div>
@@ -725,7 +725,7 @@ Schema of an autoencoder, a type of neural network that learns to compress and r
 </td>
 </tr>
 </tbody></table>
-<p>Basically an autoencoder is just a glorified way to find a “hopefully best” section <span class="math inline">\(\sigma\)</span> (called <strong>decoder</strong>) to the retract <span class="math inline">\(\rho\)</span> (called <strong>encoder</strong>), as in this figure (here <span class="math inline">\(\sigma\)</span> takes in noisy data and outputs a clean representation, and <span class="math inline">\(\rho\)</span> takes in clean data and outputs a compressed representation. Saying they are sections and retracts boils down to <span class="math inline">\(\sigma \circ \rho = \mathrm{id}\)</span>):</p>
+<p>Basically an autoencoder is just a glorified way to find a “hopefully best” section <span class="math inline">\(\sigma\)</span> (called <strong>decoder</strong>) to the retract <span class="math inline">\(\rho\)</span> (called <strong>encoder</strong>), as in this figure (here <span class="math inline">\(\rho\)</span> takes in noisy data and outputs a clean representation, and <span class="math inline">\(\sigma\)</span> takes in clean data and outputs a compressed representation. Saying they are sections and retracts boils down to <span class="math inline">\(\sigma \circ \rho = \mathrm{id}\)</span>):</p>
 <table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; margin:auto; width:50%;">
 <tbody><tr>
 <td style="padding:0;">
