@@ -80,7 +80,7 @@ satisfying the usual group axioms (associativity, identity, inverse).
 - The **unit circle** $S^1 = \{z \in \mathbb{C} \mid |z| = 1\}$ with complex multiplication forms a Lie group: rotating the circle by angle $\theta$ is undone by rotating by $-\theta$.
 
 **Weird but useful example:** Adding interest to your bank account like the stock market does is a Lie group action:
-One month you gain say 5%, so if you started with $x€$, you will have $x€ \cdot 1.05$ after that month. The next month you gain 3%, so you will have $x€ \cdot 1.05 \cdot 1.03$. Now, if the following month, you lose 8%, you will have $x€ \cdot 1.05 \cdot 1.03 \cdot 0.92$. If you started with $x=1000€$, then you would be left with:
+One month you gain say 5%, so if you started with $x\text{€}$, you will have $x\text{€} \cdot 1.05$ after that month. The next month you gain 3%, so you will have $x\text{€} \cdot 1.05 \cdot 1.03$. Now, if the following month, you lose 8%, you will have $x\text{€} \cdot 1.05 \cdot 1.03 \cdot 0.92$. If you started with $x=1000\text{€}$, then you would be left with:
 
 ```{python}
 1000 * 1.05 * 1.03 * 0.92
