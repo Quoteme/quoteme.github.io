@@ -27,6 +27,23 @@ Some typical examples can be seen [in this previous post](../l2-invariants/).
 A **covering space** of a topological space $X$ is a topological space $C$ together with a continuous surjective map $p: C \to X$ such that for every point $x \in X$, there exists an open neighborhood $U$ of $x$ such that $p^{-1}(U) \cong F \times U$ for some discrete set $F$ (called the fiber over $x$), and the map $p$ restricted to each component of $p^{-1}(U)$ is a homeomorphism onto $U$.
 :::
 
+:::{.callout-note collapse="true"}
+:::{#def-homeomorphism .definition}
+
+A **homeomorphism** between topological spaces $X$ and $Y$ is a bijective map $f: X \to Y$ such that both $f$ and its inverse $f^{-1}: Y \to X$ are continuous. Explicitly:
+
+1. $f$ is a bijection,
+2. $f$ is continuous (preimages of open sets are open),
+3. $f^{-1}$ is continuous (images of open sets are open, i.e.\ $f$ is an *open map*).
+
+If such an $f$ exists, $X$ and $Y$ are called **homeomorphic**, written $X \cong Y$.
+
+Homeomorphisms are precisely the **isomorphisms in the category $\mathbf{Top}$** of topological spaces and continuous maps.
+
+![Example of a homeomorphism between a doughnut and a coffee cup](https://upload.wikimedia.org/wikipedia/commons/2/26/Mug_and_Torus_morph.gif)
+:::
+:::
+
 ![Typical example illustrating a covering space](https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Covering_space_diagram.svg/960px-Covering_space_diagram.svg.png){width="33%"}
 
 :::{#def-universal-cover .definition}
@@ -85,13 +102,15 @@ If we were to keep stacking these copies, we would get the following picture:
 ![Bob's world stacked $\infty$ times](/assets/covering-space/universal-cover.png){group="bob"}
 :::
 
+The infinitely stacked world $D^2 \times \mathbb{R}^2$ is the _universal cover_ of Bobs world $S^1 \times D^2$, as it is simply connected and covers Bobs world (see [the definition of universal cover](#def-universal-cover) above).
+
 :::{.callout-caution}
 I sometimes changed the ground texture and was too lazy to rerender all the images, so please excuse this inconsistency in the images.
 :::
 
 ### Further elabotrtion regarding Super Mario 64
 
-This is actually what [Bismuth](https://www.youtube.com/@Bismuth9) describes in [his video: "Super Mario 64 Tool-assisted speedrun world record explained"](https://www.youtube.com/watch?v=wjge1bVobN0) in the case of the $T^3$, the world of SM64. The $T^3$ is the 3-dimensional torus, which is the product of three circles. Look at this short clip from his video:
+The universal covering of Super Mario 64s maps is actually what [Bismuth](https://www.youtube.com/@Bismuth9) describes in [his video: "Super Mario 64 Tool-assisted speedrun world record explained"](https://www.youtube.com/watch?v=wjge1bVobN0). The worlds of SM64 or rather the maps in Super Mario 64, are all homeomorphic to $T^3$ (meaning they are pretty much the same, see [the definition of homeomorphisms](#def-homeomorphism)). The $T^3$ is the 3-dimensional torus, which is the product of three circles. Look at this short clip from his video:
 
 <table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; flex:1;">
   <tr>
