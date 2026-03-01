@@ -12,7 +12,7 @@
   outputs = { self, nixpkgs, flake-utils, ... }@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pythonPackages = ps: with ps; [ plotly numpy pandas matplotlib ];
+        pythonPackages = ps: with ps; [ plotly numpy pandas matplotlib jupyter-cache ];
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
