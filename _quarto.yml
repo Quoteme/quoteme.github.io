@@ -40,5 +40,7 @@ format:
     css: styles.css
     theme:
       light: cosmo
+    filters:
+      - callouty-theorem
 filters:
   - auto-dark
