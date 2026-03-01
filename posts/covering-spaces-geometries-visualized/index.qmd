@@ -35,8 +35,8 @@ A **universal cover** of a topological space $X$ is a covering space $\tilde{X}$
 
 ## The universal cover of a doughnut
 
-A filled torus (a doughnut) is a surface of genus 1.
-There exists a deformation retract from the doughnut to a circle, so the fundamental group of the doughnut is $\pi_1(T^2) \cong \mathbb{Z}$.
+A filled torus (a doughnut) is a 3-manifold homeomorphic to $S^1 \times D^2$, where $D^2$ is the 2-dimensional disk.
+There exists a deformation retract from the doughnut to a circle, so the fundamental group of the doughnut is $\pi_1(S^1 \times D^2) \cong \mathbb{Z}$.
 
 
 
