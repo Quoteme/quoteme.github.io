@@ -1,8 +1,8 @@
 ---
 title: |
-  Covering Spaces and Their Geometries Visualized
+  Hacking Super Mario 64 using covering spaces (+ hyperbolic geometry)
 subtitle: |
-  Super Mario 64, video gamess and hyperbolic geometry
+  Visualizations of covering spaces and their applications to geometry and video games
 author: "Luca Leon Happel"
 date: "20260-3-01"
 categories: ["topology", "geometry", "visualization", "English"]
