@@ -4,7 +4,7 @@ title: |
 subtitle: |
   Visualizations of covering spaces and their applications to geometry and video games
 author: "Luca Leon Happel"
-date: "20260-3-01"
+date: "2026-3-01"
 categories: ["topology", "geometry", "visualization", "English"]
 abstract: |
   We explore covering spaces — spaces that locally look like the "repetitions" of a base space.
