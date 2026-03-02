@@ -44,7 +44,9 @@ Homeomorphisms are precisely the **isomorphisms in the category $\mathbf{Top}$**
 :::
 :::
 
+:::{.fix-transparent-background}
 ![Typical example illustrating a covering space](https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Covering_space_diagram.svg/960px-Covering_space_diagram.svg.png){width="33%"}
+:::
 
 :::{#def-universal-cover .definition}
 A **universal cover** of a topological space $X$ is a covering space $\tilde{X}$ of $X$ that is simply connected, meaning that it has no nontrivial loops. The universal cover is unique up to homeomorphism and serves as a "universal" object in the category of covering spaces of $X$.
