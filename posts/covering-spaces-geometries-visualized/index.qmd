@@ -72,7 +72,7 @@ These kinds of worlds typically occur in video games, and famously the ideas whi
 
 {{< video https://youtu.be/wjge1bVobN0?t=1373 >}}
 
-(This is where the famous "but first, we will need to talk about parallel universes" quote comes from. In the SM64 community, covering spaces are known as "parallel universes"). Weather intentional (like in Pacman) or unintentional (like in Super Mario 64, due to floating point arithmetic), it is often the case that walking in a straight line long enough will eventually lead you back to the same point.
+(This is where the famous "but first, we will need to talk about parallel universes" quote comes from. In the SM64 community, covering spaces are known as "parallel universes"). Weather intentional (like in Pacman) or unintentional (like in Super Mario 64, due to casting `float`ing point numbers to `short int`s), it is often the case that walking in a straight line long enough will eventually lead you back to the same point.
 
 In the case of SM64 however, only the collision detection code is affected by this floating point arithmetic, but not the rendering engine. So there actually are some differences between the "parallel universes" in SM64. In particular, when Mario moves to a different parallel universe, the same collisions are still detected, although he is rendered as floating in an empty space. We can encode this also in Bobs world:
 
@@ -265,11 +265,14 @@ $$\operatorname{Vol}(B(r)) = \operatorname{Vol}(S^{n-1})\int_0^r \sinh^{n-1}(t)\
 
 :::
 
----
-
-Further references:
+## Further references:
 
 1. {{< video https://youtu.be/QcLfb0PhfO0?t=470 >}}
   I drew _heavy inspiration_ from this video "Not Knot" by the Geometry Center / Geometry Supercomputer Project in 1991, directed by Charlie Gunn and Delle Maxwell.
 2. {{< video https://youtu.be/yqUv2JO2BCs?t=143 >}}
-  A video about different geometries on $\mathbb{R}^3$
+  A video about different geometries on $\mathbb{R}^ 3$
+  
+## Discussion
+
+- {{< bi reddit >}} [https://reddit.com/r/programming/](https://www.reddit.com/r/programming/comments/1ricxxm/hacking_super_mario_64_using_algebraic_topology/)
+- {{< bi reddit >}} [https://reddit.com/r/math/](https://www.reddit.com/r/programming/comments/1ricxxm/hacking_super_mario_64_using_algebraic_topology/)
