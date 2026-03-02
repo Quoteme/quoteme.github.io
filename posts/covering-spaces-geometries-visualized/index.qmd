@@ -199,7 +199,7 @@ I will place a small house and some water into this barren world, so bob can hav
     <td style="padding:0;">
       <video autoplay loop muted style="width:100%; display:block;">
         <source src="/assets/double-torus-unfold.mov" type='video/mp4; codecs="hvc1"'>
-        <source src="/assets/double-torus-unfold.webm" type="video/webm">
+        <source src="/assets/double-torus.webm" type="video/webm">
         Your browser does not support the video tag.
       </video>
     </td>
@@ -207,6 +207,7 @@ I will place a small house and some water into this barren world, so bob can hav
   <tr>
     <td style="text-align:center; padding:0.4rem;">
       Unfolding the space with two lines removed (Bobs home) to a double doughnut.
+      I also generated a previous version <a href="/assets/double-torus-unfold.webm">here</a>, but it did have some problems during rendering.
     </td>
   </tr>
 </table>
