@@ -74,7 +74,7 @@ These kinds of worlds typically occur in video games, and famously the ideas whi
 
 {{< video https://youtu.be/wjge1bVobN0?t=1373 >}}
 
-(This is where the famous "but first, we will need to talk about parallel universes" quote comes from. In the SM64 community, covering spaces are known as "parallel universes"). Weather intentional (like in Pacman) or unintentional (like in Super Mario 64, due to casting `float`ing point numbers to `short int`s), it is often the case that walking in a straight line long enough will eventually lead you back to the same point.
+(This is where the famous "but first, we will need to talk about parallel universes" quote comes from. In the SM64 community, covering spaces are known as "parallel universes"). Wheather intentional (like in Pacman) or unintentional (like in Super Mario 64, due to casting `float`ing point numbers to `short int`s), it is often the case that walking in a straight line long enough will eventually lead you back to the same point.
 
 In the case of SM64 however, only the collision detection code is affected by this floating point arithmetic, but not the rendering engine. So there actually are some differences between the "parallel universes" in SM64. In particular, when Mario moves to a different parallel universe, the same collisions are still detected, although he is rendered as floating in an empty space. We can encode this also in Bobs world:
 
