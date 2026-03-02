@@ -438,7 +438,7 @@ Your browser does not support the video tag. </video>
 </tr>
 <tr>
 <td style="text-align:center; padding:0.4rem;">
-The world of Super Mario 64 is more or less a 3-dimensional torus <span class="math inline">\(T^3\)</span>. Marios position is stored as a float, but cast down to a short for the collision detection, meaning that only values up between <span class="math inline">\(-32768\)</span> and <span class="math inline">\(32767\)</span> are actually detected as different positions for the collision detection. Therefor marios position detection is calculated in <span class="math inline">\(B:= (\mathbb{R}/65536\mathbb{Z})^3\)</span>, and his actual position is calculated in <span class="math inline">\(P:=(\mathbb{R} / (1.17549435 \times 10^{-38})\mathbb{Z})^3\)</span>, here we still need to mod out, because of Nintendo 64 IEEE‑754 floating point arithmetic.
+(Video by <a href="https://www.youtube.com/watch?v=wjge1bVobN0">Bismuth</a>) The world of Super Mario 64 is more or less a 3-dimensional torus <span class="math inline">\(T^3\)</span>. Marios position is stored as a float, but cast down to a short for the collision detection, meaning that only values up between <span class="math inline">\(-32768\)</span> and <span class="math inline">\(32767\)</span> are actually detected as different positions for the collision detection. Therefor marios position detection is calculated in <span class="math inline">\(B:= (\mathbb{R}/65536\mathbb{Z})^3\)</span>, and his actual position is calculated in <span class="math inline">\(P:=(\mathbb{R} / (1.17549435 \times 10^{-38})\mathbb{Z})^3\)</span>, here we still need to mod out, because of Nintendo 64 IEEE‑754 floating point arithmetic.
 </td>
 </tr>
 </tbody></table>
