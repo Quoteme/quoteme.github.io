@@ -198,7 +198,6 @@ I will place a small house and some water into this barren world, so bob can hav
   <tr>
     <td style="padding:0;">
       <video autoplay loop muted style="width:100%; display:block;">
-        <source src="/assets/double-torus-unfold.mov" type='video/mp4; codecs="hvc1"'>
         <source src="/assets/double-torus.webm" type="video/webm">
         Your browser does not support the video tag.
       </video>
@@ -207,10 +206,28 @@ I will place a small house and some water into this barren world, so bob can hav
   <tr>
     <td style="text-align:center; padding:0.4rem;">
       Unfolding the space with two lines removed (Bobs home) to a double doughnut.
-      I also generated a previous version <a href="/assets/double-torus-unfold.webm">here</a>, but it did have some problems during rendering.
     </td>
   </tr>
 </table>
+
+<table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; flex:1;">
+  <tr>
+    <td style="padding:0;">
+      <video autoplay loop muted style="width:100%; display:block;">
+        <source src="/assets/double-torus-unfold.mov" type='video/mp4; codecs="hvc1"'>
+        <source src="/assets/double-torus-unfold.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align:center; padding:0.4rem;">
+      Another view of the above unfolding (i accidentally forgot to transform
+      the water though).
+    </td>
+  </tr>
+</table>
+
 
 :::{.callout-warning}
 This is __not__ the space where Super Mario 64 takes place! SM64 would be the space $T^3$ (a 3-dimensional torus). We would get this space by removing putting portals from the left to the right, from the top to the bottom and from the floor to the ceiling in a box, which was Bobs road-trip world from before!
