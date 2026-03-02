@@ -193,6 +193,7 @@ I will place a small house and some water into this barren world, so bob can hav
   <tr>
     <td style="padding:0;">
       <video autoplay loop muted style="width:100%; display:block;">
+        <source src="/assets/double-torus-unfold.mov" type='video/mp4; codecs="hvc1"'>
         <source src="/assets/double-torus-unfold.webm" type="video/webm">
         Your browser does not support the video tag.
       </video>
