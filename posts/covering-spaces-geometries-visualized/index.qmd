@@ -110,9 +110,13 @@ The infinitely stacked world $D^2 \times \mathbb{R}^2$ is the _universal cover_ 
 I sometimes changed the ground texture and was too lazy to rerender all the images, so please excuse this inconsistency in the images.
 :::
 
-### Further elabotrtion regarding Super Mario 64
+### Further elaboration regarding Super Mario 64
 
-The universal covering of Super Mario 64s maps is actually what [Bismuth](https://www.youtube.com/@Bismuth9) describes in [his video: "Super Mario 64 Tool-assisted speedrun world record explained"](https://www.youtube.com/watch?v=wjge1bVobN0). The worlds of SM64 or rather the maps in Super Mario 64, are all homeomorphic to $T^3$ (meaning they are pretty much the same, see [the definition of homeomorphisms](#def-homeomorphism)). The $T^3$ is the 3-dimensional torus, which is the product of three circles. Look at this short clip from his video:
+The universal covering of Super Mario 64s maps[^1] is actually what [Bismuth](https://www.youtube.com/@Bismuth9) describes in [his video: "Super Mario 64 Tool-assisted speedrun world record explained"](https://www.youtube.com/watch?v=wjge1bVobN0). The worlds of SM64 or rather the maps in Super Mario 64, are all homeomorphic to $T^3$ (meaning they are pretty much the same, see [the definition of homeomorphisms](#def-homeomorphism)). The $T^3$ is the 3-dimensional torus, which is the product of three circles. Look at this short clip from his video:
+
+:::{.callout-warning}
+Because Super Mario 64 maps still use only IEEE‑754 32bit `float`ing point numbers for positions, they are only _a_ covering space, not _the universal_ covering space of the collision detection space, which uses `short int`s I will elaborate below.
+:::
 
 <table style="border:1px solid var(--bs-border-color); border-radius:6px; overflow:hidden; flex:1;">
   <tr>
@@ -272,7 +276,7 @@ $$\operatorname{Vol}(B(r)) = \operatorname{Vol}(S^{n-1})\int_0^r \sinh^{n-1}(t)\
 
 I got asked this question by Bartfeels24 on Reddit (see below). This is my reply, if you are still wondering about the _why?_:
 
-In SM64, positions are stored as tuples of three `floats`. However, a programmer at nintendo thought that casting to `short int`s for collision detection would be fine. (a completely valid idea tbh, after all Mario waas never intended to move out of bounds).
+In SM64, positions are stored as tuples of three `floats`. However, a programmer at nintendo thought that casting to `short int`s for collision detection would be fine. (a completely valid idea tbh, after all Mario was never intended to move out of bounds).
 
 Casting `float`s to `short int`s however implicitly calculates a mod operation (in fact mod 65536 for each float in the tuple).
 
