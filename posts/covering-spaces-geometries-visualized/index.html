@@ -43,6 +43,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-a98ec624fb63d9b712fc3a6f62e2b305.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -327,7 +328,7 @@ Note
 </div>
 <p>These kinds of worlds typically occur in video games, and famously the ideas which I will elaborate on in this post were used in the Super Mario 64 community to “hack” the game to achieve various speedrunning goals:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/wjge1bVobN0?t=1373" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>(This is where the famous “but first, we will need to talk about parallel universes” quote comes from. In the SM64 community, covering spaces are known as “parallel universes”). Weather intentional (like in Pacman) or unintentional (like in Super Mario 64, due to floating point arithmetic), it is often the case that walking in a straight line long enough will eventually lead you back to the same point.</p>
+<p>(This is where the famous “but first, we will need to talk about parallel universes” quote comes from. In the SM64 community, covering spaces are known as “parallel universes”). Weather intentional (like in Pacman) or unintentional (like in Super Mario 64, due to casting <code>float</code>ing point numbers to <code>short int</code>s), it is often the case that walking in a straight line long enough will eventually lead you back to the same point.</p>
 <p>In the case of SM64 however, only the collision detection code is affected by this floating point arithmetic, but not the rendering engine. So there actually are some differences between the “parallel universes” in SM64. In particular, when Mario moves to a different parallel universe, the same collisions are still detected, although he is rendered as floating in an empty space. We can encode this also in Bobs world:</p>
 <p>Lets assume, we would double, triple, quadruple, etc. Bobs world and stack these copies on top of each other. Bob would never notice, as long as each copy is just a “shallow” copy, meaning that each movement in the <em>fundamental domain</em> (the original world) is mirrored in the copies. In this case, we would have a covering space of Bobs world, and the original world would be the base space.</p>
 <div class="quarto-layout-panel" data-layout-ncol="3">
@@ -602,12 +603,20 @@ Definition: Hyperbolic Space
 </div>
 </div>
 </div>
-<hr>
-<p>Further references:</p>
+</section>
+<section id="further-references" class="level2">
+<h2 class="anchored" data-anchor-id="further-references">Further references:</h2>
 <ol type="1">
 <li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/QcLfb0PhfO0?t=470" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> I drew <em>heavy inspiration</em> from this video “Not Knot” by the Geometry Center / Geometry Supercomputer Project in 1991, directed by Charlie Gunn and Delle Maxwell.</li>
-<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yqUv2JO2BCs?t=143" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> A video about different geometries on <span class="math inline">\(\mathbb{R}^3\)</span></li>
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yqUv2JO2BCs?t=143" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> A video about different geometries on <span class="math inline">\(\mathbb{R}^ 3\)</span></li>
 </ol>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<ul>
+<li><i class="bi-reddit " style="" role="img" aria-hidden="true"></i> <a href="https://www.reddit.com/r/programming/comments/1ricxxm/hacking_super_mario_64_using_algebraic_topology/">https://reddit.com/r/programming/</a></li>
+<li><i class="bi-reddit " style="" role="img" aria-hidden="true"></i> <a href="https://www.reddit.com/r/programming/comments/1ricxxm/hacking_super_mario_64_using_algebraic_topology/">https://reddit.com/r/math/</a></li>
+</ul>
 
 
 </section>
