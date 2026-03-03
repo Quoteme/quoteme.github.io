@@ -27,33 +27,59 @@ by Friedl and Lück:
 
 # The main theorem
 
-![Main Theorem](./main-theorem.png)
+> **Theorem 5.1** (Main theorem). Let $M$ be an irreducible 3-manifold with infinite fundamental group $\pi$ which is not a closed graph manifold and not homeomorphic to $S^1 \times D^2$. Let $\mathfrak{s} \in \mathrm{Spin}^c(M)$ and write $\pi = \pi_1(M)$.
+> 
+> Then there exists a $(H_1)_f$-factorizing epimorphism $\alpha\colon \pi \to \Gamma$ to a virtually finitely generated free abelian group such that the following holds: For any $\phi \in H^1(M; \mathbb{Q})$ and any factorization of $\alpha\colon \pi \to \Gamma$ into group homomorphisms $\pi \xrightarrow{\mu} G \xrightarrow{\nu} \Gamma$ for a residually finite countable group $G$, there exists a real number $D$ depending only on $\phi$ but not on $\mu$ such that for $t \leq 1$
+> 
+> $$\tfrac{1}{2}\bigl(\phi(c_1(\mathfrak{s})) + x_M(\phi)\bigr)\ln t - D \;\leq\; \rho^{(2)}(M, \mathfrak{s}; \mu, \phi)(t) \;\leq\; \tfrac{1}{2}\bigl(\phi(c_1(\mathfrak{s})) + x_M(\phi)\bigr)\ln t$$
+> 
+> and such that for $t \geq 1$
+> 
+> $$\tfrac{1}{2}\bigl(\phi(c_1(\mathfrak{s})) - x_M(\phi)\bigr)\ln t - D \;\leq\; \rho^{(2)}(M, \mathfrak{s}; \mu, \phi)(t) \;\leq\; \tfrac{1}{2}\bigl(\phi(c_1(\mathfrak{s})) - x_M(\phi)\bigr)\ln t.$$
+> 
+> In particular we get
+> 
+> $$\deg\bigl(\rho(M, \mathfrak{s}; \mu, \phi)\bigr) = -x_M(\phi).$$
 
 Let us first unravel what this theorem really means step by step.
+Here are the terms we need to understand:
+
+- The 3-manifold $M$ is
+  - irreducible
+  - has infinite fundamental group
+  - is not a closed graph manifold
+  - is not homeomorphic to $S^1 \times D^2$
+- $\mathfrak{s} \in \text{Spin}^c(M)$ is a spin structure on $M$.
+- $\alpha\colon \pi \to \Gamma$
+  - is an epimorphism (surjective group homomorphism)
+  - is $(H_1)_f$-factorizing, which means that $\alpha$ factors through the free part of the first homology group $H_1(M)_f $
+  - $\Gamma$ is a virtually finitely generated free abelian group 
+- $\phi \in H^1(M; \mathbb{Q})$ is a rational cohomology class on $M$.
+- $\mu : \pi \to G$ is a group homomorphism to a residually finite countable group $G$.
+  - A group $G$ is [residually finite](https://en.wikipedia.org/wiki/Residually_finite_group) (aka finitely approximable) if for every non-identity element $g \in G$, there exists a finite index normal subgroup $N \triangleleft G$ such that $g \notin N$. Intuitively, this means that the group can be approximated by its finite quotients.
+- $\rho^{(2)}(M, \mathfrak{s}; \mu, \phi)(t)$ is the $L^2$-torsion function associated to $M$, $\mathfrak{s}$, $\mu$, and $\phi$ evaluated at $t$.
 
 ## The manifold $M$
 
 Lets inspect the first requirements:
 
-![first requirements](./mt01.png)
+> Let $M$ be an __irreducible__ 3-manifold with __infinite fundamental group__ $\pi$ which is not a __closed graph manifold__ and not homeomorphic to $S^1 \times D^2$. Let $\mathfrak{s} \in \mathrm{Spin}^c(M)$ and write $\pi = \pi_1(M)$.
 
-Further up in the text the authors specify that all manifolds are compact,
-connected, and oriented, unless otherwise specified. So $M$ must be as well.
-
-![$M$ must be compact, connected, oriented](./mt01-all-compact.png)
-
-We will also assume like Friedl and Lück that all 3-manifolds are
-compact, connected, and oriented, unless otherwise specified.
+Further up in the text the authors specify that all manifolds are __compact__,
+__connected__, and __oriented__, unless otherwise specified. So $M$ must be as well.
 
 ### Irreducible
 
 We have a definition by Friedl in "AN INTRODUCTION TO 3-MANIFOLDS"
 
-![Definiton for $M$ being prime/irreducible](prime-irreducible.png)
+> __The prime decomposition theorem__
+> A 3-manifold $N$ is called __prime__ if $N$ can not be written as a non-trivial connected sum of two manifolds, i.e. if $N = N_1 \# N_2$, then $N_1 = S^3$ or $N_2 = S^3$. Furthermore $N$ is called __irreducible__ if every embedded $S^2$ bounds a 3-ball. Note that an irreducible 3-manifold is prime, conversely if $N$ is a prime 3-manifold, then either $N$ is irreducible or $N = S^1 \times S^2$. We now have the following theorem:
 
 For this we need to define the connected sum of two 3-manifolds:
 
-![connected sum of two 3-manifolds](connected_sum.png)
+> Given 2-oriented 3-manifolds $N_1$ and $N_2$ we can consider the connected sum
+> $$N_1 \# N_2 = (N_1 \setminus \text{3-ball}) \cup (N_2 \setminus \text{3-ball}),$$
+> where we identify the two boundary spheres using an orientation reversing homeomorphism. Note that the diffeomorphism type of the
 
 In the case of 2-manifolds, this video visualizes it well:
 
@@ -79,6 +105,7 @@ with different geometries are glued together in an alternating pattern:
 
 
 So being irreducible means either of the following equivalent conditions hold:
+
 - every embedded $S^2$ of $M$ bounds a $D^3$.
 - $M$ is prime ($M = N_1\# N_2 \implies N_1 = S^3 \text{ or }  N_2 = S^3$) or $M = S^1 \times S^2$.
 
@@ -90,8 +117,6 @@ geometrization theorem (these slides are from Lücks "Introduction to 3-manifold
 :::{layout-ncol="2"}
 ![Thurston's geometrization theorem (formerly conjecture, but famously proved by Perelmann)](thurston-geometrization-conjecture.png){group="definitions" fig-align="left"}
 :::
-
-
 
 What is a "geometric toral splitting" you may ask?
 
@@ -241,20 +266,26 @@ functions $[\rho] = \{\rho(t) \cdot t^r \mid \exists r \in \mathbb{R}\}$
 This however does not change $\deg(\rho)$. For clarity though, we have
 
 
-:::{layout-ncol="2"}
-![Definition of $\text{Spin}(V)$ (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)](spin.png){group="spin" fig-align="center"}
+**Spin and Spin^c^.**
+Here $(V, g)$ denotes a real vector space $V$ equipped with an inner product $g$, i.e., a symmetric, positive-definite bilinear form. In the setting of 3-manifolds, $V$ is typically a tangent space $T_p M$ and $g$ the Riemannian metric.
 
-![Definition of $\text{Cl}(V, Q)$ (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Clifford_algebra, p3)](clifford.png){group="spin" fig-align="center"}
+Recall that the Spin group associated to $(V, g)$ is defined by
+$$\operatorname{Spin}(V) := \{ v_1 \cdots v_m \mid m \text{ even}, |v_i| = 1 \} \subset \operatorname{Cl}(V)^*,$$
+where $\operatorname{Cl}(V)^*$ denotes the group of units in the Clifford algebra $\operatorname{Cl}(V)$. More generally, given a vector space $V$ over a field $K$ and a quadratic form $Q : V \to K$, the Clifford algebra is defined as the quotient algebra
+$$\operatorname{Cl}(V, Q) = T(V)/I_Q,$$
+where $I_Q$ is the two-sided ideal in the tensor algebra $T(V)$ generated by all elements of the form $v \otimes v - Q(v)1$ for all $v \in V$.
 
-![Complexification of $\text{Spin}$ (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p158)](complexification.png){group="spin" fig-align="center"}
+**Definition (Complex Spin Group, D 1.1).**
+The *complex spin group* $\operatorname{Spin}^c(V)$ is the group generated by $\operatorname{Spin}(V)$ and $\mathrm{U}_1$ inside the group $\operatorname{Cl}^c(V)^*$. If $V = \mathbb{R}^n$, we write $\operatorname{Spin}^c_n := \operatorname{Spin}^c(\mathbb{R}^n)$.
 
+Since $\mathrm{U}_1$ lies in the center of $\operatorname{Cl}^c(V)$ and $\operatorname{Spin}(V) \cap \mathrm{U}_1 = \{\pm 1\}$, it follows that
+$$\operatorname{Spin}^c(V) = \operatorname{Spin}(V) \times_{\mathbb{Z}_2} \mathrm{U}_1.$$
 
-![Complexification of $\text{Cl}(V, Q)$ (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p157)](clifford-complexification.png)
+**Definition (Spin^c^ Structure, D 2.2).**
+A *spin^c^ structure* on $M$, denoted by $\sigma$, consists of a principal $\operatorname{Spin}^c_n$-bundle $P_{\operatorname{Spin}^c}(\sigma)$ together with a bundle map
+$$\xi^c : P_{\operatorname{Spin}^c}(\sigma) \to P_{\mathrm{SO}}$$
+which is $\operatorname{Spin}^c_n$-equivariant with respect to the homomorphism $\xi^c_0 : \operatorname{Spin}^c_n \to \mathrm{SO}_n$. The pair $(M, \sigma)$ is called a *spin^c^ manifold*.
 
-![$\text{Spin}^c$ principle bundle (The $L^2$-torsion function and the Thurston norm of 3-manifolds - Excerpt of: Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p159)](spinc-principle-bundle.png)
-:::
-
-Because $\text{Spin}^c(V)$ is the double cover of Lie groups[^double-cover] of 
-$\text{SO}(V) \times U_1$, we can use these to describe spinor bundles.
+Since $\operatorname{Spin}^c(V)$ is a double cover of Lie groups of $\operatorname{SO}(V) \times \mathrm{U}_1$, these structures can be used to describe spinor bundles.
 
 [^double-cover]: The $L^2$-torsion function and the Thurston norm of 3-manifolds - Bohn - 2007 - An introduction to Seiberg-Witten theory on closed 3-manifolds.pdf, p158
