@@ -84,13 +84,41 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-description','listing-image','listing-tags','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-description','listing-image','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-subtitle","listing-description","listing-image","listing-tags","listing-date"],
+      searchColumns: ["listing-title","listing-subtitle","listing-description","listing-image","listing-categories","listing-date"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-publications'] = new List('listing-publications', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-letters_of_acknowledgement .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-subtitle','listing-description','listing-image','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-subtitle","listing-description","listing-image","listing-categories","listing-date"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-letters_of_acknowledgement'] = new List('listing-letters_of_acknowledgement', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -241,6 +269,10 @@ window.Quarto = {
     <a class="nav-link" href="./projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./consultation.html"> 
+<span class="menu-text">Consultation</span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/Quoteme/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
@@ -304,7 +336,7 @@ and 300px height
 <h2 class="anchored" data-anchor-id="publications">Publications</h2>
 <div id="listing-publications" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1754258400000">
+<div class="quarto-post image-right" data-index="0" data-categories="am91cm5hbCUyQ0FJJTJDY2xpbmljYWwtbW9uaXRvcmluZw==" data-listing-date-sort="1754258400000">
 <div class="thumbnail"><a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">
 
 <img loading="lazy" src="assets/digital-demo-day.png" class="thumbnail-image">
@@ -317,6 +349,15 @@ and 300px height
 <div class="listing-subtitle">
 <a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">AI-based clinical monitoring with advanced ML on high‑security patient data</a>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('am91cm5hbA=='); return false;">journal</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2xpbmljYWwtbW9uaXRvcmluZw=='); return false;">clinical-monitoring</div>
+
+</div>
 <div class="delink listing-description"><a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">
 </a><p><a href="https://doi.org/10.1093/ehjdh/ztaf004" class="no-external">AI‑based monitoring platform developed at University Hospital Düsseldorf, using advanced AI methods on high‑security clinical patient data to detect complications in heart and oncology patients. <br> <i class="ai  ai-orcid" aria-label="orcid"></i> </a><a href="https://doi.org/10.1093/ehjdh/ztaf004">10.1093/ehjdh/ztaf004</a>. <br> <i class="bi-bar-chart " style="" role="img" aria-hidden="true"></i> <a href="https://happel.ai/digital-demo-day/assets/activity.html">Example data</a> <br> <strong>European Heart Journal - Digital Health</strong></p>
 </div>
@@ -326,8 +367,47 @@ and 300px height
 <div class="listing-date">
 Aug 4, 2025
 </div>
-<div class="metadata-value listing-tags">
-journal,AI,clinical-monitoring
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="letters-of-acknowledgement" class="level2">
+<h2 class="anchored" data-anchor-id="letters-of-acknowledgement">Letters of Acknowledgement</h2>
+<div id="listing-letters_of_acknowledgement" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="c2VjdXJpdHktcmVzZWFyY2glMkNyZXNwb25zaWJsZS1kaXNjbG9zdXJlJTJDcmV2ZXJzZS1lbmdpbmVlcmluZw==" data-listing-date-sort="1772578800000">
+<div class="thumbnail"><a href="" class="no-external">
+
+<img loading="lazy" src="assets/bug-bounties/6bac79da-737c-40ca-b270-0cab0f88298a.jpeg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="" class="no-external">High-Severity Security Remediation</a>
+</h3>
+<div class="listing-subtitle">
+<a href="" class="no-external">Responsible Disclosure: Critical Infrastructure Software</a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2VjdXJpdHktcmVzZWFyY2g='); return false;">security-research</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVzcG9uc2libGUtZGlzY2xvc3VyZQ=='); return false;">responsible-disclosure</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmV2ZXJzZS1lbmdpbmVlcmluZw=='); return false;">reverse-engineering</div>
+
+</div>
+<div class="delink listing-description"><a href="" class="no-external">
+<p>Independent security audit of a mission-critical software suite used in highly regulated and highest-tier security environments. Identified a high-severity vulnerability that, under some conditions, posed a risk to physical safety, public security and high monetary losses. The finding was responsibly disclosed and formally acknowledged by the vendor. Corrective measures have been implemented to secure the ecosystem.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="" class="no-external">
+<div class="listing-date">
+Mar 4, 2026
 </div>
 </a>
 </div>
@@ -477,7 +557,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="YWxnZWJyYWljJTIwdG9wb2xvZ3klMkMzLW1hbmlmb2xkcyUyQ0VuZ2xpc2g=" data-listing-date-sort="1770418800000" data-listing-file-modified-sort="1772550245308" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3383">
+<div class="quarto-post image-right" data-index="4" data-categories="YWxnZWJyYWljJTIwdG9wb2xvZ3klMkMzLW1hbmlmb2xkcyUyQ0VuZ2xpc2g=" data-listing-date-sort="1770418800000" data-listing-file-modified-sort="1772660835112" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3383">
 <div class="thumbnail"><a href="./posts/l2-alexander-torsion-thurston-norm/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/l2-alexander-torsion-thurston-norm/jsj_not_isotopic_boundary_component_not_disjoint.png" class="thumbnail-image">
@@ -505,7 +585,7 @@ Luca Leon Happel
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="bWF0aCUyQ2FsZ2VicmElMkNnZW9tZXRyeSUyQ0RldXRzY2g=" data-listing-date-sort="1769002200000" data-listing-file-modified-sort="1771869996779" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="23">
+<div class="quarto-post image-right" data-index="5" data-categories="bWF0aCUyQ2FsZ2VicmElMkNnZW9tZXRyeSUyQ0RldXRzY2g=" data-listing-date-sort="1769002200000" data-listing-file-modified-sort="1772665123704" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="23">
 <div class="thumbnail"><a href="./posts/bachelorarbeit/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/bachelorarbeit/assets/weierstrassform.png" class="thumbnail-image">

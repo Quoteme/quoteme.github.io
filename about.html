@@ -118,6 +118,35 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
     $$
 </div>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 
@@ -146,6 +175,10 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
   <li class="nav-item">
     <a class="nav-link" href="./projects.html"> 
 <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./consultation.html"> 
+<span class="menu-text">Consultation</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/Quoteme/"> <i class="bi bi-github" role="img" aria-label="GitHub">
@@ -206,61 +239,51 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
     <i class="bi bi-reddit"></i>
      <span class="about-link-text">Reddit</span>
   </a>
+  <a href="mailto:consulting@happel.ai" class="about-link" rel="" target="">
+    <i class="bi bi-envelope"></i>
+     <span class="about-link-text">Consulting</span>
+  </a>
 </div>
       <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>I am Luca Leon Happel, a <span id="current_age">24</span>-year-old Student in Düsseldorf and a <a href="https://xscode.com/profile/quoteme">top-100</a> on <a href="https://xscode.com/profile/quoteme">GitHub</a> in categories like physics-engines and rigid-body-dynamics. My interests include mathematics, computer science, technology and lots more. I work as a programmer (AI-dev./server admin/fullstack dev./…) and cofounder for <em>monti</em>:</p>
-<ul>
-<li>websites:
-<ul>
-<li><a href="https://monti.med.uni-duesseldorf.de/">https://monti.med.uni-duesseldorf.de/</a></li>
-<li><a href="https://monti.hhu.de/">https://monti.hhu.de/</a></li>
-<li><a href="https://monti.ukaachen.de/">https://monti.ukaachen.de/</a></li>
-</ul></li>
-<li>app:
-<ul>
-<li><a href="https://apps.apple.com/de/app/monti/id6468419072?l=en-GB">https://apps.apple.com/de/app/monti/id6468419072</a></li>
-</ul></li>
-</ul>
+<p>I am <strong>Luca Leon Happel</strong> — mathematician, computer scientist, and security researcher based in Düsseldorf.</p>
+<p>For over a decade I have worked at the intersection of mathematics and computer science, auditing software deployed in the most heavily regulated environments worldwide: medical devices, clinical systems, and life-critical infrastructure. I have detected and remediated critical security flaws that others missed — not through intuition alone, but through the mathematical rigour that formal methods and deep-tier analysis demand.</p>
+<p>I am completing my M.Sc. in Mathematics (HHU Düsseldorf, April 2026), after which I will begin my PhD in Computer Science. I am a Research Associate at the <a href="https://monti.hhu.de/"><em>monti</em> project</a> — a medical AI initiative at Düsseldorf University Hospital — where I develop and secure software operating under strict regulatory requirements.</p>
+<p>For confidential security consultations, reach me at <a href="mailto:consulting@happel.ai">consulting@happel.ai</a>.</p>
 <section id="education" class="level2">
 <h2 data-anchor-id="education">Education</h2>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 41%">
 <col style="width: 42%">
-<col style="width: 43%">
-<col style="width: 13%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Achievement</th>
-<th>Place</th>
-<th>Duration</th>
+<th>Degree</th>
+<th>Institution</th>
+<th>Period</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>PhD. in Computer-Science</td>
+<td>PhD in Computer Science</td>
 <td>HHU Düsseldorf</td>
-<td>2026-*</td>
+<td>Apr 2026 –</td>
 </tr>
 <tr class="even">
 <td>M.Sc. in Mathematics</td>
 <td>HHU Düsseldorf</td>
-<td>2022-2026</td>
+<td>2022 – Apr 2026</td>
 </tr>
 <tr class="odd">
-<td>B.Sc. in Computer-Science</td>
+<td>B.Sc. in Computer Science</td>
 <td>HHU Düsseldorf</td>
-<td>2018-*</td>
+<td>2018 –</td>
 </tr>
 <tr class="even">
-<td>B.Sc. Mathematics</td>
+<td>B.Sc. in Mathematics</td>
 <td>HHU Düsseldorf</td>
-<td>2018-2022</td>
-</tr>
-<tr class="odd">
-<td>Abitur (Gymnasium)</td>
-<td>Gymnasium an der Gartenstraße</td>
-<td>2010-2018</td>
+<td>2018 – 2022</td>
 </tr>
 </tbody>
 </table>
@@ -274,9 +297,43 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I finished all courses for my bachelors degree in computer science, but skipped it to instead do a PhD in computer science after my masters degree in mathematics.</p>
+<p>I completed all coursework for the B.Sc. in Computer Science and transitioned directly into doctoral research following my M.Sc. in Mathematics.</p>
 </div>
 </div>
+</section>
+<section id="work-experience" class="level2">
+<h2 data-anchor-id="work-experience">Work Experience</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Organisation</th>
+<th>Period</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Research Associate (full-time)</td>
+<td>Dept. of Hematology, Oncology &amp; Clinical Immunology, Düsseldorf University Hospital (<em>monti</em>)</td>
+<td>2022 –</td>
+</tr>
+<tr class="even">
+<td>Medical Software Developer</td>
+<td><a href="https://www.mmt.ch/">MMT</a> &amp; <a href="https://corsano.com/">Corsano</a> (medical wearables)</td>
+<td>2021 – 2022</td>
+</tr>
+<tr class="odd">
+<td>Teaching Assistant – Abstract Algebra</td>
+<td>Heinrich Heine University Düsseldorf</td>
+<td>2022</td>
+</tr>
+<tr class="even">
+<td>Research Assistant – Computer-Aided Linear Algebra</td>
+<td>Heinrich Heine University Düsseldorf</td>
+<td>2020 – 2022</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="conferences" class="level2">
 <h2 data-anchor-id="conferences">Conferences</h2>
@@ -284,9 +341,9 @@ Note
 <thead>
 <tr class="header">
 <th>Conference</th>
-<th>Date</th>
-<th>Place</th>
-<th>Description</th>
+<th>Year</th>
+<th>Location</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
@@ -294,68 +351,19 @@ Note
 <td><a href="https://www.mpim-bonn.mpg.de/HOGRO2024">Homology Growth in Topology and Group Theory</a></td>
 <td>2024</td>
 <td>Bonn</td>
-<td>We discussed various advanced topics in topology and group theory. I attended this conference in preparation for my masters thesis.</td>
+<td>Advanced topics in topology and group theory; attended in preparation for master’s thesis</td>
 </tr>
 <tr class="even">
 <td><a href="https://lftcm2023.github.io/">Lean for the Curious Mathematician</a></td>
 <td>2023</td>
 <td>Düsseldorf</td>
-<td>We discussed Lean, a theorem prover and functional programming language. I implemented the code for exterior algebras in Lean with a small team of professors and <a href="https://scholar.google.com/citations?user=5YGAVE0AAAAJ&amp;hl=de&amp;oi=ao">Eric Wieser</a></td>
+<td>Implemented exterior algebras in Lean4 with a team including <a href="https://scholar.google.com/citations?user=5YGAVE0AAAAJ">Eric Wieser</a></td>
 </tr>
 <tr class="odd">
-<td><a href="https://die-koma.org/">KoMa</a> (conference of german speaking mathematics student associations)</td>
+<td><a href="https://die-koma.org/">KoMa</a></td>
 <td>2022</td>
 <td>Jena</td>
-<td>We discussed general mathematics, studying mathematics at german universities and the future of mathematics. I discussed differential forms especially</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="work-experience" class="level2">
-<h2 data-anchor-id="work-experience">Work experience</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 53%">
-<col style="width: 37%">
-<col style="width: 9%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Experience</th>
-<th>Employer</th>
-<th>Duration</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Research Associate (Full-time) (official title: “Wissenschaftlicher Mitarbeiter in Vollzeit”) at the <em>monti</em> project</td>
-<td>Univ.-Prof.&nbsp;Dr.&nbsp;Sascha Dietrich, Department of Hematology, Oncology, and Clinical Immunology, Düsseldorf University Hospital</td>
-<td>2022-*</td>
-</tr>
-<tr class="even">
-<td>SHK for abstract algebra</td>
-<td>Heinrich Heine University Düsseldorf</td>
-<td>2022-2022</td>
-</tr>
-<tr class="odd">
-<td>Research assistant for computer-aided linear algebra</td>
-<td>Heinrich Heine University Düsseldorf</td>
-<td>2021-2022</td>
-</tr>
-<tr class="even">
-<td>Research assistant for computer-aided linear algebra</td>
-<td>Heinrich Heine University Düsseldorf</td>
-<td>2020-2021</td>
-</tr>
-<tr class="odd">
-<td>Lifeguard</td>
-<td>NEW Volksbad Mönchengl.</td>
-<td>2018</td>
-</tr>
-<tr class="even">
-<td>2-week work internship</td>
-<td>ProVita</td>
-<td>2017</td>
+<td>Presented on differential forms at the conference of German-speaking mathematics student associations</td>
 </tr>
 </tbody>
 </table>
@@ -367,75 +375,33 @@ Note
 <tr class="header">
 <th>Award</th>
 <th>Source</th>
-<th>Date</th>
+<th>Year</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>HHU/CEDUS Ideenwettbewerb (two times 1# place for <em>monti</em>, our AI startup)</td>
-<td><a href="https://www.instagram.com/p/Cur3k_1M70h/">https://www.instagram.com/p/Cur3k_1M70h/</a></td>
+<td>HHU/CEDUS Ideenwettbewerb — 1st place (×2) for <em>monti</em></td>
+<td><a href="https://www.instagram.com/p/Cur3k_1M70h/">HHU</a></td>
 <td>2023</td>
 </tr>
 <tr class="even">
-<td>Winner of “best game under development” with “Relic Hunters Zero”</td>
-<td><a href="https://www.bigfestival.com.br/big-festival-2015.html">Brazilian indie games festivals 2015</a></td>
+<td>Best Game Under Development — “Relic Hunters Zero”</td>
+<td><a href="https://www.bigfestival.com.br/big-festival-2015.html">BIG Festival 2015</a></td>
 <td>2015</td>
-</tr>
-<tr class="odd">
-<td>Top-100 physics-engine programmer</td>
-<td><a href="https://xscode.com/profile/quoteme">xscode.com</a> <a href="https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme">archive.org</a></td>
-<td>2021</td>
-</tr>
-<tr class="even">
-<td>Top-100 rigid-body-dynamics programmer</td>
-<td><a href="https://xscode.com/profile/quoteme">xscode.com</a> <a href="https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme">archive.org</a></td>
-<td>2021</td>
-</tr>
-<tr class="odd">
-<td>Top-1000 canvas-technology developer</td>
-<td><a href="https://xscode.com/profile/quoteme">xscode.com</a> <a href="https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme">archive.org</a></td>
-<td>2021</td>
-</tr>
-<tr class="even">
-<td>Top-150.000 programmer</td>
-<td><a href="https://xscode.com/profile/quoteme">xscode.com</a> <a href="https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme">archive.org</a></td>
-<td>2021</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="languages" class="level2">
-<h2 data-anchor-id="languages">Languages</h2>
+<section id="technical-profile" class="level2">
+<h2 data-anchor-id="technical-profile">Technical Profile</h2>
 <ul>
-<li><strong>German:</strong> Native</li>
-<li><strong>English:</strong> Fluent (written and spoken)</li>
-<li><strong>French:</strong> Basic knowledge</li>
-<li><strong>Russian:</strong> A2/B1</li>
-<li><strong>Turkish:</strong> A2</li>
+<li><strong>Security &amp; Formal Methods:</strong> Vulnerability research in regulated and life-critical software; formal verification; theorem proving (Lean4, Idris)</li>
+<li><strong>Mathematics:</strong> Algebraic topology &amp; geometry, differential geometry, <span class="math inline">\(L^2\)</span>-invariants, model theory</li>
+<li><strong>Programming:</strong> Rust, Haskell, Lean4, Python, C/C++, Nix — spanning functional, systems, and scientific computing stacks between research and industry and from low-level embedded to very high-level languages with a focus on formal methods and security</li>
+<li><strong>Medical Software:</strong> MDR-compliant development; clinical data pipelines; medical device software (Corsano, MMT, <em>monti</em>)</li>
+<li><strong>Languages:</strong> German (native), English (fluent), French (basic), Russian (A2/B1), Turkish (A2)</li>
 </ul>
-</section>
-<section id="qualifications" class="level2">
-<h2 data-anchor-id="qualifications">Qualifications</h2>
-<ul>
-<li><strong>Programming Paradigms:</strong> Proficiency in various programming paradigms, including <strong>functional programming</strong> (Haskell, Nix, …), <strong>imperative programming</strong> (Python, C/C++/Rust, Java, …), and <strong>theoretical foundations</strong> (Type Theory, Lambda Calculus, …), as well as their implementations (Lean4, Idris, …).</li>
-<li>experience in medical software development and regulatory requirements
-<ul>
-<li>Developer for medical smartwatch manufacturers <a href="https://www.mmt.ch/">MMT</a> and <a href="https://corsano.com/">Corsano</a></li>
-</ul></li>
-</ul>
-<script>
-function updateAge() {
-  const birthday = new Date(1999, 10, 07);
-  const age = Math.floor((new Date() - birthday) / (1000 * 60 * 60 * 24 * 365));
-  document.getElementById("current_age").textContent = age;
-}
-function init() {
-  updateAge();
-}
-init();
-</script>
 <style type="text/css">
-/* make bullet points behave correctly even for centered text */
 ul {
   display: table;
   margin: 0 auto;
