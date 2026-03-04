@@ -18,6 +18,7 @@ website:
     right:
       - about.qmd
       - projects.qmd
+      - consultation.qmd
       - icon: github
         aria-label: GitHub
         href: https://github.com/Quoteme/

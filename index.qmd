@@ -16,11 +16,24 @@ listing:
           __European Heart Journal - Digital Health__
         image: "assets/digital-demo-day.png"
         path: "https://doi.org/10.1093/ehjdh/ztaf004"
-        tags: ["journal", "AI", "clinical-monitoring"]
+        categories: ["journal", "AI", "clinical-monitoring"]
         date: 2025-08-04
     feed: true
     sort: "date desc"
     type: default
+  - id: letters_of_acknowledgement
+    contents:
+      - title: "High-Severity Security Remediation"
+        subtitle: "Responsible Disclosure: Critical Infrastructure Software"
+        description: >
+          Independent security audit of a mission-critical software suite used in 
+          highly regulated and highest-tier security environments. 
+          Identified a high-severity vulnerability that, under some conditions, posed a risk to physical safety, public security and high monetary losses. 
+          The finding was responsibly disclosed and formally acknowledged by the vendor. 
+          Corrective measures have been implemented to secure the ecosystem.
+        image: "assets/bug-bounties/6bac79da-737c-40ca-b270-0cab0f88298a.jpeg"
+        categories: ["security-research", "responsible-disclosure", "reverse-engineering"]
+        date: 2026-03-04
   - id: blog
     contents: posts
     feed: true
@@ -67,6 +80,11 @@ for my project in cancer treatment. [Read more about me...](./about.html)
 ## Publications
 
 ::: {#publications}
+:::
+
+## Letters of Acknowledgement
+
+::: {#letters_of_acknowledgement}
 :::
 
 ## Blog Posts

@@ -7,3 +7,7 @@ website:
   title: "Luca Happel's personal website"
   link: "happel.ai"
   url: "https://happel.ai/"
+
+consultation:
+  title: "Consultation"
+  email: "consulting@happel.ai"

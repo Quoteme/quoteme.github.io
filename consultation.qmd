@@ -1,0 +1,39 @@
+---
+title: "Consultation"
+image: https://avatars2.githubusercontent.com/u/6796009
+about:
+  template: solana
+  links:
+    - icon: envelope
+      text: consulting@happel.ai
+      href: mailto:consulting@happel.ai
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/lucahappel/
+---
+
+## Security Audits & Formal Verification
+
+Most high-security systems are not as secure as they seem.
+
+I offer deep-tier security audits for software operating in heavily regulated environments — medical devices, clinical infrastructure, financial systems, and anywhere else where a vulnerability has real-world consequences beyond data loss.
+
+My approach is grounded in mathematics: formal methods, type theory, and rigorous program analysis that goes well beyond automated scanning or penetration testing. I have identified and remediated critical flaws in life-critical systems that conventional audits would have missed.
+
+## What I can help with
+
+- **Security audits** of regulated or safety-critical software (MDR, IEC 62443, FDA guidance)
+- **Formal verification** — proving correctness properties of algorithms and protocols
+- **Code review** with a focus on cryptographic correctness, memory safety, and logic flaws
+- **Architecture review** for systems where failure has human consequences
+- **AI-generated code risk assessment** — evaluating the correctness and safety of LLM-produced code in sensitive deployments
+
+## Get in touch
+
+Send a brief description of your project and requirements to:
+
+<div style="text-align: center; margin: 2rem 0; font-size: 1.2rem;">
+  [consulting@happel.ai](mailto:consulting@happel.ai)
+</div>
+
+All enquiries are treated as strictly confidential. I typically respond within one business day.
