@@ -16,99 +16,66 @@ about:
     - icon: reddit
       text: Reddit
       href: https://www.reddit.com/user/lalelul
+    - icon: envelope
+      text: Consulting
+      href: mailto:consulting@happel.ai
 
 ---
 
-I am Luca Leon Happel, a <span id="current_age">24</span>-year-old
-Student in Düsseldorf and a [top-100](https://xscode.com/profile/quoteme) on [GitHub](https://xscode.com/profile/quoteme) in
-categories like physics-engines and rigid-body-dynamics.
-My interests include mathematics, computer science, technology and lots more.
-I work as a programmer (AI-dev./server admin/fullstack dev./...) and cofounder for _monti_:
+I am **Luca Leon Happel** — mathematician, computer scientist, and security researcher based in Düsseldorf.
 
-- websites:
-  - [https://monti.med.uni-duesseldorf.de/](https://monti.med.uni-duesseldorf.de/)
-  - [https://monti.hhu.de/](https://monti.hhu.de/)
-  - [https://monti.ukaachen.de/](https://monti.ukaachen.de/)
-- app:
-  - [https://apps.apple.com/de/app/monti/id6468419072](https://apps.apple.com/de/app/monti/id6468419072?l=en-GB)
+For over a decade I have worked at the intersection of mathematics and computer science, auditing software deployed in the most heavily regulated environments worldwide: medical devices, clinical systems, and life-critical infrastructure. I have detected and remediated critical security flaws that others missed — not through intuition alone, but through the mathematical rigour that formal methods and deep-tier analysis demand.
+
+I am completing my M.Sc. in Mathematics (HHU Düsseldorf, April 2026), after which I will begin my PhD in Computer Science. I am a Research Associate at the [_monti_ project](https://monti.hhu.de/) — a medical AI initiative at Düsseldorf University Hospital — where I develop and secure software operating under strict regulatory requirements.
+
+For confidential security consultations, reach me at [consulting@happel.ai](mailto:consulting@happel.ai).
 
 ## Education
 
-| Achievement                  | Place                         | Duration  |
-| ---------------------------- | ----------------------------- | --------- |
-| PhD. in Computer-Science     | HHU Düsseldorf                | 2026-*    |
-| M.Sc. in Mathematics         | HHU Düsseldorf                | 2022-2026 |
-| B.Sc. in Computer-Science    | HHU Düsseldorf                | 2018-*    |
-| B.Sc. Mathematics            | HHU Düsseldorf                | 2018-2022 |
-| Abitur (Gymnasium)           | Gymnasium an der Gartenstraße | 2010-2018 |
+| Degree                       | Institution                   | Period      |
+| ---------------------------- | ----------------------------- | ----------- |
+| PhD in Computer Science      | HHU Düsseldorf                | Apr 2026 –  |
+| M.Sc. in Mathematics         | HHU Düsseldorf                | 2022 – Apr 2026 |
+| B.Sc. in Computer Science    | HHU Düsseldorf                | 2018 –      |
+| B.Sc. in Mathematics         | HHU Düsseldorf                | 2018 – 2022 |
 
 ::: {.callout-note}
-I finished all courses for my bachelors degree in computer science, but skipped
-it to instead do a PhD in computer science after my masters degree in
-mathematics.
+I completed all coursework for the B.Sc. in Computer Science and transitioned directly into doctoral research following my M.Sc. in Mathematics.
 :::
+
+## Work Experience
+
+| Role | Organisation | Period |
+| ---- | ------------ | ------ |
+| Research Associate (full-time) | Dept. of Hematology, Oncology & Clinical Immunology, Düsseldorf University Hospital (_monti_) | 2022 – |
+| Medical Software Developer | [MMT](https://www.mmt.ch/) & [Corsano](https://corsano.com/) (medical wearables) | 2021 – 2022 |
+| Teaching Assistant – Abstract Algebra | Heinrich Heine University Düsseldorf | 2022 |
+| Research Assistant – Computer-Aided Linear Algebra | Heinrich Heine University Düsseldorf | 2020 – 2022 |
 
 ## Conferences
 
-| Conference | Date | Place | Description |
-| ---------- | ---- | ----- | ----------- |
-| [Homology Growth in Topology and Group Theory](https://www.mpim-bonn.mpg.de/HOGRO2024) | 2024 | Bonn | We discussed various advanced topics in topology and group theory. I attended this conference in preparation for my masters thesis. |
-| [Lean for the Curious Mathematician](https://lftcm2023.github.io/) | 2023 | Düsseldorf | We discussed Lean, a theorem prover and functional programming language. I implemented the code for exterior algebras in Lean with a small team of professors and [Eric Wieser](https://scholar.google.com/citations?user=5YGAVE0AAAAJ&hl=de&oi=ao) |
-| [KoMa](https://die-koma.org/) (conference of german speaking mathematics student associations) | 2022 | Jena | We discussed general mathematics, studying mathematics at german universities and the future of mathematics. I discussed differential forms especially |
-
-## Work experience
-
-| Experience                                           | Employer                             | Duration  |
-| ---------------------------------------------------- | ------------------------------------ | --------- |
-| Research Associate (Full-time) (official title: "Wissenschaftlicher Mitarbeiter in Vollzeit") at the _monti_ project       | Univ.-Prof. Dr. Sascha Dietrich, Department of Hematology, Oncology, and Clinical Immunology, Düsseldorf University Hospital                             | 2022-*    |
-| SHK for abstract algebra                             | Heinrich Heine University Düsseldorf | 2022-2022 |
-| Research assistant for computer-aided linear algebra | Heinrich Heine University Düsseldorf | 2021-2022 |
-| Research assistant for computer-aided linear algebra | Heinrich Heine University Düsseldorf | 2020-2021 |
-| Lifeguard                                            | NEW Volksbad Mönchengl.              | 2018      |
-| 2-week work internship                               | ProVita                              | 2017      |
+| Conference | Year | Location | Notes |
+| ---------- | ---- | -------- | ----- |
+| [Homology Growth in Topology and Group Theory](https://www.mpim-bonn.mpg.de/HOGRO2024) | 2024 | Bonn | Advanced topics in topology and group theory; attended in preparation for master's thesis |
+| [Lean for the Curious Mathematician](https://lftcm2023.github.io/) | 2023 | Düsseldorf | Implemented exterior algebras in Lean4 with a team including [Eric Wieser](https://scholar.google.com/citations?user=5YGAVE0AAAAJ) |
+| [KoMa](https://die-koma.org/) | 2022 | Jena | Presented on differential forms at the conference of German-speaking mathematics student associations |
 
 ## Awards
 
-| Award                                                             | Source                                                                                                                                | Date |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| HHU/CEDUS Ideenwettbewerb (two times 1# place for _monti_, our AI startup) | [https://www.instagram.com/p/Cur3k_1M70h/](https://www.instagram.com/p/Cur3k_1M70h/) | 2023 |
-| Winner of "best game under development" with "Relic Hunters Zero" | [Brazilian indie games festivals 2015](https://www.bigfestival.com.br/big-festival-2015.html)                                         | 2015 |
-| Top-100 physics-engine programmer                                 | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
-| Top-100 rigid-body-dynamics programmer                            | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
-| Top-1000 canvas-technology developer                              | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
-| Top-150.000 programmer                                            | [xscode.com](https://xscode.com/profile/quoteme) [archive.org](https://web.archive.org/web/20210118020545/xscode.com/profile/quoteme) | 2021 |
+| Award | Source | Year |
+| ----- | ------ | ---- |
+| HHU/CEDUS Ideenwettbewerb — 1st place (×2) for _monti_ | [HHU](https://www.instagram.com/p/Cur3k_1M70h/) | 2023 |
+| Best Game Under Development — "Relic Hunters Zero" | [BIG Festival 2015](https://www.bigfestival.com.br/big-festival-2015.html) | 2015 |
 
+## Technical Profile
 
-## Languages
-
-- **German:** Native
-- **English:** Fluent (written and spoken)
-- **French:** Basic knowledge
-- **Russian:** A2/B1
-- **Turkish:** A2
-
-## Qualifications
-
-- **Programming Paradigms:** Proficiency in various programming paradigms, including **functional programming** (Haskell, Nix, ...), **imperative programming** (Python, C/C++/Rust, Java, ...), and **theoretical foundations** (Type Theory, Lambda Calculus, ...), as well as their implementations (Lean4, Idris, ...).
-- experience in medical software development and regulatory requirements
-  - Developer for medical smartwatch manufacturers [MMT](https://www.mmt.ch/) and [Corsano](https://corsano.com/)
-
-
-<script>
-function updateAge() {
-  const birthday = new Date(1999, 10, 07);
-  const age = Math.floor((new Date() - birthday) / (1000 * 60 * 60 * 24 * 365));
-  document.getElementById("current_age").textContent = age;
-}
-
-function init() {
-  updateAge();
-}
-init();
-</script>
+- **Security & Formal Methods:** Vulnerability research in regulated and life-critical software; formal verification; theorem proving (Lean4, Idris)
+- **Mathematics:** Algebraic topology & geometry, differential geometry, $L^2$-invariants, model theory
+- **Programming:** Rust, Haskell, Lean4, Python, C/C++, Nix — spanning functional, systems, and scientific computing stacks between research and industry and from low-level embedded to very high-level languages with a focus on formal methods and security
+- **Medical Software:** MDR-compliant development; clinical data pipelines; medical device software (Corsano, MMT, _monti_)
+- **Languages:** German (native), English (fluent), French (basic), Russian (A2/B1), Turkish (A2)
 
 <style type="text/css">
-/* make bullet points behave correctly even for centered text */
 ul {
   display: table;
   margin: 0 auto;
