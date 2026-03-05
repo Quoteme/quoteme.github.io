@@ -48,7 +48,6 @@ I completed all coursework for the B.Sc. in Computer Science and transitioned di
 | Role | Organisation | Period |
 | ---- | ------------ | ------ |
 | Research Associate (full-time) | Dept. of Hematology, Oncology & Clinical Immunology, Düsseldorf University Hospital (_monti_) | 2022 – |
-| Medical Software Developer | [MMT](https://www.mmt.ch/) & [Corsano](https://corsano.com/) (medical wearables) | 2021 – 2022 |
 | Teaching Assistant – Abstract Algebra | Heinrich Heine University Düsseldorf | 2022 |
 | Research Assistant – Computer-Aided Linear Algebra | Heinrich Heine University Düsseldorf | 2020 – 2022 |
 
