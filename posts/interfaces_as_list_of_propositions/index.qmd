@@ -1,7 +1,7 @@
 ---
 title: "Interfaces as List of Propositions"
-subtitle: "Or: Applying the Howard-Curry correspondence to OOP interfaces using
-the calculus of constructions"
+subtitle: |
+    Or: Applying the Howard-Curry correspondence to OOP interfaces using the calculus of constructions
 author: "Luca Leon Happel"
 date: "2025-05-31 15:20"
 categories: ["mathematics", "category theory", "oop", "English"]
