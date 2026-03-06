@@ -1,7 +1,8 @@
 ---
-title: "I Had to Give Away All My Laptops Days Before a Deadline — NixOS Saved Me"
+title: "Applying topological data analysis to 4 years of NixOS usage"
 subtitle: |
-    4 years of commits, one `git clone`, and I was back where I left off
+    I Had to Give Away All My Laptops Days Before a Deadline.
+    Here Is How I Recovered With A Single `git clone`
 author: "Luca Leon Happel"
 date: "2026-03-05"
 categories: ["NixOS", "Linux", "Haskell", "Git", "DevOps", "Reproducibility", "English"]
@@ -16,8 +17,9 @@ lightbox: auto
 abstract: |
     A few weeks ago I was forced to hand over every laptop I owned — days before a critical project deadline.
     Most developers would panic. I ran `git clone` and was back to work within the hour.
-    That's the promise of NixOS: your entire system, down to the kernel modules and dotfiles, lives in a git repo.
-    In this post I analyze 4 years of my NixOS configuration history — 700+ commits — to see what that journey actually looks like in data.
+    Here are the pros and cons of bulletproofing your digital life using
+    rigorous data science.
+image: "thumbnail.png"
 ---
 
 ## What is NixOS
