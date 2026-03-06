@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/nixos-git-analysis/index.html",
       "/posts/covering-spaces-geometries-visualized/index.html",
       "/posts/lie-groups-and-algebras/index.html",
       "/posts/bitwarden-git-code-signing/index.html",
