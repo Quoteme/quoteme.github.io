@@ -165,13 +165,15 @@ edge_x, edge_y = map(list, zip(*edge_segs)) if edge_segs else ([], [])
 dates:  list[datetime] = [c.committed_datetime      for c in commits]
 lanes:  list[int]      = [lane_map.get(c.hexsha, 0) for c in commits]
 hover:  list[str]      = [hover_label(c)            for c in commits]
+shas:   list[str]      = [c.hexsha                  for c in commits]
 
 fig_commits = go.Figure([
     go.Scatter(x=edge_x, y=edge_y, mode="lines",
                line=dict(width=1.5), hoverinfo="none", showlegend=False),
     go.Scatter(x=dates, y=lanes, mode="markers",
                marker=dict(size=9, color=lanes, colorscale="Turbo", line=dict(width=0)),
-               text=hover, hovertemplate="%{text}<extra></extra>", showlegend=False),
+               text=hover, hovertemplate="%{text}<extra></extra>",
+               customdata=shas, showlegend=False),
 ]).update_layout(
     title=dict(text="Git history · quoteme/nixos", font=dict(size=16)),
     xaxis=dict(title="Date", showgrid=True), yaxis=dict(visible=False),
@@ -316,6 +318,7 @@ js: str = f"""
   gitEl.on("plotly_hover", ev => {{
     const pt = ev.points[0];
     if (pt.curveNumber !== 1) return;
+    gitEl.style.cursor = "pointer";
     const idx      = pt.pointIndex;
     const modified = commitFiles[idx] || [];
 
@@ -337,12 +340,20 @@ js: str = f"""
   }});
 
   gitEl.on("plotly_unhover", () => {{
+    gitEl.style.cursor = "";
     Plotly.restyle("git-graph", {{
       "marker.color":      [commitColors],
       "marker.opacity":    [commitColors.map(() => getActive())],
       "marker.line.width": [noLines],
     }}, [1]);
     Plotly.restyle("file-tree", {{"marker.color": [allTreeActive]}}, [1]);
+  }});
+
+  // ── commit click → open GitHub commit page ────────────────────────────────
+  gitEl.on("plotly_click", ev => {{
+    const pt = ev.points[0];
+    if (pt.curveNumber !== 1) return;
+    window.open("https://github.com/quoteme/nixos/commit/" + pt.customdata, "_blank");
   }});
 
   // ── file-tree hover → hovered node + matching commits turn red ────────────
