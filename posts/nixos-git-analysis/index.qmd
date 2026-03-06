@@ -1,0 +1,787 @@
+---
+title: "I Had to Give Away All My Laptops Days Before a Deadline — NixOS Saved Me"
+subtitle: |
+    4 years of commits, one `git clone`, and I was back where I left off
+author: "Luca Leon Happel"
+date: "2026-03-05"
+categories: ["NixOS", "Linux", "Haskell", "Git", "DevOps", "Reproducibility", "English"]
+format:
+    html:
+        code-fold: true
+        code-summary: "Show the code"
+        toc: true
+        toc-depth: 6
+draft: false
+lightbox: auto
+abstract: |
+    A few weeks ago I was forced to hand over every laptop I owned — days before a critical project deadline.
+    Most developers would panic. I ran `git clone` and was back to work within the hour.
+    That's the promise of NixOS: your entire system, down to the kernel modules and dotfiles, lives in a git repo.
+    In this post I analyze 4 years of my NixOS configuration history — 700+ commits — to see what that journey actually looks like in data.
+---
+
+## What is NixOS
+
+[NixOS](https://nixos.org) is a Linux distribution built entirely around the **Nix package manager**.
+Unlike traditional distros where system state accumulates through years of `apt install` and config edits,
+NixOS describes the *entire* system — packages, services, users, kernel parameters, dotfiles — in a single
+declarative configuration file checked into version control.
+From that one file, any machine can be reproduced exactly, bit for bit.
+
+The key ideas in one sentence each:
+
+- **Declarative** — you describe *what* the system should look like, not *how* to get there.
+- **Reproducible** — the same config always produces the same system, on any hardware, forever.
+- **Atomic upgrades & rollbacks** — every change creates a new system generation; booting the previous one is a single menu entry away.
+- **No dependency hell** — packages are isolated in the Nix store (`/nix/store/…`) by content hash, so multiple versions of the same library coexist without conflict.
+
+The tradeoff: the learning curve is notoriously steep and the ecosystem speaks its own purely functional language (also called Nix).
+Whether that tradeoff is worth it is exactly what this post is about.
+
+### Why I Chose NixOS
+
+:::{.callout-note}
+You may skip this section if you are only interested in the git analysis and visualisation part.
+:::
+
+My Linux journey started with Ubuntu back in 2010. It worked, mostly — but package management was a constant source of anxiety, and I frequently broke things trying to install software that wasn't in the official repos.
+
+I have vivid memories of using Manjaro with i3wm in 2014 ([I still have videos of using it back then](/lets-game-dev-community-challenge/)). Getting [i3-gaps](https://github.com/Airblader/i3) running on Ubuntu before that was a lesson in patience: PPAs, manual `make` invocations, and a system that broke on a regular basis. On Arch things improved significantly, and I stayed there for a long time.
+
+By early 2022 the friction had accumulated again — specifically around Haskell. Juggling multiple projects with different GHC versions is genuinely painful: `cabal` and `stack` handle dependency resolution reasonably well, but getting Haskell Language Server to work correctly for each GHC version is a different matter entirely, since HLS binaries are ABI-coupled to the compiler version they were built against. The Haskell community had largely converged on NixOS as the answer to this problem, so I finally gave it a try.
+
+The hardware for this experiment was my ThinkPad X230T — a machine that has survived more than it probably should have, and that I was glad to have around for one more adventure.
+
+:::{layout-ncol="2"}
+![My ThinkPad X230T](/assets/thinkpad-x230t/IMG_20210204_220712.jpg){group="thinkpad-x230t"}
+
+![My ThinkPad X230T](/assets/thinkpad-x230t/IMG_20210228_025126.jpg){group="thinkpad-x230t"}
+
+![My ThinkPad X230T](/assets/thinkpad-x230t/IMG_20210611_122010.jpg){group="thinkpad-x230t"}
+
+![My ThinkPad X230T](/assets/thinkpad-x230t/IMG_20210611_122620.jpg){group="thinkpad-x230t"}
+
+:::
+
+Starting February 28th, 2022, I had NixOS running on my ThinkPad and promptly spent far more time on system administration than any reasonable person would. I dove into the more arcane corners of UEFI and systemd, patched and compiled custom kernels, and at one point wrote my own kernel module just to get the touchscreen working. I also, for reasons that still aren't entirely clear to me, built a monadic X11 [window manager](https://github.com/quoteme/lul) and [status bar](https://github.com/quoteme/lal) in Haskell. None of this was strictly necessary, but it was very educational, and I enjoyed every bit of it.
+
+Let's look at what four years of that actually looks like in version control:
+
+## Analyzing My NixOS Configuration
+
+This is the commit graph of my NixOS configuration together with a file hirarchy of all files ever checked into the repository:
+
+```{python}
+import os
+import itertools
+import functools
+from datetime import datetime
+import git
+import plotly.graph_objects as go
+
+REPO_URL = "https://github.com/quoteme/nixos.git"
+REPO_DIR = "/tmp/quoteme-nixos"
+repo : git.Repo = (
+    git.Repo(REPO_DIR)
+    if os.path.exists(REPO_DIR)
+    else git.Repo.clone_from(REPO_URL, REPO_DIR, bare=True)
+)
+repo.remotes.origin.fetch("+refs/heads/*:refs/heads/*")
+commits = list(repo.iter_commits('--all'))
+# summary of the total number of commits
+print(f"Total commits: {len(commits)}")
+print(f"First commit: {datetime.fromtimestamp(commits[-1].committed_date)}")
+print(f"Last commit: {datetime.fromtimestamp(commits[0].committed_date)}")
+print(f"Avg. time between commits: {(commits[0].committed_date - commits[-1].committed_date) / len(commits) / 3600:.2f} hours")
+```
+
+```{python}
+import json
+import plotly.io as pio
+from datetime import datetime
+from pathlib import PurePosixPath
+from typing import Optional
+from IPython.display import HTML
+
+# Type aliases
+Sha        = str
+LaneMap    = dict[Sha, int]
+LaneState  = tuple[LaneMap, int]
+Coord      = Optional[float]          # None used as segment separator in edge lists
+EdgePoint  = tuple[Coord, Coord]
+NodeId     = str                       # unique path string, e.g. "home/luca/foo.nix"
+FilePath   = str
+
+def assign_lane(acc: LaneState, c: git.Commit) -> LaneState:
+    lanes, n = acc
+    my_lane: int  = lanes.get(c.hexsha, n)
+    base: LaneMap = {**lanes, c.hexsha: my_lane}
+    def fold_parent(acc2: LaneState, ip: tuple[int, git.Commit]) -> LaneState:
+        m, k = acc2; i, p = ip
+        return (m, k) if p.hexsha in m \
+            else ({**m, p.hexsha: my_lane if i == 0 else k}, k + int(i != 0))
+    return functools.reduce(fold_parent, enumerate(c.parents),
+                            (base, n + int(c.hexsha not in lanes)))
+
+lane_map: LaneMap
+lane_map, _ = functools.reduce(assign_lane, reversed(commits), ({}, 0))
+
+def build_commit_branches(refs: list[git.Reference]) -> dict[Sha, list[str]]:
+    def fold(d: dict[Sha, list[str]], ref: git.Reference) -> dict[Sha, list[str]]:
+        return {**d, ref.commit.hexsha: d.get(ref.commit.hexsha, []) + [ref.name]}
+    return functools.reduce(fold, refs, {})
+
+commit_branches: dict[Sha, list[str]] = build_commit_branches(list(repo.refs))
+
+def hover_label(c: git.Commit) -> str:
+    body:     str       = c.message.split("\n", 1)[1].strip() if "\n" in c.message else ""
+    branches: list[str] = commit_branches.get(c.hexsha, [])
+    files:    list[str] = list(c.stats.files.keys())
+    return "".join([
+        f"<b>{c.summary}</b><br>",
+        f"<span style='color:#888'>{c.hexsha[:7]} · {c.committed_datetime.strftime('%Y-%m-%d %H:%M:%S %Z')}</span>",
+        (f"<br><i>🌿 {', '.join(branches)}</i>"                               if branches        else ""),
+        (f"<br>{body[:300].replace(chr(10), '<br>')}"                         if body            else ""),
+        (f"<br><span style='color:#aaa'>{'<br>'.join(files[:20])}</span>"     if files           else ""),
+        (f"<br><span style='color:#aaa'>…+{len(files)-20} more</span>"        if len(files) > 20 else ""),
+    ])
+
+# ── Commit scatter ───────────────────────────────────────────────────────────
+hash_pos: dict[Sha, tuple[datetime, int]] = {
+    c.hexsha: (c.committed_datetime, lane_map.get(c.hexsha, 0)) for c in commits
+}
+edge_segs: list[EdgePoint] = [
+    pt
+    for c in commits for p in c.parents if p.hexsha in hash_pos
+    for (cx, cy), (px, py) in [(hash_pos[c.hexsha], hash_pos[p.hexsha])]
+    for pt in [(cx, cy), (px, cy), (px, py), (None, None)]
+]
+edge_x: list[Coord]
+edge_y: list[Coord]
+edge_x, edge_y = map(list, zip(*edge_segs)) if edge_segs else ([], [])
+
+dates:  list[datetime] = [c.committed_datetime      for c in commits]
+lanes:  list[int]      = [lane_map.get(c.hexsha, 0) for c in commits]
+hover:  list[str]      = [hover_label(c)            for c in commits]
+
+fig_commits = go.Figure([
+    go.Scatter(x=edge_x, y=edge_y, mode="lines",
+               line=dict(width=1.5), hoverinfo="none", showlegend=False),
+    go.Scatter(x=dates, y=lanes, mode="markers",
+               marker=dict(size=9, color=lanes, colorscale="Turbo", line=dict(width=0)),
+               text=hover, hovertemplate="%{text}<extra></extra>", showlegend=False),
+]).update_layout(
+    title=dict(text="Git history · quoteme/nixos", font=dict(size=16)),
+    xaxis=dict(title="Date", showgrid=True), yaxis=dict(visible=False),
+    height=520, hovermode="closest",
+    plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
+    margin=dict(l=20, r=20, t=50, b=40),
+)
+
+# ── File tree ────────────────────────────────────────────────────────────────
+all_files: list[FilePath] = sorted({f for c in commits for f in c.stats.files})
+
+def path_nodes(path: FilePath) -> list[tuple[NodeId, NodeId]]:
+    """Return (parent_id, child_id) pairs for every prefix of `path`, root first."""
+    parts: tuple[str, ...] = PurePosixPath(path).parts
+    return [("", ".")] + [
+        ("/".join(parts[:i]) or ".", "/".join(parts[:i+1]))
+        for i in range(len(parts))
+    ]
+
+seen_edges: set[tuple[NodeId, NodeId]] = set()
+raw_edges:  list[tuple[NodeId, NodeId]] = []
+all_nodes:  list[NodeId] = ["."]
+for path in all_files:
+    for par, child in path_nodes(path):
+        if child not in all_nodes: all_nodes.append(child)
+        if par and (par, child) not in seen_edges:
+            seen_edges.add((par, child)); raw_edges.append((par, child))
+
+children_of: dict[NodeId, list[NodeId]] = functools.reduce(
+    lambda d, e: {**d, e[0]: d.get(e[0], []) + [e[1]]},
+    raw_edges, {}
+)
+
+# Reingold–Tilford x-placement (mutates x_pos via a single-element counter cell)
+x_pos:   dict[NodeId, float] = {}
+_ctr:    list[int]            = [0]   # mutable cell; avoids nonlocal in a nested def
+
+def assign_x(node: NodeId) -> None:
+    kids: list[NodeId] = children_of.get(node, [])
+    if not kids:
+        x_pos[node] = float(_ctr[0]); _ctr[0] += 1
+    else:
+        for k in kids: assign_x(k)
+        x_pos[node] = sum(x_pos[k] for k in kids) / len(kids)
+
+depth: dict[NodeId, int] = {}
+
+def assign_depth(node: NodeId, d: int = 0) -> None:
+    depth[node] = d
+    for k in children_of.get(node, []): assign_depth(k, d + 1)
+
+assign_x(".")
+assign_depth(".")
+
+ACTIVE: str = "#4C78A8"
+MUTED:  str = "#dedede"
+
+node_x:      list[float] = [x_pos.get(n, 0.0)    for n in all_nodes]
+node_y:      list[float] = [float(-depth.get(n, 0)) for n in all_nodes]
+node_labels: list[str]   = [PurePosixPath(n).name or "." for n in all_nodes]
+node_colors: list[str]   = [ACTIVE] * len(all_nodes)
+
+edge_nx: list[Coord] = [pt for p, c in raw_edges for pt in [x_pos.get(p, 0.0), x_pos.get(c, 0.0), None]]
+edge_ny: list[Coord] = [pt for p, c in raw_edges for pt in [-float(depth.get(p, 0)), -float(depth.get(c, 0)), None]]
+
+fig_tree = go.Figure([
+    go.Scatter(x=edge_nx, y=edge_ny, mode="lines",
+               line=dict(width=0.6, color="#ccc"), hoverinfo="none", showlegend=False),
+    go.Scatter(x=node_x, y=node_y, mode="markers+text",
+               marker=dict(size=6, color=node_colors),
+               text=node_labels, textposition="top center",
+               textfont=dict(size=8), customdata=all_nodes,
+               hovertemplate="<b>%{customdata}</b><extra></extra>",
+               showlegend=False),
+]).update_layout(
+    title=dict(text="File tree · quoteme/nixos", font=dict(size=16)),
+    xaxis=dict(visible=False), yaxis=dict(visible=False),
+    height=700, hovermode="closest",
+    plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
+    margin=dict(l=10, r=10, t=50, b=10),
+)
+
+commit_files: list[list[FilePath]] = [list(c.stats.files.keys()) for c in commits]
+
+# Precompute the actual Turbo hex colours for every commit so JS can restore
+# them without having to know anything about Plotly's internal colorscale maths.
+import matplotlib.cm as cm
+_max_lane = max(lanes) if max(lanes) > 0 else 1
+commit_colors: list[str] = [
+    "#{:02x}{:02x}{:02x}".format(*[int(v * 255) for v in cm.turbo(l / _max_lane)[:3]])
+    for l in lanes
+]
+
+h1_html: str = pio.to_html(fig_commits, full_html=False, include_plotlyjs="cdn",  div_id="git-graph")
+h2_html: str = pio.to_html(fig_tree,    full_html=False, include_plotlyjs=False, div_id="file-tree")
+
+js: str = f"""
+<div style="display:flex;gap:2rem;align-items:center;margin:0.5rem 0 0.25rem;font-size:0.85rem;">
+  <label style="display:flex;align-items:center;gap:0.5rem;">
+    Active opacity
+    <input id="opacity-active" type="range" min="0" max="100" value="100" style="width:110px">
+    <span id="opacity-active-val">100%</span>
+  </label>
+  <label style="display:flex;align-items:center;gap:0.5rem;">
+    Muted opacity
+    <input id="opacity-muted" type="range" min="0" max="100" value="3" style="width:110px">
+    <span id="opacity-muted-val">3%</span>
+  </label>
+</div>
+<script>
+(function poll() {{
+  const gitEl  = document.getElementById("git-graph");
+  const treeEl = document.getElementById("file-tree");
+  if (!gitEl  || !gitEl.on ||
+      !treeEl || !treeEl.on) {{ setTimeout(poll, 50); return; }}
+
+  const commitFiles  = {json.dumps(commit_files)};
+  const nodeIds      = {json.dumps(all_nodes)};
+  const commitColors = {json.dumps(commit_colors)};
+  const ACTIVE = "{ACTIVE}", MUTED = "{MUTED}", RED = "#e45756";
+  const allTreeActive = nodeIds.map(() => ACTIVE);
+  const noLines       = commitColors.map(() => 0);
+
+  const sliderActive  = document.getElementById("opacity-active");
+  const sliderMuted   = document.getElementById("opacity-muted");
+  const labelActive   = document.getElementById("opacity-active-val");
+  const labelMuted    = document.getElementById("opacity-muted-val");
+
+  const getActive = () => parseInt(sliderActive.value) / 100;
+  const getMuted  = () => parseInt(sliderMuted.value)  / 100;
+
+  sliderActive.addEventListener("input", () => {{
+    labelActive.textContent = sliderActive.value + "%";
+    if (currentNodeId !== null) applyFileTreeHover(currentNodeId);
+  }});
+  sliderMuted.addEventListener("input", () => {{
+    labelMuted.textContent = sliderMuted.value + "%";
+    if (currentNodeId !== null) applyFileTreeHover(currentNodeId);
+  }});
+
+  // ── commit graph hover → hovered commit + touched files turn red ──────────
+  gitEl.on("plotly_hover", ev => {{
+    const pt = ev.points[0];
+    if (pt.curveNumber !== 1) return;
+    const idx      = pt.pointIndex;
+    const modified = commitFiles[idx] || [];
+
+    // hovered dot → red; all others keep their colour
+    const dotColors = commitColors.map((c, i) => i === idx ? RED : c);
+    Plotly.restyle("git-graph", {{
+      "marker.color":      [dotColors],
+      "marker.opacity":    [commitColors.map(() => 1)],
+      "marker.line.width": [noLines],
+    }}, [1]);
+
+    // touched file nodes → red; others → MUTED
+    const s = new Set(modified);
+    const treeColors = nodeIds.map(id =>
+      id === "." || s.has(id) || modified.some(f => f.startsWith(id + "/"))
+        ? RED : MUTED
+    );
+    Plotly.restyle("file-tree", {{"marker.color": [treeColors]}}, [1]);
+  }});
+
+  gitEl.on("plotly_unhover", () => {{
+    Plotly.restyle("git-graph", {{
+      "marker.color":      [commitColors],
+      "marker.opacity":    [commitColors.map(() => getActive())],
+      "marker.line.width": [noLines],
+    }}, [1]);
+    Plotly.restyle("file-tree", {{"marker.color": [allTreeActive]}}, [1]);
+  }});
+
+  // ── file-tree hover → hovered node + matching commits turn red ────────────
+  let currentNodeId = null;
+
+  function applyFileTreeHover(nodeId) {{
+    const opMuted = getMuted();
+    const hits = commitFiles.map(files =>
+      nodeId === "." || files.some(f => f === nodeId || f.startsWith(nodeId + "/"))
+    );
+
+    // hit commits → red + full opacity; miss → original colour + muted opacity
+    const colors  = hits.map((hit, i) => hit ? RED : commitColors[i]);
+    const opacity = hits.map(hit => hit ? 1.0 : opMuted);
+    Plotly.restyle("git-graph", {{
+      "marker.color":      [colors],
+      "marker.opacity":    [opacity],
+      "marker.line.width": [noLines],
+    }}, [1]);
+
+    // hovered node + its ancestors + its descendants → red; others → MUTED
+    const treeColors = nodeIds.map(id =>
+      id === nodeId
+        || id === "."
+        || nodeId.startsWith(id + "/")
+        || id.startsWith(nodeId + "/")
+          ? RED : MUTED
+    );
+    Plotly.restyle("file-tree", {{"marker.color": [treeColors]}}, [1]);
+  }}
+
+  treeEl.on("plotly_hover", ev => {{
+    const pt = ev.points[0];
+    if (pt.curveNumber !== 1) return;
+    currentNodeId = pt.customdata;
+    applyFileTreeHover(currentNodeId);
+  }});
+
+  treeEl.on("plotly_unhover", () => {{
+    currentNodeId = null;
+    Plotly.restyle("git-graph", {{
+      "marker.color":      [commitColors],
+      "marker.opacity":    [commitColors.map(() => getActive())],
+      "marker.line.width": [noLines],
+    }}, [1]);
+    Plotly.restyle("file-tree", {{"marker.color": [allTreeActive]}}, [1]);
+  }});
+}})();
+</script>"""
+
+HTML(h1_html + h2_html + js)
+```
+
+The data confirms what it felt like: I touched this repository almost every other day for four years. The `modules/hardware/laptops/` folder is a useful proxy for hardware usage — changes there almost exclusively reflect hardware-level adjustments, so activity on a given laptop's config file correlates fairly directly with the period I was actively using that machine. Hover over any laptop entry in the file tree to see its commit timeline highlighted.
+
+For a more precise picture of any given period, select a file node and zoom into the commit graph — individual commit messages are visible on hover, and you can follow the link through to the source diff on GitHub.
+
+One highlight worth calling out: hovering over `./xmonad` reveals a sustained stretch of active development, ending abruptly on February 4th, 2023, when I [removed Xmonad from my config](https://github.com/Quoteme/nixos/commit/ea730ec). A quiet end to a chapter.
+
+One caveat on interpreting the hardware files: I used Xmonad heavily on my ThinkPad, yet the ThinkPad config itself shows relatively few commits. This is expected — hardware configuration tends to stabilize quickly, and day-to-day software choices (window manager, shell, editor) live elsewhere in the repo. A full picture of which software ran on which machine would require cross-referencing the hardware files with the broader module history, which is left as an exercise for the curious reader.
+
+### Statistical Analysis of Commit History
+
+We fit a linear model $f(x) = mx + b$ to the cumulative commit count over time, giving a rough baseline for the long-term commit rate.
+
+```{python}
+from scipy.stats import linregress
+import numpy as np
+ts_sorted = np.array(sorted(c.committed_date for c in commits), dtype=float)
+t0        = ts_sorted[0]
+span_days = (ts_sorted[-1] - t0) / 86400
+daily_counts = np.zeros(int(span_days) + 1, dtype=float)
+for t in ts_sorted:
+    day_idx = int((t - t0) / 86400)
+    daily_counts[day_idx] += 1
+cumulative_counts = np.cumsum(daily_counts)
+days = np.arange(len(cumulative_counts))
+slope, intercept, r_value, p_value, std_err = linregress(days,
+                                                        cumulative_counts)
+print(f"Estimated commits/day: {slope:.2f}")
+print(f"R² value: {r_value**2:.4f}")
+```
+
+And we may plot the cumulative commit count along with the fitted line:
+
+```{python}
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10, 5))
+plt.plot(days, cumulative_counts, label="Cumulative commits", color="#4C78A8", lw=2)
+plt.plot(days, slope * days + intercept, label=f"Fitted line (slope = {slope:.2f} commits/day)", color="#F58518", lw=2, ls="--")
+plt.title("Cumulative commit count over time", fontsize=14)
+plt.xlabel("Days since first commit")
+plt.ylabel("Cumulative commits")
+plt.legend()
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.savefig("cumulative_commits.png", dpi=150, bbox_inches="tight", transparent
+=True)
+plt.show()
+```
+
+### Topological Data Analysis of the time series of commits
+
+A natural question is whether the commit activity has any **periodic structure** —
+weekly rhythms, bursts of activity followed by quiet stretches, etc.
+Topological Data Analysis (TDA) lets us answer this without assuming a particular
+model. We embed the scalar commit-time series into a higher-dimensional point
+cloud via a *sliding-window* (Takens-style) embedding and then compute its
+**persistent homology** with [ripser](https://github.com/scikit-tda/ripser.py).
+Loops ($H_1$ classes) in the resulting diagram indicate periodic structure whose
+lifetime (persistence = death − birth) reflects how pronounced the cycle is.
+
+```{python}
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+from ripser import ripser
+from persim import plot_diagrams
+from sklearn.preprocessing import MinMaxScaler
+
+# ── 1. Build an oscillatory scalar time series ────────────────────────────────
+# The previous attempt embedded the raw (monotonically-increasing) commit
+# timestamps directly.  A monotone signal unrolls as a *line* in R^w — no
+# loops, no H1.  For Takens embedding to reveal periodic structure the
+# underlying signal must itself oscillate.  We therefore count commits per day
+# and use that as the signal: it rises and falls with weekly/monthly rhythm.
+
+ts_sorted = np.array(sorted(c.committed_date for c in commits), dtype=float)
+t0        = ts_sorted[0]
+span_days = int((ts_sorted[-1] - t0) / 86400) + 1
+
+# Daily commit counts (index = integer day offset from first commit)
+daily_counts = np.zeros(span_days, dtype=float)
+for t in ts_sorted:
+    day_idx = int((t - t0) / 86400)
+    daily_counts[day_idx] += 1
+
+# Optional: smooth with a 3-day rolling average to reduce single-day spikes
+kernel = np.ones(3) / 3
+signal = np.convolve(daily_counts, kernel, mode="same")
+
+print(f"Signal length : {len(signal)} days")
+print(f"Non-zero days : {np.count_nonzero(daily_counts)}")
+print(f"Max commits/day: {int(daily_counts.max())}")
+```
+
+```{python}
+# ── 2. Sliding-window (Takens) embedding ─────────────────────────────────────
+# Window w = 14 captures ≈ two weeks so that a 7-day cycle can close into a
+# loop inside the embedding space (the loop needs at least w > period points).
+# Stride = 1 keeps every window; reduce if the cloud is too large.
+w      = 14
+stride = 1
+
+signal_norm = MinMaxScaler().fit_transform(signal.reshape(-1, 1)).ravel()
+cloud = np.array([
+    signal_norm[i : i + w]
+    for i in range(0, len(signal_norm) - w + 1, stride)
+])
+print(f"Point cloud shape : {cloud.shape}  ({cloud.shape[0]} points in ℝ^{cloud.shape[1]})")
+```
+
+```{python}
+# ── 3. Persistent homology via Ripser ─────────────────────────────────────────
+result   = ripser(cloud, maxdim=1)
+diagrams = result["dgms"]   # diagrams[0] = H0, diagrams[1] = H1
+
+h0, h1 = diagrams
+h0_finite = h0[np.isfinite(h0[:, 1])]
+print(f"H0 finite features : {len(h0_finite)}")
+print(f"H1 features        : {len(h1)}")
+if len(h1):
+    persistence = h1[:, 1] - h1[:, 0]
+    top5 = np.sort(persistence)[::-1][:5]
+    print(f"Top-5 H1 persistence values: {np.round(top5, 4)}")
+```
+
+```{python}
+# ── 4. Visualise ─────────────────────────────────────────────────────────────
+matplotlib.rcParams.update({
+    "figure.facecolor"   : "none",
+    "axes.facecolor"     : "none",
+    "savefig.transparent": True,
+})
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+# — Persistence diagram —
+plot_diagrams(diagrams, ax=axes[0], show=False)
+axes[0].set_title("Persistence diagram", fontsize=13)
+axes[0].set_xlabel("Birth")
+axes[0].set_ylabel("Death")
+
+# — H1 barcode (sorted by persistence) —
+ax = axes[1]
+if len(h1):
+    order = np.argsort(h1[:, 1] - h1[:, 0])[::-1]
+    for rank, idx in enumerate(order):
+        birth, death = h1[idx]
+        ax.plot([birth, death], [rank, rank], lw=2, color="#4C78A8")
+    ax.set_title("H₁ barcode (1-cycles / loops)", fontsize=13)
+    ax.set_xlabel("Filtration value")
+    ax.set_ylabel("Feature index (sorted by persistence)")
+    ax.invert_yaxis()
+else:
+    ax.text(0.5, 0.5, "No H₁ features detected",
+            ha="center", va="center", transform=ax.transAxes, fontsize=12)
+    ax.set_title("H₁ barcode", fontsize=13)
+
+plt.suptitle(
+    f"TDA of daily commit-count signal  ·  sliding-window embedding  (w={w}, stride={stride})",
+    fontsize=11, y=1.01,
+)
+plt.tight_layout()
+plt.savefig("tda_commit_times.png", dpi=150, bbox_inches="tight", transparent=True)
+plt.show()
+```
+
+The **persistence diagram** plots each topological feature as a point
+$(b, d)$ where $b$ is the *birth* and $d$ is the *death* filtration value;
+features far from the diagonal are the most significant.
+The **barcode** shows the same information as horizontal bars —
+long bars in $H_1$ indicate genuine periodic structure in the commit history.
+
+::: {.callout-note}
+**Why not embed the raw timestamps?**
+The commit timestamps form a *monotonically increasing* sequence.  A sliding
+window over a monotone signal traces out a line (or arc) in $\mathbb{R}^w$ —
+a contractible shape with trivial $H_1$.  For Takens-style embedding to
+detect loops, the signal must *oscillate*.  We therefore use the **daily
+commit count**, which rises and falls with the underlying weekly work rhythm,
+and set the window width $w = 14 > 7$ (the expected period) so that a full
+oscillation cycle can close into a loop inside the embedding space.
+
+See the daily commit count plot below for a visual confirmation of the weekly rhythm:
+
+```{python}
+plt.figure(figsize=(10, 3))
+plt.plot(signal, color="#4C78A8", lw=1.5)
+plt.title("Daily commit count (3-day rolling average)", fontsize=11)
+plt.xlabel("Days since first commit")
+plt.ylabel("Commits per day")
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.savefig("daily_commit_count.png", dpi=150, bbox_inches="tight", transparent=True)
+plt.show()
+```
+
+:::
+
+A prominent long $H_1$ bar corresponds to a ~weekly commit cycle: commit
+activity rises and falls on a roughly seven-day rhythm, which is exactly what
+we would expect from a person working on their system configuration primarily
+on evenings and weekends.
+
+#### Meaning of the TDA results
+
+The dense cluster of $H_0$ points near the diagonal of the persistence diagram
+tells us that connected components in the point cloud merge at very small scales
+— there are no true "gaps" in the signal (no long stretches of complete
+inactivity), which is consistent with committing almost every other day over the
+whole four-year span.
+
+More interesting are the $H_1$ points.  Many of them land well away from the
+diagonal, with persistence $> 0.2$, confirming that real loops exist in the
+embedding: the daily commit count genuinely oscillates rather than being
+structureless noise.
+
+The $H_1$ barcode reinforces this.  Rather than a single dominant long bar
+(which would indicate one clean, regular period), there are many persistent bars
+spread across multiple filtration scales. This topological fingerprint indicates *quasi-periodic* patterns. Maybe a ~weekly work/rest rhythm whose amplitude
+varies in short scales like days or weeks? Some days a flurry of commits, others barely one — Nah, that is common in programmers, if you know.
+
+These small holes are layered on top of longer semester-scale bursts and lulls.  The result is the fan
+shape visible in the barcode, where the top features (highest persistence, most
+significant) gradually give way to a dense cloud of short-lived noise features
+near filtration value~0.
+
+### Evaluation
+
+Looking back at four years of commits, here is my verdict:
+
+#### The git graph
+
+It's kinda obvious that I spend almost every second day working on my NixOS configuration, but it's still nice to see that confirmed visually (see graphs) and also quantitatively (see linear regression). Just a testament to the addicitiveness of NixOS, I guess. Presumably you are more at risk of getting the Nix-fever, if you are into reproducible, accurate programming and possibly into hacking stuff? Idk, but that might be worth investigating in the future.
+
+#### Commit cadence and TDA
+
+Using these tools to analyse the sliding window embedding of the daily commit count, we see my work is more aking to energy spikes every 1-2 days, but these smoothen ou tover time, albeit there are some "obsessive" periods, where features are pushed at rapid pace, whereas the converse cannot be found (i.e. I never really "shut down" for many days in a row).
+
+Kinda self explanatory though; If you like the work you do, you do not need rest, it already is the rest you need.
+
+In concise and rigorous terms:
+
+- $H_0$ features confirm the connected components in the sliding window embedding merge at very small scales, meaning no long stretches of complete inactivity
+- $H_1$ features confirm the presence of genuine loops in the embedding, indicating that the daily commit count oscillates with a short periodicity (weekly or possibly less). Indicating organic work, as a passion project should have?
+
+Seeing as as that during some periods due to difficulties I was left without a working laptop, this is a testament to NixOS's resilience and reproducibility. I could always just spin up a new environment even on some shitty laptop I found on the street lol (indicated by the lack of holes, i.e. no large elements in $H_1$)
+
+## Privacy and Security Considerations
+
+Publishing a system configuration openly is a deliberate choice, not a naïve one. A public NixOS config exposes your hardware inventory, software stack, and commit cadence — all useful signals to a patient adversary. I share mine because I have specifically designed it to contain nothing sensitive: secrets are managed entirely out-of-band and never enter the repository, credentials are never hardcoded, and all hardware-identifying information is either innocuous or intentionally public.
+
+That said, it is worth being explicit about the threat model. Even a "clean" config repo leaks information through indirect channels — commit timing, file naming patterns, and diff content. The analysis below demonstrates exactly what an adversary could extract with nothing more than read access to the public git history.
+
+### Exploit Analysis
+
+The following checks cover the three most common accidental disclosure vectors in public infrastructure repositories:
+
+- sensitive keywords in commit messages (e.g. `api`, `key`, `password`, `secret`, `token`)
+- sensitive keywords in tracked file paths
+- sensitive keywords appearing anywhere in historical diffs — including lines that were later deleted
+  
+```{python}
+import re
+from IPython.display import HTML
+
+SENSITIVE = [
+    "api", "key", "password", "passwd", "secret", "token", "credential",
+    "private", "auth", "oauth", "ssh", "gpg", "pgp", "cert", "tls", "ssl",
+    "vulnerability", "exploit", "cve", "backdoor", "leak",
+]
+PAT = re.compile(r"(?<!\w)(" + "|".join(SENSITIVE) + r")(?!\w)", re.IGNORECASE)
+
+# ── 1. Commit messages ────────────────────────────────────────────────────────
+msg_hits: list[tuple[str, str, list[str]]] = []
+for c in commits:
+    found = PAT.findall(c.message)
+    if found:
+        msg_hits.append((c.hexsha[:7], c.message.splitlines()[0][:80], sorted(set(w.lower() for w in found))))
+
+# ── 2. File paths ─────────────────────────────────────────────────────────────
+path_hits: list[tuple[str, list[str]]] = []
+for path in all_files:
+    found = PAT.findall(path)
+    if found:
+        path_hits.append((path, sorted(set(w.lower() for w in found))))
+
+# ── 3. Commit diffs ───────────────────────────────────────────────────────────
+CONTEXT = 60  # characters of context around each match
+
+def diff_snippets(diff_text: str) -> list[str]:
+    snippets = []
+    for m in PAT.finditer(diff_text):
+        start = max(0, m.start() - CONTEXT)
+        end   = min(len(diff_text), m.end() + CONTEXT)
+        snippet = diff_text[start:end].replace("\n", " ")
+        snippets.append(f"…{snippet}…")
+    return snippets[:3]  # at most 3 snippets per commit
+
+diff_hits: list[tuple[str, str, list[str]]] = []
+for c in commits:
+    if not c.parents:
+        continue
+    try:
+        diff_text = repo.git.diff(c.parents[0].hexsha, c.hexsha, unified=0)
+    except Exception:
+        continue
+    if PAT.search(diff_text):
+        snippets = diff_snippets(diff_text)
+        diff_hits.append((c.hexsha[:7], c.committed_datetime.strftime("%Y-%m-%d"), snippets))
+
+# ── Render results ────────────────────────────────────────────────────────────
+def kw(words):
+    return " ".join(f'<code style="color:#c0392b">{w}</code>' for w in words)
+
+parts = []
+
+parts.append(f"<h4>1. Commit messages — {len(msg_hits)} hit(s)</h4>")
+if msg_hits:
+    rows = "".join(
+        f"<tr><td><code>{sha}</code></td><td>{msg}</td><td>{kw(words)}</td></tr>"
+        for sha, msg, words in msg_hits
+    )
+    parts.append(f'<table style="font-size:0.82rem;width:100%;border-collapse:collapse">'
+                 f'<thead><tr><th>SHA</th><th>Message</th><th>Keywords</th></tr></thead>'
+                 f'<tbody>{rows}</tbody></table>')
+else:
+    parts.append("<p>✓ No sensitive keywords found in commit messages.</p>")
+
+parts.append(f"<h4>2. File paths — {len(path_hits)} hit(s)</h4>")
+if path_hits:
+    rows = "".join(
+        f"<tr><td><code>{path}</code></td><td>{kw(words)}</td></tr>"
+        for path, words in path_hits
+    )
+    parts.append(f'<table style="font-size:0.82rem;width:100%;border-collapse:collapse">'
+                 f'<thead><tr><th>Path</th><th>Keywords</th></tr></thead>'
+                 f'<tbody>{rows}</tbody></table>')
+else:
+    parts.append("<p>✓ No sensitive keywords found in file paths.</p>")
+
+parts.append(f"<h4>3. Commit diffs — {len(diff_hits)} hit(s)</h4>")
+if diff_hits:
+    rows = "".join(
+        f"<tr><td><code>{sha}</code></td><td>{date}</td>"
+        f"<td style='font-size:0.78rem'>" + "<br>".join(
+            f'<span style="background:#fff3cd;padding:1px 3px;border-radius:2px">{s}</span>'
+            for s in snips
+        ) + "</td></tr>"
+        for sha, date, snips in diff_hits
+    )
+    parts.append(f'<table style="font-size:0.82rem;width:100%;border-collapse:collapse">'
+                 f'<thead><tr><th>SHA</th><th>Date</th><th>Context snippets</th></tr></thead>'
+                 f'<tbody>{rows}</tbody></table>')
+else:
+    parts.append("<p>✓ No sensitive keywords found in diffs.</p>")
+
+HTML("\n".join(parts))
+```
+
+The results above show, concretely, what an adversary could learn from the public commit history.
+Commit messages are often written in a hurry and can accidentally reveal more than intended.
+File paths are generally safe for a dotfiles repo, but anything under `secrets/` or named
+`*.key` / `*.pem` should be git-ignored unconditionally — or managed via
+[agenix](https://github.com/ryantm/agenix) / [sops-nix](https://github.com/Mic92/sops-nix)
+so they are encrypted at rest in the repo.
+The diff scan is the most thorough vector: it flags every line ever committed,
+including code that was subsequently deleted — git history is permanent and effectively immutable.
+
+The broad keyword matches on terms like `api` and `key` in the diffs are expected: these strings appear legitimately in NixOS module option names and SSH configuration. Context matters — a match on `services.openssh.authorizedKeys` is categorically different from a match on a hardcoded credential. None of the hits above indicate an actual leak.
+
+Nevertheless, the one entry worth noting is:
+
+```nix
+users.users.root.initialHashedPassword = ""
+```
+
+An empty `initialHashedPassword` is intentional here — it disables password-based root login entirely on a freshly installed system, forcing the user to set credentials interactively on first boot. This is a deliberate hardening choice, not an oversight.
+
+## Conclusion
+
+Four years of NixOS has made me a better systems engineer. The discipline of expressing your entire environment declaratively — and committing every change — forces a level of rigour that pays dividends well beyond the home lab. It is directly transferable to the kind of reproducible, auditable infrastructure that high-security production systems demand.
+
+The ecosystem rewards curiosity. You will inevitably learn things you did not set out to learn: bootloader internals, kernel module interfaces, the Nix evaluation model, functional package composition. That depth is a feature, not a tax.
+
+![Nix: the more you push it, the more it teaches you](/assets/fuck_around_find_out.png)
+
+The honest tradeoff is time. NixOS is not a productivity shortcut — it is an investment. The returns are real (reproducibility, auditability, zero "works on my machine" failures), but they accrue over months and years, not days. If you approach it as a long-term infrastructure choice rather than a quick setup, it consistently delivers.
+
+I have no regrets. The configurations, the custom kernel work, the Haskell window manager — all of it left me with a sharper understanding of the systems I work with and a setup that has never once let me down when it mattered most.
+
+
+![Since back in the beginning, I upgraded to a different laptop, but I am still rocking NixOS on it](/assets/asus_rog_flow_x13_nixos_stickers.jpg){group="thinkpad-x230t"}
