@@ -97,19 +97,15 @@ We will calculate the solution approximately on a grid
 import numpy as np
 import plotly.graph_objects as go
 
-# Parameters
 N = 10
 h = 1 / (N + 1)
 
-# Unit square in (x,y) plane
 square = ([0, 1, 1, 0, 0], [0, 0, 1, 1, 0], [0]*5)
 
-# Interior grid points (blue)
 grid_x = [i*h for i in range(1, N+1) for j in range(1, N+1)]
 grid_y = [j*h for i in range(1, N+1) for j in range(1, N+1)]
 grid_z = [0] * len(grid_x)
 
-# Boundary points (red)
 boundary = [(x,y,z) 
   for (x,i) in [ (i*h,i) for i in range(N+2) ] 
   for (y,j) in [ (i*h,i) for i in range(N+2) ] 
@@ -117,10 +113,8 @@ boundary = [(x,y,z)
   if i == 0 or j == 0 or i == N+1 or j == N+1
 ]
 
-# Create figure
 fig = go.Figure()
 
-# Add unit square, interior grid points, and boundary points
 fig.add_trace(go.Scatter3d(x=square[0], y=square[1], z=square[2], mode='lines',
                            line=dict(color='black', width=4), name='Unit Square'))
 fig.add_trace(go.Scatter3d(x=grid_x, y=grid_y, z=grid_z, mode='markers',
@@ -133,7 +127,6 @@ fig.add_trace(go.Scatter3d(
   marker=dict(size=5, color='red'),
   name='Boundary'))
 
-# Update layout
 fig.update_layout(
     title=f'Unit Square in (x,y) Plane with Grid Points (N={N}, h={h:.4f})',
     scene=dict(xaxis_title='X', yaxis_title='Y', zaxis_title='Z', aspectmode='cube'),
@@ -167,24 +160,19 @@ import numpy as np
 import plotly.graph_objects as go
 from functools import reduce
 
-# ── problem parameters ────────────────────────────────────────────────────────
-N = 30              # interior grid points per axis
-h = 1 / (N + 1)    # grid spacing
+N = 30
+h = 1 / (N + 1)
 
-# ── source term: two Gaussian mass concentrations ─────────────────────────────
 def f(x, y):
     rho1 = 3.0 * np.exp(-60 * ((x - 0.25)**2 + (y - 0.25)**2))
     rho2 = 1.5 * np.exp(-60 * ((x - 0.70)**2 + (y - 0.65)**2))
     return 2 * np.pi * (rho1 + rho2)
 
-# ── grid coordinates (1-indexed, interior only) ────────────────────────────────
 xs = list(map(lambda i: (i + 1) * h, range(N)))
 ys = list(map(lambda j: (j + 1) * h, range(N)))
 
-# ── flat index for interior node (i, j) ──────────────────────────────────────
 def idx(i, j): return i * N + j
 
-# ── generate all (row, col, value) stencil triplets functionally ──────────────
 def stencil_entries(N, h):
     diag  = [(idx(i,j), idx(i,j),    4/h**2) for i in range(N) for j in range(N)]
     left  = [(idx(i,j), idx(i,j-1), -1/h**2) for i in range(N) for j in range(1, N)]
@@ -193,7 +181,6 @@ def stencil_entries(N, h):
     down  = [(idx(i,j), idx(i+1,j), -1/h**2) for i in range(0, N-1) for j in range(N)]
     return diag + left + right + up + down
 
-# ── assemble dense matrix via reduce ─────────────────────────────────────────
 def add_entry(A, entry):
     r, c, v = entry
     A[r, c] += v
@@ -203,13 +190,10 @@ A = reduce(add_entry,
            stencil_entries(N, h),
            np.zeros((N * N, N * N)))
 
-# ── right-hand side ────────────────────────────────────────────────────────────
 b = np.array([f(xs[i], ys[j]) for i in range(N) for j in range(N)])
 
-# ── solve and reshape ─────────────────────────────────────────────────────────
 U = np.linalg.solve(A, b).reshape(N, N)
 
-# ── visualise ─────────────────────────────────────────────────────────────────
 X, Y = np.meshgrid(xs, ys)
 fig = go.Figure(data=[
     go.Surface(x=X, y=Y, z=U.T, colorscale='Viridis',
@@ -247,33 +231,26 @@ import scipy.sparse as sp
 import scipy.sparse.linalg as spla
 import plotly.graph_objects as go
 
-# ── problem parameters ────────────────────────────────────────────────────────
 N = 80
 h = 1 / (N + 1)
 
-# ── source term (same two Gaussian bumps) ─────────────────────────────────────
 def f(x, y):
     rho1 = 3.0 * np.exp(-60 * ((x - 0.25)**2 + (y - 0.25)**2))
     rho2 = 1.5 * np.exp(-60 * ((x - 0.70)**2 + (y - 0.65)**2))
     return 2 * np.pi * (rho1 + rho2)
 
-# ── 1-D tridiagonal Laplacian ─────────────────────────────────────────────────
 e  = np.ones(N)
 T1 = sp.spdiags([-e, 2*e, -e], [-1, 0, 1], N, N, format='csr') / h**2
 
-# ── 2-D Laplacian via Kronecker sum ───────────────────────────────────────────
 I  = sp.eye(N, format='csr')
-A  = sp.kron(T1, I) + sp.kron(I, T1)          # shape (N², N²), ~5 non-zeros/row
+A  = sp.kron(T1, I) + sp.kron(I, T1)
 
-# ── right-hand side ────────────────────────────────────────────────────────────
 xs = np.array([(i + 1) * h for i in range(N)])
 ys = np.array([(j + 1) * h for j in range(N)])
 b  = np.array([f(xs[i], ys[j]) for i in range(N) for j in range(N)])
 
-# ── sparse direct solve ───────────────────────────────────────────────────────
 U  = spla.spsolve(A.tocsr(), b).reshape(N, N)
 
-# ── visualise ─────────────────────────────────────────────────────────────────
 X, Y = np.meshgrid(xs, ys)
 fig = go.Figure(data=[
     go.Surface(x=X, y=Y, z=U.T, colorscale='Viridis',
@@ -298,256 +275,131 @@ For even larger systems one would switch to an iterative solver such as
 
 ---
 
-## Applied FEM: Aerodynamics of a Cow
+## Applied FEM: The Cow
 
 In industry, the finite element method is routinely used to identify **stress
 concentrations** and **structural failure zones** before a part is manufactured.
-A classic (and charmingly absurd) example is the aerodynamic analysis of a cow:
-_Calves et al._ famously studied bovine aerodynamics to demonstrate that the
-udder is the single largest contributor to total aerodynamic drag
-[_(Clark & Smits, 1998)_](https://www.popsci.com/science/article/2011-08/ig-nobel-winning-scientists-study-aerodynamics-cows-sheep-and-penguins/).
 
-We will replicate this kind of analysis in two steps:
+Classically you'd analyze the stress distribution on a simple geometry like:
 
-1. **Aerodynamic pressure distribution** — using a Newtonian pressure
-   coefficient approximation: $C_p = 2\cos^2\theta$ on windward surfaces
-   (where $\theta$ is the angle between the outward normal and the incoming
-   wind), and a small suction coefficient on leeward surfaces.
-2. **FEM stress index** — combining the aerodynamic surface pressure with a
-   geometric stress concentration factor derived from the local Gaussian
-   curvature (via the discrete angular defect at each vertex).  High-curvature
-   regions under high pressure are classical failure hot-spots.
+:::{layout-ncol="2"}
+![cans under load over time](https://upload.wikimedia.org/wikipedia/commons/a/a7/Cans_Knockdown_Finite_Element_Analysis.gif){group="fem-example"}
 
-### Step 1 — Aerodynamic surface pressure
+![a manufactured part during usage](https://upload.wikimedia.org/wikipedia/commons/e/ea/Strukturanalyse_%28FEM-Simulation%29.jpg?_=20130829104734){group="fem-example"}
 
-```{python}
-#| code-fold: true
-import trimesh
-import numpy as np
-import plotly.graph_objects as go
+![airflow around a beam](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Featool-multiphysics-matlab-fem-and-cfd-gui-toolbox.png/960px-Featool-multiphysics-matlab-fem-and-cfd-gui-toolbox.png?_=20180328053533){group="fem-example"}
 
-# ── Load + centre the cow mesh ─────────────────────────────────────────────────
-mesh = trimesh.load('../../assets/lowpolycow/cow.obj', force='mesh')
-mesh.apply_transform(trimesh.transformations.rotation_matrix(-np.pi / 2, [0, 1, 0]))
-mesh.apply_transform(trimesh.transformations.rotation_matrix( np.pi / 2, [0, 0, 1]))
-mesh.vertices -= mesh.centroid
-
-verts = mesh.vertices   # (V, 3)
-faces = mesh.faces      # (F, 3)
-
-# ── Aerodynamic setup ──────────────────────────────────────────────────────────
-# Wind blows in the +z direction (head-on from the front of the cow).
-wind_dir = np.array([0., 0., 1.])
-normals  = mesh.face_normals               # (F, 3), unit vectors
-
-# Modified Newtonian pressure coefficient (inviscid, attached-flow approximation)
-#   Cp =  2 cos²θ       for windward faces (normal partly facing flow)
-#   Cp = -0.4 |cosθ|^0.8 for leeward faces (suction)
-cos_theta = normals @ wind_dir             # (F,)  in [-1, 1]
-windward  = np.maximum(0.0,  cos_theta)
-leeward   = np.maximum(0.0, -cos_theta)
-Cp_face   = 2.0 * windward**2 - 0.4 * leeward**0.8
-
-# ── Average face Cp to vertices (vectorised) ───────────────────────────────────
-Cp_vert  = np.zeros(len(verts))
-vert_cnt = np.zeros(len(verts))
-np.add.at(Cp_vert,  faces.ravel(), np.repeat(Cp_face, 3))
-np.add.at(vert_cnt, faces.ravel(), 1)
-Cp_vert /= np.maximum(vert_cnt, 1)
-
-# ── Plot ───────────────────────────────────────────────────────────────────────
-fig = go.Figure(data=[go.Mesh3d(
-    x=verts[:,0], y=verts[:,1], z=verts[:,2],
-    i=faces[:,0], j=faces[:,1], k=faces[:,2],
-    intensity=Cp_vert,
-    colorscale='RdBu_r',
-    cmin=Cp_vert.min(), cmax=Cp_vert.max(),
-    colorbar=dict(title='Cp', thickness=18, len=0.7),
-    lighting=dict(ambient=0.5, diffuse=0.8, specular=0.2, roughness=0.5),
-    flatshading=False,
-    name='Pressure coefficient',
-    showscale=True,
-)])
-fig.update_layout(
-    title='Aerodynamic surface pressure Cp on a cow<br>'
-          '<sub>Wind → +z (head-on). Red = high pressure (stagnation), '
-          'Blue = suction (leeward)</sub>',
-    scene=dict(
-        xaxis_title='x', yaxis_title='y', zaxis_title='z',
-        aspectmode='data',
-        camera=dict(eye=dict(x=1.6, y=0.8, z=-1.0)),
-    ),
-    width=800, height=650,
-)
-fig.show()
-```
-
-The head and chest (front face, +z side) sit in the **stagnation zone** (deep
-red), while the haunches and tail form the low-pressure **wake region** (blue).
-The prominently exposed udder exhibits a large red patch — consistent with it
-being the dominant drag contributor.
-
-### Step 2 — FEM stress index and problem zone identification
-
-The surface pressure alone does not tell the full story.  A FEM analysis also
-accounts for the **geometry**: thin cross-sections (legs, neck) act as stress
-amplifiers, and sharp curvature changes create notch effects.
-
-We estimate the **geometric stress concentration** via the discrete Gaussian
-curvature (angular defect) at each vertex, then combine it with the surface
-pressure into a dimensionless **stress index** $\sigma^*$:
-
-$$
-\sigma^* = \alpha \, C_p^+ + (1-\alpha) \, \kappa^*
-$$
-
-where $C_p^+ = \max(0, C_p)$ is the positive (compressive) surface pressure,
-$\kappa^*$ is the normalised absolute Gaussian curvature, and $\alpha = 0.6$
-weights aerodynamics slightly more than geometry.
-
-```{python}
-#| code-fold: true
-import trimesh
-import numpy as np
-import plotly.graph_objects as go
-
-# ── Re-load mesh (cell is self-contained) ─────────────────────────────────────
-mesh = trimesh.load('../../assets/lowpolycow/cow.obj', force='mesh')
-mesh.apply_transform(trimesh.transformations.rotation_matrix(-np.pi / 2, [0, 1, 0]))
-mesh.apply_transform(trimesh.transformations.rotation_matrix( np.pi / 2, [0, 0, 1]))
-mesh.vertices -= mesh.centroid
-verts, faces = mesh.vertices, mesh.faces
-
-# ── Aerodynamic Cp (same as above) ────────────────────────────────────────────
-wind_dir  = np.array([0., 0., 1.])
-cos_theta = mesh.face_normals @ wind_dir
-windward  = np.maximum(0.0,  cos_theta)
-leeward   = np.maximum(0.0, -cos_theta)
-Cp_face   = 2.0 * windward**2 - 0.4 * leeward**0.8
-Cp_vert   = np.zeros(len(verts)); vert_cnt = np.zeros(len(verts))
-np.add.at(Cp_vert,  faces.ravel(), np.repeat(Cp_face, 3))
-np.add.at(vert_cnt, faces.ravel(), 1)
-Cp_vert /= np.maximum(vert_cnt, 1)
-Cp_pos   = np.maximum(0.0, Cp_vert)                        # compressive only
-
-# ── Gaussian curvature via angular defect ─────────────────────────────────────
-defects  = trimesh.curvature.vertex_defects(mesh)          # radians; large at sharp corners
-kappa    = np.abs(defects)
-kappa_n  = (kappa - kappa.min()) / (kappa.max() - kappa.min() + 1e-12)
-
-# ── Normalise Cp and build stress index ───────────────────────────────────────
-Cp_n     = (Cp_pos - Cp_pos.min()) / (Cp_pos.max() - Cp_pos.min() + 1e-12)
-alpha    = 0.6
-sigma    = alpha * Cp_n + (1 - alpha) * kappa_n
-sigma_n  = (sigma - sigma.min()) / (sigma.max() - sigma.min())
-
-# ── Identify problem zones (top 8 % stress) ────────────────────────────────────
-threshold   = np.percentile(sigma_n, 92)
-hot_mask    = sigma_n > threshold
-hot_verts   = verts[hot_mask]
-
-# Cluster the hot vertices into labelled zones using simple x-z binning
-def zone_centroid(mask, label):
-    pts = verts[mask]
-    return pts.mean(axis=0), label
-
-# Manually curate the most representative hotspot regions
-zones = {
-    'Neck / head junction\n(notch effect)'   : (verts[:,2] > 0.35) & hot_mask,
-    'Forelegs\n(stress concentration)'       : (verts[:,1] < -0.5) & (verts[:,2] > 0.0) & hot_mask,
-    'Hindlegs\n(stress concentration)'       : (verts[:,1] < -0.5) & (verts[:,2] < 0.0) & hot_mask,
-    'Dorsal ridge\n(curvature peak)'         : (verts[:,1] >  0.6) & hot_mask,
-    'Udder / ventral\n(max aerodrag zone)'   : (verts[:,1] < -0.3) & (np.abs(verts[:,0]) < 0.2) & hot_mask,
-}
-
-# ── Main mesh plot ─────────────────────────────────────────────────────────────
-traces = [go.Mesh3d(
-    x=verts[:,0], y=verts[:,1], z=verts[:,2],
-    i=faces[:,0], j=faces[:,1], k=faces[:,2],
-    intensity=sigma_n,
-    colorscale=[
-        [0.00, '#2166ac'], [0.40, '#74add1'],
-        [0.65, '#fee090'], [0.82, '#f46d43'],
-        [1.00, '#a50026'],
-    ],
-    cmin=0, cmax=1,
-    colorbar=dict(
-        title='Stress index σ*',
-        tickvals=[0, 0.5, 1],
-        ticktext=['Low', 'Med', 'High'],
-        thickness=18, len=0.65,
-    ),
-    lighting=dict(ambient=0.45, diffuse=0.85, specular=0.3, roughness=0.4),
-    flatshading=False,
-    name='FEM stress index',
-    showscale=True,
-    opacity=1.0,
-)]
-
-# ── Add problem-zone markers and annotation cones ─────────────────────────────
-colours = ['#ff0000', '#ff7700', '#cc00cc', '#007700', '#0000cc']
-for (label, mask), col in zip(zones.items(), colours):
-    if mask.sum() == 0:
-        continue
-    centroid = verts[mask].mean(axis=0)
-    # sphere of small markers at hotspot vertices
-    traces.append(go.Scatter3d(
-        x=verts[mask, 0], y=verts[mask, 1], z=verts[mask, 2],
-        mode='markers',
-        marker=dict(size=2.5, color=col, opacity=0.6),
-        name=label.replace('\n', ' '),
-        showlegend=True,
-    ))
-    # annotation cone pointing towards centroid
-    offset = centroid + np.array([0.0, 0.35, 0.0])
-    traces.append(go.Scatter3d(
-        x=[offset[0], centroid[0]],
-        y=[offset[1], centroid[1]],
-        z=[offset[2], centroid[2]],
-        mode='lines+text',
-        line=dict(color=col, width=3),
-        text=['', label],
-        textposition='top center',
-        textfont=dict(size=9, color=col),
-        showlegend=False,
-    ))
-
-fig = go.Figure(data=traces)
-fig.update_layout(
-    title='FEM stress index σ* on a cow — problem zones highlighted<br>'
-          '<sub>Wind → +z. Red = critical stress. Coloured markers = identified risk zones.</sub>',
-    scene=dict(
-        xaxis_title='x', yaxis_title='y (up)', zaxis_title='z (flow)',
-        aspectmode='data',
-        camera=dict(eye=dict(x=1.4, y=0.9, z=-0.8)),
-    ),
-    legend=dict(x=0.01, y=0.99, bgcolor='rgba(255,255,255,0.7)', borderwidth=1),
-    width=850, height=700,
-)
-fig.show()
-```
-
-::: {.callout-note}
-### What the FEM plot tells us
-
-| Zone | Why it's critical |
-|------|-------------------|
-| **Neck / head junction** | Sharp cross-section change → notch effect amplifies local stress |
-| **Forelegs & hindlegs** | Slender columns carrying the full body weight; high bending moment under drag |
-| **Dorsal ridge** | High Gaussian curvature; geometric stress riser |
-| **Udder / ventral** | Large projected frontal area faces the wind directly → dominant drag contribution |
-
-In a real structural FEM workflow (e.g. ANSYS or Abaqus) one would mesh the
-3-D solid, apply the pressure field as a boundary condition on the surface, and
-solve $K\mathbf{u} = \mathbf{f}$ for the displacement vector $\mathbf{u}$
-— where $K$ is the global stiffness matrix assembled from element stiffness
-matrices.  The von Mises stress $\sigma_{\text{VM}}$ is then derived from the
-resulting strain field.  Our surface-only proxy captures the same qualitative
-regions thanks to the strong correlation between external pressure, curvature,
-and actual von Mises peaks.
 :::
 
+We wish to stay closer to acutal, real life applications though. Everyone knows has done this before: you take a cow and you compress it by applying a load on it (in engineering, this is called a "cowpression", like "cow" and "compression").
 
-## Another cool application
+For this classic example in engineering (analogour to the aerodynamic analysis of a cow), we will solve the Poisson equation on a cow mesh. The solution $u$ will represent the stress distribution on the cow, and the source term $f$ will represent the applied load.
 
-{{< video https://www.youtube.com/watch?v=Q36ULjrK6Po&t=1359s >}}
+{{< video https://www.youtube.com/watch?v=VyxMZ2vS3dI >}}
+
+```{python}
+#| code-fold: true
+import numpy as np
+import plotly.graph_objects as go
+import trimesh
+mesh = trimesh.load_mesh('../../assets/lowpolycow/cow.obj')
+mesh.apply_transform(trimesh.transformations.rotation_matrix(np.radians(90), [1, 0, 0]))
+mesh.apply_transform(trimesh.transformations.rotation_matrix(np.radians(90), [0, 0, -1]))
+# visualize the cow mesh
+fig = go.Figure(data=[
+    go.Mesh3d(
+        x=mesh.vertices[:, 0],
+        y=mesh.vertices[:, 1],
+        z=mesh.vertices[:, 2],
+        i=mesh.faces[:, 0],
+        j=mesh.faces[:, 1],
+        k=mesh.faces[:, 2],
+        color='lightblue',
+        opacity=0.5,
+        name='Cow Mesh'
+    )
+])
+fig.update_layout(
+    title='Low-Poly Cow Mesh',
+    scene=dict(xaxis_title='X', yaxis_title='Y', zaxis_title='Z'),
+    width=800, height=600,
+)
+fig.show()
+```
+
+Now that we have our cow ready, lets apply a load on it. We will apply a downward load on the top of the cow, which will be represented by a negative source term $f$ in the Poisson equation. The solution $u$ will then represent the stress distribution on the cow, with higher values indicating higher stress.
+
+```{python}
+#| code-fold: true
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+import plotly.graph_objects as go
+
+vertices = mesh.vertices
+faces = mesh.faces
+V = len(vertices)
+
+# --- Cotangent Laplacian ---
+rows, cols, vals = [], [], []
+for tri in faces:
+    for a, b, c in [(0,1,2),(1,2,0),(2,0,1)]:
+        va, vb, vc = vertices[tri[a]], vertices[tri[b]], vertices[tri[c]]
+        e1, e2 = vb - va, vc - va
+        cos_a = np.dot(e1, e2)
+        sin_a = np.linalg.norm(np.cross(e1, e2)) + 1e-12
+        cot = cos_a / sin_a
+        rb, rc = tri[b], tri[c]
+        for r, c_, s in [(rb,rc,1),(rc,rb,1),(rb,rb,-1),(rc,rc,-1)]:
+            rows.append(r); cols.append(c_); vals.append(0.5 * cot * s)
+
+L = sp.csr_matrix((vals, (rows, cols)), shape=(V, V))
+
+# --- Load: top vertices are SOURCE (high stress) ---
+z = vertices[:, 2]
+z_top = np.percentile(z, 90)
+z_bot = np.percentile(z, 5)
+
+source = np.where(z >= z_top)[0]
+fixed  = np.where(z <= z_bot)[0]
+free   = np.setdiff1d(np.arange(V), np.union1d(source, fixed))
+
+# Dirichlet: u=1 at top (load), u=0 at bottom (fixed)
+u = np.zeros(V)
+u[source] = 1.0
+u[fixed]  = 0.0
+
+# Modify system: for free nodes solve L_free * u_free = -L_free_to_bc * u_bc
+bc = np.union1d(source, fixed)
+L_free = L[free][:, free]
+rhs = -(L[free][:, bc] @ u[bc])
+
+u_free, info = spla.cg(L_free, rhs, maxiter=10000, rtol=1e-8)
+print(f"CG converged: {info == 0}, range: [{u_free.min():.3f}, {u_free.max():.3f}]")
+u[free] = u_free
+
+# --- Plot ---
+fig = go.Figure(data=[
+    go.Mesh3d(
+        x=vertices[:, 0],
+        y=vertices[:, 1],
+        z=vertices[:, 2],
+        i=faces[:, 0],
+        j=faces[:, 1],
+        k=faces[:, 2],
+        intensity=u,
+        colorscale='Jet',
+        cmin=0, cmax=1,
+        colorbar=dict(title='Stress u'),
+        name='FEM solution'
+    )
+])
+fig.update_layout(
+    title='Poisson FEM – Stress Distribution (top load)',
+    scene=dict(xaxis_title='X', yaxis_title='Y', zaxis_title='Z'),
+    width=800, height=600,
+)
+fig.show()
+```
+
+And this is where i have left of so far... Maybe some day I will finish this.
