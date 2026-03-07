@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "About Me"
 image: https://avatars2.githubusercontent.com/u/6796009
 about:
   template: solana
