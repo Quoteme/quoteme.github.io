@@ -33,7 +33,13 @@ My approach is grounded in mathematics: formal methods, type theory, and rigorou
 Send a brief description of your project and requirements to:
 
 <div style="text-align: center; margin: 2rem 0; font-size: 1.2rem;">
-  [consulting@happel.ai](mailto:consulting@happel.ai)
+[consulting@happel.ai](mailto:consulting@happel.ai)
 </div>
 
 All enquiries are treated as strictly confidential. I typically respond within one business day.
+
+For sensitive communications, you may encrypt your message using PGP:
+
+- **Key ID:** `0x75A3FE23C6311437`
+- **Fingerprint:** `A169 8878 4821 78CA 7E97  1DFE 75A3 FE23 C631 1437`
+- [Download public key](assets/gpg/Consulting%20at%20happel.ai%20consulting%40happel.ai-(0x75A3FE23C6311437)-public_1.asc)
