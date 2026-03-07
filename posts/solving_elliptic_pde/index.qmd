@@ -29,7 +29,7 @@ u(x,y) &= g(x,y) & \forall (x,y)/ \in \partial \Omega
 \end{cases}
 $$
 
-on the region $Omega = (0,1)^2$. In this case, we would deal with a poisson
+on the region $\Omega = (0,1)^2$. In this case, we would deal with a poisson
 equation. And lets say, we wish to model gravity. In 3D, this would mean that
 $\Delta u = 4 \pi \rho$, where $\rho$ is our mass density function. Because we
 are dealing with 2D here, we will not use the area of a sphere, but instead
@@ -93,6 +93,7 @@ How can we find $u$ given the above poisson equation?
 We will calculate the solution approximately on a grid
 
 ```{python}
+#| code-fold: true
 import numpy as np
 import plotly.graph_objects as go
 
@@ -161,6 +162,7 @@ The following implementation builds that system in a purely functional
 style (no mutable loops, only `map`, list comprehensions, and `reduce`).
 
 ```{python}
+#| code-fold: true
 import numpy as np
 import plotly.graph_objects as go
 from functools import reduce
@@ -239,6 +241,7 @@ $$
 this the preferred approach in practice.
 
 ```{python}
+#| code-fold: true
 import numpy as np
 import scipy.sparse as sp
 import scipy.sparse.linalg as spla
@@ -318,6 +321,7 @@ We will replicate this kind of analysis in two steps:
 ### Step 1 — Aerodynamic surface pressure
 
 ```{python}
+#| code-fold: true
 import trimesh
 import numpy as np
 import plotly.graph_objects as go
@@ -402,6 +406,7 @@ $\kappa^*$ is the normalised absolute Gaussian curvature, and $\alpha = 0.6$
 weights aerodynamics slightly more than geometry.
 
 ```{python}
+#| code-fold: true
 import trimesh
 import numpy as np
 import plotly.graph_objects as go
@@ -542,3 +547,7 @@ regions thanks to the strong correlation between external pressure, curvature,
 and actual von Mises peaks.
 :::
 
+
+## Another cool application
+
+{{< video https://www.youtube.com/watch?v=Q36ULjrK6Po&t=1359s >}}
