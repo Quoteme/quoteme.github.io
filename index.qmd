@@ -54,7 +54,7 @@ and 300px height
 -->
 ::: {#gimmick}
 ::: {#aboutme}
-![]({{< var profile.image >}}){#avatar}
+<img src="https://avatars2.githubusercontent.com/u/6796009" id="avatar" />
 Hi, I am __Luca Leon Happel__. 
 I am a __computer scientist/mathematician__ and
 __B.Sc in mathematics__, who works at
