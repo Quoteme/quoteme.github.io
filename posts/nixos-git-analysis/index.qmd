@@ -46,13 +46,24 @@ Whether that tradeoff is worth it is exactly what this post is about.
 You may skip this section if you are only interested in the git analysis and visualisation part.
 :::
 
-My Linux journey started with Ubuntu back in 2010. It worked, mostly — but package management was a constant source of anxiety, and I frequently broke things trying to install software that wasn't in the official repos.
+My Linux journey started with Ubuntu back in 2010. It worked, but package management was a constant pita. Ubuntu frequently broke things trying to install software that wasn't in the official repos.
 
-I have vivid memories of using Manjaro with i3wm in 2014 ([I still have videos of using it back then](/lets-game-dev-community-challenge/)). Getting [i3-gaps](https://github.com/Airblader/i3) running on Ubuntu before that was a lesson in patience: PPAs, manual `make` invocations, and a system that broke on a regular basis. On Arch things improved significantly, and I stayed there for a long time.
+So I switched to using Manjaro with i3wm in 2014 ([I still have videos of using it back then](/lets-game-dev-community-challenge/)). Getting [i3-gaps](https://github.com/Airblader/i3) running on Ubuntu before that was was an even worse experience: PPAs, manual running `make` and `make installed`, …. Lol, good luck reproducing any of that later on. You'd litterally forget what you have done 5 minutes before, so why even bother trying to update your system afterwards or something?
 
-By early 2022 the friction had accumulated again — specifically around Haskell. Juggling multiple projects with different GHC versions is genuinely painful: `cabal` and `stack` handle dependency resolution reasonably well, but getting Haskell Language Server to work correctly for each GHC version is a different matter entirely, since HLS binaries are ABI-coupled to the compiler version they were built against. The Haskell community had largely converged on NixOS as the answer to this problem, so I finally gave it a try.
+By early 2022 I had enough. Juggling multiple projects with different GHC
+versions, all stored all around my system in the most myserious locations
+possible. `cabal` and `stack` handle dependency for some projects, other times I
+just use a bare GHC for Haskell. Everything was stiched together with glue and
+some toothpicks. Tbh, it was a miracle that anything worked at all. HLS was
+mostly non-working if I remember correctly. I still remember that some cabal
+files were needed to get HLS working even in non-cabal projects? Idk, but it was
+just bad. So I switched to NixOS after solving many of these problems with the
+Nix package manager.
 
-The hardware for this experiment was my ThinkPad X230T — a machine that has survived more than it probably should have, and that I was glad to have around for one more adventure.
+The hardware for this experiment was my trusty old ThinkPad X230T: A machine 
+I'd assume is more likely to survive a nuclear apocalypse than a cockroach.
+And more importantly, it was capable of taking the beating I gave it constantly:
+
 
 :::{layout-ncol="2"}
 ![My ThinkPad X230T](/assets/thinkpad-x230t/IMG_20210204_220712.jpg){group="thinkpad-x230t"}
@@ -65,13 +76,21 @@ The hardware for this experiment was my ThinkPad X230T — a machine that has su
 
 :::
 
-Starting February 28th, 2022, I had NixOS running on my ThinkPad and promptly spent far more time on system administration than any reasonable person would. I dove into the more arcane corners of UEFI and systemd, patched and compiled custom kernels, and at one point wrote my own kernel module just to get the touchscreen working. I also, for reasons that still aren't entirely clear to me, built a monadic X11 [window manager](https://github.com/quoteme/lul) and [status bar](https://github.com/quoteme/lal) in Haskell. None of this was strictly necessary, but it was very educational, and I enjoyed every bit of it.
+Starting February 28th, 2022, I had NixOS running on my ThinkPad and promptly
+spent more of my time with system administration than any reasonable person
+would. I dove into the more arcane corners of UEFI and systemd, patched and
+compiled custom kernels, and at one point wrote my own kernel module just to get
+the touchscreen working. I also, for reasons that still aren't entirely clear to
+me, built a monadic X11 [window manager](https://github.com/quoteme/lul) and
+[status bar](https://github.com/quoteme/lal) in Haskell. None of this was
+strictly necessary, but it was very educational, and I enjoyed every bit of it.
 
 Let's look at what four years of that actually looks like in version control:
 
 ## Analyzing My NixOS Configuration
 
-This is the commit graph of my NixOS configuration together with a file hirarchy of all files ever checked into the repository:
+This is the commit graph of my NixOS configuration together with a file hirarchy
+of all files ever checked into the repository:
 
 ```{python}
 import os
