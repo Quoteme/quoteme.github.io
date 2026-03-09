@@ -43,3 +43,12 @@ For sensitive communications, you may encrypt your message using PGP:
 - **Key ID:** `0x75A3FE23C6311437`
 - **Fingerprint:** `A169 8878 4821 78CA 7E97  1DFE 75A3 FE23 C631 1437`
 - [Download public key](assets/gpg/Consulting%20at%20happel.ai%20consulting%40happel.ai-(0x75A3FE23C6311437)-public_1.asc)
+
+
+<style type="text/css">
+ul {
+  display: table;
+  margin: 0 auto;
+  text-align: left;
+}
+</style>
