@@ -6,6 +6,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/rag-in-high-security-environments/index.html",
       "/posts/nixos-git-analysis/index.html",
       "/posts/covering-spaces-geometries-visualized/index.html",
       "/posts/lie-groups-and-algebras/index.html",
