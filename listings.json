@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/projects.html",
+    "items": []
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/nixos-git-analysis/index.html",
@@ -38,9 +42,5 @@
       "/posts/lets-game-dev-community-challenge-2/index.html",
       "/posts/lets-game-dev-community-challenge/index.html"
     ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": []
   }
 ]
