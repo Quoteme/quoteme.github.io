@@ -1,0 +1,172 @@
+---
+title: "RAGs: How your company can skip the boring stuff by using computer science"
+subtitle: |
+    A practical approach to vector embedding databases for businesses
+author: "Luca Leon Happel"
+date: "2026-03-09"
+categories: ["AI", "RAG", "Kubernetes", "Security", "DevOps", "Vector Databases", "English"]
+format:
+    html:
+        toc: true
+        toc-depth: 4
+draft: false
+image: thumbnail.png
+---
+
+I have worked my (more than) fair share in many different regulated environments. Here are some tipps.
+
+1. Set up a unified knowledge base for yourself (and possibly your entire team) from day one.
+    - Have one trusted person push all important documents into this location. Then use vectorization and semantic search for your team to find the right document when they need it.
+2. Set up a shared calendar for important dates (like renewing certificates). Remember: notifications alone that periodically and automatically check if a server is about have its certificate expire are easy to miss. These issues can _and will_ ruin your christmas (trust me)
+3. Use docker/podman containers. If possible, generate these using nix for pinned dependencies and reduced overhead.
+
+In this post I would like to delve into the first point: RAGs.
+
+---
+
+Interested in RAGs but not how to set them up or the theory behind them? Don't worry, I got you covered! You can book a free consultation with me, and I will be happy to help you with that.
+
+<div style="text-align:center; margin: 2rem 0;">
+<a href="/consultation.html" class="btn btn-danger btn-lg" style="font-size:1.2rem; padding: 0.8rem 2.5rem; font-weight:700; letter-spacing:0.03em;">&#128197; Book a free consultation</a>
+</div>
+
+## What is a RAG and why should you care
+
+Retrieval-Augmented Generation (RAG) is simple in
+principle: before you ask a language model something, you first search your own
+knowledge base for relevant context, and you stuff that context into the prompt.
+The model answers based on *your* data, not alone on what it was trained on prior. An example workflow for this would be
+
+```{mermaid}
+flowchart TD
+    A[User question] --> B[Vector similarity search\nover your documents]
+    B --> C["Top-k relevant chunks\n+ original question"]
+    C --> D[LLM generates a grounded answer]
+```
+
+The interesting part is the "vector similarity search" step. You embed your
+documents into a high-dimensional vector space using an embedding model, and you
+store those vectors in a vector database. When a query comes in, you embed the
+query the same way, and find the nearest neighbours. Nearest in embedding space
+means "semantically similar", not just keyword-matching. That is what makes it
+actually useful: you can ask "how does the certificate rotation work for the
+ingress controller" and get back the relevant runbook section even though it is
+titled "TLS lifecycle management for nginx-based ingress".
+
+To make this intuitive, here is a toy example of what "similar in embedding space"
+looks like. The words below occupy a 3-D slice of embedding-space -- notice how
+"dog/walk/park" cluster together on one side and "car/drive/highway" on the other,
+and how the *relations* between them (dog walks in the park; cars drive on the
+highway) form parallel geometric paths (meaning we can apply an affine linear distance preserving transformation to the whole space, mapping one "concept", like walking your dog in the park, to the other "concept", like driving your car on the highway):
+
+```{python}
+#| echo: false
+import numpy as np
+import plotly.graph_objects as go
+
+words = {
+    "dog":     np.array([-2,  1, -1], dtype=float),
+    "walk":    np.array([-2,  1,  1], dtype=float),
+    "park":    np.array([-2, -1,  1], dtype=float),
+    "car":     np.array([ 2,  1, -1], dtype=float),
+    "drive":   np.array([ 2,  1,  1], dtype=float),
+    "highway": np.array([ 2, -1,  1], dtype=float),
+}
+
+edges = [
+    ("dog",  "walk",    "#a0c4ff"),
+    ("dog",  "car",     "#ff4d4d"),
+    ("walk", "park",    "#a0c4ff"),
+    ("walk", "drive",   "#ff4d4d"),
+    ("park", "highway", "#ff4d4d"),
+    ("car",  "drive",   "#a0c4ff"),
+    ("drive","highway", "#a0c4ff"),
+]
+
+# ---- scatter for the word nodes ----
+xs, ys, zs = zip(*[words[w] for w in words])
+labels = list(words.keys())
+
+node_trace = go.Scatter3d(
+    x=xs, y=ys, z=zs,
+    mode="markers+text",
+    text=labels,
+    textposition="top center",
+    textfont=dict(size=14, color="#1a1a2e"),
+    marker=dict(size=6, color="#4c8cbf", opacity=0.9),
+    hoverinfo="skip",
+)
+
+# ---- line + cone for each directed edge ----
+line_traces = []
+cone_traces = []
+for src, dst, color in edges:
+    s = words[src]
+    d = words[dst]
+    direction = d - s
+    # place cone 90% of the way along the edge so it sits near the arrowhead
+    cone_pos = s + 0.85 * direction
+
+    line_traces.append(go.Scatter3d(
+        x=[s[0], d[0]], y=[s[1], d[1]], z=[s[2], d[2]],
+        mode="lines",
+        line=dict(color=color, width=3),
+        hoverinfo="none",
+        showlegend=False,
+    ))
+    cone_traces.append(go.Cone(
+        x=[cone_pos[0]], y=[cone_pos[1]], z=[cone_pos[2]],
+        u=[direction[0]], v=[direction[1]], w=[direction[2]],
+        sizemode="absolute",
+        sizeref=0.25,
+        anchor="tail",
+        colorscale=[[0, color], [1, color]],
+        showscale=False,
+        hoverinfo="none",
+    ))
+
+fig = go.Figure(data=line_traces + cone_traces + [node_trace])
+fig.update_layout(
+    scene=dict(
+        xaxis=dict(title="x", showbackground=False, showgrid=True, zeroline=False),
+        yaxis=dict(title="y", showbackground=False, showgrid=True, zeroline=False),
+        zaxis=dict(title="z", showbackground=False, showgrid=True, zeroline=False),
+        bgcolor="rgba(0,0,0,0)",
+    ),
+    paper_bgcolor="rgba(0,0,0,0)",
+    plot_bgcolor="rgba(0,0,0,0)",
+    margin=dict(l=0, r=0, t=30, b=0),
+    height=520,
+    showlegend=False,
+)
+fig.show()
+```
+
+:::{.callout-note collapse="true"}
+You may skip this part, if you are not interested in the geometric intuition or theory behind embedding spaces. But I think it is really cool, so here we go:
+
+Notice how the red arrows kinda behave similar for the horizontal arrows in a _commutative diagram_? That is by no means a coincidence!
+
+In fact, the whole point of embedding space is that it is a vector space, so you can do vector arithmetic on it. And $\cdot + v$ for some vector $v \in V$ is a morphism of the vector space, meaning an endofunctor, if we consider $V$ as a category with one object. 
+:::
+
+For the vector database I used [ChromaDB](https://www.trychroma.com/). It is fast and is one of the industry standards. In particular, without going too much into it, there exist some embedding models (like `gemini-embedding-001` or `text-embedding-3-small` or `text-embedding-3-large` which you may use. For ease of use, I used `all-MiniLM-L6-v2` for an MVP, which can easily and without additional API-keys be run locally).
+
+## A simple example
+
+Assume you have many different regulatory texts (in my case these were BSI IT-Grundschutz documents, but it could be anything). You will have to read them one by one eventually, just to be sure that you really know what they are about. But, what if you have read them, and then you wish to find out where in the text that one passage about topic $X$ was?
+
+Well, you may use your RAG (and preferably set it up with MCP, but that's a topic for a different time), so you can just ask "where in the BSI IT-Grundschutz is the part about certificate management?" (for $X$ being "certificate management" in this case) and it will give you the relevant passage, even if the document does not explicitly mention "certificate management" but rather talks about "TLS lifecycle management" or something like that.
+
+# Why would your company benefit from setting up a RAG?
+
+- Does regulation seem like a never-ending nightmare?
+- Does your company drown in paperwork and nobody seems to know where the important documents are?
+- Do you have to read the same documents over and over again, just to find that one passage that is relevant to your current problem?
+- Do you fear that if _that one_ person who knows where the important documents are leaves, you will be in big trouble?
+  
+Fear not! I can help you with setting up a RAG. You may schedule a free consultation with me, and I will be happy to help you with that.
+
+<div style="text-align:center; margin: 3rem 0 1rem 0;">
+<a href="/consultation.html" class="btn btn-danger btn-lg" style="font-size:1.4rem; padding: 1rem 3rem; font-weight:700; letter-spacing:0.04em; box-shadow: 0 4px 18px rgba(220,53,69,0.35);">&#128197; Book a free consultation</a>
+</div>
