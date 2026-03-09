@@ -413,11 +413,12 @@ js: str = f"""
 HTML(h1_html + h2_html + js)
 ```
 
-The data confirms what it felt like: I touched this repository almost every other day for four years. The `modules/hardware/laptops/` folder is a useful proxy for hardware usage — changes there almost exclusively reflect hardware-level adjustments, so activity on a given laptop's config file correlates fairly directly with the period I was actively using that machine. Hover over any laptop entry in the file tree to see its commit timeline highlighted.
+Let's understand the data:
+I worked on this repository almost every other day for four years. The `modules/hardware/laptops/` folder gives us useful insights for hardware usage (changes there almost exclusively reflect hardware-level adjustments). Hover over any laptop entry in the file tree to see its commit timeline highlighted.
 
-For a more precise picture of any given period, select a file node and zoom into the commit graph — individual commit messages are visible on hover, and you can follow the link through to the source diff on GitHub.
+For a more precise picture of any given period, select a file node and zoom into the commit graph. Individual commit messages are highlighted then to indicate when this file was changed.
 
-One highlight worth calling out: hovering over `./xmonad` reveals a sustained stretch of active development, ending abruptly on February 4th, 2023, when I [removed Xmonad from my config](https://github.com/Quoteme/nixos/commit/ea730ec). A quiet end to a chapter.
+Hovering over `./xmonad` for example reveals a continuous stretch of development, ending abruptly on February 4th, 2023, when I [removed Xmonad from my config](https://github.com/Quoteme/nixos/commit/ea730ec). A quiet end to a chapter.
 
 One caveat on interpreting the hardware files: I used Xmonad heavily on my ThinkPad, yet the ThinkPad config itself shows relatively few commits. This is expected — hardware configuration tends to stabilize quickly, and day-to-day software choices (window manager, shell, editor) live elsewhere in the repo. A full picture of which software ran on which machine would require cross-referencing the hardware files with the broader module history, which is left as an exercise for the curious reader.
 
@@ -657,17 +658,19 @@ In concise and rigorous terms:
 - $H_0$ features confirm the connected components in the sliding window embedding merge at very small scales, meaning no long stretches of complete inactivity
 - $H_1$ features confirm the presence of genuine loops in the embedding, indicating that the daily commit count oscillates with a short periodicity (weekly or possibly less). Indicating organic work, as a passion project should have?
 
-Seeing as as that during some periods due to difficulties I was left without a working laptop, this is a testament to NixOS's resilience and reproducibility. I could always just spin up a new environment even on some shitty laptop I found on the street lol (indicated by the lack of holes, i.e. no large elements in $H_1$)
-
 ## Privacy and Security Considerations
 
-Publishing a system configuration openly is a deliberate choice, not a naïve one. A public NixOS config exposes your hardware inventory, software stack, and commit cadence — all useful signals to a patient adversary. I share mine because I have specifically designed it to contain nothing sensitive: secrets are managed entirely out-of-band and never enter the repository, credentials are never hardcoded, and all hardware-identifying information is either innocuous or intentionally public.
+Publishing my system configuration openly is does come with dangers.
+My public NixOS config exposes my hardware inventory, software stack, and commit cadence. 
+Why do I not care about that?
+I share mine because I make sure to share nothing sensitive: 
+secrets are not managed by NixOS and never enter the repository, credentials are never hardcoded, and all hardware-identifying information is either innocuous or intentionally public.
 
 That said, it is worth being explicit about the threat model. Even a "clean" config repo leaks information through indirect channels — commit timing, file naming patterns, and diff content. The analysis below demonstrates exactly what an adversary could extract with nothing more than read access to the public git history.
 
 ### Exploit Analysis
 
-The following checks cover the three most common accidental disclosure vectors in public infrastructure repositories:
+The following checks cover the three most common accidental disclosure vectors in repositories:
 
 - sensitive keywords in commit messages (e.g. `api`, `key`, `password`, `secret`, `token`)
 - sensitive keywords in tracked file paths
@@ -771,16 +774,12 @@ else:
 HTML("\n".join(parts))
 ```
 
-The results above show, concretely, what an adversary could learn from the public commit history.
-Commit messages are often written in a hurry and can accidentally reveal more than intended.
-File paths are generally safe for a dotfiles repo, but anything under `secrets/` or named
-`*.key` / `*.pem` should be git-ignored unconditionally — or managed via
-[agenix](https://github.com/ryantm/agenix) / [sops-nix](https://github.com/Mic92/sops-nix)
-so they are encrypted at rest in the repo.
-The diff scan is the most thorough vector: it flags every line ever committed,
-including code that was subsequently deleted — git history is permanent and effectively immutable.
+The results above show, concretely, what an attacker could find out from the public commit history.
+The diff scan is most thorough: we search
+through code, even if it was subsequently deleted.
 
-The broad keyword matches on terms like `api` and `key` in the diffs are expected: these strings appear legitimately in NixOS module option names and SSH configuration. Context matters — a match on `services.openssh.authorizedKeys` is categorically different from a match on a hardcoded credential. None of the hits above indicate an actual leak.
+Make sure to use broad keyword matches for terms such as `apik`, as this is a
+common prefix for `apikey`, or similar.
 
 Nevertheless, the one entry worth noting is:
 
@@ -792,15 +791,18 @@ An empty `initialHashedPassword` is intentional here — it disables password-ba
 
 ## Conclusion
 
-Four years of NixOS has made me a better systems engineer. The discipline of expressing your entire environment declaratively — and committing every change — forces a level of rigour that pays dividends well beyond the home lab. It is directly transferable to the kind of reproducible, auditable infrastructure that high-security production systems demand.
+NixOS is really addictive. It just makes a lot of fun to work with
+IT-infrastructure. You kinda become a system-administrator by accident, but
+there is a caveat:
 
-The ecosystem rewards curiosity. You will inevitably learn things you did not set out to learn: bootloader internals, kernel module interfaces, the Nix evaluation model, functional package composition. That depth is a feature, not a tax.
+![The more you use it, the more it uses you](/assets/fuck_around_find_out.png)
 
-![Nix: the more you push it, the more it teaches you](/assets/fuck_around_find_out.png)
+The honest tradeoff is time. NixOS makes system-administration way to fun
+(although frustrating from time to time). I learned the hard way by probably
+spending many hundreds of hours just managing my system. Time spend, which I
+could have used for family and friends instead of learning IT-infrastructure,
+like kernel patches, etc.
 
-The honest tradeoff is time. NixOS is not a productivity shortcut — it is an investment. The returns are real (reproducibility, auditability, zero "works on my machine" failures), but they accrue over months and years, not days. If you approach it as a long-term infrastructure choice rather than a quick setup, it consistently delivers.
-
-I have no regrets. The configurations, the custom kernel work, the Haskell window manager — all of it left me with a sharper understanding of the systems I work with and a setup that has never once let me down when it mattered most.
-
-
-![Since back in the beginning, I upgraded to a different laptop, but I am still rocking NixOS on it](/assets/asus_rog_flow_x13_nixos_stickers.jpg){group="thinkpad-x230t"}
+Nontheless this was a nice experience and in the end I was left with a system
+near unbreakable to any outside influence (like in my case, where I lost all my
+laptops and NixOS got me up and running again in no time).
