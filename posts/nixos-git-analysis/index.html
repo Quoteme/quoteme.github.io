@@ -415,7 +415,7 @@ Note
 <section id="analyzing-my-nixos-configuration" class="level2">
 <h2 class="anchored" data-anchor-id="analyzing-my-nixos-configuration">Analyzing My NixOS Configuration</h2>
 <p>This is the commit graph of my NixOS configuration together with a file hirarchy of all files ever checked into the repository:</p>
-<div id="68b0239f" class="cell" data-execution_count="1">
+<div id="68b0239f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -447,7 +447,7 @@ Last commit: 2026-03-05 12:12:38
 Avg. time between commits: 48.65 hours</code></pre>
 </div>
 </div>
-<div id="60ab1a0b" class="cell" data-execution_count="2">
+<div id="60ab1a0b" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -907,14 +907,14 @@ Avg. time between commits: 48.65 hours</code></pre>
 </script>
 </div>
 </div>
-<p>The data confirms what it felt like: I touched this repository almost every other day for four years. The <code>modules/hardware/laptops/</code> folder is a useful proxy for hardware usage — changes there almost exclusively reflect hardware-level adjustments, so activity on a given laptop’s config file correlates fairly directly with the period I was actively using that machine. Hover over any laptop entry in the file tree to see its commit timeline highlighted.</p>
-<p>For a more precise picture of any given period, select a file node and zoom into the commit graph — individual commit messages are visible on hover, and you can follow the link through to the source diff on GitHub.</p>
-<p>One highlight worth calling out: hovering over <code>./xmonad</code> reveals a sustained stretch of active development, ending abruptly on February 4th, 2023, when I <a href="https://github.com/Quoteme/nixos/commit/ea730ec">removed Xmonad from my config</a>. A quiet end to a chapter.</p>
+<p>Let’s understand the data: I worked on this repository almost every other day for four years. The <code>modules/hardware/laptops/</code> folder gives us useful insights for hardware usage (changes there almost exclusively reflect hardware-level adjustments). Hover over any laptop entry in the file tree to see its commit timeline highlighted.</p>
+<p>For a more precise picture of any given period, select a file node and zoom into the commit graph. Individual commit messages are highlighted then to indicate when this file was changed.</p>
+<p>Hovering over <code>./xmonad</code> for example reveals a continuous stretch of development, ending abruptly on February 4th, 2023, when I <a href="https://github.com/Quoteme/nixos/commit/ea730ec">removed Xmonad from my config</a>. A quiet end to a chapter.</p>
 <p>One caveat on interpreting the hardware files: I used Xmonad heavily on my ThinkPad, yet the ThinkPad config itself shows relatively few commits. This is expected — hardware configuration tends to stabilize quickly, and day-to-day software choices (window manager, shell, editor) live elsewhere in the repo. A full picture of which software ran on which machine would require cross-referencing the hardware files with the broader module history, which is left as an exercise for the curious reader.</p>
 <section id="statistical-analysis-of-commit-history" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-analysis-of-commit-history">Statistical Analysis of Commit History</h3>
 <p>We fit a linear model <span class="math inline">\(f(x) = mx + b\)</span> to the cumulative commit count over time, giving a rough baseline for the long-term commit rate.</p>
-<div id="7ae40040" class="cell" data-execution_count="3">
+<div id="7ae40040" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> linregress</span>
@@ -939,7 +939,7 @@ R² value: 0.9432</code></pre>
 </div>
 </div>
 <p>And we may plot the cumulative commit count along with the fitted line:</p>
-<div id="d5afd22b" class="cell" data-execution_count="4">
+<div id="d5afd22b" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -968,7 +968,7 @@ R² value: 0.9432</code></pre>
 <section id="topological-data-analysis-of-the-time-series-of-commits" class="level3">
 <h3 class="anchored" data-anchor-id="topological-data-analysis-of-the-time-series-of-commits">Topological Data Analysis of the time series of commits</h3>
 <p>A natural question is whether the commit activity has any <strong>periodic structure</strong> — weekly rhythms, bursts of activity followed by quiet stretches, etc. Topological Data Analysis (TDA) lets us answer this without assuming a particular model. We embed the scalar commit-time series into a higher-dimensional point cloud via a <em>sliding-window</em> (Takens-style) embedding and then compute its <strong>persistent homology</strong> with <a href="https://github.com/scikit-tda/ripser.py">ripser</a>. Loops (<span class="math inline">\(H_1\)</span> classes) in the resulting diagram indicate periodic structure whose lifetime (persistence = death − birth) reflects how pronounced the cycle is.</p>
-<div id="41a7591b" class="cell" data-execution_count="5">
+<div id="41a7591b" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1009,7 +1009,7 @@ Non-zero days : 275
 Max commits/day: 18</code></pre>
 </div>
 </div>
-<div id="db0a9afb" class="cell" data-execution_count="6">
+<div id="db0a9afb" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 2. Sliding-window (Takens) embedding ─────────────────────────────────────</span></span>
@@ -1030,7 +1030,7 @@ Max commits/day: 18</code></pre>
 <pre><code>Point cloud shape : (1453, 14)  (1453 points in ℝ^14)</code></pre>
 </div>
 </div>
-<div id="ac0a4142" class="cell" data-execution_count="7">
+<div id="ac0a4142" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 3. Persistent homology via Ripser ─────────────────────────────────────────</span></span>
@@ -1052,7 +1052,7 @@ H1 features        : 667
 Top-5 H1 persistence values: [0.2276 0.2228 0.1708 0.1268 0.1243]</code></pre>
 </div>
 </div>
-<div id="a1588271" class="cell" data-execution_count="8">
+<div id="a1588271" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 4. Visualise ─────────────────────────────────────────────────────────────</span></span>
@@ -1115,7 +1115,7 @@ Note
 <div class="callout-body-container callout-body">
 <p><strong>Why not embed the raw timestamps?</strong> The commit timestamps form a <em>monotonically increasing</em> sequence. A sliding window over a monotone signal traces out a line (or arc) in <span class="math inline">\(\mathbb{R}^w\)</span> — a contractible shape with trivial <span class="math inline">\(H_1\)</span>. For Takens-style embedding to detect loops, the signal must <em>oscillate</em>. We therefore use the <strong>daily commit count</strong>, which rises and falls with the underlying weekly work rhythm, and set the window width <span class="math inline">\(w = 14 &gt; 7\)</span> (the expected period) so that a full oscillation cycle can close into a loop inside the embedding space.</p>
 <p>See the daily commit count plot below for a visual confirmation of the weekly rhythm:</p>
-<div id="f4734cd8" class="cell" data-execution_count="9">
+<div id="f4734cd8" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">3</span>))</span>
@@ -1163,23 +1163,22 @@ Note
 <li><span class="math inline">\(H_0\)</span> features confirm the connected components in the sliding window embedding merge at very small scales, meaning no long stretches of complete inactivity</li>
 <li><span class="math inline">\(H_1\)</span> features confirm the presence of genuine loops in the embedding, indicating that the daily commit count oscillates with a short periodicity (weekly or possibly less). Indicating organic work, as a passion project should have?</li>
 </ul>
-<p>Seeing as as that during some periods due to difficulties I was left without a working laptop, this is a testament to NixOS’s resilience and reproducibility. I could always just spin up a new environment even on some shitty laptop I found on the street lol (indicated by the lack of holes, i.e.&nbsp;no large elements in <span class="math inline">\(H_1\)</span>)</p>
 </section>
 </section>
 </section>
 <section id="privacy-and-security-considerations" class="level2">
 <h2 class="anchored" data-anchor-id="privacy-and-security-considerations">Privacy and Security Considerations</h2>
-<p>Publishing a system configuration openly is a deliberate choice, not a naïve one. A public NixOS config exposes your hardware inventory, software stack, and commit cadence — all useful signals to a patient adversary. I share mine because I have specifically designed it to contain nothing sensitive: secrets are managed entirely out-of-band and never enter the repository, credentials are never hardcoded, and all hardware-identifying information is either innocuous or intentionally public.</p>
+<p>Publishing my system configuration openly is does come with dangers. My public NixOS config exposes my hardware inventory, software stack, and commit cadence. Why do I not care about that? I share mine because I make sure to share nothing sensitive: secrets are not managed by NixOS and never enter the repository, credentials are never hardcoded, and all hardware-identifying information is either innocuous or intentionally public.</p>
 <p>That said, it is worth being explicit about the threat model. Even a “clean” config repo leaks information through indirect channels — commit timing, file naming patterns, and diff content. The analysis below demonstrates exactly what an adversary could extract with nothing more than read access to the public git history.</p>
 <section id="exploit-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="exploit-analysis">Exploit Analysis</h3>
-<p>The following checks cover the three most common accidental disclosure vectors in public infrastructure repositories:</p>
+<p>The following checks cover the three most common accidental disclosure vectors in repositories:</p>
 <ul>
 <li>sensitive keywords in commit messages (e.g.&nbsp;<code>api</code>, <code>key</code>, <code>password</code>, <code>secret</code>, <code>token</code>)</li>
 <li>sensitive keywords in tracked file paths</li>
 <li>sensitive keywords appearing anywhere in historical diffs — including lines that were later deleted</li>
 </ul>
-<div id="4352771a" class="cell" data-execution_count="10">
+<div id="4352771a" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
@@ -1786,8 +1785,8 @@ Note
 </table>
 </div>
 </div>
-<p>The results above show, concretely, what an adversary could learn from the public commit history. Commit messages are often written in a hurry and can accidentally reveal more than intended. File paths are generally safe for a dotfiles repo, but anything under <code>secrets/</code> or named <code>*.key</code> / <code>*.pem</code> should be git-ignored unconditionally — or managed via <a href="https://github.com/ryantm/agenix">agenix</a> / <a href="https://github.com/Mic92/sops-nix">sops-nix</a> so they are encrypted at rest in the repo. The diff scan is the most thorough vector: it flags every line ever committed, including code that was subsequently deleted — git history is permanent and effectively immutable.</p>
-<p>The broad keyword matches on terms like <code>api</code> and <code>key</code> in the diffs are expected: these strings appear legitimately in NixOS module option names and SSH configuration. Context matters — a match on <code>services.openssh.authorizedKeys</code> is categorically different from a match on a hardcoded credential. None of the hits above indicate an actual leak.</p>
+<p>The results above show, concretely, what an attacker could find out from the public commit history. The diff scan is most thorough: we search through code, even if it was subsequently deleted.</p>
+<p>Make sure to use broad keyword matches for terms such as <code>apik</code>, as this is a common prefix for <code>apikey</code>, or similar.</p>
 <p>Nevertheless, the one entry worth noting is:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode nix code-with-copy"><code class="sourceCode nix"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>users<span class="op">.</span>users<span class="op">.</span>root<span class="op">.</span>initialHashedPassword = <span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>An empty <code>initialHashedPassword</code> is intentional here — it disables password-based root login entirely on a freshly installed system, forcing the user to set credentials interactively on first boot. This is a deliberate hardening choice, not an oversight.</p>
@@ -1795,22 +1794,15 @@ Note
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Four years of NixOS has made me a better systems engineer. The discipline of expressing your entire environment declaratively — and committing every change — forces a level of rigour that pays dividends well beyond the home lab. It is directly transferable to the kind of reproducible, auditable infrastructure that high-security production systems demand.</p>
-<p>The ecosystem rewards curiosity. You will inevitably learn things you did not set out to learn: bootloader internals, kernel module interfaces, the Nix evaluation model, functional package composition. That depth is a feature, not a tax.</p>
+<p>NixOS is really addictive. It just makes a lot of fun to work with IT-infrastructure. You kinda become a system-administrator by accident, but there is a caveat:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../../assets/fuck_around_find_out.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Nix: the more you push it, the more it teaches you"><img src="../../assets/fuck_around_find_out.png" class="img-fluid figure-img" alt="Nix: the more you push it, the more it teaches you"></a></p>
-<figcaption>Nix: the more you push it, the more it teaches you</figcaption>
+<p><a href="../../assets/fuck_around_find_out.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="The more you use it, the more it uses you"><img src="../../assets/fuck_around_find_out.png" class="img-fluid figure-img" alt="The more you use it, the more it uses you"></a></p>
+<figcaption>The more you use it, the more it uses you</figcaption>
 </figure>
 </div>
-<p>The honest tradeoff is time. NixOS is not a productivity shortcut — it is an investment. The returns are real (reproducibility, auditability, zero “works on my machine” failures), but they accrue over months and years, not days. If you approach it as a long-term infrastructure choice rather than a quick setup, it consistently delivers.</p>
-<p>I have no regrets. The configurations, the custom kernel work, the Haskell window manager — all of it left me with a sharper understanding of the systems I work with and a setup that has never once let me down when it mattered most.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../assets/asus_rog_flow_x13_nixos_stickers.jpg" class="lightbox" data-gallery="thinkpad-x230t" title="Since back in the beginning, I upgraded to a different laptop, but I am still rocking NixOS on it"><img src="../../assets/asus_rog_flow_x13_nixos_stickers.jpg" class="img-fluid figure-img" alt="Since back in the beginning, I upgraded to a different laptop, but I am still rocking NixOS on it"></a></p>
-<figcaption>Since back in the beginning, I upgraded to a different laptop, but I am still rocking NixOS on it</figcaption>
-</figure>
-</div>
+<p>The honest tradeoff is time. NixOS makes system-administration way to fun (although frustrating from time to time). I learned the hard way by probably spending many hundreds of hours just managing my system. Time spend, which I could have used for family and friends instead of learning IT-infrastructure, like kernel patches, etc.</p>
+<p>Nontheless this was a nice experience and in the end I was left with a system near unbreakable to any outside influence (like in my case, where I lost all my laptops and NixOS got me up and running again in no time).</p>
 
 
 </section>
