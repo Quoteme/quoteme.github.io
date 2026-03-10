@@ -4,6 +4,7 @@ author: "Luca Leon Happel"
 date: "2020-04-18"
 categories: ["JSDoc", "JavaScript", "game", "programming", "English"]
 image: "thumbnail.png"
+draft: true
 ---
 
 As you can see in the image above, today I've added JSDoc support to my game, BildBesucher. This means that by visiting [http://quoteme.github.io/bildbesucher/docs/](http://quoteme.github.io/bildbesucher/docs/), you can find all sorts of interesting information about the programming of the game. This will make it easier for me in the future to remember the purpose of specific functions, or for others who want to help with the project to quickly understand what I've written.

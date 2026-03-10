@@ -4,6 +4,7 @@ author: "Luca Leon Happel"
 date: "2020-04-07"
 categories: ["programming", "game", "English"]
 image: "thumbnail.png"
+draft: true
 # reference-doc: 
 ---
 
