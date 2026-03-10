@@ -32,7 +32,7 @@ Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit
 
 ## 2. Allgemeine Hinweise und Pflichtinformationen
 
-### Datenschutz
+### Datenscjhutz
 
 Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
 
@@ -44,11 +44,15 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kom
 
 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
-Name: Luca Happel
-
-Adresse: (folgt in kürze)
-
-E-Mail: [luca@happel.ai](mailto:luca@happel.ai)
+> Luca Leon Happel
+>
+> c/o Autorenglück #62360
+>
+> Albert-Einstein-Str. 47
+>
+> 02977 Hoyerswerda
+>
+> E-Mail: [luca@happel.ai](mailto:luca@happel.ai)
 
 Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
 
