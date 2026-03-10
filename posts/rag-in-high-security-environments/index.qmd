@@ -22,14 +22,6 @@ I have worked my (more than) fair share in many different regulated environments
 
 In this post I would like to delve into the first point: RAGs.
 
----
-
-Interested in RAGs but not how to set them up or the theory behind them? Don't worry, I got you covered! You can book a free consultation with me, and I will be happy to help you with that.
-
-<div style="text-align:center; margin: 2rem 0;">
-<a href="/consultation.html" class="btn btn-danger btn-lg" style="font-size:1.2rem; padding: 0.8rem 2.5rem; font-weight:700; letter-spacing:0.03em;">&#128197; Book a free consultation</a>
-</div>
-
 ## What is a RAG and why should you care
 
 Retrieval-Augmented Generation (RAG) is simple in
@@ -148,6 +140,8 @@ You may skip this part, if you are not interested in the geometric intuition or 
 Notice how the red arrows kinda behave similar for the horizontal arrows in a _commutative diagram_? That is by no means a coincidence!
 
 In fact, the whole point of embedding space is that it is a vector space, so you can do vector arithmetic on it. And $\cdot + v$ for some vector $v \in V$ is a morphism of the vector space, meaning an endofunctor, if we consider $V$ as a category with one object. 
+
+Interested about more functors? Maybe check out [this post](/posts/interfaces_as_list_of_propositions/).
 :::
 
 For the vector database I used [ChromaDB](https://www.trychroma.com/). It is fast and is one of the industry standards. In particular, without going too much into it, there exist some embedding models (like `gemini-embedding-001` or `text-embedding-3-small` or `text-embedding-3-large` which you may use. For ease of use, I used `all-MiniLM-L6-v2` for an MVP, which can easily and without additional API-keys be run locally).
