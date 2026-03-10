@@ -82,34 +82,34 @@ try {
 
 ## Interfaces as List of Propositions
 
-Looking closely at the definition of an interface, we can see that it is a
-basivally a list of methods/attributes which must be explicitly implemented.
+Looking closely at the definition of an interface, we can see that it is
+basically a list of methods/attributes which must be explicitly implemented.
 Using functional programming, we know that both methods and attributes can be
 represented as functions (possibly with some additional state and possibly
-without any arguments). We may embed Javas (or any other) type system into
+without any arguments). We may embed Java's (or any other) type system into
 a sufficiently powerful type system, like the calculus of constructions.
 By doing so, we can regard even stateful/impure functions as pure functions, or
 rather: as morphisms in a category.
 
-Lets get back to the interface example above. Here we don't provide any function
+Let's get back to the interface example above. Here we don't provide any function
 bodies, but only the signatures of the functions. This just means, we require
 for an implementation $X$ for there to be a morphism $f : T$, where $T$ is the
 type of the method/attribute. The requirement that $X$ must have an attribute
-_of name $n_f$_ therefor corresponds to the proposition: $n_f(X) = T$.
+_of name $n_f$_ therefore corresponds to the proposition: $n_f(X) = T$.
 
 Using the example from above, we would have $n_\mathsf{doSomething} : \mathsf{IO} \mathsf{Unit}$
 and $n_\mathsf{getValue} : \mathsf{IO} \mathsf{Int}$.[^1][^2]
 
-## Impementations as proofs
+## Implementations as proofs
 
 Using the Howard-Curry correspondence, we can see that an implementation of a
 proposition (a proof) corresponds to some "computer program". More formally,
 each type corresponds to a proposition (also called formula) and each term
-corresponds to a proof. We implicitly used this above already, be stating
+corresponds to a proof. We implicitly used this above already, by stating
 $n_f(X) = T$ would be a proposition, which clearly is actually just a type. By
 the afore mentioned correspondence however, we may regard them as the same.
-Now, finding a proof for the validity of $n_f(X)$ is therefor the same as
-constructing a term $t$ of type $n_f(X)$. This $t$ would therefor
+Now, finding a proof for the validity of $n_f(X)$ is therefore the same as
+constructing a term $t$ of type $n_f(X)$. This $t$ would therefore
 constitute our function body.
 
 ## Example
@@ -131,15 +131,15 @@ public class MyClass implements MyInterface {
 ```
 
 Clearly `(){System.out.println("Doing something!");}` is of type `IO Unit`
-(after some sufficient embedding of Javas type system). The same holds true for
+(after some sufficient embedding of Java's type system). The same holds true for
 `(){return 42;}`, which is of type `IO Int`.
 
 ## Further outlook
 
-Due to Javas (and most other OOP languages) type systems limitations, or the
+Due to Java's (and most other OOP languages') type systems' limitations, or the
 limits of computation, the following interfaces sadly are not entirely
-realizable (ableit one could find some nifty ways around the respective
-restrictions of the type system). These interfaces are nontheless of utmost
+realizable (albeit one could find some nifty ways around the respective
+restrictions of the type system). These interfaces are nonetheless of utmost
 importance:
 
 ```java
@@ -150,7 +150,7 @@ interface Group<T> {
     T multiply(T x, T y); // multiplication
     // here we would like for the group axioms to be written as propositions,
     // which we can't do in Java.
-    // Therefor we reduce this step to pseudo code:
+    // Therefore we reduce this step to pseudo code:
     // associative: \forall x,y,z : T multiply (multiply x y) = multiply x (multiply y z)
     // identity: \forall x : T multiply e x = x
     // inverse: \forall x : T multiply (inverse x) x = e
@@ -177,13 +177,13 @@ expressed in the calculus of constructions.
 
 ## Ideas possibly worth exploring?
 
-In our programming classes we  were told to use interfaces in the onion
+In our programming classes we were told to use interfaces in the onion
 architecture: 
 
 ![Onion architecture](./onion.png)[^3]
 
 The right arrows in this diagram represent interfaces from the business logic of
-our proramm to the outer layers, like the database or the user interface.
+our program to the outer layers, like the database or the user interface.
 
 Here an interface might look like this:
 
