@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,14 +35,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a98ec624fb63d9b712fc3a6f62e2b305.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-eb6dc03ada319d1747fd1cae6562c423.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -151,7 +152,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -296,11 +297,6 @@ window.Quarto = {
 <li>Use docker/podman containers. If possible, generate these using nix for pinned dependencies and reduced overhead.</li>
 </ol>
 <p>In this post I would like to delve into the first point: RAGs.</p>
-<hr>
-<p>Interested in RAGs but not how to set them up or the theory behind them? Don’t worry, I got you covered! You can book a free consultation with me, and I will be happy to help you with that.</p>
-<div style="text-align:center; margin: 2rem 0;">
-<p><a href="../../consultation.html" class="btn btn-danger btn-lg" style="font-size:1.2rem; padding: 0.8rem 2.5rem; font-weight:700; letter-spacing:0.03em;">📅 Book a free consultation</a></p>
-</div>
 <section id="what-is-a-rag-and-why-should-you-care" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-rag-and-why-should-you-care">What is a RAG and why should you care</h2>
 <p>Retrieval-Augmented Generation (RAG) is simple in principle: before you ask a language model something, you first search your own knowledge base for relevant context, and you stuff that context into the prompt. The model answers based on <em>your</em> data, not alone on what it was trained on prior. An example workflow for this would be</p>
@@ -352,7 +348,7 @@ if (outputEl) {{
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -366,6 +362,7 @@ Note
 <p>You may skip this part, if you are not interested in the geometric intuition or theory behind embedding spaces. But I think it is really cool, so here we go:</p>
 <p>Notice how the red arrows kinda behave similar for the horizontal arrows in a <em>commutative diagram</em>? That is by no means a coincidence!</p>
 <p>In fact, the whole point of embedding space is that it is a vector space, so you can do vector arithmetic on it. And <span class="math inline">\(\cdot + v\)</span> for some vector <span class="math inline">\(v \in V\)</span> is a morphism of the vector space, meaning an endofunctor, if we consider <span class="math inline">\(V\)</span> as a category with one object.</p>
+<p>Interested about more functors? Maybe check out <a href="../../posts/interfaces_as_list_of_propositions/">this post</a>.</p>
 </div>
 </div>
 </div>
@@ -444,13 +441,14 @@ Note
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
