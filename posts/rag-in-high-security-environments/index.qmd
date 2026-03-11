@@ -31,8 +31,8 @@ The model answers based on *your* data, not alone on what it was trained on prio
 
 ```{mermaid}
 flowchart TD
-    A[User question] --> B[Vector similarity search\nover your documents]
-    B --> C["Top-k relevant chunks\n+ original question"]
+    A[User question] --> B[Vector similarity search over your documents]
+    B --> C["Top-k relevant chunks + original question"]
     C --> D[LLM generates a grounded answer]
 ```
 
