@@ -2,20 +2,20 @@
 listing:
   - id: publications
     contents: 
-      - title: "Elliptic Curves over $\\mathbb{F}_4$, the Finite Field with Four Elements"
-        subtitle: "Bachelor's Thesis in Mathematics"
-        description: >
-          A rigorous mathematical treatment of elliptic curves over the finite field
-          $\mathbb{F}_4$ with four elements, spanning abstract algebra and algebraic
-          geometry. Examines the cryptographic foundations used in modern banking
-          systems and develops a mathematically precise framework for understanding
-          their security and its limits.
-          <br>
-          __Bachelor's Thesis, University of Düsseldorf__
-        image: "posts/bachelorarbeit/assets/weierstrassform.png"
-        path: "/posts/bachelorarbeit/"
-        categories: ["thesis", "mathematics", "cryptography", "algebraic-geometry"]
-        date: 2022-04-04
+      # - title: "Elliptic Curves over $\\mathbb{F}_4$, the Finite Field with Four Elements"
+      #   subtitle: "Bachelor's Thesis in Mathematics"
+      #   description: >
+      #     A rigorous mathematical treatment of elliptic curves over the finite field
+      #     $\mathbb{F}_4$ with four elements, spanning abstract algebra and algebraic
+      #     geometry. Examines the cryptographic foundations used in modern banking
+      #     systems and develops a mathematically precise framework for understanding
+      #     their security and its limits.
+      #     <br>
+      #     __Bachelor's Thesis, University of Düsseldorf__
+      #   image: "posts/bachelorarbeit/assets/weierstrassform.png"
+      #   path: "/posts/bachelorarbeit/"
+      #   categories: ["thesis", "mathematics", "cryptography", "algebraic-geometry"]
+      #   date: 2022-04-04
       - title: "monti – AI for Patient Monitoring"
         subtitle: "AI-based clinical monitoring with advanced ML on high‑security patient data"
         description: >
