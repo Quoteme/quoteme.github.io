@@ -9,6 +9,9 @@ categories:
   - category theory
   - Deutsch
 image: "./assets/universal_covering.png"
+format:
+  html:
+    code-fold: true
 ---
 
 I am currently writing my masters thesis about the connection between
@@ -18,3 +21,363 @@ and the [thurston norm](https://en.wikipedia.org/wiki/Thurston_norm) of 3-manifo
 Check it out, if you like :)
 
 [masterarbeit](/masterarbeit)
+
+## Analyzing My Progress
+
+I reuse some code i have from [my post where I analyze my NixOS GitHub repository](/posts/nixos-git-analysis/).
+
+```{python}
+import os
+import itertools
+import functools
+from datetime import date, datetime
+import git
+import plotly.graph_objects as go
+
+REPO_URL = "https://github.com/quoteme/masterarbeit.git"
+REPO_DIR = "/tmp/quoteme-masterarbeit"
+CUTOFF_DATE = date(2025, 10, 8)
+repo : git.Repo = (
+    git.Repo(REPO_DIR)
+    if os.path.exists(REPO_DIR)
+    else git.Repo.clone_from(REPO_URL, REPO_DIR, bare=True)
+)
+repo.remotes.origin.fetch("+refs/heads/*:refs/heads/*")
+commits = [
+  commit
+  for commit in repo.iter_commits('--all')
+  if commit.committed_datetime.date() >= CUTOFF_DATE
+]
+if not commits:
+  raise ValueError(f"No commits found on or after {CUTOFF_DATE.isoformat()}")
+# summary of the total number of commits
+print(f"Total commits: {len(commits)}")
+print(f"First commit: {datetime.fromtimestamp(commits[-1].committed_date)}")
+print(f"Last commit: {datetime.fromtimestamp(commits[0].committed_date)}")
+print(f"Avg. time between commits: {(commits[0].committed_date - commits[-1].committed_date) / len(commits) / 3600:.2f} hours")
+```
+
+```{python}
+import json
+import plotly.io as pio
+from datetime import datetime
+from pathlib import PurePosixPath
+from typing import Optional
+from IPython.display import HTML
+
+# Type aliases
+Sha        = str
+LaneMap    = dict[Sha, int]
+LaneState  = tuple[LaneMap, int]
+Coord      = Optional[float]          # None used as segment separator in edge lists
+EdgePoint  = tuple[Coord, Coord]
+NodeId     = str                       # unique path string, e.g. "home/luca/foo.nix"
+FilePath   = str
+
+def assign_lane(acc: LaneState, c: git.Commit) -> LaneState:
+    lanes, n = acc
+    my_lane: int  = lanes.get(c.hexsha, n)
+    base: LaneMap = {**lanes, c.hexsha: my_lane}
+    def fold_parent(acc2: LaneState, ip: tuple[int, git.Commit]) -> LaneState:
+        m, k = acc2; i, p = ip
+        return (m, k) if p.hexsha in m \
+            else ({**m, p.hexsha: my_lane if i == 0 else k}, k + int(i != 0))
+    return functools.reduce(fold_parent, enumerate(c.parents),
+                            (base, n + int(c.hexsha not in lanes)))
+
+lane_map: LaneMap
+lane_map, _ = functools.reduce(assign_lane, reversed(commits), ({}, 0))
+
+def build_commit_branches(refs: list[git.Reference]) -> dict[Sha, list[str]]:
+    def fold(d: dict[Sha, list[str]], ref: git.Reference) -> dict[Sha, list[str]]:
+        return {**d, ref.commit.hexsha: d.get(ref.commit.hexsha, []) + [ref.name]}
+    return functools.reduce(fold, refs, {})
+
+commit_branches: dict[Sha, list[str]] = build_commit_branches(list(repo.refs))
+
+def hover_label(c: git.Commit) -> str:
+    body:     str       = c.message.split("\n", 1)[1].strip() if "\n" in c.message else ""
+    branches: list[str] = commit_branches.get(c.hexsha, [])
+    files:    list[str] = list(c.stats.files.keys())
+    return "".join([
+        f"<b>{c.summary}</b><br>",
+        f"<span style='color:#888'>{c.hexsha[:7]} · {c.committed_datetime.strftime('%Y-%m-%d %H:%M:%S %Z')}</span>",
+        (f"<br><i>🌿 {', '.join(branches)}</i>"                               if branches        else ""),
+        (f"<br>{body[:300].replace(chr(10), '<br>')}"                         if body            else ""),
+        (f"<br><span style='color:#aaa'>{'<br>'.join(files[:20])}</span>"     if files           else ""),
+        (f"<br><span style='color:#aaa'>…+{len(files)-20} more</span>"        if len(files) > 20 else ""),
+    ])
+
+# ── Commit scatter ───────────────────────────────────────────────────────────
+hash_pos: dict[Sha, tuple[datetime, int]] = {
+    c.hexsha: (c.committed_datetime, lane_map.get(c.hexsha, 0)) for c in commits
+}
+edge_segs: list[EdgePoint] = [
+    pt
+    for c in commits for p in c.parents if p.hexsha in hash_pos
+    for (cx, cy), (px, py) in [(hash_pos[c.hexsha], hash_pos[p.hexsha])]
+    for pt in [(cx, cy), (px, cy), (px, py), (None, None)]
+]
+edge_x: list[Coord]
+edge_y: list[Coord]
+edge_x, edge_y = map(list, zip(*edge_segs)) if edge_segs else ([], [])
+
+dates:  list[datetime] = [c.committed_datetime      for c in commits]
+lanes:  list[int]      = [lane_map.get(c.hexsha, 0) for c in commits]
+hover:  list[str]      = [hover_label(c)            for c in commits]
+shas:   list[str]      = [c.hexsha                  for c in commits]
+
+fig_commits = go.Figure([
+    go.Scatter(x=edge_x, y=edge_y, mode="lines",
+               line=dict(width=1.5), hoverinfo="none", showlegend=False),
+    go.Scatter(x=dates, y=lanes, mode="markers",
+               marker=dict(size=9, color=lanes, colorscale="Turbo", line=dict(width=0)),
+               text=hover, hovertemplate="%{text}<extra></extra>",
+               customdata=shas, showlegend=False),
+]).update_layout(
+    title=dict(text="Git history · quoteme/masterarbeit", font=dict(size=16)),
+    xaxis=dict(title="Date", showgrid=True), yaxis=dict(visible=False),
+    height=520, hovermode="closest",
+    plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
+    margin=dict(l=20, r=20, t=50, b=40),
+)
+
+# ── File tree ────────────────────────────────────────────────────────────────
+all_files: list[FilePath] = sorted({f for c in commits for f in c.stats.files})
+
+def path_nodes(path: FilePath) -> list[tuple[NodeId, NodeId]]:
+    """Return (parent_id, child_id) pairs for every prefix of `path`, root first."""
+    parts: tuple[str, ...] = PurePosixPath(path).parts
+    return [("", ".")] + [
+        ("/".join(parts[:i]) or ".", "/".join(parts[:i+1]))
+        for i in range(len(parts))
+    ]
+
+seen_edges: set[tuple[NodeId, NodeId]] = set()
+raw_edges:  list[tuple[NodeId, NodeId]] = []
+all_nodes:  list[NodeId] = ["."]
+for path in all_files:
+    for par, child in path_nodes(path):
+        if child not in all_nodes: all_nodes.append(child)
+        if par and (par, child) not in seen_edges:
+            seen_edges.add((par, child)); raw_edges.append((par, child))
+
+children_of: dict[NodeId, list[NodeId]] = functools.reduce(
+    lambda d, e: {**d, e[0]: d.get(e[0], []) + [e[1]]},
+    raw_edges, {}
+)
+
+# Reingold–Tilford x-placement (mutates x_pos via a single-element counter cell)
+x_pos:   dict[NodeId, float] = {}
+_ctr:    list[int]            = [0]   # mutable cell; avoids nonlocal in a nested def
+
+def assign_x(node: NodeId) -> None:
+    kids: list[NodeId] = children_of.get(node, [])
+    if not kids:
+        x_pos[node] = float(_ctr[0]); _ctr[0] += 1
+    else:
+        for k in kids: assign_x(k)
+        x_pos[node] = sum(x_pos[k] for k in kids) / len(kids)
+
+depth: dict[NodeId, int] = {}
+
+def assign_depth(node: NodeId, d: int = 0) -> None:
+    depth[node] = d
+    for k in children_of.get(node, []): assign_depth(k, d + 1)
+
+assign_x(".")
+assign_depth(".")
+
+ACTIVE: str = "#4C78A8"
+MUTED:  str = "#dedede"
+
+node_x:      list[float] = [x_pos.get(n, 0.0)    for n in all_nodes]
+node_y:      list[float] = [float(-depth.get(n, 0)) for n in all_nodes]
+node_labels: list[str]   = [PurePosixPath(n).name or "." for n in all_nodes]
+node_colors: list[str]   = [ACTIVE] * len(all_nodes)
+
+edge_nx: list[Coord] = [pt for p, c in raw_edges for pt in [x_pos.get(p, 0.0), x_pos.get(c, 0.0), None]]
+edge_ny: list[Coord] = [pt for p, c in raw_edges for pt in [-float(depth.get(p, 0)), -float(depth.get(c, 0)), None]]
+
+fig_tree = go.Figure([
+    go.Scatter(x=edge_nx, y=edge_ny, mode="lines",
+               line=dict(width=0.6, color="#ccc"), hoverinfo="none", showlegend=False),
+    go.Scatter(x=node_x, y=node_y, mode="markers+text",
+               marker=dict(size=6, color=node_colors),
+               text=node_labels, textposition="top center",
+               textfont=dict(size=8), customdata=all_nodes,
+               hovertemplate="<b>%{customdata}</b><extra></extra>",
+               showlegend=False),
+]).update_layout(
+    title=dict(text="File tree · quoteme/masterarbeit", font=dict(size=16)),
+    xaxis=dict(visible=False), yaxis=dict(visible=False),
+    height=700, hovermode="closest",
+    plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
+    margin=dict(l=10, r=10, t=50, b=10),
+)
+
+commit_files: list[list[FilePath]] = [list(c.stats.files.keys()) for c in commits]
+
+# Precompute the actual Turbo hex colours for every commit so JS can restore
+# them without having to know anything about Plotly's internal colorscale maths.
+import matplotlib.cm as cm
+_max_lane = max(lanes) if max(lanes) > 0 else 1
+commit_colors: list[str] = [
+    "#{:02x}{:02x}{:02x}".format(*[int(v * 255) for v in cm.turbo(l / _max_lane)[:3]])
+    for l in lanes
+]
+
+h1_html: str = pio.to_html(fig_commits, full_html=False, include_plotlyjs="cdn",  div_id="git-graph")
+h2_html: str = pio.to_html(fig_tree,    full_html=False, include_plotlyjs=False, div_id="file-tree")
+
+js: str = f"""
+<style>
+  #git-graph, #file-tree {{ max-width: 80%; margin-left: auto; margin-right: auto; }}
+</style>
+<div style="display:flex;gap:2rem;align-items:center;margin:0.5rem 0 0.25rem;font-size:0.85rem;">
+  <label style="display:flex;align-items:center;gap:0.5rem;">
+    Active opacity
+    <input id="opacity-active" type="range" min="0" max="100" value="100" style="width:110px">
+    <span id="opacity-active-val">100%</span>
+  </label>
+  <label style="display:flex;align-items:center;gap:0.5rem;">
+    Muted opacity
+    <input id="opacity-muted" type="range" min="0" max="100" value="3" style="width:110px">
+    <span id="opacity-muted-val">3%</span>
+  </label>
+</div>
+<script>
+(function poll() {{
+  const gitEl  = document.getElementById("git-graph");
+  const treeEl = document.getElementById("file-tree");
+  if (!gitEl  || !gitEl.on ||
+      !treeEl || !treeEl.on) {{ setTimeout(poll, 50); return; }}
+
+  const commitFiles  = {json.dumps(commit_files)};
+  const nodeIds      = {json.dumps(all_nodes)};
+  const commitColors = {json.dumps(commit_colors)};
+  const ACTIVE = "{ACTIVE}", MUTED = "{MUTED}", RED = "#e45756";
+  const allTreeActive = nodeIds.map(() => ACTIVE);
+  const noLines       = commitColors.map(() => 0);
+
+  const sliderActive  = document.getElementById("opacity-active");
+  const sliderMuted   = document.getElementById("opacity-muted");
+  const labelActive   = document.getElementById("opacity-active-val");
+  const labelMuted    = document.getElementById("opacity-muted-val");
+
+  const getActive = () => parseInt(sliderActive.value) / 100;
+  const getMuted  = () => parseInt(sliderMuted.value)  / 100;
+
+  sliderActive.addEventListener("input", () => {{
+    labelActive.textContent = sliderActive.value + "%";
+    if (currentNodeId !== null) applyFileTreeHover(currentNodeId);
+  }});
+  sliderMuted.addEventListener("input", () => {{
+    labelMuted.textContent = sliderMuted.value + "%";
+    if (currentNodeId !== null) applyFileTreeHover(currentNodeId);
+  }});
+
+  // ── commit graph hover → hovered commit + touched files turn red ──────────
+  let lastHoveredSha = null;
+  gitEl.on("plotly_hover", ev => {{
+    const pt = ev.points[0];
+    if (pt.curveNumber !== 1) return;
+    gitEl.style.cursor = "pointer";
+    lastHoveredSha = pt.customdata;
+    const idx      = pt.pointIndex;
+    const modified = commitFiles[idx] || [];
+
+    // hovered dot → red; all others keep their colour
+    const dotColors = commitColors.map((c, i) => i === idx ? RED : c);
+    Plotly.restyle("git-graph", {{
+      "marker.color":      [dotColors],
+      "marker.opacity":    [commitColors.map(() => 1)],
+      "marker.line.width": [noLines],
+    }}, [1]);
+
+    // touched file nodes → red; others → MUTED
+    const s = new Set(modified);
+    const treeColors = nodeIds.map(id =>
+      id === "." || s.has(id) || modified.some(f => f.startsWith(id + "/"))
+        ? RED : MUTED
+    );
+    Plotly.restyle("file-tree", {{"marker.color": [treeColors]}}, [1]);
+  }});
+
+  gitEl.on("plotly_unhover", () => {{
+    gitEl.style.cursor = "";
+    Plotly.restyle("git-graph", {{
+      "marker.color":      [commitColors],
+      "marker.opacity":    [commitColors.map(() => getActive())],
+      "marker.line.width": [noLines],
+    }}, [1]);
+    Plotly.restyle("file-tree", {{"marker.color": [allTreeActive]}}, [1]);
+  }});
+
+  // ── commit double-click → open GitHub commit page ──────────────────────────
+  gitEl.on("plotly_doubleclick", ev => {{
+    // plotly_doubleclick fires without point data; use the last hovered point
+    if (lastHoveredSha) {{
+      window.open("https://github.com/quoteme/masterarbeit/commit/" + lastHoveredSha, "_blank");
+    }}
+  }});
+
+  // ── file-tree hover → hovered node + matching commits turn red ────────────
+  let currentNodeId = null;
+
+  function applyFileTreeHover(nodeId) {{
+    const opMuted = getMuted();
+    const hits = commitFiles.map(files =>
+      nodeId === "." || files.some(f => f === nodeId || f.startsWith(nodeId + "/"))
+    );
+
+    // hit commits → red + full opacity; miss → original colour + muted opacity
+    const colors  = hits.map((hit, i) => hit ? RED : commitColors[i]);
+    const opacity = hits.map(hit => hit ? 1.0 : opMuted);
+    Plotly.restyle("git-graph", {{
+      "marker.color":      [colors],
+      "marker.opacity":    [opacity],
+      "marker.line.width": [noLines],
+    }}, [1]);
+
+    // hovered node + its ancestors + its descendants → red; others → MUTED
+    const treeColors = nodeIds.map(id =>
+      id === nodeId
+        || id === "."
+        || nodeId.startsWith(id + "/")
+        || id.startsWith(nodeId + "/")
+          ? RED : MUTED
+    );
+    Plotly.restyle("file-tree", {{"marker.color": [treeColors]}}, [1]);
+  }}
+
+  treeEl.on("plotly_hover", ev => {{
+    const pt = ev.points[0];
+    if (pt.curveNumber !== 1) return;
+    currentNodeId = pt.customdata;
+    applyFileTreeHover(currentNodeId);
+  }});
+
+  treeEl.on("plotly_unhover", () => {{
+    currentNodeId = null;
+    Plotly.restyle("git-graph", {{
+      "marker.color":      [commitColors],
+      "marker.opacity":    [commitColors.map(() => getActive())],
+      "marker.line.width": [noLines],
+    }}, [1]);
+    Plotly.restyle("file-tree", {{"marker.color": [allTreeActive]}}, [1]);
+  }});
+}})();
+</script>"""
+
+HTML(h1_html + h2_html + js)
+```
+
+# Conclusion
+
+From the commit graph we can see that I was pretty lazy for the first three months.
+Admittedly, during christmas break I was mostly occupied with my family and friends.
+Starting january fifth however, I have been very productive and have made a lot of commits in a short time.
+
+One can clearly see on january 25th that my laptop broke and my work-laptop was confiscated by the university, because of some bureaucratic nonsense. This left me around one month without any working computer, which is reflected in the complete lack of commits during that time.
+Luckily I was able to repair my laptop and get back to work aruond one month later, which led to the second spike in commits.
