@@ -603,48 +603,64 @@ from the right torus** — it has been teleported to the other world.
 from matplotlib.animation import FuncAnimation
 from IPython.display import HTML
 
-def build_rope_segments(progress, n_pts=150):
-    """Build two rope segment arrays for a given progress (0..1).
-    Segment 1: approaches left torus from the left.
-    Segment 2: emerges from right torus to the right (the teleported part).
-    Returns (seg1, n1, seg2, n2) where n1/n2 are how many points are visible."""
-    cx_L = -2.0
-    cx_R = 2.0
 
-    # segment 1: from far left to left torus centre
+@njit
+def sdf_plane_slab(p, x_center, half_thick, half_h, half_d):
+    """SDF for a bounded thin slab (wall) at x = x_center."""
+    dx = abs(p[0] - x_center) - half_thick
+    dy = abs(p[1]) - half_h
+    dz = abs(p[2]) - half_d
+    ox = max(dx, 0.0)
+    oy = max(dy, 0.0)
+    oz = max(dz, 0.0)
+    return np.sqrt(ox*ox + oy*oy + oz*oz) + min(max(dx, max(dy, dz)), 0.0)
+
+
+def build_rope_segments(progress, n_pts=100):
+    """Build rope segments for given progress (0..1).
+    Seg 1 approaches left portal, seg 2 emerges from right portal.
+    A margin keeps the rope geometry away from the portal disk so no
+    spheres leak through to the other side."""
+    cx_L, cx_R = -2.0, 2.0
+    margin = 0.22          # keep well clear of portal disk
+    x_start, x_end = -5.0, 5.0
+    amp = 0.12
+
+    x_stop_L  = cx_L - margin          # rope stops before left portal
+    x_start_R = cx_R + margin          # rope starts after right portal
+
+    # segment 1: x_start  →  x_stop_L
     t1 = np.linspace(0.0, 1.0, n_pts)
     seg1 = np.zeros((n_pts, 3))
-    x_start = -5.0
-    seg1[:, 0] = x_start + (cx_L - x_start) * t1
-    seg1[:, 1] = 0.12 * np.sin(t1 * 3 * np.pi)
-    seg1[:, 2] = 0.12 * np.cos(t1 * 3 * np.pi)
+    seg1[:, 0] = x_start + (x_stop_L - x_start) * t1
+    seg1[:, 1] = amp * np.sin(t1 * 4.0 * np.pi)
+    seg1[:, 2] = amp * np.cos(t1 * 4.0 * np.pi)
 
-    # segment 2: from right torus centre to far right
+    # segment 2: x_start_R  →  x_end  (phase-matched: sin/cos(4kπ)=0/1)
     t2 = np.linspace(0.0, 1.0, n_pts)
     seg2 = np.zeros((n_pts, 3))
-    x_end = 5.0
-    seg2[:, 0] = cx_R + (x_end - cx_R) * t2
-    seg2[:, 1] = 0.12 * np.sin(t2 * 3 * np.pi)
-    seg2[:, 2] = 0.12 * np.cos(t2 * 3 * np.pi)
+    seg2[:, 0] = x_start_R + (x_end - x_start_R) * t2
+    seg2[:, 1] = amp * np.sin(t2 * 4.0 * np.pi)
+    seg2[:, 2] = amp * np.cos(t2 * 4.0 * np.pi)
 
-    # progress controls how far the rope has gone
-    # first half: rope approaches left torus
-    # second half: rope emerges from right torus
-    if progress < 0.5:
-        frac1 = progress * 2.0
-        n1 = max(1, int(frac1 * n_pts))
+    left_len  = x_stop_L  - x_start
+    right_len = x_end - x_start_R
+    total = left_len + right_len
+    fed   = progress * total
+
+    if fed <= left_len:
+        n1 = max(0, int(fed / left_len * n_pts))
         n2 = 0
     else:
         n1 = n_pts
-        frac2 = (progress - 0.5) * 2.0
-        n2 = max(1, int(frac2 * n_pts))
+        n2 = min(n_pts, max(0, int((fed - left_len) / right_len * n_pts)))
 
     return seg1, n1, seg2, n2
 
 
 @njit
 def sdf_rope_seg(p, seg, n_vis, radius):
-    """SDF for a rope segment: union of spheres."""
+    """SDF for a rope segment rendered as union of spheres."""
     if n_vis <= 0:
         return 1e10
     d_min = 1e10
@@ -657,9 +673,11 @@ def sdf_rope_seg(p, seg, n_vis, radius):
             d_min = d
     return d_min
 
+
 @njit
 def estimate_normal_rope_portal(p, torus_R, torus_r, cx_L, cx_R,
-                                seg1, n1, seg2, n2, rope_r):
+                                seg1, n1, seg2, n2, rope_r,
+                                plane_x, plane_ht, plane_hh, plane_hd):
     eps = 1e-4
     n = np.empty(3)
     for i in range(3):
@@ -668,11 +686,15 @@ def estimate_normal_rope_portal(p, torus_R, torus_r, cx_L, cx_R,
         dp = min(sdf_torus_rotated(pp, cx_L, torus_R, torus_r),
                  min(sdf_torus_rotated(pp, cx_R, torus_R, torus_r),
                      min(sdf_rope_seg(pp, seg1, n1, rope_r),
-                         sdf_rope_seg(pp, seg2, n2, rope_r))))
+                         min(sdf_rope_seg(pp, seg2, n2, rope_r),
+                             sdf_plane_slab(pp, plane_x, plane_ht,
+                                            plane_hh, plane_hd)))))
         dm = min(sdf_torus_rotated(pm, cx_L, torus_R, torus_r),
                  min(sdf_torus_rotated(pm, cx_R, torus_R, torus_r),
                      min(sdf_rope_seg(pm, seg1, n1, rope_r),
-                         sdf_rope_seg(pm, seg2, n2, rope_r))))
+                         min(sdf_rope_seg(pm, seg2, n2, rope_r),
+                             sdf_plane_slab(pm, plane_x, plane_ht,
+                                            plane_hh, plane_hd)))))
         n[i] = dp - dm
     length = np.sqrt(n[0]**2 + n[1]**2 + n[2]**2)
     if length > 0:
@@ -680,18 +702,21 @@ def estimate_normal_rope_portal(p, torus_R, torus_r, cx_L, cx_R,
             n[i] /= length
     return n
 
+
 @njit(parallel=True)
 def render_rope_portal(width, height, fov, cam_pos, cam_target,
                        torus_R, torus_r, cx_L, cx_R,
                        seg1, n1, seg2, n2, rope_r,
+                       plane_x, plane_ht, plane_hh, plane_hd,
                        light_dir, max_steps, max_dist, hit_eps):
-    """Ray-march the portal scene with rope segments.
-    Rays are teleported through torus holes as before."""
+    """Ray-march portal scene with rope segments and separating plane.
+    Rays are teleported through torus-hole disks as before."""
     image = np.zeros((height, width, 3))
     aspect = width / height
     half_w = np.tan(fov / 2.0)
     dx_tp = cx_R - cx_L
 
+    # ── camera basis ────────────────────────────────────────────────
     forward = np.empty(3)
     for i in range(3):
         forward[i] = cam_target[i] - cam_pos[i]
@@ -713,9 +738,11 @@ def render_rope_portal(width, height, fov, cam_pos, cam_target,
     up[1] = right[2]*forward[0] - right[0]*forward[2]
     up[2] = right[0]*forward[1] - right[1]*forward[0]
 
+    # ── colours ─────────────────────────────────────────────────────
     left_torus_col  = np.array([0.35, 0.55, 0.90])
     right_torus_col = np.array([0.90, 0.55, 0.25])
     rope_col        = np.array([0.15, 0.72, 0.30])
+    plane_col       = np.array([0.70, 0.70, 0.75])
     bg_left         = np.array([0.88, 0.90, 0.98])
     bg_right        = np.array([0.98, 0.91, 0.86])
 
@@ -733,7 +760,7 @@ def render_rope_portal(width, height, fov, cam_pos, cam_target,
             pos = cam_pos.copy()
             direction = d.copy()
             hit = False
-            hit_id = -1   # 0=L torus, 1=R torus, 2=rope
+            hit_id = -1   # 0=L torus, 1=R torus, 2=rope, 3=plane
             n_tp = 0
 
             for _ in range(max_steps):
@@ -741,18 +768,19 @@ def render_rope_portal(width, height, fov, cam_pos, cam_target,
                 d_tR = sdf_torus_rotated(pos, cx_R, torus_R, torus_r)
                 d_r1 = sdf_rope_seg(pos, seg1, n1, rope_r)
                 d_r2 = sdf_rope_seg(pos, seg2, n2, rope_r)
+                d_pl = sdf_plane_slab(pos, plane_x, plane_ht,
+                                      plane_hh, plane_hd)
 
                 dist = d_tL
-                sid = 0
+                sid  = 0
                 if d_tR < dist:
-                    dist = d_tR
-                    sid = 1
+                    dist = d_tR; sid = 1
                 if d_r1 < dist:
-                    dist = d_r1
-                    sid = 2
+                    dist = d_r1; sid = 2
                 if d_r2 < dist:
-                    dist = d_r2
-                    sid = 2
+                    dist = d_r2; sid = 2
+                if d_pl < dist:
+                    dist = d_pl; sid = 3
 
                 if dist < hit_eps:
                     hit = True
@@ -764,32 +792,36 @@ def render_rope_portal(width, height, fov, cam_pos, cam_target,
                 old_pos = pos.copy()
                 pos, direction = step_ray_euclidean(pos, direction, dist)
 
-                # inline portal crossing check
+                # portal crossing check (inline)
                 if n_tp < 4:
                     for portal_x, shift in ((cx_L, dx_tp), (cx_R, -dx_tp)):
                         x0 = old_pos[0] - portal_x
                         x1 = pos[0] - portal_x
                         if x0 * x1 < 0.0:
                             t_cross = x0 / (x0 - x1)
-                            cy = old_pos[1] + t_cross * (pos[1] - old_pos[1])
-                            cz = old_pos[2] + t_cross * (pos[2] - old_pos[2])
+                            cy = old_pos[1] + t_cross*(pos[1] - old_pos[1])
+                            cz = old_pos[2] + t_cross*(pos[2] - old_pos[2])
                             if cy*cy + cz*cz < (torus_R - torus_r)**2:
                                 pos[0] += shift
                                 n_tp += 1
                                 break
 
+            # ── shading / compositing ───────────────────────────────
             final_col = np.empty(3)
             if hit:
                 normal = estimate_normal_rope_portal(
                     pos, torus_R, torus_r, cx_L, cx_R,
-                    seg1, n1, seg2, n2, rope_r)
+                    seg1, n1, seg2, n2, rope_r,
+                    plane_x, plane_ht, plane_hh, plane_hd)
                 brightness = shade(pos, normal, d, light_dir)
                 if hit_id == 0:
                     col = left_torus_col
                 elif hit_id == 1:
                     col = right_torus_col
-                else:
+                elif hit_id == 2:
                     col = rope_col
+                else:
+                    col = plane_col
                 for c in range(3):
                     final_col[c] = min(max(col[c] * brightness, 0.0), 1.0)
             else:
@@ -807,24 +839,47 @@ def render_rope_portal(width, height, fov, cam_pos, cam_target,
     return image
 
 
-# -- Animate --
+# ── Animate: camera orbits 360°, rope expands then retracts ────────
 
-N_FRAMES = 30
-RES      = 400
+N_FRAMES  = 60
+RES       = 400
+CAM_DIST  = 8.0
+CAM_H     = 3.0
+TORUS_R, TORUS_r = 1.0, 0.3
+CX_L, CX_R = -2.0, 2.0
 
-cam   = np.array([5.0, 3.0, 6.0])
-tgt   = np.array([0.0, 0.0, 0.0])
-light = np.array([2.0, 5.0, 4.0])
+# separating plane at midpoint
+PLANE_X   = 0.0
+PLANE_HT  = 0.015      # half-thickness (very thin wall)
+PLANE_HH  = 2.5        # half-height  (y extent)
+PLANE_HD  = 2.5        # half-depth   (z extent)
+
+tgt = np.array([0.0, 0.0, 0.0])
 
 frames = []
 for fi in range(N_FRAMES):
-    progress = (fi + 1) / N_FRAMES
-    seg1, n1, seg2, n2 = build_rope_segments(progress, 150)
+    phase = 2.0 * np.pi * fi / N_FRAMES
+
+    # camera orbits a full 360° → seamless
+    cam = np.array([CAM_DIST * np.sin(phase),
+                    CAM_H,
+                    CAM_DIST * np.cos(phase)])
+
+    # light leads the camera by ~30°
+    light = np.array([CAM_DIST * np.sin(phase + 0.5),
+                      5.0,
+                      CAM_DIST * np.cos(phase + 0.5)])
+
+    # rope expands 0→1 then retracts 1→0 (cosine ease)
+    progress = 0.5 * (1.0 - np.cos(phase))
+
+    seg1, n1, seg2, n2 = build_rope_segments(progress, 100)
     frame = render_rope_portal(
         RES, RES, np.pi / 3.5,
         cam, tgt,
-        1.0, 0.3, -2.0, 2.0,
+        TORUS_R, TORUS_r, CX_L, CX_R,
         seg1, n1, seg2, n2, 0.07,
+        PLANE_X, PLANE_HT, PLANE_HH, PLANE_HD,
         light, 200, 50.0, 1e-3
     )
     frames.append(frame)
@@ -838,7 +893,7 @@ def update(i):
     im.set_data(frames[i])
     return [im]
 
-anim = FuncAnimation(fig, update, frames=N_FRAMES, interval=120, blit=True)
+anim = FuncAnimation(fig, update, frames=N_FRAMES, interval=100, blit=True)
 plt.close(fig)
 HTML(anim.to_html5_video())
 ```
