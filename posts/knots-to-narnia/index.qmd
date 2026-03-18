@@ -1,0 +1,622 @@
+---
+title: "Knots to Narnia"
+subtitle: "A homage to William Thurston using modern computer visualization"
+author: "Luca Leon Happel"
+date: "2026-03-18"
+categories:
+  - math
+  - topology
+  - knot theory
+  - visualization
+  - English
+format:
+  html:
+    code-fold: true
+draft: true
+---
+
+The Fields Medalist William Thurston is famous for revolutionizing low-dimensional topology and geometry, especially through his work on 3-manifolds and the geometrization conjecture. He is beloved not just by me but by the general mathematical community for his playful, story-driven approach to algebraic topology. 
+In "Knots to Narnia", he imagines a magic portal shaped like a loop or knot that splits space into "parallel worlds". An ordinary loop produces just two worlds, while a trefoil knot gives several distinct worlds connected by precise rules. By tracking simple moves through the knot, Thurston shows how these rules encode a branched covering structure in an unusually vivid, accessible way.
+
+In this post, I will present a modern visualization of Thurston's "Knots to Narnia" concept using computer graphics. We will explore how different knots can create various "parallel worlds" and how these worlds are interconnected.
+
+## First example: The Unknot
+
+Let us look at the unknot embedded in $\mathbb{R}^3$:
+
+We render the scene using a custom **ray marcher** built from scratch.
+Unlike a traditional raytracer that solves ray-surface intersections analytically,
+ray marching steps along each ray incrementally—making it straightforward to
+later replace Euclidean straight-line steps with geodesic steps in a curved geometry.
+
+The core loop is:
+
+1. For each pixel, cast a ray from the camera.
+2. **Step the ray** according to a `step_ray` function (currently Euclidean: $\mathbf{p} \mapsto \mathbf{p} + dt \cdot \mathbf{d}$).
+3. At each step, evaluate a signed distance function (SDF) to check proximity to the surface.
+4. On hit, compute Phong lighting; otherwise, return the background.
+
+```{python}
+#| label: fig-torus
+#| fig-cap: "The unknot — a simple torus in ℝ³."
+import numpy as np
+import numba as nb
+from numba import njit, prange
+import matplotlib.pyplot as plt
+
+# ── Signed Distance Functions ────────────────────────────────────────
+
+@njit
+def sdf_torus(p, R, r):
+    """SDF for a torus centred at the origin lying in the xz-plane.
+    R = major radius, r = minor radius."""
+    q = np.sqrt(p[0]**2 + p[2]**2) - R
+    return np.sqrt(q**2 + p[1]**2) - r
+
+# ── Ray stepping (swappable for non-Euclidean geometries) ────────────
+
+@njit
+def step_ray_euclidean(pos, direction, dt):
+    """Advance a ray in flat R^3: straight-line geodesic."""
+    new_pos = np.empty(3)
+    new_dir = np.empty(3)
+    for i in range(3):
+        new_pos[i] = pos[i] + dt * direction[i]
+        new_dir[i] = direction[i]          # direction unchanged in flat space
+    return new_pos, new_dir
+
+# ── Surface normal via central differences ───────────────────────────
+
+@njit
+def estimate_normal_torus(p, R, r):
+    eps = 1e-4
+    n = np.empty(3)
+    for i in range(3):
+        p_plus  = p.copy(); p_plus[i]  += eps
+        p_minus = p.copy(); p_minus[i] -= eps
+        n[i] = sdf_torus(p_plus, R, r) - sdf_torus(p_minus, R, r)
+    length = np.sqrt(n[0]**2 + n[1]**2 + n[2]**2)
+    if length > 0:
+        for i in range(3):
+            n[i] /= length
+    return n
+
+# ── Phong lighting ───────────────────────────────────────────────────
+
+@njit
+def shade(hit_pos, normal, ray_dir, light_dir):
+    """Simple Phong shading (ambient + diffuse + specular)."""
+    # normalise light direction
+    ll = np.sqrt(light_dir[0]**2 + light_dir[1]**2 + light_dir[2]**2)
+    L = np.empty(3)
+    for i in range(3):
+        L[i] = light_dir[i] / ll
+
+    # diffuse
+    diff = 0.0
+    for i in range(3):
+        diff += normal[i] * L[i]
+    diff = max(diff, 0.0)
+
+    # specular (Blinn-Phong)
+    H = np.empty(3)
+    for i in range(3):
+        H[i] = L[i] - ray_dir[i]
+    hl = np.sqrt(H[0]**2 + H[1]**2 + H[2]**2)
+    if hl > 0:
+        for i in range(3):
+            H[i] /= hl
+    spec = 0.0
+    for i in range(3):
+        spec += normal[i] * H[i]
+    spec = max(spec, 0.0) ** 64
+
+    ambient  = 0.10
+    diffuse  = 0.70 * diff
+    specular = 0.40 * spec
+    return ambient + diffuse + specular
+
+# ── Main ray-march renderer ─────────────────────────────────────────
+
+@njit(parallel=True)
+def render(width, height, fov, cam_pos, cam_target,
+           torus_R, torus_r, light_dir,
+           max_steps, max_dist, hit_eps):
+    """Ray-march a torus scene.  Returns an (H, W, 3) float64 image."""
+    image = np.zeros((height, width, 3))
+
+    aspect = width / height
+    half_w = np.tan(fov / 2.0)
+
+    # camera basis
+    forward = np.empty(3)
+    for i in range(3):
+        forward[i] = cam_target[i] - cam_pos[i]
+    fl = np.sqrt(forward[0]**2 + forward[1]**2 + forward[2]**2)
+    for i in range(3):
+        forward[i] /= fl
+
+    world_up = np.array([0.0, 1.0, 0.0])
+    right = np.empty(3)
+    right[0] = forward[1]*world_up[2] - forward[2]*world_up[1]
+    right[1] = forward[2]*world_up[0] - forward[0]*world_up[2]
+    right[2] = forward[0]*world_up[1] - forward[1]*world_up[0]
+    rl = np.sqrt(right[0]**2 + right[1]**2 + right[2]**2)
+    for i in range(3):
+        right[i] /= rl
+
+    up = np.empty(3)
+    up[0] = right[1]*forward[2] - right[2]*forward[1]
+    up[1] = right[2]*forward[0] - right[0]*forward[2]
+    up[2] = right[0]*forward[1] - right[1]*forward[0]
+
+    # object colour (torus)
+    obj_col = np.array([0.35, 0.55, 0.90])
+    # background colour
+    bg_col  = np.array([0.94, 0.94, 0.96])
+
+    for py in prange(height):
+        for px in range(width):
+            # NDC → camera ray direction
+            u = (2.0 * (px + 0.5) / width  - 1.0) * half_w * aspect
+            v = (2.0 * (py + 0.5) / height - 1.0) * half_w
+            d = np.empty(3)
+            for i in range(3):
+                d[i] = forward[i] + u * right[i] - v * up[i]
+            dl = np.sqrt(d[0]**2 + d[1]**2 + d[2]**2)
+            for i in range(3):
+                d[i] /= dl
+
+            # march
+            pos = cam_pos.copy()
+            direction = d.copy()
+            hit = False
+            for _ in range(max_steps):
+                dist = sdf_torus(pos, torus_R, torus_r)
+                if dist < hit_eps:
+                    hit = True
+                    break
+                if dist > max_dist:
+                    break
+                # *** THIS is the line we swap for non-Euclidean geometry ***
+                pos, direction = step_ray_euclidean(pos, direction, dist)
+
+            if hit:
+                normal = estimate_normal_torus(pos, torus_R, torus_r)
+                brightness = shade(pos, normal, d, light_dir)
+                for c in range(3):
+                    val = obj_col[c] * brightness
+                    image[py, px, c] = min(max(val, 0.0), 1.0)
+            else:
+                for c in range(3):
+                    image[py, px, c] = bg_col[c]
+
+    return image
+
+
+# ── Helper: display a rendered image (no text, figure caption via Quarto) ──
+
+def show_render(img):
+    """Display a rendered image with no axes, titles, or labels.
+    The figure is sized so it looks good on the page without being
+    too large or too small."""
+    fig, ax = plt.subplots(figsize=(7, 7), dpi=120)
+    ax.imshow(img)
+    ax.set_axis_off()
+    plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
+    plt.show()
+
+
+# ── Scene parameters ─────────────────────────────────────────────────
+
+W, H     = 800, 800
+fov      = np.pi / 3.0           # 60°
+cam_pos  = np.array([0.0, 2.0, 4.0])
+cam_tgt  = np.array([0.0, 0.0, 0.0])
+light    = np.array([2.0, 4.0, 3.0])
+torus_R  = 1.0                   # major radius  (unknot!)
+torus_r  = 0.3                   # minor radius
+
+img = render(W, H, fov, cam_pos, cam_tgt,
+             torus_R, torus_r, light,
+             max_steps=256, max_dist=50.0, hit_eps=1e-4)
+
+show_render(img)
+```
+
+The key design: `step_ray_euclidean` is a **drop-in replaceable function**.
+To render a non-Euclidean geometry on $\mathbb{R}^3$, we simply provide a
+different `step_ray` that integrates a geodesic ODE—for instance
+$\ddot{\gamma}^k + \Gamma^k_{ij}\,\dot{\gamma}^i\,\dot{\gamma}^j = 0$
+—and the rest of the renderer stays unchanged.
+
+## Passing through the unknot
+
+Now let us visualise the idea of *passing through* the unknot.
+We add an arrow (a cylinder with a cone tip) that pierces the torus,
+representing the act of crossing from one "world" to another.
+
+```{python}
+#| label: fig-torus-arrow
+#| fig-cap: "A torus (the unknot) with an arrow passing through it — the gateway between two worlds."
+
+@njit
+def sdf_cylinder(p, radius, half_height):
+    """SDF for an infinite-height cylinder along the y-axis,
+    capped at -half_height and +half_height."""
+    d_radial = np.sqrt(p[0]**2 + p[2]**2) - radius
+    d_vertical = abs(p[1]) - half_height
+    # outside distance
+    outside = np.sqrt(max(d_radial, 0.0)**2 + max(d_vertical, 0.0)**2)
+    # inside distance
+    inside = min(max(d_radial, d_vertical), 0.0)
+    return outside + inside
+
+@njit
+def sdf_cone(p, radius, height, tip_y):
+    """SDF for a cone with apex at (0, tip_y, 0) opening downward,
+    base radius `radius` and vertical extent `height`."""
+    # translate so tip is at origin
+    py = tip_y - p[1]
+    if py < 0.0:
+        # above the tip
+        return np.sqrt(p[0]**2 + p[2]**2 + (p[1] - tip_y)**2)
+    pr = np.sqrt(p[0]**2 + p[2]**2)
+    # cone surface: r/py = radius/height
+    slope = radius / height
+    # distance along the cone
+    q_x = pr - slope * py
+    q_y = py - height
+    if q_x <= 0.0 and q_y <= 0.0:
+        # inside the cone
+        # distance to surface
+        cos_a = height / np.sqrt(height**2 + radius**2)
+        return -min(-q_x * cos_a, -q_y)
+    if q_y > 0.0 and q_x <= 0.0:
+        return q_y
+    if q_x > 0.0 and q_y <= 0.0:
+        cos_a = height / np.sqrt(height**2 + radius**2)
+        return q_x * cos_a
+    return np.sqrt(q_x**2 + q_y**2)
+
+@njit
+def sdf_arrow(p, shaft_radius, shaft_half_h, cone_radius, cone_height, cone_tip_y):
+    """SDF for an arrow = cylinder shaft ∪ cone tip (pointing UP)."""
+    d_shaft = sdf_cylinder(p, shaft_radius, shaft_half_h)
+    d_cone  = sdf_cone(p, cone_radius, cone_height, cone_tip_y)
+    return min(d_shaft, d_cone)
+
+@njit
+def sdf_arrow_down(p, shaft_radius, shaft_half_h, cone_radius, cone_height, cone_tip_y):
+    """SDF for a downward-pointing arrow: flip y so the cone tip is at the bottom."""
+    d_shaft = sdf_cylinder(p, shaft_radius, shaft_half_h)
+    p_flip = np.empty(3)
+    p_flip[0] = p[0]
+    p_flip[1] = -p[1]
+    p_flip[2] = p[2]
+    d_cone = sdf_cone(p_flip, cone_radius, cone_height, cone_tip_y)
+    return min(d_shaft, d_cone)
+
+@njit
+def estimate_normal_scene(p, torus_R, torus_r,
+                          shaft_r, shaft_hh, cone_r, cone_h, cone_ty):
+    eps = 1e-4
+    n = np.empty(3)
+    for i in range(3):
+        pp = p.copy(); pp[i] += eps
+        pm = p.copy(); pm[i] -= eps
+        dp = min(sdf_torus(pp, torus_R, torus_r),
+                 sdf_arrow_down(pp, shaft_r, shaft_hh, cone_r, cone_h, cone_ty))
+        dm = min(sdf_torus(pm, torus_R, torus_r),
+                 sdf_arrow_down(pm, shaft_r, shaft_hh, cone_r, cone_h, cone_ty))
+        n[i] = dp - dm
+    length = np.sqrt(n[0]**2 + n[1]**2 + n[2]**2)
+    if length > 0:
+        for i in range(3):
+            n[i] /= length
+    return n
+
+@njit(parallel=True)
+def render_arrow_scene(width, height, fov, cam_pos, cam_target,
+                      torus_R, torus_r,
+                      shaft_r, shaft_hh, cone_r, cone_h, cone_ty,
+                      light_dir, max_steps, max_dist, hit_eps):
+    image = np.zeros((height, width, 3))
+    aspect = width / height
+    half_w = np.tan(fov / 2.0)
+
+    forward = np.empty(3)
+    for i in range(3):
+        forward[i] = cam_target[i] - cam_pos[i]
+    fl = np.sqrt(forward[0]**2 + forward[1]**2 + forward[2]**2)
+    for i in range(3):
+        forward[i] /= fl
+
+    world_up = np.array([0.0, 1.0, 0.0])
+    right = np.empty(3)
+    right[0] = forward[1]*world_up[2] - forward[2]*world_up[1]
+    right[1] = forward[2]*world_up[0] - forward[0]*world_up[2]
+    right[2] = forward[0]*world_up[1] - forward[1]*world_up[0]
+    rl = np.sqrt(right[0]**2 + right[1]**2 + right[2]**2)
+    for i in range(3):
+        right[i] /= rl
+
+    up = np.empty(3)
+    up[0] = right[1]*forward[2] - right[2]*forward[1]
+    up[1] = right[2]*forward[0] - right[0]*forward[2]
+    up[2] = right[0]*forward[1] - right[1]*forward[0]
+
+    torus_col = np.array([0.35, 0.55, 0.90])
+    arrow_col = np.array([0.90, 0.30, 0.25])
+    bg_col    = np.array([0.94, 0.94, 0.96])
+
+    for py in prange(height):
+        for px in range(width):
+            u = (2.0 * (px + 0.5) / width  - 1.0) * half_w * aspect
+            v = (2.0 * (py + 0.5) / height - 1.0) * half_w
+            d = np.empty(3)
+            for i in range(3):
+                d[i] = forward[i] + u * right[i] - v * up[i]
+            dl = np.sqrt(d[0]**2 + d[1]**2 + d[2]**2)
+            for i in range(3):
+                d[i] /= dl
+
+            pos = cam_pos.copy()
+            direction = d.copy()
+            hit = False
+            for _ in range(max_steps):
+                d_torus = sdf_torus(pos, torus_R, torus_r)
+                d_arrow = sdf_arrow_down(pos, shaft_r, shaft_hh, cone_r, cone_h, cone_ty)
+                dist = min(d_torus, d_arrow)
+                if dist < hit_eps:
+                    hit = True
+                    break
+                if dist > max_dist:
+                    break
+                pos, direction = step_ray_euclidean(pos, direction, dist)
+
+            if hit:
+                normal = estimate_normal_scene(pos, torus_R, torus_r,
+                                               shaft_r, shaft_hh, cone_r, cone_h, cone_ty)
+                brightness = shade(pos, normal, d, light_dir)
+                d_torus = sdf_torus(pos, torus_R, torus_r)
+                d_arrow = sdf_arrow_down(pos, shaft_r, shaft_hh, cone_r, cone_h, cone_ty)
+                col = torus_col if d_torus < d_arrow else arrow_col
+                for c in range(3):
+                    val = col[c] * brightness
+                    image[py, px, c] = min(max(val, 0.0), 1.0)
+            else:
+                for c in range(3):
+                    image[py, px, c] = bg_col[c]
+
+    return image
+
+
+# ── Render torus + arrow ─────────────────────────────────────────────
+
+img2 = render_arrow_scene(
+    800, 800, np.pi / 3.0,
+    np.array([3.0, 2.5, 3.0]),       # camera slightly to the side
+    np.array([0.0, 0.0, 0.0]),       # look at origin
+    1.0, 0.3,                        # torus R, r
+    0.06, 1.6,                       # arrow shaft radius, half-height
+    0.18, 0.35, 2.0,                 # cone radius, height, tip_y
+    np.array([2.0, 4.0, 3.0]),       # light
+    256, 50.0, 1e-4
+)
+
+show_render(img2)
+```
+
+## Two worlds connected by a portal
+
+In Thurston's picture, passing through the unknot takes you to a
+different copy of space—a parallel world. We can visualise this by
+placing **two tori** side by side, each living in its own half-space
+separated by a vertical plane. The hole of each torus faces the
+plane, acting as the portal between the two worlds.
+
+```{python}
+#| label: fig-portal
+#| fig-cap: "Two tori (portals) separated by a plane — passing through one brings you into the other world."
+
+@njit
+def sdf_torus_rotated(p, center_x, R, r):
+    """SDF for a torus centred at (center_x, 0, 0) with hole along the x-axis."""
+    px = p[0] - center_x
+    q = np.sqrt(p[1]**2 + p[2]**2) - R
+    return np.sqrt(q**2 + px**2) - r
+
+@njit
+def sdf_plane(p, plane_x, thickness, half_h, half_d):
+    """SDF for a bounded vertical wall at x = plane_x.
+    Extends from -half_h to +half_h in y and -half_d to +half_d in z."""
+    dx = abs(p[0] - plane_x) - thickness
+    dy = abs(p[1]) - half_h
+    dz = abs(p[2]) - half_d
+    outside = np.sqrt(max(dx, 0.0)**2 + max(dy, 0.0)**2 + max(dz, 0.0)**2)
+    inside  = min(max(dx, max(dy, dz)), 0.0)
+    return outside + inside
+
+@njit
+def sdf_portal_scene(p, torus_R, torus_r, torus_cx_L, torus_cx_R,
+                     plane_x, plane_thick):
+    """Scene SDF: two tori + dividing plane.  Returns (dist, object_id).
+    object_id: 0 = left torus, 1 = right torus, 2 = plane."""
+    d0 = sdf_torus_rotated(p, torus_cx_L, torus_R, torus_r)
+    d1 = sdf_torus_rotated(p, torus_cx_R, torus_R, torus_r)
+    d2 = sdf_plane(p, plane_x, plane_thick, 2.5, 2.5)
+    d_min = d0
+    obj = 0
+    if d1 < d_min:
+        d_min = d1
+        obj = 1
+    if d2 < d_min:
+        d_min = d2
+        obj = 2
+    return d_min, obj
+
+@njit
+def estimate_normal_portal(p, torus_R, torus_r, torus_cx_L, torus_cx_R,
+                           plane_x, plane_thick):
+    eps = 1e-4
+    n = np.empty(3)
+    for i in range(3):
+        pp = p.copy(); pp[i] += eps
+        pm = p.copy(); pm[i] -= eps
+        dp, _ = sdf_portal_scene(pp, torus_R, torus_r, torus_cx_L, torus_cx_R,
+                                  plane_x, plane_thick)
+        dm, _ = sdf_portal_scene(pm, torus_R, torus_r, torus_cx_L, torus_cx_R,
+                                  plane_x, plane_thick)
+        n[i] = dp - dm
+    length = np.sqrt(n[0]**2 + n[1]**2 + n[2]**2)
+    if length > 0:
+        for i in range(3):
+            n[i] /= length
+    return n
+
+@njit(parallel=True)
+def render_portal_scene(width, height, fov, cam_pos, cam_target,
+                       torus_R, torus_r, torus_cx_L, torus_cx_R,
+                       plane_x, plane_thick,
+                       light_dir, max_steps, max_dist, hit_eps,
+                       plane_alpha):
+    """Ray-march with semi-transparent plane.
+    When a ray hits the plane, it records the plane colour with opacity
+    `plane_alpha` and continues marching to find whatever is behind."""
+    image = np.zeros((height, width, 3))
+    aspect = width / height
+    half_w = np.tan(fov / 2.0)
+
+    forward = np.empty(3)
+    for i in range(3):
+        forward[i] = cam_target[i] - cam_pos[i]
+    fl = np.sqrt(forward[0]**2 + forward[1]**2 + forward[2]**2)
+    for i in range(3):
+        forward[i] /= fl
+
+    world_up = np.array([0.0, 1.0, 0.0])
+    right = np.empty(3)
+    right[0] = forward[1]*world_up[2] - forward[2]*world_up[1]
+    right[1] = forward[2]*world_up[0] - forward[0]*world_up[2]
+    right[2] = forward[0]*world_up[1] - forward[1]*world_up[0]
+    rl = np.sqrt(right[0]**2 + right[1]**2 + right[2]**2)
+    for i in range(3):
+        right[i] /= rl
+
+    up = np.empty(3)
+    up[0] = right[1]*forward[2] - right[2]*forward[1]
+    up[1] = right[2]*forward[0] - right[0]*forward[2]
+    up[2] = right[0]*forward[1] - right[1]*forward[0]
+
+    # colours
+    left_torus_col  = np.array([0.35, 0.55, 0.90])   # blue
+    right_torus_col = np.array([0.90, 0.55, 0.25])   # orange
+    plane_col       = np.array([0.65, 0.65, 0.70])   # neutral grey
+    bg_left         = np.array([0.90, 0.92, 0.98])   # light blue bg
+    bg_right        = np.array([0.98, 0.93, 0.88])   # light orange bg
+
+    for py in prange(height):
+        for px in range(width):
+            u = (2.0 * (px + 0.5) / width  - 1.0) * half_w * aspect
+            v = (2.0 * (py + 0.5) / height - 1.0) * half_w
+            d = np.empty(3)
+            for i in range(3):
+                d[i] = forward[i] + u * right[i] - v * up[i]
+            dl = np.sqrt(d[0]**2 + d[1]**2 + d[2]**2)
+            for i in range(3):
+                d[i] /= dl
+
+            pos = cam_pos.copy()
+            direction = d.copy()
+            hit_solid = False
+            solid_id = -1
+            hit_plane = False
+            plane_pos = np.empty(3)
+            plane_norm = np.empty(3)
+
+            for _ in range(max_steps):
+                d_tL = sdf_torus_rotated(pos, torus_cx_L, torus_R, torus_r)
+                d_tR = sdf_torus_rotated(pos, torus_cx_R, torus_R, torus_r)
+                d_pl = sdf_plane(pos, plane_x, plane_thick, 2.5, 2.5)
+
+                d_solid = d_tL
+                sid = 0
+                if d_tR < d_solid:
+                    d_solid = d_tR
+                    sid = 1
+
+                dist = min(d_solid, d_pl)
+
+                if dist < hit_eps:
+                    if d_pl < d_solid:
+                        # hit the plane → record it, push through, keep going
+                        if not hit_plane:
+                            hit_plane = True
+                            for i in range(3):
+                                plane_pos[i] = pos[i]
+                            plane_norm = estimate_normal_portal(
+                                pos, torus_R, torus_r, torus_cx_L, torus_cx_R,
+                                plane_x, plane_thick)
+                        # nudge past the plane
+                        for i in range(3):
+                            pos[i] = pos[i] + direction[i] * (plane_thick * 4.0 + hit_eps * 10.0)
+                    else:
+                        hit_solid = True
+                        solid_id = sid
+                        break
+                elif dist > max_dist:
+                    break
+                else:
+                    pos, direction = step_ray_euclidean(pos, direction, dist)
+
+            # ── compositing ──
+            # start with background
+            if pos[0] < plane_x:
+                bg = bg_left
+            else:
+                bg = bg_right
+
+            final_col = np.empty(3)
+
+            if hit_solid:
+                normal = estimate_normal_portal(pos, torus_R, torus_r,
+                                                torus_cx_L, torus_cx_R,
+                                                plane_x, plane_thick)
+                brightness = shade(pos, normal, d, light_dir)
+                col = left_torus_col if solid_id == 0 else right_torus_col
+                for c in range(3):
+                    final_col[c] = min(max(col[c] * brightness, 0.0), 1.0)
+            else:
+                for c in range(3):
+                    final_col[c] = bg[c]
+
+            # blend plane on top if it was crossed
+            if hit_plane:
+                p_brightness = shade(plane_pos, plane_norm, d, light_dir)
+                for c in range(3):
+                    pc = min(max(plane_col[c] * p_brightness, 0.0), 1.0)
+                    final_col[c] = plane_alpha * pc + (1.0 - plane_alpha) * final_col[c]
+
+            for c in range(3):
+                image[py, px, c] = final_col[c]
+
+    return image
+
+
+# ── Render portal scene ──────────────────────────────────────────────
+
+img3 = render_portal_scene(
+    800, 800, np.pi / 3.5,
+    np.array([5.0, 3.0, 6.0]),       # 3/4 view to see through torus holes
+    np.array([0.0, 0.0, 0.0]),       # look at origin
+    1.0, 0.3,                        # torus R, r
+    -2.0, 2.0,                       # left / right torus x-centres
+    0.0, 0.02,                       # plane at x=0, thin slab
+    np.array([2.0, 5.0, 4.0]),       # light
+    256, 50.0, 1e-4,
+    0.25                             # plane alpha (semi-transparent)
+)
+
+show_render(img3)
+```
