@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -90,15 +90,14 @@ div.csl-indent {
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-eb6dc03ada319d1747fd1cae6562c423.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -194,7 +193,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -327,12 +326,12 @@ window.Quarto = {
 </video>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Aside: Haskell notation, the fish operator, and groups as monads
+Aside: Haskell notation, the fish operator, and groups as monads
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -343,7 +342,7 @@ window.Quarto = {
 p \xrightarrow{s_1} s_1 p  \xrightarrow{s_2} s_2 s_1 p  \xrightarrow{s_3} \cdots
 \]</span></p>
 <p>which is precisely the forward-composition style of the <code>&gt;&gt;&gt;</code> operator from <a href="https://hackage.haskell.org/package/base/docs/Control-Category.html"><code>Control.Category</code></a> in Haskell’s <code>base</code> library, and the Kleisli fish operator <code>&gt;=&gt;</code> from <a href="https://hackage.haskell.org/package/base/docs/Control-Monad.html"><code>Control.Monad</code></a>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode haskell code-with-copy"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">(&gt;=&gt;) ::</span> <span class="dt">Monad</span> m <span class="ot">=&gt;</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> m c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell code-with-copy"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">(&gt;=&gt;) ::</span> <span class="dt">Monad</span> m <span class="ot">=&gt;</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> m c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Using monads and by extension the <code>State</code> monad, to describe groups provides an aesthetic way to think about groups. Walking on the Cayley graph is then just the <code>State G</code> monad: the player’s current position is the state, and each generator <span class="math inline">\(s\)</span> corresponds to the action <code>modify (\p -&gt; p * s)</code>. The monad laws then encode exactly the group axioms: the left and right unit laws of <code>&gt;&gt;=</code> correspond to <span class="math inline">\(pe = ep = p\)</span>, and associativity of <code>&gt;&gt;=</code> corresponds to <span class="math inline">\((p s_1) s_2 = p (s_1 s_2)\)</span>.</p>
 <p>This connection has been explored in the literature on categorical algebra and algebraic theories before. Every algebraic theory, including group theory, corresponds canonically to a monad, which we will not delve into here. But this justifies the use of “monadic notation” in the rest of this article, where we write <span class="math inline">\(p \ggg s\)</span> to mean “apply generator <span class="math inline">\(s\)</span> to position <span class="math inline">\(p\)</span>”.</p>
 <p>For further reading, the canonical correspondence between algebraic theories and monads was established independently by Lawvere <span class="citation" data-cites="lawvere1963functorial">(<a href="#ref-lawvere1963functorial" role="doc-biblioref">Lawvere 1963</a>)</span> and Linton <span class="citation" data-cites="linton1969outline">(<a href="#ref-linton1969outline" role="doc-biblioref">Linton 1969</a>)</span>. The connection to computational effects (where group symmetries appear as canonical examples of stateful algebraic effects) is developed in Plotkin and Pretnar <span class="citation" data-cites="plotkin2013handling">(<a href="#ref-plotkin2013handling" role="doc-biblioref">Plotkin and Pretnar 2013</a>)</span>.</p>
@@ -355,7 +354,7 @@ p \xrightarrow{s_1} s_1 p  \xrightarrow{s_2} s_2 s_1 p  \xrightarrow{s_3} \cdots
 <div id="cell-cayley-graph-cyclic" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show code: Cayley graph of ℤ/mℤ</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
@@ -419,7 +418,7 @@ p \xrightarrow{s_1} s_1 p  \xrightarrow{s_2} s_2 s_1 p  \xrightarrow{s_3} \cdots
 <span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>draw_cayley_graph_cyclic(m<span class="op">=</span><span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>draw_cayley_graph_cyclic(m<span class="op">=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="cayley-graph-cyclic" class="quarto-figure quarto-figure-center anchored">
@@ -434,7 +433,7 @@ p \xrightarrow{s_1} s_1 p  \xrightarrow{s_2} s_2 s_1 p  \xrightarrow{s_3} \cdots
 <div id="cell-cayley-graph-dihedral" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show code: Cayley graph of D_n</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> io</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> io</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -566,7 +565,7 @@ p \xrightarrow{s_1} s_1 p  \xrightarrow{s_2} s_2 s_1 p  \xrightarrow{s_3} \cdots
 <span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
 <span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>draw_cayley_graph_dihedral(n<span class="op">=</span><span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>draw_cayley_graph_dihedral(n<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="cayley-graph-dihedral" class="quarto-figure quarto-figure-center anchored">
@@ -590,7 +589,7 @@ p \xrightarrow{s_1} s_1 p  \xrightarrow{s_2} s_2 s_1 p  \xrightarrow{s_3} \cdots
 <div id="cayley-graph-heisenberg" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show code: 3D Heisenberg Cayley graph</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> deque</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -708,7 +707,7 @@ p \xrightarrow{s_1} s_1 p  \xrightarrow{s_2} s_2 s_1 p  \xrightarrow{s_3} \cdots
 <span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>    fig.show()</span>
 <span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>draw_heisenberg_cayley_graph(depth<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>draw_heisenberg_cayley_graph(depth<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div id="cayley-graph-heisenberg-1" class="cell-output cell-output-display">
         <script>
@@ -867,14 +866,13 @@ Plotkin, Gordon, and Matija Pretnar. 2013. <span>“Handling Algebraic Effects.�
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
