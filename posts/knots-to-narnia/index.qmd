@@ -619,15 +619,15 @@ def sdf_plane_slab(p, x_center, half_thick, half_h, half_d):
 def build_rope_segments(progress, n_pts=100):
     """Build rope segments for given progress (0..1).
     Seg 1 approaches left portal, seg 2 emerges from right portal.
-    A margin keeps the rope geometry away from the portal disk so no
-    spheres leak through to the other side."""
+    Segments extend PAST the portal disk; the renderer clips them
+    with a half-space SDF intersection for a clean cut."""
     cx_L, cx_R = -2.0, 2.0
-    margin = 0.22          # keep well clear of portal disk
+    overshoot = 0.3        # extend past portal for clean clip
     x_start, x_end = -5.0, 5.0
     amp = 0.12
 
-    x_stop_L  = cx_L - margin          # rope stops before left portal
-    x_start_R = cx_R + margin          # rope starts after right portal
+    x_stop_L  = cx_L + overshoot       # extends past left portal
+    x_start_R = cx_R - overshoot       # extends past right portal
 
     # segment 1: x_start  →  x_stop_L
     t1 = np.linspace(0.0, 1.0, n_pts)
@@ -659,8 +659,11 @@ def build_rope_segments(progress, n_pts=100):
 
 
 @njit
-def sdf_rope_seg(p, seg, n_vis, radius):
-    """SDF for a rope segment rendered as union of spheres."""
+def sdf_rope_seg(p, seg, n_vis, radius, clip_x, clip_sign):
+    """SDF for a rope segment (union of spheres), clipped by a half-space.
+    clip_sign = -1 : visible for p.x <= clip_x  (left segment)
+    clip_sign = +1 : visible for p.x >= clip_x  (right segment)
+    clip_sign =  0 : no clipping"""
     if n_vis <= 0:
         return 1e10
     d_min = 1e10
@@ -671,6 +674,11 @@ def sdf_rope_seg(p, seg, n_vis, radius):
         d = np.sqrt(dx*dx + dy*dy + dz*dz) - radius
         if d < d_min:
             d_min = d
+    # half-space intersection: cleanly clips at the portal disk
+    if clip_sign < 0:
+        d_min = max(d_min, p[0] - clip_x)
+    elif clip_sign > 0:
+        d_min = max(d_min, clip_x - p[0])
     return d_min
 
 
@@ -685,14 +693,14 @@ def estimate_normal_rope_portal(p, torus_R, torus_r, cx_L, cx_R,
         pm = p.copy(); pm[i] -= eps
         dp = min(sdf_torus_rotated(pp, cx_L, torus_R, torus_r),
                  min(sdf_torus_rotated(pp, cx_R, torus_R, torus_r),
-                     min(sdf_rope_seg(pp, seg1, n1, rope_r),
-                         min(sdf_rope_seg(pp, seg2, n2, rope_r),
+                     min(sdf_rope_seg(pp, seg1, n1, rope_r, cx_L, -1),
+                         min(sdf_rope_seg(pp, seg2, n2, rope_r, cx_R, 1),
                              sdf_plane_slab(pp, plane_x, plane_ht,
                                             plane_hh, plane_hd)))))
         dm = min(sdf_torus_rotated(pm, cx_L, torus_R, torus_r),
                  min(sdf_torus_rotated(pm, cx_R, torus_R, torus_r),
-                     min(sdf_rope_seg(pm, seg1, n1, rope_r),
-                         min(sdf_rope_seg(pm, seg2, n2, rope_r),
+                     min(sdf_rope_seg(pm, seg1, n1, rope_r, cx_L, -1),
+                         min(sdf_rope_seg(pm, seg2, n2, rope_r, cx_R, 1),
                              sdf_plane_slab(pm, plane_x, plane_ht,
                                             plane_hh, plane_hd)))))
         n[i] = dp - dm
@@ -766,8 +774,8 @@ def render_rope_portal(width, height, fov, cam_pos, cam_target,
             for _ in range(max_steps):
                 d_tL = sdf_torus_rotated(pos, cx_L, torus_R, torus_r)
                 d_tR = sdf_torus_rotated(pos, cx_R, torus_R, torus_r)
-                d_r1 = sdf_rope_seg(pos, seg1, n1, rope_r)
-                d_r2 = sdf_rope_seg(pos, seg2, n2, rope_r)
+                d_r1 = sdf_rope_seg(pos, seg1, n1, rope_r, cx_L, -1)
+                d_r2 = sdf_rope_seg(pos, seg2, n2, rope_r, cx_R, 1)
                 d_pl = sdf_plane_slab(pos, plane_x, plane_ht,
                                       plane_hh, plane_hd)
 
