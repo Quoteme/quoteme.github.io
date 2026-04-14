@@ -1,0 +1,49 @@
+name: Publish Quarto Site
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Python dependencies
+        run: pip install -r <(sed -n 's/.*"\([^"]*\)".*/\1/p' pyproject.toml | grep -v '^[a-z].*=' | head -n -1) || pip install jupyter matplotlib numpy pandas scipy
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render site
+        run: quarto render
+
+      # --- Deploy to quoteme.github.io (happel.ai) ---
+      - name: Deploy to quoteme.github.io (happel.ai)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          cname: happel.ai
+
+      # --- Deploy to lucah.tech repo ---
+      - name: Deploy to Quoteme/lucah.tech
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.LUCAH_TECH_DEPLOY_KEY }}
+          external_repository: Quoteme/lucah.tech
+          publish_branch: gh-pages
+          publish_dir: ./_site
+          cname: lucah.tech
