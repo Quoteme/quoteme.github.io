@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Hacking Super Mario 64 using covering spaces (+ hyperbolic geometry) – Luca Happel's personal website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -87,7 +90,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 <meta property="og:title" content="Hacking Super Mario 64 using covering spaces (+ hyperbolic geometry) – Luca Happel’s personal website">
 <meta property="og:description" content="Visualization of the universal cover of a surface of genus 2, which is a hyperbolic space.">
 <meta property="og:image" content="https://happel.ai/assets/covering-space/double-torus-universal-cover-alt.png">
-<meta property="og:site_name" content="Luca Happel's personal website">
+<meta property="og:site_name" content="Luca Happel’s personal website">
 <meta property="og:image:height" content="800">
 <meta property="og:image:width" content="800">
 <meta name="twitter:title" content="Hacking Super Mario 64 using covering spaces (+ hyperbolic geometry) – Luca Happel’s personal website">
@@ -128,7 +131,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 </div>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -141,7 +144,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -221,7 +224,7 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title"><p>Hacking Super Mario 64 using covering spaces (+ hyperbolic geometry)</p></h1>
-            <p class="subtitle lead"></p><p>Visualizations of covering spaces and their applications to geometry and video games</p><p></p>
+            <p class="subtitle lead">Visualizations of covering spaces and their applications to geometry and video games</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">topology</div>
                 <div class="quarto-category">geometry</div>
@@ -274,7 +277,7 @@ window.Quarto = {
 <p><span class="theorem-title"><strong>Definition 1</strong></span> A <strong>covering space</strong> of a topological space <span class="math inline">\(X\)</span> is a topological space <span class="math inline">\(C\)</span> together with a continuous surjective map <span class="math inline">\(p: C \to X\)</span> such that for every point <span class="math inline">\(x \in X\)</span>, there exists an open neighborhood <span class="math inline">\(U\)</span> of <span class="math inline">\(x\)</span> such that <span class="math inline">\(p^{-1}(U) \cong F \times U\)</span> for some discrete set <span class="math inline">\(F\)</span> (called the fiber over <span class="math inline">\(x\)</span>), and the map <span class="math inline">\(p\)</span> restricted to each component of <span class="math inline">\(p^{-1}(U)\)</span> is a homeomorphism onto <span class="math inline">\(U\)</span>.</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -478,7 +481,7 @@ Your browser does not support the video tag. </video>
 <p>In fact, we could encode in which copy of Bobs world Snoopy is, by counting how many times the leash is wrapped around the hole.</p>
 <p>This “wrapping a leash around the hole” action that Snoopy can perform is actually a <a href="https://en.wikipedia.org/wiki/Group_action">group action</a> of <span class="math inline">\(\mathbb{Z}\)</span> on the base space (Bobs space): For each integer <span class="math inline">\(n \in \mathbb{Z}\)</span>, Snoopy can wrap the leash around the hole <span class="math inline">\(n\)</span> times, and <span class="math inline">\(n-m\)</span> corresponds to Snoopy walking around the hole <span class="math inline">\(n\)</span> times clockwise and then <span class="math inline">\(m\)</span> times counterclockwise.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -613,12 +616,12 @@ Warning
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition: Hyperbolic Space
+<span class="screen-reader-only">Note</span>Definition: Hyperbolic Space
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -721,13 +724,14 @@ Definition: Hyperbolic Space
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
