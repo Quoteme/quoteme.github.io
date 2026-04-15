@@ -18,9 +18,14 @@ I am currently writing my masters thesis about the connection between
 a generalization of the reidemeister-torsion (called $\ell^2$-alexander torsion)
 and the [thurston norm](https://en.wikipedia.org/wiki/Thurston_norm) of 3-manifolds.
 
-Check it out, if you like :)
+Check it out, if you like:
 
-[masterarbeit](/masterarbeit)
+<iframe
+  src="/masterarbeit"
+  style="width:100%; height:600px; border:none;"
+  title="Masterarbeit PDF"></iframe>
+
+[Masterarbeit.pdf](/masterarbeit)
 
 ## Analyzing My Progress
 

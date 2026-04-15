@@ -16,6 +16,13 @@ So why don't I also publish my bachelors thesis?
 
 Check it out, if you like :)
 
+
+<iframe
+  src="/bachelorarbeit"
+  style="width:100%; height:600px; border:none;"
+  title="Masterarbeit PDF"></iframe>
+
+
 [Bachelorarbeit](/bachelorarbeit)
 
 
