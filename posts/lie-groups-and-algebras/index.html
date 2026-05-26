@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>The exponential map of lie groups – Luca Happel's personal website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,15 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-eb6dc03ada319d1747fd1cae6562c423.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -122,7 +124,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 <meta property="og:title" content="The exponential map of lie groups – Luca Happel’s personal website">
 <meta property="og:description" content="Luca Happel’s personal website, including lots of math and computer science.">
 <meta property="og:image" content="https://avatars2.githubusercontent.com/u/6796009">
-<meta property="og:site_name" content="Luca Happel's personal website">
+<meta property="og:site_name" content="Luca Happel’s personal website">
 <meta name="twitter:title" content="The exponential map of lie groups – Luca Happel’s personal website">
 <meta name="twitter:description" content="Luca Happel’s personal website, including lots of math and computer science.">
 <meta name="twitter:image" content="https://avatars2.githubusercontent.com/u/6796009">
@@ -161,7 +163,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 </div>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -254,7 +256,7 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title"><p>The exponential map of lie groups</p></h1>
-            <p class="subtitle lead"></p><p>Or: what <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span> actually are all about and some funny connections betwee <em>machine learning</em>, <em>sailing</em> and the <em>stock market</em></p><p></p>
+            <p class="subtitle lead">Or: what <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span> actually are all about and some funny connections betwee <em>machine learning</em>, <em>sailing</em> and the <em>stock market</em></p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">algebra</div>
                 <div class="quarto-category">geometry</div>
@@ -406,9 +408,9 @@ A = m \cdot e^{x}
 <li>The <strong>unit circle</strong> <span class="math inline">\(S^1 = \{z \in \mathbb{C} \mid |z| = 1\}\)</span> with complex multiplication forms a Lie group: rotating the circle by angle <span class="math inline">\(\theta\)</span> is undone by rotating by <span class="math inline">\(-\theta\)</span>.</li>
 </ul>
 <p><strong>Weird but useful example:</strong> Adding interest to your bank account like the stock market does is a Lie group action: One month you gain say 5%, so if you started with <span class="math inline">\(x\text{€}\)</span>, you will have <span class="math inline">\(x\text{€} \cdot 1.05\)</span> after that month. The next month you gain 3%, so you will have <span class="math inline">\(x\text{€} \cdot 1.05 \cdot 1.03\)</span>. Now, if the following month, you lose 8%, you will have <span class="math inline">\(x\text{€} \cdot 1.05 \cdot 1.03 \cdot 0.92\)</span>. If you started with <span class="math inline">\(x=1000\text{€}\)</span>, then you would be left with:</p>
-<div id="c796b4f6" class="cell" data-execution_count="1">
+<div id="82187bac" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1000</span> <span class="op">*</span> <span class="fl">1.05</span> <span class="op">*</span> <span class="fl">1.03</span> <span class="op">*</span> <span class="fl">0.92</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>994.98</code></pre>
 </div>
 </div>
@@ -655,6 +657,19 @@ L_z = \begin{pmatrix} 0&amp;-1&amp;0\\ 1&amp;0&amp;0\\ 0&amp;0&amp;0 \end{pmatri
 </div>
 </div>
 <p>The main benefit here is, that we can now choose directions in the Lie algebra given a lie group, and we can (by currying) walk along the geodesic that starts at the identity element of the Lie group and has the chosen direction (and velocity!) for any amount of time we like.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See also <a href="https://happel.ai/math/powerseries_sin.html" class="uri">https://happel.ai/math/powerseries_sin.html</a> some previous work I did about the exponential function and eulers identity.</p>
+</div>
+</div>
 <section id="the-exponential-map-in-minecraft" class="level3">
 <h3 class="anchored" data-anchor-id="the-exponential-map-in-minecraft">The exponential map in Minecraft</h3>
 <p>So in minecraft, you are normally given a “spawn point” <span class="math inline">\(p \in \mathbb{R}^3\)</span>. Players can then move around in this world by pressing the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd>, <kbd>Space</kbd> and <kbd>Shift</kbd> keys, which correspond to moving forward, left, backward, right, up and down respectively. Assuming that minecraft would be infinitly big and players could move freely without collision detection, this would already form a lie group (in this case <span class="math inline">\((\mathbb{R}^3, +)\)</span>). But players can also move their camera! So in this case, the underlying manifold would be more like <span class="math inline">\(\mathbb{R}^3 \times S^2\)</span>, where <span class="math inline">\(S^2\)</span> encodes the camera orientation. By using two angles for <span class="math inline">\(S^2\)</span>, we can define each possible point in this manifold using three numbers <span class="math inline">\((x,y,z, \phi, \psi)\)</span>.</p>
