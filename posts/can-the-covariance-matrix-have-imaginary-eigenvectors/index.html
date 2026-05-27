@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Luca Leon Happel">
-<meta name="dcterms.date" content="2015-01-08">
+<meta name="dcterms.date" content="2026-05-27">
+<meta name="description" content="I accidentally said the covariance matrix can have imaginary eigenvectors. Can it?">
 
-<title>The game for which I got a price in Brazil – Luca Happel’s personal website</title>
+<title>Can the covariance matrix have imaginary eigenvectors? – Luca Happel’s personal website</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -83,13 +83,13 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 </script>
-<meta property="og:title" content="The game for which I got a price in Brazil – Luca Happel’s personal website">
+<meta property="og:title" content="Can the covariance matrix have imaginary eigenvectors? – Luca Happel’s personal website">
 <meta property="og:description" content="Luca Happel’s personal website, including lots of math and computer science.">
-<meta property="og:image" content="https://happel.ai/posts/relic-hunters-zero/thumbnail.jpg">
+<meta property="og:image" content="https://avatars2.githubusercontent.com/u/6796009">
 <meta property="og:site_name" content="Luca Happel’s personal website">
-<meta name="twitter:title" content="The game for which I got a price in Brazil – Luca Happel’s personal website">
+<meta name="twitter:title" content="Can the covariance matrix have imaginary eigenvectors? – Luca Happel’s personal website">
 <meta name="twitter:description" content="Luca Happel’s personal website, including lots of math and computer science.">
-<meta name="twitter:image" content="https://happel.ai/posts/relic-hunters-zero/thumbnail.jpg">
+<meta name="twitter:image" content="https://avatars2.githubusercontent.com/u/6796009">
 <meta name="twitter:card" content="summary_large_image">
 </head><body class="nav-fixed fullcontent quarto-light"><div style="display: none;">
     $$
@@ -124,6 +124,35 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
     $$
 </div>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 
@@ -188,12 +217,16 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">The game for which I got a price in Brazil</h1>
-            <p class="subtitle lead">Relic Hunters Zero on Android and Steam</p>
-                                <div class="quarto-categories">
-                <div class="quarto-category">computer science</div>
-                <div class="quarto-category">game development</div>
-                <div class="quarto-category">English</div>
+      <h1 class="title">Can the covariance matrix have imaginary eigenvectors?</h1>
+                  <div>
+        <div class="description">
+          I accidentally said the covariance matrix can have imaginary eigenvectors. Can it?
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">math</div>
+                <div class="quarto-category">statistics</div>
+                <div class="quarto-category">linear algebra</div>
               </div>
                   </div>
   </div>
@@ -201,29 +234,17 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
   
   <div class="quarto-title-meta">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Luca Leon Happel </p>
-            </div>
-    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 8, 2015</p>
+        <p class="date">May 27, 2026</p>
       </div>
     </div>
     
       
     </div>
     
-  <div>
-    <div class="abstract">
-      <div class="block-title">Abstract</div>
-      <p>This game was a collaborative effort by a lot of people. I contributed by fixing some minor bugs and (this was kinda unthinkable for a LOT of people back then) porthing this game to Android.</p>
-    </div>
-  </div>
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
@@ -236,9 +257,116 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 
 
 
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/67AKJbnRBW0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>At work I told a friend of mine that the covariance matrix can have imaginary eigenvectors. This supposedly would encode <em>rotation</em> of some sort in empirically collected data. However, I was wrong. The covariance matrix cannot have imaginary eigenvectors, because it is a real symmetric matrix, and all eigenvalues of a real symmetric matrix are real.</p>
+<blockquote class="blockquote">
+<p>How can I save face? Maybe I was not actually wrong?</p>
+</blockquote>
+<p>Those were the thoghts that went through that made me write this post.</p>
+<section id="the-covariance-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="the-covariance-matrix">The covariance matrix</h2>
+<p>The <em>covariance matrix</em> is commonly defined as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\text{cov}(X,Y) := \mathbb{E}[(X - \mathbb{E}(X))(Y - \mathbb{E}(Y))^T] \\
+&amp;\text{where} \\
+&amp;\quad\quad X, Y : (\Omega, \mathcal{F}, P) \xrightarrow{\text{measurable}} (\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n)) \\
+&amp;\quad\quad (\Omega, \mathcal{F}, P) \text{ is a probability space} \\
+&amp;\quad\quad \mathcal{B}(\mathbb{R}^n) \text{ is the Borel sigma-algebra on } \mathbb{R}^n
+\end{aligned}
+\]</span></p>
+<p>If we are given only one random variable <span class="math inline">\(X\)</span>, we can define the covariance matrix of <span class="math inline">\(X\)</span> as <span class="math inline">\(\text{cov}(X) := \text{cov}(X,X)\)</span>, which is also called the <em>auto-covariance matrix of <span class="math inline">\(X\)</span></em>. Clearly this auto-covariance matrix is real and symmetric:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{cov}(X) &amp;= \mathbb{E}[(X - \mathbb{E}(X))(X - \mathbb{E}(X))^T] \\
+&amp;= \begin{bmatrix}
+\mathbb{E}[(X_1 - \mathbb{E}(X_1))^2] &amp; \mathbb{E}[(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2))] &amp; \cdots &amp; \mathbb{E}[(X_1 - \mathbb{E}(X_1))(X_n - \mathbb{E}(X_n))] \\
+\mathbb{E}[(X_2 - \mathbb{E}(X_2))(X_1 - \mathbb{E}(X_1))] &amp; \mathbb{E}[(X_2 - \mathbb{E}(X_2))^2] &amp; \cdots &amp; \mathbb{E}[(X_2 - \mathbb{E}(X_2))(X_n - \mathbb{E}(X_n))] \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\mathbb{E}[(X_n - \mathbb{E}(X_n))(X_1 - \mathbb{E}(X_1))] &amp; \mathbb{E}[(X_n - \mathbb{E}(X_n))(X_2 - \mathbb{E}(X_2))] &amp; \cdots &amp; \mathbb{E}[(X_n - \mathbb{E}(X_n))^2]
+\end{bmatrix} \\
+&amp;= \text{cov}(X)^T
+\end{aligned}
+\]</span></p>
+<p>As a real symmetric matrix, it cannot have imaginary eigenvalues: Remember that an eigenvalue <span class="math inline">\(\lambda\)</span> of a matrix <span class="math inline">\(A\)</span> is defined by the equation:</p>
+<p><span class="math display">\[
+Av = \lambda v
+\]</span></p>
+<p>and it therefore can be obtained by solving the characteristic polynomial:</p>
+<p><span class="math display">\[
+\chi_A(\lambda) = \det(A - \lambda I) = 0.
+\]</span></p>
+<p>Remember that the determinant of a matrix can be thought of as measuring the “volume” of the parallelepiped spanned by the columns of the matrix. Stating that <span class="math inline">\(\chi_A\)</span> only has real roots geometrically means that the “volume” of the parallelepiped spanned by the columns of <span class="math inline">\(A - \lambda I\)</span> can only be zero for real values of <span class="math inline">\(\lambda\)</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TODO: explain fully why the eigenvalues of a real symmetric matrix are real.</p>
+</div>
+</div>
+</section>
+<section id="breaking-the-symmetry" class="level2">
+<h2 class="anchored" data-anchor-id="breaking-the-symmetry">Breaking the symmetry</h2>
+<p>How would we be able to have a non-symmetric auto-covariance matrix? We would need to have <span class="math display">\[
+\exists i, j \in \{1, \ldots, n\} : \mathbb{E}[(X_i - \mathbb{E}(X_i))(X_j - \mathbb{E}(X_j))] \neq \mathbb{E}[(X_j - \mathbb{E}(X_j))(X_i - \mathbb{E}(X_i))].
+\]</span></p>
+<p>Here, let us first establish without loss of generality that all <span class="math inline">\(X_i\)</span> are centered, i.e.&nbsp;<span class="math inline">\(\mathbb{E}(X_i) = 0\)</span> for all <span class="math inline">\(i\)</span>. Then the above condition can be rewritten as:</p>
+<p><span class="math display">\[
+\exists i, j \in \{1, \ldots, n\} : \mathbb{E}[X_i X_j] \neq \mathbb{E}[X_j X_i].
+\]</span></p>
+<p>The multiplication of real random variables is commutative, as it is lifted from the multiplication of real numbers. We will have to consider a non-commutative multiplication to break the symmetry of the auto-covariance matrix, obviously! We can now move over to another ring. In this example, we will consider <span class="math inline">\(\mathbb{H}\)</span>, the ring of quaternions, which is a non-commutative extension of the complex numbers. The quaternions are defined as:</p>
+<p><span class="math display">\[
+\mathbb{H} := \{a + bi + cj + dk : a, b, c, d \in \mathbb{R}, i^2 = j^2 = k^2 = ijk = -1\}
+\]</span></p>
+<p>Alternatively, we could mod out the the following ideal from the polynomial ring <span class="math inline">\(\mathbb{R}[i,j,k]\)</span>:</p>
+<p><span class="math display">\[
+\mathbb{H} \cong_\text{Ring} \mathbb{R}[i,j,k] / (i^2 + 1, j^2 + 1, k^2 + 1, ij - k, jk - i, ki - j).
+\]</span></p>
+<p>We call the elements <span class="math inline">\(bi + cj + dk\)</span> <em>imaginary</em>, in analogy to the complex numbers. The elements <span class="math inline">\(a\)</span> are called <em>real</em>.</p>
+<p>We get an obvious injection:</p>
+<p><span class="math display">\[
+\iota : \mathbb{R}^3 \hookrightarrow \mathbb{H}, \\
+\iota(x,y,z) = xi + yj + zk.
+\]</span></p>
+<p>and by using <span class="math inline">\(jk = i\)</span> we can find a non-symmetric auto-covariance matrix:</p>
+<p><span class="math display">\[
+X := \begin{bmatrix}
+0 \\
+i \\
+j
+\end{bmatrix} \implies \text{cov}(X) = \begin{bmatrix}
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; ij \\
+0 &amp; ji &amp; 0
+\end{bmatrix} = \begin{bmatrix}
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; k \\
+0 &amp; -k &amp; 0
+\end{bmatrix} \neq \text{cov}(X)^T.
+\]</span></p>
+<p>and this matrix has imaginary eigenvalues <span class="math inline">\(\pm k\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TODO: add calculations for the eigenvalues of the above matrix.</p>
+<p>TODO: explain how this relates to the rotation of data.</p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
