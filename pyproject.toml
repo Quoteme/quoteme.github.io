@@ -14,6 +14,7 @@ dependencies = [
     "networkx>=3.6.1",
     "numba>=0.61.2",
     "numpy>=2.4.2",
+    "numpy-quaternion>=2024.0.13",
     "pandas>=3.0.1",
     "persim>=0.3.8",
     "pip>=26.0.1",

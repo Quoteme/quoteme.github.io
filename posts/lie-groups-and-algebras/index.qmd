@@ -265,6 +265,11 @@ A one-parameter subgroup, although called a "subgroup", is just a morphism from 
 
 The main benefit here is, that we can now choose directions in the Lie algebra given a lie group, and we can (by currying) walk along the geodesic that starts at the identity element of the Lie group and has the chosen direction (and velocity!) for any amount of time we like.
 
+:::{.callout-note}
+See also <https://happel.ai/math/powerseries_sin.html> some previous work I did
+about the exponential function and eulers identity.
+:::
+
 ### The exponential map in Minecraft
 
 So in minecraft, you are normally given a "spawn point" $p \in \mathbb{R}^3$. Players can then move around in this world by pressing the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd>, <kbd>Space</kbd> and <kbd>Shift</kbd> keys, which correspond to moving forward, left, backward, right, up and down respectively. Assuming that minecraft would be infinitly big and players could move freely without collision detection, this would already form a lie group (in this case $(\mathbb{R}^3, +)$). But players can also move their camera! So in this case, the underlying manifold would be more like $\mathbb{R}^3 \times S^2$, where $S^2$ encodes the camera orientation. By using two angles for $S^2$, we can define each possible point in this manifold using three numbers $(x,y,z, \phi, \psi)$.

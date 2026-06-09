@@ -14,9 +14,10 @@ format:
     code-fold: true
 ---
 
-I am currently writing my masters thesis about the connection between
-a generalization of the reidemeister-torsion (called $\ell^2$-alexander torsion)
-and the [thurston norm](https://en.wikipedia.org/wiki/Thurston_norm) of 3-manifolds.
+I am currently writing my masters thesis about the connection between a
+generalization of the reidemeister-torsion (called $\ell^2$-alexander torsion)
+and the [thurston norm](https://en.wikipedia.org/wiki/Thurston_norm) of
+3-manifolds.
 
 Check it out, if you like:
 
@@ -27,9 +28,13 @@ Check it out, if you like:
 
 [Masterarbeit.pdf](/masterarbeit)
 
+Some pictures of it can be found here:
+<https://www.instagram.com/stories/highlights/18097883624515441/>
+
 ## Analyzing My Progress
 
-I reuse some code i have from [my post where I analyze my NixOS GitHub repository](/posts/nixos-git-analysis/).
+I reuse some code i have from [my post where I analyze my NixOS GitHub
+repository](/posts/nixos-git-analysis/).
 
 ```{python}
 import os
@@ -388,9 +393,14 @@ poly_trig_fig.show()
 
 # Conclusion
 
-From the commit graph we can see that I was pretty lazy for the first three months.
-Admittedly, during christmas break I was mostly occupied with my family and friends.
-Starting january fifth however, I have been very productive and have made a lot of commits in a short time.
+From the commit graph we can see that I was pretty lazy for the first three
+months. Admittedly, during christmas break I was mostly occupied with my family
+and friends. Starting january fifth however, I have been very productive and
+have made a lot of commits in a short time.
 
-One can clearly see on january 25th that my laptop broke and my work-laptop was confiscated by the university, because of some bureaucratic nonsense. This left me around one month without any working computer, which is reflected in the complete lack of commits during that time.
-Luckily I was able to repair my laptop and get back to work aruond one month later, which led to the second spike in commits.
+One can clearly see on january 25th that my laptop broke and my work-laptop was
+confiscated by the university, because of some bureaucratic nonsense. This left
+me around one month without any working computer, which is reflected in the
+complete lack of commits during that time. Luckily I was able to repair my
+laptop and get back to work aruond one month later, which led to the second
+spike in commits.
