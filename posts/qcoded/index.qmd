@@ -1,0 +1,37 @@
+---
+title: "Qcoded: the website I built when I was 13"
+author: "Luca Leon Happel"
+date: "2014-12-13"
+categories: ["computer science", "game dev", "nostalgia", "English"]
+image: "thumbnail.gif"
+abstract: |
+  Back in 2014, at 13 years old, I ran a small German indie game dev website called
+  Qcoded. I built small games in my free time and used the site to host and share them.
+  Here's a glimpse of what it looked like.
+---
+
+Back in 2014, when I was 13 years old, I created my first publically accessible
+website "Qcoded". I uploaded some games and experiments I built in my spare time
+on it. Back then, HTML5 was the new and hot stuff, which everyone was talking
+about, so building games in it just seemed like the most natural thing I could
+do after all!
+
+You can either visit the archived version on the Wayback Machine (wow, kinda
+impressed myself here, that I thought about doing this way back when haha):
+
+[Qcoded (archived, December
+2014)](https://web.archive.org/web/20141213203331/http://www.qcoded.de/)
+
+or you can visit it from [my github pages instance](/qcoded).
+
+The games should all work fine (hopefully?). Please feel invited into this small
+piece of nostalgie which I would like to share with you!
+
+(Wondering how I manager to buy my own domain and host a website on it at 13
+years of age? Lol, I used Nitrado! Back then, a large german youtuber called
+"Gronkh" was *the* talk of the playground. All the kids liked him and we watched
+all his YouTube videos. He hosted his gaming sessions on Nitrados servers, and
+afaik he also advertised for them? idk though. I just used PaySafe cards, which
+I could buy at local kiosks from my allowance, funneled this money into a server
+hosted by Nitrado and somehow also was able to secure the domain
+<https://qcoded.de>.)

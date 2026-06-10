@@ -1,0 +1,18 @@
+---
+title: "Rational Points on Elliptic Curves"
+author: "Luca Leon Happel"
+date: "2021-05-21"
+categories: ["mathematics", "algebraic geometry", "English"]
+image: "thumbnail.png"
+abstract: |
+  A presentation I gave in a seminar on elliptic curves, covering the
+  Weierstraß normal form and the group law on elliptic curves.
+---
+
+This was the presentation I gave in the context of a seminar about elliptic
+curves, covering Chapter 1.3 (Weierstraß normal form) and Chapter 1.4 (explicit
+formulas for the group law) from Silverman & Tate.
+
+[View the presentation](/rpoec/presentation/)
+
+<iframe src="/rpoec/presentation/" style="width:100%; aspect-ratio: 4 / 3"/>
