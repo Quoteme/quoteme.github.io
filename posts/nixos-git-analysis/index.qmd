@@ -444,33 +444,19 @@ js: str = f"""
 HTML(h1_html + h2_html + js)
 ```
 
-Let's understand the data: I worked on this repository almost every other day
-for four years. The `modules/hardware/laptops/` folder gives us useful insights
-for hardware usage (changes there almost exclusively reflect hardware-level
-adjustments). Hover over any laptop entry in the file tree to see its commit
-timeline highlighted.
+Hover over any file in the tree to see when it was touched in the commit
+graph, or hover a commit to see which files it changed. Hovering `./xmonad`
+for example shows a continuous stretch of work that ends on February 4th,
+2023, when I [removed Xmonad from my
+config](https://github.com/Quoteme/nixos/commit/ea730ec).
 
-For a more precise picture of any given period, select a file node and zoom into
-the commit graph. Individual commit messages are highlighted then to indicate
-when this file was changed.
-
-Hovering over `./xmonad` for example reveals a continuous stretch of
-development, ending abruptly on February 4th, 2023, when I [removed Xmonad from
-my config](https://github.com/Quoteme/nixos/commit/ea730ec). A quiet end to a
-chapter.
-
-One caveat on interpreting the hardware files: I used Xmonad heavily on my
-ThinkPad, yet the ThinkPad config itself shows relatively few commits. This is
-expected --- hardware configuration tends to stabilize quickly, and day-to-day
-software choices (window manager, shell, editor) live elsewhere in the repo. A
-full picture of which software ran on which machine would require
-cross-referencing the hardware files with the broader module history, which is
-left as an exercise for the curious reader.
+Note that `modules/hardware/laptops/` shows fewer commits than you'd expect.
+Hardware config stabilizes fast; window manager and shell stuff lives
+elsewhere.
 
 ### Statistical Analysis of Commit History
 
-We fit a linear model $f(x) = mx + b$ to the cumulative commit count over time,
-giving a rough baseline for the long-term commit rate.
+Linear fit on the cumulative commit count, to get a baseline commit rate:
 
 ```{python}
 from scipy.stats import linregress
@@ -490,8 +476,6 @@ print(f"Estimated commits/day: {slope:.2f}")
 print(f"R² value: {r_value**2:.4f}")
 ```
 
-And we may plot the cumulative commit count along with the fitted line:
-
 ```{python}
 import matplotlib.pyplot as plt
 plt.figure(figsize=(10, 5))
@@ -510,15 +494,13 @@ plt.show()
 
 ### Topological Data Analysis of the time series of commits
 
-A natural question is whether the commit activity has any **periodic structure**
---- weekly rhythms, bursts of activity followed by quiet stretches, etc.
-Topological Data Analysis (TDA) lets us answer this without assuming a
-particular model. We embed the scalar commit-time series into a
-higher-dimensional point cloud via a *sliding-window* (Takens-style) embedding
-and then compute its **persistent homology** with
-[ripser](https://github.com/scikit-tda/ripser.py). Loops ($H_1$ classes) in the
-resulting diagram indicate periodic structure whose lifetime (persistence =
-death − birth) reflects how pronounced the cycle is.
+Does the commit activity have any periodic structure? Weekly rhythms,
+bursts followed by quiet stretches? TDA can answer this without picking a
+model: embed the time series via a *sliding-window* (Takens-style)
+embedding, then compute its persistent homology with
+[ripser](https://github.com/scikit-tda/ripser.py). Loops in $H_1$ mean
+periodic structure; persistence (death minus birth) means how strong the
+cycle is.
 
 ```{python}
 import numpy as np
@@ -530,7 +512,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 # ── 1. Build an oscillatory scalar time series ────────────────────────────────
 # The previous attempt embedded the raw (monotonically-increasing) commit
-# timestamps directly.  A monotone signal unrolls as a *line* in R^w — no
+# timestamps directly.  A monotone signal unrolls as a *line* in R^w, with no
 # loops, no H1.  For Takens embedding to reveal periodic structure the
 # underlying signal must itself oscillate.  We therefore count commits per day
 # and use that as the signal: it rises and falls with weekly/monthly rhythm.
@@ -595,13 +577,13 @@ matplotlib.rcParams.update({
 
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
-# — Persistence diagram —
+# Persistence diagram
 plot_diagrams(diagrams, ax=axes[0], show=False)
 axes[0].set_title("Persistence diagram", fontsize=13)
 axes[0].set_xlabel("Birth")
 axes[0].set_ylabel("Death")
 
-# — H1 barcode (sorted by persistence) —
+# H1 barcode (sorted by persistence)
 ax = axes[1]
 if len(h1):
     order = np.argsort(h1[:, 1] - h1[:, 0])[::-1]
@@ -626,24 +608,14 @@ plt.savefig("tda_commit_times.png", dpi=150, bbox_inches="tight", transparent=Tr
 plt.show()
 ```
 
-The **persistence diagram** plots each topological feature as a point $(b, d)$
-where $b$ is the *birth* and $d$ is the *death* filtration value; features far
-from the diagonal are the most significant. The **barcode** shows the same
-information as horizontal bars --- long bars in $H_1$ indicate genuine periodic
-structure in the commit history.
+In the persistence diagram, points far from the diagonal are the
+significant ones. The barcode shows the same thing as horizontal bars.
 
 ::: {.callout-note}
-**Why not embed the raw timestamps?** The commit timestamps form a
-*monotonically increasing* sequence. A sliding window over a monotone signal
-traces out a line (or arc) in $\mathbb{R}^w$ --- a contractible shape with
-trivial $H_1$. For Takens-style embedding to detect loops, the signal must
-*oscillate*. We therefore use the **daily commit count**, which rises and falls
-with the underlying weekly work rhythm, and set the window width $w = 14 > 7$
-(the expected period) so that a full oscillation cycle can close into a loop
-inside the embedding space.
-
-See the daily commit count plot below for a visual confirmation of the weekly
-rhythm:
+Why not embed the raw timestamps? They're monotonic, so a sliding window
+just traces a line in $\mathbb{R}^w$ with trivial $H_1$. The signal has to
+oscillate. So we use the daily commit count instead, with window
+$w = 14 > 7$ so a weekly cycle can actually close into a loop.
 
 ```{python}
 plt.figure(figsize=(10, 3))
@@ -659,95 +631,36 @@ plt.show()
 
 :::
 
-A prominent long $H_1$ bar corresponds to a \~weekly commit cycle: commit
-activity rises and falls on a roughly seven-day rhythm, which is exactly what we
-would expect from a person working on their system configuration primarily on
-evenings and weekends.
-
-#### Meaning of the TDA results
-
-The dense cluster of $H_0$ points near the diagonal of the persistence diagram
-tells us that connected components in the point cloud merge at very small scales
---- there are no true "gaps" in the signal (no long stretches of complete
-inactivity), which is consistent with committing almost every other day over the
-whole four-year span.
-
-More interesting are the $H_1$ points. Many of them land well away from the
-diagonal, with persistence $> 0.2$, confirming that real loops exist in the
-embedding: the daily commit count genuinely oscillates rather than being
-structureless noise.
-
-The $H_1$ barcode reinforces this. Rather than a single dominant long bar (which
-would indicate one clean, regular period), there are many persistent bars spread
-across multiple filtration scales. This topological fingerprint indicates
-*quasi-periodic* patterns. Maybe a \~weekly work/rest rhythm whose amplitude
-varies in short scales like days or weeks? Some days a flurry of commits, others
-barely one --- Nah, that is common in programmers, if you know.
-
-These small holes are layered on top of longer semester-scale bursts and lulls.
-The result is the fan shape visible in the barcode, where the top features
-(highest persistence, most significant) gradually give way to a dense cloud of
-short-lived noise features near filtration value\~0.
-
 ### Evaluation
 
-Looking back at four years of commits, here is my verdict:
+Kinda obvious I work on my NixOS config every other day, but nice to see it
+confirmed. Testament to how addictive NixOS is, I guess. You probably catch
+Nix-fever harder if you're into reproducible stuff and hacking, idk.
 
-#### The git graph
-
-It's kinda obvious that I spend almost every second day working on my NixOS
-configuration, but it's still nice to see that confirmed visually (see graphs)
-and also quantitatively (see linear regression). Just a testament to the
-addicitiveness of NixOS, I guess. Presumably you are more at risk of getting the
-Nix-fever, if you are into reproducible, accurate programming and possibly into
-hacking stuff? Idk, but that might be worth investigating in the future.
-
-#### Commit cadence and TDA
-
-Using these tools to analyse the sliding window embedding of the daily commit
-count, we see my work is more aking to energy spikes every 1-2 days, but these
-smoothen ou tover time, albeit there are some "obsessive" periods, where
-features are pushed at rapid pace, whereas the converse cannot be found (i.e. I
-never really "shut down" for many days in a row).
-
-Kinda self explanatory though; If you like the work you do, you do not need
+The TDA tells me my work shows up as energy spikes every 1-2 days that
+smoothen out over time. There are some "obsessive" periods where features
+get pushed rapidly, but the converse never really happens, I don't "shut
+down" for many days in a row. If you like the work you do, you do not need
 rest, it already is the rest you need.
 
-In concise and rigorous terms:
-
-- $H_0$ features confirm the connected components in the sliding window
-  embedding merge at very small scales, meaning no long stretches of complete
-  inactivity
-- $H_1$ features confirm the presence of genuine loops in the embedding,
-  indicating that the daily commit count oscillates with a short periodicity
-  (weekly or possibly less). Indicating organic work, as a passion project
-  should have?
+So: $H_0$ confirms no long stretches of inactivity. $H_1$ shows real loops,
+meaning the daily commit count oscillates on a short period (roughly
+weekly). Organic work, like a passion project should be.
 
 ## Privacy and Security Considerations
 
-Publishing my system configuration openly is does come with dangers. My public
-NixOS config exposes my hardware inventory, software stack, and commit cadence.
-Why do I not care about that? I share mine because I make sure to share nothing
-sensitive: secrets are not managed by NixOS and never enter the repository,
-credentials are never hardcoded, and all hardware-identifying information is
-either innocuous or intentionally public.
+Publishing my config openly exposes my hardware inventory, software stack,
+and commit cadence. Why do I not care? Because no secrets are managed by
+NixOS or enter the repo, no credentials are hardcoded, and the
+hardware-identifying stuff is either innocuous or already public.
 
-That said, it is worth being explicit about the threat model. Even a "clean"
-config repo leaks information through indirect channels --- commit timing, file
-naming patterns, and diff content. The analysis below demonstrates exactly what
-an adversary could extract with nothing more than read access to the public git
-history.
+Still, even a "clean" repo leaks via commit timing, file names, and diff
+content. Let's see what someone could actually extract.
 
 ### Exploit Analysis
 
-The following checks cover the three most common accidental disclosure vectors
-in repositories:
-
-- sensitive keywords in commit messages (e.g. `api`, `key`, `password`,
-  `secret`, `token`)
-- sensitive keywords in tracked file paths
-- sensitive keywords appearing anywhere in historical diffs --- including lines
-  that were later deleted
+I scan for sensitive keywords in commit messages, file paths, and
+historical diffs (including lines later deleted):
 
 ```{python}
 import re
@@ -804,7 +717,7 @@ def kw(words):
 
 parts = []
 
-parts.append(f"<h4>1. Commit messages — {len(msg_hits)} hit(s)</h4>")
+parts.append(f"<h4>1. Commit messages: {len(msg_hits)} hit(s)</h4>")
 if msg_hits:
     rows = "".join(
         f"<tr><td><code>{sha}</code></td><td>{msg}</td><td>{kw(words)}</td></tr>"
@@ -816,7 +729,7 @@ if msg_hits:
 else:
     parts.append("<p>✓ No sensitive keywords found in commit messages.</p>")
 
-parts.append(f"<h4>2. File paths — {len(path_hits)} hit(s)</h4>")
+parts.append(f"<h4>2. File paths: {len(path_hits)} hit(s)</h4>")
 if path_hits:
     rows = "".join(
         f"<tr><td><code>{path}</code></td><td>{kw(words)}</td></tr>"
@@ -828,7 +741,7 @@ if path_hits:
 else:
     parts.append("<p>✓ No sensitive keywords found in file paths.</p>")
 
-parts.append(f"<h4>3. Commit diffs — {len(diff_hits)} hit(s)</h4>")
+parts.append(f"<h4>3. Commit diffs: {len(diff_hits)} hit(s)</h4>")
 if diff_hits:
     rows = "".join(
         f"<tr><td><code>{sha}</code></td><td>{date}</td>"
@@ -847,23 +760,18 @@ else:
 HTML("\n".join(parts))
 ```
 
-The results above show, concretely, what an attacker could find out from the
-public commit history. The diff scan is most thorough: we search through code,
-even if it was subsequently deleted.
+The diff scan is the most thorough since it catches deleted code too. Use
+broad keyword matches like `apik` (prefix for `apikey`).
 
-Make sure to use broad keyword matches for terms such as `apik`, as this is a
-common prefix for `apikey`, or similar.
-
-Nevertheless, the one entry worth noting is:
+The one entry worth noting:
 
 ```nix
 users.users.root.initialHashedPassword = ""
 ```
 
-An empty `initialHashedPassword` is intentional here --- it disables
-password-based root login entirely on a freshly installed system, forcing the
-user to set credentials interactively on first boot. This is a deliberate
-hardening choice, not an oversight.
+Empty `initialHashedPassword` is intentional. It disables password-based
+root login on first install, so I have to set credentials interactively
+the first time I boot.
 
 ## Conclusion
 
