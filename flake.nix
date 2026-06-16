@@ -38,10 +38,16 @@
           config.allowUnfree = true;
           overlays = [
             (self: super: {
-              quarto = super.quarto.override {
-                extraRPackages = [ ];
-                extraPythonPackages = pythonPackages;
-              };
+              quarto =
+                (super.quarto.override {
+                  extraPythonPackages = pythonPackages;
+                }).overrideAttrs
+                  (oldAttrs: {
+                    postPatch = (oldAttrs.postPatch or "") + ''
+                      substituteInPlace bin/quarto.js \
+                        --replace-fail "syntax-highlighting" "highlight-style"
+                    '';
+                  });
             })
           ];
         };
