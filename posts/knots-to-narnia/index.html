@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Knots to Narnia – Luca Happel’s personal website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,10 +77,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -121,7 +124,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 <meta property="og:title" content="Knots to Narnia – Luca Happel’s personal website">
 <meta property="og:description" content="Luca Happel’s personal website, including lots of math and computer science.">
 <meta property="og:image" content="https://avatars2.githubusercontent.com/u/6796009">
-<meta property="og:site_name" content="Luca Happel's personal website">
+<meta property="og:site_name" content="Luca Happel’s personal website">
 <meta name="twitter:title" content="Knots to Narnia – Luca Happel’s personal website">
 <meta name="twitter:description" content="Luca Happel’s personal website, including lots of math and computer science.">
 <meta name="twitter:image" content="https://avatars2.githubusercontent.com/u/6796009">
@@ -174,7 +177,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -313,7 +316,7 @@ window.Quarto = {
 <div id="cell-fig-torus" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numba <span class="im">as</span> nb</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numba <span class="im">import</span> njit, prange</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -521,7 +524,7 @@ window.Quarto = {
 <span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>             torus_R, torus_r, light,</span>
 <span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>             max_steps<span class="op">=</span><span class="dv">256</span>, max_dist<span class="op">=</span><span class="fl">50.0</span>, hit_eps<span class="op">=</span><span class="fl">1e-4</span>)</span>
 <span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>show_render(img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>show_render(img)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-torus" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -544,7 +547,7 @@ Figure&nbsp;1: The unknot — a simple torus in ℝ³.
 <div id="cell-fig-torus-arrow" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@njit</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@njit</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sdf_cylinder(p, radius, half_height):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""SDF for an infinite-height cylinder along the y-axis,</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    capped at -half_height and +half_height."""</span></span>
@@ -709,7 +712,7 @@ Figure&nbsp;1: The unknot — a simple torus in ℝ³.
 <span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>    <span class="dv">256</span>, <span class="fl">50.0</span>, <span class="fl">1e-4</span></span>
 <span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>show_render(img2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>show_render(img2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-torus-arrow" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -731,7 +734,7 @@ Figure&nbsp;2: A torus (the unknot) with an arrow passing through it — the gat
 <div id="cell-fig-portal" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@njit</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@njit</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> estimate_normal_two_tori(p, torus_R, torus_r, torus_cx_L, torus_cx_R):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    eps <span class="op">=</span> <span class="fl">1e-4</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> np.empty(<span class="dv">3</span>)</span>
@@ -869,7 +872,7 @@ Figure&nbsp;2: A torus (the unknot) with an arrow passing through it — the gat
 <span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>    <span class="dv">256</span>, <span class="fl">50.0</span>, <span class="fl">1e-4</span></span>
 <span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>show_render(img3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>show_render(img3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-portal" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -891,7 +894,7 @@ Figure&nbsp;3: Two tori as portals — light rays passing through one hole are t
 <div id="cell-fig-rope-animation" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.animation <span class="im">import</span> FuncAnimation</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.animation <span class="im">import</span> FuncAnimation</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1194,7 +1197,7 @@ Figure&nbsp;3: Two tori as portals — light rays passing through one hole are t
 <span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a>anim <span class="op">=</span> FuncAnimation(fig, update, frames<span class="op">=</span>N_FRAMES, interval<span class="op">=</span><span class="dv">100</span>, blit<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a>plt.close(fig)</span>
-<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a>HTML(anim.to_html5_video())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a>HTML(anim.to_html5_video())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="fig-rope-animation" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="4">
 <figure class="quarto-float quarto-float-fig figure">
@@ -4879,13 +4882,14 @@ Figure&nbsp;4: A rope entering the left portal and emerging from the right — t
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

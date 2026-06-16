@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Applying topological data analysis to 4 years of NixOS usage – Luca Happel’s personal website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,10 +77,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -124,7 +127,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 <meta property="og:title" content="Applying topological data analysis to 4 years of NixOS usage – Luca Happel’s personal website">
 <meta property="og:description" content="Luca Happel’s personal website, including lots of math and computer science.">
 <meta property="og:image" content="https://happel.ai/posts/nixos-git-analysis/thumbnail.png">
-<meta property="og:site_name" content="Luca Happel's personal website">
+<meta property="og:site_name" content="Luca Happel’s personal website">
 <meta property="og:image:height" content="392">
 <meta property="og:image:width" content="802">
 <meta name="twitter:title" content="Applying topological data analysis to 4 years of NixOS usage – Luca Happel’s personal website">
@@ -180,7 +183,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -403,7 +406,7 @@ Note
 <div id="90ec7b96" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> functools</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
@@ -423,7 +426,7 @@ Note
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total commits: </span><span class="sc">{</span><span class="bu">len</span>(commits)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"First commit: </span><span class="sc">{</span>datetime<span class="sc">.</span>fromtimestamp(commits[<span class="op">-</span><span class="dv">1</span>].committed_date)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Last commit: </span><span class="sc">{</span>datetime<span class="sc">.</span>fromtimestamp(commits[<span class="dv">0</span>].committed_date)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Avg. time between commits: </span><span class="sc">{</span>(commits[<span class="dv">0</span>].committed_date <span class="op">-</span> commits[<span class="op">-</span><span class="dv">1</span>].committed_date) <span class="op">/</span> <span class="bu">len</span>(commits) <span class="op">/</span> <span class="dv">3600</span><span class="sc">:.2f}</span><span class="ss"> hours"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Avg. time between commits: </span><span class="sc">{</span>(commits[<span class="dv">0</span>].committed_date <span class="op">-</span> commits[<span class="op">-</span><span class="dv">1</span>].committed_date) <span class="op">/</span> <span class="bu">len</span>(commits) <span class="op">/</span> <span class="dv">3600</span><span class="sc">:.2f}</span><span class="ss"> hours"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Total commits: 749
@@ -435,7 +438,7 @@ Avg. time between commits: 50.09 hours</code></pre>
 <div id="a6a6b013" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> PurePosixPath</span>
@@ -747,7 +750,7 @@ Avg. time between commits: 50.09 hours</code></pre>
 <span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a><span class="ch">}}</span><span class="ss">)();</span></span>
 <span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/script&gt;"""</span></span>
 <span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a>HTML(h1_html <span class="op">+</span> h2_html <span class="op">+</span> js)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a>HTML(h1_html <span class="op">+</span> h2_html <span class="op">+</span> js)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>                        <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
@@ -900,7 +903,7 @@ Avg. time between commits: 50.09 hours</code></pre>
 <div id="11d1de44" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> linregress</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> linregress</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ts_sorted <span class="op">=</span> np.array(<span class="bu">sorted</span>(c.committed_date <span class="cf">for</span> c <span class="kw">in</span> commits), dtype<span class="op">=</span><span class="bu">float</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>t0        <span class="op">=</span> ts_sorted[<span class="dv">0</span>]</span>
@@ -914,7 +917,7 @@ Avg. time between commits: 50.09 hours</code></pre>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>slope, intercept, r_value, p_value, std_err <span class="op">=</span> linregress(days,</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                                                        cumulative_counts)</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Estimated commits/day: </span><span class="sc">{</span>slope<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"R² value: </span><span class="sc">{</span>r_value<span class="op">**</span><span class="dv">2</span><span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"R² value: </span><span class="sc">{</span>r_value<span class="op">**</span><span class="dv">2</span><span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Estimated commits/day: 0.43
@@ -924,7 +927,7 @@ R² value: 0.9526</code></pre>
 <div id="4c9ad0d1" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.plot(days, cumulative_counts, label<span class="op">=</span><span class="st">"Cumulative commits"</span>, color<span class="op">=</span><span class="st">"#4C78A8"</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.plot(days, slope <span class="op">*</span> days <span class="op">+</span> intercept, label<span class="op">=</span><span class="ss">f"Fitted line (slope = </span><span class="sc">{</span>slope<span class="sc">:.2f}</span><span class="ss"> commits/day)"</span>, color<span class="op">=</span><span class="st">"#F58518"</span>, lw<span class="op">=</span><span class="dv">2</span>, ls<span class="op">=</span><span class="st">"--"</span>)</span>
@@ -936,7 +939,7 @@ R² value: 0.9526</code></pre>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"cumulative_commits.png"</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">"tight"</span>, transparent</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -953,7 +956,7 @@ R² value: 0.9526</code></pre>
 <div id="d0e3d362" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ripser <span class="im">import</span> ripser</span>
@@ -983,7 +986,7 @@ R² value: 0.9526</code></pre>
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Signal length : </span><span class="sc">{</span><span class="bu">len</span>(signal)<span class="sc">}</span><span class="ss"> days"</span>)</span>
 <span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Non-zero days : </span><span class="sc">{</span>np<span class="sc">.</span>count_nonzero(daily_counts)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Max commits/day: </span><span class="sc">{</span><span class="bu">int</span>(daily_counts.<span class="bu">max</span>())<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Max commits/day: </span><span class="sc">{</span><span class="bu">int</span>(daily_counts.<span class="bu">max</span>())<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Signal length : 1564 days
@@ -1000,7 +1003,7 @@ Max commits/day: 18</code></pre>
 <div id="b1610077" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 2. Sliding-window (Takens) embedding ─────────────────────────────────────</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 2. Sliding-window (Takens) embedding ─────────────────────────────────────</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Window w = 14 captures ≈ two weeks so that a 7-day cycle can close into a</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># loop inside the embedding space (the loop needs at least w &gt; period points).</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Stride = 1 keeps every window; reduce if the cloud is too large.</span></span>
@@ -1012,7 +1015,7 @@ Max commits/day: 18</code></pre>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    signal_norm[i : i <span class="op">+</span> w]</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(signal_norm) <span class="op">-</span> w <span class="op">+</span> <span class="dv">1</span>, stride)</span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Point cloud shape : </span><span class="sc">{</span>cloud<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">  (</span><span class="sc">{</span>cloud<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> points in ℝ^</span><span class="sc">{</span>cloud<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Point cloud shape : </span><span class="sc">{</span>cloud<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">  (</span><span class="sc">{</span>cloud<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> points in ℝ^</span><span class="sc">{</span>cloud<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Point cloud shape : (1551, 14)  (1551 points in ℝ^14)</code></pre>
@@ -1021,7 +1024,7 @@ Max commits/day: 18</code></pre>
 <div id="c7a717be" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 3. Persistent homology via Ripser ─────────────────────────────────────────</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 3. Persistent homology via Ripser ─────────────────────────────────────────</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>result   <span class="op">=</span> ripser(cloud, maxdim<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>diagrams <span class="op">=</span> result[<span class="st">"dgms"</span>]   <span class="co"># diagrams[0] = H0, diagrams[1] = H1</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1032,7 +1035,7 @@ Max commits/day: 18</code></pre>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(h1):</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    persistence <span class="op">=</span> h1[:, <span class="dv">1</span>] <span class="op">-</span> h1[:, <span class="dv">0</span>]</span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    top5 <span class="op">=</span> np.sort(persistence)[::<span class="op">-</span><span class="dv">1</span>][:<span class="dv">5</span>]</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Top-5 H1 persistence values: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">round</span>(top5, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Top-5 H1 persistence values: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">round</span>(top5, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>H0 finite features : 1065
@@ -1043,7 +1046,7 @@ Top-5 H1 persistence values: [0.3583 0.1708 0.1268 0.1217 0.1152]</code></pre>
 <div id="13d75ee3" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 4. Visualise ─────────────────────────────────────────────────────────────</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 4. Visualise ─────────────────────────────────────────────────────────────</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams.update({</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"figure.facecolor"</span>   : <span class="st">"none"</span>,</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.facecolor"</span>     : <span class="st">"none"</span>,</span>
@@ -1080,7 +1083,7 @@ Top-5 H1 persistence values: [0.3583 0.1708 0.1268 0.1217 0.1152]</code></pre>
 <span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"tda_commit_times.png"</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">"tight"</span>, transparent<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1105,7 +1108,7 @@ Note
 <div id="5eca452e" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">3</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">3</span>))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.plot(signal, color<span class="op">=</span><span class="st">"#4C78A8"</span>, lw<span class="op">=</span><span class="fl">1.5</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Daily commit count (3-day rolling average)"</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Days since first commit"</span>)</span>
@@ -1113,7 +1116,7 @@ Note
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>plt.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"daily_commit_count.png"</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">"tight"</span>, transparent<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1143,7 +1146,7 @@ Note
 <div id="62709686" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>SENSITIVE <span class="op">=</span> [</span>
@@ -1237,12 +1240,12 @@ Note
 <span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a>    parts.append(<span class="st">"&lt;p&gt;✓ No sensitive keywords found in diffs.&lt;/p&gt;"</span>)</span>
 <span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a>HTML(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>.join(parts))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a>HTML(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>.join(parts))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <h4 class="anchored">1. Commit messages: 8 hit(s)</h4>
 
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">SHA</th>
@@ -1296,7 +1299,7 @@ Note
 
 <h4 class="anchored">2. File paths: 1 hit(s)</h4>
 
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">Path</th>
@@ -1313,7 +1316,7 @@ Note
 
 <h4 class="anchored">3. Commit diffs: 80 hit(s)</h4>
 
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 33%">
 <col style="width: 33%">
@@ -1809,7 +1812,7 @@ Note
 <td>2022-06-08</td>
 <td style="font-size: 0.78rem"><span style="background:#fff3cd;padding:1px 3px;border-radius:2px">…+217 @@ myStartupHook = do - spawnOnce "onboard ; xdotool key 199 ; xdotool key 200" + -- spawnOnce "onboard ; xdotool…</span><br>
 <span style="background:#fff3cd;padding:1px 3px;border-radius:2px">…ook = do - spawnOnce "onboard ; xdotool key 199 ; xdotool key 200" + -- spawnOnce "onboard ; xdotool key 199 ; xdotool…</span><br>
-<span style="background:#fff3cd;padding:1px 3px;border-radius:2px">…199 ; xdotool key 200" + -- spawnOnce "onboard ; xdotool key 199 ; xdotool key 200"…</span></td>
+<span style="background:#fff3cd;padding:1px 3px;border-radius:2px">…199 ; xdotool key 200" + -- spawnOnce "onboard ; xdotool key 199 ; xdotool key 200" …</span></td>
 </tr>
 <tr class="odd">
 <td><code>dcec2d0</code></td>
@@ -1830,7 +1833,7 @@ Note
 </div>
 <p>The diff scan is the most thorough since it catches deleted code too. Use broad keyword matches like <code>apik</code> (prefix for <code>apikey</code>).</p>
 <p>The one entry worth noting:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode nix code-with-copy"><code class="sourceCode nix"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>users<span class="op">.</span>users<span class="op">.</span>root<span class="op">.</span>initialHashedPassword = <span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode nix code-with-copy"><code class="sourceCode nix"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>users<span class="op">.</span>users<span class="op">.</span>root<span class="op">.</span>initialHashedPassword = <span class="st">""</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Empty <code>initialHashedPassword</code> is intentional. It disables password-based root login on first install, so I have to set credentials interactively the first time I boot.</p>
 </section>
 </section>
@@ -1901,13 +1904,14 @@ Note
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

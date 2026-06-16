@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>The exponential map of lie groups – Luca Happel's personal website</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,10 +77,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -121,7 +124,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 <meta property="og:title" content="The exponential map of lie groups – Luca Happel’s personal website">
 <meta property="og:description" content="Luca Happel’s personal website, including lots of math and computer science.">
 <meta property="og:image" content="https://avatars2.githubusercontent.com/u/6796009">
-<meta property="og:site_name" content="Luca Happel's personal website">
+<meta property="og:site_name" content="Luca Happel’s personal website">
 <meta name="twitter:title" content="The exponential map of lie groups – Luca Happel’s personal website">
 <meta name="twitter:description" content="Luca Happel’s personal website, including lots of math and computer science.">
 <meta name="twitter:image" content="https://avatars2.githubusercontent.com/u/6796009">
@@ -173,7 +176,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -253,7 +256,7 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title"><p>The exponential map of lie groups</p></h1>
-            <p class="subtitle lead"></p><p>Or: what <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span> actually are all about and some funny connections betwee <em>machine learning</em>, <em>sailing</em> and the <em>stock market</em></p><p></p>
+            <p class="subtitle lead">Or: what <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\pi\)</span> actually are all about and some funny connections betwee <em>machine learning</em>, <em>sailing</em> and the <em>stock market</em></p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">algebra</div>
                 <div class="quarto-category">geometry</div>
@@ -379,12 +382,12 @@ A = m \cdot e^{x}
 <section id="the-lie-group-of-rotations-so3" class="level3">
 <h3 class="anchored" data-anchor-id="the-lie-group-of-rotations-so3">The Lie group of rotations: <span class="math inline">\(SO(3)\)</span></h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What is a Lie group?
+<span class="screen-reader-only">Note</span>What is a Lie group?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -406,7 +409,7 @@ What is a Lie group?
 </ul>
 <p><strong>Weird but useful example:</strong> Adding interest to your bank account like the stock market does is a Lie group action: One month you gain say 5%, so if you started with <span class="math inline">\(x\text{€}\)</span>, you will have <span class="math inline">\(x\text{€} \cdot 1.05\)</span> after that month. The next month you gain 3%, so you will have <span class="math inline">\(x\text{€} \cdot 1.05 \cdot 1.03\)</span>. Now, if the following month, you lose 8%, you will have <span class="math inline">\(x\text{€} \cdot 1.05 \cdot 1.03 \cdot 0.92\)</span>. If you started with <span class="math inline">\(x=1000\text{€}\)</span>, then you would be left with:</p>
 <div id="82187bac" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1000</span> <span class="op">*</span> <span class="fl">1.05</span> <span class="op">*</span> <span class="fl">1.03</span> <span class="op">*</span> <span class="fl">0.92</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1000</span> <span class="op">*</span> <span class="fl">1.05</span> <span class="op">*</span> <span class="fl">1.03</span> <span class="op">*</span> <span class="fl">0.92</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>994.98</code></pre>
 </div>
@@ -519,12 +522,12 @@ Sailing by varying the angle <span class="math inline">\(\textcolor{teal}{\alpha
 <p>This is similar to video game character movement, where you have a discrete set of controls (e.g.&nbsp;move forward, turn left, turn right) that you can apply repeatedly to navigate the character through the game world. For each frame that passed/tick inside the game which took a time <span class="math inline">\(\Delta t\)</span> to execute, you apply a small change <span class="math inline">\(\Delta v\)</span> to the character’s position and orientation, and by applying these changes repeatedly, you can create smooth movement through the game world. If we were to double our tick speed (i.e.&nbsp;halve <span class="math inline">\(\Delta t\)</span>), we would need to apply these smaller changes <span class="math inline">\(\Delta v\)</span> twice as often to achieve the “same movement”, albeit with smoother results! This is exactly the same as the limit definition of the exponential function, where we apply smaller and smaller changes more and more often to achieve a smooth transformation.</p>
 <p>These directions (<span class="math inline">\(\color{orange}{\phi}\)</span>, <span class="math inline">\(\color{purple}{\psi}\)</span>, <span class="math inline">\(\color{teal}{\alpha}\)</span> for smaller and smaller angles) form a vector space called the Lie algebra <span class="math inline">\(\mathfrak{so}(3)\)</span> associated with the Lie group <span class="math inline">\(SO(3)\)</span>. This is also the tangent space of <span class="math inline">\(SO(3)\)</span> at the identity element, which is the starting point of the boat.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What is a Lie algebra?
+<span class="screen-reader-only">Note</span>What is a Lie algebra?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -637,12 +640,12 @@ L_z = \begin{pmatrix} 0&amp;-1&amp;0\\ 1&amp;0&amp;0\\ 0&amp;0&amp;0 \end{pmatri
 \]</span></p>
 <p><strong>Connection to the sailing animation:</strong> each generator <span class="math inline">\(X \in \mathfrak{so}(3)\)</span> describes an infinitesimal rotation — the direction the boat is heading at <span class="math inline">\(t=0\)</span>. Applying it over and over in tiny steps, exactly as in the videos, produces the finite rotation <span class="math inline">\(\exp(X) \in SO(3)\)</span>. This is the same limit we saw for compound interest: more, smaller steps converging to the smooth exponential.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The exponential map definition
+<span class="screen-reader-only">Note</span>The exponential map definition
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -820,13 +823,14 @@ A denoising autoencoder, which is a type of autoencoder that learns to reconstru
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
