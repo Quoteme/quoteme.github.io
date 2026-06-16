@@ -1,0 +1,42 @@
+---
+title: "Quantum (knot) invariants"
+author: "Luca Leon Happel"
+date: "2026-06-16"
+categories: ["mathematics", "quantum topology", "knot theory", "English"]
+draft: true
+# image: "thumbnail.gif"
+abstract: |
+    I have dipped my feet into an appplication for a PhD at the university of 
+    Sydney uner a long-standing (mathematical) role-model of mine, 
+    Dr. Tubbenhauer.
+    The area of research will concern itself with computing information about 
+    _quantum invariants_. But what are those?
+---
+
+:::{#def-quantum-invariants}
+A **quantum invariant** $(\frak{g}, V, \epsilon)$ is given by
+
+- a complex simple Lie algebra $\frak{g}$,
+- a finite-dimensional representation $V$ of $\frak{g}$,
+- $\epsilon \in \{0, 1\}$ specifies if we consider the _uncategorified_ ($\epsilon = 0$) or _categorified_ ($\epsilon = 1$) version of the invariant.
+
+:::
+
+Some of these terms will already be familiar from my post about Lie-groups:
+</posts/lie-groups-and-algebras/#the-lie-algebra-of-rotations-so-3>.
+
+There we defined a **Lie algebra** $(\frak{g}, [\cdot, \cdot])$ as a vector space $\frak{g}$ together with a 
+bilinear map $[\cdot, \cdot] : \frak{g} \times \frak{g} \to \frak{g}$ 
+called the **Lie bracket** satisfying:
+
+- *Antisymmetry*: $[x, y] = -[y, x]$ for all $x, y \in \frak{g}$,
+- *Jacobi identity*: $[x, [y, z]] + [y, [z, x]] + [z, [x, y]] = 0$ for all $x, y, z \in \frak{g}$.
+
+Lie algebras can be found as the tangent space at the identity of a Lie group, 
+as we have seen in the case of $\text{SO}(3)$. The Lie bracket 
+
+By prepending "complex", we propagate that attribute down to the underlying 
+vector space: $\frak{g} \in \texttt{Vect}_{\mathbb{C}}$.
+
+:::{#def-complex-simple-lie-algebra}
+:::

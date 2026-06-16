@@ -2,6 +2,7 @@
 title: "Types in model theory"
 author: "Luca Leon Happel"
 date: "2025-10-20"
+draft: true
 categories: ["math", "model theory", "English"]
 ---
 

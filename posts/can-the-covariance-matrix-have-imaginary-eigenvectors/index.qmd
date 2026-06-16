@@ -1,7 +1,7 @@
 ---
 title: "Can the covariance matrix have imaginary eigenvectors?"
 date: 2026-05-27
-categories: [math, statistics, linear algebra]
+categories: [math, statistics, linear algebra, English]
 description: "Can the covariance matrix be non-symmetric? Turns out yes, if we consider random variables that take values in a non-commutative ring. How can we construct such a random variable and what is the significance of it?"
 code-fold: true
 abstract: |

@@ -61,6 +61,7 @@ listing:
       - date
       - image
       - reading-time
+      - categories
 page-layout: full
 title-block-banner: true
 format:
