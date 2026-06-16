@@ -8,7 +8,3 @@ execute:
 
 # Enable banner style title blocks
 title-block-banner: true
-
-format:
-  html:
-    reading-time: true

@@ -55,6 +55,12 @@ listing:
     type: default
     sort-ui: true
     filter-ui: true
+    fields:
+      - title
+      - description
+      - date
+      - image
+      - reading-time
 page-layout: full
 title-block-banner: true
 format:
