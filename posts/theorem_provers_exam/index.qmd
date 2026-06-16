@@ -10,10 +10,8 @@ format:
         code-fold: true
         code-summary: "Show the code"
 image: "thumbnail.svg"
+draft: true
 ---
-
-
-> <span style="color: red">__WARNING__: This is a work in progress. I am currently writing this article and it is not finished yet. I will update it regularly and remove this warning once it is finished.</span>
 
 ::: {.hidden}
 $$
