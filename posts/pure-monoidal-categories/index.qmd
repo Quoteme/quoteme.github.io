@@ -1,0 +1,10 @@
+---
+title: "Pure (monoidal) categories"
+author: "Luca Leon Happel"
+date: "2026-06-21"
+categories: ["mathematics", "computer science", "category theory", "English"]
+draft: true
+# image: "thumbnail.gif"
+jupyter: haskell
+---
+
