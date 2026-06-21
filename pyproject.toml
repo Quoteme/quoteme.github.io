@@ -5,10 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "alectryon>=2.0.0",
     "gitpython>=3.1.46",
     "ipykernel>=7.2.0",
     "ipython>=9.11.0",
     "jupyter-cache>=1.0.1",
+    "jupyterlab>=4.5.9",
+    "lean4-jupyter",
     "matplotlib>=3.10.8",
     "mypy>=1.19.1",
     "networkx>=3.6.1",
@@ -25,3 +28,6 @@ dependencies = [
     "scipy>=1.17.1",
     "trimesh>=4.11.3",
 ]
+
+[tool.uv.sources]
+lean4-jupyter = { git = "https://github.com/utensil/lean4_jupyter.git" }

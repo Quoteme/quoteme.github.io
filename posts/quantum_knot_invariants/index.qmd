@@ -5,12 +5,25 @@ date: "2026-06-16"
 categories: ["mathematics", "quantum topology", "knot theory", "English"]
 draft: true
 # image: "thumbnail.gif"
-abstract: |
-    I have dipped my feet into an appplication for a PhD at the university of 
-    Sydney uner a long-standing (mathematical) role-model of mine, 
-    Dr. Tubbenhauer.
-    The area of research will concern itself with computing information about 
-    _quantum invariants_. But what are those?
+jupyter: lean4
+---
+
+I have previously written about the $\ell^2$-alexander torsion, [see here](../l2-alexander-torsion-thurston-norm/).
+In fact, this was the topic of my masters thesis, in which I related it to the
+thurston norm, [see here](../masterarbeit/).
+This in is very closely related to the knot theory work I have been doing during
+my masters degree in mathematics, for which I for example examined the
+peripheral system of knots and created an 
+[animation video for a talk I held about this topic](../knot-theory-peripheral-system/).
+
+All this is closely related to the alexander polynomial, a tool used in knot
+theory to distinguish between different knots (the running theme here being,
+that we use algebra to tackle topological problems).
+
+Another prominent example of an algebraic gadget used in knot theory is the
+Jones polynomial. Together, the Jones and the Alexander polynomial are examples
+of _[quantum invariants](https://en.wikipedia.org/wiki/Quantum_invariant)_.
+
 ---
 
 :::{#def-quantum-invariants}

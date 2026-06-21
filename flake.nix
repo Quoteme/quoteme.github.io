@@ -54,6 +54,8 @@
         dependencies = with pkgs; [
           quarto
           git
+          elan
+          # lean4
           # (python3.withPackages pythonPackages)
           uv
         ];
@@ -74,6 +76,24 @@
               else
                 return
               fi
+              # if "lean4" is missing from the output of `jupyter kernelspec
+              # list`, add it
+              if [! jupyter kernelspec list | grep -q "lean4"]; then
+                echo "Adding lean4 kernel to Jupyter"
+                uv run python -m lean4_jupyter.install
+              fi
+              # check if `/.lean4_jupyter/repl` exists
+              if [ ! -f "$HOME/.lean4_jupyter/repl" ]; then
+                echo "Installing lean4 repl"
+                mkdir -p .lean4_jupyter
+                git clone https://github.com/leanprover-community/repl .lean4_jupyter/repl
+                cd .lean4_jupyter/repl
+                git checkout adbbfcb9d4e61c12db96c45d227de92f21cc17dd
+                lake build
+                cd ../..
+              fi
+              # add .lean4_jupyter/repl/.lake/build/bin/repl  to PATH (from cwdA)
+              export PATH="$PATH:$(pwd)/.lean4_jupyter/repl/.lake/build/bin"
               ${pkgs.onefetch}/bin/onefetch
               uv sync
               source .venv/bin/activate

@@ -1,0 +1,12 @@
+{
+  "hash": "ab19c76a7bcc55afbe32a1b876bd5394",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Quantum (knot) invariants\"\nauthor: \"Luca Leon Happel\"\ndate: \"2026-06-16\"\ncategories: [\"mathematics\", \"quantum topology\", \"knot theory\", \"English\"]\ndraft: true\n# image: \"thumbnail.gif\"\nabstract: |\n    I have dipped my feet into an appplication for a PhD at the university of \n    Sydney uner a long-standing (mathematical) role-model of mine, \n    Dr. Tubbenhauer.\n    The area of research will concern itself with computing information about \n    _quantum invariants_. But what are those?\njupyter: lean4\n---\n\n```{lean}\n#eval 2 + 3\n```\n\n:::{#def-quantum-invariants}\nA **quantum invariant** $(\\frak{g}, V, \\epsilon)$ is given by\n\n- a complex simple Lie algebra $\\frak{g}$,\n- a finite-dimensional representation $V$ of $\\frak{g}$,\n- $\\epsilon \\in \\{0, 1\\}$ specifies if we consider the _uncategorified_ ($\\epsilon = 0$) or _categorified_ ($\\epsilon = 1$) version of the invariant.\n\n:::\n\nSome of these terms will already be familiar from my post about Lie-groups:\n</posts/lie-groups-and-algebras/#the-lie-algebra-of-rotations-so-3>.\n\nThere we defined a **Lie algebra** $(\\frak{g}, [\\cdot, \\cdot])$ as a vector space $\\frak{g}$ together with a \nbilinear map $[\\cdot, \\cdot] : \\frak{g} \\times \\frak{g} \\to \\frak{g}$ \ncalled the **Lie bracket** satisfying:\n\n- *Antisymmetry*: $[x, y] = -[y, x]$ for all $x, y \\in \\frak{g}$,\n- *Jacobi identity*: $[x, [y, z]] + [y, [z, x]] + [z, [x, y]] = 0$ for all $x, y, z \\in \\frak{g}$.\n\nLie algebras can be found as the tangent space at the identity of a Lie group, \nas we have seen in the case of $\\text{SO}(3)$. The Lie bracket \n\nBy prepending \"complex\", we propagate that attribute down to the underlying \nvector space: $\\frak{g} \\in \\texttt{Vect}_{\\mathbb{C}}$.\n\n:::{#def-complex-simple-lie-algebra}\n:::\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
