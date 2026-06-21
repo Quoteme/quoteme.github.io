@@ -88,7 +88,7 @@
         "\\end{aligned}\n",
         "$$"
       ],
-      "id": "38028cee"
+      "id": "1d576b1a"
     },
     {
       "cell_type": "code",
@@ -104,7 +104,7 @@
         "ax.grid()\n",
         "plt.show()"
       ],
-      "id": "773b8d26",
+      "id": "7fa8d8f0",
       "execution_count": null,
       "outputs": []
     },
@@ -124,7 +124,7 @@
         "\\end{aligned}\n",
         "$$"
       ],
-      "id": "1a58d86c"
+      "id": "58b33e6d"
     },
     {
       "cell_type": "code",
@@ -140,7 +140,7 @@
         "ax.grid()\n",
         "plt.show()"
       ],
-      "id": "deef6b8c",
+      "id": "3e463ae6",
       "execution_count": null,
       "outputs": []
     },
@@ -152,7 +152,7 @@
         "\n",
         "The Sierpiński-Triangle is a fractal with a dimension of $\\log(3)/\\log(2)$. The following code calculates the dimension of the Sierpiński-Triangle."
       ],
-      "id": "fea948ec"
+      "id": "b6420043"
     },
     {
       "cell_type": "code",
@@ -190,7 +190,7 @@
         "plt.legend(['Ein Sierpiński Dreieck mit Rekursionstiefe $'+str(rt)+'$'])\n",
         "plt.show()"
       ],
-      "id": "ae6bb797",
+      "id": "d729313e",
       "execution_count": null,
       "outputs": []
     },
@@ -218,7 +218,7 @@
         "plt.legend(['Durchschnittliche Anzahl an Punkten in $V_r$'])\n",
         "plt.show()"
       ],
-      "id": "ef3cc022",
+      "id": "3af79d82",
       "execution_count": null,
       "outputs": []
     },
@@ -237,7 +237,7 @@
         "plt.ylabel('$\\Delta_r$')\n",
         "plt.legend(['Durchschnittliches $\\Delta_r$', 'Hausdorff Dimension von Sierpiński-Dreieck$\\\\approx\\\\log_2(3)$'])"
       ],
-      "id": "e3aac62a",
+      "id": "415c97b7",
       "execution_count": null,
       "outputs": []
     },
@@ -250,7 +250,7 @@
         "[^3]: <https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/the-notion-of-dimension/>\n",
         "[^4]: <https://www.wolframphysics.org/technical-introduction/limiting-behavior-and-emergent-geometry/dimension-related-characterizations/>"
       ],
-      "id": "12544731"
+      "id": "b34793e6"
     }
   ],
   "metadata": {

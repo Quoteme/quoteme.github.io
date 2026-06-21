@@ -88,7 +88,7 @@
         "**Weird but useful example:** Adding interest to your bank account like the stock market does is a Lie group action:\n",
         "One month you gain say 5%, so if you started with $x\\text{€}$, you will have $x\\text{€} \\cdot 1.05$ after that month. The next month you gain 3%, so you will have $x\\text{€} \\cdot 1.05 \\cdot 1.03$. Now, if the following month, you lose 8%, you will have $x\\text{€} \\cdot 1.05 \\cdot 1.03 \\cdot 0.92$. If you started with $x=1000\\text{€}$, then you would be left with:"
       ],
-      "id": "a92c6f2f"
+      "id": "5a294f6f"
     },
     {
       "cell_type": "code",
@@ -96,7 +96,7 @@
       "source": [
         "1000 * 1.05 * 1.03 * 0.92"
       ],
-      "id": "dcee49f0",
+      "id": "c01fb331",
       "execution_count": null,
       "outputs": []
     },
@@ -403,7 +403,7 @@
         "\n",
         "Now, we can use the exponential map to move along the manifold and find those nuts and bolts that minimize the loss function."
       ],
-      "id": "d212fddf"
+      "id": "4d4bff9a"
     }
   ],
   "metadata": {

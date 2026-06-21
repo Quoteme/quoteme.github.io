@@ -98,7 +98,7 @@
         "\n",
         "We will calculate the solution approximately on a grid"
       ],
-      "id": "fbde4b10"
+      "id": "0369c628"
     },
     {
       "cell_type": "code",
@@ -146,7 +146,7 @@
         "\n",
         "fig.show()"
       ],
-      "id": "5fee0d1a",
+      "id": "2d774efd",
       "execution_count": null,
       "outputs": []
     },
@@ -172,7 +172,7 @@
         "The following implementation builds that system in a purely functional\n",
         "style (no mutable loops, only `map`, list comprehensions, and `reduce`)."
       ],
-      "id": "5b120dc2"
+      "id": "728ba0cc"
     },
     {
       "cell_type": "code",
@@ -229,7 +229,7 @@
         ")\n",
         "fig.show()"
       ],
-      "id": "c71f610f",
+      "id": "5279c0c4",
       "execution_count": null,
       "outputs": []
     },
@@ -254,7 +254,7 @@
         "`scipy.sparse` provides both `kron` and a direct sparse solver, which makes\n",
         "this the preferred approach in practice."
       ],
-      "id": "0e92ffde"
+      "id": "237adf89"
     },
     {
       "cell_type": "code",
@@ -298,7 +298,7 @@
         ")\n",
         "fig.show()"
       ],
-      "id": "e0606d5c",
+      "id": "03b245ad",
       "execution_count": null,
       "outputs": []
     },
@@ -339,7 +339,7 @@
         "\n",
         "{{< video https://www.youtube.com/watch?v=VyxMZ2vS3dI >}}"
       ],
-      "id": "73b2b375"
+      "id": "2deee1a6"
     },
     {
       "cell_type": "code",
@@ -373,7 +373,7 @@
         ")\n",
         "fig.show()"
       ],
-      "id": "5656814d",
+      "id": "ccfd6470",
       "execution_count": null,
       "outputs": []
     },
@@ -383,7 +383,7 @@
       "source": [
         "Now that we have our cow ready, lets apply a load on it. We will apply a downward load on the top of the cow, which will be represented by a negative source term $f$ in the Poisson equation. The solution $u$ will then represent the stress distribution on the cow, with higher values indicating higher stress."
       ],
-      "id": "c6f879bc"
+      "id": "f88659e7"
     },
     {
       "cell_type": "code",
@@ -460,7 +460,7 @@
         ")\n",
         "fig.show()"
       ],
-      "id": "c1503cc6",
+      "id": "2ff77970",
       "execution_count": null,
       "outputs": []
     },
@@ -470,7 +470,7 @@
       "source": [
         "And this is where i have left of so far... Maybe some day I will finish this."
       ],
-      "id": "82269fc7"
+      "id": "f6903caf"
     }
   ],
   "metadata": {
