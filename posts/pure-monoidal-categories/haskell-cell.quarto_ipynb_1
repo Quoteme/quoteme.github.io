@@ -1,0 +1,44 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "jupyter: haskell\n",
+        "---\n"
+      ],
+      "id": "5c9e97c3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "--| label: fig-player\n",
+        "--| fig-cap: 'The same example in Haskell:'\n",
+        "data Player = Player { x :: Float, y :: Float, dx :: Float, dy :: Float }\n",
+        "\n",
+        "update :: Player -> Player\n",
+        "update player = player { x = x player + dx player, y = y player + dy player }\n",
+        "\n",
+        "-- main :: IO ()\n",
+        "-- main = do\n",
+        "--   let player = Player { x = 0.0, y = 0.0, dx = 1.0, dy = 1.0 }\n",
+        "--   let updatedPlayer = update player"
+      ],
+      "id": "fig-player",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "haskell",
+      "language": "haskell",
+      "display_name": "Haskell",
+      "path": "/home/luca/Dokumente/dev/arbeit/lucah.tech/quoteme.github.io/.venv/share/jupyter/kernels/haskell"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

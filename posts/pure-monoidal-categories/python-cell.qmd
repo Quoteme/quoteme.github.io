@@ -1,0 +1,22 @@
+```{python}
+#| label: fig-player
+#| fig-cap: "Marginal distributions of bill dimensions"
+
+from dataclasses import dataclass
+
+@dataclass
+class Player:
+  x: float
+  y: float
+  dx: float
+  dy: float
+
+  def update(self) -> None:
+    self.x += self.dx
+    self.y += self.dy
+
+def main() -> None:
+  # create a new Player
+  player = Player(x=0.0, y=0.0, dx=1.0, dy=1.0)
+  player.update() # <- impure mutation of state "player"!
+```

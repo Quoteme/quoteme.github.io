@@ -1,0 +1,12 @@
+{
+  "hash": "f9087a1746f25211c166cac3ce0c1f14",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "::: {#fig-player .cell execution_count=1}\n``` {.python .cell-code}\nfrom dataclasses import dataclass\n\n@dataclass\nclass Player:\n  x: float\n  y: float\n  dx: float\n  dy: float\n\n  def update(self) -> None:\n    self.x += self.dx\n    self.y += self.dy\n\ndef main() -> None:\n  # create a new Player\n  player = Player(x=0.0, y=0.0, dx=1.0, dy=1.0)\n  player.update() # <- impure mutation of state \"player\"!\n```\n:::\n\n\n",
+    "supporting": [
+      "python-cell_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

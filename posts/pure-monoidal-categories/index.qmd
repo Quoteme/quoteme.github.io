@@ -5,6 +5,28 @@ date: "2026-06-21"
 categories: ["mathematics", "computer science", "category theory", "English"]
 draft: true
 # image: "thumbnail.gif"
-jupyter: haskell
 ---
 
+## (Im)Pure functions in Programming
+
+Haskell is known as a _pure_ functional programming language. We talked about
+pure/impure functions previously in <../interfaces_as_list_of_propositions/#interfaces-as-list-of-propositions>.
+To recapitulate: a _pure_ function is one that does not modify or depend on
+_outside state_. 
+Impure functions are ubiquitous, say especially in video game development:
+
+{{< embed python-cell.qmd >}}
+
+Haskell is notorious for not allowing such impurities.
+
+> How?
+
+The above can easily be rewritten by explicitly passing the required state to
+the function `update`! Let's see:
+
+{{< embed haskell-cell.qmd >}}
+
+Here we never mutate the value of player, but instead we create a new value
+`updatedPlayer` that is the result of the `update` function acting on `player`.
+
+## Pure Categories
