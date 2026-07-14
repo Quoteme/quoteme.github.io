@@ -321,4 +321,4 @@ But this really happens every time you perform some operations after "casting" (
 ## Discussion
 
 - {{< bi reddit >}} [https://reddit.com/r/programming/](https://www.reddit.com/r/programming/comments/1ricxxm/hacking_super_mario_64_using_algebraic_topology/)
-- {{< bi reddit >}} [https://reddit.com/r/math/](https://www.reddit.com/r/programming/comments/1ricxxm/hacking_super_mario_64_using_algebraic_topology/)
+- {{< bi reddit >}} [https://reddit.com/r/math/](https://www.reddit.com/r/math/comments/1ribv08/hacking_super_mario_64_using_algebraic_topology/)
