@@ -54,8 +54,19 @@
         dependencies = with pkgs; [
           quarto
           git
+          elan
+          # lean4
           # (python3.withPackages pythonPackages)
           uv
+          (haskellPackages.ghcWithPackages (
+            p: with p; [
+              ihaskell
+              ihaskell-magic
+              ihaskell-basic
+              ihaskell-hatex
+              # no external packages so far...
+            ]
+          ))
         ];
       in
       {
@@ -77,6 +88,26 @@
               ${pkgs.onefetch}/bin/onefetch
               uv sync
               source .venv/bin/activate
+              # if "lean4" is missing from the output of `jupyter kernelspec
+              # list`, add it
+              jupyter kernelspec list | grep -q "lean4" \
+                || {
+                  echo "installing Lean4 kernel" ;
+                  uv run python -m lean4_jupyter.install --sys-prefix
+                }
+              jupyter kernelspec list | grep -q "ihaskell" \
+                || { 
+                  echo "installing Haskell kernel" ;
+                  ihaskell install --ghclib="$(ghc --print-libdir)" --prefix=".venv/";
+                }
+              [ -d ".lean4_jupyter/repl" ] || {
+                echo "Installing lean4 repl";
+                mkdir -p .lean4_jupyter;
+                git clone https://github.com/leanprover-community/repl .lean4_jupyter/repl;
+                (cd .lean4_jupyter/repl && git checkout adbbfcb9d4e61c12db96c45d227de92f21cc17dd && lake build);
+              }
+              # add .lean4_jupyter/repl/.lake/build/bin/repl  to PATH (from cwdA)
+              export PATH="$PATH:$(pwd)/.lean4_jupyter/repl/.lake/build/bin"
               trap deactivate EXIT
             '';
           };

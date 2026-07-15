@@ -1,0 +1,153 @@
+---
+title: "Pure (monoidal) categories"
+author: "Luca Leon Happel"
+date: "2026-06-21"
+categories: ["mathematics", "computer science", "category theory", "English"]
+draft: true
+# image: "thumbnail.gif"
+---
+
+## (Im)Pure functions in Programming
+
+Haskell is known as a _pure_ functional programming language. We talked about
+pure/impure functions previously in <../interfaces_as_list_of_propositions/#interfaces-as-list-of-propositions>.
+To recapitulate: a _pure_ function is one that does not modify or depend on
+_outside state_. 
+Impure functions are ubiquitous, say especially in video game development:
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Player:
+  x: float
+  y: float
+  dx: float
+  dy: float
+
+  def update(self) -> None:
+    self.x += self.dx
+    self.y += self.dy
+
+def main() -> None:
+  # create a new Player
+  player = Player(x=0.0, y=0.0, dx=1.0, dy=1.0)
+  player.update() # <- impure mutation of state "player"!
+```
+
+Haskell is notorious for not allowing such impurities.
+
+> How?
+
+The above can easily be rewritten by explicitly passing the required state to
+the function `update`! Let's see:
+
+```haskell
+data Player = Player { x :: Float, y :: Float, dx :: Float, dy :: Float }
+
+update :: Player -> Player
+update player = player { x = x player + dx player, y = y player + dy player }
+
+-- main :: IO ()
+-- main = do
+--   let player = Player { x = 0.0, y = 0.0, dx = 1.0, dy = 1.0 }
+--   let updatedPlayer = update player
+```
+
+Here we never mutate the value of player, but instead we create a new value
+`updatedPlayer` that is the result of the `update` function acting on `player`.
+
+## Pure Categories
+
+Pure categories are defined in “1.3.3 Pure categories” [Turaev and Virelizier, 2017, p. 14](http://link.springer.com/10.1007/978-3-319-49834-8).
+Here, given a monoidal category $\mathcal{C}$, we say that $\mathcal{C}$ is 
+**pure** if the left and righgt actions of 
+$\text{End}_{\mathcal{C}}(\mathbf{1})$ on the sets of morphisms 
+$\text{Hom}_{\mathcal{C}}(X, Y)$ coincide for all objects $X, Y$ of $\mathcal{C}$.
+Specifically:
+
+$$
+\alpha \cdot f = f \cdot \alpha, \quad \forall \alpha \in
+\text{End}_{\mathcal{C}}(\mathbf{1}), f \in \text{Hom}_{\mathcal{C}}(X, Y)
+$$
+
+Do you already see the connection to functional programming? No? Don't worry!
+Let's dive in to what this even means.
+
+### Monoidal Categories
+
+A monoidal category $(\mathcal{C}, \otimes, \mathbf{1}, a, l, r)$ or simply $\mathcal{C}$
+is a category $\mathcal{C}$ together with:
+
+1. a bifunctor $\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ called
+   the **tensor product**,
+2. a distinguished object $\mathbf{1} \in \text{Ob}(\mathcal{C})$ called the
+   **unit object**,
+3. a natural isomorphism $a_{X,Y,Z} : (X \otimes Y) \otimes Z \to X \otimes (Y
+   \otimes Z)$ called the **associator**,
+4. natural isomorphisms $l_X : \mathbf{1} \otimes X \to X$ and $r_X : X
+   \otimes \mathbf{1} \to X$ called the **left** and **right unitors**,
+
+subject to the following conditions:
+
+- the **triangle identity**: for all objects $X, Y$ in $\mathcal{C}$, the
+  following diagram commutes:
+  <!-- https://q.uiver.app/#q=WzAsMyxbMCwwLCIoWCBcXG90aW1lcyBcXG1hdGhiZnsxfSlcXG90aW1lcyBZIl0sWzIsMCwiWCBcXG90aW1lcyAoXFxtYXRoYmZ7MX1cXG90aW1lcyBZKSJdLFsxLDEsIlhcXG90aW1lcyBZIl0sWzAsMSwiYV97WCxcXG1hdGhiZnsxfSxZfSJdLFswLDIsImxfWCBcXG90aW1lcyAxX1kiLDJdLFsxLDIsIjFfWCBcXG90aW1lcyByX1kiXV0= -->
+  <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsMyxbMCwwLCIoWCBcXG90aW1lcyBcXG1hdGhiZnsxfSlcXG90aW1lcyBZIl0sWzIsMCwiWCBcXG90aW1lcyAoXFxtYXRoYmZ7MX1cXG90aW1lcyBZKSJdLFsxLDEsIlhcXG90aW1lcyBZIl0sWzAsMSwiYV97WCxcXG1hdGhiZnsxfSxZfSJdLFswLDIsImxfWCBcXG90aW1lcyAxX1kiLDJdLFsxLDIsIjFfWCBcXG90aW1lcyByX1kiXV0=&embed" width="678" height="304" style="border-radius: 8px; border: none;"></iframe>
+- the **pentagon identity**: for all objects $X, Y, Z, W$ the following diagram
+  commutes:
+  <!-- https://q.uiver.app/#q=WzAsNSxbMSwwLCIoV1xcb3RpbWVzIFgpIFxcb3RpbWVzIChZXFxvdGltZXMgWikiXSxbMCwxLCIoKFdcXG90aW1lcyBYKSBcXG90aW1lcyBZKVxcb3RpbWVzIFopIl0sWzIsMSwiKFdcXG90aW1lcyAoWCBcXG90aW1lcyAoWVxcb3RpbWVzIFopKSJdLFswLDIsIihXXFxvdGltZXMgKFggXFxvdGltZXMgWSkpXFxvdGltZXMgWiJdLFsyLDIsIldcXG90aW1lcyAoKFggXFxvdGltZXMgWSlcXG90aW1lcyBaKSJdLFswLDEsImFfe1dcXG90aW1lcyBYLFksWn0iLDJdLFswLDIsImFfe1csWCxZXFxvdGltZXMgWn0iXSxbMSwzLCJhX3tXLFgsWX1cXG90aW1lcyBcXHRleHR7aWR9Il0sWzIsNCwiXFx0ZXh0e2lkfSBcXG90aW1lcyBhX3tXLFgsWX0iLDJdLFszLDQsImFfe1csWFxcb3RpbWVzIFksIFp9Il1d -->
+  <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNSxbMSwwLCIoV1xcb3RpbWVzIFgpIFxcb3RpbWVzIChZXFxvdGltZXMgWikiXSxbMCwxLCIoKFdcXG90aW1lcyBYKSBcXG90aW1lcyBZKVxcb3RpbWVzIFopIl0sWzIsMSwiKFdcXG90aW1lcyAoWCBcXG90aW1lcyAoWVxcb3RpbWVzIFopKSJdLFswLDIsIihXXFxvdGltZXMgKFggXFxvdGltZXMgWSkpXFxvdGltZXMgWiJdLFsyLDIsIldcXG90aW1lcyAoKFggXFxvdGltZXMgWSlcXG90aW1lcyBaKSJdLFswLDEsImFfe1dcXG90aW1lcyBYLFksWn0iLDJdLFswLDIsImFfe1csWCxZXFxvdGltZXMgWn0iXSxbMSwzLCJhX3tXLFgsWX1cXG90aW1lcyBcXHRleHR7aWR9Il0sWzIsNCwiXFx0ZXh0e2lkfSBcXG90aW1lcyBhX3tXLFgsWX0iLDJdLFszLDQsImFfe1csWFxcb3RpbWVzIFksIFp9Il1d&embed" width="1092" height="432" style="border-radius: 8px; border: none;"></iframe>
+
+This monoidal category induces a _ground monoid_
+$\text{End}_{\mathcal{C}}(\mathbf{1})$ given by the endomorphisms of the unit
+object $\mathbf{1}$, see [decategorification](https://ncatlab.org/nlab/show/decategorification),
+and we may regard $\mathcal{C}$ as a 
+[vertically categorified version of this monoid](https://ncatlab.org/nlab/show/monoidal+category#:~:text=makes,version%20of%20a%20monoid).
+
+Now, an element $\alpha \in \text{End}_{\mathcal{C}}(\mathbf{1})$ acts on the 
+sets of morphisms $\text{Hom}_{\mathcal{C}}(X, Y)$ as follows
+$$
+\alpha \cdot f := l_Y(\alpha \otimes f) l_X^{-1} \quad
+f \cdot \alpha := r_Y(f \otimes \alpha) r_X^{-1}
+$$
+
+
+## The Connection
+
+A _pure_ category, as stated before, is one in which the two actions 
+of $\text{End}_{\mathcal{C}}(\mathbf{1})$ on $\text{Hom}_{\mathcal{C}}(X, Y)$
+coincide. Where have we seen that before?
+
+Remmeber the example before with Python and updating the players' position.
+Reducing it down to its' most basic concept, we have:
+
+```python
+y = 0
+def p(x : int) -> int:
+  y += 1
+  return x + y
+
+def q(x : int) -> int:
+  return x + 1
+```
+
+an example for functions $p$ and $q$, which are impure and pure, respectively.
+As we know from Haskell, we can resolve impurities by moving into a monad, which
+results in:
+
+```haskell
+p :: Int -> State Int Int
+p x = do
+  y <- get
+  put (y + 1)
+  return (x + y)
+
+q :: Int -> State Int Int
+q x = return (x + 1)
+-- we may have used 
+-- q :: Int -> Int
+-- as well!
+```
+
+

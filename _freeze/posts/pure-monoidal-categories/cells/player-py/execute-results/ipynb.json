@@ -1,0 +1,12 @@
+{
+  "hash": "259902b6cc7ce5504741f59aaccccbdf",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "::: {#532a2100 .cell execution_count=1}\n``` {}\n#| fig-cap: \"Here is an example in python:\"\nfrom dataclasses import dataclass\n\n@dataclass\nclass Player:\n  x: float\n  y: float\n  dx: float\n  dy: float\n\n  def update(self) -> None:\n    self.x += self.dx\n    self.y += self.dy\n\ndef main() -> None:\n  # create a new Player\n  player = Player(x=0.0, y=0.0, dx=1.0, dy=1.0)\n  player.update() # <- impure mutation of state \"player\"!\n```\n:::\n\n\n---\njupyter:\n  kernelspec:\n    display_name: Python 3 (ipykernel)\n    language: python\n    name: python3\n    path: /home/luca/Dokumente/dev/arbeit/lucah.tech/quoteme.github.io/.venv/share/jupyter/kernels/python3\n  language_info:\n    codemirror_mode:\n      name: ipython\n      version: 3\n    file_extension: .py\n    mimetype: text/x-python\n    name: python\n    nbconvert_exporter: python\n    pygments_lexer: ipython3\n    version: 3.13.3\n---\n",
+    "supporting": [
+      "player-py_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

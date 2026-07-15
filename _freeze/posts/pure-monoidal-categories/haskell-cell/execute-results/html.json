@@ -1,0 +1,12 @@
+{
+  "hash": "5003e38885c9d615fb8054698b7b33b3",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\njupyter: haskell\n---\n\n::: {#fig-player .cell execution_count=1}\n``` {.haskell .cell-code}\ndata Player = Player { x :: Float, y :: Float, dx :: Float, dy :: Float }\n\nupdate :: Player -> Player\nupdate player = player { x = x player + dx player, y = y player + dy player }\n\n-- main :: IO ()\n-- main = do\n--   let player = Player { x = 0.0, y = 0.0, dx = 1.0, dy = 1.0 }\n--   let updatedPlayer = update player\n```\n:::\n\n\n",
+    "supporting": [
+      "haskell-cell_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
