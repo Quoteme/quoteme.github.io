@@ -1,0 +1,23 @@
+---
+title: "Writing Linux Drivers"
+subtitle: "Or: how to fix your fingerprint reader by writing the missing drivers"
+author: "Luca Leon Happel"
+date: "2026-07-15"
+categories: ["computer science", "Linux", "English"]
+draft: true
+---
+
+I own an Asus Rog Flow X13 with a `04f3:0c6e Elan Microelectronics Corp. ELAN:Fingerprint`
+fingerprint reader, which currently does not work on Linux[^not-working].
+
+In this blog post, we dive into how we can fix this ourselfes by reverse 
+engineering the fingerprint reader and adding appropriate support to
+`libfprint`.
+
+## Reading fingerprint data
+
+
+
+---
+
+[^not-working]: [https://askubuntu.com/questions/1461327/fingerprint-device-disconnected-04f30c6e-elan-microelectronics-corp-elanfing](https://askubuntu.com/questions/1461327/fingerprint-device-disconnected-04f30c6e-elan-microelectronics-corp-elanfing)
