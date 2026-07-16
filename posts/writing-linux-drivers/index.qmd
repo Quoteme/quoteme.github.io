@@ -14,6 +14,24 @@ In this blog post, we dive into how we can fix this ourselfes by reverse
 engineering the fingerprint reader and adding appropriate support to
 `libfprint`.
 
+## Project setup
+
+I use NixOS ([read more about this here](../nixos-git-analysis/)), a Linux 
+distribution with the pleasent benefit that you (the reader) can simply run
+
+```bash
+git clone https://github.com/quoteme/libfprint.git
+cd libfprint
+nix develop
+```
+
+to enter a completely reproducible development environment with all dependencies
+installed, perfectly fit for following this guide.
+
+I decided to try [Flake Parts](https://flake.parts/) this time around. Without 
+diving too much into why, the reason being that it hopefully makes the
+development shell easier to extend for _your_ future Linux driver.
+
 ## Reading fingerprint data
 
 
