@@ -108,7 +108,7 @@
               }
               # add .lean4_jupyter/repl/.lake/build/bin/repl  to PATH (from cwdA)
               export PATH="$PATH:$(pwd)/.lean4_jupyter/repl/.lake/build/bin"
-              trap deactivate EXIT
+              # trap deactivate EXIT
             '';
           };
 
