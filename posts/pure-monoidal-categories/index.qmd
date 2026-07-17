@@ -10,7 +10,7 @@ draft: true
 ## (Im)Pure functions in Programming
 
 Haskell is known as a _pure_ functional programming language. We talked about
-pure/impure functions previously in <../interfaces_as_list_of_propositions/#interfaces-as-list-of-propositions>.
+pure/impure functions previously in [this previous post about interfaces as lists of propositions](../interfaces_as_list_of_propositions/#interfaces-as-list-of-propositions).
 To recapitulate: a _pure_ function is one that does not modify or depend on
 _outside state_. 
 Impure functions are ubiquitous, say especially in video game development:
@@ -35,10 +35,7 @@ def main() -> None:
   player.update() # <- impure mutation of state "player"!
 ```
 
-Haskell is notorious for not allowing such impurities.
-
-> How?
-
+Haskell is notorious for not allowing such impurities:
 The above can easily be rewritten by explicitly passing the required state to
 the function `update`! Let's see:
 
@@ -48,10 +45,10 @@ data Player = Player { x :: Float, y :: Float, dx :: Float, dy :: Float }
 update :: Player -> Player
 update player = player { x = x player + dx player, y = y player + dy player }
 
--- main :: IO ()
--- main = do
---   let player = Player { x = 0.0, y = 0.0, dx = 1.0, dy = 1.0 }
---   let updatedPlayer = update player
+main :: IO ()
+main = do
+  let player = Player { x = 0.0, y = 0.0, dx = 1.0, dy = 1.0 }
+  let updatedPlayer = update player
 ```
 
 Here we never mutate the value of player, but instead we create a new value
@@ -101,9 +98,9 @@ subject to the following conditions:
 
 This monoidal category induces a _ground monoid_
 $\text{End}_{\mathcal{C}}(\mathbf{1})$ given by the endomorphisms of the unit
-object $\mathbf{1}$, see [decategorification](https://ncatlab.org/nlab/show/decategorification),
+object $\mathbf{1}$, see decategorification[^decategorification],
 and we may regard $\mathcal{C}$ as a 
-[vertically categorified version of this monoid](https://ncatlab.org/nlab/show/monoidal+category#:~:text=makes,version%20of%20a%20monoid).
+vertically categorified version of this monoid[^vertically-categorified].
 
 Now, an element $\alpha \in \text{End}_{\mathcal{C}}(\mathbf{1})$ acts on the 
 sets of morphisms $\text{Hom}_{\mathcal{C}}(X, Y)$ as follows
@@ -112,6 +109,16 @@ $$
 f \cdot \alpha := r_Y(f \otimes \alpha) r_X^{-1}
 $$
 
+These are actions, because they satisfy the following properties for all $f \in \text{Hom}_{\mathcal{C}}(X, Y)$, $g \in \text{Hom}_{\mathcal{C}}(Y, Z)$ and $\alpha, \beta \in \text{End}_{\mathcal{C}}(\mathbf{1})$:
+
+$$
+\begin{align*}
+\alpha \cdot (g \circ f) &= l_Z(\alpha \otimes (g \circ f)) l_X^{-1} \\
+&= l_Z((\alpha \otimes g) \circ (\alpha \otimes f)) l_X^{-1} \\
+&= l_Z(\alpha \otimes g) l_Y^{-1} \circ l_Y(\alpha \otimes f) l_X^{-1} \\ 
+&= (\alpha \cdot g) \circ (\alpha \cdot f)
+\end{align*}
+$$
 
 ## The Connection
 
@@ -119,7 +126,19 @@ A _pure_ category, as stated before, is one in which the two actions
 of $\text{End}_{\mathcal{C}}(\mathbf{1})$ on $\text{Hom}_{\mathcal{C}}(X, Y)$
 coincide. Where have we seen that before?
 
-Remmeber the example before with Python and updating the players' position.
+By the tensor-hom adjunction[^tensor-hom], we have a natural isomorphism (under the assumption that $\mathcal{C}$ is _closed_):
+
+::: {.callout-note}
+A monoidal category $\mathcal{C}$ is called **closed**[^closed] if for every object $Y$ in $\mathcal{C}$, the functor $- \otimes Y : \mathcal{C} \to \mathcal{C}$ has a right adjoint (called the "internal hom"-functor[^internal-hom]), denoted by $\text{hom}(Y, -) : \mathcal{C} \to \mathcal{C}$. This means that for every pair of objects $X, Z$ in $\mathcal{C}$, there is a natural isomorphism:
+$$
+\text{Hom}_{\mathcal{C}}(X \otimes Y, Z) \cong \text{Hom}_{\mathcal{C}}(X, \text{hom}(Y, Z))
+$$
+:::
+
+Applying this to the action 
+
+<!--
+Remeber the example before with Python and updating the players' position.
 Reducing it down to its' most basic concept, we have:
 
 ```python
@@ -149,5 +168,12 @@ q x = return (x + 1)
 -- q :: Int -> Int
 -- as well!
 ```
+-->
 
+---
 
+[^decategorification]: [https://ncatlab.org/nlab/show/decategorification](https://ncatlab.org/nlab/show/decategorification)
+[^vertically-categorified]: [https://ncatlab.org/nlab/show/monoidal+category#:~:text=makes,version%20of%20a%20monoid](https://ncatlab.org/nlab/show/monoidal+category#:~:text=makes,version%20of%20a%20monoid)
+[^tensor-hom]: [https://www.maths.lancs.ac.uk/~grabowsj/rtaca/Ch2.S7.html#SS2](https://www.maths.lancs.ac.uk/~grabowsj/rtaca/Ch2.S7.html#SS2)
+[^closed]: [https://ncatlab.org/nlab/show/closed+category](https://ncatlab.org/nlab/show/closed+category)
+[^internal-hom]: [https://ncatlab.org/nlab/show/internal+hom](https://ncatlab.org/nlab/show/internal+hom)
