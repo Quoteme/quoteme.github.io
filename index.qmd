@@ -78,7 +78,7 @@ and 300px height
 <img src="https://avatars2.githubusercontent.com/u/6796009" id="avatar" />
 Hi, I am __Luca Leon Happel__. 
 I am a __computer scientist/mathematician__ and
-__B.Sc in mathematics__, who works at
+__M.Sc in mathematics__, who works at
 multiple high class universities and hospitals throughout Germany.
 I earned multiple awards for my works 
 (e.g. in __AI, medical software development,...__) and secured funding
