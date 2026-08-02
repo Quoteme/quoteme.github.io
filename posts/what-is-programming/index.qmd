@@ -1,0 +1,21 @@
+---
+title: "What is programming?"
+author: "Luca Leon Happel"
+date: "2026-07-26"
+categories: ["computer science", "programming", "mathematics"]
+draft: true
+---
+
+"Programming" has its roots in Latin "programma", meaning "public notice" (we
+can still find this original meaning in the work "proclamation"), which derives
+itself from the Greek "programma", meaning "a written public notice"
+[^etymology]. Its stems are _pro-_ "forward" and _graphein_ "to write".
+
+This does however not really capture what we consider as "programming" nowadays.
+Generally, we would consider "programming" to encapsulate the meaning of writing
+a computer program nowadays. Computer programs being something that follows a
+given procedure, executed on a computer.
+
+---
+
+[^etymology]: [https://www.etymonline.com/word/program](https://www.etymonline.com/word/program)
