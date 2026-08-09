@@ -3,18 +3,20 @@ title: "Universal properties in category theory simply explained"
 author: "Luca Leon Happel"
 date: "2026-08-09"
 categories: ["math", "category theory", "English"]
+abstract: |
+  We will explain universal properties in category theory in a simple way, using
+  diagrams and logic.
 ---
 
 
 <div style="display: none;">
-    $$
-    \usepackage{amssymb}
-    \newcommand{\tensor}{\otimes}
-    \newcommand{\Arr}{\mathrm{Arr}}
-    \newcommand{\Ob}{\mathrm{Ob}}
-    \newcommand{\cat}[1]{\mathtt{#1}}
-    \newcommand{\RR}{\mathbb{RR}}
-    $$
+$$
+\newcommand{\tensor}{\otimes}
+\newcommand{\Arr}{\mathrm{Arr}}
+\newcommand{\Ob}{\mathrm{Ob}}
+\newcommand{\cat}[1]{\mathtt{#1}}
+\newcommand{\RR}{\mathbb{RR}}
+$$
 </div>
 
 Universelle Eigenschaften tauchen relativ schnell im mathematischen Studium auf:
