@@ -51,10 +51,60 @@
             })
           ];
         };
+        # scaffold a new blog post under posts/<slug>/index.qmd, prefilled
+        # with today's date (quarto itself has no "new post" prompt, only
+        # `quarto create` for whole projects/extensions)
+        newPost = pkgs.writeShellApplication {
+          name = "new-post";
+          runtimeInputs = with pkgs; [
+            coreutils
+            gnused
+          ];
+          text = /* bash */ ''
+            title="''${*:-}"
+            if [ -z "$title" ]; then
+              read -rp "Post title: " title
+            fi
+            if [ -z "$title" ]; then
+              echo "Aborting: no title given." >&2
+              exit 1
+            fi
+
+            slug=$(echo "$title" \
+              | tr '[:upper:]' '[:lower:]' \
+              | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g')
+            if [ -z "$slug" ]; then
+              echo "Aborting: title produced an empty slug." >&2
+              exit 1
+            fi
+
+            post_dir="posts/$slug"
+            if [ -e "$post_dir" ]; then
+              echo "Aborting: $post_dir already exists." >&2
+              exit 1
+            fi
+
+            date=$(date +%Y-%m-%d)
+            mkdir -p "$post_dir"
+            cat > "$post_dir/index.qmd" <<EOF
+---
+title: "$title"
+author: "Luca Leon Happel"
+date: "$date"
+categories: []
+draft: true
+---
+
+EOF
+
+            echo "Created $post_dir/index.qmd"
+          '';
+        };
         dependencies = with pkgs; [
           quarto
           git
           elan
+          newPost
           # lean4
           # (python3.withPackages pythonPackages)
           uv

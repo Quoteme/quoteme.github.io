@@ -12,8 +12,13 @@ categories:
 format:
   html:
     code-fold: true
-draft: true
 ---
+
+:::{.callout-warning}
+I have never finished this post, however at least it shows a few nice CGI
+visualizations of portals. So I will keep this as a historical record of my work
+on this topic. I will come back to it at some point and finish it.
+:::
 
 The Fields Medalist William Thurston is famous for revolutionizing low-dimensional topology and geometry, especially through his work on 3-manifolds and the geometrization conjecture. He is beloved not just by me but by the general mathematical community for his playful, story-driven approach to algebraic topology. 
 In "Knots to Narnia", he imagines a magic portal shaped like a loop or knot that splits space into "parallel worlds". An ordinary loop produces just two worlds, while a trefoil knot gives several distinct worlds connected by precise rules. By tracking simple moves through the knot, Thurston shows how these rules encode a branched covering structure in an unusually vivid, accessible way.
@@ -26,7 +31,7 @@ Let us look at the unknot embedded in $\mathbb{R}^3$:
 
 We render the scene using a custom **ray marcher** built from scratch.
 Unlike a traditional raytracer that solves ray-surface intersections analytically,
-ray marching steps along each ray incrementally—making it straightforward to
+ray marching steps along each ray incrementally, making it straightforward to
 later replace Euclidean straight-line steps with geodesic steps in a curved geometry.
 
 The core loop is:
@@ -254,7 +259,7 @@ The key design: `step_ray_euclidean` is a **drop-in replaceable function**.
 To render a non-Euclidean geometry on $\mathbb{R}^3$, we simply provide a
 different `step_ray` that integrates a geodesic ODE—for instance
 $\ddot{\gamma}^k + \Gamma^k_{ij}\,\dot{\gamma}^i\,\dot{\gamma}^j = 0$
-—and the rest of the renderer stays unchanged.
+and the rest of the renderer stays unchanged.
 
 ## Passing through the unknot
 
@@ -438,11 +443,11 @@ show_render(img2)
 ## Two worlds connected by a portal
 
 In Thurston's picture, passing through the unknot takes you to a
-different copy of space — a parallel world. We visualise this by
+different copy of space: a parallel world. We visualise this by
 making the **torus hole act as an actual portal**: any light ray that
 passes through the disk bounded by one torus is **teleported** to the
 other torus. This means looking through one torus you see the world
-on the other side — as if peering through a window into Narnia.
+on the other side, as if peering through a window into Narnia.
 
 ```{python}
 #| label: fig-portal
@@ -594,7 +599,7 @@ show_render(img3)
 We animate a rope that enters through the left torus portal.
 Because the torus is a real portal, the portion of the rope
 that has passed through the left torus disk **appears emerging
-from the right torus** — it has been teleported to the other world.
+from the right torus**: it has been teleported to the other world.
 
 ```{python}
 #| label: fig-rope-animation

@@ -1,0 +1,168 @@
+---
+title: "Universal properties in category theory simply explained"
+author: "Luca Leon Happel"
+date: "2026-08-09"
+categories: ["math", "category theory", "English"]
+---
+
+
+<div style="display: none;">
+    $$
+    \usepackage{amssymb}
+    \newcommand{\tensor}{\otimes}
+    \newcommand{\Arr}{\mathrm{Arr}}
+    \newcommand{\Ob}{\mathrm{Ob}}
+    \newcommand{\cat}[1]{\mathtt{#1}}
+    \newcommand{\RR}{\mathbb{RR}}
+    $$
+</div>
+
+Universelle Eigenschaften tauchen relativ schnell im mathematischen Studium auf:
+Die meisten Lineare Algebra II Vorlesungen werden eine Definition des Tensorproduktes
+angeben _müssen_, und hierfür lohnt sich die Definition dessen mittels der
+universellen Eigenschaft des Tensorproduktes, da wir so für die Kategorien 
+$\cat{Vect}_\mathbb{K}$, $\cat{Mod}_R$ und $\cat{Ab}$ eine einheitliche
+Definition haben, die wir in allen drei Kategorien verwenden können.
+(Das ist sehr analog zum 
+[Liskovschen Substitutionsprinzip](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
+aus der Programmierung, bzw. wir möchten duplizierbaren Code vermeiden!)
+
+Doch ich erinnere mich noch ganz genau daran, wie ein Kommilitone damals meinen
+Professor in der Vorlesung ein Loch in den Bauch gefragt hatte und verstehen
+wollte, was diese universellen Eigenschaften sind, ohne das er mit der Erklärung
+zufrieden war. Daher hier nun mein Take:
+
+## Kategorien
+
+Eine Kategorie $\cat{C}$ aus der Kategorientheorie ist einfach nur eine
+Kollektion von Objekten $\Ob(\cat{C})$ und Pfeilen $\Arr(\cat{C})$ 
+(auch Morphismen oder Homomorphismen/je nach Kategorie auch ganz anders genannt)
+zwischen diesen Objekten.
+
+Wir gehen meistens davon aus, dass $\Ob(\cat{C})$ eine Menge ist und wir stellen
+uns Kategorien dann wie _gerichtete Graphen_ vor:
+
+:::{.callout-warning}
+Hier ein Diagram mit RR^3 oben links, eine Matrix über einem pfeil der diagonal
+nach unten rechts zeigt auf den RR^2 und eine matrix neben einem pfeil der nach
+unten auf RR^3 zeigt und eine matrix unter einem pfeil der von unten rechts dem
+RR^3 auf den RR^2 zeigt, sodass das Diagram kommutiert noch einfügen und dies
+dann als "fig:kategorie"
+:::
+
+## Diagramme
+
+In <fig:kategorie> haben wir bereits einen Ausschnitt einer Kategorie gesehen.
+Ein treffender Name hierfür wäre ein _Diagramm_. Genau so werden auch solche
+Formationen genannt!
+
+Wenn ich eine Kategorie $\cat{C}$ habe, dann kann ich Objekte $A_1, \dots, A_n$
+darin auswählen und Pfeile $f_1, \dots, f_m$ zwischen diesen Objekten auswählen,
+welche einen solchen Ausschnitt darstellen.
+Wir _Indizieren_ also eine "Teilmenge" (beachte: $\Ob(\cat{C})$ und
+$\Arr(\cat{C})$ müssen keine Mengen sein!) und wir erhalten ein Diagramm $\cat{C}$.
+
+In der Sprache der Funktoren ist ein Diagramm also ein Funktor $D: \cat{J} \to
+\cat{C}$, wobei $\cat{J}$ eine _Indexkategorie_ ist, also einfach nur formale Objekte
+$\underline{1}, \underline{2}, \dots, \underline{n}$ und formale Pfeile
+$\underline{f_1}, \dots, \underline{f_m}$ zwischen diesen. $D$ ist dann der "Kleber",
+der von $\cat{J}$ nach $\cat{C}$ geht.
+
+Wir erhalten so <fig:diagramm> als ein Diagramm als folgenden Funktor:
+
+:::{.callout-warning}
+Hier ein Diagram zeigen, welches links \underline{1} mit einem Pfeil nach unten
+auf \underline{2} zeigt und rechts daneben \underline{3} hat mit pfeilen von
+\underline{1} nach \underline{3} und von \underline{2} nach \underline{3}
+und von \underline{1} zu \underline{2}.
+dann einen Doppelpfeil (für funktoren) in einem bogen von links nach rechts und
+dann rechts noch mal das diagramm aus <fig:kategorie> mit den Objekten RR^3,
+RR^2 und den Pfeilen zwischen diesen
+:::
+
+## Universelle Kegel
+
+Wir haben nun die Hälfte unserer Erklärung für universelle Eigenschaften hinter 
+uns. Hat man nun ein Diagram, so kann man sich dieses als einen gerichteten Graphen
+von Objekten unv Pfeilen aus $\cat{C}$ auf einem Blatt Papier vorstellen.
+Ein _Kegel_ ist nun ein Objekt $N$ aus $\cat{C}$, welches auf alle Objekte des
+Diagramms Pfeile hat, sodass das alle Dreiecke mit Spitze $N$ und Basis in dem
+Diagramm kommutieren.
+
+
+:::{.callout-warning}
+Hier ein Diagramm zeigen, so unten ein Blatt papier ist mit dem ursprünglichen Diagram
+darauf und darüber über diesem Blatt Papier das $N$ mit pfeilen auf jedes Objekt
+aufgezeichnet auf dem Papier.
+
+Außerdem soll ein Regler dabei sein, sodass man diesen schieben kann um
+kommutative dreiecke mit einer Fläche zu füllen. dieser regler hat das Label
+"kommutative diagramme einzeichnen".
+:::
+
+
+In den meisten Fällen hat man mehrere $N$ zusammen mit Pfeilen in das Diagramm,
+sodass $N$ ein Kegel ist. Hat man nun zwei $N_1$ und $N_2$, so kann es sein, dass
+eins "minimaler" als das andere ist! Wenn ein Pfeil $N_1 \to N_2$ existiert,
+sodass alle Dreiecke wieder kommutieren, dann ist $N_2$ ein Kegel, der "kleiner"
+ist als $N_1$.
+
+:::{.callout-warning}
+Hier ein Diagramm zeigen, so unten ein Blatt papier ist mit dem ursprünglichen Diagram
+darauf und darüber über diesem Blatt Papier das $N_2$ mit pfeilen auf jedes Objekt
+und darüber noch ein $N_1$ mit pfeilen auf jedes Objekt und einem Pfeil von
+$N_1$ nach $N_2$.
+:::
+
+:::{.callout-warning}
+Das selbe diagram wie darüber, nur jetzt mit ausgefüllten flächen bei
+kommutativen diagrammen.
+:::
+
+Existiert ein solcher universeller Kegel (auch Limes genannt), so haben wir
+ein Objekt mit der universellen Eigenschaft die durch das Diagramm gegeben ist gefunden.
+
+Ein Beispiel wäre dann das Tensorprodukt, oder auch das Produkt von Objekten: Je
+nach Wahl des Diagramms erhält man verschiedene universelle Eigenschaften, die
+man dann verschiedene Objekte "hervorzaubern".
+
+## Demystifizieren durch Logik
+
+Für die meisten Mathematiker wird Kategorientheorie nicht so geläufig sein, wie
+es Logik ist. Ist man eher mit Logik geläufig, so kann man die Sprache der
+Diagramme und Kegel auf einfache Gleichungen reduzieren:
+
+Hat man ein Diagramm wie hier
+
+:::{.callout-warning}
+Hier ein Diagramm mit X oben links, Y unten links und Z unten rechts mit pfeilen 
+f: X -> Y, g: X -> Z und h: Y -> Z
+:::
+
+so kann man die Bedingung, dass dieses Diagramm kommutiert, einfach als
+Gleichung $h \circ f = g$ schreiben.
+
+Möchten wir nun mehrere kommutative Dreiecke fordern, dann können wir einfach die
+Gleichungen verunden: $h_1 \circ f_1 = g_1 \wedge h_2 \circ f_2 = g_2 \wedge
+\dots h_m \circ f_m = g_m$.
+Wir können natürlich auch komplexere Diagramme als Dreiecke nehmen, aber nach
+den Axiomen der Kategorientheorie können wir immer zwei Pfeile zu einem Pfeil komponieren,
+was ein Dreieck hervorbringt.
+
+Die Existenz eines Kegels können wir dann also damit fordern, dass wir
+$\exists N \in \Ob(\cat{C}) \forall i \in \{1, \dots, n\} \exists f_i: N \to
+A_i: h_i \circ f_i = g_i$ fordern.
+
+Möchten wir nun allein durch Logik die universalität eines Objektes $N$ 
+mit Pfeilen $f_i': N \to A_i$ bezüglich
+des Diagramms fordern, so können wir also folgendes schreiben:
+$\forall N_1 \in \Ob(\cat{C}), \forall f_1 : N_1 \to A_1, \dots, f_n : N_1 \to A_n: h_1 \circ f_1 = g_1 \wedge \dots \wedge h_n \circ f_n = g_n \implies \exists ! f: N_1 \to N: f_i' \circ f = f_i \wedge h_i \circ f_i' = g_i \forall i \in \{1, \dots, n\}$.
+Hiermit wird es auch schnell klar, warum man eher die Diagrammschreibweise bevorzugt.
+
+## Kolimiten
+
+Analog zu einem Objekt _über_ dem Blatt Papier auf welchem man das Diagramm
+gezeichnet hat, kann man auch ein Objekt darüber fordern, also dass alle Pfeile
+_in_ das Objekt $N$ gehen sollen, statt _daraus_!
+So erhält man danan _Kolimiten_. Beispiele sind dann das Koprodukt, also die
+Summe von Objekten.
