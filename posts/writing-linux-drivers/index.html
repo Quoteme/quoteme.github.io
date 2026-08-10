@@ -154,7 +154,6 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
     \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
     $$
 </div>
-<meta name="quarto:status" content="draft">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -163,7 +162,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -275,6 +274,25 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 </section>
 <section id="reading-fingerprint-data" class="level2">
 <h2 class="anchored" data-anchor-id="reading-fingerprint-data">Reading fingerprint data</h2>
+<p>Turns out <code>04f3:0c6e</code> was already sitting in the <code>elan</code> driver’s device table. The catch is that driver treats every sensor as a <em>swipe</em> sensor and stitches consecutive frames of a moving finger into one image. The Flow X13’s sensor doesn’t move, though, you tap it and lift off, so feeding a stack of near-identical still frames through swipe-stitching logic just produces mush. Enrollment ran without complaint and quietly stored garbage.</p>
+<p>So the fix is a separate driver, <code>elanpress</code>, that treats the sensor as what it actually is: a tap sensor (<code>FP_SCAN_TYPE_PRESS</code>). It averages the stable frames of a touch, subtracts a background frame, and normalizes the result with Elantech’s two-step curve to get a usable 8-bit image out of it.</p>
+</section>
+<section id="matching-by-correlation-not-minutiae" class="level2">
+<h2 class="anchored" data-anchor-id="matching-by-correlation-not-minutiae">Matching by correlation, not minutiae</h2>
+<p>The sensor only images about 7.5 by 2.6 mm, which is too small for minutiae matching. I tried it anyway with NBIS’s bozorth3, and genuine matches scored lower than impostor matches, so that approach was dead on arrival.</p>
+<p>Windows gets around this by storing several raw touch images per finger and matching by image correlation instead of minutiae. I did the same: verification computes zero-mean normalized cross-correlation between the probe and each enrolled image, searching over small translations and rotations of up to ±12 degrees, since a finger never lands at exactly the same angle on an unconstrained pad twice. Genuine presses landed at 0.59 to 0.91 correlation, impostors stayed under 0.47, and 0.55 sits comfortably between the two as the acceptance threshold.</p>
+</section>
+<section id="the-reader-that-only-worked-once" class="level2">
+<h2 class="anchored" data-anchor-id="the-reader-that-only-worked-once">The reader that only worked once</h2>
+<p>Enrollment worked exactly once. The first touch of a fresh <code>fprintd-enroll</code> run went through fine, and every touch after that hung forever, both for the rest of that enrollment and on every run afterwards, until I rebooted the machine.</p>
+<p>I wrote a small standalone libusb probe to bypass libfprint entirely and poll the sensor by hand. Turns out <code>cmd_pre_scan</code>, the command the driver used to ask “is a finger down yet”, only answers correctly once per power-up. After that it just times out, permanently. I tried everything short of a reboot to unwedge it: <code>cmd_stop</code>, a real <code>libusb_reset_device()</code>, clearing halted endpoints, resetting the USB configuration, even unbinding and rebinding the device through sysfs. None of it brought the status byte back.</p>
+<p>Meanwhile <code>cmd_get_image</code>, the command that actually pulls a frame, worked fine no matter how many times I called it, finger down or not. And the image data itself gave a clean signal for whether a finger was touching the sensor: about 450 mean pixel delta from the background with nothing on the sensor, versus about 4800 with a finger pressed down.</p>
+<p>So I ripped the pre-scan polling out of the capture state machine and replaced it with exactly that: keep calling <code>cmd_get_image</code> and check each frame against the background (<code>elanpress_frame_has_touch()</code>). The frame that shows a touch is also the frame you wanted to capture, so there’s no extra round trip, and the whole state machine shrank from 9 states to 5 once the separate “wait for the finger to lift” phase became unnecessary.</p>
+<p>I deployed the fix by pointing my NixOS module (<code>asusROGFlowX13.nix</code>) at the new commit and rebuilding. <code>fprintd-enroll</code> now gets through all 8 enrollment stages without hanging.</p>
+</section>
+<section id="result" class="level2">
+<h2 class="anchored" data-anchor-id="result">Result</h2>
+<p>Enrollment and verification both work through <code>fprintd</code> on the Flow X13. libfprint now has a working tap sensor to go with its existing swipe sensors.</p>
 <hr>
 
 
