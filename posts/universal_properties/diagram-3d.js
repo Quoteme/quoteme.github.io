@@ -730,10 +730,25 @@ function buildTensorCone(container, opts = {}) {
 
   const fN1a = addFace(scene, [N1, VxW, Zphi], { color: 0xdc2626, opacity: 0 });
   const fN1b = addFace(scene, [N1, VxW, Zpsi], { color: 0xdc2626, opacity: 0 });
-  // const fN1c = addFace(scene, [N1, Zphi, Zpsi], { color: 0xdc2626, opacity: 0 });
   const fN2a = addFace(scene, [N2, VxW, Zphi], { color: 0xf59e0b, opacity: 0 });
   const fN2b = addFace(scene, [N2, VxW, Zpsi], { color: 0xf59e0b, opacity: 0 });
-  // const fN2c = addFace(scene, [N2, Zphi, Zpsi], { color: 0xf59e0b, opacity: 0 });
+
+  // Many more faces between Zphi and Zpsi, each sharing an edge with the
+  // next, to suggest that there are infinitely many commuting triangles
+  // between the two cones (one for every bilinear map between phi and psi),
+  // not just the two at the endpoints.
+  const inbetween = 7;
+  const endpoint = (i) => [
+    Zphi[0] + ((Zpsi[0] - Zphi[0]) * (i + 1)) / (inbetween + 1),
+    Zphi[1] + ((Zpsi[1] - Zphi[1]) * (i + 1)) / (inbetween + 1),
+    Zphi[2] + ((Zpsi[2] - Zphi[2]) * (i + 1)) / (inbetween + 1),
+  ];
+  const additionalFacesN1 = [...Array(inbetween)].map((_, i) =>
+    addFace(scene, [N1, VxW, endpoint(i)], { color: 0xdc2626, opacity: 0 }),
+  );
+  const additionalFacesN2 = [...Array(inbetween)].map((_, i) =>
+    addFace(scene, [N2, VxW, endpoint(i)], { color: 0xf59e0b, opacity: 0 }),
+  );
 
   loadModel(scene, url, {
     position: [0, 0, 0],
@@ -747,10 +762,14 @@ function buildTensorCone(container, opts = {}) {
     onInput: (v) => {
       fN1a.material.opacity = v * 0.35;
       fN1b.material.opacity = v * 0.35;
-      fN1c.material.opacity = v * 0.35;
       fN2a.material.opacity = v * 0.35;
       fN2b.material.opacity = v * 0.35;
-      fN2c.material.opacity = v * 0.35;
+      additionalFacesN1.forEach((face) => {
+        face.material.opacity = v * 0.35;
+      });
+      additionalFacesN2.forEach((face) => {
+        face.material.opacity = v * 0.35;
+      });
     },
   });
 }
