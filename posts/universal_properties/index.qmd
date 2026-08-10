@@ -6,8 +6,16 @@ categories: ["math", "category theory", "English"]
 abstract: |
   We will explain universal properties in category theory in a simple way, using
   diagrams and logic.
+resources:
+  - diagram-3d.js
+  - vendor/OrbitControls.js
+  - vendor/CSS2DRenderer.js
+  - vendor/loaders/GLTFLoader.js
+  - vendor/loaders/DRACOLoader.js
+  - vendor/utils/BufferGeometryUtils.js
+  - assets/notebook.glb
+  - assets/notebook_tensor.glb
 ---
-
 
 <div style="display: none;">
 $$
@@ -18,6 +26,72 @@ $$
 \newcommand{\RR}{\mathbb{RR}}
 $$
 </div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script type="module" src="./diagram-3d.js"></script>
+<style>
+.diagram3d {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  margin: 1.75rem 0 .25rem 0;
+  border: 1px solid rgba(120, 120, 120, .25);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(120, 140, 170, .08), rgba(120, 140, 170, .02));
+  overflow: hidden;
+}
+.diagram3d.diagram3d-wide { height: 460px; }
+.diagram3d canvas { display: block; }
+@media (prefers-color-scheme: dark) {
+  .diagram3d canvas { filter: invert(100%) hue-rotate(180deg); }
+}
+.diagram3d-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  font-size: .72rem;
+  opacity: .55;
+  pointer-events: none;
+  letter-spacing: .02em;
+}
+.diagram3d-controls {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .8rem;
+  background: rgba(255, 255, 255, .6);
+  backdrop-filter: blur(3px);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.diagram3d-controls input[type=range] { width: 140px; }
+.diagram-label {
+  font-size: .95rem;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .82);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
+  white-space: nowrap;
+}
+.diagram-label.diagram-label-node { font-weight: 600; }
+.diagram3d.diagram3d-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+.diagram3d-fallback-msg { color: #777; font-size: .9rem; max-width: 30em; }
+p.diagram3d-caption {
+  font-size: .92rem;
+  color: #666;
+  margin-top: -.25rem;
+  margin-bottom: 1.5rem;
+}
+</style>
 
 Universelle Eigenschaften tauchen relativ schnell im mathematischen Studium auf:
 Die meisten Lineare Algebra II Vorlesungen werden eine Definition des Tensorproduktes
@@ -42,19 +116,16 @@ Kollektion von Objekten $\Ob(\cat{C})$ und Pfeilen $\Arr(\cat{C})$
 zwischen diesen Objekten.
 
 Wir gehen meistens davon aus, dass $\Ob(\cat{C})$ eine Menge ist und wir stellen
-uns Kategorien dann wie _gerichtete Graphen_ vor:
+uns Kategorien dann wie _gerichtete Graphen_ vor. Im allgemeinen haben diese
+Graphen unendlich viele Knoten und Kanten und ein Ausschnitt könnte so aussehen:
 
-:::{.callout-warning}
-Hier ein Diagram mit RR^3 oben links, eine Matrix über einem pfeil der diagonal
-nach unten rechts zeigt auf den RR^2 und eine matrix neben einem pfeil der nach
-unten auf RR^3 zeigt und eine matrix unter einem pfeil der von unten rechts dem
-RR^3 auf den RR^2 zeigt, sodass das Diagram kommutiert noch einfügen und dies
-dann als "fig:kategorie"
-:::
+<div id="diagram-kategorie" class="diagram3d" data-diagram="notebook"></div>
+<p class="diagram3d-caption"><strong>Abbildung 1:</strong> Ein Beispiel von
+  Objekten und Pfeilen wie diese in $\cat{Vect}_\R$ vorkommen könnten.</p>
 
 ## Diagramme
 
-In <fig:kategorie> haben wir bereits einen Ausschnitt einer Kategorie gesehen.
+In [Abbildung 1](#diagram-kategorie) haben wir bereits einen Ausschnitt einer Kategorie gesehen.
 Ein treffender Name hierfür wäre ein _Diagramm_. Genau so werden auch solche
 Formationen genannt!
 
@@ -70,17 +141,12 @@ $\underline{1}, \underline{2}, \dots, \underline{n}$ und formale Pfeile
 $\underline{f_1}, \dots, \underline{f_m}$ zwischen diesen. $D$ ist dann der "Kleber",
 der von $\cat{J}$ nach $\cat{C}$ geht.
 
-Wir erhalten so <fig:diagramm> als ein Diagramm als folgenden Funktor:
+Wir erhalten so [Abbildung 2](#diagram-diagramm) als ein Diagramm als folgenden Funktor:
 
-:::{.callout-warning}
-Hier ein Diagram zeigen, welches links \underline{1} mit einem Pfeil nach unten
-auf \underline{2} zeigt und rechts daneben \underline{3} hat mit pfeilen von
-\underline{1} nach \underline{3} und von \underline{2} nach \underline{3}
-und von \underline{1} zu \underline{2}.
-dann einen Doppelpfeil (für funktoren) in einem bogen von links nach rechts und
-dann rechts noch mal das diagramm aus <fig:kategorie> mit den Objekten RR^3,
-RR^2 und den Pfeilen zwischen diesen
-:::
+<div id="diagram-diagramm" class="diagram3d diagram3d-wide" data-diagram="functor"></div>
+<p class="diagram3d-caption"><strong>Abbildung 2:</strong> Die Indexkategorie
+$\cat{J}$ (links) mit ihrem Bild unter dem Funktor $D$ (rechts) &mdash; letzteres
+ist genau das Diagramm aus Abbildung 1.</p>
 
 ## Universelle Kegel
 
@@ -92,15 +158,11 @@ Diagramms Pfeile hat, sodass das alle Dreiecke mit Spitze $N$ und Basis in dem
 Diagramm kommutieren.
 
 
-:::{.callout-warning}
-Hier ein Diagramm zeigen, so unten ein Blatt papier ist mit dem ursprünglichen Diagram
-darauf und darüber über diesem Blatt Papier das $N$ mit pfeilen auf jedes Objekt
-aufgezeichnet auf dem Papier.
-
-Außerdem soll ein Regler dabei sein, sodass man diesen schieben kann um
-kommutative dreiecke mit einer Fläche zu füllen. dieser regler hat das Label
-"kommutative diagramme einzeichnen".
-:::
+<div id="diagram-kegel-1" class="diagram3d" data-diagram="cone1"></div>
+<p class="diagram3d-caption"><strong>Abbildung 3:</strong> Das Diagramm aus
+Abbildung 1 liegt auf dem "Blatt Papier"; $N$ schwebt darüber mit einem Pfeil
+zu jedem Objekt. Zieh den Regler, um die kommutativen Dreiecke mit Spitze $N$
+einzuzeichnen.</p>
 
 
 In den meisten Fällen hat man mehrere $N$ zusammen mit Pfeilen in das Diagramm,
@@ -109,17 +171,9 @@ eins "minimaler" als das andere ist! Wenn ein Pfeil $N_1 \to N_2$ existiert,
 sodass alle Dreiecke wieder kommutieren, dann ist $N_2$ ein Kegel, der "kleiner"
 ist als $N_1$.
 
-:::{.callout-warning}
-Hier ein Diagramm zeigen, so unten ein Blatt papier ist mit dem ursprünglichen Diagram
-darauf und darüber über diesem Blatt Papier das $N_2$ mit pfeilen auf jedes Objekt
-und darüber noch ein $N_1$ mit pfeilen auf jedes Objekt und einem Pfeil von
-$N_1$ nach $N_2$.
-:::
-
-:::{.callout-warning}
-Das selbe diagram wie darüber, nur jetzt mit ausgefüllten flächen bei
-kommutativen diagrammen.
-:::
+<div id="diagram-kegel-2" class="diagram3d" data-diagram="cone2" data-opts='{"initialFill":0}'></div>
+<p class="diagram3d-caption"><strong>Abbildung 4:</strong> Zwei Kegel $N_1$ und
+$N_2$ über demselben Diagramm, mit dem Vergleichspfeil $N_1 \to N_2$.</p>
 
 Existiert ein solcher universeller Kegel (auch Limes genannt), so haben wir
 ein Objekt mit der universellen Eigenschaft die durch das Diagramm gegeben ist gefunden.
@@ -127,6 +181,15 @@ ein Objekt mit der universellen Eigenschaft die durch das Diagramm gegeben ist g
 Ein Beispiel wäre dann das Tensorprodukt, oder auch das Produkt von Objekten: Je
 nach Wahl des Diagramms erhält man verschiedene universelle Eigenschaften, die
 man dann verschiedene Objekte "hervorzaubern".
+
+<div id="diagram-tensor" class="diagram3d" data-diagram="tensorcone"></div>
+<p class="diagram3d-caption"><strong>Abbildung 5:</strong> Für das Tensorprodukt
+  muss für beliebige $\varphi: V \times W \to X$ und $\psi: V \times W \to Y$
+  welche bilinear sind, ein universeller Kegel über dem Diagramm existieren,
+  welcher dann das Tensorprodukt $V \tensor W$ ist. Die Punkte $\varphi \dots \psi$
+  zeigen, dass es _für alle_ bilinearen Abbildungen mit Quelle $V \times W$
+  und beliebigem Ziel $X$ und $Y$ einen Pfeil in diesem Diagramm geben muss.
+</p>
 
 ## Demystifizieren durch Logik
 
@@ -136,10 +199,9 @@ Diagramme und Kegel auf einfache Gleichungen reduzieren:
 
 Hat man ein Diagramm wie hier
 
-:::{.callout-warning}
-Hier ein Diagramm mit X oben links, Y unten links und Z unten rechts mit pfeilen 
-f: X -> Y, g: X -> Z und h: Y -> Z
-:::
+<div id="diagram-xyz" class="diagram3d" data-diagram="trianglexyz"></div>
+<p class="diagram3d-caption"><strong>Abbildung 6:</strong> Das abstrakte Dreieck
+$f, g, h$ &mdash; der Regler zeigt an, was "kommutiert" hier bedeutet.</p>
 
 so kann man die Bedingung, dass dieses Diagramm kommutiert, einfach als
 Gleichung $h \circ f = g$ schreiben.
@@ -168,3 +230,14 @@ gezeichnet hat, kann man auch ein Objekt darüber fordern, also dass alle Pfeile
 _in_ das Objekt $N$ gehen sollen, statt _daraus_!
 So erhält man danan _Kolimiten_. Beispiele sind dann das Koprodukt, also die
 Summe von Objekten.
+
+<div id="diagram-cocone" class="diagram3d" data-diagram="cocone" data-opts='{"initialFill":0}'></div>
+<p class="diagram3d-caption"><strong>Abbildung 7:</strong> Das duale Bild zu
+Abbildung 4: dasselbe Diagramm, aber jetzt hängen $N_1$ und $N_2$ *unter* ihm
+und die Pfeile verlassen das Diagramm, statt darauf zu zeigen &mdash; das
+macht aus dem Kegel einen Kokegel.</p>
+
+---
+
+The animations of this post have been inspired by 
+[Imaginary Numbers Are Real by Welch Labs](https://youtu.be/T647CGsuOVU?si=06TqnPAzg-5UyfS7)
