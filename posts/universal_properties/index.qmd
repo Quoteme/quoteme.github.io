@@ -178,7 +178,7 @@ such that all the triangles still commute, then $N_2$ is a cone that's
 <p class="diagram3d-caption"><strong>Figure 4:</strong> Two cones $N_1$ and
 $N_2$ over the same diagram, with the comparison arrow $N_1 \to N_2$.</p>
 
-If such a universal cone exists (also called a limit), we've found an
+If such a universal cone exists (also called a (inverse) limit), we've found an
 object with the universal property given by the diagram.
 
 One example would be the tensor product, or also the product of objects:
@@ -230,8 +230,8 @@ This also makes it pretty clear why people prefer diagram notation instead.
 
 Just like an object _above_ the sheet of paper you drew the diagram on, you
 can also require an object below it, meaning all the arrows go _into_ the
-object $N$ instead of _out of_ it! That gives you _colimits_. Examples
-would be the coproduct, i.e. the sum of objects.
+object $N$ instead of _out of_ it! That gives you _colimits_ 
+(aka. _direct limits_). Examples would be the coproduct, i.e. the sum of objects.
 
 <div id="diagram-cocone" class="diagram3d" data-diagram="cocone" data-opts='{"initialFill":0}'></div>
 <p class="diagram3d-caption"><strong>Figure 7:</strong> The dual picture of

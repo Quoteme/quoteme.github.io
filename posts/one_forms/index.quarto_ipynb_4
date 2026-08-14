@@ -17,7 +17,7 @@
         "given any explanation about *what* $dx$ could mean. Even less so, what\n",
         "$\\frac{df}{dx}$ could be."
       ],
-      "id": "0cb9a5a8"
+      "id": "5438f030"
     },
     {
       "cell_type": "code",
@@ -84,7 +84,7 @@
         "this $x_0$, we get the derivative as it is often practically used, and it may\n",
         "also be written $\\frac{df}{dx}(x)$."
       ],
-      "id": "2d0c87b0"
+      "id": "e5faec2b"
     },
     {
       "cell_type": "code",
@@ -104,7 +104,7 @@
         "plt.legend([\" $f(x)$ \", \" $\\\\frac{df}{dx}(x)$ \"])\n",
         "plt.show()"
       ],
-      "id": "282b99ce",
+      "id": "ebba55e4",
       "execution_count": null,
       "outputs": []
     },
@@ -299,7 +299,7 @@
         "\\mathbb{R}$ for $M \\subseteq \\mathbb{R}$. To fix this, we need the wedge\n",
         "product."
       ],
-      "id": "a2826030"
+      "id": "dd4dca0a"
     }
   ],
   "metadata": {

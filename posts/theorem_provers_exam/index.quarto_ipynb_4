@@ -41,7 +41,7 @@
         "\n",
         "A quick example of the power that a strong type system provides us with would be the following Lean4 code snippet:"
       ],
-      "id": "8681e3d5"
+      "id": "575e219f"
     },
     {
       "cell_type": "code",
@@ -53,7 +53,7 @@
         "  match p with\n",
         "  | (a, b) => rfl"
       ],
-      "id": "790445ad",
+      "id": "60f59adb",
       "execution_count": null,
       "outputs": []
     },
@@ -63,7 +63,7 @@
       "source": [
         "Here we define a function `swap` that swaps the elements of a pair. We then prove that `swap` is involutive, i.e. that `swap (swap p) = p` for all pairs `p`. The `theorem` keyword is used to define a theorem, but is just syntactic sugar for defining a function that represents a proof. Notice that we state our theorem using Lean4's type system and then provide a proof using Lean4's programming language. The proof is verified by the Lean4 compiler, which checks if each step in the program has valid types. If we were to change the proof to the following:"
       ],
-      "id": "9c942525"
+      "id": "2e9fa89f"
     },
     {
       "cell_type": "code",
@@ -73,7 +73,7 @@
         "  match p with\n",
         "  | (a, b) => rfl"
       ],
-      "id": "303a7c9a",
+      "id": "0a16dbd4",
       "execution_count": null,
       "outputs": []
     },
@@ -83,7 +83,7 @@
       "source": [
         "The Lean4 compiler would throw the following error regarding the `rlf` function:"
       ],
-      "id": "c0f0515d"
+      "id": "e19bee2e"
     },
     {
       "cell_type": "code",
@@ -96,7 +96,7 @@
         "but is expected to have type\n",
         "  swap (swap (a, b)) ≠ (a, b) : Prop"
       ],
-      "id": "8fbbca4d",
+      "id": "7d7e1527",
       "execution_count": null,
       "outputs": []
     },
@@ -165,7 +165,7 @@
         "\n",
         "Lean4 and other programming languages with sufficiently strong type systems can infer the type of a term. This is called _type inference_. For example, in Lean4, we can write the following code:"
       ],
-      "id": "ed33becc"
+      "id": "5a02f95c"
     },
     {
       "cell_type": "code",
@@ -173,7 +173,7 @@
       "source": [
         "def f x := x + 1"
       ],
-      "id": "0cdf25c0",
+      "id": "d041c86c",
       "execution_count": null,
       "outputs": []
     },
@@ -219,7 +219,7 @@
         "\n",
         "This results in the following derivation:"
       ],
-      "id": "085fcf38"
+      "id": "18d7d33c"
     }
   ],
   "metadata": {

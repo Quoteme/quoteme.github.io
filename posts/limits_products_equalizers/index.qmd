@@ -15,6 +15,7 @@ resources:
   - vendor/utils/BufferGeometryUtils.js
   - assets/notebook_equalizer.glb
   - assets/notebook_product.glb
+draft: true
 ---
 
 <div style="display: none;">
@@ -112,16 +113,43 @@ We can now consider the universal cones/i.e. limits over these diagrams, which
 will result in:
 
 <div id="diagram-equalizer-cone" class="diagram3d" data-diagram="equalizer_cone"></div>
-<p class="diagram3d-caption"><strong>Figure 3:</strong> Two cones $N_1$ and
-  $N_2$ over the equalizer diagram from Figure 1</p>
+<p class="diagram3d-caption"><strong>Figure 3:</strong> The universal cone $\text{Eq}(f,g)$ lets any other cone
+  $N$ factor through it over the equalizer diagram from Figure 1</p>
 
 <div id="diagram-product-cone" class="diagram3d" data-diagram="product_cone"></div>
-<p class="diagram3d-caption"><strong>Figure 4:</strong> Two cones $N_1$ and
-  $N_2$ over the product diagram from Figure 2</p>
+<p class="diagram3d-caption"><strong>Figure 4:</strong> 
+  The universal cone $\prod_{i \in I} A_i$ lets any other cone $N$ factor
+  through it over the product diagram from Figure 2</p>
 
-:::{.callout-warning}
-From here on, I still need to finish this post...
-Specifically, we wish to show 
+In fact, the following theorem allows us to construct limits of any diagram
+using only products and equalizers, as long as these exist in the category
+$\cat{C}$.
 
-> "Theorem 3.41: In any category, if products and equalizers exist, then limits according to any data type can be constructed" ([Lawvere and Rosebrugh, p. 73](https://assets.cambridge.org/052180/4442/sample/0521804442ws.pdf))
+:::{#thm-limits-from-products-equalizers}
+
+## [Lawvere and Rosebrugh, p. 73](https://assets.cambridge.org/052180/4442/sample/0521804442ws.pdf)
+
+In any category, if products and equalizers exist, then limits according to any data type can be constructed
+
+:::
+
+In $\cat{Set}$, this is especially helpful as we know that 
+$$
+\begin{align*}
+&&\text{Eq}(f,g) &= \{ x \in X \mid f(x) = g(x) \}, \\
+\text{and }&& \prod_{i \in I} A_i &= \{ (a_i)_{i \in I} \mid a_i \in A_i \},
+\end{align*}
+$$
+so we can construct limits of any diagram in $\cat{Set}$ using
+only these two constructions!
+
+:::{.proof}
+
+## Proof of [@thm-limits-from-products-equalizers]
+
+Consider a diagram $D: \cat{J} \to \cat{C}$, where $\cat{J}$ is a small
+category. We wish to construct $\lim D$ using only products and equalizers.
+
+TODO
+
 :::
