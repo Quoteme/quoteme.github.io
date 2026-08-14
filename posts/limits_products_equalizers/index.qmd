@@ -1,0 +1,127 @@
+---
+title: "Limits, Products, and Equalizers"
+author: "Luca Leon Happel"
+date: "2026-08-14"
+categories: ["math", "category theory", "English"]
+abstract: |
+  Following the previous post about universal properties, we will now discuss
+  limits, products, and equalizers.
+resources:
+  - diagram-3d.js
+  - vendor/OrbitControls.js
+  - vendor/CSS2DRenderer.js
+  - vendor/loaders/GLTFLoader.js
+  - vendor/loaders/DRACOLoader.js
+  - vendor/utils/BufferGeometryUtils.js
+  - assets/notebook_equalizer.glb
+  - assets/notebook_product.glb
+---
+
+<div style="display: none;">
+$$
+\newcommand{\tensor}{\otimes}
+\newcommand{\Arr}{\mathrm{Arr}}
+\newcommand{\Ob}{\mathrm{Ob}}
+\newcommand{\cat}[1]{\mathtt{#1}}
+\newcommand{\RR}{\mathbb{RR}}
+$$
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script type="module" src="./diagram-3d.js"></script>
+<style>
+.diagram3d {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  margin: 1.75rem 0 .25rem 0;
+  border: 1px solid rgba(120, 120, 120, .25);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(120, 140, 170, .08), rgba(120, 140, 170, .02));
+  overflow: hidden;
+}
+.diagram3d canvas { display: block; }
+@media (prefers-color-scheme: dark) {
+  .diagram3d canvas { filter: invert(100%) hue-rotate(180deg); }
+}
+.diagram3d-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  font-size: .72rem;
+  opacity: .55;
+  pointer-events: none;
+  letter-spacing: .02em;
+}
+.diagram3d-controls {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .8rem;
+  background: rgba(255, 255, 255, .6);
+  backdrop-filter: blur(3px);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.diagram3d-controls input[type=range] { width: 140px; }
+.diagram-label {
+  font-size: .95rem;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .82);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
+  white-space: nowrap;
+}
+.diagram-label.diagram-label-node { font-weight: 600; }
+.diagram3d.diagram3d-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+.diagram3d-fallback-msg { color: #777; font-size: .9rem; max-width: 30em; }
+p.diagram3d-caption {
+  font-size: .92rem;
+  color: #666;
+  margin-top: -.25rem;
+  margin-bottom: 1.5rem;
+}
+</style>
+
+
+As we have previously discussed, we can construct _limits_ of diagrams in a
+category $\cat{C}$, see [the post about universal_properties](../universal_properties/index.qmd).
+
+The following are extra special diagrams, because they show up very often:
+
+<div id="diagram-equalizer" class="diagram3d" data-diagram="notebook_equalizer"></div>
+<p class="diagram3d-caption"><strong>Figure 1:</strong> An equalizer diagram, which
+  is $X \rightrightarrows^f_g Y$.
+</p>
+
+<div id="diagram-product" class="diagram3d" data-diagram="notebook_product"></div>
+<p class="diagram3d-caption"><strong>Figure 2:</strong> A product diagram, i.e.
+  only objects $A_i$ for $i \in I$, where only the identity arrows exist.
+</p>
+
+We can now consider the universal cones/i.e. limits over these diagrams, which
+will result in:
+
+<div id="diagram-equalizer-cone" class="diagram3d" data-diagram="equalizer_cone"></div>
+<p class="diagram3d-caption"><strong>Figure 3:</strong> Two cones $N_1$ and
+  $N_2$ over the equalizer diagram from Figure 1</p>
+
+<div id="diagram-product-cone" class="diagram3d" data-diagram="product_cone"></div>
+<p class="diagram3d-caption"><strong>Figure 4:</strong> Two cones $N_1$ and
+  $N_2$ over the product diagram from Figure 2</p>
+
+:::{.callout-warning}
+From here on, I still need to finish this post...
+Specifically, we wish to show 
+
+> "Theorem 3.41: In any category, if products and equalizers exist, then limits according to any data type can be constructed" ([Lawvere and Rosebrugh, p. 73](https://assets.cambridge.org/052180/4442/sample/0521804442ws.pdf))
+:::
