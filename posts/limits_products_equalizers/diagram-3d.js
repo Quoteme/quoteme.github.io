@@ -391,17 +391,17 @@ function buildEqualizerCone(container) {
   const url = "./assets/notebook_equalizer.glb";
   const X = [-0.12, 0, -2.0];
   const Y = [0.02, 0, 3.25];
-  const N2 = [0.05, 3.3, -1.62];
-  const N1 = [0.2, 6.5, -3];
+  const Equalizer = [0.05, 3.3, -1.62];
+  const N = [0.2, 6.5, -3];
 
-  addNode(scene, N2, "N_2", { offset: [0.42, 0.1, 0] });
-  addNode(scene, N1, "N_1", { offset: [0.42, 0.1, 0] });
+  addNode(scene, Equalizer, "\\text{Eq}(f,g)", { offset: [0.42, 0.1, 0] });
+  addNode(scene, N, "N", { offset: [0.42, 0.1, 0] });
 
-  addArrow(scene, N2, X, { color: 0xf59e0b });
-  addArrow(scene, N2, Y, { color: 0xf59e0b });
-  addArrow(scene, N1, X, { color: 0xea580c });
-  addArrow(scene, N1, Y, { color: 0xea580c });
-  addArrow(scene, N1, N2, { color: 0xdc2626, radius: 0.034 });
+  addArrow(scene, Equalizer, X, { color: 0xf59e0b });
+  addArrow(scene, Equalizer, Y, { color: 0xf59e0b });
+  addArrow(scene, N, X, { color: 0xea580c });
+  addArrow(scene, N, Y, { color: 0xea580c });
+  addArrow(scene, N, Equalizer, { color: 0xdc2626, radius: 0.034 });
 
   // The equalizer's cone condition is two commuting triangles per apex —
   // N -> X -> f -> Y and N -> X -> g -> Y both have to equal N -> Y — so
@@ -411,25 +411,25 @@ function buildEqualizerCone(container) {
   // negative x), negative toward g (right, drawn at positive x).
   const curveRadius = 2.0;
   const curvePoints = 4;
-  const fN1f = addFace(scene, [N1, X, Y], {
+  const fNf = addFace(scene, [N, X, Y], {
     color: 0xdc2626,
     opacity: 0,
     curveRadius,
     curvePoints,
   });
-  const fN1g = addFace(scene, [N1, X, Y], {
+  const fNg = addFace(scene, [N, X, Y], {
     color: 0xdc2626,
     opacity: 0,
     curveRadius: -curveRadius,
     curvePoints,
   });
-  const fN2f = addFace(scene, [N2, X, Y], {
+  const fEqualizerf = addFace(scene, [Equalizer, X, Y], {
     color: 0xf59e0b,
     opacity: 0,
     curveRadius,
     curvePoints,
   });
-  const fN2g = addFace(scene, [N2, X, Y], {
+  const fEqualizerg = addFace(scene, [Equalizer, X, Y], {
     color: 0xf59e0b,
     opacity: 0,
     curveRadius: -curveRadius,
@@ -446,10 +446,10 @@ function buildEqualizerCone(container) {
     label: "draw commuting triangles",
     value: 0,
     onInput: (v) => {
-      fN1f.material.opacity = v * 0.35;
-      fN1g.material.opacity = v * 0.35;
-      fN2f.material.opacity = v * 0.35;
-      fN2g.material.opacity = v * 0.35;
+      fNf.material.opacity = v * 0.35;
+      fNg.material.opacity = v * 0.35;
+      fEqualizerf.material.opacity = v * 0.35;
+      fEqualizerg.material.opacity = v * 0.35;
     },
   });
 }
@@ -472,17 +472,17 @@ function buildProductCone(container) {
   const url = "./assets/notebook_product.glb";
   const Ai = [-0.18, 0, -1.84];
   const Aj = [0.09, 0, 2.44];
-  const N2 = [0.05, 3.1, 0.3];
-  const N1 = [0.2, 6.1, 0.42];
+  const Product = [0.05, 3.1, 0.3];
+  const N = [0.2, 6.1, 0.42];
 
-  addNode(scene, N2, "N_2", { offset: [0.42, 0.1, 0] });
-  addNode(scene, N1, "N_1", { offset: [0.42, 0.1, 0] });
+  addNode(scene, Product, "\\prod_{i \\in I} A_i", { offset: [0.42, 0.1, 0] });
+  addNode(scene, N, "N", { offset: [0.42, 0.1, 0] });
 
-  addArrow(scene, N2, Ai, { color: 0xf59e0b });
-  addArrow(scene, N2, Aj, { color: 0xf59e0b });
-  addArrow(scene, N1, Ai, { color: 0xea580c });
-  addArrow(scene, N1, Aj, { color: 0xea580c });
-  addArrow(scene, N1, N2, { color: 0xdc2626, radius: 0.034 });
+  addArrow(scene, Product, Ai, { color: 0xf59e0b });
+  addArrow(scene, Product, Aj, { color: 0xf59e0b });
+  addArrow(scene, N, Ai, { color: 0xea580c });
+  addArrow(scene, N, Aj, { color: 0xea580c });
+  addArrow(scene, N, Product, { color: 0xdc2626, radius: 0.034 });
 
   loadModel(scene, url, {
     position: [0, 0, -1],

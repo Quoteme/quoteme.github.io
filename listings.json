@@ -2,7 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/limits_products_equalizers/index.html",
       "/posts/universal_properties/index.html",
       "/posts/writing-linux-drivers/index.html",
       "/posts/can-the-covariance-matrix-have-imaginary-eigenvectors/index.html",

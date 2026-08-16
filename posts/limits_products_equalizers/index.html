@@ -119,6 +119,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
     \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
     $$
 </div>
+<meta name="quarto:status" content="draft">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -156,7 +157,7 @@ window.Quarto = {
 
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -352,29 +353,27 @@ p.diagram3d-caption {
 
 </div>
 <p class="diagram3d-caption">
-<strong>Figure 3:</strong> Two cones <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span> over the equalizer diagram from Figure 1
+<strong>Figure 3:</strong> The universal cone <span class="math inline">\(\text{Eq}(f,g)\)</span> lets any other cone <span class="math inline">\(N\)</span> factor through it over the equalizer diagram from Figure 1
 </p>
 <div id="diagram-product-cone" class="diagram3d" data-diagram="product_cone">
 
 </div>
 <p class="diagram3d-caption">
-<strong>Figure 4:</strong> Two cones <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span> over the product diagram from Figure 2
+<strong>Figure 4:</strong> The universal cone <span class="math inline">\(\prod_{i \in I} A_i\)</span> lets any other cone <span class="math inline">\(N\)</span> factor through it over the product diagram from Figure 2
 </p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>In fact, the following theorem allows us to construct limits of any diagram using only products and equalizers, as long as these exist in the category <span class="math inline">\(\cat{C}\)</span>.</p>
+<div id="thm-limits-from-products-equalizers" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (<a href="https://assets.cambridge.org/052180/4442/sample/0521804442ws.pdf">Lawvere and Rosebrugh, p.&nbsp;73</a>)</strong></span> In any category, if products and equalizers exist, then limits according to any data type can be constructed</p>
 </div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>From here on, I still need to finish this post… Specifically, we wish to show</p>
-<blockquote class="blockquote">
-<p>“Theorem 3.41: In any category, if products and equalizers exist, then limits according to any data type can be constructed” (<a href="https://assets.cambridge.org/052180/4442/sample/0521804442ws.pdf">Lawvere and Rosebrugh, p.&nbsp;73</a>)</p>
-</blockquote>
-</div>
+<p>In <span class="math inline">\(\cat{Set}\)</span>, this is especially helpful as we know that <span class="math display">\[
+\begin{align*}
+&amp;&amp;\text{Eq}(f,g) &amp;= \{ x \in X \mid f(x) = g(x) \}, \\
+\text{and }&amp;&amp; \prod_{i \in I} A_i &amp;= \{ (a_i)_{i \in I} \mid a_i \in A_i \},
+\end{align*}
+\]</span> so we can construct limits of any diagram in <span class="math inline">\(\cat{Set}\)</span> using only these two constructions!</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-limits-from-products-equalizers" class="quarto-xref">Theorem&nbsp;1</a>). </span>Consider a diagram <span class="math inline">\(D: \cat{J} \to \cat{C}\)</span>, where <span class="math inline">\(\cat{J}\)</span> is a small category. We wish to construct <span class="math inline">\(\lim D\)</span> using only products and equalizers.</p>
+<p>TODO</p>
 </div>
 
 
