@@ -4,6 +4,7 @@ subtitle: "Or: how to fix your fingerprint reader by writing the missing drivers
 author: "Luca Leon Happel"
 date: "2026-07-15"
 categories: ["computer science", "Linux", "English"]
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/250px-Tux.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
 ---
 
 I own an Asus Rog Flow X13 with a `04f3:0c6e Elan Microelectronics Corp. ELAN:Fingerprint`
