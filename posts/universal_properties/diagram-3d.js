@@ -638,7 +638,7 @@ function buildCone2(container, opts = {}) {
 // than N1 mapping into N2.
 function buildCocone(container, opts = {}) {
   const initialFill = opts.initialFill ?? 0;
-  const { url = "./assets/notebook.glb" } = opts;
+  const { url = "./assets/notebook_dual.glb" } = opts;
   const { scene } = initScene(container, {
     cameraPos: [0.8, 4.6, 11.5],
     lookAt: [0, -2.1, 0],
