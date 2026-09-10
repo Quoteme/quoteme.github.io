@@ -12,6 +12,7 @@ categories:
 format:
   html:
     code-fold: true
+draft: true
 ---
 
 :::{.callout-warning}

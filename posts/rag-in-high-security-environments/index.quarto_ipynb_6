@@ -57,7 +57,7 @@
         "and how the *relations* between them (dog walks in the park; cars drive on the\n",
         "highway) form parallel geometric paths (meaning we can apply an affine linear distance preserving transformation to the whole space, mapping one \"concept\", like walking your dog in the park, to the other \"concept\", like driving your car on the highway):"
       ],
-      "id": "a37f1689"
+      "id": "0cbad8ce"
     },
     {
       "cell_type": "code",
@@ -144,7 +144,7 @@
         ")\n",
         "fig.show()"
       ],
-      "id": "49834cb2",
+      "id": "33f8f8e4",
       "execution_count": null,
       "outputs": []
     },
@@ -183,7 +183,7 @@
         "<a href=\"/consultation.html\" class=\"btn btn-danger btn-lg\" style=\"font-size:1.4rem; padding: 1rem 3rem; font-weight:700; letter-spacing:0.04em; box-shadow: 0 4px 18px rgba(220,53,69,0.35);\">&#128197; Book a free consultation</a>\n",
         "</div>"
       ],
-      "id": "a6dcfa2d"
+      "id": "6839dd98"
     }
   ],
   "metadata": {

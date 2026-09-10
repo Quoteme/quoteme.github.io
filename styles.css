@@ -50,3 +50,20 @@
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
+
+/* Listing thumbnails.
+   Quarto ships `div.quarto-post .thumbnail img { width: 100%; object-fit: cover }`
+   with no height, so `object-fit` never takes effect and a portrait image (e.g.
+   the Tux logo) grows to its full aspect ratio. Cap the height instead and use
+   `contain`, so plots and logos are scaled down whole rather than cropped. */
+
+:root {
+    --listing-thumbnail-max-height: 200px;
+}
+
+div.quarto-post .thumbnail img,
+.quarto-grid-item p.card-img-top > img {
+    height: auto;
+    max-height: var(--listing-thumbnail-max-height);
+    object-fit: contain;
+}

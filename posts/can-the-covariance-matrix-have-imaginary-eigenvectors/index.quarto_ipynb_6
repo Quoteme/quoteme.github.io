@@ -205,7 +205,7 @@
         "principal components. The principal components are obtained by rotating the data\n",
         "in such a way that the variance along each principal component is maximized:"
       ],
-      "id": "275861e1"
+      "id": "9fa0bd33"
     },
     {
       "cell_type": "code",
@@ -255,7 +255,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "61a10011",
+      "id": "cb3564c0",
       "execution_count": null,
       "outputs": []
     },
@@ -317,7 +317,7 @@
         "components. If our data has a shape different from a Gaussian blob, PCA will\n",
         "fall short."
       ],
-      "id": "cf7d7ef2"
+      "id": "026cdd65"
     },
     {
       "cell_type": "code",
@@ -375,7 +375,7 @@
         "fig2.update_layout(title=\"xz Gaussian blob with bell-curve bump along y: falls short\")\n",
         "fig2.show()"
       ],
-      "id": "466b4053",
+      "id": "fcab28a1",
       "execution_count": null,
       "outputs": []
     },
@@ -412,7 +412,7 @@
         "chapter](#breaking-the-symmetry) and we can compute the eigenvalues of the\n",
         "resulting non-symmetric auto-covariance matrix."
       ],
-      "id": "e94127a7"
+      "id": "340e69d7"
     },
     {
       "cell_type": "code",
@@ -426,7 +426,7 @@
         "X1_quat = np.array([iota(*p) for p in X1])\n",
         "cov_quat = X1_quat[:, np.newaxis] * X1_quat[np.newaxis, :]"
       ],
-      "id": "2c9fa810",
+      "id": "a7c9fc46",
       "execution_count": null,
       "outputs": []
     },
@@ -440,7 +440,7 @@
         "eigenvalues are for the geometry of the data.\n",
         ":::"
       ],
-      "id": "134dac6a"
+      "id": "cfdc53ed"
     }
   ],
   "metadata": {
