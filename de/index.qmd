@@ -26,7 +26,7 @@ and 300px height
 
 ::: {#aboutme}
 <img src="https://avatars2.githubusercontent.com/u/6796009" id="avatar" />
-Hallo, ich bin __Luca Leon Happel__, __Mathematiker__, __Informatiker__ und
+Hallo, ich bin __M.Sc. B.Sc. B.Sc. Luca Leon Happel__, __Mathematiker__, __Informatiker__ und
 __Sicherheitsforscher__ aus Düsseldorf.
 Ich entwickle und auditiere Software für Kliniken, Medizinproduktehersteller
 und regulierte Industrie, wo Fehler teuer sind: __Data Science, KI,
