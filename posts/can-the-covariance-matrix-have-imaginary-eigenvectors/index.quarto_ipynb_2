@@ -199,7 +199,7 @@
         "algebra *is* complex linear algebra with a symmetry constraint, and `numpy` can\n",
         "do all of it."
       ],
-      "id": "ae978d76"
+      "id": "2315037d"
     },
     {
       "cell_type": "code",
@@ -228,7 +228,7 @@
         "\n",
         "print(np.round(right_eigenvalues(C), 6))"
       ],
-      "id": "45fca652",
+      "id": "312d69e2",
       "execution_count": null,
       "outputs": []
     },
@@ -282,7 +282,7 @@
         "\n",
         "which is neither symmetric nor Hermitian."
       ],
-      "id": "84e788d8"
+      "id": "d92802ba"
     },
     {
       "cell_type": "code",
@@ -293,7 +293,7 @@
         "\n",
         "print(np.round(right_eigenvalues(C), 6))"
       ],
-      "id": "1d0439a0",
+      "id": "4f3d9906",
       "execution_count": null,
       "outputs": []
     },
@@ -347,7 +347,7 @@
         "principal components. The principal components are obtained by rotating the data\n",
         "in such a way that the variance along each principal component is maximized:"
       ],
-      "id": "06378f11"
+      "id": "46306310"
     },
     {
       "cell_type": "code",
@@ -397,7 +397,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "ed869b0e",
+      "id": "35ab7a63",
       "execution_count": null,
       "outputs": []
     },
@@ -459,7 +459,7 @@
         "components. If our data has a shape different from a Gaussian blob, PCA will\n",
         "fall short."
       ],
-      "id": "0f5018de"
+      "id": "ac5c0876"
     },
     {
       "cell_type": "code",
@@ -517,7 +517,7 @@
         "fig2.update_layout(title=\"xz Gaussian blob with bell-curve bump along y: falls short\")\n",
         "fig2.show()"
       ],
-      "id": "bbb3ec1c",
+      "id": "4c0a81e7",
       "execution_count": null,
       "outputs": []
     },
@@ -580,7 +580,7 @@
         "point cloud traversed backwards. PCA is identical — it is literally the same\n",
         "matrix — while $\\Omega$ flips sign and points along the axis of rotation:"
       ],
-      "id": "29d87799"
+      "id": "06698bc0"
     },
     {
       "cell_type": "code",
@@ -621,7 +621,7 @@
         "fig3.update_layout(title=\"Same cloud, same principal components, opposite Ω\")\n",
         "fig3.show()"
       ],
-      "id": "13703b25",
+      "id": "cff9c8d6",
       "execution_count": null,
       "outputs": []
     },
@@ -697,7 +697,7 @@
         "::: {#refs}\n",
         ":::"
       ],
-      "id": "763a28c8"
+      "id": "8e1bacfd"
     }
   ],
   "metadata": {

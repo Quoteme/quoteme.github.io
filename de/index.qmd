@@ -125,7 +125,7 @@ Korrekturmaßnahmen wurden umgesetzt, um das Ökosystem abzusichern.
 
 :::
 
-## Was ich mache {#services}
+## Was wir machen {#services}
 
 ::: {.grid .service-grid}
 

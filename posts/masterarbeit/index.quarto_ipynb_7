@@ -42,7 +42,7 @@
         "I reuse some code i have from [my post where I analyze my NixOS GitHub\n",
         "repository](/posts/nixos-git-analysis/)."
       ],
-      "id": "7d1614ee"
+      "id": "b2678044"
     },
     {
       "cell_type": "code",
@@ -74,7 +74,7 @@
         "print(f\"Last commit: {datetime.fromtimestamp(commits[0].committed_date)}\")\n",
         "print(f\"Avg. time between commits: {(commits[0].committed_date - commits[-1].committed_date) / len(commits) / 3600:.2f} hours\")"
       ],
-      "id": "60dda2bc",
+      "id": "cfa1e2ae",
       "execution_count": null,
       "outputs": []
     },
@@ -111,7 +111,7 @@
         "\n",
         "fig.show()"
       ],
-      "id": "cad19bf9",
+      "id": "8a93f45d",
       "execution_count": null,
       "outputs": []
     },
@@ -184,7 +184,7 @@
         "expected_linear = float(linear_cumulative[-1])\n",
         "print(f\"Expected cumulative commits by {forecast_end_date.isoformat()} (linear): {expected_linear:.1f}\")"
       ],
-      "id": "e17f5a9f",
+      "id": "6cff7be8",
       "execution_count": null,
       "outputs": []
     },
@@ -341,7 +341,7 @@
         ")\n",
         "barcode_fig.show()"
       ],
-      "id": "975b9197",
+      "id": "9b2c5087",
       "execution_count": null,
       "outputs": []
     },
@@ -425,7 +425,7 @@
         ")\n",
         "poly_trig_fig.show()"
       ],
-      "id": "cb532a4d",
+      "id": "7b1fa9e4",
       "execution_count": null,
       "outputs": []
     },
@@ -447,7 +447,7 @@
         "laptop and get back to work aruond one month later, which led to the second\n",
         "spike in commits."
       ],
-      "id": "9393862e"
+      "id": "3813a932"
     }
   ],
   "metadata": {
