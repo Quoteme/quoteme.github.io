@@ -162,5 +162,5 @@ Well, you may use your RAG (and preferably set it up with MCP, but that's a topi
 Fear not! I can help you with setting up a RAG. You may schedule a free consultation with me, and I will be happy to help you with that.
 
 <div style="text-align:center; margin: 3rem 0 1rem 0;">
-<a href="/consultation.html" class="btn btn-danger btn-lg" style="font-size:1.4rem; padding: 1rem 3rem; font-weight:700; letter-spacing:0.04em; box-shadow: 0 4px 18px rgba(220,53,69,0.35);">&#128197; Book a free consultation</a>
+<a href="/services/#contact" class="btn btn-danger btn-lg" style="font-size:1.4rem; padding: 1rem 3rem; font-weight:700; letter-spacing:0.04em; box-shadow: 0 4px 18px rgba(220,53,69,0.35);">&#128197; Book a free consultation</a>
 </div>

@@ -32,7 +32,7 @@ Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit
 
 ## 2. Allgemeine Hinweise und Pflichtinformationen
 
-### Datenscjhutz
+### Datenschutz
 
 Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
 
@@ -92,6 +92,18 @@ Der Provider der Seiten erhebt und speichert automatisch Informationen in so gen
 Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.
 
 Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.
+
+### Kontaktaufnahme per E-Mail
+
+Wenn Sie uns per E-Mail kontaktieren (z. B. unter consulting@happel.ai), werden Ihre Angaben inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist, im Übrigen auf Grundlage unseres berechtigten Interesses an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO). Sie können Ihre Nachricht mit dem auf der Seite „Services“ verlinkten PGP-Schlüssel verschlüsseln.
+
+### Terminbuchung über Cal.com
+
+Auf der Seite „Services“ bieten wir die Möglichkeit, über den Dienst Cal.com einen Termin zu buchen. Anbieter ist Cal.com, Inc., 2261 Market Street #4382, San Francisco, CA 94114, USA.
+
+Der Buchungskalender wird **erst nach Ihrem Klick** auf die Schaltfläche „Buchungskalender laden“ von den Servern von Cal.com nachgeladen. Ohne diesen Klick werden keine Daten an Cal.com übertragen. Mit dem Klick willigen Sie ein, dass eine Verbindung zu Cal.com hergestellt wird und dabei technische Daten (z. B. IP-Adresse, Browsertyp, Zeitpunkt des Aufrufs) an Cal.com übermittelt werden. Wenn Sie einen Termin buchen, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, ggf. Angaben zu Ihrem Anliegen) von Cal.com verarbeitet und an uns weitergeleitet.
+
+Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sowie zur Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO). Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden. Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Weitere Informationen finden Sie in der Datenschutzerklärung von Cal.com: [https://cal.com/privacy](https://cal.com/privacy).
 
 ## 4. Haftung für Inhalte und Bilder
 

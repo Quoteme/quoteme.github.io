@@ -17,8 +17,8 @@ about:
       text: Reddit
       href: https://www.reddit.com/user/lalelul
     - icon: envelope
-      text: Consulting
-      href: mailto:consulting@happel.ai
+      text: Services
+      href: /services/
 
 ---
 
@@ -28,7 +28,7 @@ For over a decade I have worked between mathematics and computer science, auditi
 
 I am completing my M.Sc. in Mathematics (HHU Düsseldorf, April 2026), after which I will begin my PhD in Computer Science. I am a Research Associate at the [_monti_ project](https://monti.hhu.de/), a medical AI initiative at Düsseldorf University Hospital, where I develop and secure software that runs under strict regulatory requirements.
 
-For confidential security consultations, reach me at [consulting@happel.ai](mailto:consulting@happel.ai).
+For consulting, see my [services page](/services/) or reach me at [consulting@happel.ai](mailto:consulting@happel.ai).
 
 ## Education
 

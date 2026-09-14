@@ -84,7 +84,9 @@ multiple high class universities and hospitals.
 I earned multiple awards for my works 
 (e.g. in __DS/AI and high security software development__).
 <br>
-Contact me via [email](mailto:consultation@happel.ai) or [LinkedIn](https://www.linkedin.com/in/lucahappel/) 
+Looking for help with __data science, AI, secure software or app development__? See my [services](/services/) ([Deutsch](/services/de/)).
+<br>
+Contact me via [email](mailto:consulting@happel.ai) or [LinkedIn](https://www.linkedin.com/in/lucahappel/) 
 for consulting, research or collaboration opportunities.
 :::
 <iframe id="top2manframe" src="" width="100%" height="300px" style="border: none;"></iframe>

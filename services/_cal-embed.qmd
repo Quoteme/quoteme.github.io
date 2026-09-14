@@ -1,0 +1,32 @@
+<!--
+Shared Cal.com embed used by the EN and DE services pages.
+
+The embed script is only loaded after the visitor clicks the consent button
+(GDPR: Cal.com Inc. is a US processor, see datenschutz.qmd). The including
+page supplies the language-specific labels through data attributes on
+`#cal-consent`.
+-->
+
+```{=html}
+<div id="cal-booking"></div>
+<script>
+  (function () {
+    const consent = document.getElementById("cal-consent");
+    const target = document.getElementById("cal-booking");
+    const calLink = "{{< var consultation.cal_link >}}";
+    if (!consent || !target) return;
+
+    function loadCal() {
+      // Official Cal.com embed snippet (https://cal.com/docs/embed)
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      const dark = document.documentElement.classList.contains("quarto-dark");
+      Cal("init", { origin: "https://cal.com" });
+      Cal("inline", { elementOrSelector: "#cal-booking", calLink: calLink, layout: "month_view" });
+      Cal("ui", { theme: dark ? "dark" : "light", hideEventTypeDetails: false, layout: "month_view" });
+      consent.hidden = true;
+    }
+
+    consent.addEventListener("click", loadCal);
+  })();
+</script>
+```

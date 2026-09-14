@@ -5,7 +5,7 @@ website:
   site-url: "https://happel.ai/"
   title: "Luca Happel's personal website"
   favicon: "favicon.png"
-  description: "Personal website of {{< var profile.name >}}, including lots of math and computer science."
+  description: "Website of {{< var profile.name >}}: data science, AI, high-security software and app development consulting, plus lots of math and computer science."
   open-graph:
     image: https://avatars2.githubusercontent.com/u/6796009
     description: Luca Happel's personal website, including lots of math and computer science.
@@ -19,7 +19,8 @@ website:
     right:
       - about.qmd
       - projects.qmd
-      - consultation.qmd
+      - text: Services
+        href: services/index.qmd
       - icon: github
         aria-label: GitHub
         href: https://github.com/Quoteme/

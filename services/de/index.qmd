@@ -1,0 +1,160 @@
+---
+title: "Leistungen"
+description: "Data Science, KI, Hochsicherheits-Software und App-Entwicklung von Luca Happel: Mathematiker, Informatiker und Sicherheitsforscher."
+lang: de
+page-layout: full
+title-block-style: none
+toc: false
+format:
+  html:
+    css: /styles.css
+    include-in-header:
+      - text: |
+          <link rel="alternate" hreflang="en" href="https://happel.ai/services/" />
+          <link rel="alternate" hreflang="de" href="https://happel.ai/services/de/" />
+          <style>#title-block-header { display: none; }</style>
+---
+
+::: {.storefront}
+
+::: {.lang-switch}
+[English](/services/) · Deutsch
+:::
+
+::: {.hero}
+# Data Science, KI und sichere Software für Organisationen, in denen Fehler teuer sind {.hero-title}
+
+Mathematiker, Informatiker und Sicherheitsforscher. Ich entwickle und auditiere Software
+für Kliniken, Medizinproduktehersteller und regulierte Industrie.
+
+<a href="#contact" class="btn btn-primary btn-lg">Kostenloses 30-Min-Gespräch buchen</a>
+<a href="mailto:{{< var consultation.email >}}" class="btn btn-outline-primary btn-lg">E-Mail schreiben</a>
+:::
+
+::: {.proof-strip}
+::: {.proof-item}
+**Publiziert** im *European Heart Journal – Digital Health*
+:::
+::: {.proof-item}
+**2× 1. Platz** HHU-Ideenwettbewerb · BIG-Festival-Award
+:::
+::: {.proof-item}
+**Kritische Schwachstelle** gefunden und verantwortungsvoll gemeldet
+:::
+::: {.proof-item}
+**MDR-konforme** Medizinsoftware seit 2022
+:::
+:::
+
+## Was ich mache {#services}
+
+::: {.grid .service-grid}
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### Data Science
+- Statistische Analysen und Modelle, die Sie begründen können
+- Reproduzierbare Pipelines (Python, SQL)
+- Berichte, die Ihre Fachleute lesen können
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### KI & Machine Learning
+- Modelle für Monitoring, Anomalieerkennung, Vorhersage
+- RAG und LLM-Integration on-premises, keine Daten verlassen Ihr Netzwerk
+- Validierung und Dokumentation für MDR / klinische Prüfung
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### Softwareentwicklung (Hochsicherheit)
+- Backend- und Systemcode in Rust, Python, C/C++
+- Sicherheitsaudits (MDR, IEC 62443, FDA-Leitlinien)
+- Formale Verifikation (Lean 4) kritischer Komponenten
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### App-Entwicklung
+- Web-, Desktop- und Mobile-Apps, vom Prototyp zum Produkt
+- Klinische Frontends mit Zugriffskontrolle und Audit-Trail
+- Übergabe mit Doku, Tests und einem Deployment, das Ihr Team betreiben kann
+:::
+
+:::
+
+
+## Ausgewählte Arbeiten {#work}
+
+::: {.grid .work-grid}
+
+::: {.g-col-12 .g-col-md-4 .work-card}
+![](/assets/digital-demo-day.png)
+
+**monti – KI-Patientenmonitoring**<br>
+Erkennt Komplikationen bei Kardiologie- und Onkologiepatienten am Universitätsklinikum Düsseldorf. [Publikation](https://doi.org/10.1093/ehjdh/ztaf004)
+:::
+
+::: {.g-col-12 .g-col-md-4 .work-card}
+![](/assets/bug-bounties/6bac79da-737c-40ca-b270-0cab0f88298a.jpeg)
+
+**Sicherheitslücke behoben**<br>
+Schwerwiegende Schwachstelle in Software für kritische Infrastruktur gefunden, gemeldet und mit dem Hersteller behoben.
+:::
+
+::: {.g-col-12 .g-col-md-4 .work-card}
+![](/posts/rag-in-high-security-environments/thumbnail.png)
+
+**RAG in Hochsicherheitsumgebungen**<br>
+LLM-Suche über Firmendokumente auf Kubernetes, vollständig on-premises. [Artikel](/posts/rag-in-high-security-environments/) (englisch)
+:::
+
+:::
+
+## So läuft es ab {#process}
+
+::: {.grid .process-grid}
+::: {.g-col-6 .g-col-md-3 .process-step}
+**1. Gespräch**<br>30 Minuten, kostenlos, Sie schildern das Problem.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**2. Festpreis**<br>Umfang, Zeitplan, Preis. NDA auf Wunsch.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**3. Umsetzung**<br>Code ab Tag eins in Ihrem Repo.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**4. Übergabe**<br>Doku, Tests, Einführung.
+:::
+:::
+
+## Hier starten {#contact}
+
+::: {.contact-box}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-lg-7}
+### Kostenloses 30-Minuten-Gespräch buchen
+
+<button id="cal-consent" class="btn btn-primary btn-lg">Freie Termine anzeigen</button>
+
+::: {.text-muted .small}
+Kalender wird nach Klick von Cal.com geladen ([Datenschutz](/datenschutz.html)) · [in neuem Tab öffnen](https://cal.com/{{< var consultation.cal_link >}}){target="_blank"}
+:::
+
+{{< include ../_cal-embed.qmd >}}
+:::
+
+::: {.g-col-12 .g-col-lg-5}
+### Oder Projekt per E-Mail beschreiben
+
+[{{< var consultation.email >}}](mailto:{{< var consultation.email >}}){.btn .btn-outline-primary .btn-lg}
+
+Antwort innerhalb eines Werktags. Streng vertraulich.
+
+**PGP:** `{{< var consultation.pgp_key_id >}}` · [öffentlicher Schlüssel]({{< var consultation.pgp_file >}})
+:::
+
+:::
+
+:::
+
+:::

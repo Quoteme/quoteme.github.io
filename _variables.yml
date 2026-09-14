@@ -11,3 +11,9 @@ website:
 consultation:
   title: "Consultation"
   email: "consulting@happel.ai"
+  # Cal.com booking page (username/event-type), e.g. "lucahappel/intro".
+  # TODO: replace placeholder with the real Cal.com link.
+  cal_link: "luca-happel-doxgou/consult"
+  pgp_key_id: "0x75A3FE23C6311437"
+  pgp_fingerprint: "A169 8878 4821 78CA 7E97  1DFE 75A3 FE23 C631 1437"
+  pgp_file: "/assets/gpg/Consulting%20at%20happel.ai%20consulting%40happel.ai-(0x75A3FE23C6311437)-public_1.asc"
