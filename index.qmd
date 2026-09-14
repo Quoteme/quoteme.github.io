@@ -77,17 +77,12 @@ and 300px height
 ::: {#gimmick}
 ::: {#aboutme}
 <img src="https://avatars2.githubusercontent.com/u/6796009" id="avatar" />
-Hi, I am __M.Sc. B.Sc. B.Sc Luca Leon Happel__. 
-I am a __M.Sc. and B.Sc. mathematician__ and
-__B.Sc. computer scientist__, who worked at
-multiple high class universities and hospitals.
-I earned multiple awards for my works 
-(e.g. in __DS/AI and high security software development__).
+Hi, I am __M.Sc. B.Sc. B.Sc Luca Leon Happel__, a 
+__mathematician__ and
+__computer scientist__, with more than 5 years of work experience,
+and multiple awards in __DS/AI and high security software development__.
 <br>
 Looking for help with __data science, AI, secure software or app development__? See my [services](/services/) ([Deutsch](/services/de/)).
-<br>
-Contact me via [email](mailto:consulting@happel.ai) or [LinkedIn](https://www.linkedin.com/in/lucahappel/) 
-for consulting, research or collaboration opportunities.
 :::
 <iframe id="top2manframe" src="" width="100%" height="300px" style="border: none;"></iframe>
 :::

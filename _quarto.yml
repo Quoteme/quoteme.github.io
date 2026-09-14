@@ -17,9 +17,9 @@ website:
   draft-mode: unlinked
   navbar:
     right:
-      - about.qmd
       - projects.qmd
       - text: Services
+        icon: briefcase
         href: services/index.qmd
       - icon: github
         aria-label: GitHub
