@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://happel.ai/index.html</loc>
-    <lastmod>2026-09-14T16:23:56.317Z</lastmod>
+    <loc>https://happel.ai/blog.html</loc>
+    <lastmod>2026-09-14T17:10:46.218Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/de/index.html</loc>
-    <lastmod>2026-09-14T16:21:42.063Z</lastmod>
+    <loc>https://happel.ai/about.html</loc>
+    <lastmod>2026-09-14T15:48:38.694Z</lastmod>
   </url>
   <url>
     <loc>https://happel.ai/datenschutz.html</loc>
@@ -165,11 +165,11 @@
     <lastmod>2026-03-10T19:06:07.576Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/blog.html</loc>
-    <lastmod>2026-09-14T15:18:05.840Z</lastmod>
+    <loc>https://happel.ai/de/index.html</loc>
+    <lastmod>2026-09-14T16:21:42.063Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/about.html</loc>
-    <lastmod>2026-09-14T15:48:38.694Z</lastmod>
+    <loc>https://happel.ai/index.html</loc>
+    <lastmod>2026-09-14T16:23:56.317Z</lastmod>
   </url>
 </urlset>
