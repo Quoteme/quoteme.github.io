@@ -154,7 +154,7 @@ Korrekturmaßnahmen wurden umgesetzt, um das Ökosystem abzusichern.
 ::: {.g-col-12 .g-col-md-6 .service-card}
 ### {{< bi phone >}} App- & Softwareentwicklung {#svc-apps}
 - Web-, Desktop- und Mobile-Apps, vom Prototyp zum Produkt
-- Backend- und Systemcode in Rust, Python, C/C++
+- Backend-, System- und Embedded-Code in Rust, Python, C/C++
 - Klinische Frontends mit Zugriffskontrolle und Audit-Trail
 - Übergabe mit Doku, Tests und einem Deployment, das Ihr Team betreiben kann
 :::

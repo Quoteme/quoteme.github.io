@@ -154,7 +154,7 @@ implemented to secure the ecosystem.
 ::: {.g-col-12 .g-col-md-6 .service-card}
 ### {{< bi phone >}} App & Software Development {#svc-apps}
 - Web, desktop and mobile apps, prototype to product
-- Backend and systems code in Rust, Python, C/C++
+- Backend, systems and embedded code in Rust, Python, C/C++
 - Clinical front-ends with access control and audit trails
 - Handover with docs, tests and a deployment your team can run
 :::
