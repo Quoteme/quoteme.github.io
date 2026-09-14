@@ -17,8 +17,13 @@ website:
   draft-mode: unlinked
   navbar:
     title: false
-    logo: assets/happel-ai-logo.svg
-    logo-alt: "happel.ai"
+    logo:
+      light:
+        path: assets/happel-ai-logo.svg
+        alt: "happel.ai"
+      dark:
+        path: assets/happel-ai-logo-dark.svg
+        alt: "happel.ai"
     logo-href: index.qmd
     right:
       - projects.qmd
@@ -48,7 +53,7 @@ format:
     css: styles.css
     theme:
       light: cosmo
+      dark: [cosmo, theme-dark.scss]
+    respect-user-color-scheme: true
     filters:
       - callouty-theorem
-filters:
-  - auto-dark

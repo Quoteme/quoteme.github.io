@@ -6,7 +6,24 @@
 
 :root {
   --gimmick-height: 440px;
-  --gimmick-fade: 10px;
+  --gimmick-fade: 15px;
+}
+
+/* `title-block-banner: true` makes Quarto emit a header before the hero.
+   Hide it on this page: its default bottom margin leaves a visible gap. */
+body:has(#gimmick) #title-block-header {
+  display: none;
+}
+
+/* Quarto pads every direct child of #quarto-content by 14px. Only the home
+   hero needs to touch the navbar, so remove it when #gimmick is present. */
+#quarto-content:has(> #quarto-document-content > #gimmick)
+  > #quarto-document-content {
+  padding-top: 0;
+}
+
+main {
+  margin-top: 0;
 }
 
 #gimmick {
@@ -19,13 +36,6 @@
   min-height: var(--gimmick-height);
   padding: 3rem 1rem 2rem 1rem;
   box-sizing: border-box;
-}
-
-/* main.content gets 14px top padding from Quarto on wide screens (0 below 992px) */
-@media (min-width: 992px) {
-  #gimmick {
-    margin-top: -14px;
-  }
 }
 
 #gimmick iframe {
@@ -94,6 +104,10 @@
 #aboutme p {
   text-align: justify;
   float: left;
+}
+
+body.quarto-dark #aboutme {
+  background: rgba(22, 24, 28, 0.75);
 }
 
 #aboutme img {
