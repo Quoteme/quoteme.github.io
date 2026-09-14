@@ -1,54 +1,112 @@
 /* css styles */
 
+/* Homepage hero: the Top2Man iframe is a full-bleed background (.column-screen),
+   flush with the navbar, fading into the page at the bottom. The language switch,
+   the intro card and the CTA buttons are layered on top of it. */
+
+:root {
+  --gimmick-height: 440px;
+  --gimmick-fade: 10px;
+}
+
 #gimmick {
-    position: relative;
-    width: 100%;
-    height: 300px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: var(--gimmick-height);
+  padding: 3rem 1rem 2rem 1rem;
+  box-sizing: border-box;
 }
 
-#aboutme {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 80%;
-    overflow: auto;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    /* FIXME: blur does not work that well anymore since quarto 1.4 */
-    backdrop-filter: blur(7px) grayscale(0.8);
-    -webkit-backdrop-filter: blur(10.1px);
-    padding: 1em 1em 0em 1em;
-    text-align: justify;
-    font-family: "Helvetica";
-
-    /* Centering */
-    transform: translate(-50%, -50%);
-}
-
-
-/* make the text flow around the image */
-#aboutme p {
-    text-align: justify;
-    float: left;
-}
-
-#aboutme img {
-    float: left;
-    margin: 0 1em 0 0;
-    width: 20%;
-    height: auto;
+/* main.content gets 14px top padding from Quarto on wide screens (0 below 992px) */
+@media (min-width: 992px) {
+  #gimmick {
+    margin-top: -14px;
+  }
 }
 
 #gimmick iframe {
-    position: absolute;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 calc(100% - var(--gimmick-fade)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 calc(100% - var(--gimmick-fade)),
+    transparent 100%
+  );
+}
+
+#gimmick > :not(iframe) {
+  position: relative;
+  z-index: 1;
+}
+
+#gimmick .lang-switch {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 0.9rem;
+  color: var(--bs-secondary-color);
+}
+
+#gimmick .lang-switch p {
+  margin: 0;
+}
+
+#gimmick .cta-row {
+  text-align: center;
+}
+
+#gimmick .cta-row p {
+  margin: 0;
+}
+
+#gimmick .cta-row .btn {
+  margin: 0.25rem;
+}
+
+#aboutme {
+  width: calc(100% - 2rem);
+  max-width: 48rem;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* FIXME: blur does not work that well anymore since quarto 1.4 */
+  backdrop-filter: blur(7px) grayscale(0.8);
+  -webkit-backdrop-filter: blur(10.1px);
+  padding: 1em 1em 0em 1em;
+  text-align: justify;
+  font-family: "Helvetica";
+}
+
+/* make the text flow around the image */
+#aboutme p {
+  text-align: justify;
+  float: left;
+}
+
+#aboutme img {
+  float: left;
+  margin: 0 1em 0 0;
+  width: 15%;
+  height: auto;
 }
 
 .fix-transparent-background img {
-    background: rgba(120, 120, 120, 0.25);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(120, 120, 120, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Listing thumbnails.
@@ -58,12 +116,188 @@
    `contain`, so plots and logos are scaled down whole rather than cropped. */
 
 :root {
-    --listing-thumbnail-max-height: 200px;
+  --listing-thumbnail-max-height: 200px;
 }
 
 div.quarto-post .thumbnail img,
 .quarto-grid-item p.card-img-top > img {
-    height: auto;
-    max-height: var(--listing-thumbnail-max-height);
-    object-fit: contain;
+  height: auto;
+  max-height: var(--listing-thumbnail-max-height);
+  object-fit: contain;
+}
+
+/* Storefront (services/ pages).
+   Scoped under .storefront so the rest of the site is untouched. Colors use
+   Bootstrap variables so the auto-dark filter keeps them readable. */
+
+.storefront {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem 3rem 1rem;
+}
+
+.storefront .lang-switch {
+  text-align: right;
+  font-size: 0.9rem;
+  color: var(--bs-secondary-color);
+  margin-top: 1rem;
+}
+
+.storefront .hero {
+  padding: 3rem 0 2rem 0;
+  max-width: 52rem;
+}
+
+.storefront .hero-title {
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  border: none;
+  margin-top: 0;
+}
+
+.storefront .hero p {
+  font-size: 1.2rem;
+}
+
+.storefront .hero .btn {
+  margin: 0.25rem 0.5rem 0.25rem 0;
+}
+
+.storefront .proof-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2.5rem 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--bs-border-color);
+  border-bottom: 1px solid var(--bs-border-color);
+  font-size: 0.95rem;
+}
+
+.storefront .proof-item p {
+  margin: 0;
+}
+
+.storefront h2 {
+  margin-top: 3rem;
+  border-bottom: none;
+}
+
+.storefront .service-card,
+.storefront .work-card,
+.storefront .process-step {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  background: var(--bs-body-bg);
+}
+
+.storefront .service-card h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.storefront .service-card ul {
+  padding-left: 1.2rem;
+}
+
+.storefront .work-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.storefront .work-card p {
+  margin-bottom: 0.5rem;
+}
+
+.storefront .process-step p {
+  margin: 0;
+}
+
+.storefront .contact-box {
+  padding: 1.5rem;
+  border: 2px solid var(--bs-primary);
+  border-radius: 12px;
+}
+
+.storefront .contact-box h3 {
+  margin-top: 0;
+}
+
+.storefront #cal-booking {
+  min-height: 0;
+  margin-top: 1rem;
+}
+
+.storefront #cal-booking:not(:empty) {
+  min-height: 40rem;
+}
+
+.storefront #contact .btn {
+  margin-bottom: 0.75rem;
+}
+
+/* Homepage additions (index.qmd, de/index.qmd). */
+
+/* Track-record cards: image is scaled whole (the acknowledgement letter is a
+   portrait screenshot), never cropped. */
+.storefront .record-card {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  background: var(--bs-body-bg);
+}
+
+.storefront .record-card > p:first-child {
+  margin: -1.25rem -1.5rem 1rem -1.5rem;
+}
+
+.storefront .record-card > p:first-child img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  padding: 0.75rem;
+  background: var(--bs-tertiary-bg);
+  border-radius: 12px 12px 0 0;
+}
+
+.storefront .record-card h3 {
+  margin-top: 0.25rem;
+  font-size: 1.35rem;
+}
+
+.storefront .eyebrow p {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bs-primary);
+}
+
+.storefront .record-links p {
+  margin-bottom: 0.75rem;
+}
+
+.storefront .tags p {
+  margin: 0;
+}
+
+.storefront .tags span {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  margin: 0 0.3rem 0.3rem 0;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 999px;
+  color: var(--bs-secondary-color);
+}
+
+.storefront .service-card h3 > i {
+  color: var(--bs-primary);
+  margin-right: 0.35rem;
 }
