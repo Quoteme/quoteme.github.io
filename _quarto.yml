@@ -27,14 +27,11 @@ website:
         path: assets/happel-ai-logo-dark.svg
         alt: "happel.ai"
     logo-href: index.qmd
-    right:
-      - text: Services
-        href: /#services
-      - text: FAQ
-        href: /#faq
-      - blog.qmd
-      - text: Contact
-        href: /#contact
+    left:
+      - text: Blog
+        icon: journal-text
+        href: blog.qmd
+    tools:
       - icon: github
         aria-label: GitHub
         href: https://github.com/Quoteme/
@@ -47,6 +44,16 @@ website:
       - icon: reddit
         aria-label: Reddit
         href: https://www.reddit.com/user/lalelul
+    right:
+      - text: Services
+        icon: briefcase
+        href: /#services
+      - text: FAQ
+        icon: question-circle
+        href: /#faq
+      - text: Contact
+        icon: envelope
+        href: /#contact
   page-footer:
     center:
       - text: "Impressum"
