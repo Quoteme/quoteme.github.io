@@ -46,8 +46,8 @@ audits, reverse engineering and app development__.
   // for some reason quarto's shortcodes do not work inside iframe src="" attribute
   // we therefor set the value using javascript
   const top2man = {
-    {{< var website.link >}}
-    postfix: "/top2manWebsiteBackground/?shader-cs&cs-size=7&cs-empty-opacity=0.03&meanX=0&meanY=0&meanZ=300&varianceX=3000&varianceY=100&varianceZ=1000"
+    website: "{{< var website.link >}}",
+    postsfix:  "/top2manWebsiteBackground/?shader-cs&cs-size=7&cs-empty-opacity=0.03&meanX=0&meanY=0&meanZ=300&varianceX=3000&varianceY=100&varianceZ=1000",
     prefix: "https://",
   }
   document.getElementById("top2manframe").src = top2man.prefix + top2man.website + top2man.postsfix;
