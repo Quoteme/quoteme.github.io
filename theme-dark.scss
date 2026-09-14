@@ -1,11 +1,12 @@
 /*-- scss:defaults --*/
 // Dark variant of cosmo: same type and spacing, only the palette changes.
 // Colours are picked to match assets/happel-ai-logo-dark.svg.
-$body-bg:   #16181c;
-$body-color: #e9ecef;
-$primary:   #7fb3ec;
+$body-bg:   #111316;
+$body-color: #d5d8dc;
+$border-color: #282c31;
+$primary:   #467aa9;
 $link-color: $primary;
-$navbar-bg: #1e2126;
-$navbar-fg: #c9ced6;
+$navbar-bg: #15181c;
+$navbar-fg: #bcc2ca;
 $navbar-hl: $primary;
-$code-bg:   #23272e;
+$code-bg:   #191c20;
