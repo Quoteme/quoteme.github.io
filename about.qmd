@@ -22,11 +22,11 @@ about:
 
 ---
 
-I am **Luca Leon Happel** — mathematician, computer scientist, and security researcher based in Düsseldorf.
+I am **Luca Leon Happel**, a mathematician, computer scientist, and security researcher based in Düsseldorf.
 
-For over a decade I have worked at the intersection of mathematics and computer science, auditing software deployed in the most heavily regulated environments worldwide: medical devices, clinical systems, and life-critical infrastructure. I have detected and remediated critical security flaws that others missed — not through intuition alone, but through the mathematical rigour that formal methods and deep-tier analysis demand.
+For over a decade I have worked between mathematics and computer science, auditing software in heavily regulated settings: medical devices, clinical systems, and life-critical infrastructure. I have found and remediated critical security flaws that others missed, working from formal methods rather than from intuition.
 
-I am completing my M.Sc. in Mathematics (HHU Düsseldorf, April 2026), after which I will begin my PhD in Computer Science. I am a Research Associate at the [_monti_ project](https://monti.hhu.de/) — a medical AI initiative at Düsseldorf University Hospital — where I develop and secure software operating under strict regulatory requirements.
+I am completing my M.Sc. in Mathematics (HHU Düsseldorf, April 2026), after which I will begin my PhD in Computer Science. I am a Research Associate at the [_monti_ project](https://monti.hhu.de/), a medical AI initiative at Düsseldorf University Hospital, where I develop and secure software that runs under strict regulatory requirements.
 
 For confidential security consultations, reach me at [consulting@happel.ai](mailto:consulting@happel.ai).
 
@@ -40,10 +40,10 @@ For confidential security consultations, reach me at [consulting@happel.ai](mail
 | B.Sc. in Mathematics         | HHU Düsseldorf                | 2018 – 2022 |
 
 ::: {.callout-note}
-I completed all coursework for the B.Sc. in Computer Science and transitioned directly into doctoral research following my M.Sc. in Mathematics.
+I completed all coursework for the B.Sc. in Computer Science and moved directly into doctoral research after my M.Sc. in Mathematics.
 :::
 
-## Work Experience
+## Work experience
 
 | Role | Organisation | Period |
 | ---- | ------------ | ------ |
@@ -66,11 +66,11 @@ I completed all coursework for the B.Sc. in Computer Science and transitioned di
 | HHU/CEDUS Ideenwettbewerb — 1st place (×2) for _monti_ | [HHU](https://www.instagram.com/p/Cur3k_1M70h/) | 2023 |
 | Best Game Under Development — "Relic Hunters Zero" | [BIG Festival 2015](https://www.bigfestival.com.br/big-festival-2015.html) | 2015 |
 
-## Technical Profile
+## Technical profile
 
 - **Security & Formal Methods:** Vulnerability research in regulated and life-critical software; formal verification; theorem proving (Lean4, Idris)
 - **Mathematics:** Algebraic topology & geometry, differential geometry, $L^2$-invariants, model theory
-- **Programming:** Rust, Haskell, Lean4, Python, C/C++, Nix — spanning functional, systems, and scientific computing stacks between research and industry and from low-level embedded to very high-level languages with a focus on formal methods and security
+- **Programming:** Rust, Haskell, Lean4, Python, C/C++, Nix, used across embedded, systems, and scientific computing in both research and industry, with a focus on formal methods and security
 - **Medical Software:** MDR-compliant development; clinical data pipelines; medical device software (Corsano, MMT, _monti_)
 - **Languages:** German (native), English (fluent), French (basic), Russian (A2/B1), Turkish (A2)
 

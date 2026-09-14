@@ -110,7 +110,7 @@
         "This is the commit graph of my NixOS configuration together with a file hirarchy\n",
         "of all files ever checked into the repository:"
       ],
-      "id": "f7a4f509"
+      "id": "b5654408"
     },
     {
       "cell_type": "code",
@@ -138,7 +138,7 @@
         "print(f\"Last commit: {datetime.fromtimestamp(commits[0].committed_date)}\")\n",
         "print(f\"Avg. time between commits: {(commits[0].committed_date - commits[-1].committed_date) / len(commits) / 3600:.2f} hours\")"
       ],
-      "id": "a841728d",
+      "id": "d74bfdd1",
       "execution_count": null,
       "outputs": []
     },
@@ -460,7 +460,7 @@
         "\n",
         "HTML(h1_html + h2_html + js)"
       ],
-      "id": "6ab99379",
+      "id": "4a3afa01",
       "execution_count": null,
       "outputs": []
     },
@@ -482,7 +482,7 @@
         "\n",
         "Linear fit on the cumulative commit count, to get a baseline commit rate:"
       ],
-      "id": "8ca686d7"
+      "id": "6d562d55"
     },
     {
       "cell_type": "code",
@@ -504,7 +504,7 @@
         "print(f\"Estimated commits/day: {slope:.2f}\")\n",
         "print(f\"R² value: {r_value**2:.4f}\")"
       ],
-      "id": "bd99b56c",
+      "id": "ae6c0bec",
       "execution_count": null,
       "outputs": []
     },
@@ -526,7 +526,7 @@
         "=True)\n",
         "plt.show()"
       ],
-      "id": "4f29fbfa",
+      "id": "079209d3",
       "execution_count": null,
       "outputs": []
     },
@@ -544,7 +544,7 @@
         "periodic structure; persistence (death minus birth) means how strong the\n",
         "cycle is."
       ],
-      "id": "d317890d"
+      "id": "d87e641b"
     },
     {
       "cell_type": "code",
@@ -582,7 +582,7 @@
         "print(f\"Non-zero days : {np.count_nonzero(daily_counts)}\")\n",
         "print(f\"Max commits/day: {int(daily_counts.max())}\")"
       ],
-      "id": "151fd2ea",
+      "id": "04c97d56",
       "execution_count": null,
       "outputs": []
     },
@@ -604,7 +604,7 @@
         "])\n",
         "print(f\"Point cloud shape : {cloud.shape}  ({cloud.shape[0]} points in ℝ^{cloud.shape[1]})\")"
       ],
-      "id": "80a4a3b0",
+      "id": "6684af3c",
       "execution_count": null,
       "outputs": []
     },
@@ -625,7 +625,7 @@
         "    top5 = np.sort(persistence)[::-1][:5]\n",
         "    print(f\"Top-5 H1 persistence values: {np.round(top5, 4)}\")"
       ],
-      "id": "d004e3c9",
+      "id": "60a86c91",
       "execution_count": null,
       "outputs": []
     },
@@ -672,7 +672,7 @@
         "plt.savefig(\"tda_commit_times.png\", dpi=150, bbox_inches=\"tight\", transparent=True)\n",
         "plt.show()"
       ],
-      "id": "a6079bb1",
+      "id": "17d3e04f",
       "execution_count": null,
       "outputs": []
     },
@@ -689,7 +689,7 @@
         "oscillate. So we use the daily commit count instead, with window\n",
         "$w = 14 > 7$ so a weekly cycle can actually close into a loop."
       ],
-      "id": "31aa600c"
+      "id": "7934b839"
     },
     {
       "cell_type": "code",
@@ -705,7 +705,7 @@
         "plt.savefig(\"daily_commit_count.png\", dpi=150, bbox_inches=\"tight\", transparent=True)\n",
         "plt.show()"
       ],
-      "id": "cb84bc82",
+      "id": "c3d271c9",
       "execution_count": null,
       "outputs": []
     },
@@ -746,7 +746,7 @@
         "I scan for sensitive keywords in commit messages, file paths, and\n",
         "historical diffs (including lines later deleted):"
       ],
-      "id": "7d1f7f19"
+      "id": "6be44e55"
     },
     {
       "cell_type": "code",
@@ -848,7 +848,7 @@
         "\n",
         "HTML(\"\\n\".join(parts))"
       ],
-      "id": "07af7717",
+      "id": "3c72e82b",
       "execution_count": null,
       "outputs": []
     },
@@ -887,7 +887,7 @@
         "near unbreakable to any outside influence (like in my case, where I lost all my\n",
         "laptops and NixOS got me up and running again in no time)."
       ],
-      "id": "f1de3a9d"
+      "id": "fc1cf9f7"
     }
   ],
   "metadata": {

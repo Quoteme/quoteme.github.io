@@ -1,9 +1,10 @@
 ---
-title: "Can the covariance matrix have imaginary eigenvectors?"
+title: "Can the covariance matrix have imaginary eigenvalues?"
 date: 2026-05-27
 categories: [math, statistics, linear algebra, English]
 description: "Can the covariance matrix be non-symmetric? Turns out yes, if we consider random variables that take values in a non-commutative ring. How can we construct such a random variable and what is the significance of it?"
 code-fold: true
+bibliography: refs.bib
 abstract: |
   At work I told a friend of mine that the covariance matrix can have imaginary
   eigenvalues. This supposedly would encode *rotation* of some sort in empirically
@@ -35,42 +36,62 @@ $$
 \begin{aligned}
 \text{cov}(X) &= \mathbb{E}[(X - \mathbb{E}(X))(X - \mathbb{E}(X))^T] \\
 &= \begin{bmatrix}
-\mathbb{E}[(X_1 - \mathbb{E}(X_1))^2] & \mathbb{E}[(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2))] & \cdots & \mathbb{E}[(X_1 - \mathbb{E}(X_1))(X_n - \mathbb{E}(X_n))] \\
-\mathbb{E}[(X_2 - \mathbb{E}(X_2))(X_1 - \mathbb{E}(X_1))] & \mathbb{E}[(X_2 - \mathbb{E}(X_2))^2] & \cdots & \mathbb{E}[(X_2 - \mathbb{E}(X_2))(X_n - \mathbb{E}(X_n))] \\
-\vdots & \vdots & \ddots & \vdots \\
-\mathbb{E}[(X_n - \mathbb{E}(X_n))(X_1 - \mathbb{E}(X_1))] & \mathbb{E}[(X_n - \mathbb{E}(X_n))(X_2 - \mathbb{E}(X_2))] & \cdots & \mathbb{E}[(X_n - \mathbb{E}(X_n))^2]
+\mathbb{E}[(X_1 - \mathbb{E}(X_1))^2] & \cdots & \mathbb{E}[(X_1 - \mathbb{E}(X_1))(X_n - \mathbb{E}(X_n))] \\
+\vdots & \ddots & \vdots \\
+\mathbb{E}[(X_n - \mathbb{E}(X_n))(X_1 - \mathbb{E}(X_1))] & \cdots & \mathbb{E}[(X_n - \mathbb{E}(X_n))^2]
 \end{bmatrix} \\
 &= \text{cov}(X)^T
 \end{aligned}
 $$
 
-As a real symmetric matrix, it cannot have imaginary eigenvalues: Remember that
-an eigenvalue $\lambda$ of a matrix $A$ is defined by the equation:
+As a real symmetric matrix, it cannot have imaginary eigenvalues. Remember that
+an eigenvalue $\lambda$ of a matrix $A$ is defined by the equation
 
 $$
-Av = \lambda v
+Av = \lambda v, \quad v \neq 0,
 $$
 
-and it therefore can be obtained by solving the characteristic polynomial:
+where we allow $\lambda \in \mathbb{C}$ and $v \in \mathbb{C}^n$, since
+$\mathbb{C}$ is where the characteristic polynomial
+$\chi_A(\lambda) = \det(A - \lambda I)$ splits. The claim is that for symmetric
+real $A$ we never leave $\mathbb{R}$.
+
+::: {.callout-note}
+## Why the eigenvalues of a real symmetric matrix are real
+
+Let $Av = \lambda v$ with $v \in \mathbb{C}^n \setminus \{0\}$. Then
 
 $$
-\chi_A(\lambda) = \det(A - \lambda I) = 0.
+\lambda \, \bar{v}^T v
+= \bar{v}^T A v
+\overset{(1)}{=} (A \bar{v})^T v
+\overset{(2)}{=} \overline{(A v)}^T v
+= \overline{(\lambda v)}^T v
+= \bar{\lambda} \, \bar{v}^T v,
 $$
 
-Remember that the determinant of a matrix can be thought of as measuring the
-"volume" of the parallelepiped spanned by the columns of the matrix. Stating
-that $\chi_A$ only has real roots geometrically means that the "volume" of the
-parallelepiped spanned by the columns of $A - \lambda I$ can only be zero for
-real values of $\lambda$.
-
-::: {.callout-warning}
-TODO: explain fully why the eigenvalues of a real symmetric matrix are real.
+where $(1)$ uses $A^T = A$ and $(2)$ uses $\bar{A} = A$. Since
+$\bar{v}^T v = \sum_i |v_i|^2 > 0$ we may divide by it and obtain
+$\lambda = \bar{\lambda}$, i.e. $\lambda \in \mathbb{R}$. $\square$
 :::
+
+It is worth noting exactly which two hypotheses that argument spends: $A^T = A$
+*and* $\bar A = A$. Together they say
+
+$$
+A^* = A, \quad \text{where } A^* := \bar{A}^T,
+$$
+
+i.e. $A$ is fixed by the *involution* $(-)^*$ on matrices. Reality of the
+spectrum is a statement about the involution, not about symmetry alone. Keep an
+eye on this — it is the hypothesis we are about to break, even though we will
+set out to break a different one.
 
 ## Breaking the symmetry {#breaking-the-symmetry}
 
 How would we be able to have a non-symmetric auto-covariance matrix? We would
 need to have
+
 $$
 \exists i, j \in \{1, \ldots, n\} : \mathbb{E}[(X_i - \mathbb{E}(X_i))(X_j - \mathbb{E}(X_j))] \neq \mathbb{E}[(X_j - \mathbb{E}(X_j))(X_i - \mathbb{E}(X_i))].
 $$
@@ -102,63 +123,160 @@ $$
 $$
 
 We call the elements $bi + cj + dk$ *imaginary*, in analogy to the complex
-numbers. The elements $a$ are called *real*.
+numbers. The elements $a$ are called *real*. Conjugation reverses the sign of
+the imaginary part, $\overline{a + bi + cj + dk} = a - bi - cj - dk$, and — this
+will matter — it is an *anti*-automorphism: $\overline{pq} = \bar q \bar p$.
 
-We can now find a non-symmetric auto-covariance matrix by considering the
-following random variable, by using $i j = k$ and $j i = -k$:
+A first attempt: take the constant random variable
 
 $$
-\begin{aligned}
-&X \in \mathbb{H}^2 \\
-&X := \begin{bmatrix}
-i \\
-j
-\end{bmatrix}
-\end{aligned}
+X = \begin{bmatrix} i \\ j \end{bmatrix} \in \mathbb{H}^2
 $$
 
-And this gives us the following auto-covariance matrix:
+and use $ij = k$, $ji = -k$. Its auto-covariance matrix is
 
 $$
 \text{cov}(X) = \begin{bmatrix}
- 0 & ij \\
- ji & 0
+ ii & ij \\
+ ji & jj
 \end{bmatrix} = \begin{bmatrix}
-0 & k \\
--k & 0
+-1 & k \\
+-k & -1
 \end{bmatrix} \neq \text{cov}(X)^T.
 $$
 
-### Imaginary eigenvalues
+Non-symmetric — the plan worked. So what are its eigenvalues?
 
-The auto-covariance matrix of $X = \begin{bmatrix} i \\ j \end{bmatrix}$ has
-imaginary eigenvalues:
+### Eigenvalues over a non-commutative ring
+
+Here everything we know breaks at once, and it is worth being careful, because
+this is where I originally fooled myself.
+
+**There are two kinds of eigenvalue.** Over $\mathbb{H}$ the equations
+$Av = \lambda v$ and $Av = v\lambda$ are genuinely different, and they define
+the *left* and *right* eigenvalues of $A$. Left eigenvalues are badly behaved: a
+$2 \times 2$ quaternionic matrix can have infinitely many of them, and there is
+no useful spectral theory [@wood1985quaternionic]. Right eigenvalues are the
+right notion, and from here on "eigenvalue" means right eigenvalue.
+
+**Eigenvalues come in spheres.** If $Av = v\lambda$ and $u \in \mathbb{H}^\times$,
+then $A(vu) = (vu)(u^{-1}\lambda u)$, so the whole similarity class
+$[\lambda] = \{u^{-1}\lambda u : u \in \mathbb{H}^\times\}$ consists of
+eigenvalues. For a non-real $\lambda = a + b\,\mathrm{i}$ this class is the
+2-sphere $\{a + b(xi + yj + zk) : x^2+y^2+z^2 = 1\}$ of radius $|b|$ around $a$.
+This is the honest version of a remark that is easy to get wrong: the solutions
+of $\lambda^2 = -1$ in $\mathbb{H}$ are not $\{\pm i, \pm j, \pm k\}$, they are
+*all* of $S^2 \subset \operatorname{Im}\mathbb{H}$. Each similarity class has
+exactly one representative in $\mathbb{C}$ with non-negative imaginary part, and
+that is the number we will quote.
+
+**There is no determinant.** A determinant needs commutativity to be
+multiplicative; over $\mathbb{H}$ the best available substitute is the
+Dieudonné determinant, which takes values in $\mathbb{R}_{\geq 0}$ and cannot
+detect a phase. So $\det(A - \lambda I) = 0$ is not a valid way to find
+eigenvalues, and any computation that uses it is a computation with an
+undefined symbol.
+
+**What works instead.** Every quaternion splits uniquely as
+$q = z_1 + z_2 j$ with $z_1, z_2 \in \mathbb{C}$, and multiplication is faithfully
+recorded by the *complex adjoint*: writing $A = A_1 + A_2 j$ with
+$A_1, A_2 \in \mathbb{C}^{n \times n}$, set
 
 $$
-\begin{aligned}
-\det\left(\begin{bmatrix}
- -\lambda & k \\
- -k & -\lambda
-\end{bmatrix}\right)
-&= (-\lambda)(-\lambda) - (k)(-k) \\
-&= \lambda^2 - (k)(-k) \\
-&= \lambda^2 - (-(k^2)) \\
-&= \lambda^2 + k^2 \\
-&= \lambda^2 + 1
-\end{aligned}
+\chi(A) := \begin{bmatrix} A_1 & A_2 \\ -\overline{A_2} & \overline{A_1} \end{bmatrix} \in \mathbb{C}^{2n \times 2n}.
 $$
 
-So the eigenvalues are the solutions to $\lambda^2 + 1 = 0$, i.e.
+Then $\chi$ is an injective homomorphism of real algebras, the $2n$ eigenvalues
+of $\chi(A)$ come in conjugate pairs, and the $n$ of them with non-negative
+imaginary part are exactly the standard representatives of the right
+eigenvalues of $A$ [@zhang1997quaternions]. In other words: quaternionic linear
+algebra *is* complex linear algebra with a symmetry constraint, and `numpy` can
+do all of it.
+
+```{python}
+import numpy as np
+
+def adjoint(Q):
+    """Complex adjoint of a quaternionic matrix.
+
+    `Q` has shape (n, n, 4): the coefficients in the basis (1, i, j, k).
+    """
+    A1 = Q[..., 0] + 1j * Q[..., 1]   # the 1 and i part
+    A2 = Q[..., 2] + 1j * Q[..., 3]   # the j and k part, since c j + d k = (c + d i) j
+    return np.block([[A1, A2], [-A2.conj(), A1.conj()]])
+
+def right_eigenvalues(Q):
+    """Standard representatives of the right eigenvalues of a quaternionic matrix."""
+    ev = np.linalg.eigvals(adjoint(Q))
+    ev = ev[np.lexsort((ev.imag, ev.real))]   # sort so conjugate pairs are adjacent
+    return ev[1::2]                           # keep the one with imaginary part >= 0
+
+# cov(X) for X = [i, j]^T
+C = np.array([[(-1, 0, 0, 0), (0, 0, 0, 1)],
+              [(0, 0, 0, -1), (-1, 0, 0, 0)]], dtype=float)
+
+print(np.round(right_eigenvalues(C), 6))
+```
+
+Real. Both of them.
+
+And this is not bad luck, it is a theorem. Every component of
+$X = [i, j]^T$ is a *purely imaginary* quaternion, so $\bar X_m = -X_m$, and
+because conjugation reverses products,
 
 $$
-\begin{aligned}
-&\lambda = i,\ -i \\
-\text{or }
-&\lambda = j,\ -j \\
-\text{or } 
-&\lambda = k,\ -k
-\end{aligned}
+\overline{X_m X_n} = \bar X_n \bar X_m = (-X_n)(-X_m) = X_n X_m .
 $$
+
+Taking expectations, $\overline{\text{cov}(X)_{mn}} = \text{cov}(X)_{nm}$, which
+is to say
+
+$$
+\text{cov}(X)^* = \text{cov}(X).
+$$
+
+The matrix is not symmetric, but it *is* Hermitian, and Hermitian quaternionic
+matrices have real eigenvalues for exactly the reason real symmetric matrices
+do. We broke commutativity and the involution quietly patched the hole.
+
+### A covariance matrix that really does have imaginary eigenvalues
+
+To get past this we have to stop the conjugation from cancelling, which means
+the components of $X$ must mix real and imaginary parts. Let $\varepsilon$ take
+the values $+1$ and $-1$ with probability $\tfrac12$ each, and set
+
+$$
+X := \varepsilon \begin{bmatrix} 1 + i \\ j \end{bmatrix} \in \mathbb{H}^2 .
+$$
+
+This one is an honest random variable and it is centered,
+$\mathbb{E}(X) = 0$, so no generality was lost above. Since $\varepsilon^2 = 1$,
+
+$$
+\text{cov}(X) = \begin{bmatrix}
+ (1+i)(1+i) & (1+i)j \\
+ j(1+i) & jj
+\end{bmatrix} = \begin{bmatrix}
+ 2i & j + k \\
+ j - k & -1
+\end{bmatrix},
+$$
+
+which is neither symmetric nor Hermitian.
+
+```{python}
+C = np.array([[(0, 2, 0, 0), (0, 0, 1, 1)],
+              [(0, 0, 1, -1), (-1, 0, 0, 0)]], dtype=float)
+
+print(np.round(right_eigenvalues(C), 6))
+```
+
+There it is: the eigenvalues are $0$ and $-1 + 2i$, and by the discussion above
+the second one is really the entire sphere of radius $2$ centered at $-1$ in
+$\mathbb{H}$. So yes — a covariance matrix can have imaginary eigenvalues.
+
+The uncomfortable part is what it cost us, and we will come back to that at the
+end. First, what would imaginary eigenvalues even *mean* for data?
 
 ## Rotation of data
 
@@ -365,35 +483,150 @@ $$
 \Sigma_{P X} = \frac{1}{N} (P D_X)^T (P D_X) = \frac{1}{N} D_X^T P^T P D_X = \frac{1}{N} D_X^T D_X = \Sigma_X.
 $$
 
-### The geometry of imaginary eigenvalues
+## What the imaginary part measures
 
-We get an obvious injection:
+Identify $\mathbb{R}^3$ with the imaginary quaternions,
 
 $$
 \begin{aligned}
-\iota &: \mathbb{R}^3 \hookrightarrow \mathbb{H}, \\
-\iota(x,y,z) &= xi + yj + zk.
+\iota &: \mathbb{R}^3 \xrightarrow{\ \sim\ } \operatorname{Im}\mathbb{H}, \\
+\iota(x,y,z) &= xi + yj + zk .
 \end{aligned}
 $$
 
-and so we can take the sampled data points $x_i, \dots, x_N \in \mathbb{R}^3$
-from the previous examples and embed them into $\mathbb{H}^N$. We can now
-compute the auto-covariance matrix of the result as in [the previous
-chapter](#breaking-the-symmetry) and we can compute the eigenvalues of the
-resulting non-symmetric auto-covariance matrix.
+Under this identification, quaternion multiplication is the dot product and the
+cross product at the same time: for $u, v \in \operatorname{Im}\mathbb{H}$,
+
+$$
+u v = -\langle u, v \rangle + u \times v ,
+$$
+
+with the real part on the left and the imaginary part on the right. So if
+$X = (X_1, \ldots, X_n)$ has purely imaginary components, its auto-covariance
+matrix splits as
+
+$$
+\text{cov}(X)_{mn} = \mathbb{E}[X_m X_n]
+= \underbrace{-\,\mathbb{E}\langle X_m, X_n \rangle}_{\text{real, symmetric}}
+\;+\; \underbrace{\mathbb{E}[X_m \times X_n]}_{\text{imaginary, antisymmetric}}
+\;=\; -\Sigma_{mn} + \Omega_{mn} .
+$$
+
+The real part is just (minus) the ordinary covariance matrix. The imaginary part
+$\Omega$ is the new object: the expected cross product, i.e. the mean *oriented
+area* — the angular momentum — swept out between the two variables. And the two
+halves are exactly what made the matrix Hermitian a moment ago: a real symmetric
+part plus an imaginary antisymmetric part is precisely what $A^* = A$ says.
+
+So the spectrum stays real. But that does not mean $\Omega$ is empty. Recall
+$\Sigma_{PX} = \Sigma_X$ from above: the ordinary covariance matrix cannot see
+the *order* of the samples. $\Omega$ can, and it is the only part that can.
+
+Take a noisy helix, sampled along its path, and compare it with the very same
+point cloud traversed backwards. PCA is identical — it is literally the same
+matrix — while $\Omega$ flips sign and points along the axis of rotation:
 
 ```{python}
-import quaternion
+t = np.linspace(0, 6 * np.pi, 600)
+helix = np.stack([np.cos(t), np.sin(t), 0.25 * t], axis=1)
+helix = helix + rng.normal(0, 0.03, helix.shape)
+helix = helix - helix.mean(axis=0)
+backwards = helix[::-1]
 
-def iota(x, y, z):
-    return x * quaternion.x + y * quaternion.y + z * quaternion.z
+def Sigma(X):
+    """The ordinary (sample) covariance matrix: the real, symmetric part."""
+    return np.cov(X.T, bias=True)
 
-X1_quat = np.array([iota(*p) for p in X1])
-cov_quat = X1_quat[:, np.newaxis] * X1_quat[np.newaxis, :]
+def Omega(X):
+    """The mean cross product of consecutive samples: the imaginary, antisymmetric part."""
+    return np.cross(X[:-1], X[1:]).mean(axis=0)
+
+assert np.allclose(Sigma(helix), Sigma(backwards))       # PCA cannot tell them apart
+assert np.allclose(Omega(helix), -Omega(backwards))      # Omega can
+
+fig3 = go.Figure(layout=layout_kw)
+fig3.add_trace(go.Scatter3d(x=helix[:,0], y=helix[:,1], z=helix[:,2], mode="markers",
+    marker=dict(size=2, color="#555", opacity=0.5), name="samples"))
+add_pca_arrows(fig3, helix)
+
+for X, label, c in [(helix, "as sampled", "#8338ec"), (backwards, "reversed", "#fb8500")]:
+    w = Omega(X)
+    end = 2.5 * w / np.linalg.norm(w)
+    fig3.add_trace(go.Scatter3d(x=[0, end[0]], y=[0, end[1]], z=[0, end[2]],
+        mode="lines", line=dict(color=c, width=8),
+        name=f"Ω, {label} (|Ω|={np.linalg.norm(w):.3f})"))
+    fig3.add_trace(go.Cone(x=[end[0]], y=[end[1]], z=[end[2]],
+        u=[0.3*w[0]], v=[0.3*w[1]], w=[0.3*w[2]], colorscale=[[0, c], [1, c]],
+        showscale=False, showlegend=False, sizemode="absolute", sizeref=0.4))
+
+fig3.update_layout(title="Same cloud, same principal components, opposite Ω")
+fig3.show()
 ```
 
-::: {.callout-warning}
-TODO: here I am stuck on how I should best compute the eigenvalues of this
-matrix of quaternions using NumPy and on what the consequences of the resulting
-eigenvalues are for the geometry of the data.
+The three principal components describe the box the helix lives in and nothing
+else. $\Omega$ is a single vector along the helix axis whose sign is the
+handedness of the winding — the rotation that the friend at work had in mind,
+sitting in the imaginary part of the covariance matrix all along.
+
+## What we actually broke
+
+None of this was really about quaternions. The general setting is a
+**non-commutative probability space** [@nica2006lectures]: a unital
+$*$-algebra $\mathcal{A}$ together with a *state*
+$\varphi : \mathcal{A} \to \mathbb{C}$, i.e. a linear functional with
+$\varphi(1) = 1$ and $\varphi(a^*a) \geq 0$. The elements of $\mathcal{A}$ are
+the random variables and $\varphi$ is the expectation; classical probability is
+the commutative case $\mathcal{A} = L^\infty(\Omega, \mathcal{F}, P)$,
+$\varphi = \mathbb{E}$.
+
+In that language the covariance matrix of $a_1, \ldots, a_n \in \mathcal{A}$ is
+$[\varphi(a_m^* a_n)]_{mn}$: the **Gram matrix** of the sesquilinear form
+$\langle a, b \rangle_\varphi := \varphi(a^* b)$. Positivity of the state says
+this form is positive semi-definite, and that is the entire content — every Gram
+matrix is Hermitian with real, non-negative eigenvalues, and completing
+$\mathcal{A}$ with respect to $\langle -, - \rangle_\varphi$ is the GNS
+construction. No amount of non-commutativity will ever produce an imaginary
+variance. The example that worked escaped only because it was built from
+$X X^T$ rather than $X X^*$, and it paid for the escape with positivity: the
+matrix stopped being a Gram matrix, and its eigenvalues stopped being variances.
+What breaks is not commutativity. It is the involution.
+
+What non-commutativity does break is $\varphi(ab) = \varphi(ba)$. Splitting
+$\varphi(a_m a_n)$ into symmetric and antisymmetric parts gives the ordinary
+covariance plus $\tfrac{1}{2}\varphi([a_m, a_n])$, and the second term vanishes
+for all $m, n$ exactly when $\varphi$ is a **trace**. That is $\Omega$ again, in
+general form. In quantum mechanics it is the canonical commutation relation
+$[q, p] = i\hbar$: the covariance matrix of a state is
+$\sigma + \tfrac{i\hbar}{2}\Omega$ with $\Omega$ the symplectic form, positive
+semi-definiteness of that combination *is* the Robertson–Schrödinger uncertainty
+relation, and Williamson's theorem diagonalizes it not by eigenvalues but by
+*symplectic* eigenvalues — the generators of rotation in phase space
+[@adesso2014continuous]. The rotation was real. It just lives in the imaginary
+part rather than in the spectrum.
+
+Whether a trace exists at all is a structural property of $\mathcal{A}$, and
+this is where von Neumann algebras answer the question we started with. A finite
+von Neumann algebra — a type $\mathrm{II}_1$ factor such as the free group
+factor $L(\mathbb{F}_n)$, the natural home of free probability
+[@voiculescu1992free] — carries a faithful normal tracial state, so its
+covariance matrices are symmetric again and we are back where we began. Type
+$\mathrm{III}$ factors admit no trace whatsoever, and Tomita–Takesaki theory
+measures the failure by a canonical one-parameter group of automorphisms, the
+modular flow $\sigma_t = \Delta^{it}(-)\Delta^{-it}$, which is trivial precisely
+when $\varphi$ is tracial [@takesaki2003theory2]; Connes' classification of type
+$\mathrm{III}$ factors is a classification by the spectrum of that flow
+[@connes1973classification]. So "can the covariance matrix be non-symmetric?"
+becomes "is the state a trace?", and the rotation hiding in the imaginary part
+becomes, quite literally, a flow.
+
+So: I was wrong, and I was also not. A covariance matrix in the sense of a Gram
+matrix of a state is Hermitian and has real, non-negative eigenvalues, no matter
+how non-commutative the underlying ring is — I was wrong for a better reason
+than the one I gave. But the rotation my friend and I were arguing about is
+genuinely there, in the antisymmetric imaginary part that classical statistics
+throws away before it ever writes the matrix down.
+
+## References
+
+::: {#refs}
 :::
