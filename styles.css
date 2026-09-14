@@ -301,3 +301,14 @@ div.quarto-post .thumbnail img,
   color: var(--bs-primary);
   margin-right: 0.35rem;
 }
+
+/* Navbar wordmark. Quarto's theme sets `max-height:48px; min-height:30px;
+   object-fit:cover` on the logo, which stretches/crops the SVG. Pin a height
+   and let the width follow the SVG's aspect ratio. */
+.navbar .navbar-logo {
+  height: 32px;
+  max-height: 32px;
+  min-height: 0;
+  width: auto;
+  object-fit: contain;
+}
