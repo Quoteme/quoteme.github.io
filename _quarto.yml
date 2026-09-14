@@ -18,9 +18,7 @@ website:
   navbar:
     right:
       - projects.qmd
-      - text: Services
-        icon: briefcase
-        href: services/index.qmd
+      - blog.qmd
       - icon: github
         aria-label: GitHub
         href: https://github.com/Quoteme/

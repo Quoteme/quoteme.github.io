@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Luca Happel&#39;s personal website</title>
+<link>https://happel.ai/</link>
+<atom:link href="https://happel.ai/index.xml" rel="self" type="application/rss+xml"/>
+<description>Website of {{&lt; var profile.name &gt;}}: data science, AI, high-security software and app development consulting, plus lots of math and computer science.</description>
+<generator>quarto-1.9.37</generator>
+<lastBuildDate>Sun, 03 Aug 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>monti – AI for Patient Monitoring</title>
+  <link>https://happel.ai/</link>
+  <description>AI‑based monitoring platform developed at University Hospital Düsseldorf, using advanced AI methods on high‑security clinical patient data to detect complications in heart and oncology patients. &lt;br&gt; {{&lt; ai orcid &gt;}} [10.1093/ehjdh/ztaf004](https://doi.org/10.1093/ehjdh/ztaf004). &lt;br&gt; {{&lt; bi bar-chart &gt;}} [Example data](https://happel.ai/digital-demo-day/assets/activity.html) &lt;br&gt; __European Heart Journal - Digital Health__
+</description>
+  <category>journal</category>
+  <category>AI</category>
+  <category>clinical-monitoring</category>
+  <guid>https://happel.ai/</guid>
+  <pubDate>Sun, 03 Aug 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://happel.ai/assets/digital-demo-day.png" medium="image" type="image/png" height="88" width="144"/>
+</item>
+</channel>
+</rss>

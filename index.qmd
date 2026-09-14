@@ -1,90 +1,45 @@
 ---
-listing:
-  - id: publications
-    contents: 
-      # - title: "Elliptic Curves over $\\mathbb{F}_4$, the Finite Field with Four Elements"
-      #   subtitle: "Bachelor's Thesis in Mathematics"
-      #   description: >
-      #     A rigorous mathematical treatment of elliptic curves over the finite field
-      #     $\mathbb{F}_4$ with four elements, spanning abstract algebra and algebraic
-      #     geometry. Examines the cryptographic foundations used in modern banking
-      #     systems and develops a mathematically precise framework for understanding
-      #     their security and its limits.
-      #     <br>
-      #     __Bachelor's Thesis, University of Düsseldorf__
-      #   image: "posts/bachelorarbeit/assets/weierstrassform.png"
-      #   path: "/posts/bachelorarbeit/"
-      #   categories: ["thesis", "mathematics", "cryptography", "algebraic-geometry"]
-      #   date: 2022-04-04
-      - title: "monti – AI for Patient Monitoring"
-        subtitle: "AI-based clinical monitoring with advanced ML on high‑security patient data"
-        description: >
-          AI‑based monitoring platform developed at University Hospital Düsseldorf,
-          using advanced AI methods on high‑security clinical patient data to 
-          detect complications in heart and oncology patients.
-          <br>
-          {{< ai orcid >}} [10.1093/ehjdh/ztaf004](https://doi.org/10.1093/ehjdh/ztaf004).
-          <br>
-          {{< bi bar-chart >}} [Example data](https://happel.ai/digital-demo-day/assets/activity.html)
-          <br>
-          __European Heart Journal - Digital Health__
-        image: "assets/digital-demo-day.png"
-        path: "https://doi.org/10.1093/ehjdh/ztaf004"
-        categories: ["journal", "AI", "clinical-monitoring"]
-        date: 2025-08-04
-    feed: true
-    sort: "date desc"
-    type: default
-  - id: letters_of_acknowledgement
-    contents:
-      - title: "High-Severity Security Remediation"
-        subtitle: "Responsible Disclosure: Critical Infrastructure Software"
-        description: >
-          Independent security audit of a mission-critical software suite used in 
-          highly regulated and highest-tier security environments. 
-          Identified a high-severity vulnerability that, under some conditions, posed a risk to physical safety, public security and high monetary losses. 
-          The finding was responsibly disclosed and formally acknowledged by the vendor. 
-          Corrective measures have been implemented to secure the ecosystem.
-        image: "assets/bug-bounties/6bac79da-737c-40ca-b270-0cab0f88298a.jpeg"
-        categories: ["security-research", "responsible-disclosure", "reverse-engineering"]
-        date: 2026-03-04
-  - id: blog
-    contents: posts
-    feed: true
-    sort: "date desc"
-    type: default
-    sort-ui: true
-    filter-ui: true
-    page-size: 5
-    fields:
-      - title
-      - description
-      - date
-      - image
-      - reading-time
-      - categories
+description: "Data science, AI, high-security software and app development by Luca Happel: mathematician, computer scientist and security researcher."
+lang: en
+aliases:
+  - /services/index.html
+  - /consultation.html
 page-layout: full
 title-block-banner: true
+toc: false
 format:
   html:
     css: ./styles.css
+    include-in-header:
+      - text: |
+          <link rel="alternate" hreflang="en" href="https://happel.ai/" />
+          <link rel="alternate" hreflang="de" href="https://happel.ai/de/" />
 ---
 
 <!--
 iframe to https://quoteme.github.io/top2manWebsiteBackground/ with full width
 and 300px height
 -->
-::: {#gimmick}
+::: {#gimmick .column-screen}
+::: {.lang-switch}
+English · [Deutsch](/de/)
+:::
+
 ::: {#aboutme}
 <img src="https://avatars2.githubusercontent.com/u/6796009" id="avatar" />
-Hi, I am __M.Sc. B.Sc. B.Sc Luca Leon Happel__, a 
-__mathematician__ and
-__computer scientist__, with more than 5 years of work experience,
-and multiple awards in __DS/AI and high security software development__.
-<br>
-Looking for help with __data science, AI, secure software or app development__? See my [services](/services/) ([Deutsch](/services/de/)).
+Hi, I am __Luca Leon Happel__, a __mathematician__, __computer scientist__ and
+__security researcher__ from Düsseldorf.
+I build and audit software for hospitals, medical-device makers and regulated
+industry, where mistakes are expensive: __data science, AI, high-security
+audits, reverse engineering and app development__.
 :::
-<iframe id="top2manframe" src="" width="100%" height="300px" style="border: none;"></iframe>
+
+::: {.cta-row}
+<a href="#contact" class="btn btn-primary btn-lg">Book a free 30-min call</a>
+<a href="mailto:{{< var consultation.email >}}" class="btn btn-outline-primary btn-lg">Send an email</a>
+:::
+
+<iframe id="top2manframe" src="" style="border: none;"></iframe>
 :::
 
 <script>
@@ -98,17 +53,161 @@ Looking for help with __data science, AI, secure software or app development__? 
   document.getElementById("top2manframe").src = top2man.prefix + top2man.website + top2man.postsfix;
 </script>
 
-## Publications
+::: {.storefront .column-screen}
 
-::: {#publications}
+::: {.proof-strip}
+::: {.proof-item}
+**Published** in *European Heart Journal – Digital Health*
+:::
+::: {.proof-item}
+**2× 1st place** HHU Ideenwettbewerb · Festival award
+:::
+::: {.proof-item}
+**Critical vulnerability** found and responsibly disclosed
+:::
+::: {.proof-item}
+**MDR-compliant** medical software since 2022
+:::
 :::
 
-## Letters of Acknowledgement
+## Track record {#work}
 
-::: {#letters_of_acknowledgement}
+::: {.grid .record-grid}
+
+::: {.g-col-12 .g-col-md-6 .record-card}
+![](/assets/digital-demo-day.png)
+
+::: {.eyebrow}
+Peer-reviewed publication · August 2025
 :::
 
-## Blog Posts
+### monti – AI for Patient Monitoring
 
-::: {#blog}
+*AI-based clinical monitoring with advanced ML on high-security patient data*
+
+AI-based monitoring platform developed at University Hospital Düsseldorf,
+using advanced AI methods on high-security clinical patient data to detect
+complications in heart and oncology patients.
+
+::: {.record-links}
+{{< ai orcid >}} [10.1093/ehjdh/ztaf004](https://doi.org/10.1093/ehjdh/ztaf004)<br>
+{{< bi bar-chart >}} [Example data](https://happel.ai/digital-demo-day/assets/activity.html)<br>
+**European Heart Journal – Digital Health**
+:::
+
+::: {.tags}
+[journal]{} [AI]{} [clinical monitoring]{}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6 .record-card}
+![](/assets/bug-bounties/6bac79da-737c-40ca-b270-0cab0f88298a.jpeg)
+
+::: {.eyebrow}
+Responsible disclosure · March 2026
+:::
+
+### High-Severity Security Remediation
+
+*Critical infrastructure software*
+
+Independent security audit of a mission-critical software suite used in highly
+regulated and highest-tier security environments. Identified a high-severity
+vulnerability that, under some conditions, posed a risk to physical safety,
+public security and high monetary losses. The finding was responsibly disclosed
+and formally acknowledged by the vendor. Corrective measures have been
+implemented to secure the ecosystem.
+
+::: {.tags}
+[security research]{} [responsible disclosure]{} [reverse engineering]{}
+:::
+:::
+
+:::
+
+## What I do {#services}
+
+::: {.grid .service-grid}
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi graph-up >}} Data Science & AI {#svc-data-ai}
+- Statistical analysis and modelling you can defend
+- Models for monitoring, anomaly detection, prediction
+- On-premises RAG and LLM integration, no data leaves your network
+- Reproducible pipelines and reports your domain experts can read
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi shield-lock >}} High-Security Audits {#svc-audits}
+- Security audits of medical and industrial software (MDR, IEC 62443, FDA guidance)
+- Threat modelling and code review for regulated environments
+- Formal verification (Lean 4) for critical components
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi cpu >}} Reverse Engineering {#svc-reverse-engineering}
+- Analysis of binaries, firmware and undocumented protocols
+- Vulnerability research with coordinated, responsible disclosure
+- Written findings your engineers can act on
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi phone >}} App & Software Development {#svc-apps}
+- Web, desktop and mobile apps, prototype to product
+- Backend and systems code in Rust, Python, C/C++
+- Clinical front-ends with access control and audit trails
+- Handover with docs, tests and a deployment your team can run
+:::
+
+:::
+
+## How it works {#process}
+
+::: {.grid .process-grid}
+::: {.g-col-6 .g-col-md-3 .process-step}
+**1. Free call**<br>30 minutes, you describe the problem.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**2. Fixed quote**<br>Scope, timeline, price. NDA on request.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**3. Delivery**<br>Code in your repo from day one.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**4. Handover**<br>Docs, tests, walkthrough.
+:::
+:::
+
+## Start here {#contact}
+
+::: {.contact-box}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-lg-7}
+### Book a free 30-minute call
+
+<button id="cal-consent" class="btn btn-primary btn-lg">Show available times</button>
+
+::: {.text-muted .small}
+Calendar loads from Cal.com after you click ([privacy policy](/datenschutz.html)) · [open in new tab](https://cal.com/{{< var consultation.cal_link >}}){target="_blank"}
+:::
+
+{{< include _cal-embed.qmd >}}
+:::
+
+::: {.g-col-12 .g-col-lg-5}
+### Or describe your project by email
+
+[{{< var consultation.email >}}](mailto:{{< var consultation.email >}}){.btn .btn-outline-primary .btn-lg}
+
+Reply within one business day. Strictly confidential.
+
+**PGP:** `{{< var consultation.pgp_key_id >}}` · [public key]({{< var consultation.pgp_file >}})
+:::
+
+:::
+
+:::
+
 :::

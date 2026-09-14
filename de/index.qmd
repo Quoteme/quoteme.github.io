@@ -1,0 +1,213 @@
+---
+description: "Data Science, KI, Hochsicherheits-Software und App-Entwicklung von Luca Happel: Mathematiker, Informatiker und Sicherheitsforscher."
+lang: de
+aliases:
+  - /services/de/index.html
+page-layout: full
+title-block-banner: true
+toc: false
+format:
+  html:
+    css: /styles.css
+    include-in-header:
+      - text: |
+          <link rel="alternate" hreflang="en" href="https://happel.ai/" />
+          <link rel="alternate" hreflang="de" href="https://happel.ai/de/" />
+---
+
+<!--
+iframe to https://quoteme.github.io/top2manWebsiteBackground/ with full width
+and 300px height
+-->
+::: {#gimmick .column-screen}
+::: {.lang-switch}
+[English](/) · Deutsch
+:::
+
+::: {#aboutme}
+<img src="https://avatars2.githubusercontent.com/u/6796009" id="avatar" />
+Hallo, ich bin __Luca Leon Happel__, __Mathematiker__, __Informatiker__ und
+__Sicherheitsforscher__ aus Düsseldorf.
+Ich entwickle und auditiere Software für Kliniken, Medizinproduktehersteller
+und regulierte Industrie, wo Fehler teuer sind: __Data Science, KI,
+Hochsicherheits-Audits, Reverse Engineering und App-Entwicklung__.
+:::
+
+::: {.cta-row}
+<a href="#contact" class="btn btn-primary btn-lg">Kostenloses 30-Min-Gespräch buchen</a>
+<a href="mailto:{{< var consultation.email >}}" class="btn btn-outline-primary btn-lg">E-Mail schreiben</a>
+:::
+
+<iframe id="top2manframe" src="" style="border: none;"></iframe>
+:::
+
+<script>
+  // for some reason quarto's shortcodes do not work inside iframe src="" attribute
+  // we therefor set the value using javascript
+  const top2man = {
+    website: "{{< var website.link >}}",
+    postsfix:  "/top2manWebsiteBackground/?meanX=0&meanY=0&meanZ=300&varianceX=3000&varianceY=100&varianceZ=1000",
+    prefix: "https://",
+  }
+  document.getElementById("top2manframe").src = top2man.prefix + top2man.website + top2man.postsfix;
+</script>
+
+::: {.storefront .column-screen}
+
+::: {.proof-strip}
+::: {.proof-item}
+**Publiziert** im *European Heart Journal – Digital Health*
+:::
+::: {.proof-item}
+**2× 1. Platz** HHU-Ideenwettbewerb · Festival-Award
+:::
+::: {.proof-item}
+**Kritische Schwachstelle** gefunden und verantwortungsvoll gemeldet
+:::
+::: {.proof-item}
+**MDR-konforme** Medizinsoftware seit 2022
+:::
+:::
+
+## Referenzen {#work}
+
+::: {.grid .record-grid}
+
+::: {.g-col-12 .g-col-md-6 .record-card}
+![](/assets/digital-demo-day.png)
+
+::: {.eyebrow}
+Begutachtete Publikation · August 2025
+:::
+
+### monti – KI-Patientenmonitoring
+
+*KI-gestütztes klinisches Monitoring mit modernem ML auf hochsensiblen Patientendaten*
+
+Am Universitätsklinikum Düsseldorf entwickelte KI-Monitoring-Plattform, die
+mit modernen KI-Methoden auf hochsensiblen klinischen Patientendaten
+Komplikationen bei Herz- und Onkologiepatienten erkennt.
+
+::: {.record-links}
+{{< ai orcid >}} [10.1093/ehjdh/ztaf004](https://doi.org/10.1093/ehjdh/ztaf004)<br>
+{{< bi bar-chart >}} [Beispieldaten](https://happel.ai/digital-demo-day/assets/activity.html)<br>
+**European Heart Journal – Digital Health**
+:::
+
+::: {.tags}
+[Journal]{} [KI]{} [klinisches Monitoring]{}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6 .record-card}
+![](/assets/bug-bounties/6bac79da-737c-40ca-b270-0cab0f88298a.jpeg)
+
+::: {.eyebrow}
+Responsible Disclosure · März 2026
+:::
+
+### Schwerwiegende Sicherheitslücke behoben
+
+*Software für kritische Infrastruktur*
+
+Unabhängiges Sicherheitsaudit einer geschäftskritischen Software-Suite, die in
+streng regulierten Umgebungen mit höchsten Sicherheitsanforderungen eingesetzt
+wird. Dabei wurde eine schwerwiegende Schwachstelle identifiziert, die unter
+bestimmten Bedingungen ein Risiko für die physische Sicherheit, die öffentliche
+Sicherheit und hohe finanzielle Verluste darstellte. Der Fund wurde
+verantwortungsvoll gemeldet und vom Hersteller formell bestätigt.
+Korrekturmaßnahmen wurden umgesetzt, um das Ökosystem abzusichern.
+
+::: {.tags}
+[Sicherheitsforschung]{} [Responsible Disclosure]{} [Reverse Engineering]{}
+:::
+:::
+
+:::
+
+## Was ich mache {#services}
+
+::: {.grid .service-grid}
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi graph-up >}} Data Science & KI {#svc-data-ai}
+- Statistische Analysen und Modelle, die Sie begründen können
+- Modelle für Monitoring, Anomalieerkennung, Vorhersage
+- RAG und LLM-Integration on-premises, keine Daten verlassen Ihr Netzwerk
+- Reproduzierbare Pipelines und Berichte, die Ihre Fachleute lesen können
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi shield-lock >}} Hochsicherheits-Audits {#svc-audits}
+- Sicherheitsaudits medizinischer und industrieller Software (MDR, IEC 62443, FDA-Leitlinien)
+- Bedrohungsanalyse und Code-Review für regulierte Umgebungen
+- Formale Verifikation (Lean 4) kritischer Komponenten
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi cpu >}} Reverse Engineering {#svc-reverse-engineering}
+- Analyse von Binaries, Firmware und undokumentierten Protokollen
+- Schwachstellenforschung mit koordinierter, verantwortungsvoller Meldung
+- Schriftliche Befunde, mit denen Ihre Entwickler arbeiten können
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi phone >}} App- & Softwareentwicklung {#svc-apps}
+- Web-, Desktop- und Mobile-Apps, vom Prototyp zum Produkt
+- Backend- und Systemcode in Rust, Python, C/C++
+- Klinische Frontends mit Zugriffskontrolle und Audit-Trail
+- Übergabe mit Doku, Tests und einem Deployment, das Ihr Team betreiben kann
+:::
+
+:::
+
+## So läuft es ab {#process}
+
+::: {.grid .process-grid}
+::: {.g-col-6 .g-col-md-3 .process-step}
+**1. Gespräch**<br>30 Minuten, kostenlos, Sie schildern das Problem.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**2. Festpreis**<br>Umfang, Zeitplan, Preis. NDA auf Wunsch.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**3. Umsetzung**<br>Code ab Tag eins in Ihrem Repo.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**4. Übergabe**<br>Doku, Tests, Einführung.
+:::
+:::
+
+## Hier starten {#contact}
+
+::: {.contact-box}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-lg-7}
+### Kostenloses 30-Minuten-Gespräch buchen
+
+<button id="cal-consent" class="btn btn-primary btn-lg">Freie Termine anzeigen</button>
+
+::: {.text-muted .small}
+Kalender wird nach Klick von Cal.com geladen ([Datenschutz](/datenschutz.html)) · [in neuem Tab öffnen](https://cal.com/{{< var consultation.cal_link >}}){target="_blank"}
+:::
+
+{{< include ../_cal-embed.qmd >}}
+:::
+
+::: {.g-col-12 .g-col-lg-5}
+### Oder Projekt per E-Mail beschreiben
+
+[{{< var consultation.email >}}](mailto:{{< var consultation.email >}}){.btn .btn-outline-primary .btn-lg}
+
+Antwort innerhalb eines Werktags. Streng vertraulich.
+
+**PGP:** `{{< var consultation.pgp_key_id >}}` · [öffentlicher Schlüssel]({{< var consultation.pgp_file >}})
+:::
+
+:::
+
+:::
+
+:::

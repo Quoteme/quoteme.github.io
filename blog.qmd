@@ -1,0 +1,23 @@
+---
+title: "Blog"
+listing:
+  id: blog
+  contents: posts
+  feed: true
+  sort: "date desc"
+  type: default
+  sort-ui: true
+  filter-ui: true
+  page-size: 5
+  fields:
+    - title
+    - description
+    - date
+    - image
+    - reading-time
+    - categories
+page-layout: full
+---
+
+::: {#blog}
+:::
