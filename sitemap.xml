@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://happel.ai/index.html</loc>
-    <lastmod>2026-09-14T20:11:53.861Z</lastmod>
+    <lastmod>2026-09-14T21:33:19.690Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/about.html</loc>
-    <lastmod>2026-09-14T15:48:38.694Z</lastmod>
+    <loc>https://happel.ai/blog.html</loc>
+    <lastmod>2026-09-14T17:10:46.218Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/datenschutz.html</loc>
-    <lastmod>2026-09-14T14:56:20.253Z</lastmod>
+    <loc>https://happel.ai/de/index.html</loc>
+    <lastmod>2026-09-14T21:33:20.040Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/projects.html</loc>
-    <lastmod>2026-02-22T21:41:47.145Z</lastmod>
+    <loc>https://happel.ai/impressum.html</loc>
+    <lastmod>2026-03-10T19:06:07.576Z</lastmod>
   </url>
   <url>
     <loc>https://happel.ai/posts/universal_properties/index.html</loc>
@@ -161,15 +161,15 @@
     <lastmod>2026-06-16T09:38:42.952Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/impressum.html</loc>
-    <lastmod>2026-03-10T19:06:07.576Z</lastmod>
+    <loc>https://happel.ai/datenschutz.html</loc>
+    <lastmod>2026-09-14T14:56:20.253Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/de/index.html</loc>
-    <lastmod>2026-09-14T19:57:21.634Z</lastmod>
+    <loc>https://happel.ai/about.html</loc>
+    <lastmod>2026-09-14T15:48:38.694Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/blog.html</loc>
-    <lastmod>2026-09-14T17:10:46.218Z</lastmod>
+    <loc>https://happel.ai/projects.html</loc>
+    <lastmod>2026-09-14T20:34:35.815Z</lastmod>
   </url>
 </urlset>
