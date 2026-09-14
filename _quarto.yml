@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - robots.txt
 
 website:
   site-url: "https://happel.ai/"
@@ -26,8 +28,13 @@ website:
         alt: "happel.ai"
     logo-href: index.qmd
     right:
-      - projects.qmd
+      - text: Services
+        href: /#services
+      - text: FAQ
+        href: /#faq
       - blog.qmd
+      - text: Contact
+        href: /#contact
       - icon: github
         aria-label: GitHub
         href: https://github.com/Quoteme/

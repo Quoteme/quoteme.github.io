@@ -1,4 +1,5 @@
 ---
+title: "KI- & sichere Software-Beratung für regulierte Branchen"
 description: "Data Science, KI, Hochsicherheits-Software und App-Entwicklung von Luca Happel: Mathematiker, Informatiker und Sicherheitsforscher."
 lang: de
 aliases:
@@ -13,6 +14,8 @@ format:
       - text: |
           <link rel="alternate" hreflang="en" href="https://happel.ai/" />
           <link rel="alternate" hreflang="de" href="https://happel.ai/de/" />
+          <link rel="alternate" hreflang="x-default" href="https://happel.ai/" />
+          <link rel="canonical" href="https://happel.ai/de/" />
 ---
 
 <!--
@@ -30,7 +33,8 @@ Hallo, ich bin __M.Sc. B.Sc. B.Sc. Luca Leon Happel__, __Mathematiker__, __Infor
 __Sicherheitsforscher__ aus Düsseldorf.
 Mein Team und ich entwickeln und auditieren Software für Kliniken, Medizinproduktehersteller
 und regulierte Industrie, wo Fehler teuer sind: __Data Science, KI,
-Hochsicherheits-Audits, Reverse Engineering und App-Entwicklung__.
+Hochsicherheits-Audits, Reverse Engineering und App-Entwicklung__. Wir arbeiten deutschland-
+und europaweit remote und vor Ort.
 :::
 
 ::: {.cta-row}
@@ -74,7 +78,7 @@ Hochsicherheits-Audits, Reverse Engineering und App-Entwicklung__.
 ::: {.grid .record-grid}
 
 ::: {.g-col-12 .g-col-md-6 .record-card}
-![](/assets/digital-demo-day.png)
+![Screenshot der klinischen Patientenmonitoring-Plattform monti](/assets/digital-demo-day.png)
 
 ::: {.eyebrow}
 Begutachtete Publikation · August 2025
@@ -100,7 +104,7 @@ Komplikationen bei Herz- und Onkologiepatienten erkennt.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .record-card}
-![](/assets/bug-bounties/6bac79da-737c-40ca-b270-0cab0f88298a.jpeg)
+![Bestätigung des Herstellers zu einer verantwortungsvoll gemeldeten Sicherheitslücke](/assets/bug-bounties/6bac79da-737c-40ca-b270-0cab0f88298a.jpeg)
 
 ::: {.eyebrow}
 Responsible Disclosure · März 2026
@@ -161,6 +165,34 @@ Korrekturmaßnahmen wurden umgesetzt, um das Ökosystem abzusichern.
 
 :::
 
+## Häufige Fragen {#faq}
+
+### Können Sie mit sensiblen Patienten- oder Unternehmensdaten arbeiten?
+
+Ja. Wir planen Datenminimierung, Zugriffskontrolle und Auditierbarkeit von Anfang an
+und können KI-Systeme wie RAG und LLMs on-premises betreiben, sodass sensible Daten
+Ihr Netzwerk nicht verlassen. Vor der Projektbesprechung ist ein NDA möglich.
+
+### Übernehmen Sie auch kleine, klar abgegrenzte Projekte?
+
+Ja. Ein Auftrag kann mit einem Sicherheitsaudit, einer Machbarkeitsanalyse, einem
+Prototypen oder einer klar abgegrenzten Entwicklungsaufgabe beginnen. Nach dem
+kostenlosen Gespräch erhalten Sie ein schriftliches Angebot mit Umfang, Zeitplan und Preis.
+
+### Arbeiten Sie remote oder vor Ort?
+
+Beides. Die meisten Aufträge können wir deutschland- und europaweit remote umsetzen.
+Einsätze vor Ort sind ebenfalls möglich; Reise- und Vor-Ort-Kosten werden abhängig
+von Standort und Dauer des Auftrags separat angeboten.
+
+### Was wird konkret geliefert?
+
+Je nach Auftrag: umsetzbare Auditbefunde, produktionsreifer Code in Ihrem Repository,
+reproduzierbare Analysen, Tests, Dokumentation und eine Übergabe, mit der Ihr Team
+eigenständig weiterarbeiten kann. Wir liefern auf Wunsch auch vollständige Anwendungen
+inklusive Backend, Deployment und Server-Setup. Für laufenden Betrieb, Updates oder
+Support können Wartungskosten anfallen; diese werden vorab vereinbart.
+
 ## So läuft es ab {#process}
 
 ::: {.grid .process-grid}
@@ -178,6 +210,20 @@ Korrekturmaßnahmen wurden umgesetzt, um das Ökosystem abzusichern.
 :::
 :::
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "happel.ai",
+  "url": "https://happel.ai/de/",
+  "logo": "https://happel.ai/assets/happel-ai-logo.svg",
+  "description": "KI, Data Science, Hochsicherheits-Audits, Reverse Engineering und Softwareentwicklung für Gesundheitswesen, Medizinproduktehersteller und regulierte Industrie.",
+  "email": "consulting@happel.ai",
+  "address": {"@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "DE"},
+  "areaServed": ["Deutschland", "Europa"],
+  "serviceType": ["KI-Beratung", "Data-Science-Beratung", "Sicherheitsaudit", "Reverse Engineering", "Softwareentwicklung"]
+}
+</script>
 ## Hier starten {#contact}
 
 ::: {.contact-box}
