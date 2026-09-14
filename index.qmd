@@ -29,7 +29,7 @@ English · [Deutsch](/de/)
 <img src="https://avatars2.githubusercontent.com/u/6796009" id="avatar" />
 Hi, I am __M.Sc. B.Sc. B.Sc. Luca Leon Happel__, a __mathematician__, __computer scientist__ and
 __security researcher__ from Düsseldorf.
-I build and audit software for hospitals, medical-device makers and regulated
+My team and I build and audit software for hospitals, medical-device makers and regulated
 industry, where mistakes are expensive: __data science, AI, high-security
 audits, reverse engineering and app development__.
 :::

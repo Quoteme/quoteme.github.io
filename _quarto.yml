@@ -3,19 +3,23 @@ project:
 
 website:
   site-url: "https://happel.ai/"
-  title: "Luca Happel's personal website"
+  title: "happel.ai"
   favicon: "favicon.png"
   description: "Website of {{< var profile.name >}}: data science, AI, high-security software and app development consulting, plus lots of math and computer science."
   open-graph:
     image: https://avatars2.githubusercontent.com/u/6796009
-    description: Luca Happel's personal website, including lots of math and computer science.
+    description: "Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science."
   twitter-card:
     image: https://avatars2.githubusercontent.com/u/6796009
-    description: Luca Happel's personal website, including lots of math and computer science.
+    description: "Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science."
   google-analytics: "G-TS8KXZ05HZ"
 
   draft-mode: unlinked
   navbar:
+    title: false
+    logo: assets/happel-ai-logo.svg
+    logo-alt: "happel.ai"
+    logo-href: index.qmd
     right:
       - projects.qmd
       - blog.qmd
