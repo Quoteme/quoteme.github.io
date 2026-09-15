@@ -265,21 +265,27 @@ div.quarto-post .thumbnail img,
   background: var(--bs-body-bg);
 }
 
-.storefront .record-card > p:first-child {
+.storefront .record-card > div:first-child {
   margin: -1.25rem -1.5rem 1rem -1.5rem;
 }
 
-.storefront .record-card > p:first-child img {
+.storefront .record-card > div:first-child img {
   display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 220px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 220px;
   margin: 0 auto;
   object-fit: contain;
   padding: 0.75rem;
   background: var(--bs-tertiary-bg);
   border-radius: 12px 12px 0 0;
+}
+
+.storefront .record-card > div:first-child figcaption {
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--bs-secondary-color);
+  margin-top: 0.25rem;
 }
 
 .storefront .record-card h3 {
