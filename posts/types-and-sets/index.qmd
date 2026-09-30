@@ -1,0 +1,52 @@
+---
+title: "Types And Sets"
+author: "Luca Leon Happel"
+date: "2026-09-80"
+draft: true
+bibliography: references.bib
+categories: ["math", "type theory", "topos theory", "category theory", "categorical logic", "programming"]
+---
+
+Type theory is well known to programmers (see TypeScript as an example, or the
+currently very popular [TypeSafe.ai](https://docs.typesafe.ai/).
+In fact, due to programming, I grew up with type theory as a basis for my 
+understanding of mathematics (and by extension programming), in contrast to 
+most children which are first introduced to set theory in school.
+
+It does however intuitively make sense that these two theories are deeply
+related: For example, we may have the set $\{0, 1\}$ and $\mathbb{N}$, both of
+which _share_ one common Element $0$, i.e. $0 \in \{0\}$ _and_ $0 \in \mathbb{N}$.
+In contrast to that, we may have the type $\texttt{Bool}$ with the _terms_
+$0 : \texttt{Bool}$ and $1 : \texttt{Bool}$, and the type $\texttt{Nat}$ with
+the _terms_ $0 : \texttt{Nat}$, $1 : \texttt{Nat}$, $2 : \texttt{Nat}$, etc. In
+this case, we have _two different terms_ $0 : \texttt{Bool}$ and $0 :
+\texttt{Nat}$, which are _not equal_ to each other.
+
+There is however a connection which goes very deep, to places most
+mathematicians do not date to even go (and by extension most programmers will 
+almost certainly never even heat about).
+We use _Topos theory_ and its Mitchell-Benabou language to connect set theory
+with type theory.
+
+:::{.callout-note collapse="true"}
+A _topos_ is a certain kind of category (see [this previous post](todo-add-correct-link)),
+which has <add missing definition concisely>.
+:::
+
+In particular, all presheaf categories are topoi, and the category of sets is a
+topos, as it is the presheaf category of the terminal category 
+(which has one object and one morphism).
+
+As we now know that $\text{Set}$ is a topos, we can use the Mitchell-Benabou language to reason about
+it.
+<!-- By this wangSketchesElephantIntroduction source, ... -->
+By [@wansingh, Definition 2.2.2], we have that given a first order theory
+$\mathcal{T}$, we associate to each type $T$ of it, an object $\llbracket T
+\rrbracket$ in the the model $\mathcal{C}$, a category which is a topos.
+In particular, we associate to types $T$ the sets $\llbracket T \rrbracket$
+under the assumption that $\mathcal{C} = \text{Set}$.
+Similarily, we associate functions to function symbols ad subobjects to relation
+symbols.
+
+For more information, [@wangSketchesElephantIntroduction] is a great book about
+these ideas.
