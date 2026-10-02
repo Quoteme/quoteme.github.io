@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/types-and-sets/index.html",
       "/posts/universal_properties/index.html",
       "/posts/writing-linux-drivers/index.html",
       "/posts/can-the-covariance-matrix-have-imaginary-eigenvectors/index.html",

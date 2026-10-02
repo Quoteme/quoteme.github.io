@@ -10,7 +10,60 @@
 <atom:link href="https://happel.ai/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Website of {{&lt; var profile.name &gt;}}: data science, AI, high-security software and app development consulting, plus lots of math and computer science.</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Sat, 08 Aug 2026 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 18 Jan 2027 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Types And Sets</title>
+  <dc:creator>Luca Leon Happel</dc:creator>
+  <link>https://happel.ai/posts/types-and-sets/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>Type theory is well known to programmers (see TypeScript as an example, or the currently very popular <a href="https://docs.typesafe.ai/">TypeSafe.ai</a>. In fact, due to programming, I grew up with type theory as a basis for my understanding of mathematics (and by extension programming), in contrast to most children which are first introduced to set theory in school.</p>
+<p>It does however intuitively make sense that these two theories are deeply related: For example, we may have the set <img src="https://latex.codecogs.com/png.latex?%5C%7B0,%201%5C%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BN%7D">, both of which <em>share</em> one common Element <img src="https://latex.codecogs.com/png.latex?0">, i.e.&nbsp;<img src="https://latex.codecogs.com/png.latex?0%20%5Cin%20%5C%7B0%5C%7D"> <em>and</em> <img src="https://latex.codecogs.com/png.latex?0%20%5Cin%20%5Cmathbb%7BN%7D">. In contrast to that, we may have the type <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D"> with the <em>terms</em> <img src="https://latex.codecogs.com/png.latex?0%20:%20%5Ctexttt%7BBool%7D"> and <img src="https://latex.codecogs.com/png.latex?1%20:%20%5Ctexttt%7BBool%7D">, and the type <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BNat%7D"> with the <em>terms</em> <img src="https://latex.codecogs.com/png.latex?0%20:%20%5Ctexttt%7BNat%7D">, <img src="https://latex.codecogs.com/png.latex?1%20:%20%5Ctexttt%7BNat%7D">, <img src="https://latex.codecogs.com/png.latex?2%20:%20%5Ctexttt%7BNat%7D">, etc. In this case, we have <em>two different terms</em> <img src="https://latex.codecogs.com/png.latex?0%20:%20%5Ctexttt%7BBool%7D"> and <img src="https://latex.codecogs.com/png.latex?0%20:%0A%5Ctexttt%7BNat%7D">, which are <em>not equal</em> to each other.</p>
+<p>There is however a connection which goes very deep, to places most mathematicians do not date to even go (and by extension most programmers will almost certainly never even heat about). We use <em>Topos theory</em> and its Mitchell-Benabou language to connect set theory with type theory.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A <em>topos</em> is a certain kind of category (see <a href="todo-add-correct-link">this previous post</a>), which has <add missing="" definition="" concisely="">.</add></p>
+</div>
+</div>
+</div>
+<p>In particular, all presheaf categories are topoi, and the category of sets is a topos, as it is the presheaf category of the terminal category (which has one object and one morphism).</p>
+<p>As we now know that <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSet%7D"> is a topos, we can use the Mitchell-Benabou language to reason about it. <!-- By this wangSketchesElephantIntroduction source, ... --> By <span class="citation" data-cites="wangSketchesElephantIntroduction">(Wang and College, n.d., Definition 2.2.2)</span>, we have that given a first order theory <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BT%7D">, we associate to each type <img src="https://latex.codecogs.com/png.latex?T"> of it, an object <img src="https://latex.codecogs.com/png.latex?%5Cllbracket%20T%0A%5Crrbracket"> in the the model <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BC%7D">, a category which is a topos. In particular, we associate to types <img src="https://latex.codecogs.com/png.latex?T"> the sets <img src="https://latex.codecogs.com/png.latex?%5Cllbracket%20T%20%5Crrbracket"> under the assumption that <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BC%7D%20=%20%5Ctext%7BSet%7D">. Similarily, we associate functions to function symbols ad subobjects to relation symbols.</p>
+<p>For more information, <span class="citation" data-cites="wangSketchesElephantIntroduction">(Wang and College, n.d.)</span> is a great book about these ideas. Specifically, a <em>first-order theory</em> <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BT%7D"> consists of 1. A collection of <em>types</em> <img src="https://latex.codecogs.com/png.latex?A,%20B,%20C,%20%5Cdots"> 2. A collection of <em>function symbols</em> <img src="https://latex.codecogs.com/png.latex?f,%20g,%20h,%20%5Cdots"> each of which has a domain and codomain, i.e.&nbsp;<img src="https://latex.codecogs.com/png.latex?f%20:%20X_1%20%5Ctimes%20X_n%20%5Cto%20Y"> 3. A collection of <em>relation symbols</em> <img src="https://latex.codecogs.com/png.latex?R,%20S,%20%5Cdots"> of the form <img src="https://latex.codecogs.com/png.latex?R%20%5Chookrightarrow%20X_1%20%5Ctimes%20X_n">.</p>
+<p>Then we can assign a <em>model</em> to that theory, by having a category <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BC%7D"> and interpretation for each <em>type</em>, <em>function symbol</em> and <em>relation symbol</em>: 1. <img src="https://latex.codecogs.com/png.latex?%5Cllbracket%20A%20%5Crrbracket%20%5Cin%20%5Ctext%7BObj%7D(%5Cmathcal%7BC%7D)"> 2. <img src="https://latex.codecogs.com/png.latex?%5Cllbracket%20f%20%5Crrbracket%20%5Cin%20%5Ctext%7BHom%7D_%5Cmathcal%7BC%7D(%5Cllbracket%20X_1%20%5Crrbracket%5Ctimes%5Cdots%20%5Cllbracket%20X_n%20%5Crrbracket,%20%5Cllbracket%20Y%20%5Crrbracket)"> 3. <img src="https://latex.codecogs.com/png.latex?%5Cllbracket%20R%20%5Crrbracket%20%5Cin%20%5Ctext%7BMono%7D_%5Cmathcal%7BC%7D(%5Cllbracket%20R%20%5Crrbracket%20,%5Cllbracket%20X_1%20%5Crrbracket%5Ctimes%5Cdots%20%5Cllbracket%20X_n%20%5Crrbracket)"></p>
+<p>Now, given a typed first-order theory, we can therefore assign to each type <img src="https://latex.codecogs.com/png.latex?T"> a set, if we can model it in the category of sets <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSet%7D">. In TypeScript, all types simply hold a set of possible values anyway, so it becomes straightforward to make this formal, using the precise language of categorical logic: As we have seen, given a type <img src="https://latex.codecogs.com/png.latex?T">, we can assign to it a set <img src="https://latex.codecogs.com/png.latex?%5Cllbracket%0AT%20%5Crrbracket"> of possible values which inhabit that type.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-wangSketchesElephantIntroduction" class="csl-entry">
+Wang, Jinyi, and Qiuzhen College. n.d. <span>“Sketches of an <span>Elephant</span> —<span>An Introduction</span> to <span>Topos Theory</span>.”</span>
+</div>
+</div></section></div> ]]></description>
+  <category>math</category>
+  <category>type theory</category>
+  <category>topos theory</category>
+  <category>category theory</category>
+  <category>categorical logic</category>
+  <category>programming</category>
+  <guid>https://happel.ai/posts/types-and-sets/</guid>
+  <pubDate>Mon, 18 Jan 2027 23:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Universal properties in category theory simply explained</title>
   <dc:creator>Luca Leon Happel</dc:creator>
@@ -17143,31 +17196,6 @@ Kammeyer, Jun.-Prof. Dr. Holger. 2024. <span>“Vorlesung <img src="https://late
   <guid>https://happel.ai/posts/surreal_numbers/</guid>
   <pubDate>Wed, 15 Nov 2023 23:00:00 GMT</pubDate>
   <media:content url="https://happel.ai/posts/surreal_numbers/thumbnail.png" medium="image" type="image/png" height="77" width="144"/>
-</item>
-<item>
-  <title>Knot theory - peripheral system</title>
-  <dc:creator>Luca Leon Happel</dc:creator>
-  <link>https://happel.ai/posts/knot-theory-peripheral-system/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Fl50Xv-3_K4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-
-
-
- ]]></description>
-  <category>math</category>
-  <category>algebra</category>
-  <category>abstract algebra</category>
-  <category>knot theory</category>
-  <category>English</category>
-  <guid>https://happel.ai/posts/knot-theory-peripheral-system/</guid>
-  <pubDate>Thu, 04 May 2023 22:00:00 GMT</pubDate>
-  <media:content url="https://happel.ai/posts/knot-theory-peripheral-system/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
