@@ -2,9 +2,9 @@
 title: "Types And Sets"
 author: "Luca Leon Happel"
 date: "2026-09-80"
-draft: true
 bibliography: references.bib
 categories: ["math", "type theory", "topos theory", "category theory", "categorical logic", "programming"]
+image: "thumbnail.svg"
 ---
 
 Type theory is well known to programmers (see TypeScript as an example, or the
@@ -40,7 +40,7 @@ topos, as it is the presheaf category of the terminal category
 As we now know that $\text{Set}$ is a topos, we can use the Mitchell-Benabou language to reason about
 it.
 <!-- By this wangSketchesElephantIntroduction source, ... -->
-By [@wansingh, Definition 2.2.2], we have that given a first order theory
+By [@wangSketchesElephantIntroduction, Definition 2.2.2], we have that given a first order theory
 $\mathcal{T}$, we associate to each type $T$ of it, an object $\llbracket T
 \rrbracket$ in the the model $\mathcal{C}$, a category which is a topos.
 In particular, we associate to types $T$ the sets $\llbracket T \rrbracket$
@@ -49,4 +49,22 @@ Similarily, we associate functions to function symbols ad subobjects to relation
 symbols.
 
 For more information, [@wangSketchesElephantIntroduction] is a great book about
-these ideas.
+these ideas. Specifically, a _first-order theory_ $\mathbb{T}$ consists of
+1. A collection of _types_ $A, B, C, \dots$
+2. A collection of _function symbols_ $f, g, h, \dots$ each of which has a
+  domain and codomain, i.e. $f : X_1 \times X_n \to Y$
+3. A collection of _relation symbols_ $R, S, \dots$ of the form
+  $R \hookrightarrow X_1 \times X_n$.
+
+Then we can assign a _model_ to that theory, by having a category $\mathcal{C}$
+and interpretation for each _type_, _function symbol_ and _relation symbol_:
+1. $\llbracket A \rrbracket \in \text{Obj}(\mathcal{C})$
+2. $\llbracket f \rrbracket \in \text{Hom}_\mathcal{C}(\llbracket X_1 \rrbracket\times\dots \llbracket X_n \rrbracket, \llbracket Y \rrbracket)$
+3. $\llbracket R \rrbracket \in \text{Mono}_\mathcal{C}(\llbracket R \rrbracket ,\llbracket X_1 \rrbracket\times\dots \llbracket X_n \rrbracket)$
+
+Now, given a typed first-order theory, we can therefore assign to each type $T$
+a set, if we can model it in the category of sets $\text{Set}$. In TypeScript,
+all types simply hold a set of possible values anyway, so it becomes
+straightforward to make this formal, using the precise language of categorical
+logic: As we have seen, given a type $T$, we can assign to it a set $\llbracket
+T \rrbracket$ of possible values which inhabit that type.
