@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/projects.html",
+    "items": []
+  },
+  {
     "listing": "/blog.html",
     "items": [
       "/posts/types-and-sets/index.html",
@@ -40,9 +44,5 @@
       "/posts/lets-game-dev-community-challenge-2/index.html",
       "/posts/lets-game-dev-community-challenge/index.html"
     ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": []
   }
 ]

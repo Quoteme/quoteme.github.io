@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://happel.ai/index.html</loc>
-    <lastmod>2026-09-14T21:33:19.690Z</lastmod>
+    <lastmod>2026-10-11T22:53:09.775Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/blog.html</loc>
-    <lastmod>2026-09-14T17:10:46.218Z</lastmod>
+    <loc>https://happel.ai/projects.html</loc>
+    <lastmod>2026-09-14T20:34:35.815Z</lastmod>
+  </url>
+  <url>
+    <loc>https://happel.ai/de/index.html</loc>
+    <lastmod>2026-10-11T22:53:09.776Z</lastmod>
   </url>
   <url>
     <loc>https://happel.ai/datenschutz.html</loc>
@@ -150,7 +154,7 @@
   </url>
   <url>
     <loc>https://happel.ai/posts/rag-in-high-security-environments/index.html</loc>
-    <lastmod>2026-09-14T14:02:32.037Z</lastmod>
+    <lastmod>2026-10-11T22:46:38.804Z</lastmod>
   </url>
   <url>
     <loc>https://happel.ai/posts/can-the-covariance-matrix-have-imaginary-eigenvectors/index.html</loc>
@@ -165,11 +169,15 @@
     <lastmod>2026-03-10T19:06:07.576Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/de/index.html</loc>
-    <lastmod>2026-09-16T23:47:24.287Z</lastmod>
+    <loc>https://happel.ai/de/service.html</loc>
+    <lastmod>2026-10-11T22:46:30.168Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/projects.html</loc>
-    <lastmod>2026-09-14T20:34:35.815Z</lastmod>
+    <loc>https://happel.ai/blog.html</loc>
+    <lastmod>2026-09-14T17:10:46.218Z</lastmod>
+  </url>
+  <url>
+    <loc>https://happel.ai/service.html</loc>
+    <lastmod>2026-10-11T22:46:38.803Z</lastmod>
   </url>
 </urlset>
