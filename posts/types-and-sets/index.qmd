@@ -1,7 +1,7 @@
 ---
 title: "Types And Sets"
 author: "Luca Leon Happel"
-date: "2026-09-80"
+date: "2026-09-10"
 bibliography: references.bib
 categories: ["math", "type theory", "topos theory", "category theory", "categorical logic", "programming"]
 image: "thumbnail.svg"
