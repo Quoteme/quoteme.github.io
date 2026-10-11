@@ -10,7 +10,50 @@
 <atom:link href="https://happel.ai/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Website of {{&lt; var profile.name &gt;}}: data science, AI, high-security software and app development consulting, plus lots of math and computer science.</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Wed, 09 Sep 2026 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 11 Oct 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>“What are differential forms?” : A video series</title>
+  <dc:creator>Luca Leon Happel</dc:creator>
+  <link>https://happel.ai/posts/differential-forms-video-series/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>I have been thinking about differential forms for quite some time now already. I still vividly remember 2022 when I was on the “<a href="https://koma86.uni-jena.de/">Konferenz der deutschsprachigen Mathematikfachschaften</a>”, where I was deeply intrigued by these mysterious objects. Most mathematicians do in fact not even know what these “<img src="https://latex.codecogs.com/png.latex?dx">” and “<img src="https://latex.codecogs.com/png.latex?dy">” and so on in <img src="https://latex.codecogs.com/png.latex?%5Cint%20f(x)%5C,%20dx"> are. But I wanted to know! Thus began my years long quest to find the truth (well, there are many different interpretations of <img src="https://latex.codecogs.com/png.latex?dx">, like from measure theory or in this case differential geometry which I wish to inspect in here).</p>
+<p>Previously I have written about these objects here: <a href="../differential_forms/">../differential_forms/</a>.</p>
+<p>I have started a video-series as well though:</p>
+<hr>
+<section id="part-1-1-forms" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-1-forms">Part 1: 1-forms</h3>
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/J20AI3iE4OM?controls=1&amp;rel=0" title="What Are Differential Forms: 1-forms" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div>
+</section>
+<section id="part-2-differential-k-forms" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-differential-k-forms">Part 2: differential k-forms</h3>
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/-ohrb3M_lX4?controls=1&amp;rel=0" title="What Are Differential Forms: differential k-forms" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div>
+<p><a href="https://www.youtube.com/playlist?list=PLWOiUBFc80cY">Full playlist on YouTube</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>mathematics</category>
+  <category>differential geometry</category>
+  <category>differential forms</category>
+  <category>video</category>
+  <category>English</category>
+  <guid>https://happel.ai/posts/differential-forms-video-series/</guid>
+  <pubDate>Sun, 11 Oct 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://happel.ai/posts/differential-forms-video-series/thumbnail.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Types And Sets</title>
   <dc:creator>Luca Leon Happel</dc:creator>
@@ -17168,35 +17211,6 @@ Kammeyer, Jun.-Prof. Dr. Holger. 2024. <span>“Vorlesung <img src="https://late
   <category>English</category>
   <guid>https://happel.ai/posts/l2-invariants/</guid>
   <pubDate>Sat, 03 Feb 2024 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Surreale Zahlen</title>
-  <dc:creator>Luca Leon Happel</dc:creator>
-  <link>https://happel.ai/posts/surreal_numbers/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<section id="boldsymbolno-ist-ein-körper" class="level2">
-<h2 class="anchored" data-anchor-id="boldsymbolno-ist-ein-körper"><img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BNo%7D"> ist ein Körper</h2>
-<p>In diesem Vortrag ging es darum zu zeigen, dass die surrealen Zahlen ein Körper sind. Ich arbeitete dabei unter der Annahme, dass wir bereits gezeigt haben, dass <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BNo%7D"> ein geordneter Ring ist. Alles was somit noch zu zeigen war, war das multiplikative Inverse für beliebige nicht-nulle Elemente zu finden sind.</p>
-<p>Genaueres lässt sich in dem Handout nachlesen: <a href="./Handout.pdf">Handout</a></p>
-
-
-</section>
-
- ]]></description>
-  <category>Seminar</category>
-  <category>Surreale Zahlen</category>
-  <category>abstract algebra</category>
-  <category>ring theory</category>
-  <category>Deutsch</category>
-  <guid>https://happel.ai/posts/surreal_numbers/</guid>
-  <pubDate>Wed, 15 Nov 2023 23:00:00 GMT</pubDate>
-  <media:content url="https://happel.ai/posts/surreal_numbers/thumbnail.png" medium="image" type="image/png" height="77" width="144"/>
 </item>
 </channel>
 </rss>

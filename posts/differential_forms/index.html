@@ -88,11 +88,15 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 </script>
 <meta property="og:title" content="What are „differential forms“ – happel.ai">
 <meta property="og:description" content="Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.">
-<meta property="og:image" content="https://i.imgur.com/pJlb0qT.png">
+<meta property="og:image" content="https://happel.ai/posts/differential_forms/thumbnail.png">
 <meta property="og:site_name" content="happel.ai">
+<meta property="og:image:height" content="695">
+<meta property="og:image:width" content="521">
 <meta name="twitter:title" content="What are „differential forms“ – happel.ai">
 <meta name="twitter:description" content="Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.">
-<meta name="twitter:image" content="https://i.imgur.com/pJlb0qT.png">
+<meta name="twitter:image" content="https://happel.ai/posts/differential_forms/thumbnail.png">
+<meta name="twitter:image-height" content="695">
+<meta name="twitter:image-width" content="521">
 <meta name="twitter:card" content="summary_large_image">
 </head><body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
@@ -333,7 +337,7 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
@@ -348,26 +352,14 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html"> <i class="bi bi-journal-text" role="img">
-</i> 
-<span class="menu-text">Blog</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
     <a class="nav-link" href="../../service.html#services"> <i class="bi bi-briefcase" role="img">
 </i> 
 <span class="menu-text">Services</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../service.html#faq"> <i class="bi bi-question-circle" role="img">
+    <a class="nav-link" href="../../blog.html"> <i class="bi bi-journal-text" role="img">
 </i> 
-<span class="menu-text">FAQ</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../service.html#contact"> <i class="bi bi-envelope" role="img">
-</i> 
-<span class="menu-text">Contact</span></a>
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -435,16 +427,31 @@ window.Quarto = {
 
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post is part of a series of posts about <em>differential forms</em>. You can find the other posts in this series <a href="../differential-forms-video-series/">here</a>. Or by searching for the tag <code>differential forms</code> on the blog.</p>
+</div>
+</div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Currently while visiting the “<a href="http://die-koma.org/">KoMa</a>” (Konferenz der deutschsprachigen Mathematikfachschaften / conference of German-speaking mathematics students) I got into a lot of interesting conversations about geometry, topology and category theory. This set the stage for me to think about differential forms because I wanted to understand how exactly these things look and feel like.</p>
 </section>
 <section id="my-sketches" class="level2">
 <h2 class="anchored" data-anchor-id="my-sketches">My sketches</h2>
-<blockquote class="imgur-embed-pub blockquote" lang="en" data-id="a/pJlb0qT">
-<a href="//imgur.com/a/pJlb0qT">Notes about differential forms</a>
-</blockquote>
-<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="thumbnail.png" class="img-fluid figure-img"></p>
+<figcaption>My sketches of differential forms</figcaption>
+</figure>
+</div>
 <p>The proof mentioned on page 1 is viewable on <a href="https://web.archive.org/web/20211224033113/https://planetmath.org/tensorproductofdualspacesisadualspaceoftensorproduct">https://web.archive.org/web/20211224033113/https://planetmath.org/tensorproductofdualspacesisadualspaceoftensorproduct</a></p>
 </section>
 <section id="notation" class="level2">

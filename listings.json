@@ -6,6 +6,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/differential-forms-video-series/index.html",
       "/posts/types-and-sets/index.html",
       "/posts/universal_properties/index.html",
       "/posts/writing-linux-drivers/index.html",
