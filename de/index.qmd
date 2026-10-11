@@ -2,8 +2,6 @@
 title: "KI- & sichere Software-Beratung für regulierte Branchen"
 description: "Data Science, KI, Hochsicherheits-Software und App-Entwicklung von Luca Happel: Mathematiker, Informatiker und Sicherheitsforscher."
 lang: de
-aliases:
-  - /services/de/index.html
 page-layout: full
 title-block-banner: true
 toc: false
@@ -31,15 +29,15 @@ and 300px height
 <img src="https://avatars2.githubusercontent.com/u/6796009" id="avatar" />
 Hallo, ich bin __M.Sc. B.Sc. B.Sc. Luca Leon Happel__, __Mathematiker__, __Informatiker__ und
 __Sicherheitsforscher__ aus Düsseldorf.
-Mein Team und ich entwickeln und auditieren Software für Kliniken, Medizinproduktehersteller
+Ich entwickle und auditiere Software für Kliniken, Medizinproduktehersteller
 und regulierte Industrie, wo Fehler teuer sind: __Data Science, KI,
-Hochsicherheits-Audits, Reverse Engineering und App-Entwicklung__. Wir arbeiten deutschland-
+Hochsicherheits-Audits, Reverse Engineering und App-Entwicklung__. Ich arbeite deutschland-
 und europaweit remote und vor Ort.
 :::
 
 ::: {.cta-row}
-<a href="#contact" class="btn btn-primary btn-lg">Kostenloses 30-Min-Gespräch buchen</a>
-<a href="mailto:{{< var consultation.email >}}" class="btn btn-outline-primary btn-lg">E-Mail schreiben</a>
+<a href="/de/service.html#services" class="btn btn-primary btn-lg"><i class="bi bi-briefcase"></i> Brauchen Sie Hilfe?</a>
+<a href="/blog.html" class="btn btn-primary btn-lg"><i class="bi bi-journal-text"></i> Mein Blog</a>
 :::
 
 <iframe id="top2manframe" src="" style="border: none;"></iframe>
@@ -129,87 +127,6 @@ Korrekturmaßnahmen wurden umgesetzt, um das Ökosystem abzusichern.
 
 :::
 
-## Was wir machen {#services}
-
-::: {.grid .service-grid}
-
-::: {.g-col-12 .g-col-md-6 .service-card}
-### {{< bi graph-up >}} Data Science & KI {#svc-data-ai}
-- Statistische Analysen und Modelle, die Sie begründen können
-- Modelle für Monitoring, Anomalieerkennung, Vorhersage
-- RAG und LLM-Integration on-premises, keine Daten verlassen Ihr Netzwerk
-- Reproduzierbare Pipelines und Berichte, die Ihre Fachleute lesen können
-:::
-
-::: {.g-col-12 .g-col-md-6 .service-card}
-### {{< bi shield-lock >}} Hochsicherheits-Audits {#svc-audits}
-- Sicherheitsaudits medizinischer und industrieller Software (MDR, IEC 62443, FDA-Leitlinien)
-- Bedrohungsanalyse und Code-Review für regulierte Umgebungen
-- Formale Verifikation (Lean 4) kritischer Komponenten
-:::
-
-::: {.g-col-12 .g-col-md-6 .service-card}
-### {{< bi cpu >}} Reverse Engineering {#svc-reverse-engineering}
-- Analyse von Binaries, Firmware und undokumentierten Protokollen
-- Schwachstellenforschung mit koordinierter, verantwortungsvoller Meldung
-- Schriftliche Befunde, mit denen Ihre Entwickler arbeiten können
-:::
-
-::: {.g-col-12 .g-col-md-6 .service-card}
-### {{< bi phone >}} App- & Softwareentwicklung {#svc-apps}
-- Web-, Desktop- und Mobile-Apps, vom Prototyp zum Produkt
-- Backend-, System- und Embedded-Code in Rust, Python, C/C++
-- Klinische Frontends mit Zugriffskontrolle und Audit-Trail
-- Übergabe mit Doku, Tests und einem Deployment, das Ihr Team betreiben kann
-:::
-
-:::
-
-## Häufige Fragen {#faq}
-
-### Können Sie mit sensiblen Patienten- oder Unternehmensdaten arbeiten?
-
-Ja. Wir planen Datenminimierung, Zugriffskontrolle und Auditierbarkeit von Anfang an
-und können KI-Systeme wie RAG und LLMs on-premises betreiben, sodass sensible Daten
-Ihr Netzwerk nicht verlassen. Vor der Projektbesprechung ist ein NDA möglich.
-
-### Übernehmen Sie auch kleine, klar abgegrenzte Projekte?
-
-Ja. Ein Auftrag kann mit einem Sicherheitsaudit, einer Machbarkeitsanalyse, einem
-Prototypen oder einer klar abgegrenzten Entwicklungsaufgabe beginnen. Nach dem
-kostenlosen Gespräch erhalten Sie ein schriftliches Angebot mit Umfang, Zeitplan und Preis.
-
-### Arbeiten Sie remote oder vor Ort?
-
-Beides. Die meisten Aufträge können wir deutschland- und europaweit remote umsetzen.
-Einsätze vor Ort sind ebenfalls möglich; Reise- und Vor-Ort-Kosten werden abhängig
-von Standort und Dauer des Auftrags separat angeboten.
-
-### Was wird konkret geliefert?
-
-Je nach Auftrag: umsetzbare Auditbefunde, produktionsreifer Code in Ihrem Repository,
-reproduzierbare Analysen, Tests, Dokumentation und eine Übergabe, mit der Ihr Team
-eigenständig weiterarbeiten kann. Wir liefern auf Wunsch auch vollständige Anwendungen
-inklusive Backend, Deployment und Server-Setup. Für laufenden Betrieb, Updates oder
-Support können Wartungskosten anfallen; diese werden vorab vereinbart.
-
-## So läuft es ab {#process}
-
-::: {.grid .process-grid}
-::: {.g-col-6 .g-col-md-3 .process-step}
-**1. Gespräch**<br>30 Minuten, kostenlos, Sie schildern das Problem.
-:::
-::: {.g-col-6 .g-col-md-3 .process-step}
-**2. Festpreis**<br>Umfang, Zeitplan, Preis. NDA auf Wunsch.
-:::
-::: {.g-col-6 .g-col-md-3 .process-step}
-**3. Umsetzung**<br>Code ab Tag eins in Ihrem Repo.
-:::
-::: {.g-col-6 .g-col-md-3 .process-step}
-**4. Übergabe**<br>Doku, Tests, Einführung.
-:::
-:::
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -224,36 +141,4 @@ Support können Wartungskosten anfallen; diese werden vorab vereinbart.
   "serviceType": ["KI-Beratung", "Data-Science-Beratung", "Sicherheitsaudit", "Reverse Engineering", "Softwareentwicklung"]
 }
 </script>
-## Hier starten {#contact}
-
-::: {.contact-box}
-
-::: {.grid}
-
-::: {.g-col-12 .g-col-lg-7}
-### Kostenloses 30-Minuten-Gespräch buchen
-
-<button id="cal-consent" class="btn btn-primary btn-lg">Freie Termine anzeigen</button>
-
-::: {.text-muted .small}
-Kalender wird nach Klick von Cal.com geladen ([Datenschutz](/datenschutz.html)) · [in neuem Tab öffnen](https://cal.com/{{< var consultation.cal_link >}}){target="_blank"}
-:::
-
-{{< include ../_cal-embed.qmd >}}
-:::
-
-::: {.g-col-12 .g-col-lg-5}
-### Oder Projekt per E-Mail beschreiben
-
-[{{< var consultation.email >}}](mailto:{{< var consultation.email >}}){.btn .btn-outline-primary .btn-lg}
-
-Antwort innerhalb eines Werktags. Streng vertraulich.
-
-**PGP:** `{{< var consultation.pgp_key_id >}}` · [öffentlicher Schlüssel]({{< var consultation.pgp_file >}})
-:::
-
-:::
-
-:::
-
 :::

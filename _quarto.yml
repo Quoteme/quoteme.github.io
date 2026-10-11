@@ -26,7 +26,7 @@ website:
       dark:
         path: assets/happel-ai-logo-dark.svg
         alt: "happel.ai"
-    logo-href: index.qmd
+    logo-href: /index.qmd
     left:
       - text: Blog
         icon: journal-text
@@ -47,13 +47,13 @@ website:
     right:
       - text: Services
         icon: briefcase
-        href: /#services
+        href: /service.qmd#services
       - text: FAQ
         icon: question-circle
-        href: /#faq
+        href: /service.qmd#faq
       - text: Contact
         icon: envelope
-        href: /#contact
+        href: /service.qmd#contact
   page-footer:
     center:
       - text: "Impressum"

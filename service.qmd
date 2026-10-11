@@ -1,0 +1,154 @@
+---
+title: "Services"
+description: "Data science, AI, high-security audits, reverse engineering and app development by Luca Happel, for hospitals, medical-device makers and regulated industry."
+lang: en
+aliases:
+  - /services/index.html
+  - /consultation.html
+page-layout: full
+title-block-banner: true
+toc: false
+format:
+  html:
+    css: ./styles.css
+    include-in-header:
+      - text: |
+          <link rel="alternate" hreflang="en" href="https://happel.ai/service.html" />
+          <link rel="alternate" hreflang="de" href="https://happel.ai/de/service.html" />
+          <link rel="alternate" hreflang="x-default" href="https://happel.ai/service.html" />
+          <link rel="canonical" href="https://happel.ai/service.html" />
+---
+
+::: {.storefront .column-screen}
+
+::: {.lang-switch}
+English · [Deutsch](/de/service.html)
+:::
+
+## What I do {#services}
+
+::: {.grid .service-grid}
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi graph-up >}} Data Science & AI {#svc-data-ai}
+- Statistical analysis and modelling you can defend
+- Models for monitoring, anomaly detection, prediction
+- On-premises RAG and LLM integration, no data leaves your network
+- Reproducible pipelines and reports your domain experts can read
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi shield-lock >}} High-Security Audits {#svc-audits}
+- Security audits of medical and industrial software (MDR, IEC 62443, FDA guidance)
+- Threat modelling and code review for regulated environments
+- Formal verification (Lean 4) for critical components
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi cpu >}} Reverse Engineering {#svc-reverse-engineering}
+- Analysis of binaries, firmware and undocumented protocols
+- Vulnerability research with coordinated, responsible disclosure
+- Written findings your engineers can act on
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### {{< bi phone >}} App & Software Development {#svc-apps}
+- Web, desktop and mobile apps, prototype to product
+- Backend, systems and embedded code in Rust, Python, C/C++
+- Clinical front-ends with access control and audit trails
+- Handover with docs, tests and a deployment your team can run
+:::
+
+:::
+
+## Questions clients ask {#faq}
+
+### Can you work with sensitive patient or company data?
+
+Yes. I design for data minimisation, access control and auditability, and can deploy
+AI systems such as RAG and LLMs on-premises so sensitive data stays in your network.
+I can sign an NDA before reviewing project details.
+
+### Do you take on small, clearly scoped projects?
+
+Yes. An engagement can begin with a security review, feasibility assessment, prototype
+or fixed-scope development task. After the free call, you receive a written proposal
+with scope, timeline and price.
+
+### Do you work remotely or on-site?
+
+Both. Most work can be delivered remotely across Germany and Europe. On-site work is
+also possible; travel and on-site costs are quoted separately based on the location
+and duration of the engagement.
+
+### What do you deliver?
+
+Depending on the engagement: actionable audit findings, production-ready code in your
+repository, reproducible analysis, tests, documentation and a handover your team can
+operate independently. I can also deliver complete applications, including backend,
+deployment and server setup. If you would like ongoing operation, updates or support,
+maintenance fees may apply and are agreed in advance.
+
+## How it works {#process}
+
+::: {.grid .process-grid}
+::: {.g-col-6 .g-col-md-3 .process-step}
+**1. Free call**<br>30 minutes, you describe the problem.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**2. Fixed quote**<br>Scope, timeline, price. NDA on request.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**3. Delivery**<br>Code in your repo from day one.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**4. Handover**<br>Docs, tests, walkthrough.
+:::
+:::
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Can you work with sensitive patient or company data?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I design for data minimisation, access control and auditability, and can deploy AI systems on-premises so sensitive data stays in your network. An NDA can be signed before reviewing project details."}},
+    {"@type": "Question", "name": "Do you take on small, clearly scoped projects?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. An engagement can begin with a security review, feasibility assessment, prototype or fixed-scope development task. After the free call, you receive a written proposal with scope, timeline and price."}},
+    {"@type": "Question", "name": "Do you work remotely or on-site?", "acceptedAnswer": {"@type": "Answer", "text": "Both. Most work can be delivered remotely across Germany and Europe. On-site work is also possible; travel and on-site costs are quoted separately based on the location and duration of the engagement."}},
+    {"@type": "Question", "name": "What do you deliver?", "acceptedAnswer": {"@type": "Answer", "text": "Depending on the engagement: actionable audit findings, production-ready code in your repository, reproducible analysis, tests, documentation and a handover your team can operate independently. I can also deliver complete applications, including backend, deployment and server setup. If you would like ongoing operation, updates or support, maintenance fees may apply and are agreed in advance."}}
+  ]
+}
+</script>
+
+## Start here {#contact}
+
+::: {.contact-box}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-lg-7}
+### Book a free 30-minute call
+
+<button id="cal-consent" class="btn btn-primary btn-lg">Show available times</button>
+
+::: {.text-muted .small}
+Calendar loads from Cal.com after you click ([privacy policy](/datenschutz.html)) · [open in new tab](https://cal.com/{{< var consultation.cal_link >}}){target="_blank"}
+:::
+
+{{< include _cal-embed.qmd >}}
+:::
+
+::: {.g-col-12 .g-col-lg-5}
+### Or describe your project by email
+
+[{{< var consultation.email >}}](mailto:{{< var consultation.email >}}){.btn .btn-outline-primary .btn-lg}
+
+Reply within one business day. Strictly confidential.
+
+**PGP:** `{{< var consultation.pgp_key_id >}}` · [public key]({{< var consultation.pgp_file >}})
+:::
+
+:::
+
+:::
+
+:::
