@@ -10,7 +10,7 @@
 <atom:link href="https://happel.ai/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Website of {{&lt; var profile.name &gt;}}: data science, AI, high-security software and app development consulting, plus lots of math and computer science.</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Mon, 18 Jan 2027 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 09 Sep 2026 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Types And Sets</title>
   <dc:creator>Luca Leon Happel</dc:creator>
@@ -62,7 +62,7 @@ Wang, Jinyi, and Qiuzhen College. n.d. <span>“Sketches of an <span>Elephant</s
   <category>categorical logic</category>
   <category>programming</category>
   <guid>https://happel.ai/posts/types-and-sets/</guid>
-  <pubDate>Mon, 18 Jan 2027 23:00:00 GMT</pubDate>
+  <pubDate>Wed, 09 Sep 2026 22:00:00 GMT</pubDate>
   <media:content url="https://happel.ai/posts/types-and-sets/thumbnail.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
