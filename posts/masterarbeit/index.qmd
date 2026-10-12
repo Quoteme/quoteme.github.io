@@ -71,13 +71,7 @@ which we can again look up (2). I have defined them in a non-standard way
 I provided examples for them (3) and counterexamples as well (4).](./assets/following-links5.png){.lightbox group="how-to-read"}
 :::
 
-In general I strive to convey the _semantics_ more than just the _syntax_.
-During this thesis, this was very hard and juggling mathematical correctness
-with intuitive explanations. I tried to use a more modern approach an used 
-hyperlinks, which might be non-standard. I am
-certain that this kind of format will become the future of how we write and read
-mathematical texts though, as hyperlinks and visualizations are a no-brainer for
-conveying complicated ideas.
+This also explains why the main part is so short.
 
 ## Critique
 
