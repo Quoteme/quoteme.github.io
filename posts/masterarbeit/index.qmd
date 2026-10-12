@@ -12,51 +12,83 @@ image: "./assets/universal_covering.png"
 format:
   html:
     code-fold: true
+lightbox:
+  match: auto
+  effect: fade
+  desc-position: bottom
+  loop: true
 ---
 
-I am currently writing my masters thesis about the connection between a
+I was writing my masters thesis about the connection between a
 generalization of the reidemeister-torsion (called $\ell^2$-alexander torsion)
 and the [thurston norm](https://en.wikipedia.org/wiki/Thurston_norm) of
 3-manifolds.
-
 Check it out, if you like:
 
 <iframe
   src="/masterarbeit"
   style="width:100%; height:600px; border:none;"
-  title="Masterarbeit PDF"></iframe>
+  title="Masterarbeit PDF"
+  height="600"
+></iframe>
 
 [Masterarbeit.pdf](/masterarbeit)
 
-Some pictures of it can be found here:
-<https://www.instagram.com/stories/highlights/18097883624515441/>
+Some pictures of it can be found [here](https://www.instagram.com/stories/highlights/18097883624515441/).
 
 ## How To Read This Thesis
 
 In contrast to traditional thesis, I have extensively used hyperlinks to make 
 it easier to read. Specifically section 4 (the main part of the thesis) relies
-heavily on the results of section 1 to 3.
+heavily on the results of section 1 to 3. This made the main part of the thesis
+only around 25% of the total length, while the introductory sections are around 75%.
 
-While I do recommend reading the thesis in order, once you get to section 4,
-please use the hyperlinks to navigate back and forth between the linked
-examples, definitions and theorems.
+However, the thesis heavily relied on hyperlinks. Expanding these in section
+4 inflates it massively and shows its true length. My idea was to make the main
+proofs as concise as possible, by relying on all the previous results and
+definitions extensively.
+(In dark mode the hyperlinks are highlighted in a light blue color, so they are
+easier to spot. In light mode they also work, but they are not highlighted, as
+my supervisor wanted)
 
-Especially section 4 is very dense and highly complicated. Nonetheless, I strived
-to make it as intuitive as possible. If you do use the hyperlinks, the text
-which at first glance seems too dense will unfold itself into more of a
-picturebook where proofs become more of a visual story than just a formal argument.
+::: {layout-ncol=3}
+![Let us look at lemma 4.24 which proofs the main theorem for manifolds whose
+JSJ-decomposition contains a hyperbolic part.
+In the proof, we can just click to where the JSJ-decomposition is defined.](./assets/highlighted-links.png){.lightbox group="how-to-read"}
+
+![After clicking on "JSJ-Zerlegung", the definition is shown.
+We are also shown directly what hyperbolic parts are. 
+We also have directly above a few examples (3d-renders) of how such an incompressible torus
+of the JSJ-decomposition might look like (here a seifert part).](./assets/following-links.png){.lightbox group="how-to-read"}
+
+![When clicking on "incompressible", we also have directly the definition 
+together with a visualization of it.](./assets/following-links2.png){.lightbox group="how-to-read"}
+
+![The definition of "incompressible" however used "proper embedding" internally,
+which is also reachable by hyperlink and visualized.](./assets/following-links3.png){.lightbox group="how-to-read"}
+
+![Next up in the proof, "hyperbolic" is used. 
+We can follow this definition twice, until it is completely unfolded.](./assets/following-links4.png){.lightbox group="how-to-read"}
+
+![Skipping towards the end of the proof, we can find "quasi fibered classes" being used.
+We can follow this (1) to its definition, where these are defined as limits of "fibered classes",
+which we can again look up (2). I have defined them in a non-standard way 
+(equivalent to the standard definition, but I found my way more intuitive) and 
+I provided examples for them (3) and counterexamples as well (4).](./assets/following-links5.png){.lightbox group="how-to-read"}
+:::
 
 In general I strive to convey the _semantics_ more than just the _syntax_.
 During this thesis, this was very hard and juggling mathematical correctness
-with intuitive explanations therefore lead to this non-standard format. I am
+with intuitive explanations. I tried to use a more modern approach an used 
+hyperlinks, which might be non-standard. I am
 certain that this kind of format will become the future of how we write and read
 mathematical texts though, as hyperlinks and visualizations are a no-brainer for
 conveying complicated ideas.
 
-## My Stance On Critique Towards My Thesis
+## Critique
 
-My thesis was criticized by two supervisors.
-These boil down to the following points:
+My thesis was criticized, and the main points of critique boil down to the
+following points:
 
 1. The visualizations are not rigorous enough (possibly childish)
 2. Some examples (like the "physical interpretation") of reidemeister torsion
@@ -66,22 +98,36 @@ These boil down to the following points:
   compared to the introductory sections (75%)
 5. I had a mistake in definition 2.22 where I stated the absolute 
   reidemeister torsion is independent of the choice of representation
+6. It seemed rushed
 
 Here are my thoughts on these points:
 
 1. The main ctiricism was that I used 3d renders of a car in a tube which I have
    twisted using blenders geometry nodes to visualize "what life is like" in a 
    seifert manifold:
-   ![3d renders of a car in a tube](./assets/thesis-car.png)
-   However, I was inspired by classical textbooks like "William L. Burke, Applied Differential Geometry (Cambridge University Press, 1985).",
+
+   ::: {layout-ncol=3}
+   ![3d renders of a car in a tube](./assets/thesis-car.png){.lightbox}
+   :::
+
+   However, I was inspired by classical textbooks like
+   "William L. Burke, Applied Differential Geometry (Cambridge University Press, 1985).",
    which had this visualization (also including a car):
-   ![William L. Burke, Applied Differential Geometry (Cambridge University Press, 1985), pp 44](../../assets/assets/burke-car.png)
    and also [Conway's classical ZIP proof](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/francisweeks.pdf) of the classification of surfaces,
    which uses pants and zippers to visualize the core ideas from geometry and topology:
-   ![Conways zip proof](../../assets/assets/conway-zip.png)
-   I was told my visualizations should have been more technical, like this one
-   ![visualization of a triangulation of a surface](../../assets/assets/kammeyer-simplicial.png)
-   from "Holger Kammeyer, Introduction to Algebraic Topology (Springer International Publishing, 2022)".
+
+   ::: {layout-ncol=3}
+   ![William L. Burke, Applied Differential Geometry (Cambridge University Press, 1985), pp 44](../../assets/assets/burke-car.png){.lightbox group="various-visualizations"}
+
+   ![Conways zip proof](../../assets/assets/conway-zip.png){.lightbox group="various-visualizations"}
+
+   ![George K. Francis, A Topological Picturebook, 2007](./assets/topological-picture-book.png){.lightbox group="various-visualizations"}
+
+   ![George K. Francis, A Topological Picturebook, 2007](./assets/topologicalpicturebook2.png){.lightbox group="various-visualizations"}
+
+   ![I was told my visualizations should have been more technical, like this visualization of a triangulation of a surface from "Holger Kammeyer, Introduction to Algebraic Topology (Springer International Publishing, 2022)"](../../assets/assets/kammeyer-simplicial.png){.lightbox group="various-visualizations"}
+   :::
+
 2. Regarding the physical interpretation, and general references to
    physics/cosmology, I think that there should be no shame in that. Physics and
    mathematics go hand in hand and I think it is cool to actually find
@@ -92,20 +138,41 @@ Here are my thoughts on these points:
    fun journey through algebra, geometry, topology and analysis. I also just really
    liked how the geometric series suddenly showed up and related to monopoles and
    answered the question of "what does the reidemeister torsion actually measure?"
+
+   ::: {layout-ncol=3}
    ![A short except from the passage about physical interpretations](../../assets/assets/electro-magnetism.png)
-3. Fair enough, I used $\lll$ and $\rrr$ instead of $\lambda$ and $\rho$ for
+   :::
+   
+3. Fair enough, I used $\lll$ and $\ggg$ instead of $\lambda$ and $\rho$ for
    the left and right regular representation. I still think regarding currying that
    this was the right choice. It also more closely aligns with
    how group actions are usually denoted as $a \triangleright x$ for $a \in G$
    and $x \in X$ with $G \curvearrowright X$.
-   ![Left and right actions using "weird" notation](../../assets/assets/rrr.png)
+   
+   ::: {layout-ncol=3}
+   ![Left and right actions using "weird"
+   notation](../../assets/assets/rrr.png){.lightbox group="group-action"}
+   ![On wikipedia, group actions are also denoted using more "triangular" shapes](../../assets/assets/action.png){.lightbox group="group-action"}
+   :::
 4. The main section being short has already been explain in "How To Read This
    Thesis" above.
-5. I have fixed the mistake. The reidemeister torsion is only independent of the
+5. I have indeed stated an incorrect theorem.
+   I have fixed that mistake since. The reidemeister torsion is only independent of the
    choice of representation _up to equivalent_ representations.
    This was clear in my submitted thesis, but I nontheless made it more explicit
    now. This error feels more like when students forget to say "up to
-isomorphism" in their proofs.
+   isomorphism" in their proofs.
+
+6. Yes, I did have various grammatical and
+   spelling errors. Also, the bibliography (exported using [Zotero](https://www.zotero.org/))
+   had mistakes in it, which I did not catch.
+   Should have been more careful and proofread it more often.
+
+From this I have learned that I should have asked my supervisor more often for 
+feedback, as errors could have been caught earlier.
+Regarding the visualizations and examples from physics, I still like them.
+Also the modern hyperlink based approach I would not like to change; but it
+seems the mathematical community is not ready for it yet.
 
 
 ## Analyzing My Progress
@@ -237,235 +304,6 @@ linear_fig.show()
 
 expected_linear = float(linear_cumulative[-1])
 print(f"Expected cumulative commits by {forecast_end_date.isoformat()} (linear): {expected_linear:.1f}")
-```
-
-```{python}
-import numpy as np
-import plotly.graph_objects as go
-try:
-  from ripser import ripser
-except ImportError as exc:
-  raise ImportError("ripser.py is required for TDA analysis. Install with: pip install ripser") from exc
-
-# TDA with ripser.py on Takens embedding of daily commits
-embed_dim = 3
-if len(observed_daily) >= embed_dim:
-  point_cloud = np.array(
-    [observed_daily[i:i + embed_dim] for i in range(len(observed_daily) - embed_dim + 1)],
-    dtype=float,
-  )
-else:
-  point_cloud = observed_daily.reshape(-1, 1)
-
-dgms = ripser(point_cloud, maxdim=1)["dgms"]
-h0 = dgms[0]
-h1 = dgms[1] if len(dgms) > 1 else np.empty((0, 2))
-
-def finite_lifetimes(diagram: np.ndarray) -> np.ndarray:
-  if diagram.size == 0:
-    return np.array([], dtype=float)
-  births = diagram[:, 0]
-  deaths = diagram[:, 1]
-  mask = np.isfinite(deaths)
-  if not np.any(mask):
-    return np.array([], dtype=float)
-  return np.maximum(deaths[mask] - births[mask], 0.0)
-
-lifetimes = np.concatenate([finite_lifetimes(h0), finite_lifetimes(h1)])
-if lifetimes.size == 0:
-  lifetimes = np.array([1.0], dtype=float)
-
-tda_scale = float(np.median(lifetimes))
-tda_scale = max(tda_scale, 1e-6)
-
-# Fit a local state-space model on the embedded points for extrapolation
-if len(observed_daily) >= embed_dim + 1:
-  X_train = np.array(
-    [observed_daily[i:i + embed_dim] for i in range(len(observed_daily) - embed_dim)],
-    dtype=float,
-  )
-  y_train = np.array(
-    [observed_daily[i + embed_dim] for i in range(len(observed_daily) - embed_dim)],
-    dtype=float,
-  )
-
-  simulated_daily = observed_daily.tolist()
-  future_days = len(all_dates) - len(observed_dates)
-
-  for _ in range(future_days):
-    state = np.array(simulated_daily[-embed_dim:], dtype=float)
-    distances = np.linalg.norm(X_train - state, axis=1)
-    weights = np.exp(-distances / tda_scale)
-    weight_sum = float(weights.sum())
-    next_value = (
-      float(np.dot(weights, y_train) / weight_sum)
-      if weight_sum > 0
-      else float(y_train.mean())
-    )
-    simulated_daily.append(max(next_value, 0.0))
-
-  tda_cumulative = np.cumsum(np.array(simulated_daily, dtype=float))
-else:
-  tda_cumulative = linear_cumulative.copy()
-
-expected_tda = float(tda_cumulative[-1])
-
-print(f"Expected cumulative commits by {forecast_end_date.isoformat()} (tda/ripser-model): {expected_tda:.1f}")
-
-# Plot 2a: TDA (ripser.py) model forecast
-tda_fig = go.Figure()
-tda_fig.add_trace(
-  go.Scatter(
-    x=observed_dates,
-    y=observed_cumulative,
-    mode="lines+markers",
-    name="Observed cumulative",
-    marker=dict(size=5),
-    line=dict(width=2),
-  )
-)
-tda_fig.add_trace(
-  go.Scatter(
-    x=all_dates,
-    y=tda_cumulative,
-    mode="lines",
-    name="TDA (ripser.py) model",
-    line=dict(width=2, dash="dot"),
-  )
-)
-tda_fig.add_vline(
-  x=observed_end_date,
-  line_width=1,
-  line_dash="dash",
-  line_color="gray",
-)
-tda_fig.update_layout(
-  title=f"TDA (ripser.py) extrapolation until {forecast_end_date.isoformat()}",
-  xaxis_title="Date",
-  yaxis_title="Cumulative commits since cutoff",
-  template="plotly_white",
-  height=460,
-)
-tda_fig.show()
-
-# Plot 2b: barcode plot (commit cadence topology)
-barcode_fig = go.Figure()
-
-def add_barcode(diagram: np.ndarray, y_offset: float, name: str, color: str) -> float:
-  if diagram.size == 0:
-    return y_offset
-  finite = diagram[np.isfinite(diagram[:, 1])]
-  for i, (birth, death) in enumerate(finite):
-    y = y_offset + i
-    barcode_fig.add_trace(
-      go.Scatter(
-        x=[birth, death],
-        y=[y, y],
-        mode="lines",
-        line=dict(color=color, width=2),
-        name=name if i == 0 else None,
-        showlegend=(i == 0),
-        hovertemplate=f"{name}<br>birth: %{{x[0]:.4f}}<br>death: %{{x[1]:.4f}}<extra></extra>",
-      )
-    )
-  return y_offset + len(finite) + 2
-
-y0 = 0.0
-y0 = add_barcode(h0, y0, "H0 barcode", "#4C78A8")
-y0 = add_barcode(h1, y0, "H1 barcode", "#F58518")
-
-if len(barcode_fig.data) == 0:
-  barcode_fig.add_annotation(
-    text="No finite persistence intervals available",
-    xref="paper", yref="paper", x=0.5, y=0.5, showarrow=False
-  )
-
-barcode_fig.update_layout(
-  title="Ripser barcode plot for commit cadence (Takens embedding)",
-  xaxis_title="Filtration value",
-  yaxis_title="Barcode index",
-  template="plotly_white",
-  height=420,
-)
-barcode_fig.show()
-```
-
-```{python}
-import numpy as np
-import plotly.graph_objects as go
-
-# Fit y(x) = p6(x) + a*sin(x) + b*sin(x)^2 on observed cumulative commits.
-x_obs = np.arange(len(observed_dates), dtype=float)
-y_obs = observed_cumulative.astype(float)
-
-# Normalize x to improve numerical conditioning for degree-6 polynomial.
-x_mean = float(x_obs.mean())
-x_std = float(x_obs.std()) if float(x_obs.std()) > 0 else 1.0
-z_obs = (x_obs - x_mean) / x_std
-
-poly_design = np.column_stack([z_obs ** k for k in range(7)])
-trig_design = np.column_stack([np.sin(z_obs), np.sin(z_obs) ** 2])
-design_obs = np.column_stack([poly_design, trig_design])
-
-coeffs, *_ = np.linalg.lstsq(design_obs, y_obs, rcond=None)
-y_fit_obs = design_obs @ coeffs
-
-x_all = np.arange(len(all_dates), dtype=float)
-z_all = (x_all - x_mean) / x_std
-design_all = np.column_stack(
-  [np.column_stack([z_all ** k for k in range(7)]), np.sin(z_all), np.sin(z_all) ** 2]
-)
-y_poly_trig_all = np.clip(design_all @ coeffs, a_min=0.0, a_max=None)
-
-expected_poly_trig = float(y_poly_trig_all[-1])
-print(
-  f"Expected cumulative commits by {forecast_end_date.isoformat()} "
-  f"(poly6 + sin + sin^2): {expected_poly_trig:.1f}"
-)
-
-poly_trig_fig = go.Figure()
-poly_trig_fig.add_trace(
-  go.Scatter(
-    x=observed_dates,
-    y=y_obs,
-    mode="lines+markers",
-    name="Observed cumulative",
-    marker=dict(size=5),
-    line=dict(width=2),
-  )
-)
-poly_trig_fig.add_trace(
-  go.Scatter(
-    x=observed_dates,
-    y=y_fit_obs,
-    mode="lines",
-    name="Fit on observed",
-    line=dict(width=2, dash="dash"),
-  )
-)
-poly_trig_fig.add_trace(
-  go.Scatter(
-    x=all_dates,
-    y=y_poly_trig_all,
-    mode="lines",
-    name="Poly6 + sin + sin² extrapolation",
-    line=dict(width=2, dash="dot"),
-  )
-)
-poly_trig_fig.add_vline(
-  x=observed_end_date,
-  line_width=1,
-  line_dash="dash",
-  line_color="gray",
-)
-poly_trig_fig.update_layout(
-  title=f"Polynomial-trigonometric extrapolation until {forecast_end_date.isoformat()}",
-  xaxis_title="Date",
-  yaxis_title="Cumulative commits since cutoff",
-  template="plotly_white",
-  height=460,
-)
-poly_trig_fig.show()
 ```
 
 # Conclusion
