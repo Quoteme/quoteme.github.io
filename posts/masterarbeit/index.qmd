@@ -38,15 +38,9 @@ Some pictures of it can be found [here](https://www.instagram.com/stories/highli
 
 ## How To Read This Thesis
 
-In contrast to traditional thesis, I have extensively used hyperlinks to make 
-it easier to read. Specifically section 4 (the main part of the thesis) relies
-heavily on the results of section 1 to 3. This made the main part of the thesis
-only around 25% of the total length, while the introductory sections are around 75%.
-
-However, the thesis heavily relied on hyperlinks. Expanding these in section
-4 inflates it massively and shows its true length. My idea was to make the main
-proofs as concise as possible, by relying on all the previous results and
-definitions extensively.
+I have used hyperlinks extensively. Especially the main part (section 4) is very
+short, as it links to previous results and definitions.
+Here is an example of how to read the thesis:
 (In dark mode the hyperlinks are highlighted in a light blue color, so they are
 easier to spot. In light mode they also work, but they are not highlighted, as
 my supervisor wanted)
