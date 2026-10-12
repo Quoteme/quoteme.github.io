@@ -6,6 +6,11 @@ categories: ["mathematics", "differential geometry", "differential forms", "vide
 image: "thumbnail.jpg"
 ---
 
+:::{.callout-note}
+This post is a part of my ongoing series about differential forms. You can find
+more related posts [here](/blog.html#category=differential%20forms)
+:::
+
 I have been thinking about differential forms for quite some time now already.
 I still vividly remember 2022 when I was on the "[Konferenz der deutschsprachigen
 Mathematikfachschaften](https://koma86.uni-jena.de/)", where I was deeply intrigued by these mysterious objects.
