@@ -1,0 +1,37 @@
+---
+title: '"What are differential forms?" : A video series'
+author: "Luca Leon Happel"
+date: "2026-10-12"
+categories: ["mathematics", "differential geometry", "differential forms", "video", "English"]
+image: "thumbnail.jpg"
+---
+
+I have been thinking about differential forms for quite some time now already.
+I still vividly remember 2022 when I was on the "[Konferenz der deutschsprachigen
+Mathematikfachschaften](https://koma86.uni-jena.de/)", where I was deeply intrigued by these mysterious objects.
+Most mathematicians do in fact not even know what these "$dx$" and "$dy$" and so
+on in $\int f(x)\, dx$ are. But I wanted to know! Thus began my years long quest to
+find the truth (well, there are many different interpretations of $dx$, like from
+measure theory or in this case differential geometry which I wish to inspect in
+here).
+
+Previously I have written about these objects here:
+[../differential_forms/](../differential_forms/).
+
+I have started a video-series as well though:
+
+---
+
+### Part 1: 1-forms
+
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/J20AI3iE4OM?controls=1&rel=0" title="What Are Differential Forms: 1-forms" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+### Part 2: differential k-forms
+
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/-ohrb3M_lX4?controls=1&rel=0" title="What Are Differential Forms: differential k-forms" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+[Full playlist on YouTube](https://www.youtube.com/playlist?list=PLWOiUBFc80cY)

@@ -3,8 +3,14 @@ title: "What are „differential forms“"
 author: "Luca Leon Happel"
 date: "2022-05-27"
 categories: ["mathematics", "differential geometry", "differential forms", "tangent space", "cotangent space", "manifold", "tangent bundle", "cotangent bundle", "exterior algebra", "global section", "English"]
-image: "https://i.imgur.com/pJlb0qT.png"
+image: "thumbnail.png"
 ---
+
+:::{.callout-tip}
+This post is part of a series of posts about _differential forms_.
+You can find the other posts in this series [here](../differential-forms-video-series/).
+Or by searching for the tag `differential forms` on the blog.
+:::
 
 ## Introduction
 
@@ -17,7 +23,7 @@ understand how exactly these things look and feel like.
 
 ## My sketches
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/pJlb0qT"  ><a href="//imgur.com/a/pJlb0qT">Notes about differential forms</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+![My sketches of differential forms](thumbnail.png)
 
 The proof mentioned on page 1 is viewable on [https://web.archive.org/web/20211224033113/https://planetmath.org/tensorproductofdualspacesisadualspaceoftensorproduct](https://web.archive.org/web/20211224033113/https://planetmath.org/tensorproductofdualspacesisadualspaceoftensorproduct)
 

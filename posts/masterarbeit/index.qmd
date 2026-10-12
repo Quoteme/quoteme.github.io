@@ -31,6 +31,83 @@ Check it out, if you like:
 Some pictures of it can be found here:
 <https://www.instagram.com/stories/highlights/18097883624515441/>
 
+## How To Read This Thesis
+
+In contrast to traditional thesis, I have extensively used hyperlinks to make 
+it easier to read. Specifically section 4 (the main part of the thesis) relies
+heavily on the results of section 1 to 3.
+
+While I do recommend reading the thesis in order, once you get to section 4,
+please use the hyperlinks to navigate back and forth between the linked
+examples, definitions and theorems.
+
+Especially section 4 is very dense and highly complicated. Nonetheless, I strived
+to make it as intuitive as possible. If you do use the hyperlinks, the text
+which at first glance seems too dense will unfold itself into more of a
+picturebook where proofs become more of a visual story than just a formal argument.
+
+In general I strive to convey the _semantics_ more than just the _syntax_.
+During this thesis, this was very hard and juggling mathematical correctness
+with intuitive explanations therefore lead to this non-standard format. I am
+certain that this kind of format will become the future of how we write and read
+mathematical texts though, as hyperlinks and visualizations are a no-brainer for
+conveying complicated ideas.
+
+## My Stance On Critique Towards My Thesis
+
+My thesis was criticized by two supervisors.
+These boil down to the following points:
+
+1. The visualizations are not rigorous enough (possibly childish)
+2. Some examples (like the "physical interpretation") of reidemeister torsion
+  and its applications to physics were redundant
+3. The notation is non-standard
+4. The main part (section 4) is disproportionally short (only 25%) 
+  compared to the introductory sections (75%)
+5. I had a mistake in definition 2.22 where I stated the absolute 
+  reidemeister torsion is independent of the choice of representation
+
+Here are my thoughts on these points:
+
+1. The main ctiricism was that I used 3d renders of a car in a tube which I have
+   twisted using blenders geometry nodes to visualize "what life is like" in a 
+   seifert manifold:
+   ![3d renders of a car in a tube](./assets/thesis-car.png)
+   However, I was inspired by classical textbooks like "William L. Burke, Applied Differential Geometry (Cambridge University Press, 1985).",
+   which had this visualization (also including a car):
+   ![William L. Burke, Applied Differential Geometry (Cambridge University Press, 1985), pp 44](../../assets/assets/burke-car.png)
+   and also [Conway's classical ZIP proof](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/francisweeks.pdf) of the classification of surfaces,
+   which uses pants and zippers to visualize the core ideas from geometry and topology:
+   ![Conways zip proof](../../assets/assets/conway-zip.png)
+   I was told my visualizations should have been more technical, like this one
+   ![visualization of a triangulation of a surface](../../assets/assets/kammeyer-simplicial.png)
+   from "Holger Kammeyer, Introduction to Algebraic Topology (Springer International Publishing, 2022)".
+2. Regarding the physical interpretation, and general references to
+   physics/cosmology, I think that there should be no shame in that. Physics and
+   mathematics go hand in hand and I think it is cool to actually find
+   applications of pure mathematics in "real like" (aka. physics).
+   Also, I was quite proud of my "physical interpretation" of reidemeister torsion,
+   as it related the predecessor of $\ell^2$-alexander torsion (reidemeister
+   torsion) to electromagnetism. In fact, to see this connection one has to walk a
+   fun journey through algebra, geometry, topology and analysis. I also just really
+   liked how the geometric series suddenly showed up and related to monopoles and
+   answered the question of "what does the reidemeister torsion actually measure?"
+   ![A short except from the passage about physical interpretations](../../assets/assets/electro-magnetism.png)
+3. Fair enough, I used $\lll$ and $\rrr$ instead of $\lambda$ and $\rho$ for
+   the left and right regular representation. I still think regarding currying that
+   this was the right choice. It also more closely aligns with
+   how group actions are usually denoted as $a \triangleright x$ for $a \in G$
+   and $x \in X$ with $G \curvearrowright X$.
+   ![Left and right actions using "weird" notation](../../assets/assets/rrr.png)
+4. The main section being short has already been explain in "How To Read This
+   Thesis" above.
+5. I have fixed the mistake. The reidemeister torsion is only independent of the
+   choice of representation _up to equivalent_ representations.
+   This was clear in my submitted thesis, but I nontheless made it more explicit
+   now. This error feels more like when students forget to say "up to
+isomorphism" in their proofs.
+
+
 ## Analyzing My Progress
 
 I reuse some code i have from [my post where I analyze my NixOS GitHub
@@ -393,14 +470,11 @@ poly_trig_fig.show()
 
 # Conclusion
 
-From the commit graph we can see that I was pretty lazy for the first three
-months. Admittedly, during christmas break I was mostly occupied with my family
-and friends. Starting january fifth however, I have been very productive and
-have made a lot of commits in a short time.
+From the commit graph one can clearly see that I have spent the first 3 months 
+researching and not writing. Once I got the hang of the topic, I started
+writing, spending pretty much every wake hour on it and submitting the thesis on
+time.
 
-One can clearly see on january 25th that my laptop broke and my work-laptop was
-confiscated by the university, because of some bureaucratic nonsense. This left
-me around one month without any working computer, which is reflected in the
-complete lack of commits during that time. Luckily I was able to repair my
-laptop and get back to work aruond one month later, which led to the second
-spike in commits.
+If I were to do it again, I would however start writing earlier, even while
+still doing research, so that in the end I have more time to polish the thesis
+and request feedback from my supervisors.
