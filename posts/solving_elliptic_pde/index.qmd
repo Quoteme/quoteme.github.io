@@ -353,7 +353,7 @@ fig.show()
 We combine these pieces into one solid by *remeshing*, in our case by
 **voxelization**: we fill the cow with small cubes of side length $h$.
 
-### From Poisson to linear elasticity
+### Solving linear elasticity
 
 The Poisson equation describes a *scalar* quantity like temperature or a
 potential. To get stress, we need the *displacement* $u : \Omega \to \mathbb{R}^3$,
@@ -377,32 +377,14 @@ u &= 0 & \text{on the hooves} \quad \text{(standing on the floor)}\\
 \end{cases}
 $$
 
-This is the big brother of the Poisson equation: written out,
-$\operatorname{div} \sigma(u) = \mu \Delta u + (\lambda + \mu) \nabla (\operatorname{div} u)$,
-so for a volume-preserving deformation ($\operatorname{div} u = 0$) every
-component of $u$ satisfies a Poisson equation $-\mu \Delta u_i = f_i$. It is
-elliptic too, so the recipe is the same as before:
-
-1. Multiply by a test function $v$ and integrate by parts. This gives the weak form
-   $\int_\Omega \sigma(u) : \varepsilon(v) \,dx = \int_\Omega f \cdot v \,dx + \int_{\text{back}} t \cdot v \,ds$.
-2. Write $u$ as a combination of basis functions. Here we use one trilinear
-   function per voxel corner and direction, so each voxel has $8 \times 3 = 24$
-   unknowns.
-3. Compute the $24 \times 24$ **element stiffness matrix** of one voxel. All
-   voxels are identical cubes, so we only need to compute it **once**!
-4. Assemble everything into one big sparse matrix $K$ and solve $K u = F$.
-
-At the end we condense the stress tensor into one number per voxel, the
-[von Mises stress](https://en.wikipedia.org/wiki/Von_Mises_yield_criterion).
-Engineers compare this number against the strength of the material to decide
-whether a part survives.
-
-For the cow we assume a real-life length of 2.4 m, the density of water
-($1000\,\text{kg/m}^3$, which is close enough for cows), and a press that
-pushes down on the back with $5\,\text{kN}$, roughly the weight of a 500 kg
-anvil. A nice side effect: as long as the hooves are held in place, the stresses
-do not depend on the stiffness $E$ of the cow at all, only on its shape and the
-loads, so we don't have to guess how stiff a cow is.
+As this is elliptic again, we can follow the same process as before.
+At the end we condense the stress tensor into the
+[von Mises stress](https://en.wikipedia.org/wiki/Von_Mises_yield_criterion) scalar.
+We can use this and compare its value to thesholds which are empirically
+collected for each material our object is build out of. If the threshold is
+surpassed in a region, then that region will likely break.
+We assume the cow to be 2.4m with the density of water and a force of $5\,\text{kN}$
+pushes down on it (around 500kg).
 
 ```{python}
 #| code-fold: true
@@ -525,21 +507,12 @@ fig.update_layout(
 )
 fig.show()
 ```
-
-The colour scale is capped at the 99th percentile. The few voxels right at the
-edge of the glued hooves get unrealistically high values, because a hoof that is
-perfectly glued to the floor creates a sharp corner, and stress at sharp corners
-grows without bound as the voxels get smaller. Real FEM software has the same
-problem and engineers learn to ignore such hot spots.
+Color indicates the stress. For the hooves, due to sharp corners, we discard
+their stress values, which would otherwise be unreasonably high.
 
 ### What this means for the cow
 
-Our cartoon cow (a very stocky 2.5 t) puts about three quarters of its weight
-and the press onto its front legs, because its huge head hangs out in front of
-the body like a diving board. Accordingly, the hot spots are not under the press
-on the back but in the front legs, in the "armpits" where they meet the chest,
-and in the throat where the head joins the body: up to around 100 kPa there,
-compared to about 20 kPa in a typical leg voxel and almost nothing in the head.
-So if you keep turning up the press, this cow fails at the front legs and the
-neck first, not at the back where you push, and finding that kind of non-obvious
-weak spot before building the real thing is exactly what FEM is used for.
+As we can see, our cow with its disproportionally large head creates high stress
+specifically for its front legs. We would now have to check with the cows
+empirically collected stress tolerances in these danger regions, if the cow will
+break.
