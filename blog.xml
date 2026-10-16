@@ -11091,7 +11091,7 @@ if (outputEl) {{
 <hr>
 <p>How can we find <img src="https://latex.codecogs.com/png.latex?u"> given the above poisson equation?</p>
 <p>We will calculate the solution approximately on a grid</p>
-<div id="2cc3d37b" class="cell" data-execution_count="1">
+<div id="2cc3d37b" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -11538,7 +11538,7 @@ if (outputEl) {{
 <p><img src="https://latex.codecogs.com/png.latex?%0A-%5CDelta%20u(x_i,%20y_j)%20%5Capprox%20%5Cfrac%7B4u_%7Bi,j%7D%20-%20u_%7Bi-1,j%7D%20-%20u_%7Bi+1,j%7D%20-%20u_%7Bi,j-1%7D%20-%20u_%7Bi,j+1%7D%7D%7Bh%5E2%7D%0A=%20f(x_i,%20y_j)%0A"></p>
 <p>where <img src="https://latex.codecogs.com/png.latex?h%20=%20%5Ctfrac%7B1%7D%7BN+1%7D"> is the grid spacing and <img src="https://latex.codecogs.com/png.latex?(x_i,%20y_j)%20=%20(ih,%20jh)"> for <img src="https://latex.codecogs.com/png.latex?i,j%20%5Cin%20%5C%7B1,%5Cldots,N%5C%7D"> are the interior nodes. Stacking all <img src="https://latex.codecogs.com/png.latex?N%5E2"> equations in row-major order gives a linear system <img src="https://latex.codecogs.com/png.latex?A%5Cmathbf%7Bu%7D%20=%20%5Cmathbf%7Bb%7D">.</p>
 <p>The following implementation builds that system in a purely functional style (no mutable loops, only <code>map</code>, list comprehensions, and <code>reduce</code>).</p>
-<div id="9a2bbd9d" class="cell" data-execution_count="2">
+<div id="9a2bbd9d" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
@@ -12060,7 +12060,7 @@ if (outputEl) {{
 <p>A slicker way to construct the 2-D Laplacian is via the <strong>Kronecker sum</strong>:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0AA%20=%20T%20%5Cotimes%20I_N%20+%20I_N%20%5Cotimes%20T,%20%5Cqquad%20T%20=%20%5Cfrac%7B1%7D%7Bh%5E2%7D%5Coperatorname%7Btridiag%7D(-1,%5C,2,%5C,-1)%0A"></p>
 <p><code>scipy.sparse</code> provides both <code>kron</code> and a direct sparse solver, which makes this the preferred approach in practice.</p>
-<div id="0c0195b7" class="cell" data-execution_count="3">
+<div id="0c0195b7" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
@@ -12445,7 +12445,7 @@ Note
 <p>We wish to stay closer to acutal, real life applications though. Everyone knows has done this before: you take a cow and you compress it by applying a load on it (in engineering, this is called a “cowpression”, like “cow” and “compression”).</p>
 <p>For this classic example in engineering (analogous to the aerodynamic analysis of a cow), we will put a cow under a press and compute where inside the cow the stress concentrates.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/VyxMZ2vS3dI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<div id="58fab2cc" class="cell" data-execution_count="4">
+<div id="58fab2cc" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
@@ -12607,7 +12607,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>Like most 3D models made for rendering, our cow is not one solid, but a bunch of separate, overlapping shells:</p>
-<div id="7c26e4b2" class="cell" data-execution_count="5">
+<div id="7c26e4b2" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">pieces <span class="op" style="color: #5E5E5E;
@@ -12760,24 +12760,15 @@ if (outputEl) {{
                         })                };            </script>        </div>
 </div>
 </div>
-<p>Like most 3D models made for rendering, our cow is a bunch of separate shells (two body halves, legs, head, ears, horns) that merely overlap. That looks fine on screen, but a solver would see 13 independent objects, and a load on the head would never reach the hooves. There is a second problem: this mesh is only the <em>skin</em> of the cow, while stress lives <em>inside</em> the material.</p>
-<p>Both problems have the same fix: we <strong>voxelize</strong> the cow. We fill the inside of the shells with small cubes of side length <img src="https://latex.codecogs.com/png.latex?h">, which glues all pieces into one solid block of cow.</p>
-<section id="from-poisson-to-linear-elasticity" class="level3">
-<h3 class="anchored" data-anchor-id="from-poisson-to-linear-elasticity">From Poisson to linear elasticity</h3>
+<p>We combine these pieces into one solid by <em>remeshing</em>, in our case by <strong>voxelization</strong>: we fill the cow with small cubes of side length <img src="https://latex.codecogs.com/png.latex?h">.</p>
+<section id="solving-linear-elasticity" class="level3">
+<h3 class="anchored" data-anchor-id="solving-linear-elasticity">Solving linear elasticity</h3>
 <p>The Poisson equation describes a <em>scalar</em> quantity like temperature or a potential. To get stress, we need the <em>displacement</em> <img src="https://latex.codecogs.com/png.latex?u%20:%20%5COmega%20%5Cto%20%5Cmathbb%7BR%7D%5E3">, which says how far each point of the cow moves when we squeeze it. From <img src="https://latex.codecogs.com/png.latex?u"> we get the strain <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon"> (how much the material is stretched) and, through Hooke’s law, the stress <img src="https://latex.codecogs.com/png.latex?%5Csigma">:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cvarepsilon(u)%20=%20%5Ctfrac%7B1%7D%7B2%7D%5Cleft(%5Cnabla%20u%20+%20%5Cnabla%20u%5E%5Ctop%5Cright),%0A%5Cqquad%0A%5Csigma(u)%20=%20%5Clambda%20%5Coperatorname%7Btr%7D(%5Cvarepsilon)%5C,%20I%20+%202%20%5Cmu%5C,%20%5Cvarepsilon%20.%0A"></p>
 <p>Force balance then gives the equations of <strong>linear elasticity</strong>:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bcases%7D%0A-%20%5Coperatorname%7Bdiv%7D%20%5Csigma(u)%20&amp;=%20f%20&amp;%20%5Ctext%7Bin%20%7D%20%5COmega%20%5Cquad%20%5Ctext%7B(gravity)%7D%5C%5C%0Au%20&amp;=%200%20&amp;%20%5Ctext%7Bon%20the%20hooves%7D%20%5Cquad%20%5Ctext%7B(standing%20on%20the%20floor)%7D%5C%5C%0A%5Csigma(u)%5C,%20n%20&amp;=%20t%20&amp;%20%5Ctext%7Bon%20the%20back%7D%20%5Cquad%20%5Ctext%7B(the%20press)%7D%0A%5Cend%7Bcases%7D%0A"></p>
-<p>This is the big brother of the Poisson equation: written out, <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7Bdiv%7D%20%5Csigma(u)%20=%20%5Cmu%20%5CDelta%20u%20+%20(%5Clambda%20+%20%5Cmu)%20%5Cnabla%20(%5Coperatorname%7Bdiv%7D%20u)">, so for a volume-preserving deformation (<img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7Bdiv%7D%20u%20=%200">) every component of <img src="https://latex.codecogs.com/png.latex?u"> satisfies a Poisson equation <img src="https://latex.codecogs.com/png.latex?-%5Cmu%20%5CDelta%20u_i%20=%20f_i">. It is elliptic too, so the recipe is the same as before:</p>
-<ol type="1">
-<li>Multiply by a test function <img src="https://latex.codecogs.com/png.latex?v"> and integrate by parts. This gives the weak form <img src="https://latex.codecogs.com/png.latex?%5Cint_%5COmega%20%5Csigma(u)%20:%20%5Cvarepsilon(v)%20%5C,dx%20=%20%5Cint_%5COmega%20f%20%5Ccdot%20v%20%5C,dx%20+%20%5Cint_%7B%5Ctext%7Bback%7D%7D%20t%20%5Ccdot%20v%20%5C,ds">.</li>
-<li>Write <img src="https://latex.codecogs.com/png.latex?u"> as a combination of basis functions. Here we use one trilinear function per voxel corner and direction, so each voxel has <img src="https://latex.codecogs.com/png.latex?8%20%5Ctimes%203%20=%2024"> unknowns.</li>
-<li>Compute the <img src="https://latex.codecogs.com/png.latex?24%20%5Ctimes%2024"> <strong>element stiffness matrix</strong> of one voxel. All voxels are identical cubes, so we only need to compute it <strong>once</strong>!</li>
-<li>Assemble everything into one big sparse matrix <img src="https://latex.codecogs.com/png.latex?K"> and solve <img src="https://latex.codecogs.com/png.latex?K%20u%20=%20F">.</li>
-</ol>
-<p>At the end we condense the stress tensor into one number per voxel, the <a href="https://en.wikipedia.org/wiki/Von_Mises_yield_criterion">von Mises stress</a>. Engineers compare this number against the strength of the material to decide whether a part survives.</p>
-<p>For the cow we assume a real-life length of 2.4 m, the density of water (<img src="https://latex.codecogs.com/png.latex?1000%5C,%5Ctext%7Bkg/m%7D%5E3">, which is close enough for cows), and a press that pushes down on the back with <img src="https://latex.codecogs.com/png.latex?5%5C,%5Ctext%7BkN%7D">, roughly the weight of a 500 kg anvil. A nice side effect: as long as the hooves are held in place, the stresses do not depend on the stiffness <img src="https://latex.codecogs.com/png.latex?E"> of the cow at all, only on its shape and the loads, so we don’t have to guess how stiff a cow is.</p>
-<div id="4c99f27d" class="cell" data-execution_count="6">
+<p>As this is elliptic again, we can follow the same process as before. At the end we condense the stress tensor into the <a href="https://en.wikipedia.org/wiki/Von_Mises_yield_criterion">von Mises stress</a> scalar. We can use this and compare its value to thesholds which are empirically collected for each material our object is build out of. If the threshold is surpassed in a region, then that region will likely break. We assume the cow to be 2.4m with the density of water and a force of <img src="https://latex.codecogs.com/png.latex?5%5C,%5Ctext%7BkN%7D"> pushes down on it (around 500kg).</p>
+<div id="4c99f27d" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
@@ -14066,11 +14057,11 @@ if (outputEl) {{
                         })                };            </script>        </div>
 </div>
 </div>
-<p>The colour scale is capped at the 99th percentile. The few voxels right at the edge of the glued hooves get unrealistically high values, because a hoof that is perfectly glued to the floor creates a sharp corner, and stress at sharp corners grows without bound as the voxels get smaller. Real FEM software has the same problem and engineers learn to ignore such hot spots.</p>
+<p>Color indicates the stress. For the hooves, due to sharp corners, we discard their stress values, which would otherwise be unreasonably high.</p>
 </section>
 <section id="what-this-means-for-the-cow" class="level3">
 <h3 class="anchored" data-anchor-id="what-this-means-for-the-cow">What this means for the cow</h3>
-<p>Our cartoon cow (a very stocky 2.5 t) puts about three quarters of its weight and the press onto its front legs, because its huge head hangs out in front of the body like a diving board. Accordingly, the hot spots are not under the press on the back but in the front legs, in the “armpits” where they meet the chest, and in the throat where the head joins the body: up to around 100 kPa there, compared to about 20 kPa in a typical leg voxel and almost nothing in the head. So if you keep turning up the press, this cow fails at the front legs and the neck first, not at the back where you push, and finding that kind of non-obvious weak spot before building the real thing is exactly what FEM is used for.</p>
+<p>As we can see, our cow with its disproportionally large head creates high stress specifically for its front legs. We would now have to check with the cows empirically collected stress tolerances in these danger regions, if the cow will break.</p>
 
 
 </section>
