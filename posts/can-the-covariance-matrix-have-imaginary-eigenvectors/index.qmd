@@ -579,52 +579,9 @@ the random variables and $\varphi$ is the expectation; classical probability is
 the commutative case $\mathcal{A} = L^\infty(\Omega, \mathcal{F}, P)$,
 $\varphi = \mathbb{E}$.
 
-In that language the covariance matrix of $a_1, \ldots, a_n \in \mathcal{A}$ is
-$[\varphi(a_m^* a_n)]_{mn}$: the **Gram matrix** of the sesquilinear form
-$\langle a, b \rangle_\varphi := \varphi(a^* b)$. Positivity of the state says
-this form is positive semi-definite, and that is the entire content — every Gram
-matrix is Hermitian with real, non-negative eigenvalues, and completing
-$\mathcal{A}$ with respect to $\langle -, - \rangle_\varphi$ is the GNS
-construction. No amount of non-commutativity will ever produce an imaginary
-variance. The example that worked escaped only because it was built from
-$X X^T$ rather than $X X^*$, and it paid for the escape with positivity: the
-matrix stopped being a Gram matrix, and its eigenvalues stopped being variances.
-What breaks is not commutativity. It is the involution.
-
-What non-commutativity does break is $\varphi(ab) = \varphi(ba)$. Splitting
-$\varphi(a_m a_n)$ into symmetric and antisymmetric parts gives the ordinary
-covariance plus $\tfrac{1}{2}\varphi([a_m, a_n])$, and the second term vanishes
-for all $m, n$ exactly when $\varphi$ is a **trace**. That is $\Omega$ again, in
-general form. In quantum mechanics it is the canonical commutation relation
-$[q, p] = i\hbar$: the covariance matrix of a state is
-$\sigma + \tfrac{i\hbar}{2}\Omega$ with $\Omega$ the symplectic form, positive
-semi-definiteness of that combination *is* the Robertson–Schrödinger uncertainty
-relation, and Williamson's theorem diagonalizes it not by eigenvalues but by
-*symplectic* eigenvalues — the generators of rotation in phase space
-[@adesso2014continuous]. The rotation was real. It just lives in the imaginary
-part rather than in the spectrum.
-
-Whether a trace exists at all is a structural property of $\mathcal{A}$, and
-this is where von Neumann algebras answer the question we started with. A finite
-von Neumann algebra — a type $\mathrm{II}_1$ factor such as the free group
-factor $L(\mathbb{F}_n)$, the natural home of free probability
-[@voiculescu1992free] — carries a faithful normal tracial state, so its
-covariance matrices are symmetric again and we are back where we began. Type
-$\mathrm{III}$ factors admit no trace whatsoever, and Tomita–Takesaki theory
-measures the failure by a canonical one-parameter group of automorphisms, the
-modular flow $\sigma_t = \Delta^{it}(-)\Delta^{-it}$, which is trivial precisely
-when $\varphi$ is tracial [@takesaki2003theory2]; Connes' classification of type
-$\mathrm{III}$ factors is a classification by the spectrum of that flow
-[@connes1973classification]. So "can the covariance matrix be non-symmetric?"
-becomes "is the state a trace?", and the rotation hiding in the imaginary part
-becomes, quite literally, a flow.
-
-So: I was wrong, and I was also not. A covariance matrix in the sense of a Gram
-matrix of a state is Hermitian and has real, non-negative eigenvalues, no matter
-how non-commutative the underlying ring is — I was wrong for a better reason
-than the one I gave. But the rotation my friend and I were arguing about is
-genuinely there, in the antisymmetric imaginary part that classical statistics
-throws away before it ever writes the matrix down.
+:::{.callout-note}
+The rest still needs to be written...
+:::
 
 ## References
 
