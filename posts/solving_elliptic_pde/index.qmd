@@ -293,7 +293,7 @@ Classically you'd analyze the stress distribution on a simple geometry like:
 
 We wish to stay closer to acutal, real life applications though. Everyone knows has done this before: you take a cow and you compress it by applying a load on it (in engineering, this is called a "cowpression", like "cow" and "compression").
 
-For this classic example in engineering (analogour to the aerodynamic analysis of a cow), we will solve the Poisson equation on a cow mesh. The solution $u$ will represent the stress distribution on the cow, and the source term $f$ will represent the applied load.
+For this classic example in engineering (analogous to the aerodynamic analysis of a cow), we will put a cow under a press and compute where inside the cow the stress concentrates.
 
 {{< video https://www.youtube.com/watch?v=VyxMZ2vS3dI >}}
 
@@ -327,79 +327,219 @@ fig.update_layout(
 fig.show()
 ```
 
-Now that we have our cow ready, lets apply a load on it. We will apply a downward load on the top of the cow, which will be represented by a negative source term $f$ in the Poisson equation. The solution $u$ will then represent the stress distribution on the cow, with higher values indicating higher stress.
+Like most 3D models made for rendering, our cow is not one solid, but a bunch of
+separate, overlapping shells:
 
 ```{python}
 #| code-fold: true
-import numpy as np
-import scipy.sparse as sp
-import scipy.sparse.linalg as spla
-import plotly.graph_objects as go
-
-vertices = mesh.vertices
-faces = mesh.faces
-V = len(vertices)
-
-# --- Cotangent Laplacian ---
-rows, cols, vals = [], [], []
-for tri in faces:
-    for a, b, c in [(0,1,2),(1,2,0),(2,0,1)]:
-        va, vb, vc = vertices[tri[a]], vertices[tri[b]], vertices[tri[c]]
-        e1, e2 = vb - va, vc - va
-        cos_a = np.dot(e1, e2)
-        sin_a = np.linalg.norm(np.cross(e1, e2)) + 1e-12
-        cot = cos_a / sin_a
-        rb, rc = tri[b], tri[c]
-        for r, c_, s in [(rb,rc,1),(rc,rb,1),(rb,rb,-1),(rc,rc,-1)]:
-            rows.append(r); cols.append(c_); vals.append(0.5 * cot * s)
-
-L = sp.csr_matrix((vals, (rows, cols)), shape=(V, V))
-
-# --- Load: top vertices are SOURCE (high stress) ---
-z = vertices[:, 2]
-z_top = np.percentile(z, 90)
-z_bot = np.percentile(z, 5)
-
-source = np.where(z >= z_top)[0]
-fixed  = np.where(z <= z_bot)[0]
-free   = np.setdiff1d(np.arange(V), np.union1d(source, fixed))
-
-# Dirichlet: u=1 at top (load), u=0 at bottom (fixed)
-u = np.zeros(V)
-u[source] = 1.0
-u[fixed]  = 0.0
-
-# Modify system: for free nodes solve L_free * u_free = -L_free_to_bc * u_bc
-bc = np.union1d(source, fixed)
-L_free = L[free][:, free]
-rhs = -(L[free][:, bc] @ u[bc])
-
-u_free, info = spla.cg(L_free, rhs, maxiter=10000, rtol=1e-8)
-print(f"CG converged: {info == 0}, range: [{u_free.min():.3f}, {u_free.max():.3f}]")
-u[free] = u_free
-
-# --- Plot ---
+pieces = mesh.split(only_watertight=False)
 fig = go.Figure(data=[
     go.Mesh3d(
-        x=vertices[:, 0],
-        y=vertices[:, 1],
-        z=vertices[:, 2],
-        i=faces[:, 0],
-        j=faces[:, 1],
-        k=faces[:, 2],
-        intensity=u,
-        colorscale='Jet',
-        cmin=0, cmax=1,
-        colorbar=dict(title='Stress u'),
-        name='FEM solution'
+        x=p.vertices[:, 0], y=p.vertices[:, 1], z=p.vertices[:, 2],
+        i=p.faces[:, 0], j=p.faces[:, 1], k=p.faces[:, 2],
+        color=f'hsl({int(360 * n / len(pieces))}, 70%, 55%)',
+        name=f'piece {n}'
     )
+    for n, p in enumerate(pieces)
 ])
 fig.update_layout(
-    title='Poisson FEM – Stress Distribution (top load)',
-    scene=dict(xaxis_title='X', yaxis_title='Y', zaxis_title='Z'),
+    title='The cow, coloured by mesh piece',
+    scene=dict(xaxis_title='X', yaxis_title='Y', zaxis_title='Z', aspectmode='data'),
     width=800, height=600,
 )
 fig.show()
 ```
 
-And this is where i have left of so far... Maybe some day I will finish this.
+We combine these pieces into one solid by *remeshing*, in our case by
+**voxelization**: we fill the cow with small cubes of side length $h$.
+
+### From Poisson to linear elasticity
+
+The Poisson equation describes a *scalar* quantity like temperature or a
+potential. To get stress, we need the *displacement* $u : \Omega \to \mathbb{R}^3$,
+which says how far each point of the cow moves when we squeeze it. From $u$ we get
+the strain $\varepsilon$ (how much the material is stretched) and, through Hooke's
+law, the stress $\sigma$:
+
+$$
+\varepsilon(u) = \tfrac{1}{2}\left(\nabla u + \nabla u^\top\right),
+\qquad
+\sigma(u) = \lambda \operatorname{tr}(\varepsilon)\, I + 2 \mu\, \varepsilon .
+$$
+
+Force balance then gives the equations of **linear elasticity**:
+
+$$
+\begin{cases}
+- \operatorname{div} \sigma(u) &= f & \text{in } \Omega \quad \text{(gravity)}\\
+u &= 0 & \text{on the hooves} \quad \text{(standing on the floor)}\\
+\sigma(u)\, n &= t & \text{on the back} \quad \text{(the press)}
+\end{cases}
+$$
+
+This is the big brother of the Poisson equation: written out,
+$\operatorname{div} \sigma(u) = \mu \Delta u + (\lambda + \mu) \nabla (\operatorname{div} u)$,
+so for a volume-preserving deformation ($\operatorname{div} u = 0$) every
+component of $u$ satisfies a Poisson equation $-\mu \Delta u_i = f_i$. It is
+elliptic too, so the recipe is the same as before:
+
+1. Multiply by a test function $v$ and integrate by parts. This gives the weak form
+   $\int_\Omega \sigma(u) : \varepsilon(v) \,dx = \int_\Omega f \cdot v \,dx + \int_{\text{back}} t \cdot v \,ds$.
+2. Write $u$ as a combination of basis functions. Here we use one trilinear
+   function per voxel corner and direction, so each voxel has $8 \times 3 = 24$
+   unknowns.
+3. Compute the $24 \times 24$ **element stiffness matrix** of one voxel. All
+   voxels are identical cubes, so we only need to compute it **once**!
+4. Assemble everything into one big sparse matrix $K$ and solve $K u = F$.
+
+At the end we condense the stress tensor into one number per voxel, the
+[von Mises stress](https://en.wikipedia.org/wiki/Von_Mises_yield_criterion).
+Engineers compare this number against the strength of the material to decide
+whether a part survives.
+
+For the cow we assume a real-life length of 2.4 m, the density of water
+($1000\,\text{kg/m}^3$, which is close enough for cows), and a press that
+pushes down on the back with $5\,\text{kN}$, roughly the weight of a 500 kg
+anvil. A nice side effect: as long as the hooves are held in place, the stresses
+do not depend on the stiffness $E$ of the cow at all, only on its shape and the
+loads, so we don't have to guess how stiff a cow is.
+
+```{python}
+#| code-fold: true
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+
+# --- Voxelize: one solid cow, 2.4 m long ---
+cow = mesh.copy()
+cow.apply_scale(2.4 / np.ptp(cow.vertices[:, 0]))
+h = 0.07                                   # voxel size in metres
+vox = cow.voxelized(h).fill()
+occ = vox.matrix                           # occ[i,j,k] = True if voxel is cow
+origin = vox.transform[:3, 3] - h / 2      # corner of voxel (0,0,0)
+els = np.argwhere(occ)                     # one hexahedral element per voxel
+
+# --- Material: Hooke's law as a 6x6 matrix (Voigt notation) ---
+E, nu = 1e7, 0.3                           # E doesn't change the stresses
+lam, mu = E * nu / ((1 + nu) * (1 - 2 * nu)), E / (2 * (1 + nu))
+D = np.zeros((6, 6)); D[:3, :3] = lam
+D += np.diag([2 * mu] * 3 + [mu] * 3)
+
+# --- Element stiffness of one voxel (2x2x2 Gauss quadrature) ---
+corners = np.array([[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,0,1],[1,0,1],[1,1,1],[0,1,1]])
+s = 2 * corners - 1
+
+def strain_matrix(xi):
+    """B maps the 24 corner displacements to the 6 strain components at xi."""
+    dN = np.empty((8, 3))
+    for a in range(3):
+        b, c = [d for d in range(3) if d != a]
+        dN[:, a] = s[:, a] / 8 * (1 + s[:, b] * xi[b]) * (1 + s[:, c] * xi[c]) * 2 / h
+    B = np.zeros((6, 24))
+    for n, (dx, dy, dz) in enumerate(dN):
+        B[:, 3*n:3*n+3] = [[dx,0,0],[0,dy,0],[0,0,dz],[dy,dx,0],[0,dz,dy],[dz,0,dx]]
+    return B
+
+g = 1 / np.sqrt(3)
+Ke = sum(strain_matrix(xi).T @ D @ strain_matrix(xi) * (h / 2)**3
+         for xi in np.array(np.meshgrid([-g, g], [-g, g], [-g, g])).reshape(3, -1).T)
+
+# --- Assemble the global stiffness matrix ---
+nshape = np.array(occ.shape) + 1
+node_id = lambda ijk: np.ravel_multi_index(np.asarray(ijk).T, nshape)
+used, conn = np.unique(np.stack([node_id(els + c) for c in corners], axis=1),
+                       return_inverse=True)
+conn = conn.reshape(-1, 8)                 # element -> its 8 nodes
+nodes = np.array(np.unravel_index(used, nshape)).T * h + origin
+dofs = (3 * conn[:, :, None] + np.arange(3)).reshape(-1, 24)
+ndof = 3 * len(nodes)
+
+K = sp.coo_matrix(
+    (np.broadcast_to(Ke, (len(els), 24, 24)).ravel(),
+     (np.repeat(dofs, 24, axis=1).ravel(), np.tile(dofs, (1, 24)).ravel())),
+    shape=(ndof, ndof)).tocsr()
+
+# --- Loads: gravity on every voxel + the press on the back ---
+rho, grav, F_press = 1000.0, 9.81, 5000.0
+F = np.zeros(ndof)
+np.add.at(F, 3 * conn.ravel() + 2, -rho * grav * h**3 / 8)
+
+top = els[~np.pad(occ, 1)[tuple((els + [1, 1, 2]).T)]]   # nothing above these
+x_top, z_top = (top * h + origin)[:, [0, 2]].T
+x0 = nodes[:, 0].min()
+back = top[(x_top > x0 + 0.25) & (x_top < x0 + 1.2) & (z_top > 0.3)]
+back_nodes = np.searchsorted(used, node_id((back[:, None] + corners[4:]).reshape(-1, 3)))
+np.add.at(F, 3 * back_nodes + 2, -F_press / len(back_nodes))
+
+# --- Boundary condition: the lowest layer of each hoof is glued to the floor ---
+z0 = nodes[:, 2].min()
+hoof = np.where(nodes[:, 2] < z0 + 1.5 * h)[0]
+fixed = (3 * hoof[:, None] + np.arange(3)).ravel()
+free = np.setdiff1d(np.arange(ndof), fixed)
+
+u = np.zeros(ndof)
+u[free] = spla.spsolve(K[free][:, free].tocsc(), F[free])
+
+# --- Von Mises stress in the centre of every voxel ---
+sig = (D @ strain_matrix(np.zeros(3)) @ u[dofs].T).T
+vm = np.sqrt(0.5 * ((sig[:, 0] - sig[:, 1])**2 + (sig[:, 1] - sig[:, 2])**2
+                    + (sig[:, 2] - sig[:, 0])**2) + 3 * (sig[:, 3:]**2).sum(1)) / 1e3
+
+R = (K @ u - F)[3 * hoof + 2]               # vertical force on the floor
+front = nodes[hoof, 0] > nodes[hoof, 0].mean()
+centres = els * h + origin + h / 2
+legs = centres[:, 2] < z0 + 0.6
+print(f"{len(els)} voxels, {ndof} unknowns")
+print(f"cow mass: {occ.sum() * h**3 * rho:.0f} kg")
+print(f"front legs carry {R[front].sum() / R.sum():.0%} of the load")
+print(f"median von Mises stress: legs {np.median(vm[legs]):.1f} kPa, "
+      f"rest of the cow {np.median(vm[~legs]):.1f} kPa")
+
+# --- Plot: every outer voxel face, coloured by the stress of its voxel ---
+face_corners = {
+    (1,0,0): [(1,0,0),(1,1,0),(1,1,1),(1,0,1)], (-1,0,0): [(0,0,0),(0,0,1),(0,1,1),(0,1,0)],
+    (0,1,0): [(0,1,0),(0,1,1),(1,1,1),(1,1,0)], (0,-1,0): [(0,0,0),(1,0,0),(1,0,1),(0,0,1)],
+    (0,0,1): [(0,0,1),(1,0,1),(1,1,1),(0,1,1)], (0,0,-1): [(0,0,0),(0,1,0),(1,1,0),(1,0,0)],
+}
+pad = np.pad(occ, 1)
+quads, stress = [], []
+for d, cs in face_corners.items():
+    outside = ~pad[tuple((els + 1 + np.array(d)).T)]
+    quads.append((els[outside][:, None] + np.array(cs)) * h + origin)
+    stress.append(vm[outside])
+quads, stress = np.concatenate(quads).reshape(-1, 3), np.concatenate(stress)
+q = 4 * np.arange(len(stress))
+
+fig = go.Figure(data=[go.Mesh3d(
+    x=quads[:, 0], y=quads[:, 1], z=quads[:, 2],
+    i=np.r_[q, q], j=np.r_[q + 1, q + 2], k=np.r_[q + 2, q + 3],
+    intensity=np.r_[stress, stress], intensitymode='cell',
+    colorscale='Inferno', cmin=0, cmax=np.percentile(vm, 99),
+    colorbar=dict(title='von Mises<br>stress [kPa]'),
+    flatshading=True, name='cow'
+)])
+fig.update_layout(
+    title='Linear elasticity FEM – stress in a cow under a press',
+    scene=dict(xaxis_title='X [m]', yaxis_title='Y [m]', zaxis_title='Z [m]',
+               aspectmode='data'),
+    width=800, height=600,
+)
+fig.show()
+```
+
+The colour scale is capped at the 99th percentile. The few voxels right at the
+edge of the glued hooves get unrealistically high values, because a hoof that is
+perfectly glued to the floor creates a sharp corner, and stress at sharp corners
+grows without bound as the voxels get smaller. Real FEM software has the same
+problem and engineers learn to ignore such hot spots.
+
+### What this means for the cow
+
+Our cartoon cow (a very stocky 2.5 t) puts about three quarters of its weight
+and the press onto its front legs, because its huge head hangs out in front of
+the body like a diving board. Accordingly, the hot spots are not under the press
+on the back but in the front legs, in the "armpits" where they meet the chest,
+and in the throat where the head joins the body: up to around 100 kPa there,
+compared to about 20 kPa in a typical leg voxel and almost nothing in the head.
+So if you keep turning up the press, this cow fails at the front legs and the
+neck first, not at the back where you push, and finding that kind of non-obvious
+weak spot before building the real thing is exactly what FEM is used for.
