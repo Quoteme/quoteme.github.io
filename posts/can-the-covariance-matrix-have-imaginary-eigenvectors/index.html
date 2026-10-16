@@ -997,28 +997,25 @@ if (outputEl) {{
 <section id="what-we-actually-broke" class="level2">
 <h2 class="anchored" data-anchor-id="what-we-actually-broke">What we actually broke</h2>
 <p>None of this was really about quaternions. The general setting is a <strong>non-commutative probability space</strong> <span class="citation" data-cites="nica2006lectures">(<a href="#ref-nica2006lectures" role="doc-biblioref">Nica and Speicher 2006</a>)</span>: a unital <span class="math inline">\(*\)</span>-algebra <span class="math inline">\(\mathcal{A}\)</span> together with a <em>state</em> <span class="math inline">\(\varphi : \mathcal{A} \to \mathbb{C}\)</span>, i.e.&nbsp;a linear functional with <span class="math inline">\(\varphi(1) = 1\)</span> and <span class="math inline">\(\varphi(a^*a) \geq 0\)</span>. The elements of <span class="math inline">\(\mathcal{A}\)</span> are the random variables and <span class="math inline">\(\varphi\)</span> is the expectation; classical probability is the commutative case <span class="math inline">\(\mathcal{A} = L^\infty(\Omega, \mathcal{F}, P)\)</span>, <span class="math inline">\(\varphi = \mathbb{E}\)</span>.</p>
-<p>In that language the covariance matrix of <span class="math inline">\(a_1, \ldots, a_n \in \mathcal{A}\)</span> is <span class="math inline">\([\varphi(a_m^* a_n)]_{mn}\)</span>: the <strong>Gram matrix</strong> of the sesquilinear form <span class="math inline">\(\langle a, b \rangle_\varphi := \varphi(a^* b)\)</span>. Positivity of the state says this form is positive semi-definite, and that is the entire content — every Gram matrix is Hermitian with real, non-negative eigenvalues, and completing <span class="math inline">\(\mathcal{A}\)</span> with respect to <span class="math inline">\(\langle -, - \rangle_\varphi\)</span> is the GNS construction. No amount of non-commutativity will ever produce an imaginary variance. The example that worked escaped only because it was built from <span class="math inline">\(X X^T\)</span> rather than <span class="math inline">\(X X^*\)</span>, and it paid for the escape with positivity: the matrix stopped being a Gram matrix, and its eigenvalues stopped being variances. What breaks is not commutativity. It is the involution.</p>
-<p>What non-commutativity does break is <span class="math inline">\(\varphi(ab) = \varphi(ba)\)</span>. Splitting <span class="math inline">\(\varphi(a_m a_n)\)</span> into symmetric and antisymmetric parts gives the ordinary covariance plus <span class="math inline">\(\tfrac{1}{2}\varphi([a_m, a_n])\)</span>, and the second term vanishes for all <span class="math inline">\(m, n\)</span> exactly when <span class="math inline">\(\varphi\)</span> is a <strong>trace</strong>. That is <span class="math inline">\(\Omega\)</span> again, in general form. In quantum mechanics it is the canonical commutation relation <span class="math inline">\([q, p] = i\hbar\)</span>: the covariance matrix of a state is <span class="math inline">\(\sigma + \tfrac{i\hbar}{2}\Omega\)</span> with <span class="math inline">\(\Omega\)</span> the symplectic form, positive semi-definiteness of that combination <em>is</em> the Robertson–Schrödinger uncertainty relation, and Williamson’s theorem diagonalizes it not by eigenvalues but by <em>symplectic</em> eigenvalues — the generators of rotation in phase space <span class="citation" data-cites="adesso2014continuous">(<a href="#ref-adesso2014continuous" role="doc-biblioref">Adesso, Ragy, and Lee 2014</a>)</span>. The rotation was real. It just lives in the imaginary part rather than in the spectrum.</p>
-<p>Whether a trace exists at all is a structural property of <span class="math inline">\(\mathcal{A}\)</span>, and this is where von Neumann algebras answer the question we started with. A finite von Neumann algebra — a type <span class="math inline">\(\mathrm{II}_1\)</span> factor such as the free group factor <span class="math inline">\(L(\mathbb{F}_n)\)</span>, the natural home of free probability <span class="citation" data-cites="voiculescu1992free">(<a href="#ref-voiculescu1992free" role="doc-biblioref">Voiculescu, Dykema, and Nica 1992</a>)</span> — carries a faithful normal tracial state, so its covariance matrices are symmetric again and we are back where we began. Type <span class="math inline">\(\mathrm{III}\)</span> factors admit no trace whatsoever, and Tomita–Takesaki theory measures the failure by a canonical one-parameter group of automorphisms, the modular flow <span class="math inline">\(\sigma_t = \Delta^{it}(-)\Delta^{-it}\)</span>, which is trivial precisely when <span class="math inline">\(\varphi\)</span> is tracial <span class="citation" data-cites="takesaki2003theory2">(<a href="#ref-takesaki2003theory2" role="doc-biblioref">Takesaki 2003</a>)</span>; Connes’ classification of type <span class="math inline">\(\mathrm{III}\)</span> factors is a classification by the spectrum of that flow <span class="citation" data-cites="connes1973classification">(<a href="#ref-connes1973classification" role="doc-biblioref">Connes 1973</a>)</span>. So “can the covariance matrix be non-symmetric?” becomes “is the state a trace?”, and the rotation hiding in the imaginary part becomes, quite literally, a flow.</p>
-<p>So: I was wrong, and I was also not. A covariance matrix in the sense of a Gram matrix of a state is Hermitian and has real, non-negative eigenvalues, no matter how non-commutative the underlying ring is — I was wrong for a better reason than the one I gave. But the rotation my friend and I were arguing about is genuinely there, in the antisymmetric imaginary part that classical statistics throws away before it ever writes the matrix down.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The rest still needs to be written…</p>
+</div>
+</div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-adesso2014continuous" class="csl-entry" role="listitem">
-Adesso, Gerardo, Sammy Ragy, and Antony R. Lee. 2014. <span>“Continuous Variable Quantum Information: <span>G</span>aussian States and Beyond.”</span> <em>Open Systems &amp; Information Dynamics</em> 21 (01n02): 1440001. <a href="https://doi.org/10.1142/S1230161214400010">https://doi.org/10.1142/S1230161214400010</a>.
-</div>
-<div id="ref-connes1973classification" class="csl-entry" role="listitem">
-Connes, Alain. 1973. <span>“Une Classification Des Facteurs de Type <span>III</span>.”</span> <em>Annales Scientifiques de l’<span>É</span>cole Normale Sup<span>é</span>rieure</em> 6 (2): 133–252.
-</div>
 <div id="ref-nica2006lectures" class="csl-entry" role="listitem">
 Nica, Alexandru, and Roland Speicher. 2006. <em>Lectures on the Combinatorics of Free Probability</em>. Vol. 335. London Mathematical Society Lecture Note Series. Cambridge University Press.
-</div>
-<div id="ref-takesaki2003theory2" class="csl-entry" role="listitem">
-Takesaki, Masamichi. 2003. <em>Theory of Operator Algebras II</em>. Vol. 125. Encyclopaedia of Mathematical Sciences. Springer.
-</div>
-<div id="ref-voiculescu1992free" class="csl-entry" role="listitem">
-Voiculescu, Dan V., Kenneth J. Dykema, and Alexandru Nica. 1992. <em>Free Random Variables</em>. Vol. 1. CRM Monograph Series. American Mathematical Society.
 </div>
 <div id="ref-wood1985quaternionic" class="csl-entry" role="listitem">
 Wood, R. M. W. 1985. <span>“Quaternionic Eigenvalues.”</span> <em>Bulletin of the London Mathematical Society</em> 17 (2): 137–38.
