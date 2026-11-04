@@ -17,7 +17,7 @@ open-graph:
 twitter-card:
   image: ../../assets/covering-space/double-torus-universal-cover-alt.pn g
   description: Visualization of the universal cover of a surface of genus 2, which is a hyperbolic space.
-thumbnail: ../../assets/covering-space/double-torus-universal-cover-alt.png
+image: ../../assets/covering-space/double-torus-universal-cover-alt.png
 ---
 
 Covering spaces are a fundamental concept in topology.
