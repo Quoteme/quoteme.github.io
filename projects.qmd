@@ -1,7 +1,8 @@
 ---
 title: "Projects"
-image: https://avatars2.githubusercontent.com/u/6796009
-author: "Luca Leon Happe"
+image: https://happel.ai/assets/avatar.jpg
+author: "Luca Leon Happel"
+description: "Projects by Luca Leon Happel: Rust keyboard firmware, the clinical AI platform monti, math visualisation tools, games and open-source software."
 listing:
   - id: projects
     type: grid

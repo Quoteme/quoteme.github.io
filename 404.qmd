@@ -1,0 +1,17 @@
+---
+title: "Page not found"
+description: "This page does not exist (anymore). Find security audits, pentesting, AI consulting, tutoring and the blog on happel.ai."
+pagetitle: "404: Page not found"
+toc: false
+format:
+  html:
+    include-in-header:
+      - text: '<meta name="robots" content="noindex">'
+---
+
+The page you were looking for does not exist (anymore). Seite nicht gefunden.
+
+- [Home](/) · [Startseite](/de/)
+- [Shop: security audits, pentesting, AI, tutoring](/shop/) · [Shop (Deutsch)](/de/shop/)
+- [Locations](/locations/) · [Standorte](/de/locations/)
+- [Blog](/blog.html)

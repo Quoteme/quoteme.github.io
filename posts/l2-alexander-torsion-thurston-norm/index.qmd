@@ -1,5 +1,6 @@
 ---
 title: "The $\\ell^2$-Alexander torsion and the Thurston norm"
+description: "Notes on my master's thesis topic: how the ℓ²-Alexander torsion of a 3-manifold detects its Thurston norm, following Friedl and Lück (2019)."
 author: "Luca Leon Happel"
 date: "2026-02-07"
 categories: ["algebraic topology", "3-manifolds", "English"]

@@ -1,4 +1,19 @@
 User-agent: *
 Allow: /
 
+# AI search and assistant crawlers are explicitly welcome (GEO)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://happel.ai/sitemap.xml

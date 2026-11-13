@@ -1,9 +1,55 @@
 ---
 title: "Impressum"
+description: "Impressum von lucah.tech (Luca Leon Happel): Anbieterkennzeichnung nach § 5 DDG und Verantwortlicher nach § 18 Abs. 2 MStV."
+lang: de
 ---
+
+## Angaben gemäß § 5 DDG
+
+> lucah.tech
+>
+> Inhaber: Luca Leon Happel (Einzelunternehmer)
+>
+> c/o Autorenglück #62360
+>
+> Albert-Einstein-Str. 47
+>
+> 02977 Hoyerswerda
+>
+> Deutschland
 
 ## Kontakt
 
+> E-Mail: [luca@happel.ai](mailto:luca@happel.ai)
+>
+> Online-Kontakt / Terminbuchung: [happel.ai/de/shop/#contact](/de/shop/#contact)
+
+<!--
+## Umsatzsteuer-ID
+
+Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE...
+
+## Wirtschafts-Identifikationsnummer
+
+Wirtschafts-Identifikationsnummer gemäß § 139c AO: DE...-00001
+-->
+
+## Verbraucherstreitbeilegung
+
+Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+
+## Haftung für Inhalte und Links
+
+Wir sind für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Für fremde Informationen, die wir lediglich übermitteln oder speichern, sind wir nicht verpflichtet, diese zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Sobald uns eine konkrete Rechtsverletzung bekannt wird, entfernen wir den betreffenden Inhalt umgehend.
+
+Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese Inhalte ist stets der jeweilige Anbieter verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Bei Bekanntwerden von Rechtsverletzungen entfernen wir derartige Links umgehend.
+
+## Urheberrecht
+
+Die Inhalte dieser Website unterliegen dem deutschen Urheberrecht, soweit nicht anders gekennzeichnet. Inhalte Dritter sind als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen Hinweis an die oben genannte E-Mail-Adresse; wir entfernen den Inhalt dann umgehend.
+
+## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
+
 > Luca Leon Happel
 >
 > c/o Autorenglück #62360
@@ -11,18 +57,3 @@ title: "Impressum"
 > Albert-Einstein-Str. 47
 >
 > 02977 Hoyerswerda
->
-> E-Mail: [luca@happel.ai](mailto:luca@happel.ai)
-
-
-## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
-
-> Luca Leon Happel
->
-> c/o Autorenglück #62360
->
-> Albert-Einstein-Str. 47
->
-> 02977 Hoyerswerda
->
-> E-Mail: [luca@happel.ai](mailto:luca@happel.ai)

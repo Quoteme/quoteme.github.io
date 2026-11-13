@@ -1,6 +1,8 @@
 ---
 title: "AI & Secure Software Consulting for Regulated Industry"
-description: "Data science, AI, high-security software and app development by Luca Happel: mathematician, computer scientist and security researcher."
+pagetitle: "Security Audits, Pentesting & AI | Luca Happel"
+description: "Security audits, penetration testing, reverse engineering and on-premises AI for hospitals, medical-device makers and KRITIS. Luca Happel, Düsseldorf."
+keywords: [security audit, penetration testing, reverse engineering, vulnerability research, medical device cybersecurity, MDR, IEC 62443, NIS2, KRITIS, on-premises AI, RAG, data science, Düsseldorf, math tutoring, algebra, algebraic geometry, topology, type theory]
 lang: en
 page-layout: full
 title-block-banner: true
@@ -15,6 +17,8 @@ format:
           <link rel="alternate" hreflang="de" href="https://happel.ai/de/" />
           <link rel="alternate" hreflang="x-default" href="https://happel.ai/" />
           <link rel="canonical" href="https://happel.ai/" />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:locale:alternate" content="de_DE" />
 ---
 
 <!--
@@ -27,16 +31,16 @@ English · [Deutsch](/de/)
 :::
 
 ::: {#aboutme}
-<img src="https://avatars2.githubusercontent.com/u/6796009" id="avatar" />
+<img src="/assets/avatar.jpg" id="avatar" />
 Hi, I am __M.Sc. B.Sc. B.Sc. Luca Leon Happel__, a __mathematician__, __computer scientist__ and
 __security researcher__ based in Düsseldorf, Germany.
-I build and audit software for hospitals, medical-device makers and regulated
-industry, where mistakes are expensive: __data science, AI, high-security
-audits, reverse engineering and app development__. I work remotely and on-site across Germany and Europe.
+My team and I build, audit and hack high-security systems and regulated industries,
+where mistakes are expensive. We do: __data science, AI, high-security audits, reverse
+engineering and app development__. We work remotely and on-site across Germany and Europe.
 :::
 
 ::: {.cta-row}
-<a href="/service.html#services" class="btn btn-primary btn-lg"><i class="bi bi-briefcase"></i> Do you need help?</a>
+<a href="/shop/#services" class="btn btn-primary btn-lg"><i class="bi bi-shop"></i> Shop</a>
 <a href="/blog.html" class="btn btn-primary btn-lg"><i class="bi bi-journal-text"></i> My blog</a>
 :::
 
@@ -68,6 +72,26 @@ audits, reverse engineering and app development__. I work remotely and on-site a
 :::
 ::: {.proof-item}
 **MDR-compliant** medical software since 2022
+:::
+:::
+
+## Who I work with {#industries}
+
+::: {.grid .service-grid}
+::: {.g-col-12 .g-col-md-4 .service-card}
+### {{< bi hospital >}} Hospitals & university clinics
+Clinical AI and data science on patient data, GDPR-compliant on-premises LLMs
+and RAG, security reviews of clinical IT.
+:::
+::: {.g-col-12 .g-col-md-4 .service-card}
+### {{< bi heart-pulse >}} Medical-device makers
+MDR-compliant medical software, cybersecurity audits and reverse engineering of
+device firmware, apps and protocols.
+:::
+::: {.g-col-12 .g-col-md-4 .service-card}
+### {{< bi building-lock >}} Critical infrastructure & industry
+Penetration testing and vulnerability research for KRITIS operators and
+industrial software (NIS2, IEC 62443), with responsible disclosure.
 :::
 :::
 
@@ -129,26 +153,302 @@ implemented to secure the ecosystem.
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "happel.ai",
-  "url": "https://happel.ai/",
-  "logo": "https://happel.ai/assets/happel-ai-logo.svg",
-  "image": "https://avatars2.githubusercontent.com/u/6796009",
-  "description": "AI, data science, high-security software audits, reverse engineering and software development for healthcare, medical-device makers and regulated industry.",
-  "email": "consulting@happel.ai",
-  "founder": {
-    "@type": "Person",
-    "name": "Luca Leon Happel",
-    "jobTitle": "Mathematician, computer scientist and security researcher"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Düsseldorf",
-    "addressCountry": "DE"
-  },
-  "areaServed": ["Germany", "Europe"],
-  "serviceType": ["AI consulting", "Data science consulting", "Software security audit", "Reverse engineering", "Software development"],
-  "sameAs": ["https://www.linkedin.com/in/lucahappel/", "https://github.com/Quoteme/"]
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://happel.ai/#website",
+      "url": "https://happel.ai/",
+      "name": "happel.ai",
+      "inLanguage": [
+        "en",
+        "de"
+      ],
+      "publisher": {
+        "@id": "https://happel.ai/#business"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://happel.ai/#webpage",
+      "url": "https://happel.ai/",
+      "inLanguage": "en",
+      "name": "Security Audits, Pentesting & AI | Luca Happel",
+      "isPartOf": {
+        "@id": "https://happel.ai/#website"
+      },
+      "about": {
+        "@id": "https://happel.ai/#business"
+      },
+      "mainEntity": {
+        "@id": "https://happel.ai/#luca"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://happel.ai/#luca",
+      "name": "Luca Leon Happel",
+      "alternateName": "Luca Happel",
+      "url": "https://happel.ai/",
+      "image": "https://happel.ai/assets/avatar.jpg",
+      "jobTitle": "Mathematician, computer scientist and security researcher",
+      "description": "Builds, audits and hacks high-security systems in regulated industries: data science, AI, high-security audits, reverse engineering and app development.",
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "name": "M.Sc. Mathematics"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "name": "B.Sc. Mathematics"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "name": "B.Sc. Computer Science"
+        }
+      ],
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Düsseldorf, Germany"
+      },
+      "worksFor": {
+        "@id": "https://happel.ai/#business"
+      },
+      "knowsAbout": [
+        "Cybersecurity",
+        "Penetration testing",
+        "Security audits",
+        "Reverse engineering",
+        "Vulnerability research",
+        "Responsible disclosure",
+        "Medical device cybersecurity",
+        "Medical Device Regulation (MDR)",
+        "IEC 62443",
+        "NIS2",
+        "Critical infrastructure (KRITIS)",
+        "Artificial intelligence",
+        "Machine learning",
+        "Retrieval-augmented generation",
+        "Large language models",
+        "Data science",
+        "Statistics",
+        "Formal verification",
+        "Lean 4",
+        "Rust",
+        "Python",
+        "C++",
+        "Mathematics",
+        "Algebraic topology",
+        "Linear algebra",
+        "Algebra",
+        "Algebraic geometry",
+        "Topology",
+        "Type theory",
+        "Analysis",
+        "Probability theory",
+        "Operating systems",
+        "Functional programming",
+        "Logic programming"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/lucahappel/",
+        "https://github.com/Quoteme/",
+        "https://www.reddit.com/user/lalelul",
+        "https://www.instagram.com/lucaleonhappel/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://happel.ai/#business",
+      "name": "happel.ai",
+      "url": "https://happel.ai/",
+      "logo": "https://happel.ai/assets/happel-ai-logo.svg",
+      "image": "https://happel.ai/assets/avatar.jpg",
+      "description": "Security audits, penetration testing, reverse engineering, on-premises AI, data science and software development for hospitals, medical-device makers, critical infrastructure and other regulated industries.",
+      "email": "consulting@happel.ai",
+      "founder": {
+        "@id": "https://happel.ai/#luca"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Düsseldorf",
+        "addressRegion": "NRW",
+        "addressCountry": "DE"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Germany"
+        },
+        {
+          "@type": "Place",
+          "name": "Europe"
+        }
+      ],
+      "audience": [
+        {
+          "@type": "BusinessAudience",
+          "audienceType": "Hospitals and university clinics"
+        },
+        {
+          "@type": "BusinessAudience",
+          "audienceType": "Medical-device manufacturers"
+        },
+        {
+          "@type": "BusinessAudience",
+          "audienceType": "Critical infrastructure operators"
+        },
+        {
+          "@type": "BusinessAudience",
+          "audienceType": "Industrial and regulated enterprises"
+        }
+      ],
+      "serviceType": [
+        "Security audits & penetration testing",
+        "Reverse engineering & vulnerability research",
+        "Data science & on-premises AI",
+        "App & software development",
+        "Tutoring in mathematics and computer science"
+      ],
+      "knowsAbout": [
+        "Cybersecurity",
+        "Penetration testing",
+        "Security audits",
+        "Reverse engineering",
+        "Vulnerability research",
+        "Responsible disclosure",
+        "Medical device cybersecurity",
+        "Medical Device Regulation (MDR)",
+        "IEC 62443",
+        "NIS2",
+        "Critical infrastructure (KRITIS)",
+        "Artificial intelligence",
+        "Machine learning",
+        "Retrieval-augmented generation",
+        "Large language models",
+        "Data science",
+        "Statistics",
+        "Formal verification",
+        "Lean 4",
+        "Rust",
+        "Python",
+        "C++",
+        "Mathematics",
+        "Algebraic topology"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Security audits & penetration testing",
+              "description": "Security audits, penetration tests and threat modelling of medical, industrial and critical-infrastructure software (MDR, IEC 62443, NIS2, FDA guidance).",
+              "provider": {
+                "@id": "https://happel.ai/#business"
+              },
+              "areaServed": [
+                "Germany",
+                "Europe"
+              ]
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Reverse engineering & vulnerability research",
+              "description": "Analysis of binaries, firmware and undocumented protocols with coordinated, responsible disclosure.",
+              "provider": {
+                "@id": "https://happel.ai/#business"
+              },
+              "areaServed": [
+                "Germany",
+                "Europe"
+              ]
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Data science & on-premises AI",
+              "description": "Statistical modelling, monitoring and anomaly detection, and on-premises RAG/LLM systems where no data leaves your network.",
+              "provider": {
+                "@id": "https://happel.ai/#business"
+              },
+              "areaServed": [
+                "Germany",
+                "Europe"
+              ]
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "App & software development",
+              "description": "Web, desktop, mobile, backend and embedded software in Rust, Python and C/C++, including clinical front-ends with access control and audit trails.",
+              "provider": {
+                "@id": "https://happel.ai/#business"
+              },
+              "areaServed": [
+                "Germany",
+                "Europe"
+              ]
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tutoring: mathematics & computer science",
+              "description": "Tutoring and exam preparation for pupils (Gymnasium, vocational school, Abitur) and university students: linear algebra, analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional and logic programming, machine learning.",
+              "provider": {
+                "@id": "https://happel.ai/#business"
+              }
+            }
+          }
+        ]
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "consulting@happel.ai",
+        "availableLanguage": [
+          "English",
+          "German"
+        ],
+        "url": "https://happel.ai/shop/#contact"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/lucahappel/",
+        "https://github.com/Quoteme/"
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://doi.org/10.1093/ehjdh/ztaf004",
+      "url": "https://doi.org/10.1093/ehjdh/ztaf004",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.1093/ehjdh/ztaf004"
+      },
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "European Heart Journal – Digital Health"
+      },
+      "about": "monti: AI-based clinical patient monitoring developed at University Hospital Düsseldorf",
+      "author": {
+        "@id": "https://happel.ai/#luca"
+      }
+    }
+  ]
 }
 </script>
 :::

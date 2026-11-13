@@ -2,7 +2,7 @@
 title: |
   The exponential map of lie groups
 subtitle: |
-  Or: what $e^x$ and $\pi$ actually are all about and some funny connections betwee _machine learning_, _sailing_ and the _stock market_
+  Or: what $e^x$ and $\pi$ actually are all about and some funny connections between _machine learning_, _sailing_ and the _stock market_
 author: "Luca Leon Happel"
 date: "2026-02-27"
 categories: ["algebra", "geometry", "machine learning", "English"]

@@ -1,0 +1,1163 @@
+---
+pagetitle: "Shop: Audits, Pentests & AI | Luca Happel"
+description: "Security audits, penetration testing, reverse engineering, on-premises AI, embedded and app development for any organisation where mistakes are expensive."
+lang: en
+aliases:
+  - /service.html
+  - /shop.html
+  - /services/index.html
+  - /consultation.html
+page-layout: full
+toc: false
+format:
+  html:
+    css: ../styles.css
+    include-in-header:
+      - file: ../lang-redirect.html
+      - text: |
+          <link rel="alternate" hreflang="en" href="https://happel.ai/shop/" />
+          <link rel="alternate" hreflang="de" href="https://happel.ai/de/shop/" />
+          <link rel="alternate" hreflang="x-default" href="https://happel.ai/shop/" />
+          <link rel="canonical" href="https://happel.ai/shop/" />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:locale:alternate" content="de_DE" />
+---
+
+::: {.storefront .column-screen}
+
+::: {.lang-switch}
+English · [Deutsch](/de/shop/)
+:::
+
+<!-- shop:start -->
+```{=html}
+<h1 class="visually-hidden">Shop</h1>
+<nav id="services" class="shop-nav" aria-label="Shop categories"><a href="#cat-data-ai" class="shop-pill"><i class="bi bi-graph-up"></i> Data Science &amp; AI</a><a href="#cat-audits" class="shop-pill"><i class="bi bi-shield-lock"></i> High-Security Audits</a><a href="#cat-onsite" class="shop-pill"><i class="bi bi-geo-alt"></i> On-site Security</a><a href="#cat-reverse-engineering" class="shop-pill"><i class="bi bi-cpu"></i> Reverse Engineering</a><a href="#cat-development" class="shop-pill"><i class="bi bi-code-slash"></i> App &amp; Software Development</a><a href="#cat-tutoring" class="shop-pill"><i class="bi bi-mortarboard"></i> Tutoring: Mathematics &amp; Computer Science</a></nav>
+<div class="shop-featured">
+<div class="shop-featured-body">
+<p class="shop-eyebrow">Start here</p>
+<h3><i class="bi bi-telephone"></i> Free 30-minute call</h3>
+<p>Describe your problem, get an honest assessment and a written fixed-price proposal. NDA on request.</p>
+</div>
+<div class="shop-item-foot">
+<span class="shop-price">Free<small>30 min</small></span>
+<a href="#contact" class="btn btn-primary btn-lg shop-buy" data-product="Free 30-minute call"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</div>
+<p class="shop-notice small text-muted">“Buy now” and “Book now” open the Cal.com booking calendar below (data is transferred to Cal.com, see the <a href="/datenschutz.html">privacy policy</a>).</p>
+<h2 id="cat-data-ai" class="anchored shop-cat"><i class="bi bi-graph-up"></i> Data Science &amp; AI</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-statistics">
+<div class="shop-item-icon"><i class="bi bi-bar-chart-line"></i></div>
+<h3>Statistical analysis &amp; modelling</h3>
+<p class="shop-item-desc">Analyses and models you can defend in front of reviewers, regulators or your board.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Study design &amp; power analysis</li><li><i class="bi bi-check2"></i> Report with reproducible code</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Statistical analysis &amp; modelling"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-monitoring">
+<div class="shop-item-icon"><i class="bi bi-activity"></i></div>
+<h3>Monitoring, anomaly detection &amp; prediction</h3>
+<p class="shop-item-desc">ML models that watch your data and raise the alarm early, as monti does for heart and oncology patients.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Model development &amp; validation</li><li><i class="bi bi-check2"></i> Integration into your systems</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Monitoring, anomaly detection &amp; prediction"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-rag-llm">
+<div class="shop-item-icon"><i class="bi bi-hdd-network"></i></div>
+<h3>On-premises RAG &amp; LLM integration</h3>
+<p class="shop-item-desc">AI assistants and document search running on your own hardware. No data leaves your network.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Setup on your infrastructure</li><li><i class="bi bi-check2"></i> Access control &amp; audit logging</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="On-premises RAG &amp; LLM integration"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-pipelines">
+<div class="shop-item-icon"><i class="bi bi-diagram-3"></i></div>
+<h3>Reproducible pipelines &amp; reports</h3>
+<p class="shop-item-desc">Data pipelines and reports your domain experts can read, trust and rerun.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Versioned, tested pipelines</li><li><i class="bi bi-check2"></i> Automated reports</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Reproducible pipelines &amp; reports"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+</div>
+<h2 id="cat-audits" class="anchored shop-cat"><i class="bi bi-shield-lock"></i> High-Security Audits</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-security-audit">
+<div class="shop-item-icon"><i class="bi bi-shield-check"></i></div>
+<h3>Security audit</h3>
+<p class="shop-item-desc">Independent audit of medical, industrial or critical-infrastructure software against MDR, IEC 62443, NIS2 or FDA guidance.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Prioritised findings report</li><li><i class="bi bi-check2"></i> Fix recommendations &amp; re-test</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Security audit"><i class="bi bi-cart3"></i> Buy now</a>
+</div>
+</article>
+<article class="shop-item" id="p-pentest">
+<div class="shop-item-icon"><i class="bi bi-bug"></i></div>
+<h3>Penetration test</h3>
+<p class="shop-item-desc">Web apps, APIs, desktop software and devices tested the way an attacker would, under written scope and authorisation.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Findings with reproduction steps</li><li><i class="bi bi-check2"></i> Management summary</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Penetration test"><i class="bi bi-cart3"></i> Buy now</a>
+</div>
+</article>
+<article class="shop-item" id="p-threat-model">
+<div class="shop-item-icon"><i class="bi bi-search"></i></div>
+<h3>Threat modelling &amp; secure code review</h3>
+<p class="shop-item-desc">Find design flaws before attackers do: threat models and line-by-line review for regulated environments.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Threat model document</li><li><i class="bi bi-check2"></i> Review comments in your repository</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Threat modelling &amp; secure code review"><i class="bi bi-cart3"></i> Buy now</a>
+</div>
+</article>
+<article class="shop-item" id="p-formal-verification">
+<div class="shop-item-icon"><i class="bi bi-patch-check"></i></div>
+<h3>Formal verification (Lean 4)</h3>
+<p class="shop-item-desc">Mathematical proof that critical components are correct and secure with respect to their specification, not just tested.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Formal specification</li><li><i class="bi bi-check2"></i> Machine-checked proofs</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Formal verification (Lean 4)"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+</div>
+<h2 id="cat-onsite" class="anchored shop-cat"><i class="bi bi-geo-alt"></i> On-site Security</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-datacenter-assessment">
+<div class="shop-item-icon"><i class="bi bi-hdd-rack"></i></div>
+<h3>Data center security assessment</h3>
+<p class="shop-item-desc">On-site review of your data center or server room: physical access, racks, network segmentation, management interfaces (iLO, iDRAC, IPMI) and backup readiness, measured against ISO 27001, EN 50600 or BSI IT-Grundschutz.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Walk-through &amp; technical tests</li><li><i class="bi bi-check2"></i> Prioritised findings report</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Data center security assessment"><i class="bi bi-cart3"></i> Buy now</a>
+</div>
+</article>
+<article class="shop-item" id="p-ai-server-setup">
+<div class="shop-item-icon"><i class="bi bi-gpu-card"></i></div>
+<h3>On-premises AI server setup</h3>
+<p class="shop-item-desc">GPU servers for local LLMs and RAG installed, hardened and put into operation in your own server room. No data leaves your building.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Hardware selection &amp; installation</li><li><i class="bi bi-check2"></i> Hardening, access control &amp; monitoring</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="On-premises AI server setup"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-physical-pentest">
+<div class="shop-item-icon"><i class="bi bi-door-closed"></i></div>
+<h3>Physical penetration test</h3>
+<p class="shop-item-desc">Can an outsider get in? Doors, badges and RFID cloning, tailgating, unlocked screens and open network ports, tested on-site under signed authorisation.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Agreed rules of engagement</li><li><i class="bi bi-check2"></i> Report with photos &amp; fixes</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Physical penetration test"><i class="bi bi-cart3"></i> Buy now</a>
+</div>
+</article>
+<article class="shop-item" id="p-internal-pentest">
+<div class="shop-item-icon"><i class="bi bi-diagram-2"></i></div>
+<h3>Internal network pentest (assumed breach)</h3>
+<p class="shop-item-desc">Plugged into your office network like an attacker who got in: how far can they go, up to taking over Active Directory?</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Attack paths &amp; privilege escalation</li><li><i class="bi bi-check2"></i> Concrete hardening steps</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Internal network pentest (assumed breach)"><i class="bi bi-cart3"></i> Buy now</a>
+</div>
+</article>
+<article class="shop-item" id="p-hospital-network">
+<div class="shop-item-icon"><i class="bi bi-hospital"></i></div>
+<h3>Hospital &amp; medical-device network assessment</h3>
+<p class="shop-item-desc">Medical devices on the wards found and checked, and the separation of the medical-device network reviewed, with minimal impact on patient care.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Device inventory &amp; exposure</li><li><i class="bi bi-check2"></i> Segmentation review</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Hospital &amp; medical-device network assessment"><i class="bi bi-cart3"></i> Buy now</a>
+</div>
+</article>
+</div>
+<h2 id="cat-reverse-engineering" class="anchored shop-cat"><i class="bi bi-cpu"></i> Reverse Engineering</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-firmware-analysis">
+<div class="shop-item-icon"><i class="bi bi-cpu"></i></div>
+<h3>Binary &amp; firmware analysis</h3>
+<p class="shop-item-desc">Find out what compiled software and device firmware really do, without source code.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Architecture &amp; behaviour report</li><li><i class="bi bi-check2"></i> Security findings</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Binary &amp; firmware analysis"><i class="bi bi-cart3"></i> Buy now</a>
+</div>
+</article>
+<article class="shop-item" id="p-protocol-re">
+<div class="shop-item-icon"><i class="bi bi-broadcast"></i></div>
+<h3>Protocol reverse engineering</h3>
+<p class="shop-item-desc">Undocumented network, serial and wireless protocols documented so you can integrate, migrate or secure them.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Protocol specification</li><li><i class="bi bi-check2"></i> Example client or parser</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Protocol reverse engineering"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-vuln-research">
+<div class="shop-item-icon"><i class="bi bi-incognito"></i></div>
+<h3>Vulnerability research &amp; disclosure</h3>
+<p class="shop-item-desc">In-depth vulnerability research with coordinated, responsible disclosure to the vendor.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Proof of concept</li><li><i class="bi bi-check2"></i> Disclosure handling</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Vulnerability research &amp; disclosure"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+</div>
+<h2 id="cat-development" class="anchored shop-cat"><i class="bi bi-code-slash"></i> App &amp; Software Development</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-apps">
+<div class="shop-item-icon"><i class="bi bi-phone"></i></div>
+<h3>Web, desktop &amp; mobile apps</h3>
+<p class="shop-item-desc">From prototype to product, with code in your repository from day one.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Design, implementation &amp; tests</li><li><i class="bi bi-check2"></i> Deployment &amp; server setup</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Web, desktop &amp; mobile apps"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-backend">
+<div class="shop-item-icon"><i class="bi bi-server"></i></div>
+<h3>Backend &amp; systems software</h3>
+<p class="shop-item-desc">Backends, services and systems code in Rust, Python and C/C++, secure by design.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> APIs &amp; databases</li><li><i class="bi bi-check2"></i> Docs &amp; handover</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Backend &amp; systems software"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-embedded">
+<div class="shop-item-icon"><i class="bi bi-motherboard"></i></div>
+<h3>Embedded firmware</h3>
+<p class="shop-item-desc">Firmware for microcontrollers such as the ESP32 in memory-safe Rust or C/C++, built to high-security standards.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> From breadboard to finished device</li><li><i class="bi bi-check2"></i> Optional formal verification</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Embedded firmware"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-clinical-frontends">
+<div class="shop-item-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+<h3>Clinical front-ends</h3>
+<p class="shop-item-desc">Clinical applications with role-based access control and audit trails, built for MDR environments.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Usable by clinical staff</li><li><i class="bi bi-check2"></i> GDPR-compliant data handling</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Fixed price<small>quote after free call</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Clinical front-ends"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-maintenance">
+<div class="shop-item-icon"><i class="bi bi-tools"></i></div>
+<h3>Maintenance &amp; support</h3>
+<p class="shop-item-desc">Ongoing operation, security updates and support for software we deliver.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Security updates</li><li><i class="bi bi-check2"></i> Terms agreed in advance</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Monthly fee<small>agreed in advance</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Maintenance &amp; support"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+</div>
+<h2 id="cat-tutoring" class="anchored shop-cat"><i class="bi bi-mortarboard"></i> Tutoring: Mathematics &amp; Computer Science</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-tutoring-school">
+<div class="shop-item-icon"><i class="bi bi-backpack"></i></div>
+<h3>School tutoring (Gymnasium, vocational school)</h3>
+<p class="shop-item-desc">Maths and computer science for pupils at Gymnasium, vocational school and more, at your pace.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Closing gaps in the fundamentals</li><li><i class="bi bi-check2"></i> Abitur preparation</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Hourly rate<small>agreed in advance</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="School tutoring (Gymnasium, vocational school)"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-tutoring-university">
+<div class="shop-item-icon"><i class="bi bi-mortarboard"></i></div>
+<h3>University tutoring</h3>
+<p class="shop-item-desc">Linear algebra, analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional &amp; logic programming, machine learning and more.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Working through exercise sheets together</li><li><i class="bi bi-check2"></i> Complex theory explained clearly</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Hourly rate<small>agreed in advance</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="University tutoring"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-tutoring-crash-course">
+<div class="shop-item-icon"><i class="bi bi-lightning-charge"></i></div>
+<h3>Exam crash course</h3>
+<p class="shop-item-desc">Exam coming up soon? An intensive format focused on what you need to pass with confidence.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Targeted exam preparation</li><li><i class="bi bi-check2"></i> Practice with past-paper-style tasks</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Hourly rate<small>agreed in advance</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Exam crash course"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+<article class="shop-item" id="p-tutoring-long-term">
+<div class="shop-item-icon"><i class="bi bi-calculator"></i></div>
+<h3>Long-term exam preparation</h3>
+<p class="shop-item-desc">Steady preparation over the semester or school year for top grades, adapted to your pace and goals.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Regular sessions</li><li><i class="bi bi-check2"></i> Flexible to your goals</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Hourly rate<small>agreed in advance</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Long-term exam preparation"><i class="bi bi-calendar-check"></i> Book now</a>
+</div>
+</article>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "@id": "https://happel.ai/shop/#catalog",
+  "name": "Shop",
+  "url": "https://happel.ai/shop/",
+  "inLanguage": "en",
+  "itemListElement": [
+    {
+      "@type": "OfferCatalog",
+      "name": "Data Science & AI",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-statistics",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Statistical analysis & modelling",
+            "description": "Analyses and models you can defend in front of reviewers, regulators or your board.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-monitoring",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Monitoring, anomaly detection & prediction",
+            "description": "ML models that watch your data and raise the alarm early, as monti does for heart and oncology patients.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-rag-llm",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "On-premises RAG & LLM integration",
+            "description": "AI assistants and document search running on your own hardware. No data leaves your network.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-pipelines",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Reproducible pipelines & reports",
+            "description": "Data pipelines and reports your domain experts can read, trust and rerun.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "High-Security Audits",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-security-audit",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Security audit",
+            "description": "Independent audit of medical, industrial or critical-infrastructure software against MDR, IEC 62443, NIS2 or FDA guidance.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-pentest",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Penetration test",
+            "description": "Web apps, APIs, desktop software and devices tested the way an attacker would, under written scope and authorisation.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-threat-model",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Threat modelling & secure code review",
+            "description": "Find design flaws before attackers do: threat models and line-by-line review for regulated environments.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-formal-verification",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Formal verification (Lean 4)",
+            "description": "Mathematical proof that critical components are correct and secure with respect to their specification, not just tested.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "On-site Security",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-datacenter-assessment",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Data center security assessment",
+            "description": "On-site review of your data center or server room: physical access, racks, network segmentation, management interfaces (iLO, iDRAC, IPMI) and backup readiness, measured against ISO 27001, EN 50600 or BSI IT-Grundschutz.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-ai-server-setup",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "On-premises AI server setup",
+            "description": "GPU servers for local LLMs and RAG installed, hardened and put into operation in your own server room. No data leaves your building.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-physical-pentest",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Physical penetration test",
+            "description": "Can an outsider get in? Doors, badges and RFID cloning, tailgating, unlocked screens and open network ports, tested on-site under signed authorisation.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-internal-pentest",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Internal network pentest (assumed breach)",
+            "description": "Plugged into your office network like an attacker who got in: how far can they go, up to taking over Active Directory?",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-hospital-network",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hospital & medical-device network assessment",
+            "description": "Medical devices on the wards found and checked, and the separation of the medical-device network reviewed, with minimal impact on patient care.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "Reverse Engineering",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-firmware-analysis",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Binary & firmware analysis",
+            "description": "Find out what compiled software and device firmware really do, without source code.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-protocol-re",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Protocol reverse engineering",
+            "description": "Undocumented network, serial and wireless protocols documented so you can integrate, migrate or secure them.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-vuln-research",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Vulnerability research & disclosure",
+            "description": "In-depth vulnerability research with coordinated, responsible disclosure to the vendor.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "App & Software Development",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-apps",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web, desktop & mobile apps",
+            "description": "From prototype to product, with code in your repository from day one.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-backend",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Backend & systems software",
+            "description": "Backends, services and systems code in Rust, Python and C/C++, secure by design.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-embedded",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Embedded firmware",
+            "description": "Firmware for microcontrollers such as the ESP32 in memory-safe Rust or C/C++, built to high-security standards.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-clinical-frontends",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Clinical front-ends",
+            "description": "Clinical applications with role-based access control and audit trails, built for MDR environments.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-maintenance",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Maintenance & support",
+            "description": "Ongoing operation, security updates and support for software we deliver.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "Tutoring: Mathematics & Computer Science",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-tutoring-school",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "School tutoring (Gymnasium, vocational school)",
+            "description": "Maths and computer science for pupils at Gymnasium, vocational school and more, at your pace.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-tutoring-university",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "University tutoring",
+            "description": "Linear algebra, analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional & logic programming, machine learning and more.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-tutoring-crash-course",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Exam crash course",
+            "description": "Exam coming up soon? An intensive format focused on what you need to pass with confidence.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/shop/#p-tutoring-long-term",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Price on request"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Long-term exam preparation",
+            "description": "Steady preparation over the semester or school year for top grades, adapted to your pace and goals.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Germany",
+              "Europe"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+## Questions clients ask {#faq}
+
+### What clients do you serve?
+
+Any organisation where software has to be secure, correct and trustworthy, from
+start-ups and SMEs to large enterprises, research institutions and the public sector.
+Typical clients come from healthcare and medical technology, critical infrastructure,
+industry and manufacturing, finance and insurance, and software vendors who need an
+independent security review. If mistakes in your system are expensive, we should talk.
+
+### Do you serve hospitals?
+
+Yes. Our track record includes monti, an AI-based patient-monitoring platform that I
+developed at University Hospital Düsseldorf, published in *European Heart Journal –
+Digital Health*. For hospitals and university clinics we build clinical data science and
+AI, GDPR-compliant on-premises LLM and RAG systems, clinical front-ends with access
+control and audit trails, and we review the security of clinical IT.
+
+### Do you serve critical infrastructure (KRITIS) operators?
+
+Yes. We carry out security audits, penetration tests and vulnerability research for
+operators and suppliers in energy, water, transport, healthcare and other KRITIS
+sectors, aligned with NIS2 and IEC 62443. Our track record includes a high-severity
+vulnerability in mission-critical software used in highest-tier security environments,
+found and responsibly disclosed.
+
+### Do you help in the development of medical-grade devices?
+
+Yes. We have built MDR-compliant medical software since 2022 and support device makers
+across the lifecycle: software architecture and implementation, cybersecurity risk
+assessment and threat modelling, security testing, reverse engineering of existing
+firmware, and documentation that supports your MDR or FDA technical file.
+
+### Can you develop for embedded systems?
+
+Yes! We write firmware and embedded software in Rust and C/C++ for microcontrollers such
+as the ESP32. One example is my [Corne ergonomic keyboard with two PSP joysticks as dual
+trackpoints](/posts/corne-psp/): I designed, wired and built it, and wrote the firmware
+from scratch in Rust ([RMK](https://github.com/Quoteme/corne-rmk)), because no existing
+firmware supported two joysticks. It works wired and wireless. For security-critical
+devices we hold embedded code to high-security standards: memory-safe Rust, threat
+modelling, security review and formal verification in Lean 4, so that critical
+components are provably correct, secure and bug-free with respect to their
+specification, not just tested.
+
+### Do you offer tutoring in mathematics and computer science?
+
+Yes. Tutoring is led by me, with an M.Sc. in Mathematics, a B.Sc. in Mathematics and a
+B.Sc. in Computer Science. We tutor pupils at Gymnasium, vocational school and beyond
+(fundamentals, Abitur preparation) as well as university students in linear algebra,
+analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional and logic programming,
+machine learning and more. Whether you need an intensive crash course right before an
+exam or long-term preparation for top grades, we adapt to your pace and goals: working
+through exercises together, explaining complex theory clearly and preparing you
+specifically for your exam.
+
+### Can you work with sensitive patient or company data?
+
+Yes. We design for data minimisation, access control and auditability, and can deploy
+AI systems such as RAG and LLMs on-premises so sensitive data stays in your network.
+We can sign an NDA before reviewing project details.
+
+### Do you offer penetration testing?
+
+Yes. We test web apps, APIs, desktop software, firmware and devices the way an attacker
+would, under a written scope and authorisation. You get prioritised findings with
+reproduction steps and concrete fixes; vulnerabilities in third-party products are
+handled through coordinated, responsible disclosure.
+
+### Do you take on small, clearly scoped projects?
+
+Yes. An engagement can begin with a security review, feasibility assessment, prototype
+or fixed-scope development task. After the free call, you receive a written proposal
+with scope, timeline and price.
+
+### Do you work remotely or on-site?
+
+Both. Most work can be delivered remotely across Germany and Europe. On-site work is
+also possible; travel and on-site costs are quoted separately based on the location
+and duration of the engagement.
+
+### What do you deliver?
+
+Depending on the engagement: actionable audit findings, production-ready code in your
+repository, reproducible analysis, tests, documentation and a handover your team can
+operate independently. We can also deliver complete applications, including backend,
+deployment and server setup. If you would like ongoing operation, updates or support,
+maintenance fees may apply and are agreed in advance.
+
+## Locations {#locations}
+
+Based in Düsseldorf, on-site in the Rhine-Ruhr region, the Netherlands and Belgium,
+remote or on-site across the EU.
+
+::: {.loc-teaser}
+[Düsseldorf]{} [Cologne]{} [Mönchengladbach]{} [Krefeld]{} [Viersen]{} [The Hague]{} [Amsterdam]{} [Rotterdam]{} [Brussels]{} [Berlin]{} [Munich]{} [Paris]{} [Vienna]{} [Copenhagen]{}
+:::
+
+[{{< bi geo-alt >}} All locations & map](/locations/){.btn .btn-outline-primary}
+
+## How it works {#process}
+
+::: {.grid .process-grid}
+::: {.g-col-6 .g-col-md-3 .process-step}
+**1. Free call**<br>30 minutes, you describe the problem.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**2. Fixed quote**<br>Scope, timeline, price. NDA on request.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**3. Delivery**<br>Code in your repo from day one.
+:::
+::: {.g-col-6 .g-col-md-3 .process-step}
+**4. Handover**<br>Docs, tests, walkthrough.
+:::
+:::
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What clients do you serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any organisation where software has to be secure, correct and trustworthy, from start-ups and SMEs to large enterprises, research institutions and the public sector. Typical clients come from healthcare and medical technology, critical infrastructure, industry and manufacturing, finance and insurance, and software vendors who need an independent security review. If mistakes in your system are expensive, we should talk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you serve hospitals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our track record includes monti, an AI-based patient-monitoring platform that I developed at University Hospital Düsseldorf, published in European Heart Journal – Digital Health. For hospitals and university clinics we build clinical data science and AI, GDPR-compliant on-premises LLM and RAG systems, clinical front-ends with access control and audit trails, and we review the security of clinical IT."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you serve critical infrastructure (KRITIS) operators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We carry out security audits, penetration tests and vulnerability research for operators and suppliers in energy, water, transport, healthcare and other KRITIS sectors, aligned with NIS2 and IEC 62443. Our track record includes a high-severity vulnerability in mission-critical software used in highest-tier security environments, found and responsibly disclosed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you help in the development of medical-grade devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We have built MDR-compliant medical software since 2022 and support device makers across the lifecycle: software architecture and implementation, cybersecurity risk assessment and threat modelling, security testing, reverse engineering of existing firmware, and documentation that supports your MDR or FDA technical file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you develop for embedded systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We write firmware and embedded software in Rust and C/C++ for microcontrollers such as the ESP32. One example is my Corne ergonomic keyboard with two PSP joysticks as dual trackpoints: I designed, wired and built it, and wrote the firmware from scratch in Rust (RMK), because no existing firmware supported two joysticks. It works wired and wireless. For security-critical devices we hold embedded code to high-security standards: memory-safe Rust, threat modelling, security review and formal verification in Lean 4, so that critical components are provably correct, secure and bug-free with respect to their specification, not just tested."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer tutoring in mathematics and computer science?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Tutoring is led by me, with an M.Sc. in Mathematics, a B.Sc. in Mathematics and a B.Sc. in Computer Science. We tutor pupils at Gymnasium, vocational school and beyond (fundamentals, Abitur preparation) as well as university students in linear algebra, analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional and logic programming, machine learning and more. Whether you need an intensive crash course right before an exam or long-term preparation for top grades, we adapt to your pace and goals: working through exercises together, explaining complex theory clearly and preparing you specifically for your exam."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you work with sensitive patient or company data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We design for data minimisation, access control and auditability, and can deploy AI systems such as RAG and LLMs on-premises so sensitive data stays in your network. We can sign an NDA before reviewing project details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer penetration testing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We test web apps, APIs, desktop software, firmware and devices the way an attacker would, under a written scope and authorisation. You get prioritised findings with reproduction steps and concrete fixes; vulnerabilities in third-party products are handled through coordinated, responsible disclosure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you take on small, clearly scoped projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. An engagement can begin with a security review, feasibility assessment, prototype or fixed-scope development task. After the free call, you receive a written proposal with scope, timeline and price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work remotely or on-site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. Most work can be delivered remotely across Germany and Europe. On-site work is also possible; travel and on-site costs are quoted separately based on the location and duration of the engagement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do you deliver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depending on the engagement: actionable audit findings, production-ready code in your repository, reproducible analysis, tests, documentation and a handover your team can operate independently. We can also deliver complete applications, including backend, deployment and server setup. If you would like ongoing operation, updates or support, maintenance fees may apply and are agreed in advance."
+      }
+    }
+  ]
+}
+</script>
+
+## Start here {#contact}
+
+::: {.contact-box}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-lg-7}
+### Book a free 30-minute call
+
+<button id="cal-consent" class="btn btn-primary btn-lg">Show available times</button>
+
+::: {.text-muted .small}
+Calendar loads from Cal.com after you click ([privacy policy](/datenschutz.html)) · [open in new tab](https://cal.com/{{< var consultation.cal_link >}}){target="_blank"}
+:::
+
+{{< include ../_cal-embed.qmd >}}
+:::
+
+::: {.g-col-12 .g-col-lg-5}
+### Or describe your project by email
+
+[{{< var consultation.email >}}](mailto:{{< var consultation.email >}}){.btn .btn-outline-primary .btn-lg}
+
+Reply within one business day. Strictly confidential.
+
+**PGP:** `{{< var consultation.pgp_key_id >}}` · [public key]({{< var consultation.pgp_file >}})
+:::
+
+:::
+
+:::
+
+:::

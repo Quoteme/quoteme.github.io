@@ -15,18 +15,49 @@ page supplies the language-specific labels through data attributes on
     const target = document.getElementById("cal-booking");
     const calLink = "{{< var consultation.cal_link >}}";
     if (!consent || !target) return;
+    const de = document.documentElement.lang === "de";
+    let loaded = false;
+    let product = "";
 
     function loadCal() {
+      if (loaded) return;
+      loaded = true;
       // Official Cal.com embed snippet (https://cal.com/docs/embed)
       (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
       const dark = document.documentElement.classList.contains("quarto-dark");
+      const config = product ? { notes: (de ? "Interesse an: " : "Interested in: ") + product } : {};
       Cal("init", { origin: "https://cal.com" });
-      Cal("inline", { elementOrSelector: "#cal-booking", calLink: calLink, layout: "month_view" });
+      Cal("inline", { elementOrSelector: "#cal-booking", calLink: calLink, layout: "month_view", config: config });
       Cal("ui", { theme: dark ? "dark" : "light", hideEventTypeDetails: false, layout: "month_view" });
       consent.hidden = true;
     }
 
     consent.addEventListener("click", loadCal);
+
+    // Shop: "Buy now" / "Book now" jump to the calendar, remember the product
+    // (shown above the calendar, prefilled in Cal.com notes and the e-mail subject)
+    // and open the calendar. The shop notice informs about the Cal.com transfer.
+    const selected = document.createElement("p");
+    selected.id = "shop-selected";
+    selected.hidden = true;
+    consent.parentNode.insertBefore(selected, consent);
+
+    document.addEventListener("click", function (e) {
+      const btn = e.target.closest && e.target.closest(".shop-buy");
+      if (!btn) return;
+      e.preventDefault();
+      product = btn.dataset.product || "";
+      selected.innerHTML = "";
+      const label = document.createElement("strong");
+      label.textContent = (de ? "Ausgewählt: " : "Selected: ");
+      selected.append(label, product);
+      selected.hidden = !product;
+      const mail = document.querySelector('#contact a[href^="mailto:"]');
+      if (mail && product) mail.setAttribute("href", mail.getAttribute("href").split("?")[0] + "?subject=" + encodeURIComponent(product));
+      if (history.replaceState) history.replaceState(null, "", "#contact");
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "start" });
+      loadCal();
+    });
   })();
 </script>
 ```

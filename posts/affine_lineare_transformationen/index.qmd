@@ -1,5 +1,6 @@
 ---
 title: "Affine lineare Transformationen als lineare Transformationen auf dem projektiven Raum"
+description: "Kurze Notizen: affin-lineare Transformationen auf ℝⁿ als lineare Transformationen auf ℝⁿ⁺¹ bzw. dem projektiven Raum auffassen."
 author: "Luca Leon Happel"
 date: "2025-08-17"
 categories: ["math", "algebra", "Deutsch"]
