@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -47,9 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-661eba75172eead0a280336b3e7555f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c87ac9b12bd57b45673855c2bf2188ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -81,15 +83,25 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TS8KXZ05HZ"></script>
 
-<script type="text/javascript">
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
-</script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":"",
+"website_privacy_policy_url":"/datenschutz.html"
+  ,
+"language":"en"
+  });
+});
+</script> 
+  
 <meta property="og:title" content="Hacking Super Mario 64 using covering spaces (+ hyperbolic geometry) – happel.ai">
 <meta property="og:description" content="Visualization of the universal cover of a surface of genus 2, which is a hyperbolic space.">
 <meta property="og:image" content="https://happel.ai/assets/covering-space/double-torus-universal-cover-alt.png">
@@ -99,7 +111,10 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 <meta name="twitter:title" content="Hacking Super Mario 64 using covering spaces (+ hyperbolic geometry) – happel.ai">
 <meta name="twitter:description" content="Visualization of the universal cover of a surface of genus 2, which is a hyperbolic space.">
 <meta name="twitter:image" content="https://happel.ai/assets/covering-space/double-torus-universal-cover-alt.pn g">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://happel.ai/posts/covering-spaces-geometries-visualized/">
+<meta name="description" content="Visualizations of covering spaces and their applications to geometry and video games">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Hacking Super Mario 64 using covering spaces (+ hyperbolic geometry)", "url": "https://happel.ai/posts/covering-spaces-geometries-visualized/", "mainEntityOfPage": "https://happel.ai/posts/covering-spaces-geometries-visualized/", "author": {"@id": "https://happel.ai/#luca", "@type": "Person", "name": "Luca Leon Happel", "url": "https://happel.ai/"}, "publisher": {"@id": "https://happel.ai/#luca", "@type": "Person", "name": "Luca Leon Happel", "url": "https://happel.ai/"}, "inLanguage": "en", "isPartOf": {"@type": "Blog", "@id": "https://happel.ai/blog.html#blog", "name": "happel.ai Blog", "url": "https://happel.ai/blog.html"}, "description": "Visualizations of covering spaces and their applications to geometry and video games", "datePublished": "2026-03-01", "image": "https://happel.ai/assets/covering-space/double-torus-universal-cover-alt.png", "keywords": ["topology", "geometry", "visualization"], "about": [{"@type": "Thing", "name": "topology"}, {"@type": "Thing", "name": "geometry"}, {"@type": "Thing", "name": "visualization"}]}</script>
 </head><body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -301,6 +316,38 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
     \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
     $$
 </div>
+<!--
+Google Analytics, gated by Quarto's cookie-consent banner (see _quarto.yml).
+Quarto's built-in `google-analytics` option loads gtag.js unconditionally
+(only the config call is gated), which already sends the visitor's IP to
+Google before consent. Here the loader itself runs only after opt-in.
+-->
+<script type="text/plain" cookie-consent="tracking">
+(function () {
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-TS8KXZ05HZ";
+  document.head.appendChild(s);
+})();
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TS8KXZ05HZ');
+</script>
+<script>
+// The stock banner text mentions personalised ads; we only use analytics.
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    var de = document.documentElement.lang === "de";
+    var text = document.querySelector(".cc-nb-text");
+    if (text) text.textContent = de
+      ? "Mit Ihrer Zustimmung nutzen wir Google Analytics, um auszuwerten, wie diese Website genutzt wird. Dabei werden Cookies gesetzt und Daten an Google (ggf. in die USA) übermittelt. Ohne Zustimmung werden keine Analyse-Cookies gesetzt. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ im Fußbereich ändern."
+      : "With your consent we use Google Analytics to measure how this website is used. This sets cookies and transfers data to Google (possibly to the USA). Without consent no analytics cookies are set. You can change your choice at any time via “Cookie Preferences” in the footer.";
+    var prefs = document.getElementById("open_preferences_center");
+    if (prefs && de) prefs.textContent = "Cookie-Einstellungen";
+  }, 0);
+});
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -354,9 +401,14 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../service.html#services"> <i class="bi bi-briefcase" role="img">
+    <a class="nav-link" href="../../shop/index.html#services"> <i class="bi bi-shop" role="img">
 </i> 
-<span class="menu-text">Services</span></a>
+<span class="menu-text">Shop</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../locations/index.html"> <i class="bi bi-geo-alt" role="img">
+</i> 
+<span class="menu-text">Locations</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../blog.html"> <i class="bi bi-journal-text" role="img">
@@ -494,7 +546,7 @@ Note
 </figure>
 </div>
 <p>These kinds of worlds typically occur in video games, and famously the ideas which I will elaborate on in this post were used in the Super Mario 64 community to “hack” the game to achieve various speedrunning goals:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/wjge1bVobN0?t=1373" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/wjge1bVobN0?t=1373" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;background:#15181c;color:#d5d8dc;font:15px/1.4 system-ui,sans-serif;text-align:center;padding:1em;box-sizing:border-box}a.play{display:inline-block;padding:.6em 1.1em;margin-bottom:.8em;background:#c00;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}a.play:hover{background:#e00}p{margin:0;font-size:12px;max-width:34em;opacity:.8}p a{color:#9cc3ea}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div&gt;&lt;a class=&quot;play&quot; href=&quot;https://www.youtube-nocookie.com/embed/wjge1bVobN0?t=1373&amp;amp;autoplay=1&quot;&gt;&amp;#9654; Load video from YouTube&lt;/a&gt;&lt;p&gt;Clicking loads the video from YouTube (Google). Your IP address is then transmitted to Google. &lt;a href=&quot;/datenschutz.html&quot; target=&quot;_top&quot;&gt;Privacy policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div>
 <p>(This is where the famous “but first, we will need to talk about parallel universes” quote comes from. In the SM64 community, covering spaces are known as “parallel universes”). Wheather intentional (like in Pacman) or unintentional (like in Super Mario 64, due to casting <code>float</code>ing point numbers to <code>short int</code>s), it is often the case that walking in a straight line long enough will eventually lead you back to the same point.</p>
 <p>In the case of SM64 however, only the collision detection code is affected by this floating point arithmetic, but not the rendering engine. So there actually are some differences between the “parallel universes” in SM64. In particular, when Mario moves to a different parallel universe, the same collisions are still detected, although he is rendered as floating in an empty space. We can encode this also in Bobs world:</p>
 <p>Lets assume, we would double, triple, quadruple, etc. Bobs world and stack these copies on top of each other. Bob would never notice, as long as each copy is just a “shallow” copy, meaning that each movement in the <em>fundamental domain</em> (the original world) is mirrored in the copies. In this case, we would have a covering space of Bobs world, and the original world would be the base space.</p>
@@ -815,8 +867,8 @@ Warning
 <section id="further-references" class="level2">
 <h2 class="anchored" data-anchor-id="further-references">Further references:</h2>
 <ol type="1">
-<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/QcLfb0PhfO0?t=470" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> I drew <em>heavy inspiration</em> from this video “Not Knot” by the Geometry Center / Geometry Supercomputer Project in 1991, directed by Charlie Gunn and Delle Maxwell.</li>
-<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yqUv2JO2BCs?t=143" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> A video about different geometries on <span class="math inline">\(\mathbb{R}^ 3\)</span></li>
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/QcLfb0PhfO0?t=470" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;background:#15181c;color:#d5d8dc;font:15px/1.4 system-ui,sans-serif;text-align:center;padding:1em;box-sizing:border-box}a.play{display:inline-block;padding:.6em 1.1em;margin-bottom:.8em;background:#c00;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}a.play:hover{background:#e00}p{margin:0;font-size:12px;max-width:34em;opacity:.8}p a{color:#9cc3ea}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div&gt;&lt;a class=&quot;play&quot; href=&quot;https://www.youtube-nocookie.com/embed/QcLfb0PhfO0?t=470&amp;amp;autoplay=1&quot;&gt;&amp;#9654; Load video from YouTube&lt;/a&gt;&lt;p&gt;Clicking loads the video from YouTube (Google). Your IP address is then transmitted to Google. &lt;a href=&quot;/datenschutz.html&quot; target=&quot;_top&quot;&gt;Privacy policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div> I drew <em>heavy inspiration</em> from this video “Not Knot” by the Geometry Center / Geometry Supercomputer Project in 1991, directed by Charlie Gunn and Delle Maxwell.</li>
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yqUv2JO2BCs?t=143" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;background:#15181c;color:#d5d8dc;font:15px/1.4 system-ui,sans-serif;text-align:center;padding:1em;box-sizing:border-box}a.play{display:inline-block;padding:.6em 1.1em;margin-bottom:.8em;background:#c00;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}a.play:hover{background:#e00}p{margin:0;font-size:12px;max-width:34em;opacity:.8}p a{color:#9cc3ea}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div&gt;&lt;a class=&quot;play&quot; href=&quot;https://www.youtube-nocookie.com/embed/yqUv2JO2BCs?t=143&amp;amp;autoplay=1&quot;&gt;&amp;#9654; Load video from YouTube&lt;/a&gt;&lt;p&gt;Clicking loads the video from YouTube (Google). Your IP address is then transmitted to Google. &lt;a href=&quot;/datenschutz.html&quot; target=&quot;_top&quot;&gt;Privacy policy&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div> A video about different geometries on <span class="math inline">\(\mathbb{R}^ 3\)</span></li>
 </ol>
 </section>
 <section id="discussion" class="level2">
@@ -1262,7 +1314,7 @@ Warning
 </a>
   </li>  
 </ul>
-    </div>
+    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

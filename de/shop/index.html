@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Sicherheitsaudits, Penetrationstests, Reverse Engineering, On-Premises-KI, Embedded- und App-Entwicklung für alle, bei denen Fehler teuer sind.">
+
+<title>Shop: Audits, Pentests &amp; KI | Luca Happel – happel.ai</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-highlight-style-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c87ac9b12bd57b45673855c2bf2188ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":"",
+"website_privacy_policy_url":"/datenschutz.html"
+  ,
+"language":"de"
+  });
+});
+</script> 
+  
+<meta property="og:title" content="Shop: Audits, Pentests &amp; KI | Luca Happel">
+<meta property="og:description" content="Sicherheitsaudits, Penetrationstests, Reverse Engineering, On-Premises-KI, Embedded- und App-Entwicklung für alle, bei denen Fehler teuer sind.">
+<meta property="og:image" content="https://happel.ai/assets/avatar.jpg">
+<meta property="og:site_name" content="happel.ai">
+<meta name="twitter:title" content="Shop: Audits, Pentests &amp; KI | Luca Happel">
+<meta name="twitter:description" content="Sicherheitsaudits, Penetrationstests, Reverse Engineering, On-Premises-KI, Embedded- und App-Entwicklung für alle, bei denen Fehler teuer sind.">
+<meta name="twitter:image" content="https://happel.ai/assets/avatar.jpg">
+<meta name="twitter:card" content="summary">
+</head><body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script><div style="display: none;">
+    $$
+    \newcommand{\N}{\mathbb{N}}
+    \newcommand{\C}{\mathbb{C}}
+    \newcommand{\R}{\mathbb{R}}
+    \newcommand{\Z}{\mathbb{Z}}
+    \newcommand{\ZZ}{\ooalign{Z\cr\hidewidth\kern0.1em\raisebox{-0.5ex}{Z}\hidewidth\cr}}
+    \newcommand{\colim}{\text{colim}}
+    \newcommand{\weaktopo}{\tau_\text{weak}}
+    \newcommand{\strongtopo}{\tau_\text{strong}}
+    \newcommand{\normtopo}{\tau_\text{norm}}
+    \newcommand{\green}[1]{\textcolor{ForestGreen}{#1}}
+    \newcommand{\red}[1]{\textcolor{red}{#1}}
+    \newcommand{\blue}[1]{\textcolor{blue}{#1}}
+    \newcommand{\orange}[1]{\textcolor{orange}{#1}}
+    \newcommand{\tr}{\text{tr}}
+    \newcommand{\id}{\text{id}}
+    \newcommand{\im}{\text{im}\&gt;}
+    \newcommand{\res}{\text{res}}
+    \newcommand{\TopTwo}{\underline{\text{Top}^{(2)}}}
+    \newcommand{\CW}[1]{\underline{#1\text{-CW}}}
+    \newcommand{\llbracket}{\mathopen{[\![}}
+    \newcommand{\rrbracket}{\mathclose{]\!]}}
+    % specific for this document
+    \newcommand{\cellOne}{\textcolor{green}{1}}
+    \newcommand{\cellTwo}{\textcolor{red}{2}}
+    \newcommand{\cellThree}{\textcolor{brown}{3}}
+    \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
+    $$
+</div>
+<!--
+Google Analytics, gated by Quarto's cookie-consent banner (see _quarto.yml).
+Quarto's built-in `google-analytics` option loads gtag.js unconditionally
+(only the config call is gated), which already sends the visitor's IP to
+Google before consent. Here the loader itself runs only after opt-in.
+-->
+<script type="text/plain" cookie-consent="tracking">
+(function () {
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-TS8KXZ05HZ";
+  document.head.appendChild(s);
+})();
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TS8KXZ05HZ');
+</script>
+<script>
+// The stock banner text mentions personalised ads; we only use analytics.
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    var de = document.documentElement.lang === "de";
+    var text = document.querySelector(".cc-nb-text");
+    if (text) text.textContent = de
+      ? "Mit Ihrer Zustimmung nutzen wir Google Analytics, um auszuwerten, wie diese Website genutzt wird. Dabei werden Cookies gesetzt und Daten an Google (ggf. in die USA) übermittelt. Ohne Zustimmung werden keine Analyse-Cookies gesetzt. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ im Fußbereich ändern."
+      : "With your consent we use Google Analytics to measure how this website is used. This sets cookies and transfers data to Google (possibly to the USA). Without consent no analytics cookies are set. You can change your choice at any time via “Cookie Preferences” in the footer.";
+    var prefs = document.getElementById("open_preferences_center");
+    if (prefs && de) prefs.textContent = "Cookie-Einstellungen";
+  }, 0);
+});
+</script>
+<script>
+// Language selection for pages that exist as /<page> (English) and /de/<page> (German).
+// - Clicking a link in .lang-switch stores the choice in localStorage.
+// - On arrival from outside the site, the stored choice wins; without one,
+//   German-language browsers are sent from the English page to the German one.
+// - Internal navigation never redirects.
+(function () {
+  var KEY = "lang";
+  var store = {
+    get: function () { try { return localStorage.getItem(KEY); } catch (e) { return null; } },
+    set: function (v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  };
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest(".lang-switch a");
+    if (a) store.set(a.pathname.indexOf("/de/") === 0 ? "de" : "en");
+  });
+
+  var path = location.pathname;
+  var current = path.indexOf("/de/") === 0 ? "de" : "en";
+  var internal = document.referrer.indexOf(location.origin + "/") === 0;
+  if (internal) return;
+
+  var browser = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+  var wanted = store.get() || (browser.toLowerCase().indexOf("de") === 0 ? "de" : current);
+  if (wanted === current) return;
+
+  var target = wanted === "de" ? "/de" + path : path.slice(3);
+  location.replace(target + location.search + location.hash);
+})();
+
+// The navbar is shared by both languages: on German pages, point its links to
+// the German versions and translate their labels.
+if (location.pathname.indexOf("/de/") === 0) {
+  document.addEventListener("DOMContentLoaded", function () {
+    var map = { "/shop/": ["/de/shop/", null], "/shop/index.html": ["/de/shop/", null], "/locations/": ["/de/locations/", "Standorte"], "/locations/index.html": ["/de/locations/", "Standorte"] };
+    document.querySelectorAll("#navbarCollapse a.nav-link").forEach(function (a) {
+      var u = new URL(a.href, location.href);
+      var m = map[u.pathname];
+      if (!m) return;
+      a.href = m[0] + u.hash;
+      var t = a.querySelector(".menu-text");
+      if (m[1] && t) t.textContent = m[1];
+    });
+  });
+}
+</script>
+<link rel="alternate" hreflang="en" href="https://happel.ai/shop/">
+<link rel="alternate" hreflang="de" href="https://happel.ai/de/shop/">
+<link rel="alternate" hreflang="x-default" href="https://happel.ai/shop/">
+<link rel="canonical" href="https://happel.ai/de/shop/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+
+
+<link rel="stylesheet" href="../../styles.css">
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-md " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/happel-ai-logo.svg" alt="happel.ai" class="navbar-logo light-content">
+    <img src="../../assets/happel-ai-logo-dark.svg" alt="happel.ai" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../shop/index.html#services"> <i class="bi bi-shop" role="img">
+</i> 
+<span class="menu-text">Shop</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../locations/index.html"> <i class="bi bi-geo-alt" role="img">
+</i> 
+<span class="menu-text">Locations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> <i class="bi bi-journal-text" role="img">
+</i> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/Quoteme/" title="" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/lucahappel/" title="" class="quarto-navigation-tool px-1" aria-label="Linkedin"><i class="bi bi-linkedin"></i></a>
+    <a href="https://www.instagram.com/lucaleonhappel/" title="" class="quarto-navigation-tool px-1" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+    <a href="https://www.reddit.com/user/lalelul" title="" class="quarto-navigation-tool px-1" aria-label="Reddit"><i class="bi bi-reddit"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Dunkelmodus umschalten"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<div class="storefront column-screen">
+<div class="lang-switch">
+<p><a href="../../shop/">English</a> · Deutsch</p>
+</div>
+<!-- shop:start -->
+<h1 class="visually-hidden">Shop</h1>
+<nav id="services" class="shop-nav" aria-label="Shop-Kategorien"><a href="#cat-data-ai" class="shop-pill"><i class="bi bi-graph-up"></i> Data Science &amp; KI</a><a href="#cat-audits" class="shop-pill"><i class="bi bi-shield-lock"></i> Hochsicherheits-Audits</a><a href="#cat-onsite" class="shop-pill"><i class="bi bi-geo-alt"></i> Vor-Ort-Sicherheit</a><a href="#cat-reverse-engineering" class="shop-pill"><i class="bi bi-cpu"></i> Reverse Engineering</a><a href="#cat-development" class="shop-pill"><i class="bi bi-code-slash"></i> App- &amp; Softwareentwicklung</a><a href="#cat-tutoring" class="shop-pill"><i class="bi bi-mortarboard"></i> Nachhilfe: Mathematik &amp; Informatik</a></nav>
+<div class="shop-featured">
+<div class="shop-featured-body">
+<p class="shop-eyebrow">Hier starten</p>
+<h3 class="anchored"><i class="bi bi-telephone"></i> Kostenloses 30-Minuten-Gespräch</h3>
+<p>Schildern Sie Ihr Problem, erhalten Sie eine ehrliche Einschätzung und ein schriftliches Festpreisangebot. NDA auf Wunsch.</p>
+</div>
+<div class="shop-item-foot">
+<span class="shop-price">Kostenlos<small>30 min</small></span>
+<a href="#contact" class="btn btn-primary btn-lg shop-buy" data-product="Kostenloses 30-Minuten-Gespräch"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</div>
+<p class="shop-notice small text-muted">„Jetzt kaufen“ und „Jetzt buchen“ öffnen unten den Buchungskalender von Cal.com (Datenübermittlung an Cal.com, siehe <a href="../../datenschutz.html">Datenschutz</a>).</p>
+<h2 id="cat-data-ai" class="anchored shop-cat"><i class="bi bi-graph-up"></i> Data Science &amp; KI</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-statistics">
+<div class="shop-item-icon"><i class="bi bi-bar-chart-line"></i></div>
+<h3 class="anchored">Statistische Analyse &amp; Modellierung</h3>
+<p class="shop-item-desc">Analysen und Modelle, die Sie vor Gutachtern, Behörden oder dem Vorstand begründen können.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Studiendesign &amp; Fallzahlplanung</li><li><i class="bi bi-check2"></i> Bericht mit reproduzierbarem Code</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Statistische Analyse &amp; Modellierung"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-monitoring">
+<div class="shop-item-icon"><i class="bi bi-activity"></i></div>
+<h3 class="anchored">Monitoring, Anomalieerkennung &amp; Vorhersage</h3>
+<p class="shop-item-desc">ML-Modelle, die Ihre Daten überwachen und früh Alarm schlagen, wie monti bei Herz- und Onkologiepatienten.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Modellentwicklung &amp; Validierung</li><li><i class="bi bi-check2"></i> Integration in Ihre Systeme</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Monitoring, Anomalieerkennung &amp; Vorhersage"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-rag-llm">
+<div class="shop-item-icon"><i class="bi bi-hdd-network"></i></div>
+<h3 class="anchored">On-Premises-RAG &amp; LLM-Integration</h3>
+<p class="shop-item-desc">KI-Assistenten und Dokumentensuche auf Ihrer eigenen Hardware. Keine Daten verlassen Ihr Netzwerk.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Einrichtung auf Ihrer Infrastruktur</li><li><i class="bi bi-check2"></i> Zugriffskontrolle &amp; Audit-Logging</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="On-Premises-RAG &amp; LLM-Integration"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-pipelines">
+<div class="shop-item-icon"><i class="bi bi-diagram-3"></i></div>
+<h3 class="anchored">Reproduzierbare Pipelines &amp; Berichte</h3>
+<p class="shop-item-desc">Datenpipelines und Berichte, die Ihre Fachleute lesen, nachvollziehen und erneut ausführen können.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Versionierte, getestete Pipelines</li><li><i class="bi bi-check2"></i> Automatisierte Berichte</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Reproduzierbare Pipelines &amp; Berichte"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+</div>
+<h2 id="cat-audits" class="anchored shop-cat"><i class="bi bi-shield-lock"></i> Hochsicherheits-Audits</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-security-audit">
+<div class="shop-item-icon"><i class="bi bi-shield-check"></i></div>
+<h3 class="anchored">Sicherheitsaudit</h3>
+<p class="shop-item-desc">Unabhängiges Audit medizinischer, industrieller oder KRITIS-Software nach MDR, IEC 62443, NIS2 oder FDA-Leitlinien.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Priorisierter Befundbericht</li><li><i class="bi bi-check2"></i> Lösungsempfehlungen &amp; Nachtest</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Sicherheitsaudit"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
+</div>
+</article>
+<article class="shop-item" id="p-pentest">
+<div class="shop-item-icon"><i class="bi bi-bug"></i></div>
+<h3 class="anchored">Penetrationstest</h3>
+<p class="shop-item-desc">Web-Apps, APIs, Desktop-Software und Geräte, getestet wie von einem Angreifer, mit schriftlich vereinbartem Umfang und Freigabe.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Befunde mit Reproduktionsschritten</li><li><i class="bi bi-check2"></i> Management-Zusammenfassung</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Penetrationstest"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
+</div>
+</article>
+<article class="shop-item" id="p-threat-model">
+<div class="shop-item-icon"><i class="bi bi-search"></i></div>
+<h3 class="anchored">Bedrohungsanalyse &amp; Code-Review</h3>
+<p class="shop-item-desc">Designfehler finden, bevor Angreifer es tun: Bedrohungsmodelle und zeilengenaues Review für regulierte Umgebungen.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Bedrohungsmodell als Dokument</li><li><i class="bi bi-check2"></i> Review-Kommentare in Ihrem Repository</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Bedrohungsanalyse &amp; Code-Review"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
+</div>
+</article>
+<article class="shop-item" id="p-formal-verification">
+<div class="shop-item-icon"><i class="bi bi-patch-check"></i></div>
+<h3 class="anchored">Formale Verifikation (Lean 4)</h3>
+<p class="shop-item-desc">Mathematischer Beweis, dass kritische Komponenten bezogen auf ihre Spezifikation korrekt und sicher sind, nicht nur getestet.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Formale Spezifikation</li><li><i class="bi bi-check2"></i> Maschinell geprüfte Beweise</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Formale Verifikation (Lean 4)"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+</div>
+<h2 id="cat-onsite" class="anchored shop-cat"><i class="bi bi-geo-alt"></i> Vor-Ort-Sicherheit</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-datacenter-assessment">
+<div class="shop-item-icon"><i class="bi bi-hdd-rack"></i></div>
+<h3 class="anchored">Sicherheitsbewertung Rechenzentrum</h3>
+<p class="shop-item-desc">Vor-Ort-Prüfung Ihres Rechenzentrums oder Serverraums: physischer Zutritt, Racks, Netzsegmentierung, Management-Schnittstellen (iLO, iDRAC, IPMI) und Backup-Fähigkeit, orientiert an ISO 27001, EN 50600 oder BSI IT-Grundschutz.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Begehung &amp; technische Tests</li><li><i class="bi bi-check2"></i> Priorisierter Befundbericht</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Sicherheitsbewertung Rechenzentrum"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
+</div>
+</article>
+<article class="shop-item" id="p-ai-server-setup">
+<div class="shop-item-icon"><i class="bi bi-gpu-card"></i></div>
+<h3 class="anchored">Einrichtung On-Premises-KI-Server</h3>
+<p class="shop-item-desc">GPU-Server für lokale LLMs und RAG in Ihrem eigenen Serverraum installiert, gehärtet und in Betrieb genommen. Keine Daten verlassen Ihr Gebäude.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Hardwareauswahl &amp; Installation</li><li><i class="bi bi-check2"></i> Härtung, Zugriffskontrolle &amp; Monitoring</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Einrichtung On-Premises-KI-Server"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-physical-pentest">
+<div class="shop-item-icon"><i class="bi bi-door-closed"></i></div>
+<h3 class="anchored">Physischer Penetrationstest</h3>
+<p class="shop-item-desc">Kommt ein Fremder hinein? Türen, Ausweise und RFID-Klonen, Tailgating, ungesperrte Bildschirme und offene Netzwerkports, vor Ort getestet mit schriftlicher Freigabe.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Vereinbarte Rules of Engagement</li><li><i class="bi bi-check2"></i> Bericht mit Fotos &amp; Maßnahmen</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Physischer Penetrationstest"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
+</div>
+</article>
+<article class="shop-item" id="p-internal-pentest">
+<div class="shop-item-icon"><i class="bi bi-diagram-2"></i></div>
+<h3 class="anchored">Interner Netzwerk-Pentest (Assumed Breach)</h3>
+<p class="shop-item-desc">Im Büronetz angeschlossen wie ein Angreifer, der schon drin ist: Wie weit kommt er, bis hin zur Übernahme des Active Directory?</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Angriffspfade &amp; Rechteausweitung</li><li><i class="bi bi-check2"></i> Konkrete Härtungsmaßnahmen</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Interner Netzwerk-Pentest (Assumed Breach)"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
+</div>
+</article>
+<article class="shop-item" id="p-hospital-network">
+<div class="shop-item-icon"><i class="bi bi-hospital"></i></div>
+<h3 class="anchored">Netzwerkprüfung Klinik &amp; Medizingeräte</h3>
+<p class="shop-item-desc">Medizingeräte auf den Stationen erfassen und prüfen sowie die Trennung des Medizingerätenetzes bewerten, mit minimaler Auswirkung auf die Patientenversorgung.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Geräteinventar &amp; Angriffsfläche</li><li><i class="bi bi-check2"></i> Prüfung der Segmentierung</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Netzwerkprüfung Klinik &amp; Medizingeräte"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
+</div>
+</article>
+</div>
+<h2 id="cat-reverse-engineering" class="anchored shop-cat"><i class="bi bi-cpu"></i> Reverse Engineering</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-firmware-analysis">
+<div class="shop-item-icon"><i class="bi bi-cpu"></i></div>
+<h3 class="anchored">Binary- &amp; Firmware-Analyse</h3>
+<p class="shop-item-desc">Herausfinden, was kompilierte Software und Geräte-Firmware wirklich tun, ohne Quellcode.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Bericht zu Architektur &amp; Verhalten</li><li><i class="bi bi-check2"></i> Sicherheitsbefunde</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Binary- &amp; Firmware-Analyse"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
+</div>
+</article>
+<article class="shop-item" id="p-protocol-re">
+<div class="shop-item-icon"><i class="bi bi-broadcast"></i></div>
+<h3 class="anchored">Protokoll-Reverse-Engineering</h3>
+<p class="shop-item-desc">Undokumentierte Netzwerk-, Seriell- und Funkprotokolle dokumentiert, damit Sie integrieren, migrieren oder absichern können.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Protokollspezifikation</li><li><i class="bi bi-check2"></i> Beispiel-Client oder Parser</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Protokoll-Reverse-Engineering"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-vuln-research">
+<div class="shop-item-icon"><i class="bi bi-incognito"></i></div>
+<h3 class="anchored">Schwachstellenforschung &amp; Meldung</h3>
+<p class="shop-item-desc">Gründliche Schwachstellenforschung mit koordinierter, verantwortungsvoller Meldung an den Hersteller.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Proof of Concept</li><li><i class="bi bi-check2"></i> Abwicklung der Meldung</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Schwachstellenforschung &amp; Meldung"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+</div>
+<h2 id="cat-development" class="anchored shop-cat"><i class="bi bi-code-slash"></i> App- &amp; Softwareentwicklung</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-apps">
+<div class="shop-item-icon"><i class="bi bi-phone"></i></div>
+<h3 class="anchored">Web-, Desktop- &amp; Mobile-Apps</h3>
+<p class="shop-item-desc">Vom Prototyp zum Produkt, mit Code ab Tag eins in Ihrem Repository.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Design, Umsetzung &amp; Tests</li><li><i class="bi bi-check2"></i> Deployment &amp; Server-Setup</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Web-, Desktop- &amp; Mobile-Apps"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-backend">
+<div class="shop-item-icon"><i class="bi bi-server"></i></div>
+<h3 class="anchored">Backend- &amp; Systemsoftware</h3>
+<p class="shop-item-desc">Backends, Services und Systemcode in Rust, Python und C/C++, sicher by Design.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> APIs &amp; Datenbanken</li><li><i class="bi bi-check2"></i> Doku &amp; Übergabe</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Backend- &amp; Systemsoftware"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-embedded">
+<div class="shop-item-icon"><i class="bi bi-motherboard"></i></div>
+<h3 class="anchored">Embedded-Firmware</h3>
+<p class="shop-item-desc">Firmware für Mikrocontroller wie den ESP32 in speichersicherem Rust oder C/C++, nach Hochsicherheitsstandards.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Vom Steckbrett zum fertigen Gerät</li><li><i class="bi bi-check2"></i> Optional formale Verifikation</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Embedded-Firmware"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-clinical-frontends">
+<div class="shop-item-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+<h3 class="anchored">Klinische Frontends</h3>
+<p class="shop-item-desc">Klinische Anwendungen mit rollenbasierter Zugriffskontrolle und Audit-Trail, gebaut für MDR-Umgebungen.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Bedienbar für klinisches Personal</li><li><i class="bi bi-check2"></i> DSGVO-konforme Datenverarbeitung</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Klinische Frontends"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-maintenance">
+<div class="shop-item-icon"><i class="bi bi-tools"></i></div>
+<h3 class="anchored">Wartung &amp; Support</h3>
+<p class="shop-item-desc">Laufender Betrieb, Sicherheitsupdates und Support für von uns gelieferte Software.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Sicherheitsupdates</li><li><i class="bi bi-check2"></i> Konditionen vorab vereinbart</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Monatliche Gebühr<small>vorab vereinbart</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Wartung &amp; Support"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+</div>
+<h2 id="cat-tutoring" class="anchored shop-cat"><i class="bi bi-mortarboard"></i> Nachhilfe: Mathematik &amp; Informatik</h2>
+<div class="shop-grid">
+<article class="shop-item" id="p-tutoring-school">
+<div class="shop-item-icon"><i class="bi bi-backpack"></i></div>
+<h3 class="anchored">Nachhilfe für Schüler (Gymnasium, Berufsschule)</h3>
+<p class="shop-item-desc">Mathematik und Informatik für Schüler an Gymnasium, Berufsschule und mehr, im eigenen Tempo.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Aufarbeitung von Grundlagen</li><li><i class="bi bi-check2"></i> Abiturvorbereitung</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Stundensatz<small>nach Absprache</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Nachhilfe für Schüler (Gymnasium, Berufsschule)"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-tutoring-university">
+<div class="shop-item-icon"><i class="bi bi-mortarboard"></i></div>
+<h3 class="anchored">Nachhilfe für Studierende</h3>
+<p class="shop-item-desc">Lineare Algebra, Analysis, Algebra, algebraische Geometrie, Topologie, Typentheorie, Stochastik / Wahrscheinlichkeitstheorie, Betriebssysteme, funktionale &amp; logische Programmierung, Machine Learning u. v. m.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Gemeinsames Durchrechnen von Übungsaufgaben</li><li><i class="bi bi-check2"></i> Verständliche Aufarbeitung komplexer Theorie</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Stundensatz<small>nach Absprache</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Nachhilfe für Studierende"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-tutoring-crash-course">
+<div class="shop-item-icon"><i class="bi bi-lightning-charge"></i></div>
+<h3 class="anchored">Klausur-Crashkurs</h3>
+<p class="shop-item-desc">Die Prüfung steht kurz bevor? Ein intensives Format, das sich auf das konzentriert, was zum sicheren Bestehen nötig ist.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Zielgerichtete Klausurvorbereitung</li><li><i class="bi bi-check2"></i> Training mit prüfungsnahen Aufgaben</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Stundensatz<small>nach Absprache</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Klausur-Crashkurs"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+<article class="shop-item" id="p-tutoring-long-term">
+<div class="shop-item-icon"><i class="bi bi-calculator"></i></div>
+<h3 class="anchored">Langfristige Prüfungsvorbereitung</h3>
+<p class="shop-item-desc">Kontinuierliche Vorbereitung über Semester oder Schuljahr für Bestnoten, angepasst an Tempo und Ziele.</p>
+<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Regelmäßige Termine</li><li><i class="bi bi-check2"></i> Flexibel nach Zielen</li></ul>
+<div class="shop-item-foot">
+<span class="shop-price">Stundensatz<small>nach Absprache</small></span>
+<a href="#contact" class="btn btn-primary shop-buy" data-product="Langfristige Prüfungsvorbereitung"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
+</div>
+</article>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "@id": "https://happel.ai/de/shop/#catalog",
+  "name": "Shop",
+  "url": "https://happel.ai/de/shop/",
+  "inLanguage": "de",
+  "itemListElement": [
+    {
+      "@type": "OfferCatalog",
+      "name": "Data Science & KI",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-statistics",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Statistische Analyse & Modellierung",
+            "description": "Analysen und Modelle, die Sie vor Gutachtern, Behörden oder dem Vorstand begründen können.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-monitoring",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Monitoring, Anomalieerkennung & Vorhersage",
+            "description": "ML-Modelle, die Ihre Daten überwachen und früh Alarm schlagen, wie monti bei Herz- und Onkologiepatienten.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-rag-llm",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "On-Premises-RAG & LLM-Integration",
+            "description": "KI-Assistenten und Dokumentensuche auf Ihrer eigenen Hardware. Keine Daten verlassen Ihr Netzwerk.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-pipelines",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Reproduzierbare Pipelines & Berichte",
+            "description": "Datenpipelines und Berichte, die Ihre Fachleute lesen, nachvollziehen und erneut ausführen können.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "Hochsicherheits-Audits",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-security-audit",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Sicherheitsaudit",
+            "description": "Unabhängiges Audit medizinischer, industrieller oder KRITIS-Software nach MDR, IEC 62443, NIS2 oder FDA-Leitlinien.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-pentest",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Penetrationstest",
+            "description": "Web-Apps, APIs, Desktop-Software und Geräte, getestet wie von einem Angreifer, mit schriftlich vereinbartem Umfang und Freigabe.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-threat-model",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Bedrohungsanalyse & Code-Review",
+            "description": "Designfehler finden, bevor Angreifer es tun: Bedrohungsmodelle und zeilengenaues Review für regulierte Umgebungen.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-formal-verification",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Formale Verifikation (Lean 4)",
+            "description": "Mathematischer Beweis, dass kritische Komponenten bezogen auf ihre Spezifikation korrekt und sicher sind, nicht nur getestet.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "Vor-Ort-Sicherheit",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-datacenter-assessment",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Sicherheitsbewertung Rechenzentrum",
+            "description": "Vor-Ort-Prüfung Ihres Rechenzentrums oder Serverraums: physischer Zutritt, Racks, Netzsegmentierung, Management-Schnittstellen (iLO, iDRAC, IPMI) und Backup-Fähigkeit, orientiert an ISO 27001, EN 50600 oder BSI IT-Grundschutz.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-ai-server-setup",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Einrichtung On-Premises-KI-Server",
+            "description": "GPU-Server für lokale LLMs und RAG in Ihrem eigenen Serverraum installiert, gehärtet und in Betrieb genommen. Keine Daten verlassen Ihr Gebäude.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-physical-pentest",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Physischer Penetrationstest",
+            "description": "Kommt ein Fremder hinein? Türen, Ausweise und RFID-Klonen, Tailgating, ungesperrte Bildschirme und offene Netzwerkports, vor Ort getestet mit schriftlicher Freigabe.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-internal-pentest",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Interner Netzwerk-Pentest (Assumed Breach)",
+            "description": "Im Büronetz angeschlossen wie ein Angreifer, der schon drin ist: Wie weit kommt er, bis hin zur Übernahme des Active Directory?",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-hospital-network",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Netzwerkprüfung Klinik & Medizingeräte",
+            "description": "Medizingeräte auf den Stationen erfassen und prüfen sowie die Trennung des Medizingerätenetzes bewerten, mit minimaler Auswirkung auf die Patientenversorgung.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "Reverse Engineering",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-firmware-analysis",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Binary- & Firmware-Analyse",
+            "description": "Herausfinden, was kompilierte Software und Geräte-Firmware wirklich tun, ohne Quellcode.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-protocol-re",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Protokoll-Reverse-Engineering",
+            "description": "Undokumentierte Netzwerk-, Seriell- und Funkprotokolle dokumentiert, damit Sie integrieren, migrieren oder absichern können.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-vuln-research",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Schwachstellenforschung & Meldung",
+            "description": "Gründliche Schwachstellenforschung mit koordinierter, verantwortungsvoller Meldung an den Hersteller.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "App- & Softwareentwicklung",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-apps",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web-, Desktop- & Mobile-Apps",
+            "description": "Vom Prototyp zum Produkt, mit Code ab Tag eins in Ihrem Repository.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-backend",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Backend- & Systemsoftware",
+            "description": "Backends, Services und Systemcode in Rust, Python und C/C++, sicher by Design.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-embedded",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Embedded-Firmware",
+            "description": "Firmware für Mikrocontroller wie den ESP32 in speichersicherem Rust oder C/C++, nach Hochsicherheitsstandards.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-clinical-frontends",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Klinische Frontends",
+            "description": "Klinische Anwendungen mit rollenbasierter Zugriffskontrolle und Audit-Trail, gebaut für MDR-Umgebungen.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-maintenance",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Wartung & Support",
+            "description": "Laufender Betrieb, Sicherheitsupdates und Support für von uns gelieferte Software.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "name": "Nachhilfe: Mathematik & Informatik",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-tutoring-school",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Nachhilfe für Schüler (Gymnasium, Berufsschule)",
+            "description": "Mathematik und Informatik für Schüler an Gymnasium, Berufsschule und mehr, im eigenen Tempo.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-tutoring-university",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Nachhilfe für Studierende",
+            "description": "Lineare Algebra, Analysis, Algebra, algebraische Geometrie, Topologie, Typentheorie, Stochastik / Wahrscheinlichkeitstheorie, Betriebssysteme, funktionale & logische Programmierung, Machine Learning u. v. m.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-tutoring-crash-course",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Klausur-Crashkurs",
+            "description": "Die Prüfung steht kurz bevor? Ein intensives Format, das sich auf das konzentriert, was zum sicheren Bestehen nötig ist.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://happel.ai/de/shop/#p-tutoring-long-term",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "description": "Preis auf Anfrage"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Langfristige Prüfungsvorbereitung",
+            "description": "Kontinuierliche Vorbereitung über Semester oder Schuljahr für Bestnoten, angepasst an Tempo und Ziele.",
+            "provider": {
+              "@id": "https://happel.ai/#business"
+            },
+            "areaServed": [
+              "Deutschland",
+              "Europa"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<section id="faq" class="level2">
+<h2 class="anchored" data-anchor-id="faq">Häufige Fragen</h2>
+<section id="für-welche-kunden-arbeiten-sie" class="level3">
+<h3 class="anchored" data-anchor-id="für-welche-kunden-arbeiten-sie">Für welche Kunden arbeiten Sie?</h3>
+<p>Für jede Organisation, deren Software sicher, korrekt und vertrauenswürdig sein muss: von Start-ups und Mittelstand bis zu Konzernen, Forschungseinrichtungen und öffentlicher Hand. Typische Kunden kommen aus Gesundheitswesen und Medizintechnik, kritischer Infrastruktur, Industrie und Fertigung, Finanz- und Versicherungswesen sowie Softwarehersteller, die ein unabhängiges Sicherheitsaudit brauchen. Wenn Fehler in Ihrem System teuer sind, sollten wir sprechen.</p>
+</section>
+<section id="arbeiten-sie-für-kliniken" class="level3">
+<h3 class="anchored" data-anchor-id="arbeiten-sie-für-kliniken">Arbeiten Sie für Kliniken?</h3>
+<p>Ja. Zu unseren Referenzen gehört monti, eine KI-gestützte Patientenmonitoring-Plattform, die ich am Universitätsklinikum Düsseldorf entwickelt habe, publiziert im <em>European Heart Journal – Digital Health</em>. Für Kliniken und Universitätskliniken entwickeln wir klinische Data Science und KI, DSGVO-konforme On-Premises-LLM- und RAG-Systeme, klinische Frontends mit Zugriffskontrolle und Audit-Trail, und wir prüfen die Sicherheit klinischer IT.</p>
+</section>
+<section id="arbeiten-sie-für-betreiber-kritischer-infrastruktur-kritis" class="level3">
+<h3 class="anchored" data-anchor-id="arbeiten-sie-für-betreiber-kritischer-infrastruktur-kritis">Arbeiten Sie für Betreiber kritischer Infrastruktur (KRITIS)?</h3>
+<p>Ja. Wir führen Sicherheitsaudits, Penetrationstests und Schwachstellenforschung für Betreiber und Zulieferer in Energie, Wasser, Verkehr, Gesundheit und weiteren KRITIS-Sektoren durch, ausgerichtet an NIS2 und IEC 62443. Zu unseren Referenzen gehört eine schwerwiegende Schwachstelle in geschäftskritischer Software für Umgebungen mit höchsten Sicherheitsanforderungen, gefunden und verantwortungsvoll gemeldet.</p>
+</section>
+<section id="unterstützen-sie-bei-der-entwicklung-von-medizinprodukten" class="level3">
+<h3 class="anchored" data-anchor-id="unterstützen-sie-bei-der-entwicklung-von-medizinprodukten">Unterstützen Sie bei der Entwicklung von Medizinprodukten?</h3>
+<p>Ja. Wir entwickeln seit 2022 MDR-konforme Medizinsoftware und unterstützen Hersteller über den gesamten Lebenszyklus: Softwarearchitektur und Umsetzung, Cybersecurity-Risikoanalyse und Bedrohungsmodellierung, Sicherheitstests, Reverse Engineering bestehender Firmware und Unterlagen für Ihre technische Dokumentation nach MDR oder FDA.</p>
+</section>
+<section id="können-sie-für-embedded-systeme-entwickeln" class="level3">
+<h3 class="anchored" data-anchor-id="können-sie-für-embedded-systeme-entwickeln">Können Sie für Embedded-Systeme entwickeln?</h3>
+<p>Ja! Wir schreiben Firmware und Embedded-Software in Rust und C/C++ für Mikrocontroller wie den ESP32. Ein Beispiel ist meine <a href="../../posts/corne-psp/">Corne-Ergo-Tastatur mit zwei PSP-Joysticks als doppelter Trackpoint</a>: Ich habe sie entworfen, verdrahtet, gebaut und die Firmware von Grund auf in Rust geschrieben (<a href="https://github.com/Quoteme/corne-rmk">RMK</a>), weil keine bestehende Firmware zwei Joysticks unterstützte. Sie funktioniert kabelgebunden und kabellos. Bei sicherheitskritischen Geräten halten wir Embedded-Code auf Hochsicherheitsniveau: speichersicheres Rust, Bedrohungsmodellierung, Security-Reviews und formale Verifikation in Lean 4, sodass kritische Komponenten bezogen auf ihre Spezifikation beweisbar korrekt, sicher und fehlerfrei sind, nicht nur getestet.</p>
+</section>
+<section id="bieten-sie-nachhilfe-in-mathematik-und-informatik-an" class="level3">
+<h3 class="anchored" data-anchor-id="bieten-sie-nachhilfe-in-mathematik-und-informatik-an">Bieten Sie Nachhilfe in Mathematik und Informatik an?</h3>
+<p>Ja. Die Nachhilfe leite ich selbst, mit M.Sc. Mathematik, B.Sc. Mathematik und B.Sc. Informatik. Wir begleiten Schüler von Gymnasien, Berufsschulen und mehr (Aufarbeitung von Grundlagen, Abiturvorbereitung) sowie Studierende in Linearer Algebra, Analysis, Algebra, algebraischer Geometrie, Topologie, Typentheorie, Stochastik / Wahrscheinlichkeitstheorie, Betriebssystemen, funktionaler und logischer Programmierung, Machine Learning u. v. m. Ob intensiver Crashkurs kurz vor der Prüfung oder langfristige Vorbereitung auf Bestnoten: Wir passen uns flexibel an Tempo und Ziele an, mit gemeinsamem Durchrechnen von Übungsaufgaben, verständlicher Aufarbeitung komplexer Theorie und zielgerichteter Klausur- und Prüfungsvorbereitung.</p>
+</section>
+<section id="können-sie-mit-sensiblen-patienten--oder-unternehmensdaten-arbeiten" class="level3">
+<h3 class="anchored" data-anchor-id="können-sie-mit-sensiblen-patienten--oder-unternehmensdaten-arbeiten">Können Sie mit sensiblen Patienten- oder Unternehmensdaten arbeiten?</h3>
+<p>Ja. Wir planen Datenminimierung, Zugriffskontrolle und Auditierbarkeit von Anfang an und können KI-Systeme wie RAG und LLMs on-premises betreiben, sodass sensible Daten Ihr Netzwerk nicht verlassen. Vor der Projektbesprechung ist ein NDA möglich.</p>
+</section>
+<section id="bieten-sie-penetrationstests-an" class="level3">
+<h3 class="anchored" data-anchor-id="bieten-sie-penetrationstests-an">Bieten Sie Penetrationstests an?</h3>
+<p>Ja. Wir testen Web-Apps, APIs, Desktop-Software, Firmware und Geräte so, wie es ein Angreifer tun würde, auf Basis eines schriftlich vereinbarten Umfangs und einer Freigabe. Sie erhalten priorisierte Befunde mit Reproduktionsschritten und konkreten Lösungen; Schwachstellen in Fremdprodukten werden koordiniert und verantwortungsvoll gemeldet.</p>
+</section>
+<section id="übernehmen-sie-auch-kleine-klar-abgegrenzte-projekte" class="level3">
+<h3 class="anchored" data-anchor-id="übernehmen-sie-auch-kleine-klar-abgegrenzte-projekte">Übernehmen Sie auch kleine, klar abgegrenzte Projekte?</h3>
+<p>Ja. Ein Auftrag kann mit einem Sicherheitsaudit, einer Machbarkeitsanalyse, einem Prototypen oder einer klar abgegrenzten Entwicklungsaufgabe beginnen. Nach dem kostenlosen Gespräch erhalten Sie ein schriftliches Angebot mit Umfang, Zeitplan und Preis.</p>
+</section>
+<section id="arbeiten-sie-remote-oder-vor-ort" class="level3">
+<h3 class="anchored" data-anchor-id="arbeiten-sie-remote-oder-vor-ort">Arbeiten Sie remote oder vor Ort?</h3>
+<p>Beides. Die meisten Aufträge können wir deutschland- und europaweit remote umsetzen. Einsätze vor Ort sind ebenfalls möglich; Reise- und Vor-Ort-Kosten werden abhängig von Standort und Dauer des Auftrags separat angeboten.</p>
+</section>
+<section id="was-wird-konkret-geliefert" class="level3">
+<h3 class="anchored" data-anchor-id="was-wird-konkret-geliefert">Was wird konkret geliefert?</h3>
+<p>Je nach Auftrag: umsetzbare Auditbefunde, produktionsreifer Code in Ihrem Repository, reproduzierbare Analysen, Tests, Dokumentation und eine Übergabe, mit der Ihr Team eigenständig weiterarbeiten kann. Wir liefern auf Wunsch auch vollständige Anwendungen inklusive Backend, Deployment und Server-Setup. Für laufenden Betrieb, Updates oder Support können Wartungskosten anfallen; diese werden vorab vereinbart.</p>
+</section>
+</section>
+<section id="locations" class="level2">
+<h2 class="anchored" data-anchor-id="locations">Standorte</h2>
+<p>Sitz in Düsseldorf, vor Ort im Rhein-Ruhr-Gebiet, in den Niederlanden und Belgien, EU-weit remote oder vor Ort.</p>
+<div class="loc-teaser">
+<p><span>Düsseldorf</span> <span>Köln</span> <span>Mönchengladbach</span> <span>Krefeld</span> <span>Viersen</span> <span>Den Haag</span> <span>Amsterdam</span> <span>Rotterdam</span> <span>Brüssel</span> <span>Berlin</span> <span>München</span> <span>Paris</span> <span>Wien</span> <span>Kopenhagen</span></p>
+</div>
+<p><a href="../../de/locations/" class="btn btn-outline-primary"><i class="bi-geo-alt " style="" role="img" aria-hidden="true"></i> Alle Standorte &amp; Karte</a></p>
+</section>
+<section id="process" class="level2">
+<h2 class="anchored" data-anchor-id="process">So läuft es ab</h2>
+<div class="grid process-grid">
+<div class="g-col-6 g-col-md-3 process-step">
+<p><strong>1. Gespräch</strong><br>30 Minuten, kostenlos, Sie schildern das Problem.</p>
+</div>
+<div class="g-col-6 g-col-md-3 process-step">
+<p><strong>2. Festpreis</strong><br>Umfang, Zeitplan, Preis. NDA auf Wunsch.</p>
+</div>
+<div class="g-col-6 g-col-md-3 process-step">
+<p><strong>3. Umsetzung</strong><br>Code ab Tag eins in Ihrem Repo.</p>
+</div>
+<div class="g-col-6 g-col-md-3 process-step">
+<p><strong>4. Übergabe</strong><br>Doku, Tests, Einführung.</p>
+</div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "de",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Für welche Kunden arbeiten Sie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Für jede Organisation, deren Software sicher, korrekt und vertrauenswürdig sein muss: von Start-ups und Mittelstand bis zu Konzernen, Forschungseinrichtungen und öffentlicher Hand. Typische Kunden kommen aus Gesundheitswesen und Medizintechnik, kritischer Infrastruktur, Industrie und Fertigung, Finanz- und Versicherungswesen sowie Softwarehersteller, die ein unabhängiges Sicherheitsaudit brauchen. Wenn Fehler in Ihrem System teuer sind, sollten wir sprechen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Arbeiten Sie für Kliniken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Zu unseren Referenzen gehört monti, eine KI-gestützte Patientenmonitoring-Plattform, die ich am Universitätsklinikum Düsseldorf entwickelt habe, publiziert im European Heart Journal – Digital Health. Für Kliniken und Universitätskliniken entwickeln wir klinische Data Science und KI, DSGVO-konforme On-Premises-LLM- und RAG-Systeme, klinische Frontends mit Zugriffskontrolle und Audit-Trail, und wir prüfen die Sicherheit klinischer IT."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Arbeiten Sie für Betreiber kritischer Infrastruktur (KRITIS)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Wir führen Sicherheitsaudits, Penetrationstests und Schwachstellenforschung für Betreiber und Zulieferer in Energie, Wasser, Verkehr, Gesundheit und weiteren KRITIS-Sektoren durch, ausgerichtet an NIS2 und IEC 62443. Zu unseren Referenzen gehört eine schwerwiegende Schwachstelle in geschäftskritischer Software für Umgebungen mit höchsten Sicherheitsanforderungen, gefunden und verantwortungsvoll gemeldet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Unterstützen Sie bei der Entwicklung von Medizinprodukten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Wir entwickeln seit 2022 MDR-konforme Medizinsoftware und unterstützen Hersteller über den gesamten Lebenszyklus: Softwarearchitektur und Umsetzung, Cybersecurity-Risikoanalyse und Bedrohungsmodellierung, Sicherheitstests, Reverse Engineering bestehender Firmware und Unterlagen für Ihre technische Dokumentation nach MDR oder FDA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Können Sie für Embedded-Systeme entwickeln?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja! Wir schreiben Firmware und Embedded-Software in Rust und C/C++ für Mikrocontroller wie den ESP32. Ein Beispiel ist meine Corne-Ergo-Tastatur mit zwei PSP-Joysticks als doppelter Trackpoint: Ich habe sie entworfen, verdrahtet, gebaut und die Firmware von Grund auf in Rust geschrieben (RMK), weil keine bestehende Firmware zwei Joysticks unterstützte. Sie funktioniert kabelgebunden und kabellos. Bei sicherheitskritischen Geräten halten wir Embedded-Code auf Hochsicherheitsniveau: speichersicheres Rust, Bedrohungsmodellierung, Security-Reviews und formale Verifikation in Lean 4, sodass kritische Komponenten bezogen auf ihre Spezifikation beweisbar korrekt, sicher und fehlerfrei sind, nicht nur getestet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bieten Sie Nachhilfe in Mathematik und Informatik an?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Die Nachhilfe leite ich selbst, mit M.Sc. Mathematik, B.Sc. Mathematik und B.Sc. Informatik. Wir begleiten Schüler von Gymnasien, Berufsschulen und mehr (Aufarbeitung von Grundlagen, Abiturvorbereitung) sowie Studierende in Linearer Algebra, Analysis, Algebra, algebraischer Geometrie, Topologie, Typentheorie, Stochastik / Wahrscheinlichkeitstheorie, Betriebssystemen, funktionaler und logischer Programmierung, Machine Learning u. v. m. Ob intensiver Crashkurs kurz vor der Prüfung oder langfristige Vorbereitung auf Bestnoten: Wir passen uns flexibel an Tempo und Ziele an, mit gemeinsamem Durchrechnen von Übungsaufgaben, verständlicher Aufarbeitung komplexer Theorie und zielgerichteter Klausur- und Prüfungsvorbereitung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Können Sie mit sensiblen Patienten- oder Unternehmensdaten arbeiten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Wir planen Datenminimierung, Zugriffskontrolle und Auditierbarkeit von Anfang an und können KI-Systeme wie RAG und LLMs on-premises betreiben, sodass sensible Daten Ihr Netzwerk nicht verlassen. Vor der Projektbesprechung ist ein NDA möglich."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bieten Sie Penetrationstests an?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Wir testen Web-Apps, APIs, Desktop-Software, Firmware und Geräte so, wie es ein Angreifer tun würde, auf Basis eines schriftlich vereinbarten Umfangs und einer Freigabe. Sie erhalten priorisierte Befunde mit Reproduktionsschritten und konkreten Lösungen; Schwachstellen in Fremdprodukten werden koordiniert und verantwortungsvoll gemeldet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Übernehmen Sie auch kleine, klar abgegrenzte Projekte?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Ein Auftrag kann mit einem Sicherheitsaudit, einer Machbarkeitsanalyse, einem Prototypen oder einer klar abgegrenzten Entwicklungsaufgabe beginnen. Nach dem kostenlosen Gespräch erhalten Sie ein schriftliches Angebot mit Umfang, Zeitplan und Preis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Arbeiten Sie remote oder vor Ort?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beides. Die meisten Aufträge können wir deutschland- und europaweit remote umsetzen. Einsätze vor Ort sind ebenfalls möglich; Reise- und Vor-Ort-Kosten werden abhängig von Standort und Dauer des Auftrags separat angeboten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was wird konkret geliefert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je nach Auftrag: umsetzbare Auditbefunde, produktionsreifer Code in Ihrem Repository, reproduzierbare Analysen, Tests, Dokumentation und eine Übergabe, mit der Ihr Team eigenständig weiterarbeiten kann. Wir liefern auf Wunsch auch vollständige Anwendungen inklusive Backend, Deployment und Server-Setup. Für laufenden Betrieb, Updates oder Support können Wartungskosten anfallen; diese werden vorab vereinbart."
+      }
+    }
+  ]
+}
+</script>
+</section>
+<section id="contact" class="level2">
+<h2 class="anchored" data-anchor-id="contact">Hier starten</h2>
+<div class="contact-box">
+<div class="grid">
+<section id="kostenloses-30-minuten-gespräch-buchen" class="level3 g-col-12 g-col-lg-7">
+<h3 class="anchored" data-anchor-id="kostenloses-30-minuten-gespräch-buchen">Kostenloses 30-Minuten-Gespräch buchen</h3>
+<button id="cal-consent" class="btn btn-primary btn-lg">
+Freie Termine anzeigen
+</button>
+<div class="text-muted small">
+<p>Kalender wird nach Klick von Cal.com geladen (<a href="../../datenschutz.html">Datenschutz</a>) · <a href="https://cal.com/luca-happel-doxgou/consult" target="_blank">in neuem Tab öffnen</a></p>
+</div>
+<!--
+Shared Cal.com embed used by the EN and DE services pages.
+
+The embed script is only loaded after the visitor clicks the consent button
+(GDPR: Cal.com Inc. is a US processor, see datenschutz.qmd). The including
+page supplies the language-specific labels through data attributes on
+`#cal-consent`.
+-->
+<div id="cal-booking"></div>
+<script>
+  (function () {
+    const consent = document.getElementById("cal-consent");
+    const target = document.getElementById("cal-booking");
+    const calLink = "luca-happel-doxgou/consult";
+    if (!consent || !target) return;
+    const de = document.documentElement.lang === "de";
+    let loaded = false;
+    let product = "";
+
+    function loadCal() {
+      if (loaded) return;
+      loaded = true;
+      // Official Cal.com embed snippet (https://cal.com/docs/embed)
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      const dark = document.documentElement.classList.contains("quarto-dark");
+      const config = product ? { notes: (de ? "Interesse an: " : "Interested in: ") + product } : {};
+      Cal("init", { origin: "https://cal.com" });
+      Cal("inline", { elementOrSelector: "#cal-booking", calLink: calLink, layout: "month_view", config: config });
+      Cal("ui", { theme: dark ? "dark" : "light", hideEventTypeDetails: false, layout: "month_view" });
+      consent.hidden = true;
+    }
+
+    consent.addEventListener("click", loadCal);
+
+    // Shop: "Buy now" / "Book now" jump to the calendar, remember the product
+    // (shown above the calendar, prefilled in Cal.com notes and the e-mail subject)
+    // and open the calendar. The shop notice informs about the Cal.com transfer.
+    const selected = document.createElement("p");
+    selected.id = "shop-selected";
+    selected.hidden = true;
+    consent.parentNode.insertBefore(selected, consent);
+
+    document.addEventListener("click", function (e) {
+      const btn = e.target.closest && e.target.closest(".shop-buy");
+      if (!btn) return;
+      e.preventDefault();
+      product = btn.dataset.product || "";
+      selected.innerHTML = "";
+      const label = document.createElement("strong");
+      label.textContent = (de ? "Ausgewählt: " : "Selected: ");
+      selected.append(label, product);
+      selected.hidden = !product;
+      const mail = document.querySelector('#contact a[href^="mailto:"]');
+      if (mail && product) mail.setAttribute("href", mail.getAttribute("href").split("?")[0] + "?subject=" + encodeURIComponent(product));
+      if (history.replaceState) history.replaceState(null, "", "#contact");
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "start" });
+      loadCal();
+    });
+  })();
+</script>
+</section>
+<section id="oder-projekt-per-e-mail-beschreiben" class="level3 g-col-12 g-col-lg-5">
+<h3 class="anchored" data-anchor-id="oder-projekt-per-e-mail-beschreiben">Oder Projekt per E-Mail beschreiben</h3>
+<p><a href="mailto:consulting@happel.ai" class="btn btn-outline-primary btn-lg">consulting@happel.ai</a></p>
+<p>Antwort innerhalb eines Werktags. Streng vertraulich.</p>
+<p><strong>PGP:</strong> <code>0x75A3FE23C6311437</code> · <a href="../../assets/gpg/Consulting at happel.ai consulting%40happel.ai-(0x75A3FE23C6311437)-public_1.asc">öffentlicher Schlüssel</a></p>
+</section>
+</div>
+</div>
+</section>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/happel\.ai\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../impressum.html">
+<p>Impressum</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../datenschutz.html">
+<p>Datenschutz</p>
+</a>
+  </li>  
+</ul>
+    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

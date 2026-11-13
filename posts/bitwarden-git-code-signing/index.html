@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -47,9 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-661eba75172eead0a280336b3e7555f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c87ac9b12bd57b45673855c2bf2188ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,23 +79,36 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TS8KXZ05HZ"></script>
 
-<script type="text/javascript">
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
-</script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":"",
+"website_privacy_policy_url":"/datenschutz.html"
+  ,
+"language":"en"
+  });
+});
+</script> 
+  
 <meta property="og:title" content="Bitwarden for Git Commit Signing – happel.ai">
-<meta property="og:description" content="Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.">
-<meta property="og:image" content="https://avatars2.githubusercontent.com/u/6796009">
+<meta property="og:description" content="Signing Git commits is a crucial practice for ensuring the authenticity and integrity of your code and the work you have done. It allows you to verify…">
+<meta property="og:image" content="https://happel.ai/assets/avatar.jpg">
 <meta property="og:site_name" content="happel.ai">
 <meta name="twitter:title" content="Bitwarden for Git Commit Signing – happel.ai">
-<meta name="twitter:description" content="Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.">
-<meta name="twitter:image" content="https://avatars2.githubusercontent.com/u/6796009">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Signing Git commits is a crucial practice for ensuring the authenticity and integrity of your code and the work you have done. It allows you to verify…">
+<meta name="twitter:image" content="https://happel.ai/assets/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://happel.ai/posts/bitwarden-git-code-signing/">
+<meta name="description" content="Signing Git commits is a crucial practice for ensuring the authenticity and integrity of your code and the work you have done. It allows you to verify…">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Bitwarden for Git Commit Signing", "url": "https://happel.ai/posts/bitwarden-git-code-signing/", "mainEntityOfPage": "https://happel.ai/posts/bitwarden-git-code-signing/", "author": {"@id": "https://happel.ai/#luca", "@type": "Person", "name": "Luca Leon Happel", "url": "https://happel.ai/"}, "publisher": {"@id": "https://happel.ai/#luca", "@type": "Person", "name": "Luca Leon Happel", "url": "https://happel.ai/"}, "inLanguage": "en", "isPartOf": {"@type": "Blog", "@id": "https://happel.ai/blog.html#blog", "name": "happel.ai Blog", "url": "https://happel.ai/blog.html"}, "description": "Signing Git commits is a crucial practice for ensuring the authenticity and integrity of your code and the work you have done. It allows you to verify…", "datePublished": "2026-02-18", "image": "https://happel.ai/assets/avatar.jpg", "keywords": ["cyber security", "encryption", "git", "programming"], "about": [{"@type": "Thing", "name": "cyber security"}, {"@type": "Thing", "name": "encryption"}, {"@type": "Thing", "name": "git"}, {"@type": "Thing", "name": "programming"}]}</script>
 </head><body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -295,6 +310,38 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
     \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
     $$
 </div>
+<!--
+Google Analytics, gated by Quarto's cookie-consent banner (see _quarto.yml).
+Quarto's built-in `google-analytics` option loads gtag.js unconditionally
+(only the config call is gated), which already sends the visitor's IP to
+Google before consent. Here the loader itself runs only after opt-in.
+-->
+<script type="text/plain" cookie-consent="tracking">
+(function () {
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-TS8KXZ05HZ";
+  document.head.appendChild(s);
+})();
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TS8KXZ05HZ');
+</script>
+<script>
+// The stock banner text mentions personalised ads; we only use analytics.
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    var de = document.documentElement.lang === "de";
+    var text = document.querySelector(".cc-nb-text");
+    if (text) text.textContent = de
+      ? "Mit Ihrer Zustimmung nutzen wir Google Analytics, um auszuwerten, wie diese Website genutzt wird. Dabei werden Cookies gesetzt und Daten an Google (ggf. in die USA) übermittelt. Ohne Zustimmung werden keine Analyse-Cookies gesetzt. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ im Fußbereich ändern."
+      : "With your consent we use Google Analytics to measure how this website is used. This sets cookies and transfers data to Google (possibly to the USA). Without consent no analytics cookies are set. You can change your choice at any time via “Cookie Preferences” in the footer.";
+    var prefs = document.getElementById("open_preferences_center");
+    if (prefs && de) prefs.textContent = "Cookie-Einstellungen";
+  }, 0);
+});
+</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -319,9 +366,14 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../service.html#services"> <i class="bi bi-briefcase" role="img">
+    <a class="nav-link" href="../../shop/index.html#services"> <i class="bi bi-shop" role="img">
 </i> 
-<span class="menu-text">Services</span></a>
+<span class="menu-text">Shop</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../locations/index.html"> <i class="bi bi-geo-alt" role="img">
+</i> 
+<span class="menu-text">Locations</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../blog.html"> <i class="bi bi-journal-text" role="img">
@@ -879,7 +931,7 @@ echo "$(git config --get user.email) namespaces=\"git\" &lt;YOUR_PUBLIC_KEY&gt;"
 </a>
   </li>  
 </ul>
-    </div>
+    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

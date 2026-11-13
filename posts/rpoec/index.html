@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -47,9 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-661eba75172eead0a280336b3e7555f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c87ac9b12bd57b45673855c2bf2188ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,27 +79,40 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TS8KXZ05HZ"></script>
 
-<script type="text/javascript">
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
-</script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":"",
+"website_privacy_policy_url":"/datenschutz.html"
+  ,
+"language":"en"
+  });
+});
+</script> 
+  
 <meta property="og:title" content="Rational Points on Elliptic Curves – happel.ai">
-<meta property="og:description" content="Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.">
+<meta property="og:description" content="A presentation I gave in a seminar on elliptic curves, covering the Weierstraß normal form and the group law on elliptic curves.">
 <meta property="og:image" content="https://happel.ai/posts/rpoec/thumbnail.png">
 <meta property="og:site_name" content="happel.ai">
 <meta property="og:image:height" content="590">
 <meta property="og:image:width" content="971">
 <meta name="twitter:title" content="Rational Points on Elliptic Curves – happel.ai">
-<meta name="twitter:description" content="Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.">
+<meta name="twitter:description" content="A presentation I gave in a seminar on elliptic curves, covering the Weierstraß normal form and the group law on elliptic curves.">
 <meta name="twitter:image" content="https://happel.ai/posts/rpoec/thumbnail.png">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:image-height" content="590">
 <meta name="twitter:image-width" content="971">
-<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://happel.ai/posts/rpoec/">
+<meta name="description" content="A presentation I gave in a seminar on elliptic curves, covering the Weierstraß normal form and the group law on elliptic curves.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Rational Points on Elliptic Curves", "url": "https://happel.ai/posts/rpoec/", "mainEntityOfPage": "https://happel.ai/posts/rpoec/", "author": {"@id": "https://happel.ai/#luca", "@type": "Person", "name": "Luca Leon Happel", "url": "https://happel.ai/"}, "publisher": {"@id": "https://happel.ai/#luca", "@type": "Person", "name": "Luca Leon Happel", "url": "https://happel.ai/"}, "inLanguage": "en", "isPartOf": {"@type": "Blog", "@id": "https://happel.ai/blog.html#blog", "name": "happel.ai Blog", "url": "https://happel.ai/blog.html"}, "description": "A presentation I gave in a seminar on elliptic curves, covering the Weierstraß normal form and the group law on elliptic curves.", "datePublished": "2021-05-21", "image": "https://happel.ai/posts/rpoec/thumbnail.png", "keywords": ["mathematics", "algebraic geometry"], "about": [{"@type": "Thing", "name": "mathematics"}, {"@type": "Thing", "name": "algebraic geometry"}]}</script>
 </head><body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -299,6 +314,38 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
     \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
     $$
 </div>
+<!--
+Google Analytics, gated by Quarto's cookie-consent banner (see _quarto.yml).
+Quarto's built-in `google-analytics` option loads gtag.js unconditionally
+(only the config call is gated), which already sends the visitor's IP to
+Google before consent. Here the loader itself runs only after opt-in.
+-->
+<script type="text/plain" cookie-consent="tracking">
+(function () {
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-TS8KXZ05HZ";
+  document.head.appendChild(s);
+})();
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TS8KXZ05HZ');
+</script>
+<script>
+// The stock banner text mentions personalised ads; we only use analytics.
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    var de = document.documentElement.lang === "de";
+    var text = document.querySelector(".cc-nb-text");
+    if (text) text.textContent = de
+      ? "Mit Ihrer Zustimmung nutzen wir Google Analytics, um auszuwerten, wie diese Website genutzt wird. Dabei werden Cookies gesetzt und Daten an Google (ggf. in die USA) übermittelt. Ohne Zustimmung werden keine Analyse-Cookies gesetzt. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ im Fußbereich ändern."
+      : "With your consent we use Google Analytics to measure how this website is used. This sets cookies and transfers data to Google (possibly to the USA). Without consent no analytics cookies are set. You can change your choice at any time via “Cookie Preferences” in the footer.";
+    var prefs = document.getElementById("open_preferences_center");
+    if (prefs && de) prefs.textContent = "Cookie-Einstellungen";
+  }, 0);
+});
+</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -323,9 +370,14 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../service.html#services"> <i class="bi bi-briefcase" role="img">
+    <a class="nav-link" href="../../shop/index.html#services"> <i class="bi bi-shop" role="img">
 </i> 
-<span class="menu-text">Services</span></a>
+<span class="menu-text">Shop</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../locations/index.html"> <i class="bi bi-geo-alt" role="img">
+</i> 
+<span class="menu-text">Locations</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../blog.html"> <i class="bi bi-journal-text" role="img">
@@ -400,7 +452,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 <p><a href="../../rpoec/presentation/">View the presentation</a></p>
 <iframe src="../../rpoec/presentation/" style="width:100%; aspect-ratio: 4 / 3">
 <div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6U2VydmljZXM=">Services</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3NlcnZpY2UucW1kI3NlcnZpY2Vz">/service.qmd#services</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6QmxvZw==">Blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Jsb2cuaHRtbA==">/blog.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL2dpdGh1Yi5jb20vUXVvdGVtZS8=">https://github.com/Quoteme/</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vbHVjYWhhcHBlbC8=">https://www.linkedin.com/in/lucahappel/</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL3d3dy5pbnN0YWdyYW0uY29tL2x1Y2FsZW9uaGFwcGVsLw==">https://www.instagram.com/lucaleonhappel/</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL3d3dy5yZWRkaXQuY29tL3VzZXIvbGFsZWx1bA==">https://www.reddit.com/user/lalelul</span></p>
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6U2hvcA==">Shop</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3Nob3AvaW5kZXgucW1kI3NlcnZpY2Vz">/shop/index.qmd#services</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6TG9jYXRpb25z">Locations</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2xvY2F0aW9ucy9pbmRleC5odG1s">/locations/index.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6QmxvZw==">Blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Jsb2cuaHRtbA==">/blog.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL2dpdGh1Yi5jb20vUXVvdGVtZS8=">https://github.com/Quoteme/</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vbHVjYWhhcHBlbC8=">https://www.linkedin.com/in/lucahappel/</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL3d3dy5pbnN0YWdyYW0uY29tL2x1Y2FsZW9uaGFwcGVsLw==">https://www.instagram.com/lucaleonhappel/</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL3d3dy5yZWRkaXQuY29tL3VzZXIvbGFsZWx1bA==">https://www.reddit.com/user/lalelul</span></p>
 <div class="hidden quarto-markdown-envelope-contents" data-render-id="Zm9vdGVyLWNlbnRlci0vaW1wcmVzc3VtLmh0bWw=">
 <p>Impressum</p>
 </div>
@@ -409,7 +461,7 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Rational Points on Elliptic Curves – happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Rational Points on Elliptic Curves – happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Rational Points on Elliptic Curves – happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlZGVzYw==">Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.</span></p>
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Rational Points on Elliptic Curves – happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Rational Points on Elliptic Curves – happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Rational Points on Elliptic Curves – happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">happel.ai</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Luca Happel builds, audits and hacks high-security systems for regulated industries: security audits, penetration testing, reverse engineering, AI and app development.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Luca Happel builds, audits and hacks high-security systems for regulated industries: security audits, penetration testing, reverse engineering, AI and app development.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlZGVzYw==">Luca Happel builds, audits and hacks high-security systems for regulated industries: security audits, penetration testing, reverse engineering, AI and app development.</span></p>
 </div>
 
 </main> <!-- /main -->

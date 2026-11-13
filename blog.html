@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Luca Happel’s blog on mathematics (algebra, algebraic geometry, topology, type theory, category theory), programming, IT security and AI.">
 
 <title>Blog – happel.ai</title>
 <style>
@@ -36,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -47,9 +50,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-661eba75172eead0a280336b3e7555f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-186443fee0ce56bfb78f10fbae861024.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c87ac9b12bd57b45673855c2bf2188ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,23 +110,34 @@ ul.task-list li input[type="checkbox"] {
     }
   })
   </script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TS8KXZ05HZ"></script>
 
-<script type="text/javascript">
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
-</script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":"",
+"website_privacy_policy_url":"/datenschutz.html"
+  ,
+"language":"en"
+  });
+});
+</script> 
+  
 <link rel="alternate" type="application/rss+xml" title="happel.ai" href="blog.xml" data-external="1"><meta property="og:title" content="Blog – happel.ai">
-<meta property="og:description" content="Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.">
-<meta property="og:image" content="https://avatars2.githubusercontent.com/u/6796009">
+<meta property="og:description" content="Luca Happel’s blog on mathematics (algebra, algebraic geometry, topology, type theory, category theory), programming, IT security and AI.">
+<meta property="og:image" content="https://happel.ai/assets/avatar.jpg">
 <meta property="og:site_name" content="happel.ai">
 <meta name="twitter:title" content="Blog – happel.ai">
-<meta name="twitter:description" content="Website of Luca Happel: data science, AI, high-security software and app development consulting, plus lots of math and computer science.">
-<meta name="twitter:image" content="https://avatars2.githubusercontent.com/u/6796009">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Luca Happel’s blog on mathematics (algebra, algebraic geometry, topology, type theory, category theory), programming, IT security and AI.">
+<meta name="twitter:image" content="https://happel.ai/assets/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://happel.ai/blog.html">
 </head><body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -325,6 +339,38 @@ gtag('config', 'G-TS8KXZ05HZ', { 'anonymize_ip': true});
     \newcommand{\cellFour}{\textcolor{YellowOrange}{4}}
     $$
 </div>
+<!--
+Google Analytics, gated by Quarto's cookie-consent banner (see _quarto.yml).
+Quarto's built-in `google-analytics` option loads gtag.js unconditionally
+(only the config call is gated), which already sends the visitor's IP to
+Google before consent. Here the loader itself runs only after opt-in.
+-->
+<script type="text/plain" cookie-consent="tracking">
+(function () {
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-TS8KXZ05HZ";
+  document.head.appendChild(s);
+})();
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TS8KXZ05HZ');
+</script>
+<script>
+// The stock banner text mentions personalised ads; we only use analytics.
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    var de = document.documentElement.lang === "de";
+    var text = document.querySelector(".cc-nb-text");
+    if (text) text.textContent = de
+      ? "Mit Ihrer Zustimmung nutzen wir Google Analytics, um auszuwerten, wie diese Website genutzt wird. Dabei werden Cookies gesetzt und Daten an Google (ggf. in die USA) übermittelt. Ohne Zustimmung werden keine Analyse-Cookies gesetzt. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ im Fußbereich ändern."
+      : "With your consent we use Google Analytics to measure how this website is used. This sets cookies and transfers data to Google (possibly to the USA). Without consent no analytics cookies are set. You can change your choice at any time via “Cookie Preferences” in the footer.";
+    var prefs = document.getElementById("open_preferences_center");
+    if (prefs && de) prefs.textContent = "Cookie-Einstellungen";
+  }, 0);
+});
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -378,9 +424,14 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./service.html#services"> <i class="bi bi-briefcase" role="img">
+    <a class="nav-link" href="./shop/index.html#services"> <i class="bi bi-shop" role="img">
 </i> 
-<span class="menu-text">Services</span></a>
+<span class="menu-text">Shop</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./locations/index.html"> <i class="bi bi-geo-alt" role="img">
+</i> 
+<span class="menu-text">Locations</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./blog.html" aria-current="page"> <i class="bi bi-journal-text" role="img">
@@ -413,6 +464,11 @@ window.Quarto = {
 <h1 class="title">Blog</h1>
 </div>
 
+<div>
+  <div class="description">
+    Luca Happel’s blog on mathematics (algebra, algebraic geometry, topology, type theory, category theory), programming, IT security and AI.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page">
@@ -591,7 +647,7 @@ May 27, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="QUklMkNSQUclMkNLdWJlcm5ldGVzJTJDU2VjdXJpdHklMkNEZXZPcHMlMkNWZWN0b3IlMjBEYXRhYmFzZXMlMkNFbmdsaXNo" data-listing-date-sort="1773010800000" data-listing-file-modified-sort="1791802099904" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1323">
+<div class="quarto-post image-right" data-index="4" data-categories="QUklMkNSQUclMkNLdWJlcm5ldGVzJTJDU2VjdXJpdHklMkNEZXZPcHMlMkNWZWN0b3IlMjBEYXRhYmFzZXMlMkNFbmdsaXNo" data-listing-date-sort="1773010800000" data-listing-file-modified-sort="1794598592324" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1323">
 <div class="thumbnail"><a href="./posts/rag-in-high-security-environments/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/rag-in-high-security-environments/thumbnail.png" class="thumbnail-image">
@@ -705,7 +761,7 @@ Mar 1, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="YWxnZWJyYSUyQ2dlb21ldHJ5JTJDbWFjaGluZSUyMGxlYXJuaW5nJTJDRW5nbGlzaA==" data-listing-date-sort="1772146800000" data-listing-file-modified-sort="1791802099823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3606">
+<div class="quarto-post image-right" data-index="7" data-categories="YWxnZWJyYSUyQ2dlb21ldHJ5JTJDbWFjaGluZSUyMGxlYXJuaW5nJTJDRW5nbGlzaA==" data-listing-date-sort="1772146800000" data-listing-file-modified-sort="1794598592311" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3606">
 <div class="thumbnail"><a href="./posts/lie-groups-and-algebras/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="assets/globe-sailing-earth.png" alt="Image of a boat sailing on the globe."  class="thumbnail-image card-img"/></p>
@@ -807,7 +863,7 @@ Feb 8, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="YWxnZWJyYWljJTIwdG9wb2xvZ3klMkMzLW1hbmlmb2xkcyUyQ0VuZ2xpc2g=" data-listing-date-sort="1770418800000" data-listing-file-modified-sort="1791802099183" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1808">
+<div class="quarto-post image-right" data-index="10" data-categories="YWxnZWJyYWljJTIwdG9wb2xvZ3klMkMzLW1hbmlmb2xkcyUyQ0VuZ2xpc2g=" data-listing-date-sort="1770418800000" data-listing-file-modified-sort="1794598592078" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1808">
 <div class="thumbnail"><a href="./posts/l2-alexander-torsion-thurston-norm/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/l2-alexander-torsion-thurston-norm/jsj_not_isotopic_boundary_component_not_disjoint.png" class="thumbnail-image">
@@ -827,7 +883,7 @@ Feb 8, 2026
 
 </div>
 <div class="delink listing-description"><a href="./posts/l2-alexander-torsion-thurston-norm/index.html" class="no-external">
-Not finished yet…
+<p>Notes on my master’s thesis topic: how the ℓ²-Alexander torsion of a 3-manifold detects its Thurston norm, following Friedl and Lück (2019).</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1015,7 +1071,7 @@ Sep 27, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="bWF0aCUyQ2FsZ2VicmElMkNEZXV0c2No" data-listing-date-sort="1755381600000" data-listing-file-modified-sort="1791802098883" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
+<div class="quarto-post image-right" data-index="16" data-categories="bWF0aCUyQ2FsZ2VicmElMkNEZXV0c2No" data-listing-date-sort="1755381600000" data-listing-file-modified-sort="1794598592078" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
 <div class="thumbnail"><a href="./posts/affine_lineare_transformationen/index.html" class="no-external">
 
 <img loading="lazy" data-src="./posts/affine_lineare_transformationen/thumbnail.png" class="thumbnail-image">
@@ -1035,7 +1091,7 @@ Sep 27, 2025
 
 </div>
 <div class="delink listing-description"><a href="./posts/affine_lineare_transformationen/index.html" class="no-external">
-<p>Kurze Notizen, wie man affin-lineare Transformationen auf dem <span class="math inline">\(\mathbb{R}^n\)</span> als lineare Transformationen auf dem <span class="math inline">\(\mathbb{R}^{n+1}\)</span> betrachten kann.</p>
+<p>Kurze Notizen: affin-lineare Transformationen auf ℝⁿ als lineare Transformationen auf ℝⁿ⁺¹ bzw. dem projektiven Raum auffassen.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -2212,7 +2268,7 @@ May 20, 2014
 </a>
   </li>  
 </ul>
-    </div>
+    <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

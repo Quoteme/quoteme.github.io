@@ -2,7 +2,7 @@
 <head>
   <title>Redirect</title>
   <script type="text/javascript">
-    var redirects = {"":"../../de/service.html"};
+    var redirects = {"":"../../de/shop/index.html"};
     var hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
     var redirect = redirects[hash] || redirects[""] || "/";
     window.document.title = 'Redirect to  ' +  redirect;
@@ -12,6 +12,8 @@
     redirect = redirect + window.location.search;
     window.location.replace(redirect);
   </script>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://happel.ai/de/shop/">
 </head>
 <body>
 </body>
