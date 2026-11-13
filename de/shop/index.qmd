@@ -284,7 +284,7 @@ format:
 <article class="shop-item" id="p-tutoring-university">
 <div class="shop-item-icon"><i class="bi bi-mortarboard"></i></div>
 <h3>Nachhilfe für Studierende</h3>
-<p class="shop-item-desc">Lineare Algebra, Analysis, Stochastik / Wahrscheinlichkeitstheorie, Betriebssysteme, funktionale &amp; logische Programmierung, Machine Learning u. v. m.</p>
+<p class="shop-item-desc">Lineare Algebra, Analysis, Algebra, algebraische Geometrie, Topologie, Typentheorie, Stochastik / Wahrscheinlichkeitstheorie, Betriebssysteme, funktionale &amp; logische Programmierung, Machine Learning u. v. m.</p>
 <ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Gemeinsames Durchrechnen von Übungsaufgaben</li><li><i class="bi bi-check2"></i> Verständliche Aufarbeitung komplexer Theorie</li></ul>
 <div class="shop-item-foot">
 <span class="shop-price">Stundensatz<small>nach Absprache</small></span>
@@ -851,7 +851,7 @@ format:
           "itemOffered": {
             "@type": "Service",
             "name": "Nachhilfe für Studierende",
-            "description": "Lineare Algebra, Analysis, Stochastik / Wahrscheinlichkeitstheorie, Betriebssysteme, funktionale & logische Programmierung, Machine Learning u. v. m.",
+            "description": "Lineare Algebra, Analysis, Algebra, algebraische Geometrie, Topologie, Typentheorie, Stochastik / Wahrscheinlichkeitstheorie, Betriebssysteme, funktionale & logische Programmierung, Machine Learning u. v. m.",
             "provider": {
               "@id": "https://happel.ai/#business"
             },
@@ -963,7 +963,7 @@ Spezifikation beweisbar korrekt, sicher und fehlerfrei sind, nicht nur getestet.
 
 Ja. Die Nachhilfe leite ich selbst, mit M.Sc. Mathematik, B.Sc. Mathematik und B.Sc.
 Informatik. Wir begleiten Schüler von Gymnasien, Berufsschulen und mehr (Aufarbeitung von
-Grundlagen, Abiturvorbereitung) sowie Studierende in Linearer Algebra, Analysis,
+Grundlagen, Abiturvorbereitung) sowie Studierende in Linearer Algebra, Analysis, Algebra, algebraischer Geometrie, Topologie, Typentheorie,
 Stochastik / Wahrscheinlichkeitstheorie, Betriebssystemen, funktionaler und logischer
 Programmierung, Machine Learning u. v. m. Ob intensiver Crashkurs kurz vor der Prüfung
 oder langfristige Vorbereitung auf Bestnoten: Wir passen uns flexibel an Tempo und Ziele
@@ -1082,7 +1082,7 @@ EU-weit remote oder vor Ort.
       "name": "Bieten Sie Nachhilfe in Mathematik und Informatik an?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Die Nachhilfe leite ich selbst, mit M.Sc. Mathematik, B.Sc. Mathematik und B.Sc. Informatik. Wir begleiten Schüler von Gymnasien, Berufsschulen und mehr (Aufarbeitung von Grundlagen, Abiturvorbereitung) sowie Studierende in Linearer Algebra, Analysis, Stochastik / Wahrscheinlichkeitstheorie, Betriebssystemen, funktionaler und logischer Programmierung, Machine Learning u. v. m. Ob intensiver Crashkurs kurz vor der Prüfung oder langfristige Vorbereitung auf Bestnoten: Wir passen uns flexibel an Tempo und Ziele an, mit gemeinsamem Durchrechnen von Übungsaufgaben, verständlicher Aufarbeitung komplexer Theorie und zielgerichteter Klausur- und Prüfungsvorbereitung."
+        "text": "Ja. Die Nachhilfe leite ich selbst, mit M.Sc. Mathematik, B.Sc. Mathematik und B.Sc. Informatik. Wir begleiten Schüler von Gymnasien, Berufsschulen und mehr (Aufarbeitung von Grundlagen, Abiturvorbereitung) sowie Studierende in Linearer Algebra, Analysis, Algebra, algebraischer Geometrie, Topologie, Typentheorie, Stochastik / Wahrscheinlichkeitstheorie, Betriebssystemen, funktionaler und logischer Programmierung, Machine Learning u. v. m. Ob intensiver Crashkurs kurz vor der Prüfung oder langfristige Vorbereitung auf Bestnoten: Wir passen uns flexibel an Tempo und Ziele an, mit gemeinsamem Durchrechnen von Übungsaufgaben, verständlicher Aufarbeitung komplexer Theorie und zielgerichteter Klausur- und Prüfungsvorbereitung."
       }
     },
     {

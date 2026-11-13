@@ -2,7 +2,7 @@
 title: "KI- & sichere Software-Beratung für regulierte Branchen"
 pagetitle: "Sicherheitsaudits, Pentests & KI | Luca Happel"
 description: "Sicherheitsaudits, Penetrationstests, Reverse Engineering und On-Premises-KI für Kliniken, Medizinproduktehersteller und KRITIS. Luca Happel, Düsseldorf."
-keywords: [Sicherheitsaudit, Penetrationstest, Pentest, Reverse Engineering, Schwachstellenanalyse, Medizinprodukte Cybersecurity, MDR, IEC 62443, NIS2, KRITIS, On-Premises KI, RAG, Data Science, Düsseldorf]
+keywords: [Sicherheitsaudit, Penetrationstest, Pentest, Reverse Engineering, Schwachstellenanalyse, Medizinprodukte Cybersecurity, MDR, IEC 62443, NIS2, KRITIS, On-Premises KI, RAG, Data Science, Düsseldorf, Mathe-Nachhilfe, Algebra, algebraische Geometrie, Topologie, Typentheorie]
 lang: de
 page-layout: full
 title-block-banner: true
@@ -244,6 +244,10 @@ Korrekturmaßnahmen wurden umgesetzt, um das Ökosystem abzusichern.
         "Mathematics",
         "Algebraic topology",
         "Linear algebra",
+        "Algebra",
+        "Algebraic geometry",
+        "Topology",
+        "Type theory",
         "Analysis",
         "Probability theory",
         "Operating systems",
@@ -405,7 +409,7 @@ Korrekturmaßnahmen wurden umgesetzt, um das Ökosystem abzusichern.
             "itemOffered": {
               "@type": "Service",
               "name": "Nachhilfe: Mathematik & Informatik",
-              "description": "Nachhilfe und Prüfungsvorbereitung für Schüler (Gymnasium, Berufsschule, Abitur) und Studierende: Lineare Algebra, Analysis, Stochastik, Betriebssysteme, funktionale und logische Programmierung, Machine Learning.",
+              "description": "Nachhilfe und Prüfungsvorbereitung für Schüler (Gymnasium, Berufsschule, Abitur) und Studierende: Lineare Algebra, Analysis, Algebra, algebraische Geometrie, Topologie, Typentheorie, Stochastik, Betriebssysteme, funktionale und logische Programmierung, Machine Learning.",
               "provider": {
                 "@id": "https://happel.ai/#business"
               }

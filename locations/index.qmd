@@ -1,6 +1,6 @@
 ---
-pagetitle: "Ethical Hacker & Reverse Engineer: Düsseldorf, The Hague, Amsterdam"
-description: "Ethical hacker, penetration tester and reverse engineer in Düsseldorf, Cologne, Mönchengladbach, Krefeld, The Hague, Amsterdam and across the EU. On-site or remote."
+pagetitle: "Ethical Hacker & Pentester: Düsseldorf, Cologne, The Hague"
+description: "Ethical hacker, penetration tester and reverse engineer in Düsseldorf, Cologne, Mönchengladbach, Krefeld, The Hague, Amsterdam and across the EU."
 lang: en
 aliases:
   - /locations.html

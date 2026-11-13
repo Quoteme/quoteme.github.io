@@ -1,5 +1,6 @@
 ---
 title: "Blog"
+description: "Luca Happel's blog on mathematics (algebra, algebraic geometry, topology, type theory, category theory), programming, IT security and AI."
 listing:
   id: blog
   contents: posts

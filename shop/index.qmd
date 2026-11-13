@@ -285,7 +285,7 @@ English · [Deutsch](/de/shop/)
 <article class="shop-item" id="p-tutoring-university">
 <div class="shop-item-icon"><i class="bi bi-mortarboard"></i></div>
 <h3>University tutoring</h3>
-<p class="shop-item-desc">Linear algebra, analysis, probability theory, operating systems, functional &amp; logic programming, machine learning and more.</p>
+<p class="shop-item-desc">Linear algebra, analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional &amp; logic programming, machine learning and more.</p>
 <ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Working through exercise sheets together</li><li><i class="bi bi-check2"></i> Complex theory explained clearly</li></ul>
 <div class="shop-item-foot">
 <span class="shop-price">Hourly rate<small>agreed in advance</small></span>
@@ -852,7 +852,7 @@ English · [Deutsch](/de/shop/)
           "itemOffered": {
             "@type": "Service",
             "name": "University tutoring",
-            "description": "Linear algebra, analysis, probability theory, operating systems, functional & logic programming, machine learning and more.",
+            "description": "Linear algebra, analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional & logic programming, machine learning and more.",
             "provider": {
               "@id": "https://happel.ai/#business"
             },
@@ -963,7 +963,7 @@ specification, not just tested.
 Yes. Tutoring is led by me, with an M.Sc. in Mathematics, a B.Sc. in Mathematics and a
 B.Sc. in Computer Science. We tutor pupils at Gymnasium, vocational school and beyond
 (fundamentals, Abitur preparation) as well as university students in linear algebra,
-analysis, probability theory, operating systems, functional and logic programming,
+analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional and logic programming,
 machine learning and more. Whether you need an intensive crash course right before an
 exam or long-term preparation for top grades, we adapt to your pace and goals: working
 through exercises together, explaining complex theory clearly and preparing you
@@ -1081,7 +1081,7 @@ remote or on-site across the EU.
       "name": "Do you offer tutoring in mathematics and computer science?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Tutoring is led by me, with an M.Sc. in Mathematics, a B.Sc. in Mathematics and a B.Sc. in Computer Science. We tutor pupils at Gymnasium, vocational school and beyond (fundamentals, Abitur preparation) as well as university students in linear algebra, analysis, probability theory, operating systems, functional and logic programming, machine learning and more. Whether you need an intensive crash course right before an exam or long-term preparation for top grades, we adapt to your pace and goals: working through exercises together, explaining complex theory clearly and preparing you specifically for your exam."
+        "text": "Yes. Tutoring is led by me, with an M.Sc. in Mathematics, a B.Sc. in Mathematics and a B.Sc. in Computer Science. We tutor pupils at Gymnasium, vocational school and beyond (fundamentals, Abitur preparation) as well as university students in linear algebra, analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional and logic programming, machine learning and more. Whether you need an intensive crash course right before an exam or long-term preparation for top grades, we adapt to your pace and goals: working through exercises together, explaining complex theory clearly and preparing you specifically for your exam."
       }
     },
     {

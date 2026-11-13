@@ -1,8 +1,8 @@
 ---
 title: "AI & Secure Software Consulting for Regulated Industry"
 pagetitle: "Security Audits, Pentesting & AI | Luca Happel"
-description: "Security audits, penetration testing, reverse engineering and on-premises AI for hospitals, medical-device makers and critical infrastructure. Luca Happel, Düsseldorf."
-keywords: [security audit, penetration testing, reverse engineering, vulnerability research, medical device cybersecurity, MDR, IEC 62443, NIS2, KRITIS, on-premises AI, RAG, data science, Düsseldorf]
+description: "Security audits, penetration testing, reverse engineering and on-premises AI for hospitals, medical-device makers and KRITIS. Luca Happel, Düsseldorf."
+keywords: [security audit, penetration testing, reverse engineering, vulnerability research, medical device cybersecurity, MDR, IEC 62443, NIS2, KRITIS, on-premises AI, RAG, data science, Düsseldorf, math tutoring, algebra, algebraic geometry, topology, type theory]
 lang: en
 page-layout: full
 title-block-banner: true
@@ -242,6 +242,10 @@ implemented to secure the ecosystem.
         "Mathematics",
         "Algebraic topology",
         "Linear algebra",
+        "Algebra",
+        "Algebraic geometry",
+        "Topology",
+        "Type theory",
         "Analysis",
         "Probability theory",
         "Operating systems",
@@ -403,7 +407,7 @@ implemented to secure the ecosystem.
             "itemOffered": {
               "@type": "Service",
               "name": "Tutoring: mathematics & computer science",
-              "description": "Tutoring and exam preparation for pupils (Gymnasium, vocational school, Abitur) and university students: linear algebra, analysis, probability theory, operating systems, functional and logic programming, machine learning.",
+              "description": "Tutoring and exam preparation for pupils (Gymnasium, vocational school, Abitur) and university students: linear algebra, analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional and logic programming, machine learning.",
               "provider": {
                 "@id": "https://happel.ai/#business"
               }

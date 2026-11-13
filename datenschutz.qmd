@@ -1,5 +1,7 @@
 ---
 title: "Datenschutzerklärung"
+description: "Datenschutzerklärung von happel.ai: welche Daten beim Besuch, bei Kontakt und Terminbuchung verarbeitet werden und welche Rechte Sie haben."
+lang: de
 ---
 
 Stand: 13. November 2026

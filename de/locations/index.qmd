@@ -1,5 +1,5 @@
 ---
-pagetitle: "Ethischer Hacker & Reverse Engineer: Düsseldorf, Köln, Den Haag"
+pagetitle: "Ethischer Hacker & Pentester: Düsseldorf, Köln, Den Haag"
 description: "Ethischer Hacker, Penetrationstester und Reverse Engineer in Düsseldorf, Köln, Mönchengladbach, Krefeld, Den Haag, Amsterdam und EU-weit. Vor Ort oder remote."
 lang: de
 aliases:

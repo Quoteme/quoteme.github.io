@@ -7,7 +7,7 @@ Key facts:
 - Co-developed monti, an AI-based clinical patient-monitoring platform at University Hospital Düsseldorf, published in European Heart Journal – Digital Health (DOI 10.1093/ehjdh/ztaf004, 2025).
 - Found and responsibly disclosed a high-severity vulnerability in mission-critical software used in highest-tier security environments (acknowledged by the vendor, March 2026).
 - Has built MDR-compliant medical software since 2022.
-- Degrees: M.Sc. Mathematics, B.Sc. Mathematics, B.Sc. Computer Science. Also offers tutoring (Nachhilfe) in mathematics and computer science for pupils (Gymnasium, vocational school, Abitur preparation) and university students (linear algebra, analysis, probability theory, operating systems, functional & logic programming, machine learning), from exam crash courses to long-term preparation.
+- Degrees: M.Sc. Mathematics, B.Sc. Mathematics, B.Sc. Computer Science. Also offers tutoring (Nachhilfe) in mathematics and computer science for pupils (Gymnasium, vocational school, Abitur preparation) and university students (linear algebra, analysis, algebra, algebraic geometry, topology, type theory, probability theory, operating systems, functional & logic programming, machine learning), from exam crash courses to long-term preparation.
 - Develops embedded firmware in Rust and C/C++ (e.g. ESP32); built a Corne keyboard with two PSP joysticks and wrote its Rust/RMK firmware from scratch. Uses formal verification (Lean 4) to make critical components provably correct.
 - 2× 1st place HHU Ideenwettbewerb; festival award.
 - Works with regulatory frameworks such as MDR, IEC 62443, NIS2 and FDA cybersecurity guidance; deploys on-premises RAG/LLM systems so sensitive data never leaves the client network.
@@ -17,6 +17,10 @@ Key facts:
 
 - [Shop (English)](https://happel.ai/shop/): security audits & penetration testing, on-site security (data center assessments, on-premises AI server setup, physical and internal-network pentests, hospital network assessments), reverse engineering & vulnerability research, data science & on-premises AI, embedded & app development, tutoring in mathematics & computer science, FAQ and process
 - [Shop (Deutsch)](https://happel.ai/de/shop/): the same in German
+
+## Tutoring (Nachhilfe)
+
+- [Tutoring in mathematics & computer science](https://happel.ai/shop/#cat-tutoring) / [Nachhilfe Mathematik & Informatik](https://happel.ai/de/shop/#cat-tutoring): by Luca Leon Happel (M.Sc. Mathematics, B.Sc. Mathematics, B.Sc. Computer Science). University level: linear algebra, analysis, algebra (groups, rings, fields, modules), algebraic geometry, topology and algebraic topology, type theory and category theory, probability theory, operating systems, functional & logic programming, machine learning. School level: Gymnasium, vocational school, Abitur preparation. Exam crash courses or long-term preparation. English and German.
 
 ## Locations
 
@@ -32,9 +36,23 @@ Key facts:
 
 ## Blog
 
-- [Blog](https://happel.ai/blog.html): mathematics (topology, algebra, differential geometry), programming, security and AI
+- [Blog](https://happel.ai/blog.html): mathematics (algebra, algebraic geometry, topology, type theory, category theory, differential geometry), programming, security and AI
 - [RAG in high-security environments](https://happel.ai/posts/rag-in-high-security-environments/)
 - [Bitwarden for Git commit signing](https://happel.ai/posts/bitwarden-git-code-signing/)
+
+### Mathematics
+
+- [Commutator subgroups, derived series and their geometric interpretation](https://happel.ai/posts/commutator/): algebra, group theory
+- [The exponential map of Lie groups](https://happel.ai/posts/lie-groups-and-algebras/): algebra, geometry
+- [Sheaves in Minecraft](https://happel.ai/posts/sheaves_in_minecraft/): algebraic geometry, sheaves, topology
+- [Rational points on elliptic curves](https://happel.ai/posts/rpoec/): algebraic geometry
+- [Covering spaces and geometries visualized](https://happel.ai/posts/covering-spaces-geometries-visualized/): topology
+- [ℓ²-invariants](https://happel.ai/posts/l2-invariants/): algebraic topology
+- [The ℓ²-Alexander torsion and the Thurston norm](https://happel.ai/posts/l2-alexander-torsion-thurston-norm/): algebraic topology, 3-manifolds (master's thesis topic)
+- [Types and sets](https://happel.ai/posts/types-and-sets/): type theory, topos theory, category theory
+- [Universal properties in category theory simply explained](https://happel.ai/posts/universal_properties/): category theory
+- [Applying topological data analysis to 4 years of NixOS usage](https://happel.ai/posts/nixos-git-analysis/): topological data analysis
+- [What are differential forms?](https://happel.ai/posts/differential_forms/): differential geometry
 
 ## Optional
 

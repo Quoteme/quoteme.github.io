@@ -1,7 +1,10 @@
 project:
   type: website
-  # GDPR: YouTube embeds only load after a click (see the script).
-  post-render: youtube-consent.py
+  post-render:
+    # GDPR: YouTube embeds only load after a click (see the script).
+    - youtube-consent.py
+    # SEO/GEO: canonicals, descriptions, BlogPosting schema, noindex drafts.
+    - seo-postrender.py
   resources:
     - robots.txt
     - llms.txt

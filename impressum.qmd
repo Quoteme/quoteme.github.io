@@ -1,5 +1,7 @@
 ---
 title: "Impressum"
+description: "Impressum von lucah.tech (Luca Leon Happel): Anbieterkennzeichnung nach § 5 DDG und Verantwortlicher nach § 18 Abs. 2 MStV."
+lang: de
 ---
 
 ## Angaben gemäß § 5 DDG
