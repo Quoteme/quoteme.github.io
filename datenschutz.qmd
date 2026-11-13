@@ -2,49 +2,15 @@
 title: "Datenschutzerklärung"
 ---
 
-## 1. Datenschutz auf einen Blick
+Stand: 13. November 2026
 
-### Allgemeine Hinweise
+## 1. Verantwortlicher
 
-Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
+Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
 
-### Datenerfassung auf dieser Website
-
-**Wer ist verantwortlich für die Datenerfassung auf dieser Website?**
-
-Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.
-
-**Wie erfassen wir Ihre Daten?**
-
-Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
-
-Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
-
-**Wofür nutzen wir Ihre Daten?**
-
-Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
-
-**Welche Rechte haben Sie bezüglich Ihrer Daten?**
-
-Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
-
-Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.
-
-## 2. Allgemeine Hinweise und Pflichtinformationen
-
-### Datenschutz
-
-Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
-
-Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.
-
-Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
-
-### Hinweis zur verantwortlichen Stelle
-
-Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
-
-> Luca Leon Happel
+> lucah.tech
+>
+> Inhaber: Luca Leon Happel
 >
 > c/o Autorenglück #62360
 >
@@ -52,63 +18,145 @@ Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 >
 > 02977 Hoyerswerda
 >
+> Deutschland
+>
 > E-Mail: [luca@happel.ai](mailto:luca@happel.ai)
 
-Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
+Ein Datenschutzbeauftragter ist nicht bestellt, da hierzu keine gesetzliche Pflicht besteht.
 
-### Speicherdauer
+## 2. Überblick
 
-Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z.B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.
+Diese Website ist eine statische Website ohne Benutzerkonten, Kommentarfunktion oder eigene Datenbank. Personenbezogene Daten werden nur verarbeitet,
 
-### Widerruf Ihrer Einwilligung zur Datenverarbeitung
+- soweit dies technisch für die Auslieferung der Website erforderlich ist (Hosting, Abschnitt 3),
+- wenn Sie uns kontaktieren oder einen Termin buchen (Abschnitte 5 und 6),
+- wenn Sie in die Nutzung von Google Analytics einwilligen (Abschnitt 4) oder
+- wenn Sie Inhalte Dritter laden, die in einzelne Seiten eingebunden sind (Abschnitte 7, 9, 10 und 11).
 
-Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
+Rechtsgrundlagen sind insbesondere Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), lit. b (Vertrag und vorvertragliche Maßnahmen), lit. c (rechtliche Verpflichtung) und lit. f (berechtigte Interessen) sowie für den Zugriff auf Ihr Endgerät § 25 des Telekommunikation-Digitale-Dienste-Datenschutz-Gesetzes (TDDDG).
 
-### Beschwerderecht bei der zuständigen Aufsichtsbehörde
+## 3. Hosting und Server-Logfiles
 
-Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.
+Diese Website wird über **GitHub Pages** bereitgestellt. Anbieter ist GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
 
-### Recht auf Datenübertragbarkeit
+Beim Aufruf der Website verarbeitet GitHub automatisch Daten, die Ihr Browser übermittelt, insbesondere:
 
-Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.
+- IP-Adresse,
+- Datum und Uhrzeit des Abrufs,
+- aufgerufene Seite bzw. Datei,
+- Referrer-URL,
+- Browsertyp, Browserversion und Betriebssystem.
 
-### Auskunft, Löschung und Berichtigung
+Diese Daten sind erforderlich, um die Website technisch auszuliefern und ihre Sicherheit zu gewährleisten (z. B. Abwehr von Angriffen). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in einer sicheren und zuverlässigen Bereitstellung der Website. Wir selbst haben keinen Zugriff auf diese Logfiles.
 
-Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.
+GitHub ist unter dem EU-US Data Privacy Framework zertifiziert (Angemessenheitsbeschluss der EU-Kommission, Art. 45 DSGVO). Weitere Informationen: [GitHub Privacy Statement](https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement).
 
-## 3. Datenerfassung auf dieser Website
+## 4. Cookies, Einwilligung und Google Analytics
 
-### Server-Log-Dateien
+### Einwilligungsbanner
 
-Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+Beim ersten Besuch fragen wir über ein Einwilligungsbanner, ob Sie der Nutzung von Analyse-Cookies zustimmen. Das Banner wird von unserem eigenen Server geladen; dabei werden keine Daten an Dritte übermittelt. Ihre Auswahl wird in einem Cookie in Ihrem Browser gespeichert, damit das Banner nicht bei jedem Seitenaufruf erneut erscheint. Rechtsgrundlage ist § 25 Abs. 2 Nr. 2 TDDDG und Art. 6 Abs. 1 lit. c und f DSGVO (Nachweis der Einwilligung).
 
-*   Browsertyp und Browserversion
-*   verwendetes Betriebssystem
-*   Referrer URL
-*   Hostname des zugreifenden Rechners
-*   Uhrzeit der Serveranfrage
-*   IP-Adresse
+Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen oder ändern, indem Sie über den Link „Cookie Preferences“ bzw. „Cookie-Einstellungen“ im Fußbereich der Website die Einstellungen erneut öffnen, oder indem Sie die Cookies dieser Website in Ihrem Browser löschen.
 
-Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.
+### Google Analytics
 
-Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.
+**Nur wenn Sie im Banner zustimmen**, nutzen wir Google Analytics 4, einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google“). Ohne Ihre Zustimmung wird Google Analytics nicht geladen.
 
-### Kontaktaufnahme per E-Mail
+Google Analytics setzt Cookies und ähnliche Technologien ein, um die Nutzung der Website auszuwerten, z. B. aufgerufene Seiten, Verweildauer, ungefährer Standort (Land/Stadt), Gerätetyp, Browser und Herkunft des Aufrufs. In Google Analytics 4 werden IP-Adressen nicht gespeichert. Die gewonnenen Informationen nutzen wir ausschließlich in zusammengefasster Form, um die Website zu verbessern.
 
-Wenn Sie uns per E-Mail kontaktieren (z. B. unter consulting@happel.ai), werden Ihre Angaben inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist, im Übrigen auf Grundlage unseres berechtigten Interesses an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO). Sie können Ihre Nachricht mit dem auf der Seite „Services“ verlinkten PGP-Schlüssel verschlüsseln.
+Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Daten können an die Google LLC in den USA übermittelt werden; Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert. Mit Google besteht ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO. Die Analysedaten werden spätestens nach 14 Monaten automatisch gelöscht.
 
-### Terminbuchung über Cal.com
+Weitere Informationen: [Google Datenschutzerklärung](https://policies.google.com/privacy?hl=de).
 
-Auf der Seite „Services“ bieten wir die Möglichkeit, über den Dienst Cal.com einen Termin zu buchen. Anbieter ist Cal.com, Inc., 2261 Market Street #4382, San Francisco, CA 94114, USA.
+## 5. Kontaktaufnahme per E-Mail
 
-Der Buchungskalender wird **erst nach Ihrem Klick** auf die Schaltfläche „Buchungskalender laden“ von den Servern von Cal.com nachgeladen. Ohne diesen Klick werden keine Daten an Cal.com übertragen. Mit dem Klick willigen Sie ein, dass eine Verbindung zu Cal.com hergestellt wird und dabei technische Daten (z. B. IP-Adresse, Browsertyp, Zeitpunkt des Aufrufs) an Cal.com übermittelt werden. Wenn Sie einen Termin buchen, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, ggf. Angaben zu Ihrem Anliegen) von Cal.com verarbeitet und an uns weitergeleitet.
+Wenn Sie uns per E-Mail kontaktieren (z. B. an luca@happel.ai oder consulting@happel.ai), verarbeiten wir Ihre Angaben (E-Mail-Adresse, Name, Inhalt der Nachricht) zur Bearbeitung Ihrer Anfrage und für Anschlussfragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage mit einem Vertrag oder dessen Anbahnung zusammenhängt, ansonsten Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).
 
-Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sowie zur Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO). Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden. Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Weitere Informationen finden Sie in der Datenschutzerklärung von Cal.com: [https://cal.com/privacy](https://cal.com/privacy).
+Wir löschen die Daten, sobald die Anfrage abschließend bearbeitet ist, sofern keine gesetzlichen Aufbewahrungspflichten bestehen (z. B. sechs bzw. acht Jahre für Geschäftsbriefe und Buchungsbelege nach § 257 HGB und § 147 AO). Sie können Ihre Nachricht mit dem auf der Seite „Shop“ verlinkten PGP-Schlüssel verschlüsseln.
 
-## 4. Haftung für Inhalte und Bilder
+## 6. Terminbuchung über Cal.com
 
-Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+Auf der Seite „Shop“ können Sie über den Dienst Cal.com einen Termin buchen. Anbieter ist Cal.com, Inc., 2261 Market Street #4382, San Francisco, CA 94114, USA.
 
-Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+Der Buchungskalender wird **erst nach Ihrem Klick** auf „Buchungskalender laden“ bzw. „Jetzt buchen“ von den Servern von Cal.com geladen. Vorher werden keine Daten an Cal.com übertragen. Mit dem Klick wird eine Verbindung zu Cal.com hergestellt; dabei werden technische Daten (z. B. IP-Adresse, Browsertyp, Zeitpunkt) übermittelt. Wenn Sie einen Termin buchen, verarbeitet Cal.com die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, ggf. Angaben zu Ihrem Anliegen und das ausgewählte Leistungspaket) und leitet sie an uns weiter.
 
-Hinsichtlich der auf dieser Website verwendeten Bilder und Inhalte Dritter wird darauf hingewiesen, dass die Urheberrechte beachtet wurden. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen. Die Einbindung von Inhalten Dritter erfolgt auf Grundlage unseres berechtigten Interesses an einer ansprechenden Darstellung unserer Online-Angebote und der Achtung der Urheberrechte Dritter gemäß Art. 6 Abs. 1 lit. f DSGVO. Wir erklären, dass wir zum Zeitpunkt der Verlinkung oder Einbettung von Inhalten Dritter keine illegalen Inhalte auf den zu verlinkenden oder einzubettenden Seiten erkennen konnten. Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der verlinkten/eingebetteten Seiten haben wir keinerlei Einfluss.
+Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG) sowie bei einer Buchung die Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO). Die Übermittlung in die USA erfolgt auf Grundlage der Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO). Weitere Informationen: [Datenschutzerklärung von Cal.com](https://cal.com/privacy).
+
+## 7. Karte (OpenStreetMap)
+
+Auf der Seite „Locations“ können Sie eine interaktive Karte anzeigen. Die Kartenbibliothek (Leaflet) wird von unserem eigenen Server geladen. Die Kartenkacheln werden **erst nach Ihrem Klick** auf „Karte anzeigen“ von den Servern der OpenStreetMap Foundation, St John's Innovation Centre, Cowley Road, Cambridge, CB4 0WS, Vereinigtes Königreich, geladen. Dabei wird Ihre IP-Adresse an die OpenStreetMap Foundation übermittelt.
+
+Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Für das Vereinigte Königreich besteht ein Angemessenheitsbeschluss der EU-Kommission. Weitere Informationen: [OSMF Privacy Policy](https://osmfoundation.org/wiki/Privacy_Policy).
+
+## 8. Schriftarten
+
+Die auf dieser Website verwendeten Schriftarten werden von unserem eigenen Server geladen. Es findet keine Verbindung zu Servern von Google oder anderen Schriftarten-Anbietern statt.
+
+## 9. Content Delivery Networks (Blog)
+
+Einige Blogbeiträge laden Programmbibliotheken für die Darstellung mathematischer Formeln (MathJax), Diagramme (Plotly) und interaktive Elemente von Content Delivery Networks (CDN):
+
+- **cdnjs**, betrieben von Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA (zertifiziert unter dem EU-US Data Privacy Framework), [Datenschutzerklärung](https://www.cloudflare.com/de-de/privacypolicy/),
+- **jsDelivr** ([Datenschutzerklärung](https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net)),
+- **Plotly CDN** (cdn.plot.ly), Plotly Technologies Inc., Montréal, Kanada (Angemessenheitsbeschluss der EU-Kommission für Kanada), [Datenschutzerklärung](https://plotly.com/privacy/).
+
+Beim Aufruf dieser Seiten wird Ihre IP-Adresse an den jeweiligen Anbieter übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der korrekten Darstellung fachlicher Inhalte und einer schnellen Auslieferung der Bibliotheken.
+
+## 10. YouTube-Videos (Blog)
+
+In einige Blogbeiträge sind Videos der Plattform YouTube eingebunden. Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
+
+Die Videos werden **erst nach Ihrem Klick** auf „Video von YouTube laden“ geladen; vorher wird keine Verbindung zu YouTube hergestellt. Nach dem Klick wird das Video über die Domain youtube-nocookie.com („erweiterter Datenschutzmodus“) geladen. Dabei werden Ihre IP-Adresse und technische Daten an YouTube übermittelt; YouTube kann Cookies oder ähnliche Technologien einsetzen, spätestens sobald Sie das Video abspielen. Sind Sie bei YouTube bzw. Google eingeloggt, kann YouTube den Aufruf Ihrem Konto zuordnen. Daten können an die Google LLC in den USA übermittelt werden (zertifiziert unter dem EU-US Data Privacy Framework).
+
+Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG), die Sie durch den Klick erteilen und durch Verlassen bzw. Neuladen der Seite für die Zukunft beenden können. Weitere Informationen: [Google Datenschutzerklärung](https://policies.google.com/privacy?hl=de).
+
+## 11. Bilder und eingebettete Inhalte anderer Websites (Blog)
+
+Einige Blogbeiträge und die Projektseite binden Bilder oder interaktive Inhalte direkt von anderen Websites ein, insbesondere von:
+
+- **Imgur** (i.imgur.com), Imgur LLC, USA, [Datenschutzerklärung](https://imgur.com/privacy),
+- **Wikimedia Commons** (upload.wikimedia.org), Wikimedia Foundation, Inc., San Francisco, USA, [Datenschutzerklärung](https://foundation.wikimedia.org/wiki/Policy:Privacy_policy),
+- **GitHub** (u. a. githubusercontent.com), GitHub, Inc., USA (siehe Abschnitt 3),
+- **Desmos** (www.desmos.com), interaktive Funktionsgraphen, Desmos Studio PBC, USA, [Datenschutzerklärung](https://www.desmos.com/privacy),
+- **quiver** (q.uiver.app), Editor für kommutative Diagramme,
+- einzelnen Bildern weiterer Websites (z. B. science.nasa.gov, writings.stephenwolfram.com).
+
+Beim Aufruf solcher Seiten wird Ihre IP-Adresse an den jeweiligen Anbieter übermittelt; dieser kann ggf. weitere technische Daten erheben. Eine Übermittlung in Drittländer, insbesondere die USA, ist möglich; nicht alle diese Anbieter sind unter dem EU-US Data Privacy Framework zertifiziert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der anschaulichen Darstellung der Beitragsinhalte.
+
+## 12. Links zu sozialen Netzwerken
+
+Auf dieser Website verlinken wir auf unsere Profile bei GitHub, LinkedIn, Instagram und Reddit. Es handelt sich um einfache Links, keine Plugins: Beim bloßen Aufruf unserer Website werden keine Daten an diese Netzwerke übertragen. Erst wenn Sie einen Link anklicken, gelangen Sie auf die Website des jeweiligen Anbieters, für die dessen Datenschutzbestimmungen gelten.
+
+## 13. Ihre Rechte
+
+Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:
+
+- Recht auf Auskunft (Art. 15 DSGVO),
+- Recht auf Berichtigung (Art. 16 DSGVO),
+- Recht auf Löschung (Art. 17 DSGVO),
+- Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO),
+- Recht auf Datenübertragbarkeit (Art. 20 DSGVO),
+- Recht auf Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO); die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.
+
+Wenden Sie sich dazu formlos an [luca@happel.ai](mailto:luca@happel.ai).
+
+**Widerspruchsrecht (Art. 21 DSGVO):** Soweit wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigte Interessen) verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen diese Verarbeitung einzulegen. Wir verarbeiten die Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
+
+**Beschwerderecht (Art. 77 DSGVO):** Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, insbesondere in dem Mitgliedstaat Ihres gewöhnlichen Aufenthalts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes.
+
+## 14. Speicherdauer
+
+Soweit in dieser Datenschutzerklärung keine speziellere Speicherdauer genannt ist, speichern wir personenbezogene Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist. Danach werden sie gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten (insbesondere nach Handels- und Steuerrecht) entgegenstehen; in diesem Fall werden sie nach Ablauf der Frist gelöscht.
+
+## 15. Pflicht zur Bereitstellung, automatisierte Entscheidungen
+
+Sie sind weder gesetzlich noch vertraglich verpflichtet, uns personenbezogene Daten bereitzustellen. Ohne Kontaktdaten können wir Ihre Anfrage jedoch nicht beantworten. Eine automatisierte Entscheidungsfindung einschließlich Profiling (Art. 22 DSGVO) findet nicht statt.
+
+## 16. SSL-/TLS-Verschlüsselung
+
+Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie an „https://“ in der Adresszeile Ihres Browsers. Die Übertragung von E-Mails ist ohne Ende-zu-Ende-Verschlüsselung (z. B. PGP) nicht vollständig vor dem Zugriff Dritter geschützt.
+
+## 17. Änderungen dieser Datenschutzerklärung
+
+Wir passen diese Datenschutzerklärung an, wenn sich die Website oder die Rechtslage ändert. Es gilt die jeweils hier veröffentlichte Fassung.

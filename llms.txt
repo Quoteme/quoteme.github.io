@@ -1,0 +1,42 @@
+# happel.ai – Luca Leon Happel
+
+> Luca Leon Happel (M.Sc., B.Sc., B.Sc.) is a mathematician, computer scientist and security researcher based in Düsseldorf, Germany. He and his team build, audit and hack high-security systems in regulated industries, where mistakes are expensive: data science, AI, high-security audits, penetration testing, reverse engineering and app development. They work for any organisation where software must be secure and correct, from start-ups to enterprises and the public sector, including hospitals, medical-device makers, critical-infrastructure (KRITIS) operators, industry, finance and software vendors, across Germany and Europe, remote or on-site.
+
+Key facts:
+
+- Co-developed monti, an AI-based clinical patient-monitoring platform at University Hospital Düsseldorf, published in European Heart Journal – Digital Health (DOI 10.1093/ehjdh/ztaf004, 2025).
+- Found and responsibly disclosed a high-severity vulnerability in mission-critical software used in highest-tier security environments (acknowledged by the vendor, March 2026).
+- Has built MDR-compliant medical software since 2022.
+- Degrees: M.Sc. Mathematics, B.Sc. Mathematics, B.Sc. Computer Science. Also offers tutoring (Nachhilfe) in mathematics and computer science for pupils (Gymnasium, vocational school, Abitur preparation) and university students (linear algebra, analysis, probability theory, operating systems, functional & logic programming, machine learning), from exam crash courses to long-term preparation.
+- Develops embedded firmware in Rust and C/C++ (e.g. ESP32); built a Corne keyboard with two PSP joysticks and wrote its Rust/RMK firmware from scratch. Uses formal verification (Lean 4) to make critical components provably correct.
+- 2× 1st place HHU Ideenwettbewerb; festival award.
+- Works with regulatory frameworks such as MDR, IEC 62443, NIS2 and FDA cybersecurity guidance; deploys on-premises RAG/LLM systems so sensitive data never leaves the client network.
+- Contact: consulting@happel.ai (PGP 0x75A3FE23C6311437). Free 30-minute intro call, fixed-price written proposal, NDA on request. English and German.
+
+## Services
+
+- [Shop (English)](https://happel.ai/shop/): security audits & penetration testing, on-site security (data center assessments, on-premises AI server setup, physical and internal-network pentests, hospital network assessments), reverse engineering & vulnerability research, data science & on-premises AI, embedded & app development, tutoring in mathematics & computer science, FAQ and process
+- [Shop (Deutsch)](https://happel.ai/de/shop/): the same in German
+
+## Locations
+
+- [Locations (English)](https://happel.ai/locations/): based in Düsseldorf; ethical hacker, penetration tester and reverse engineer on-site in Düsseldorf, Cologne, Mönchengladbach, Krefeld, Viersen, Neuss, Duisburg, Essen, Dortmund, Bonn, Koblenz, Aachen, The Hague, Amsterdam, Rotterdam, Utrecht, Eindhoven, Venlo, Maastricht, Brussels and Antwerp; remote or on-site across Germany and the EU (Berlin, Hamburg, Munich, Frankfurt, Paris, Vienna, Copenhagen and more)
+- [Standorte (Deutsch)](https://happel.ai/de/locations/)
+
+## About
+
+- [Home (English)](https://happel.ai/): overview, industries served, track record
+- [Startseite (Deutsch)](https://happel.ai/de/)
+- [LinkedIn](https://www.linkedin.com/in/lucahappel/)
+- [GitHub](https://github.com/Quoteme/)
+
+## Blog
+
+- [Blog](https://happel.ai/blog.html): mathematics (topology, algebra, differential geometry), programming, security and AI
+- [RAG in high-security environments](https://happel.ai/posts/rag-in-high-security-environments/)
+- [Bitwarden for Git commit signing](https://happel.ai/posts/bitwarden-git-code-signing/)
+
+## Optional
+
+- [Impressum](https://happel.ai/impressum.html)
+- [Datenschutz](https://happel.ai/datenschutz.html)

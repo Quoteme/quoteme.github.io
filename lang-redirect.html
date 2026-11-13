@@ -28,4 +28,20 @@
   var target = wanted === "de" ? "/de" + path : path.slice(3);
   location.replace(target + location.search + location.hash);
 })();
+
+// The navbar is shared by both languages: on German pages, point its links to
+// the German versions and translate their labels.
+if (location.pathname.indexOf("/de/") === 0) {
+  document.addEventListener("DOMContentLoaded", function () {
+    var map = { "/shop/": ["/de/shop/", null], "/shop/index.html": ["/de/shop/", null], "/locations/": ["/de/locations/", "Standorte"], "/locations/index.html": ["/de/locations/", "Standorte"] };
+    document.querySelectorAll("#navbarCollapse a.nav-link").forEach(function (a) {
+      var u = new URL(a.href, location.href);
+      var m = map[u.pathname];
+      if (!m) return;
+      a.href = m[0] + u.hash;
+      var t = a.querySelector(".menu-text");
+      if (m[1] && t) t.textContent = m[1];
+    });
+  });
+}
 </script>
