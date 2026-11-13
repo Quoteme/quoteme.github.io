@@ -1,0 +1,31 @@
+<script>
+// Language selection for pages that exist as /<page> (English) and /de/<page> (German).
+// - Clicking a link in .lang-switch stores the choice in localStorage.
+// - On arrival from outside the site, the stored choice wins; without one,
+//   German-language browsers are sent from the English page to the German one.
+// - Internal navigation never redirects.
+(function () {
+  var KEY = "lang";
+  var store = {
+    get: function () { try { return localStorage.getItem(KEY); } catch (e) { return null; } },
+    set: function (v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  };
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest(".lang-switch a");
+    if (a) store.set(a.pathname.indexOf("/de/") === 0 ? "de" : "en");
+  });
+
+  var path = location.pathname;
+  var current = path.indexOf("/de/") === 0 ? "de" : "en";
+  var internal = document.referrer.indexOf(location.origin + "/") === 0;
+  if (internal) return;
+
+  var browser = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+  var wanted = store.get() || (browser.toLowerCase().indexOf("de") === 0 ? "de" : current);
+  if (wanted === current) return;
+
+  var target = wanted === "de" ? "/de" + path : path.slice(3);
+  location.replace(target + location.search + location.hash);
+})();
+</script>

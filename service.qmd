@@ -12,6 +12,7 @@ format:
   html:
     css: ./styles.css
     include-in-header:
+      - file: lang-redirect.html
       - text: |
           <link rel="alternate" hreflang="en" href="https://happel.ai/service.html" />
           <link rel="alternate" hreflang="de" href="https://happel.ai/de/service.html" />
