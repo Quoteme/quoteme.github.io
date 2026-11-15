@@ -6,12 +6,83 @@ toc: false
 format:
   html:
     include-in-header:
-      - text: '<meta name="robots" content="noindex">'
+      - text: |
+          <meta name="robots" content="noindex">
+          <style>
+            /* The Top2Man shader fills the viewport behind everything. */
+            #notfound-bg {
+              position: fixed;
+              inset: 0;
+              width: 100vw;
+              height: 100vh;
+              border: none;
+              z-index: -1;
+              pointer-events: none;
+            }
+            body:has(#notfound-bg) { background: transparent; }
+            #notfound {
+              text-align: center;
+              margin: 2rem auto;
+            }
+            #notfound .big404 {
+              font-family: var(--bs-font-monospace);
+              font-size: clamp(6rem, 25vw, 14rem);
+              font-weight: 700;
+              line-height: 1;
+              margin: 0 0 1.5rem 0;
+            }
+            #notfound .nf-card {
+              display: inline-block;
+              max-width: 100%;
+              text-align: left;
+              padding: 1rem;
+              background: var(--bs-body-bg);
+              border: 1px solid var(--bs-border-color);
+              border-radius: 0.5rem;
+              box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+            }
+            #notfound .nf-card pre {
+              margin: 0;
+              font-size: 1rem;
+              white-space: pre-wrap;
+              word-break: break-all;
+            }
+            /* Keep title/description for <head>, but don't show the title block. */
+            #title-block-header { display: none; }
+          </style>
 ---
 
-The page you were looking for does not exist (anymore). Seite nicht gefunden.
+```{=html}
+<iframe id="notfound-bg" aria-hidden="true" tabindex="-1"
+  src="https://happel.ai/top2manWebsiteBackground/?shader-cs&cs-size=15&cs-empty-opacity=0.03&meanX=0&meanY=0&meanZ=300&varianceX=3000&varianceY=100&varianceZ=1000"></iframe>
+```
 
-- [Home](/) · [Startseite](/de/)
-- [Shop: security audits, pentesting, AI, tutoring](/shop/) · [Shop (Deutsch)](/de/shop/)
-- [Locations](/locations/) · [Standorte](/de/locations/)
-- [Blog](/blog.html)
+:::: {#notfound}
+::: {.big404}
+404
+:::
+
+::: {.nf-card}
+```
+path: URL-PATH = <this url path here>
+found?: URL-PATH -> Bool
+found?("404.html") = true
+found?(x) = false
+#eval(found?(path)) -- => <result>
+```
+:::
+::::
+
+```{=html}
+<script>
+  (function () {
+    const path = decodeURIComponent(window.location.pathname);
+    // Mirror the definition above: only "404.html" itself is found.
+    const found = /(^|\/)404\.html$/.test(path);
+    const code = document.querySelector("#notfound .nf-card pre code");
+    code.textContent = code.textContent
+      .replace("<this url path here>", JSON.stringify(path))
+      .replace("<result>", String(found));
+  })();
+</script>
+```

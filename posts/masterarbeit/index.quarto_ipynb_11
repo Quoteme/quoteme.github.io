@@ -145,7 +145,7 @@
         "I reuse some code i have from [my post where I analyze my NixOS GitHub\n",
         "repository](/posts/nixos-git-analysis/)."
       ],
-      "id": "e635357d"
+      "id": "acebfa86"
     },
     {
       "cell_type": "code",
@@ -177,7 +177,7 @@
         "print(f\"Last commit: {datetime.fromtimestamp(commits[0].committed_date)}\")\n",
         "print(f\"Avg. time between commits: {(commits[0].committed_date - commits[-1].committed_date) / len(commits) / 3600:.2f} hours\")"
       ],
-      "id": "5f7b690a",
+      "id": "c2454ae0",
       "execution_count": null,
       "outputs": []
     },
@@ -214,7 +214,7 @@
         "\n",
         "fig.show()"
       ],
-      "id": "5b2c7281",
+      "id": "79bfa7be",
       "execution_count": null,
       "outputs": []
     },
@@ -287,7 +287,7 @@
         "expected_linear = float(linear_cumulative[-1])\n",
         "print(f\"Expected cumulative commits by {forecast_end_date.isoformat()} (linear): {expected_linear:.1f}\")"
       ],
-      "id": "f5cf2810",
+      "id": "4d90a5d9",
       "execution_count": null,
       "outputs": []
     },
@@ -306,7 +306,7 @@
         "still doing research, so that in the end I have more time to polish the thesis\n",
         "and request feedback from my supervisors."
       ],
-      "id": "f8be34d2"
+      "id": "6f941d9a"
     }
   ],
   "metadata": {

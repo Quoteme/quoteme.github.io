@@ -48,7 +48,7 @@
         "3. At each step, evaluate a signed distance function (SDF) to check proximity to the surface.\n",
         "4. On hit, compute Phong lighting; otherwise, return the background."
       ],
-      "id": "29ae59cb"
+      "id": "8fe6d773"
     },
     {
       "cell_type": "code",
@@ -286,7 +286,7 @@
         "We add an arrow (a cylinder with a cone tip) that pierces the torus,\n",
         "representing the act of crossing from one \"world\" to another."
       ],
-      "id": "add7b95b"
+      "id": "30f42917"
     },
     {
       "cell_type": "code",
@@ -479,7 +479,7 @@
         "other torus. This means looking through one torus you see the world\n",
         "on the other side, as if peering through a window into Narnia."
       ],
-      "id": "bdd62bf7"
+      "id": "703c62b7"
     },
     {
       "cell_type": "code",
@@ -643,7 +643,7 @@
         "that has passed through the left torus disk **appears emerging\n",
         "from the right torus**: it has been teleported to the other world."
       ],
-      "id": "f053e6cf"
+      "id": "31a00e12"
     },
     {
       "cell_type": "code",
