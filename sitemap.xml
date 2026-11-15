@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://happel.ai/shop/</loc>
-    <lastmod>2026-11-15T15:23:22.629Z</lastmod>
+    <loc>https://happel.ai/projects.html</loc>
+    <lastmod>2026-11-13T19:36:32.325Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/locations/</loc>
-    <lastmod>2026-11-13T19:36:32.078Z</lastmod>
-  </url>
-  <url>
-    <loc>https://happel.ai/impressum.html</loc>
+    <loc>https://happel.ai/</loc>
     <lastmod>2026-11-13T19:36:32.077Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/blog.html</loc>
+    <loc>https://happel.ai/datenschutz.html</loc>
     <lastmod>2026-11-13T19:36:32.074Z</lastmod>
   </url>
   <url>
@@ -181,15 +177,19 @@
     <lastmod>2026-11-13T19:36:32.076Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/datenschutz.html</loc>
+    <loc>https://happel.ai/blog.html</loc>
     <lastmod>2026-11-13T19:36:32.074Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/</loc>
+    <loc>https://happel.ai/impressum.html</loc>
     <lastmod>2026-11-13T19:36:32.077Z</lastmod>
   </url>
   <url>
-    <loc>https://happel.ai/projects.html</loc>
-    <lastmod>2026-11-13T19:36:32.325Z</lastmod>
+    <loc>https://happel.ai/locations/</loc>
+    <lastmod>2026-11-13T19:36:32.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://happel.ai/shop/</loc>
+    <lastmod>2026-11-15T15:23:22.629Z</lastmod>
   </url>
 </urlset>
