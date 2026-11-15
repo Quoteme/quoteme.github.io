@@ -438,9 +438,55 @@ div.quarto-post .thumbnail img,
   background: var(--bs-tertiary-bg);
 }
 
-.storefront .shop-item h3 {
+.storefront .shop-item h3,
+.storefront .shop-item h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.storefront .shop-cat-intro {
+  max-width: 48rem;
+  color: var(--bs-secondary-color);
+}
+
+.storefront h3.shop-subcat {
+  scroll-margin-top: 4.5rem;
+  margin: 1.5rem 0 0.75rem 0;
+  font-size: 1.2rem;
+}
+
+.storefront h3.shop-subcat > i {
+  color: var(--bs-primary);
+  margin-right: 0.35rem;
+}
+
+.storefront .shop-item-icon-multi {
+  grid-auto-flow: column;
+  gap: 0.5rem;
+  width: auto;
+  justify-self: start;
+  align-self: flex-start;
+  padding: 0 0.75rem;
+}
+
+.storefront .shop-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.storefront .shop-svg-wide {
+  width: 2.5rem;
+}
+
+.storefront .shop-item-icon:has(.shop-svg-diagram) {
+  width: 4rem;
+  height: 4rem;
+}
+
+.storefront .shop-svg-diagram {
+  width: 3.6rem;
+  height: 3.6rem;
 }
 
 .storefront .shop-item-desc {
