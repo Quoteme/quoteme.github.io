@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/basket-winding/index.html",
       "/posts/differential-forms-video-series/index.html",
       "/posts/types-and-sets/index.html",
       "/posts/universal_properties/index.html",

@@ -10,7 +10,43 @@
 <atom:link href="https://happel.ai/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Luca Happel&#39;s blog on mathematics (algebra, algebraic geometry, topology, type theory, category theory), programming, IT security and AI.</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Sun, 11 Oct 2026 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 13 Nov 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Basket-Winding in electromagnetism: an algebro-geometric point of view</title>
+  <dc:creator>Luca Leon Happel</dc:creator>
+  <link>https://happel.ai/posts/basket-winding/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>I just created a new project. You can check it out here: <a href="https://happel.ai/basket-winding/">https://happel.ai/basket-winding/</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://happel.ai/posts/basket-winding/thumbnail.png" class="img-fluid figure-img"></p>
+<figcaption>A honeycomb basket winding together with its magnetic field lines.</figcaption>
+</figure>
+</div>
+<p>This project stems from Daniel Jacobi, a close friend of mine, who has a deep interest in electrical engineering and electromagnetism, with an eye on their applications. One Saturday morning I awoke to a call from him about a concept called “basket windings”, which, as he explained, is an old technique in these disciplines that nowadays seems to be rarely spoken about.</p>
+<p>Nonetheless, its applications seemed to be of great use to him, and so we set out to model the different types of basket windings found in the literature: first to understand them, and second to build them ourselves with the help of another engineering friend of ours, Robert Smykala.</p>
+<p>In this project we explore the theory, modelling and application of basket windings. We begin by introducing the three different types of basket windings and model them using group theory and Lie groups (<a href="https://happel.ai/basket-winding/research/01-fundamentals.html">1 Fundamentals</a>).</p>
+<p>Later on, we take a differential-forms point of view to model the electromagnetic effects as described by Maxwell’s equations (<a href="https://happel.ai/basket-winding/research/01-fundamentals.html#sec-forms">Electrodynamics in differential forms</a>).</p>
+
+
+
+ ]]></description>
+  <category>mathematics</category>
+  <category>physics</category>
+  <category>electromagnetism</category>
+  <category>Lie groups</category>
+  <category>differential forms</category>
+  <category>English</category>
+  <guid>https://happel.ai/posts/basket-winding/</guid>
+  <pubDate>Fri, 13 Nov 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://happel.ai/posts/basket-winding/thumbnail.png" medium="image" type="image/png" height="113" width="144"/>
+</item>
 <item>
   <title>“What are differential forms?” : A video series</title>
   <dc:creator>Luca Leon Happel</dc:creator>
@@ -17113,35 +17149,6 @@ Kammeyer, Jun.-Prof. Dr. Holger. 2024. <span>“Vorlesung <img src="https://late
   <category>English</category>
   <guid>https://happel.ai/posts/l2-invariants/</guid>
   <pubDate>Sat, 03 Feb 2024 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Surreale Zahlen</title>
-  <dc:creator>Luca Leon Happel</dc:creator>
-  <link>https://happel.ai/posts/surreal_numbers/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<section id="boldsymbolno-ist-ein-körper" class="level2">
-<h2 class="anchored" data-anchor-id="boldsymbolno-ist-ein-körper"><img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BNo%7D"> ist ein Körper</h2>
-<p>In diesem Vortrag ging es darum zu zeigen, dass die surrealen Zahlen ein Körper sind. Ich arbeitete dabei unter der Annahme, dass wir bereits gezeigt haben, dass <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%7BNo%7D"> ein geordneter Ring ist. Alles was somit noch zu zeigen war, war das multiplikative Inverse für beliebige nicht-nulle Elemente zu finden sind.</p>
-<p>Genaueres lässt sich in dem Handout nachlesen: <a href="./Handout.pdf">Handout</a></p>
-
-
-</section>
-
- ]]></description>
-  <category>Seminar</category>
-  <category>Surreale Zahlen</category>
-  <category>abstract algebra</category>
-  <category>ring theory</category>
-  <category>Deutsch</category>
-  <guid>https://happel.ai/posts/surreal_numbers/</guid>
-  <pubDate>Wed, 15 Nov 2023 23:00:00 GMT</pubDate>
-  <media:content url="https://happel.ai/posts/surreal_numbers/thumbnail.png" medium="image" type="image/png" height="77" width="144"/>
 </item>
 </channel>
 </rss>
