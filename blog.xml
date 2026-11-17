@@ -10195,67 +10195,46 @@ Warning
 </iframe>
 <p><a href="../../masterarbeit">Masterarbeit.pdf</a></p>
 <p>Some pictures of it can be found <a href="https://www.instagram.com/stories/highlights/18097883624515441/">here</a>.</p>
-<section id="how-to-read-this-thesis" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-read-this-thesis">How To Read This Thesis</h2>
-<p>I have used hyperlinks extensively. Especially the main part (section 4) is very short, as it links to previous results and definitions. Here is an example of how to read the thesis: (In dark mode the hyperlinks are highlighted in a light blue color, so they are easier to spot. In light mode they also work, but they are not highlighted, as my supervisor wanted)</p>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/highlighted-links.png" class="lightbox" data-gallery="how-to-read" title="Let us look at lemma 4.24 which proofs the main theorem for manifolds whose JSJ-decomposition contains a hyperbolic part. In the proof, we can just click to where the JSJ-decomposition is defined."><img src="https://happel.ai/posts/masterarbeit/assets/highlighted-links.png" class="img-fluid figure-img" alt="Let us look at lemma 4.24 which proofs the main theorem for manifolds whose JSJ-decomposition contains a hyperbolic part. In the proof, we can just click to where the JSJ-decomposition is defined."></a></p>
-<figcaption>Let us look at lemma 4.24 which proofs the main theorem for manifolds whose JSJ-decomposition contains a hyperbolic part. In the proof, we can just click to where the JSJ-decomposition is defined.</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/following-links.png" class="lightbox" data-gallery="how-to-read" title="After clicking on “JSJ-Zerlegung”, the definition is shown. We are also shown directly what hyperbolic parts are. We also have directly above a few examples (3d-renders) of how such an incompressible torus of the JSJ-decomposition might look like (here a seifert part)."><img src="https://happel.ai/posts/masterarbeit/assets/following-links.png" class="img-fluid figure-img" alt="After clicking on “JSJ-Zerlegung”, the definition is shown. We are also shown directly what hyperbolic parts are. We also have directly above a few examples (3d-renders) of how such an incompressible torus of the JSJ-decomposition might look like (here a seifert part)."></a></p>
-<figcaption>After clicking on “JSJ-Zerlegung”, the definition is shown. We are also shown directly what hyperbolic parts are. We also have directly above a few examples (3d-renders) of how such an incompressible torus of the JSJ-decomposition might look like (here a seifert part).</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/following-links2.png" class="lightbox" data-gallery="how-to-read" title="When clicking on “incompressible”, we also have directly the definition together with a visualization of it."><img src="https://happel.ai/posts/masterarbeit/assets/following-links2.png" class="img-fluid figure-img" alt="When clicking on “incompressible”, we also have directly the definition together with a visualization of it."></a></p>
-<figcaption>When clicking on “incompressible”, we also have directly the definition together with a visualization of it.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/following-links3.png" class="lightbox" data-gallery="how-to-read" title="The definition of “incompressible” however used “proper embedding” internally, which is also reachable by hyperlink and visualized."><img src="https://happel.ai/posts/masterarbeit/assets/following-links3.png" class="img-fluid figure-img" alt="The definition of “incompressible” however used “proper embedding” internally, which is also reachable by hyperlink and visualized."></a></p>
-<figcaption>The definition of “incompressible” however used “proper embedding” internally, which is also reachable by hyperlink and visualized.</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/following-links4.png" class="lightbox" data-gallery="how-to-read" title="Next up in the proof, “hyperbolic” is used. We can follow this definition twice, until it is completely unfolded."><img src="https://happel.ai/posts/masterarbeit/assets/following-links4.png" class="img-fluid figure-img" alt="Next up in the proof, “hyperbolic” is used. We can follow this definition twice, until it is completely unfolded."></a></p>
-<figcaption>Next up in the proof, “hyperbolic” is used. We can follow this definition twice, until it is completely unfolded.</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./assets/following-links5.png" class="lightbox" data-gallery="how-to-read" title="Skipping towards the end of the proof, we can find “quasi fibered classes” being used. We can follow this (1) to its definition, where these are defined as limits of “fibered classes”, which we can again look up (2). I have defined them in a non-standard way (equivalent to the standard definition, but I found my way more intuitive) and I provided examples for them (3) and counterexamples as well (4)."><img src="https://happel.ai/posts/masterarbeit/assets/following-links5.png" class="img-fluid figure-img" alt="Skipping towards the end of the proof, we can find “quasi fibered classes” being used. We can follow this (1) to its definition, where these are defined as limits of “fibered classes”, which we can again look up (2). I have defined them in a non-standard way (equivalent to the standard definition, but I found my way more intuitive) and I provided examples for them (3) and counterexamples as well (4)."></a></p>
-<figcaption>Skipping towards the end of the proof, we can find “quasi fibered classes” being used. We can follow this (1) to its definition, where these are defined as limits of “fibered classes”, which we can again look up (2). I have defined them in a non-standard way (equivalent to the standard definition, but I found my way more intuitive) and I provided examples for them (3) and counterexamples as well (4).</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>This also explains why the main part is so short.</p>
-</section>
-<section id="critique" class="level2">
-<h2 class="anchored" data-anchor-id="critique">Critique</h2>
+<!--
+## How To Read This Thesis
+
+I have used hyperlinks extensively. Especially the main part (section 4) is very
+short, as it links to previous results and definitions.
+Here is an example of how to read the thesis:
+(In dark mode the hyperlinks are highlighted in a light blue color, so they are
+easier to spot. In light mode they also work, but they are not highlighted, as
+my supervisor wanted)
+
+::: {layout-ncol=3}
+![Let us look at lemma 4.24 which proofs the main theorem for manifolds whose
+JSJ-decomposition contains a hyperbolic part.
+In the proof, we can just click to where the JSJ-decomposition is defined.](./assets/highlighted-links.png){.lightbox group="how-to-read"}
+
+![After clicking on "JSJ-Zerlegung", the definition is shown.
+We are also shown directly what hyperbolic parts are. 
+We also have directly above a few examples (3d-renders) of how such an incompressible torus
+of the JSJ-decomposition might look like (here a seifert part).](./assets/following-links.png){.lightbox group="how-to-read"}
+
+![When clicking on "incompressible", we also have directly the definition 
+together with a visualization of it.](./assets/following-links2.png){.lightbox group="how-to-read"}
+
+![The definition of "incompressible" however used "proper embedding" internally,
+which is also reachable by hyperlink and visualized.](./assets/following-links3.png){.lightbox group="how-to-read"}
+
+![Next up in the proof, "hyperbolic" is used. 
+We can follow this definition twice, until it is completely unfolded.](./assets/following-links4.png){.lightbox group="how-to-read"}
+
+![Skipping towards the end of the proof, we can find "quasi fibered classes" being used.
+We can follow this (1) to its definition, where these are defined as limits of "fibered classes",
+which we can again look up (2). I have defined them in a non-standard way 
+(equivalent to the standard definition, but I found my way more intuitive) and 
+I provided examples for them (3) and counterexamples as well (4).](./assets/following-links5.png){.lightbox group="how-to-read"}
+:::
+
+This also explains why the main part is so short.
+-->
+<section id="what-i-have-learned" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-have-learned">What I have learned</h2>
 <p>My thesis was criticized, and the main points of critique boil down to the following points:</p>
 <ol type="1">
 <li>There were too many visualizations and examples</li>
@@ -10270,7 +10249,7 @@ Warning
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./assets/thesis-car.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="3d renders of a car in a tube"><img src="https://happel.ai/posts/masterarbeit/assets/thesis-car.png" class="img-fluid figure-img" alt="3d renders of a car in a tube"></a></p>
+<p><a href="./assets/thesis-car.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="3d renders of a car in a tube"><img src="https://happel.ai/posts/masterarbeit/assets/thesis-car.png" class="img-fluid figure-img" alt="3d renders of a car in a tube"></a></p>
 <figcaption>3d renders of a car in a tube</figcaption>
 </figure>
 </div>
@@ -10330,7 +10309,7 @@ Warning
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../../assets/assets/electro-magnetism.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="A short except from the passage about physical interpretations"><img src="https://happel.ai/assets/assets/electro-magnetism.png" class="img-fluid figure-img" alt="A short except from the passage about physical interpretations"></a></p>
+<p><a href="../../assets/assets/electro-magnetism.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="A short except from the passage about physical interpretations"><img src="https://happel.ai/assets/assets/electro-magnetism.png" class="img-fluid figure-img" alt="A short except from the passage about physical interpretations"></a></p>
 <figcaption>A short except from the passage about physical interpretations</figcaption>
 </figure>
 </div>
