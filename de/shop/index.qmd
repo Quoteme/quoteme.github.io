@@ -289,36 +289,6 @@ format:
 <a href="#contact" class="btn btn-primary shop-buy" data-product="Einrichtung On-Premises-KI-Server"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
 </div>
 </article>
-<article class="shop-item" id="p-physical-pentest">
-<div class="shop-item-icon"><i class="bi bi-door-closed"></i></div>
-<h3>Physischer Penetrationstest</h3>
-<p class="shop-item-desc">Kommt ein Fremder hinein? Türen, Ausweise und RFID-Klonen, Tailgating, ungesperrte Bildschirme und offene Netzwerkports, vor Ort getestet mit schriftlicher Freigabe.</p>
-<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Vereinbarte Rules of Engagement</li><li><i class="bi bi-check2"></i> Bericht mit Fotos &amp; Maßnahmen</li></ul>
-<div class="shop-item-foot">
-<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
-<a href="#contact" class="btn btn-primary shop-buy" data-product="Physischer Penetrationstest"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
-</div>
-</article>
-<article class="shop-item" id="p-internal-pentest">
-<div class="shop-item-icon"><i class="bi bi-diagram-2"></i></div>
-<h3>Interner Netzwerk-Pentest (Assumed Breach)</h3>
-<p class="shop-item-desc">Im Büronetz angeschlossen wie ein Angreifer, der schon drin ist: Wie weit kommt er, bis hin zur Übernahme des Active Directory?</p>
-<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Angriffspfade &amp; Rechteausweitung</li><li><i class="bi bi-check2"></i> Konkrete Härtungsmaßnahmen</li></ul>
-<div class="shop-item-foot">
-<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
-<a href="#contact" class="btn btn-primary shop-buy" data-product="Interner Netzwerk-Pentest (Assumed Breach)"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
-</div>
-</article>
-<article class="shop-item" id="p-hospital-network">
-<div class="shop-item-icon"><i class="bi bi-hospital"></i></div>
-<h3>Netzwerkprüfung Klinik &amp; Medizingeräte</h3>
-<p class="shop-item-desc">Medizingeräte auf den Stationen erfassen und prüfen sowie die Trennung des Medizingerätenetzes bewerten, mit minimaler Auswirkung auf die Patientenversorgung.</p>
-<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Geräteinventar &amp; Angriffsfläche</li><li><i class="bi bi-check2"></i> Prüfung der Segmentierung</li></ul>
-<div class="shop-item-foot">
-<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
-<a href="#contact" class="btn btn-primary shop-buy" data-product="Netzwerkprüfung Klinik &amp; Medizingeräte"><i class="bi bi-cart3"></i> Jetzt kaufen</a>
-</div>
-</article>
 </div>
 <h2 id="cat-reverse-engineering" class="anchored shop-cat"><i class="bi bi-cpu"></i> Reverse Engineering</h2>
 <div class="shop-grid">
@@ -340,16 +310,6 @@ format:
 <div class="shop-item-foot">
 <span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
 <a href="#contact" class="btn btn-primary shop-buy" data-product="Protokoll-Reverse-Engineering"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
-</div>
-</article>
-<article class="shop-item" id="p-vuln-research">
-<div class="shop-item-icon"><i class="bi bi-incognito"></i></div>
-<h3>Schwachstellenforschung &amp; Meldung</h3>
-<p class="shop-item-desc">Gründliche Schwachstellenforschung mit koordinierter, verantwortungsvoller Meldung an den Hersteller.</p>
-<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Proof of Concept</li><li><i class="bi bi-check2"></i> Abwicklung der Meldung</li></ul>
-<div class="shop-item-foot">
-<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
-<a href="#contact" class="btn btn-primary shop-buy" data-product="Schwachstellenforschung &amp; Meldung"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
 </div>
 </article>
 </div>
@@ -383,26 +343,6 @@ format:
 <div class="shop-item-foot">
 <span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
 <a href="#contact" class="btn btn-primary shop-buy" data-product="Embedded-Firmware"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
-</div>
-</article>
-<article class="shop-item" id="p-clinical-frontends">
-<div class="shop-item-icon"><i class="bi bi-clipboard2-pulse"></i></div>
-<h3>Klinische Frontends</h3>
-<p class="shop-item-desc">Klinische Anwendungen mit rollenbasierter Zugriffskontrolle und Audit-Trail, gebaut für MDR-Umgebungen.</p>
-<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Bedienbar für klinisches Personal</li><li><i class="bi bi-check2"></i> DSGVO-konforme Datenverarbeitung</li></ul>
-<div class="shop-item-foot">
-<span class="shop-price">Festpreis<small>Angebot nach Erstgespräch</small></span>
-<a href="#contact" class="btn btn-primary shop-buy" data-product="Klinische Frontends"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
-</div>
-</article>
-<article class="shop-item" id="p-maintenance">
-<div class="shop-item-icon"><i class="bi bi-tools"></i></div>
-<h3>Wartung &amp; Support</h3>
-<p class="shop-item-desc">Laufender Betrieb, Sicherheitsupdates und Support für von uns gelieferte Software.</p>
-<ul class="shop-item-includes"><li><i class="bi bi-check2"></i> Sicherheitsupdates</li><li><i class="bi bi-check2"></i> Konditionen vorab vereinbart</li></ul>
-<div class="shop-item-foot">
-<span class="shop-price">Monatliche Gebühr<small>vorab vereinbart</small></span>
-<a href="#contact" class="btn btn-primary shop-buy" data-product="Wartung &amp; Support"><i class="bi bi-calendar-check"></i> Jetzt buchen</a>
 </div>
 </article>
 </div>
@@ -964,72 +904,6 @@ format:
               "Europa"
             ]
           }
-        },
-        {
-          "@type": "Offer",
-          "url": "https://happel.ai/de/shop/#p-physical-pentest",
-          "availability": "https://schema.org/InStock",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "EUR",
-            "description": "Preis auf Anfrage"
-          },
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Physischer Penetrationstest",
-            "description": "Kommt ein Fremder hinein? Türen, Ausweise und RFID-Klonen, Tailgating, ungesperrte Bildschirme und offene Netzwerkports, vor Ort getestet mit schriftlicher Freigabe.",
-            "provider": {
-              "@id": "https://happel.ai/#business"
-            },
-            "areaServed": [
-              "Deutschland",
-              "Europa"
-            ]
-          }
-        },
-        {
-          "@type": "Offer",
-          "url": "https://happel.ai/de/shop/#p-internal-pentest",
-          "availability": "https://schema.org/InStock",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "EUR",
-            "description": "Preis auf Anfrage"
-          },
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Interner Netzwerk-Pentest (Assumed Breach)",
-            "description": "Im Büronetz angeschlossen wie ein Angreifer, der schon drin ist: Wie weit kommt er, bis hin zur Übernahme des Active Directory?",
-            "provider": {
-              "@id": "https://happel.ai/#business"
-            },
-            "areaServed": [
-              "Deutschland",
-              "Europa"
-            ]
-          }
-        },
-        {
-          "@type": "Offer",
-          "url": "https://happel.ai/de/shop/#p-hospital-network",
-          "availability": "https://schema.org/InStock",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "EUR",
-            "description": "Preis auf Anfrage"
-          },
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Netzwerkprüfung Klinik & Medizingeräte",
-            "description": "Medizingeräte auf den Stationen erfassen und prüfen sowie die Trennung des Medizingerätenetzes bewerten, mit minimaler Auswirkung auf die Patientenversorgung.",
-            "provider": {
-              "@id": "https://happel.ai/#business"
-            },
-            "areaServed": [
-              "Deutschland",
-              "Europa"
-            ]
-          }
         }
       ]
     },
@@ -1072,28 +946,6 @@ format:
             "@type": "Service",
             "name": "Protokoll-Reverse-Engineering",
             "description": "Undokumentierte Netzwerk-, Seriell- und Funkprotokolle dokumentiert, damit Sie integrieren, migrieren oder absichern können.",
-            "provider": {
-              "@id": "https://happel.ai/#business"
-            },
-            "areaServed": [
-              "Deutschland",
-              "Europa"
-            ]
-          }
-        },
-        {
-          "@type": "Offer",
-          "url": "https://happel.ai/de/shop/#p-vuln-research",
-          "availability": "https://schema.org/InStock",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "EUR",
-            "description": "Preis auf Anfrage"
-          },
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Schwachstellenforschung & Meldung",
-            "description": "Gründliche Schwachstellenforschung mit koordinierter, verantwortungsvoller Meldung an den Hersteller.",
             "provider": {
               "@id": "https://happel.ai/#business"
             },
@@ -1166,50 +1018,6 @@ format:
             "@type": "Service",
             "name": "Embedded-Firmware",
             "description": "Firmware für Mikrocontroller wie den ESP32 in speichersicherem Rust oder C/C++, nach Hochsicherheitsstandards.",
-            "provider": {
-              "@id": "https://happel.ai/#business"
-            },
-            "areaServed": [
-              "Deutschland",
-              "Europa"
-            ]
-          }
-        },
-        {
-          "@type": "Offer",
-          "url": "https://happel.ai/de/shop/#p-clinical-frontends",
-          "availability": "https://schema.org/InStock",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "EUR",
-            "description": "Preis auf Anfrage"
-          },
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Klinische Frontends",
-            "description": "Klinische Anwendungen mit rollenbasierter Zugriffskontrolle und Audit-Trail, gebaut für MDR-Umgebungen.",
-            "provider": {
-              "@id": "https://happel.ai/#business"
-            },
-            "areaServed": [
-              "Deutschland",
-              "Europa"
-            ]
-          }
-        },
-        {
-          "@type": "Offer",
-          "url": "https://happel.ai/de/shop/#p-maintenance",
-          "availability": "https://schema.org/InStock",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "EUR",
-            "description": "Preis auf Anfrage"
-          },
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Wartung & Support",
-            "description": "Laufender Betrieb, Sicherheitsupdates und Support für von uns gelieferte Software.",
             "provider": {
               "@id": "https://happel.ai/#business"
             },
