@@ -36,6 +36,7 @@ Check it out, if you like:
 
 Some pictures of it can be found [here](https://www.instagram.com/stories/highlights/18097883624515441/).
 
+<!--
 ## How To Read This Thesis
 
 I have used hyperlinks extensively. Especially the main part (section 4) is very
@@ -72,8 +73,9 @@ I provided examples for them (3) and counterexamples as well (4).](./assets/foll
 :::
 
 This also explains why the main part is so short.
+-->
 
-## Critique
+## What I have learned
 
 My thesis was criticized, and the main points of critique boil down to the
 following points:
