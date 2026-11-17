@@ -4,7 +4,7 @@ description: "Datenschutzerklärung von happel.ai: welche Daten beim Besuch, bei
 lang: de
 ---
 
-Stand: 13. November 2026
+Stand: 17. November 2026
 
 ## 1. Verantwortlicher
 
@@ -71,6 +71,14 @@ Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 
 
 Weitere Informationen: [Google Datenschutzerklärung](https://policies.google.com/privacy?hl=de).
 
+### Reddit
+
+In einzelne Blogbeiträge sind Beiträge der Plattform Reddit eingebunden. Anbieter für Nutzer in der EU ist die Reddit Netherlands B.V., Euro Business Center, Keizersgracht 62, 1015 CS Amsterdam, Niederlande; verbundenes Unternehmen ist die Reddit, Inc., San Francisco, USA.
+
+Die Beiträge werden **erst nach Ihrem Klick** auf „Beitrag von Reddit laden“ geladen; vorher wird keine Verbindung zu Reddit hergestellt. Nach dem Klick werden Ihre IP-Adresse und technische Daten (z. B. Browsertyp, aufgerufene Seite) an Reddit übermittelt; Reddit kann Cookies oder ähnliche Technologien einsetzen. Sind Sie bei Reddit eingeloggt, kann Reddit den Aufruf Ihrem Konto zuordnen. Daten können an die Reddit, Inc. in den USA übermittelt werden.
+
+Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG), die Sie durch den Klick erteilen und durch Verlassen bzw. Neuladen der Seite für die Zukunft beenden können. Weitere Informationen: [Reddit Datenschutzerklärung](https://www.reddit.com/policies/privacy-policy).
+
 ## 5. Kontaktaufnahme per E-Mail
 
 Wenn Sie uns per E-Mail kontaktieren (z. B. an luca@happel.ai oder consulting@happel.ai), verarbeiten wir Ihre Angaben (E-Mail-Adresse, Name, Inhalt der Nachricht) zur Bearbeitung Ihrer Anfrage und für Anschlussfragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage mit einem Vertrag oder dessen Anbahnung zusammenhängt, ansonsten Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).
@@ -105,7 +113,9 @@ Einige Blogbeiträge laden Programmbibliotheken für die Darstellung mathematisc
 
 Beim Aufruf dieser Seiten wird Ihre IP-Adresse an den jeweiligen Anbieter übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der korrekten Darstellung fachlicher Inhalte und einer schnellen Auslieferung der Bibliotheken.
 
-## 10. YouTube-Videos (Blog)
+## 10. YouTube-Videos und Reddit-Beiträge (Blog)
+
+### YouTube
 
 In einige Blogbeiträge sind Videos der Plattform YouTube eingebunden. Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
 

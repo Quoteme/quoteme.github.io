@@ -40,3 +40,9 @@ I have started a video-series as well though:
 </div>
 
 [Full playlist on YouTube](https://www.youtube.com/playlist?list=PLWOiUBFc80cY)
+
+## Funny memes I found regarding differential forms
+
+<iframe src="https://embed.reddit.com/r/mathmemes/comments/1xutour/is_it_really_that_bad/?embed=true&amp;showmedia=true" title="Reddit post on r/mathmemes: Is it really that bad?" width="100%" height="740" style="border: none; max-width: 640px; display: block; margin: 0 auto;" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+
+[View on Reddit (r/mathmemes)](https://www.reddit.com/r/mathmemes/comments/1xutour/is_it_really_that_bad/)
