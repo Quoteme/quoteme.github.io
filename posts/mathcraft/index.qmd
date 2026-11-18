@@ -6,6 +6,20 @@ categories: ["math", "category theory", "topos theory", "sheaves", "Minecraft", 
 image: "./assets/thumbnail.png"
 ---
 
+
+:::{.callout-note}
+This post is a part of my ongoing series about sheaves in minecraft.
+You can find more related posts [here](/blog.html#category=sheaves)
+:::
+
+
+:::{.callout-warning}
+This post (and more specifically the PDF) are still a work in progress!
+There may be _grave_ errors hidden in these texts!!! WATCH OUT!
+:::
+
+
+
 This post is a continuation of my earlier post
 [Sheaves in Minecraft](/posts/sheaves_in_minecraft/), where I used Minecraft
 to build intuition for sheaves. This time we go one step further and look at

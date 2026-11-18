@@ -6,6 +6,14 @@ categories: ["math", "algebraic geometry", "sheaves", "topology", "Minecraft", "
 image: "https://i.imgur.com/IvIs8F3.png"
 ---
 
+
+:::{.callout-note}
+This post is a part of my ongoing series about sheaves in minecraft.
+You can find more related posts [here](/blog.html#category=sheaves)
+:::
+
+
+
 ## Introduction
 
 A few days ago, after my introductory class in topology, and right before
