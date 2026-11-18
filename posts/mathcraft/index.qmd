@@ -11,8 +11,6 @@ This post is a continuation of my earlier post
 to build intuition for sheaves. This time we go one step further and look at
 topoi in Minecraft.
 
-![](./assets/thumbnail.png){fig-alt="Overworld and Nether drawn as block worlds, connected through a Nether portal"}
-
 <iframe
   src="/mathcraft"
   style="width:100%; height:600px; border:none;"
