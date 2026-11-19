@@ -52,6 +52,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-c87ac9b12bd57b45673855c2bf2188ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/bootstrap/bootstrap-6b73b04b20d3b913e35458fcd98e8bbe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -347,6 +350,35 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 
@@ -475,8 +507,45 @@ Warning
 <iframe src="../../mathcraft" style="width:100%; height:600px; border:none;" title="Mathcraft: Topoi in Minecraft (PDF)" height="600">
 </iframe>
 <p><a href="../../mathcraft">Mathcraft.pdf</a></p>
+<section id="history" class="level2">
+<h2 class="anchored" data-anchor-id="history">History</h2>
+<p>This entire project has been long overdue. As mentioned before, I started it around 2021 during my algebraic geometry classes at HHU. Still, I needed <em>years</em> to finally get a grip on the concepts.</p>
+<p>One thing that gave me some trouble was that the restriction maps in the original post were in fact wrong. In the original post I wrote something along the lines of: we associate a set <span class="math inline">\(\{\text{enemy}_1, \text{enemy}_2, \dots\}\)</span> to each open set (a union of chunks). But how do we define the restriction maps if, for example, there are two chunks <span class="math inline">\(U_1\)</span>, <span class="math inline">\(U_2\)</span>, one of which contains, say, a skeleton <span class="math inline">\(F(U_1) = \{s\}\)</span> while the other one does not, <span class="math inline">\(F(U_2) = \emptyset\)</span>? We may want to restrict from the union <span class="math inline">\(U = U_1 \cup U_2\)</span> to <span class="math inline">\(U_2\)</span>, but there is no function <span class="math inline">\(r \colon F(U) \to F(U_2)\)</span>! I mean, where would the skeleton be mapped to lol???</p>
+<p>I kinda knew back then that this was wrong, but I simply assumed that <span class="math inline">\(r\)</span> would only be a partial function. Looking back, that is the wrong approach. Instead, we wish to consider functions and not just sets, so <span class="math inline">\(F(U) = \operatorname{Hom}(U, \texttt{List[Entity]})\)</span>, and we may choose a section <span class="math inline">\(f \in F(U)\)</span> with</p>
+<p><span class="math display">\[
+f(p) = \begin{cases}
+  [s] &amp; \text{if } p \text{ is the position of the skeleton},\\
+  [\,] &amp; \text{else.}
+\end{cases}
+\]</span></p>
+<p>Like this, we can also restrict correctly via <span class="math inline">\(r(g) = g|_{U_i}\)</span>.</p>
+</section>
+<section id="implementation-in-lean4" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-in-lean4">Implementation in Lean4</h2>
+<p>I have been working on a Lean4 implementation of the ideas in this post from time to time. I currently use raylib for drawing, but it is still a huge work in progress. Not all ideas of the paper are implemented yet.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/lean-flat-world.png" class="lightbox" data-gallery="lean-impl" title="A flat test world rendered with raylib."><img src="./assets/lean-flat-world.png" class="img-fluid figure-img" alt="A flat test world rendered with raylib."></a></p>
+<figcaption>A flat test world rendered with raylib.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/lean-world-menu.png" class="lightbox" data-gallery="lean-impl" title="The world selection menu, next to the Lean4 source code."><img src="./assets/lean-world-menu.png" class="img-fluid figure-img" alt="The world selection menu, next to the Lean4 source code."></a></p>
+<figcaption>The world selection menu, next to the Lean4 source code.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -917,6 +986,38 @@ Warning
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

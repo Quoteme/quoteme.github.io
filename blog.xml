@@ -52,8 +52,40 @@ Warning
 <iframe src="../../mathcraft" style="width:100%; height:600px; border:none;" title="Mathcraft: Topoi in Minecraft (PDF)" height="600">
 </iframe>
 <p><a href="../../mathcraft">Mathcraft.pdf</a></p>
+<section id="history" class="level2">
+<h2 class="anchored" data-anchor-id="history">History</h2>
+<p>This entire project has been long overdue. As mentioned before, I started it around 2021 during my algebraic geometry classes at HHU. Still, I needed <em>years</em> to finally get a grip on the concepts.</p>
+<p>One thing that gave me some trouble was that the restriction maps in the original post were in fact wrong. In the original post I wrote something along the lines of: we associate a set <img src="https://latex.codecogs.com/png.latex?%5C%7B%5Ctext%7Benemy%7D_1,%20%5Ctext%7Benemy%7D_2,%20%5Cdots%5C%7D"> to each open set (a union of chunks). But how do we define the restriction maps if, for example, there are two chunks <img src="https://latex.codecogs.com/png.latex?U_1">, <img src="https://latex.codecogs.com/png.latex?U_2">, one of which contains, say, a skeleton <img src="https://latex.codecogs.com/png.latex?F(U_1)%20=%20%5C%7Bs%5C%7D"> while the other one does not, <img src="https://latex.codecogs.com/png.latex?F(U_2)%20=%20%5Cemptyset">? We may want to restrict from the union <img src="https://latex.codecogs.com/png.latex?U%20=%20U_1%20%5Ccup%20U_2"> to <img src="https://latex.codecogs.com/png.latex?U_2">, but there is no function <img src="https://latex.codecogs.com/png.latex?r%20%5Ccolon%20F(U)%20%5Cto%20F(U_2)">! I mean, where would the skeleton be mapped to lol???</p>
+<p>I kinda knew back then that this was wrong, but I simply assumed that <img src="https://latex.codecogs.com/png.latex?r"> would only be a partial function. Looking back, that is the wrong approach. Instead, we wish to consider functions and not just sets, so <img src="https://latex.codecogs.com/png.latex?F(U)%20=%20%5Coperatorname%7BHom%7D(U,%20%5Ctexttt%7BList%5BEntity%5D%7D)">, and we may choose a section <img src="https://latex.codecogs.com/png.latex?f%20%5Cin%20F(U)"> with</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Af(p)%20=%20%5Cbegin%7Bcases%7D%0A%20%20%5Bs%5D%20&amp;%20%5Ctext%7Bif%20%7D%20p%20%5Ctext%7B%20is%20the%20position%20of%20the%20skeleton%7D,%5C%5C%0A%20%20%5B%5C,%5D%20&amp;%20%5Ctext%7Belse.%7D%0A%5Cend%7Bcases%7D%0A"></p>
+<p>Like this, we can also restrict correctly via <img src="https://latex.codecogs.com/png.latex?r(g)%20=%20g%7C_%7BU_i%7D">.</p>
+</section>
+<section id="implementation-in-lean4" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-in-lean4">Implementation in Lean4</h2>
+<p>I have been working on a Lean4 implementation of the ideas in this post from time to time. I currently use raylib for drawing, but it is still a huge work in progress. Not all ideas of the paper are implemented yet.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/lean-flat-world.png" class="lightbox" data-gallery="lean-impl" title="A flat test world rendered with raylib."><img src="https://happel.ai/posts/mathcraft/assets/lean-flat-world.png" class="img-fluid figure-img" alt="A flat test world rendered with raylib."></a></p>
+<figcaption>A flat test world rendered with raylib.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/lean-world-menu.png" class="lightbox" data-gallery="lean-impl" title="The world selection menu, next to the Lean4 source code."><img src="https://happel.ai/posts/mathcraft/assets/lean-world-menu.png" class="img-fluid figure-img" alt="The world selection menu, next to the Lean4 source code."></a></p>
+<figcaption>The world selection menu, next to the Lean4 source code.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 
 
+</section>
 
  ]]></description>
   <category>math</category>
