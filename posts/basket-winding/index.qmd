@@ -11,6 +11,18 @@ I just created a new project. You can check it out here:
 
 ![A honeycomb basket winding together with its magnetic field lines.](thumbnail.png)
 
+You can also play around with the interactive visualization directly here:
+
+<iframe
+  src="https://happel.ai/basket-winding/viz/dist/"
+  title="Interactive basket-winding visualization"
+  width="100%"
+  height="600"
+  style="border: none;"
+  loading="lazy"
+  allowfullscreen
+></iframe>
+
 This project stems from Daniel Jacobi, a close friend of mine, who has a deep
 interest in electrical engineering and electromagnetism, with an eye on their
 applications. One Saturday morning I awoke to a call from him about a concept
