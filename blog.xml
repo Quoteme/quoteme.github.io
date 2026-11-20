@@ -125,6 +125,9 @@ Warning
 <figcaption>A honeycomb basket winding together with its magnetic field lines.</figcaption>
 </figure>
 </div>
+<p>You can also play around with the interactive visualization directly here:</p>
+<iframe src="https://happel.ai/basket-winding/viz/dist/" title="Interactive basket-winding visualization" width="100%" height="600" style="border: none;" loading="lazy" allowfullscreen="">
+</iframe>
 <p>This project stems from Daniel Jacobi, a close friend of mine, who has a deep interest in electrical engineering and electromagnetism, with an eye on their applications. One Saturday morning I awoke to a call from him about a concept called “basket windings”, which, as he explained, is an old technique in these disciplines that nowadays seems to be rarely spoken about.</p>
 <p>Nonetheless, its applications seemed to be of great use to him, and so we set out to model the different types of basket windings found in the literature: first to understand them, and second to build them ourselves with the help of another engineering friend of ours, Robert Smykala.</p>
 <p>In this project we explore the theory, modelling and application of basket windings. We begin by introducing the three different types of basket windings and model them using group theory and Lie groups (<a href="https://happel.ai/basket-winding/research/01-fundamentals.html">1 Fundamentals</a>).</p>
