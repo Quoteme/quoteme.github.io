@@ -26,13 +26,23 @@ to build intuition for sheaves. This time we go one step further and look at
 topoi in Minecraft.
 
 <iframe
-  src="/mathcraft"
+  id="mathcraft-pdf"
   style="width:100%; height:600px; border:none;"
   title="Mathcraft: Topoi in Minecraft (PDF)"
   height="600"
 ></iframe>
 
-[Mathcraft.pdf](/mathcraft)
+<a id="mathcraft-pdf-link" href="/mathcraft/mathcraft.pdf">Mathcraft.pdf</a>
+
+<script>
+  // GitHub Pages serves the PDF with max-age=14400, so append a unique
+  // query string on every page load to always fetch the latest version.
+  (function () {
+    var url = "/mathcraft/mathcraft.pdf?v=" + Date.now();
+    document.getElementById("mathcraft-pdf").src = url;
+    document.getElementById("mathcraft-pdf-link").href = url;
+  })();
+</script>
 
 ## History
 
