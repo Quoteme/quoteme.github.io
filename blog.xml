@@ -10,7 +10,198 @@
 <atom:link href="https://happel.ai/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Luca Happel&#39;s blog on mathematics (algebra, algebraic geometry, topology, type theory, category theory), programming, IT security and AI.</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Tue, 17 Nov 2026 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 25 Nov 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>SELinux (Mandatory Access Control) and the Topos of Graphs</title>
+  <dc:creator>Luca Leon Happel</dc:creator>
+  <link>https://happel.ai/posts/mandatory-access-control/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>“Linux hardening” is a term sometimes used to mean “increasing the security of a deployed Linux system”. Confusingly enough, it is closely related to <em>Linux kernel hardening</em>, which is encompassed by the aforementioned definition, but does not exhaust it (so not all of “Linux hardening” is “Linux kernel hardening” alone!). One such technique is <em>mandatory access control</em><sup>1</sup>, as implemented in SELinux, which was originally developed by the NSA and has since grown into a large project spanning the kernel and userspace<sup>2</sup>. We will explore it using the <em>topos of graphs</em>, reducing the construction to just a few lines of formulas by offloading the heavy lifting to topos theory.</p>
+<section id="mandatory-access-control" class="level2">
+<h2 class="anchored" data-anchor-id="mandatory-access-control">Mandatory access control</h2>
+<p>Various techniques exist to implement mandatory access control, such as AppArmor by Canonical or SELinux, based on work by the NSA. In each case, we wish to restrict access to files and directories to only certain users, roles, processes, and so on. While AppArmor more or less resolves the <em>pathname</em> of such a file or directory and matches it against a rulebook for each user, role or process to decide whether access is permitted, SELinux instead stores this access control information alongside each file or directory as dedicated metadata (a <em>security label</em>, kept in the file’s extended attributes). We will focus on this second approach in this post.</p>
+<p>On Linux, each file or directory can naively be seen as a path inside a file tree: we start with the root <code>/</code>, and we can add files to it (<code>/file</code>) or directories (<code>/directory/</code>), where each directory can again contain files and directories, in an <em>inductive</em> fashion. This naturally leads to the depiction of a file system as a tree, as commonly shown for the Filesystem Hierarchy Standard (FHS):</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#ffffff", "primaryBorderColor": "#000000", "primaryTextColor": "#000000", "lineColor": "#000000", "textColor": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "sans-serif"}}}%%
+flowchart TD
+    root["/"] --&gt; bin["/bin/"]
+    root --&gt; etc["/etc/"]
+    root --&gt; home["/home/"]
+    root --&gt; usr["/usr/"]
+    root --&gt; var["/var/"]
+    etc --&gt; passwd["/etc/passwd"]
+    etc --&gt; shadow["/etc/shadow"]
+    home --&gt; user["/home/user/"]
+    usr --&gt; usrbin["/usr/bin/"]
+    usr --&gt; usrlib["/usr/lib/"]
+    var --&gt; log["/var/log/"]
+</pre>
+</div>
+<p></p><figcaption> A part of the standard FHS of a Linux system.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>However, through the use of symbolic links (symlinks), we actually get the structure of a <em>graph</em> instead of a tree: a file or directory may then be reachable along several paths, and cycles become possible. It is therefore easier to start right away by considering a directed graph <img src="https://latex.codecogs.com/png.latex?X"> for the file system. Nodes <img src="https://latex.codecogs.com/png.latex?x"> and <img src="https://latex.codecogs.com/png.latex?y"> may then be seen as files or directories, and whenever an edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y"> exists, we consider <img src="https://latex.codecogs.com/png.latex?y"> to be the parent directory of <img src="https://latex.codecogs.com/png.latex?x">. Two observations are immediate:</p>
+<ol type="1">
+<li>By adding identities and composing edges into paths, <img src="https://latex.codecogs.com/png.latex?X"> generates a category (the <em>free category</em> on <img src="https://latex.codecogs.com/png.latex?X">), in which a morphism <img src="https://latex.codecogs.com/png.latex?x%20%5Cto%20y"> is a path from <img src="https://latex.codecogs.com/png.latex?x"> up to its ancestor <img src="https://latex.codecogs.com/png.latex?y">.</li>
+<li>Every file has empty fan-in, i.e.&nbsp;no inbound arrows, since nothing can be placed inside a file. The converse does not hold: an empty directory has empty fan-in as well.</li>
+</ol>
+<p>An example of such a graph can be seen when we consider a directory <code>cwd/</code>, together with a directory <code>cwd/sub/</code>, files <code>cwd/file1</code> and <code>cwd/sub/file2</code>, and a symlink <code>cwd/sub/par/</code> pointing back to <code>cwd/</code>. The symlink <code>par</code> is itself a node with parent <code>cwd/sub/</code>, and since it points to <code>cwd/</code>, we add an edge from <code>cwd</code> into <code>par</code>. This gives the cycle <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7Bcwd%7D%20%5Cto%20%5Ctexttt%7Bpar%7D%20%5Cto%20%5Ctexttt%7Bsub%7D%20%5Cto%20%5Ctexttt%7Bcwd%7D">, which cannot be expressed as a tree anymore.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#ffffff", "primaryBorderColor": "#000000", "primaryTextColor": "#000000", "lineColor": "#000000", "textColor": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "sans-serif"}}}%%
+flowchart BT
+    file1["cwd/file1"] --&gt; cwd["cwd/"]
+    sub["cwd/sub/"] --&gt; cwd
+    file2["cwd/sub/file2"] --&gt; sub
+    par["cwd/sub/par/"] --&gt; sub
+    cwd -.-&gt; par
+</pre>
+</div>
+<p></p><figcaption> The file system graph of <code>cwd/</code>. Edges point from a file or directory to its parent; the dashed edge points from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code>.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<!-- TODO: continue — labels on the nodes of this tree, allow rules between
+     labels; small SELinux example policy. -->
+</section>
+<section id="sheaves-over-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="sheaves-over-graphs">Sheaves over graphs</h2>
+<p>As we have previously seen, sheaves are the most natural data structure to track data that is associated to some location. We have used this, for example, to store state for the game Minecraft per chunk in <em>Sheaves in Minecraft</em><sup>3</sup> or <em>Mathcraft: Topoi in Minecraft</em><sup>4</sup>. Storing access control information per node using sheaves therefore does not seem that far-fetched.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The topos of graphs
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Funnily enough, graphs themselves can be regarded as presheaves over a certain small category<sup>5</sup>. This section is taken from my bachelor thesis<sup>6</sup>. Let <img src="https://latex.codecogs.com/png.latex?%5CGamma"> be the category with two objects <img src="https://latex.codecogs.com/png.latex?N"> and <img src="https://latex.codecogs.com/png.latex?A"> and, besides the identities, exactly two morphisms <img src="https://latex.codecogs.com/png.latex?N%20%5Coverset%7Bs%7D%7B%5Cunderset%7Bt%7D%7B%5Crightrightarrows%7D%7D%20A."> The <em>topos of graphs</em> is the presheaf category <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BG%7D%20=%20%5B%5CGamma%5E%7B%5Ctext%7Bop%7D%7D,%20%5Ctextbf%7BSet%7D%5D">.</p>
+<p>An object <img src="https://latex.codecogs.com/png.latex?G%20%5Cin%20%5Cmathcal%7BG%7D"> is uniquely determined by <img src="https://latex.codecogs.com/png.latex?G(N)">, the set of nodes, <img src="https://latex.codecogs.com/png.latex?G(A)">, the set of arcs, and two functions <img src="https://latex.codecogs.com/png.latex?G(s),%20G(t)%20:%20G(A)%20%5Cto%20G(N)">, which map an arc to its source and target node, respectively. In other words, <img src="https://latex.codecogs.com/png.latex?G"> is a directed graph with nodes <img src="https://latex.codecogs.com/png.latex?G(N)"> and arcs <img src="https://latex.codecogs.com/png.latex?G(A)">.</p>
+<p>A morphism <img src="https://latex.codecogs.com/png.latex?f%20:%20G%20%5Cto%20H"> in <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BG%7D"> is a natural transformation between the presheaves <img src="https://latex.codecogs.com/png.latex?G"> and <img src="https://latex.codecogs.com/png.latex?H">, or explicitly a pair of functions <img src="https://latex.codecogs.com/png.latex?f_N%20:%20G(N)%20%5Cto%20H(N),%20%5Cqquad%20f_A%20:%20G(A)%20%5Cto%20H(A)"> such that the following diagrams commute: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Barray%7D%7Bccc%7D%0AG(A)%20&amp;%20%5Cxrightarrow%7BG(s)%7D%20&amp;%20G(N)%20%5C%5C%0A%7B%5Cscriptstyle%20f_A%7D%20%5Cbig%5Cdownarrow%20&amp;%20&amp;%20%5Cbig%5Cdownarrow%20%7B%5Cscriptstyle%20f_N%7D%20%5C%5C%0AH(A)%20&amp;%20%5Cxrightarrow%5BH(s)%5D%7B%7D%20&amp;%20H(N)%0A%5Cend%7Barray%7D%0A%5Cqquad%20%5Ctext%7Band%7D%20%5Cqquad%0A%5Cbegin%7Barray%7D%7Bccc%7D%0AG(A)%20&amp;%20%5Cxrightarrow%7BG(t)%7D%20&amp;%20G(N)%20%5C%5C%0A%7B%5Cscriptstyle%20f_A%7D%20%5Cbig%5Cdownarrow%20&amp;%20&amp;%20%5Cbig%5Cdownarrow%20%7B%5Cscriptstyle%20f_N%7D%20%5C%5C%0AH(A)%20&amp;%20%5Cxrightarrow%5BH(t)%5D%7B%7D%20&amp;%20H(N)%0A%5Cend%7Barray%7D%0A"> Intuitively, this means that <img src="https://latex.codecogs.com/png.latex?f"> maps nodes to nodes and preserves arcs, which is exactly the standard definition of a graph homomorphism in graph theory.</p>
+</div>
+</div>
+</div>
+<p>Let us now assume that we are given some graph <img src="https://latex.codecogs.com/png.latex?X%20%5Cin%20%5B%5CGamma%5E%7B%5Ctext%7Bop%7D%7D,%0A%5Ctextbf%7BSet%7D%5D">, which, as noticed before, we can take to be a category (namely the free category on <img src="https://latex.codecogs.com/png.latex?X">). We can now consider the presheaf category over <img src="https://latex.codecogs.com/png.latex?X">, given by <img src="https://latex.codecogs.com/png.latex?%5BX%5E%7B%5Ctext%7Bop%7D%7D,%20%5Ctextbf%7BSet%7D%5D">, and take <img src="https://latex.codecogs.com/png.latex?Y"> to be one of its presheaves, which assigns to each node the set <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D">, i.e. <img src="https://latex.codecogs.com/png.latex?Y(x)%20=%20%5Ctexttt%7BBool%7D%20=%20%5C%7B%5Cbot,%20%5Ctop%5C%7D"> for every node <img src="https://latex.codecogs.com/png.latex?x">. Each edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y"> is then sent to a restriction map <img src="https://latex.codecogs.com/png.latex?Y(p)%20:%20Y(y)%20%5Cto%20Y(x)">, i.e.&nbsp;a function <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D%20%5Cto%20%5Ctexttt%7BBool%7D"> from the parent directory to its child.</p>
+<p>A global element <img src="https://latex.codecogs.com/png.latex?s%20:%201%20%5Cto%20Y"> of this presheaf is then given by concretely associating a compatible choice of boolean values <img src="https://latex.codecogs.com/png.latex?s_x%20%5Cin%20Y(x)"> to each node <img src="https://latex.codecogs.com/png.latex?x"> in the graph, where <em>compatible</em> means that <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for every edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. We can think of <img src="https://latex.codecogs.com/png.latex?s"> as answering the question “does the user have access to node <img src="https://latex.codecogs.com/png.latex?x">?” for every node at once. As the restriction maps are already a part of <img src="https://latex.codecogs.com/png.latex?Y">, choosing a value <img src="https://latex.codecogs.com/png.latex?s_y%20%5Cin%20Y(y)"> for a directory <img src="https://latex.codecogs.com/png.latex?y"> already determines the access rights of everything below it, since <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for each edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. Read the other way around, as long as every restriction map sends <img src="https://latex.codecogs.com/png.latex?%5Cbot"> to <img src="https://latex.codecogs.com/png.latex?%5Cbot"> (as is the case in Figure&nbsp;1), <img src="https://latex.codecogs.com/png.latex?s_x%20=%20%5Ctop"> forces <img src="https://latex.codecogs.com/png.latex?s_y%20=%20%5Ctop">, so choosing a value for <img src="https://latex.codecogs.com/png.latex?x"> determines the access rights of all its parents (i.e.&nbsp;the directories above it). This is however to be expected, as we might like for a directory to have access rights, given that at least one of its files is accessible! This leads us to the notion of <em>refinement types</em>, which we will consider for the topos of graphs in a later post some day.</p>
+<div id="fig-global-section" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://happel.ai/posts/mandatory-access-control/global-section.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A global element of <img src="https://latex.codecogs.com/png.latex?Y"> over the graph of <code>cwd/</code>, which lies in the <img src="https://latex.codecogs.com/png.latex?x">-<img src="https://latex.codecogs.com/png.latex?z">-plane. Above each node sits a copy of <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D">, and the global element picks one value per node (filled). Here, all restriction maps are the identity, except the one for the edge from <code>cwd/sub/file2</code>, which is constantly <img src="https://latex.codecogs.com/png.latex?%5Cbot">.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="subgraphs-for-access-control" class="level2">
+<h2 class="anchored" data-anchor-id="subgraphs-for-access-control">Subgraphs for access control</h2>
+<p>A possibly even better approach is to consider subgraphs <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X">. In particular, we only keep those nodes of <img src="https://latex.codecogs.com/png.latex?X"> in <img src="https://latex.codecogs.com/png.latex?Y"> which we want the user, role, etc. to have access to (together with the edges between them). This is an even more idiomatic approach, as we thereby completely hide all information about the nodes <img src="https://latex.codecogs.com/png.latex?x"> of <img src="https://latex.codecogs.com/png.latex?X"> which are not in <img src="https://latex.codecogs.com/png.latex?Y">.</p>
+<div id="fig-subgraph" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-subgraph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://happel.ai/posts/mandatory-access-control/subgraph.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X"> (top) of the graph of <code>cwd/</code> (bottom) for a user without access to <code>cwd/sub/file2</code>. The dotted arrows show where each node of <img src="https://latex.codecogs.com/png.latex?Y"> is sent in <img src="https://latex.codecogs.com/png.latex?X">.
+</figcaption>
+</figure>
+</div>
+<p>For this, we need to consider the subobject classifier <img src="https://latex.codecogs.com/png.latex?%5COmega"> of the topos of graphs<sup>7</sup>, which is given by</p>
+<figure id="fig-omega" class="figure">
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="80 38 300 160" width="340" style="display:block;margin:0 auto;color:inherit" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-size="17">
+  <defs>
+    <marker id="omega-arr" viewbox="0 0 10 10" refx="9" refy="5" markerwidth="6" markerheight="6" orient="auto-start-reverse">
+      <path d="M0,1 L10,5 L0,9" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+    </marker>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.1" marker-end="url(#omega-arr)">
+    <path d="M 204,113 Q 258,96 313,113"></path>
+    <path d="M 313,131 Q 258,148 204,131"></path>
+    <path d="M 168,113 C 132,96 132,148 168,131"></path>
+    <path d="M 323,108 C 302,68 354,68 333,108"></path>
+    <path d="M 333,135 C 354,175 302,175 323,135"></path>
+  </g>
+  <g fill="currentColor" stroke="none">
+    <text x="186" y="128" text-anchor="middle">0<tspan font-style="italic" font-size="12" dy="4">N</tspan></text>
+    <text x="328" y="128" text-anchor="middle" font-style="italic">N</text>
+    <text x="114" y="128" text-anchor="middle">0<tspan font-style="italic" font-size="12" dy="4">A</tspan></text>
+    <text x="258" y="96" text-anchor="middle" font-style="italic" font-size="15">t</text>
+    <text x="258" y="160" text-anchor="middle" font-style="italic" font-size="15">s</text>
+    <text x="328" y="186" text-anchor="middle" font-style="italic" font-size="15">A</text>
+    <text x="319" y="64" text-anchor="middle" font-size="22" transform="matrix(0.8 0 0 1 63.8 0)">(</text>
+    <text x="337" y="64" text-anchor="middle" font-size="22" transform="matrix(0.8 0 0 1 67.4 0)">)</text>
+    <text x="328" y="55" text-anchor="middle" font-style="italic" font-size="12">s</text>
+    <text x="328" y="68" text-anchor="middle" font-style="italic" font-size="12">t</text>
+  </g>
+</svg>
+<figcaption>The subobject classifier Ω of the topos of graphs.</figcaption>
+</figure>
+<p>where the “true” arrow <img src="https://latex.codecogs.com/png.latex?%5Ctop%20:%201%20%5Cto%20%5COmega"> sends the only node and arc of the terminal graph <img src="https://latex.codecogs.com/png.latex?1"> to <img src="https://latex.codecogs.com/png.latex?N"> and <img src="https://latex.codecogs.com/png.latex?A">, respectively.</p>
+<p>Given a subgraph <img src="https://latex.codecogs.com/png.latex?m%20:%20Y%20%5Crightarrowtail%20X">, the classifying map <img src="https://latex.codecogs.com/png.latex?%5Cchi_m%20:%20X%20%5Cto%20%5COmega"> works as follows:</p>
+<ul>
+<li>nodes which are not in <img src="https://latex.codecogs.com/png.latex?Y"> are mapped to <img src="https://latex.codecogs.com/png.latex?0_N">;</li>
+<li>nodes which are in <img src="https://latex.codecogs.com/png.latex?Y"> are mapped to <img src="https://latex.codecogs.com/png.latex?N">;</li>
+<li>if an arc is not in <img src="https://latex.codecogs.com/png.latex?Y">, we have four possibilities:
+<ul>
+<li>arcs whose source and target are not in <img src="https://latex.codecogs.com/png.latex?Y"> are mapped to <img src="https://latex.codecogs.com/png.latex?0_A">;</li>
+<li>arcs whose source is in <img src="https://latex.codecogs.com/png.latex?Y">, but whose target is not, are mapped to <img src="https://latex.codecogs.com/png.latex?s">;</li>
+<li>arcs whose target is in <img src="https://latex.codecogs.com/png.latex?Y">, but whose source is not, are mapped to <img src="https://latex.codecogs.com/png.latex?t">;</li>
+<li>arcs having both source and target in <img src="https://latex.codecogs.com/png.latex?Y"> are mapped to <img src="https://latex.codecogs.com/png.latex?%5Cbinom%7Bs%7D%7Bt%7D">;</li>
+</ul></li>
+<li>finally, an arc in <img src="https://latex.codecogs.com/png.latex?Y"> is mapped to <img src="https://latex.codecogs.com/png.latex?A">.</li>
+</ul>
+<p>Conversely, <img src="https://latex.codecogs.com/png.latex?Y"> is recovered from <img src="https://latex.codecogs.com/png.latex?%5Cchi_m"> as the pullback of <img src="https://latex.codecogs.com/png.latex?%5Ctop"> along <img src="https://latex.codecogs.com/png.latex?%5Cchi_m">, and this sets up a one-to-one correspondence between subgraphs of <img src="https://latex.codecogs.com/png.latex?X"> and graph morphisms <img src="https://latex.codecogs.com/png.latex?X%20%5Cto%20%5COmega">.</p>
+<p>In fact, by considering the subobject classifier, it becomes clear that some other subobjects, which we have not yet considered, are also possible, like just removing an edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y"> while keeping both <img src="https://latex.codecogs.com/png.latex?x"> and <img src="https://latex.codecogs.com/png.latex?y"> (i.e. mapping <img src="https://latex.codecogs.com/png.latex?p"> to <img src="https://latex.codecogs.com/png.latex?%5Cbinom%7Bs%7D%7Bt%7D">). This corresponds to keeping the directory <img src="https://latex.codecogs.com/png.latex?y">, but hiding that <img src="https://latex.codecogs.com/png.latex?x"> lies inside it, so that a user without the corresponding access permission cannot follow through <img src="https://latex.codecogs.com/png.latex?y"> to <img src="https://latex.codecogs.com/png.latex?x">. If <img src="https://latex.codecogs.com/png.latex?p"> was the only inbound arrow of <img src="https://latex.codecogs.com/png.latex?y">, then <img src="https://latex.codecogs.com/png.latex?y"> even appears as an empty directory to that user. The node <img src="https://latex.codecogs.com/png.latex?x"> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
+<p>Assume now that the graph <img src="https://latex.codecogs.com/png.latex?X"> is given. How can we encode the access controls for its users? We first consider a single user <img src="https://latex.codecogs.com/png.latex?u">, in which case we can simply store the characteristic map <img src="https://latex.codecogs.com/png.latex?%5Cchi_%7BY_u%7D%20:%20X%20%5Cto%20%5COmega"> of the associated subgraph <img src="https://latex.codecogs.com/png.latex?Y_u%20%5Crightarrowtail%20X">, after serialization: one of the two nodes of <img src="https://latex.codecogs.com/png.latex?%5COmega"> for every node of <img src="https://latex.codecogs.com/png.latex?X">, and one of the five arcs of <img src="https://latex.codecogs.com/png.latex?%5COmega"> for every arc of <img src="https://latex.codecogs.com/png.latex?X">.</p>
+<p>In fact, for multiple users <img src="https://latex.codecogs.com/png.latex?u_1,%20%5Cdots,%20u_k"> we can proceed similarly, by considering the coproduct of the subgraphs <img src="https://latex.codecogs.com/png.latex?Y_%7Bu_1%7D%20%5Csqcup%20%5Cdots%20%5Csqcup%20Y_%7Bu_k%7D%20%5Crightarrowtail%0AX%20%5Csqcup%20%5Cdots%20%5Csqcup%20X,"> which is again a subgraph (coproducts of monomorphisms are monomorphisms in a topos). Its characteristic map is the copairing <img src="https://latex.codecogs.com/png.latex?%5B%5Cchi_%7BY_%7Bu_1%7D%7D,%20%5Cdots,%20%5Cchi_%7BY_%7Bu_k%7D%7D%5D%20:%20X%20%5Csqcup%20%5Cdots%20%5Csqcup%20X%20%5Cto%20%5COmega,"> which we can serialize again. By the universal properties of the coproduct and the product, this is the same as a single graph morphism <img src="https://latex.codecogs.com/png.latex?%5Clangle%20%5Cchi_%7BY_%7Bu_1%7D%7D,%20%5Cdots,%20%5Cchi_%7BY_%7Bu_k%7D%7D%20%5Crangle%20:%0AX%20%5Cto%20%5COmega%20%5Ctimes%20%5Cdots%20%5Ctimes%20%5COmega,"> which stores at every node and arc of <img src="https://latex.codecogs.com/png.latex?X"> a <img src="https://latex.codecogs.com/png.latex?k">-tuple of access rights, one per user. This is precisely the SELinux approach from the beginning: the access control information is kept alongside each file or directory.</p>
+<!-- TODO: continue -->
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See the ArchWiki on <a href="https://wiki.archlinux.org/title/Security#Mandatory_access_control">mandatory access control</a>.↩︎</p></li>
+<li id="fn2"><p>See the <a href="https://github.com/SELinuxProject/selinux-kernel">SELinux kernel repository</a>.↩︎</p></li>
+<li id="fn3"><p>See <a href="../sheaves_in_minecraft/">Sheaves in Minecraft</a>.↩︎</p></li>
+<li id="fn4"><p>See <a href="../mathcraft/">Mathcraft: Topoi in Minecraft</a>.↩︎</p></li>
+<li id="fn5"><p>Sebastiano Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>, 2003.↩︎</p></li>
+<li id="fn6"><p>See my bachelor thesis at <a href="https://happel.ai/bachelor2">happel.ai/bachelor2</a>.↩︎</p></li>
+<li id="fn7"><p>See again Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>computer science</category>
+  <category>Linux</category>
+  <category>security</category>
+  <category>math</category>
+  <category>topos theory</category>
+  <category>category theory</category>
+  <category>English</category>
+  <guid>https://happel.ai/posts/mandatory-access-control/</guid>
+  <pubDate>Wed, 25 Nov 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://happel.ai/posts/mandatory-access-control/subgraph.svg" medium="image" type="image/svg+xml"/>
+</item>
 <item>
   <title>Mathcraft: Topoi in Minecraft</title>
   <dc:creator>Luca Leon Happel</dc:creator>
@@ -14330,524 +14521,6 @@ Table&nbsp;1: Derivative visualized
   <guid>https://happel.ai/posts/affine_lineare_transformationen/</guid>
   <pubDate>Sat, 16 Aug 2025 22:00:00 GMT</pubDate>
   <media:content url="https://happel.ai/posts/affine_lineare_transformationen/thumbnail.png" medium="image" type="image/png" height="123" width="144"/>
-</item>
-<item>
-  <title>Interfaces as List of Propositions</title>
-  <dc:creator>Luca Leon Happel</dc:creator>
-  <link>https://happel.ai/posts/interfaces_as_list_of_propositions/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p>Interfaces in Java commonly look like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">public</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">interface</span> MyInterface <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb1-2">    <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">void</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">doSomething</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">();</span></span>
-<span id="cb1-3">    <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">int</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">getValue</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">();</span></span>
-<span id="cb1-4"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div></div>
-<p>and we would commonly use (or implement) this interface like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">public</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">class</span> MyClass <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">implements</span> MyInterface <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb2-2">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">@Override</span></span>
-<span id="cb2-3">    <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">void</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">doSomething</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">()</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb2-4">        <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// implementation</span></span>
-<span id="cb2-5">    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span id="cb2-6"></span>
-<span id="cb2-7">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">@Override</span></span>
-<span id="cb2-8">    <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">int</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">getValue</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">()</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb2-9">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">42</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-10">    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span id="cb2-11"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div></div>
-<p>Interfaces play important roles for example in the Java Collections Framework, where they are used to define the behavior of collections like <code>List</code>, <code>Set</code>, and <code>Map</code>. We may define a <code>Functor</code> interface like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">public</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">interface</span> Functor<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span>F<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb3-2">    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span>A<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> B<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> F <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">map</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>F<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span>A<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> fa<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> Function<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span>A<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> B<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> f<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">);</span></span>
-<span id="cb3-3"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div></div>
-<p>(this by the way is closely related to the <code>Functor</code> typeclass in Haskell). By implementing this interfaces, we can modify boxed values in a type-safe way, which not only dramatically increases safety, but is also cool:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// In this example we use the map function on an Optional&lt;T&gt; value to </span></span>
-<span id="cb4-2"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// transform the value inside the Optional, if it is present.</span></span>
-<span id="cb4-3">Optional<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> optionalValue <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> Optional<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">of</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">42</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">);</span></span>
-<span id="cb4-4">Optional<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">String</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> transformedValue <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> Functor<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">map</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>optionalValue<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb4-5">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Object</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span>toString<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">);</span></span>
-<span id="cb4-6"></span>
-<span id="cb4-7"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// this is in stark contrast to the unsafe way of doing this using possily null</span></span>
-<span id="cb4-8"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// values:</span></span>
-<span id="cb4-9"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Integer</span> value <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">null</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb4-10"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// either we add an if statement to check if the value is null</span></span>
-<span id="cb4-11"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">String</span> transformedValueUnsafe <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> value <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!=</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">null</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">?</span> value<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">toString</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">()</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">null</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb4-12"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// or we use a try-catch block to catch the NullPointerException (really ugly 🤢)</span></span>
-<span id="cb4-13"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">try</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb4-14">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">String</span> transformedValueUnsafe <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> value<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">toString</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">();</span></span>
-<span id="cb4-15"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">catch</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">NullPointerException</span> e<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb4-16">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// handle the exception</span></span>
-<span id="cb4-17"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div></div>
-<section id="interfaces-as-list-of-propositions" class="level2">
-<h2 class="anchored" data-anchor-id="interfaces-as-list-of-propositions">Interfaces as List of Propositions</h2>
-<p>Looking closely at the definition of an interface, we can see that it is basically a list of methods/attributes which must be explicitly implemented. Using functional programming, we know that both methods and attributes can be represented as functions (possibly with some additional state and possibly without any arguments). We may embed Java’s (or any other) type system into a sufficiently powerful type system, like the calculus of constructions. By doing so, we can regard even stateful/impure functions as pure functions, or rather: as morphisms in a category.</p>
-<p>Let’s get back to the interface example above. Here we don’t provide any function bodies, but only the signatures of the functions. This just means, we require for an implementation <img src="https://latex.codecogs.com/png.latex?X"> for there to be a morphism <img src="https://latex.codecogs.com/png.latex?f%20:%20T">, where <img src="https://latex.codecogs.com/png.latex?T"> is the type of the method/attribute. The requirement that <img src="https://latex.codecogs.com/png.latex?X"> must have an attribute <em>of name <img src="https://latex.codecogs.com/png.latex?n_f"></em> therefore corresponds to the proposition: <img src="https://latex.codecogs.com/png.latex?n_f(X)%20=%20T">.</p>
-<p>Using the example from above, we would have <img src="https://latex.codecogs.com/png.latex?n_%5Cmathsf%7BdoSomething%7D%20:%20%5Cmathsf%7BIO%7D%20%5Cmathsf%7BUnit%7D"> and <img src="https://latex.codecogs.com/png.latex?n_%5Cmathsf%7BgetValue%7D%20:%20%5Cmathsf%7BIO%7D%20%5Cmathsf%7BInt%7D">.<sup>1</sup><sup>2</sup></p>
-</section>
-<section id="implementations-as-proofs" class="level2">
-<h2 class="anchored" data-anchor-id="implementations-as-proofs">Implementations as proofs</h2>
-<p>Using the Howard-Curry correspondence, we can see that an implementation of a proposition (a proof) corresponds to some “computer program”. More formally, each type corresponds to a proposition (also called formula) and each term corresponds to a proof. We implicitly used this above already, by stating <img src="https://latex.codecogs.com/png.latex?n_f(X)%20=%20T"> would be a proposition, which clearly is actually just a type. By the afore mentioned correspondence however, we may regard them as the same. Now, finding a proof for the validity of <img src="https://latex.codecogs.com/png.latex?n_f(X)"> is therefore the same as constructing a term <img src="https://latex.codecogs.com/png.latex?t"> of type <img src="https://latex.codecogs.com/png.latex?n_f(X)">. This <img src="https://latex.codecogs.com/png.latex?t"> would therefore constitute our function body.</p>
-</section>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
-<p>Let us now implement the interface <code>MyInterface</code> from above:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">public</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">class</span> MyClass <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">implements</span> MyInterface <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb5-2">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">@Override</span></span>
-<span id="cb5-3">    <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">void</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">doSomething</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">()</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb5-4">        <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// implementation</span></span>
-<span id="cb5-5">        <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">System</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">out</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">println</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Doing something!"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">);</span></span>
-<span id="cb5-6">    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span id="cb5-7"></span>
-<span id="cb5-8">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">@Override</span></span>
-<span id="cb5-9">    <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">int</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">getValue</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">()</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb5-10">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">42</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb5-11">    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span id="cb5-12"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div></div>
-<p>Clearly <code>(){System.out.println("Doing something!");}</code> is of type <code>IO Unit</code> (after some sufficient embedding of Java’s type system). The same holds true for <code>(){return 42;}</code>, which is of type <code>IO Int</code>.</p>
-</section>
-<section id="further-outlook" class="level2">
-<h2 class="anchored" data-anchor-id="further-outlook">Further outlook</h2>
-<p>Due to Java’s (and most other OOP languages’) type systems’ limitations, or the limits of computation, the following interfaces sadly are not entirely realizable (albeit one could find some nifty ways around the respective restrictions of the type system). These interfaces are nonetheless of utmost importance:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// interface corresponding to the category of groups</span></span>
-<span id="cb6-2"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">interface</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Group</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span>T<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb6-3">    T <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">e</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">();</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// identity element</span></span>
-<span id="cb6-4">    T <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">inverse</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>T x<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">);</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// inverse element</span></span>
-<span id="cb6-5">    T <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">multiply</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>T x<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> T y<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">);</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// multiplication</span></span>
-<span id="cb6-6">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// here we would like for the group axioms to be written as propositions,</span></span>
-<span id="cb6-7">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// which we can't do in Java.</span></span>
-<span id="cb6-8">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// Therefore we reduce this step to pseudo code:</span></span>
-<span id="cb6-9">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// associative: \forall x,y,z : T multiply (multiply x y) = multiply x (multiply y z)</span></span>
-<span id="cb6-10">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// identity: \forall x : T multiply e x = x</span></span>
-<span id="cb6-11">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">// inverse: \forall x : T multiply (inverse x) x = e</span></span>
-<span id="cb6-12"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div></div>
-<p>We may write this interface as the following list of propositions though:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign*%7D%0An_%5Cmathsf%7Be%7D(X)%20&amp;=%20T%20%5C%5C%0An_%5Cmathsf%7Binverse%7D(X)%20&amp;=%20T%20%5Cto%20T%20%5C%5C%0An_%5Cmathsf%7Bmultiply%7D(X)%20&amp;=%20T%20%5Cto%20T%20%5Cto%20T%20%5C%5C%0An_%5Cmathsf%7Bassociative%7D(X)%20&amp;=%20%5Cforall%20x,y,z%20:%20T,%20n_%5Cmathsf%7Bmultiply%7D%0A(n_%5Cmathsf%7Bmultiply%7D%20x%20y)%20z%20=%20n_%5Cmathsf%7Bmultiply%7D%20x%20(n_%5Cmathsf%7Bmultiply%7D%20y%20z)%20%5C%5C%0An_%5Cmathsf%7Bidentity%7D(X)%20&amp;=%20%5Cforall%20x%20:%20T,%20n_%5Cmathsf%7Bmultiply%7D%20(n_%5Cmathsf%7Be%7D%20x)%20x%20=%20x%0A%5Cend%7Balign*%7D%0A"></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Exercise: Find another interface which cannot be expressed in Java, but can be expressed in the calculus of constructions.</p>
-</div>
-</div>
-</section>
-<section id="ideas-possibly-worth-exploring" class="level2">
-<h2 class="anchored" data-anchor-id="ideas-possibly-worth-exploring">Ideas possibly worth exploring?</h2>
-<p>In our programming classes we were told to use interfaces in the onion architecture:</p>
-<p><img src="https://happel.ai/posts/interfaces_as_list_of_propositions/onion.png" class="img-fluid" alt="Onion architecture"><sup>3</sup></p>
-<p>The right arrows in this diagram represent interfaces from the business logic of our program to the outer layers, like the database or the user interface.</p>
-<p>Here an interface might look like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">public</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">interface</span> UserRepository <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb7-2">    <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">void</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">save</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>User user<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">);</span></span>
-<span id="cb7-3">    User <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">findById</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">String</span> id<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">);</span></span>
-<span id="cb7-4"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div></div>
-<p>By implementing this repository for say <code>UserRepoPostgresDB</code>, we prove that <code>UserRepoPostgresDB</code> is in fact a <code>UserRepository</code>, which is just a list of propositions as noted above.</p>
-</section>
-<section id="reducing-an-interface-to-a-single-proposition" class="level2">
-<h2 class="anchored" data-anchor-id="reducing-an-interface-to-a-single-proposition">Reducing an interface to a single proposition</h2>
-<p>We naturally have a monoid structure on <img src="https://latex.codecogs.com/png.latex?%5Cmathsf%7BProp%7D">, the set of all propositions. Here <img src="https://latex.codecogs.com/png.latex?%5Ctextsf%7BUnit%7D"> is the neutral element corresponding to the logical constant <code>true</code>, and the binary operation is the logical conjunction, or on the programming side, the product type. We may lift our list of types <img src="https://latex.codecogs.com/png.latex?(n_f)_%7Bf%5Cin%20F%7D"> over to a list of formulas (propositions) <img src="https://latex.codecogs.com/png.latex?(P_f)_%7Bf%5Cin%20F%7D">, then we can reduce our list of propositions to a single proposition <img src="https://latex.codecogs.com/png.latex?P=%5Cbigwedge_%7Bf%20%5Cin%20F%7D%20P_f"> and finally we can bring this proposition back to a single type <img src="https://latex.codecogs.com/png.latex?T%20=%20%5Cprod_%7Bf%5Cin%0AF%7D%20n_f(X)">.</p>
-<hr>
-
-
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p><a href="https://lean-lang.org/functional_programming_in_lean/hello-world/running-a-program.html#:~:text=IO%20Unit">https://lean-lang.org/functional_programming_in_lean/hello-world/running-a-program.html#:~:text=IO%20Unit</a>↩︎</p></li>
-<li id="fn2"><p>We just wrap all of Javas function in <code>IO</code>, because all of Javas functions are potentially impure↩︎</p></li>
-<li id="fn3"><p>Credit goes to <a href="http://propra.de/ws2223/">http://propra.de/ws2223/</a>. The Programmierpraktikum course at HHU from 2023↩︎</p></li>
-</ol>
-</section></div> ]]></description>
-  <category>mathematics</category>
-  <category>category theory</category>
-  <category>oop</category>
-  <category>English</category>
-  <guid>https://happel.ai/posts/interfaces_as_list_of_propositions/</guid>
-  <pubDate>Sat, 31 May 2025 13:20:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/mandatory-access-control/index.html",
       "/posts/mathcraft/index.html",
       "/posts/basket-winding/index.html",
       "/posts/differential-forms-video-series/index.html",
