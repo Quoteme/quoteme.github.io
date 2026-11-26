@@ -637,7 +637,18 @@ Figure&nbsp;2: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</s
 <li>finally, an arc in <span class="math inline">\(Y\)</span> is mapped to <span class="math inline">\(A\)</span>.</li>
 </ul>
 <p>Conversely, <span class="math inline">\(Y\)</span> is recovered from <span class="math inline">\(\chi_m\)</span> as the pullback of <span class="math inline">\(\top\)</span> along <span class="math inline">\(\chi_m\)</span>, and this sets up a one-to-one correspondence between subgraphs of <span class="math inline">\(X\)</span> and graph morphisms <span class="math inline">\(X \to \Omega\)</span>.</p>
-<p>In fact, by considering the subobject classifier, it becomes clear that some other subobjects, which we have not yet considered, are also possible, like just removing an edge <span class="math inline">\(p : x \to y\)</span> while keeping both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (i.e. mapping <span class="math inline">\(p\)</span> to <span class="math inline">\(\binom{s}{t}\)</span>). This corresponds to keeping the directory <span class="math inline">\(y\)</span>, but hiding that <span class="math inline">\(x\)</span> lies inside it, so that a user without the corresponding access permission cannot follow through <span class="math inline">\(y\)</span> to <span class="math inline">\(x\)</span>. If <span class="math inline">\(p\)</span> was the only inbound arrow of <span class="math inline">\(y\)</span>, then <span class="math inline">\(y\)</span> even appears as an empty directory to that user. The node <span class="math inline">\(x\)</span> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
+<p>In fact, by considering the subobject classifier, it becomes clear that some other subobjects, which we have not yet considered, are also possible, like just removing an edge <span class="math inline">\(p \in X(A)\)</span> with <span class="math inline">\(X(s)(p) = x\)</span> and <span class="math inline">\(X(t)(p) = y\)</span>, while keeping both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (i.e. mapping <span class="math inline">\(p\)</span> to <span class="math inline">\(\binom{s}{t}\)</span>). This corresponds to keeping the directory <span class="math inline">\(y\)</span>, but hiding that <span class="math inline">\(x\)</span> lies inside it, so that a user without the corresponding access permission cannot follow through <span class="math inline">\(y\)</span> to <span class="math inline">\(x\)</span>.</p>
+<div id="fig-subgraph-edge" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-subgraph-edge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="subgraph-edge.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-edge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</span> (top) of the graph of <code>cwd/</code> (bottom) which keeps every node, but drops the symlink edge from <code>cwd/</code> into <code>cwd/sub/par/</code>. The dotted arrows show where each node of <span class="math inline">\(Y\)</span> is sent in <span class="math inline">\(X\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>If <span class="math inline">\(p\)</span> was the only inbound arrow of <span class="math inline">\(y\)</span>, then <span class="math inline">\(y\)</span> even appears as an empty directory to that user. The node <span class="math inline">\(x\)</span> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> (<a href="#fig-subgraph-edge" class="quarto-xref">Figure&nbsp;3</a>) keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
 <p>Assume now that the graph <span class="math inline">\(X\)</span> is given. How can we encode the access controls for its users? We first consider a single user <span class="math inline">\(u\)</span>, in which case we can simply store the characteristic map <span class="math inline">\(\chi_{Y_u} : X \to \Omega\)</span> of the associated subgraph <span class="math inline">\(Y_u \rightarrowtail X\)</span>, after serialization: one of the two nodes of <span class="math inline">\(\Omega\)</span> for every node of <span class="math inline">\(X\)</span>, and one of the five arcs of <span class="math inline">\(\Omega\)</span> for every arc of <span class="math inline">\(X\)</span>.</p>
 <p>In fact, for multiple users <span class="math inline">\(u_1, \dots, u_k\)</span> we can proceed similarly, by considering the coproduct of the subgraphs <span class="math display">\[Y_{u_1} \sqcup \dots \sqcup Y_{u_k} \rightarrowtail
 X \sqcup \dots \sqcup X,\]</span> which is again a subgraph (coproducts of monomorphisms are monomorphisms in a topos). Its characteristic map is the copairing <span class="math display">\[[\chi_{Y_{u_1}}, \dots, \chi_{Y_{u_k}}] : X \sqcup \dots \sqcup X \to \Omega,\]</span> which we can serialize again. By the universal properties of the coproduct and the product, this is the same as a single graph morphism <span class="math display">\[\langle \chi_{Y_{u_1}}, \dots, \chi_{Y_{u_k}} \rangle :
@@ -699,7 +710,7 @@ flowchart TB
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-apache-mariadb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
+Figure&nbsp;4: The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
 </figcaption>
 </figure>
 </div>
@@ -750,7 +761,7 @@ Figure&nbsp;3: The subgraphs of the FHS (bottom) that Apache and MariaDB have ac
 <img src="fhs-labels.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fhs-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: The FHS of the Apache and MariaDB example, with the bits serializing <span class="math inline">\(\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
+Figure&nbsp;5: The FHS of the Apache and MariaDB example, with the bits serializing <span class="math inline">\(\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
 \text{FHS} \to \Omega \times \Omega\)</span> stored at every node.
 </figcaption>
 </figure>
