@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 185 830 465" font-family="sans-serif" font-size="13">
+<rect x="0" y="185" width="830" height="465" fill="#fff"/>
+<defs>
+<marker id="sg-arr-grey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="sg-arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+</defs>
+<polygon points="18.0,636.0 668.0,636.0 806.0,429.0 156.0,429.0" fill="#fff" stroke="#000"/>
+<text x="164.0" y="447.0" fill="#000" font-style="italic">X</text>
+<line x1="200.9" y1="490.6" x2="415.1" y2="457.4" stroke="#000" stroke-width="1.6" marker-end="url(#sg-arr-grey)"/>
+<line x1="387.0" y1="511.5" x2="419.0" y2="463.5" stroke="#000" stroke-width="1.6" marker-end="url(#sg-arr-grey)"/>
+<line x1="537.1" y1="544.5" x2="390.9" y2="520.5" stroke="#000" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#sg-arr-grey)"/>
+<line x1="431.2" y1="461.3" x2="538.8" y2="540.7" stroke="#000" stroke-width="1.6" marker-end="url(#sg-arr-grey)"/>
+<line x1="509.0" y1="601.5" x2="541.0" y2="553.5" stroke="#000" stroke-width="1.6" marker-end="url(#sg-arr-grey)"/>
+<circle cx="424.0" cy="456.0" r="5" fill="#000"/>
+<text x="433.0" y="473.0" fill="#000" font-family="monospace">cwd/sub/</text>
+<circle cx="192.0" cy="492.0" r="5" fill="#000"/>
+<text x="201.0" y="509.0" fill="#000" font-family="monospace">cwd/sub/file2</text>
+<circle cx="382.0" cy="519.0" r="5" fill="#000"/>
+<text x="373.0" y="536.0" fill="#000" text-anchor="end" font-family="monospace">cwd/sub/par/</text>
+<circle cx="546.0" cy="546.0" r="5" fill="#000"/>
+<text x="555.0" y="563.0" fill="#000" font-family="monospace">cwd/</text>
+<circle cx="504.0" cy="609.0" r="5" fill="#000"/>
+<text x="513.0" y="626.0" fill="#000" font-family="monospace">cwd/file1</text>
+<polygon points="18.0,415.0 668.0,415.0 806.0,208.0 156.0,208.0" fill="#fff" stroke="#000"/>
+<text x="164.0" y="226.0" fill="#000" font-style="italic">Y</text>
+<line x1="424.0" y1="244.0" x2="424.0" y2="447.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#sg-arr-grey)"/>
+<line x1="382.0" y1="307.0" x2="382.0" y2="510.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#sg-arr-grey)"/>
+<line x1="546.0" y1="334.0" x2="546.0" y2="537.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#sg-arr-grey)"/>
+<line x1="504.0" y1="397.0" x2="504.0" y2="600.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#sg-arr-grey)"/>
+<line x1="387.0" y1="290.5" x2="419.0" y2="242.5" stroke="#000" stroke-width="1.6" marker-end="url(#sg-arr-blue)"/>
+<line x1="537.1" y1="323.5" x2="390.9" y2="299.5" stroke="#000" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#sg-arr-blue)"/>
+<line x1="431.2" y1="240.3" x2="538.8" y2="319.7" stroke="#000" stroke-width="1.6" marker-end="url(#sg-arr-blue)"/>
+<line x1="509.0" y1="380.5" x2="541.0" y2="332.5" stroke="#000" stroke-width="1.6" marker-end="url(#sg-arr-blue)"/>
+<circle cx="424.0" cy="235.0" r="5" fill="#000"/>
+<text x="433.0" y="252.0" fill="#000" font-family="monospace">cwd/sub/</text>
+<circle cx="382.0" cy="298.0" r="5" fill="#000"/>
+<text x="373.0" y="315.0" fill="#000" text-anchor="end" font-family="monospace">cwd/sub/par/</text>
+<circle cx="546.0" cy="325.0" r="5" fill="#000"/>
+<text x="555.0" y="342.0" fill="#000" font-family="monospace">cwd/</text>
+<circle cx="504.0" cy="388.0" r="5" fill="#000"/>
+<text x="513.0" y="405.0" fill="#000" font-family="monospace">cwd/file1</text>
+</svg>
