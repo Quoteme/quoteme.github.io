@@ -565,16 +565,52 @@ H(A) &amp; \xrightarrow[H(t)]{} &amp; H(N)
 </div>
 </div>
 </div>
+<style>
+.float-fig { float: right; width: 32%; margin: 0 0 1em 1.5em; }
+#fig-global-section { clear: both; }
+@media (max-width: 600px) { .float-fig { float: none; width: 100%; margin: 0; } }
+</style>
+<div class="float-fig">
+<div id="fig-restriction-maps" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-restriction-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-restriction-maps-id" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-restriction-maps-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="restriction-maps-id.svg" class="img-fluid figure-img" data-ref-parent="fig-restriction-maps">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-restriction-maps-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) All restriction maps are the identity.
+</figcaption>
+</figure>
+</div>
+<div id="fig-restriction-maps-twist" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-restriction-maps-twist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="restriction-maps-twist.svg" class="img-fluid figure-img" data-ref-parent="fig-restriction-maps">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-restriction-maps-twist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) The restriction map for <span class="math inline">\(a \to b\)</span> swaps <span class="math inline">\(\top\)</span> and <span class="math inline">\(\bot\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-restriction-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Two presheaves <span class="math inline">\(Y\)</span> over the graph <span class="math inline">\(a \to b \leftarrow c\)</span>, with <span class="math inline">\(Y(x) = \texttt{Bool}\)</span> above each node <span class="math inline">\(x\)</span> and the restriction maps <span class="math inline">\(Y(b) \to Y(a)\)</span> and <span class="math inline">\(Y(b) \to Y(c)\)</span> drawn between them.
+</figcaption>
+</figure>
+</div>
+</div>
 <p>Let us now assume that we are given some graph <span class="math inline">\(X \in [\Gamma^{\text{op}},
 \textbf{Set}]\)</span>, which, as noticed before, we can take to be a category (namely the free category on <span class="math inline">\(X\)</span>). We can now consider the presheaf category over <span class="math inline">\(X\)</span>, given by <span class="math inline">\([X^{\text{op}}, \textbf{Set}]\)</span>, and take <span class="math inline">\(Y\)</span> to be one of its presheaves, which assigns to each node the set <span class="math inline">\(\texttt{Bool}\)</span>, i.e. <span class="math inline">\(Y(x) = \texttt{Bool} = \{\bot, \top\}\)</span> for every node <span class="math inline">\(x\)</span>. Each edge <span class="math inline">\(p : x \to y\)</span> is then sent to a restriction map <span class="math inline">\(Y(p) : Y(y) \to Y(x)\)</span>, i.e.&nbsp;a function <span class="math inline">\(\texttt{Bool} \to \texttt{Bool}\)</span> from the parent directory to its child.</p>
-<p>A global element <span class="math inline">\(s : 1 \to Y\)</span> of this presheaf is then given by concretely associating a compatible choice of boolean values <span class="math inline">\(s_x \in Y(x)\)</span> to each node <span class="math inline">\(x\)</span> in the graph, where <em>compatible</em> means that <span class="math inline">\(s_x = Y(p)(s_y)\)</span> for every edge <span class="math inline">\(p : x \to y\)</span>. We can think of <span class="math inline">\(s\)</span> as answering the question “does the user have access to node <span class="math inline">\(x\)</span>?” for every node at once. As the restriction maps are already a part of <span class="math inline">\(Y\)</span>, choosing a value <span class="math inline">\(s_y \in Y(y)\)</span> for a directory <span class="math inline">\(y\)</span> already determines the access rights of everything below it, since <span class="math inline">\(s_x = Y(p)(s_y)\)</span> for each edge <span class="math inline">\(p : x \to y\)</span>. Read the other way around, as long as every restriction map sends <span class="math inline">\(\bot\)</span> to <span class="math inline">\(\bot\)</span> (as is the case in <a href="#fig-global-section" class="quarto-xref">Figure&nbsp;1</a>), <span class="math inline">\(s_x = \top\)</span> forces <span class="math inline">\(s_y = \top\)</span>, so choosing a value for <span class="math inline">\(x\)</span> determines the access rights of all its parents (i.e.&nbsp;the directories above it). This is however to be expected, as we might like for a directory to have access rights, given that at least one of its files is accessible! This leads us to the notion of <em>refinement types</em>, which we will consider for the topos of graphs in a later post some day.</p>
+<p>A global element <span class="math inline">\(s : 1 \to Y\)</span> of this presheaf is then given by concretely associating a compatible choice of boolean values <span class="math inline">\(s_x \in Y(x)\)</span> to each node <span class="math inline">\(x\)</span> in the graph, where <em>compatible</em> means that <span class="math inline">\(s_x = Y(p)(s_y)\)</span> for every edge <span class="math inline">\(p : x \to y\)</span>. We can think of <span class="math inline">\(s\)</span> as answering the question “does the user have access to node <span class="math inline">\(x\)</span>?” for every node at once. As the restriction maps are already a part of <span class="math inline">\(Y\)</span>, choosing a value <span class="math inline">\(s_y \in Y(y)\)</span> for a directory <span class="math inline">\(y\)</span> already determines the access rights of everything below it, since <span class="math inline">\(s_x = Y(p)(s_y)\)</span> for each edge <span class="math inline">\(p : x \to y\)</span>. Read the other way around, as long as every restriction map sends <span class="math inline">\(\bot\)</span> to <span class="math inline">\(\bot\)</span> (as is the case in <a href="#fig-global-section" class="quarto-xref">Figure&nbsp;2</a>), <span class="math inline">\(s_x = \top\)</span> forces <span class="math inline">\(s_y = \top\)</span>, so choosing a value for <span class="math inline">\(x\)</span> determines the access rights of all its parents (i.e.&nbsp;the directories above it). This is however to be expected, as we might like for a directory to have access rights, given that at least one of its files is accessible! This leads us to the notion of <em>refinement types</em>, which we will consider for the topos of graphs in a later post some day.</p>
 <div id="fig-global-section" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="global-section.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A global element of <span class="math inline">\(Y\)</span> over the graph of <code>cwd/</code>, which lies in the <span class="math inline">\(x\)</span>-<span class="math inline">\(z\)</span>-plane. Above each node sits a copy of <span class="math inline">\(\texttt{Bool}\)</span>, and the global element picks one value per node (filled). Here, all restriction maps are the identity, except the one for the edge from <code>cwd/sub/file2</code>, which is constantly <span class="math inline">\(\bot\)</span>.
+Figure&nbsp;2: A global element of <span class="math inline">\(Y\)</span> over the graph of <code>cwd/</code>, which lies in the <span class="math inline">\(x\)</span>-<span class="math inline">\(z\)</span>-plane. Above each node sits a copy of <span class="math inline">\(\texttt{Bool}\)</span>, and the global element picks one value per node (filled). Here, all restriction maps are the identity, except the one for the edge from <code>cwd/sub/file2</code>, which is constantly <span class="math inline">\(\bot\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -588,7 +624,7 @@ Figure&nbsp;1: A global element of <span class="math inline">\(Y\)</span> over t
 <img src="subgraph.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</span> (top) of the graph of <code>cwd/</code> (bottom) for a user without access to <code>cwd/sub/file2</code>. The dotted arrows show where each node of <span class="math inline">\(Y\)</span> is sent in <span class="math inline">\(X\)</span>.
+Figure&nbsp;3: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</span> (top) of the graph of <code>cwd/</code> (bottom) for a user without access to <code>cwd/sub/file2</code>. The dotted arrows show where each node of <span class="math inline">\(Y\)</span> is sent in <span class="math inline">\(X\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -644,11 +680,11 @@ Figure&nbsp;2: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</s
 <img src="subgraph-edge.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-edge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</span> (top) of the graph of <code>cwd/</code> (bottom) which keeps every node, but drops the symlink edge from <code>cwd/</code> into <code>cwd/sub/par/</code>. The dotted arrows show where each node of <span class="math inline">\(Y\)</span> is sent in <span class="math inline">\(X\)</span>.
+Figure&nbsp;4: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</span> (top) of the graph of <code>cwd/</code> (bottom) which keeps every node, but drops the symlink edge from <code>cwd/</code> into <code>cwd/sub/par/</code>. The dotted arrows show where each node of <span class="math inline">\(Y\)</span> is sent in <span class="math inline">\(X\)</span>.
 </figcaption>
 </figure>
 </div>
-<p>If <span class="math inline">\(p\)</span> was the only inbound arrow of <span class="math inline">\(y\)</span>, then <span class="math inline">\(y\)</span> even appears as an empty directory to that user. The node <span class="math inline">\(x\)</span> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> (<a href="#fig-subgraph-edge" class="quarto-xref">Figure&nbsp;3</a>) keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
+<p>If <span class="math inline">\(p\)</span> was the only inbound arrow of <span class="math inline">\(y\)</span>, then <span class="math inline">\(y\)</span> even appears as an empty directory to that user. The node <span class="math inline">\(x\)</span> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> (<a href="#fig-subgraph-edge" class="quarto-xref">Figure&nbsp;4</a>) keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
 <p>Assume now that the graph <span class="math inline">\(X\)</span> is given. How can we encode the access controls for its users? We first consider a single user <span class="math inline">\(u\)</span>, in which case we can simply store the characteristic map <span class="math inline">\(\chi_{Y_u} : X \to \Omega\)</span> of the associated subgraph <span class="math inline">\(Y_u \rightarrowtail X\)</span>, after serialization: one of the two nodes of <span class="math inline">\(\Omega\)</span> for every node of <span class="math inline">\(X\)</span>, and one of the five arcs of <span class="math inline">\(\Omega\)</span> for every arc of <span class="math inline">\(X\)</span>.</p>
 <p>In fact, for multiple users <span class="math inline">\(u_1, \dots, u_k\)</span> we can proceed similarly, by considering the coproduct of the subgraphs <span class="math display">\[Y_{u_1} \sqcup \dots \sqcup Y_{u_k} \rightarrowtail
 X \sqcup \dots \sqcup X,\]</span> which is again a subgraph (coproducts of monomorphisms are monomorphisms in a topos). Its characteristic map is the copairing <span class="math display">\[[\chi_{Y_{u_1}}, \dots, \chi_{Y_{u_k}}] : X \sqcup \dots \sqcup X \to \Omega,\]</span> which we can serialize again. By the universal properties of the coproduct and the product, this is the same as a single graph morphism <span class="math display">\[\langle \chi_{Y_{u_1}}, \dots, \chi_{Y_{u_k}} \rangle :
@@ -710,7 +746,7 @@ flowchart TB
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-apache-mariadb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
+Figure&nbsp;5: The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
 </figcaption>
 </figure>
 </div>
@@ -761,7 +797,7 @@ Figure&nbsp;4: The subgraphs of the FHS (bottom) that Apache and MariaDB have ac
 <img src="fhs-labels.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fhs-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: The FHS of the Apache and MariaDB example, with the bits serializing <span class="math inline">\(\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
+Figure&nbsp;6: The FHS of the Apache and MariaDB example, with the bits serializing <span class="math inline">\(\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
 \text{FHS} \to \Omega \times \Omega\)</span> stored at every node.
 </figcaption>
 </figure>

@@ -99,15 +99,51 @@ flowchart BT
 </div>
 </div>
 </div>
+<style>
+.float-fig { float: right; width: 32%; margin: 0 0 1em 1.5em; }
+#fig-global-section { clear: both; }
+@media (max-width: 600px) { .float-fig { float: none; width: 100%; margin: 0; } }
+</style>
+<div class="float-fig">
+<div id="fig-restriction-maps" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-restriction-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-restriction-maps-id" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-restriction-maps-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://happel.ai/posts/mandatory-access-control/restriction-maps-id.svg" class="img-fluid figure-img" data-ref-parent="fig-restriction-maps">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-restriction-maps-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) All restriction maps are the identity.
+</figcaption>
+</figure>
+</div>
+<div id="fig-restriction-maps-twist" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-restriction-maps-twist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://happel.ai/posts/mandatory-access-control/restriction-maps-twist.svg" class="img-fluid figure-img" data-ref-parent="fig-restriction-maps">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-restriction-maps-twist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) The restriction map for <img src="https://latex.codecogs.com/png.latex?a%20%5Cto%20b"> swaps <img src="https://latex.codecogs.com/png.latex?%5Ctop"> and <img src="https://latex.codecogs.com/png.latex?%5Cbot">.
+</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-restriction-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Two presheaves <img src="https://latex.codecogs.com/png.latex?Y"> over the graph <img src="https://latex.codecogs.com/png.latex?a%20%5Cto%20b%20%5Cleftarrow%20c">, with <img src="https://latex.codecogs.com/png.latex?Y(x)%20=%20%5Ctexttt%7BBool%7D"> above each node <img src="https://latex.codecogs.com/png.latex?x"> and the restriction maps <img src="https://latex.codecogs.com/png.latex?Y(b)%20%5Cto%20Y(a)"> and <img src="https://latex.codecogs.com/png.latex?Y(b)%20%5Cto%20Y(c)"> drawn between them.
+</figcaption>
+</figure>
+</div>
+</div>
 <p>Let us now assume that we are given some graph <img src="https://latex.codecogs.com/png.latex?X%20%5Cin%20%5B%5CGamma%5E%7B%5Ctext%7Bop%7D%7D,%0A%5Ctextbf%7BSet%7D%5D">, which, as noticed before, we can take to be a category (namely the free category on <img src="https://latex.codecogs.com/png.latex?X">). We can now consider the presheaf category over <img src="https://latex.codecogs.com/png.latex?X">, given by <img src="https://latex.codecogs.com/png.latex?%5BX%5E%7B%5Ctext%7Bop%7D%7D,%20%5Ctextbf%7BSet%7D%5D">, and take <img src="https://latex.codecogs.com/png.latex?Y"> to be one of its presheaves, which assigns to each node the set <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D">, i.e. <img src="https://latex.codecogs.com/png.latex?Y(x)%20=%20%5Ctexttt%7BBool%7D%20=%20%5C%7B%5Cbot,%20%5Ctop%5C%7D"> for every node <img src="https://latex.codecogs.com/png.latex?x">. Each edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y"> is then sent to a restriction map <img src="https://latex.codecogs.com/png.latex?Y(p)%20:%20Y(y)%20%5Cto%20Y(x)">, i.e.&nbsp;a function <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D%20%5Cto%20%5Ctexttt%7BBool%7D"> from the parent directory to its child.</p>
-<p>A global element <img src="https://latex.codecogs.com/png.latex?s%20:%201%20%5Cto%20Y"> of this presheaf is then given by concretely associating a compatible choice of boolean values <img src="https://latex.codecogs.com/png.latex?s_x%20%5Cin%20Y(x)"> to each node <img src="https://latex.codecogs.com/png.latex?x"> in the graph, where <em>compatible</em> means that <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for every edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. We can think of <img src="https://latex.codecogs.com/png.latex?s"> as answering the question “does the user have access to node <img src="https://latex.codecogs.com/png.latex?x">?” for every node at once. As the restriction maps are already a part of <img src="https://latex.codecogs.com/png.latex?Y">, choosing a value <img src="https://latex.codecogs.com/png.latex?s_y%20%5Cin%20Y(y)"> for a directory <img src="https://latex.codecogs.com/png.latex?y"> already determines the access rights of everything below it, since <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for each edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. Read the other way around, as long as every restriction map sends <img src="https://latex.codecogs.com/png.latex?%5Cbot"> to <img src="https://latex.codecogs.com/png.latex?%5Cbot"> (as is the case in Figure&nbsp;1), <img src="https://latex.codecogs.com/png.latex?s_x%20=%20%5Ctop"> forces <img src="https://latex.codecogs.com/png.latex?s_y%20=%20%5Ctop">, so choosing a value for <img src="https://latex.codecogs.com/png.latex?x"> determines the access rights of all its parents (i.e.&nbsp;the directories above it). This is however to be expected, as we might like for a directory to have access rights, given that at least one of its files is accessible! This leads us to the notion of <em>refinement types</em>, which we will consider for the topos of graphs in a later post some day.</p>
+<p>A global element <img src="https://latex.codecogs.com/png.latex?s%20:%201%20%5Cto%20Y"> of this presheaf is then given by concretely associating a compatible choice of boolean values <img src="https://latex.codecogs.com/png.latex?s_x%20%5Cin%20Y(x)"> to each node <img src="https://latex.codecogs.com/png.latex?x"> in the graph, where <em>compatible</em> means that <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for every edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. We can think of <img src="https://latex.codecogs.com/png.latex?s"> as answering the question “does the user have access to node <img src="https://latex.codecogs.com/png.latex?x">?” for every node at once. As the restriction maps are already a part of <img src="https://latex.codecogs.com/png.latex?Y">, choosing a value <img src="https://latex.codecogs.com/png.latex?s_y%20%5Cin%20Y(y)"> for a directory <img src="https://latex.codecogs.com/png.latex?y"> already determines the access rights of everything below it, since <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for each edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. Read the other way around, as long as every restriction map sends <img src="https://latex.codecogs.com/png.latex?%5Cbot"> to <img src="https://latex.codecogs.com/png.latex?%5Cbot"> (as is the case in Figure&nbsp;2), <img src="https://latex.codecogs.com/png.latex?s_x%20=%20%5Ctop"> forces <img src="https://latex.codecogs.com/png.latex?s_y%20=%20%5Ctop">, so choosing a value for <img src="https://latex.codecogs.com/png.latex?x"> determines the access rights of all its parents (i.e.&nbsp;the directories above it). This is however to be expected, as we might like for a directory to have access rights, given that at least one of its files is accessible! This leads us to the notion of <em>refinement types</em>, which we will consider for the topos of graphs in a later post some day.</p>
 <div id="fig-global-section" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://happel.ai/posts/mandatory-access-control/global-section.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A global element of <img src="https://latex.codecogs.com/png.latex?Y"> over the graph of <code>cwd/</code>, which lies in the <img src="https://latex.codecogs.com/png.latex?x">-<img src="https://latex.codecogs.com/png.latex?z">-plane. Above each node sits a copy of <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D">, and the global element picks one value per node (filled). Here, all restriction maps are the identity, except the one for the edge from <code>cwd/sub/file2</code>, which is constantly <img src="https://latex.codecogs.com/png.latex?%5Cbot">.
+Figure&nbsp;2: A global element of <img src="https://latex.codecogs.com/png.latex?Y"> over the graph of <code>cwd/</code>, which lies in the <img src="https://latex.codecogs.com/png.latex?x">-<img src="https://latex.codecogs.com/png.latex?z">-plane. Above each node sits a copy of <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D">, and the global element picks one value per node (filled). Here, all restriction maps are the identity, except the one for the edge from <code>cwd/sub/file2</code>, which is constantly <img src="https://latex.codecogs.com/png.latex?%5Cbot">.
 </figcaption>
 </figure>
 </div>
@@ -121,7 +157,7 @@ Figure&nbsp;1: A global element of <img src="https://latex.codecogs.com/png.late
 <img src="https://happel.ai/posts/mandatory-access-control/subgraph.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X"> (top) of the graph of <code>cwd/</code> (bottom) for a user without access to <code>cwd/sub/file2</code>. The dotted arrows show where each node of <img src="https://latex.codecogs.com/png.latex?Y"> is sent in <img src="https://latex.codecogs.com/png.latex?X">.
+Figure&nbsp;3: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X"> (top) of the graph of <code>cwd/</code> (bottom) for a user without access to <code>cwd/sub/file2</code>. The dotted arrows show where each node of <img src="https://latex.codecogs.com/png.latex?Y"> is sent in <img src="https://latex.codecogs.com/png.latex?X">.
 </figcaption>
 </figure>
 </div>
@@ -177,11 +213,11 @@ Figure&nbsp;2: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%
 <img src="https://happel.ai/posts/mandatory-access-control/subgraph-edge.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-edge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X"> (top) of the graph of <code>cwd/</code> (bottom) which keeps every node, but drops the symlink edge from <code>cwd/</code> into <code>cwd/sub/par/</code>. The dotted arrows show where each node of <img src="https://latex.codecogs.com/png.latex?Y"> is sent in <img src="https://latex.codecogs.com/png.latex?X">.
+Figure&nbsp;4: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X"> (top) of the graph of <code>cwd/</code> (bottom) which keeps every node, but drops the symlink edge from <code>cwd/</code> into <code>cwd/sub/par/</code>. The dotted arrows show where each node of <img src="https://latex.codecogs.com/png.latex?Y"> is sent in <img src="https://latex.codecogs.com/png.latex?X">.
 </figcaption>
 </figure>
 </div>
-<p>If <img src="https://latex.codecogs.com/png.latex?p"> was the only inbound arrow of <img src="https://latex.codecogs.com/png.latex?y">, then <img src="https://latex.codecogs.com/png.latex?y"> even appears as an empty directory to that user. The node <img src="https://latex.codecogs.com/png.latex?x"> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> (Figure&nbsp;3) keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
+<p>If <img src="https://latex.codecogs.com/png.latex?p"> was the only inbound arrow of <img src="https://latex.codecogs.com/png.latex?y">, then <img src="https://latex.codecogs.com/png.latex?y"> even appears as an empty directory to that user. The node <img src="https://latex.codecogs.com/png.latex?x"> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> (Figure&nbsp;4) keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
 <p>Assume now that the graph <img src="https://latex.codecogs.com/png.latex?X"> is given. How can we encode the access controls for its users? We first consider a single user <img src="https://latex.codecogs.com/png.latex?u">, in which case we can simply store the characteristic map <img src="https://latex.codecogs.com/png.latex?%5Cchi_%7BY_u%7D%20:%20X%20%5Cto%20%5COmega"> of the associated subgraph <img src="https://latex.codecogs.com/png.latex?Y_u%20%5Crightarrowtail%20X">, after serialization: one of the two nodes of <img src="https://latex.codecogs.com/png.latex?%5COmega"> for every node of <img src="https://latex.codecogs.com/png.latex?X">, and one of the five arcs of <img src="https://latex.codecogs.com/png.latex?%5COmega"> for every arc of <img src="https://latex.codecogs.com/png.latex?X">.</p>
 <p>In fact, for multiple users <img src="https://latex.codecogs.com/png.latex?u_1,%20%5Cdots,%20u_k"> we can proceed similarly, by considering the coproduct of the subgraphs <img src="https://latex.codecogs.com/png.latex?Y_%7Bu_1%7D%20%5Csqcup%20%5Cdots%20%5Csqcup%20Y_%7Bu_k%7D%20%5Crightarrowtail%0AX%20%5Csqcup%20%5Cdots%20%5Csqcup%20X,"> which is again a subgraph (coproducts of monomorphisms are monomorphisms in a topos). Its characteristic map is the copairing <img src="https://latex.codecogs.com/png.latex?%5B%5Cchi_%7BY_%7Bu_1%7D%7D,%20%5Cdots,%20%5Cchi_%7BY_%7Bu_k%7D%7D%5D%20:%20X%20%5Csqcup%20%5Cdots%20%5Csqcup%20X%20%5Cto%20%5COmega,"> which we can serialize again. By the universal properties of the coproduct and the product, this is the same as a single graph morphism <img src="https://latex.codecogs.com/png.latex?%5Clangle%20%5Cchi_%7BY_%7Bu_1%7D%7D,%20%5Cdots,%20%5Cchi_%7BY_%7Bu_k%7D%7D%20%5Crangle%20:%0AX%20%5Cto%20%5COmega%20%5Ctimes%20%5Cdots%20%5Ctimes%20%5COmega,"> which stores at every node and arc of <img src="https://latex.codecogs.com/png.latex?X"> a <img src="https://latex.codecogs.com/png.latex?k">-tuple of access rights, one per user. This is precisely the SELinux approach from the beginning: the access control information is kept alongside each file or directory.</p>
 </section>
@@ -241,7 +277,7 @@ flowchart TB
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-apache-mariadb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
+Figure&nbsp;5: The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
 </figcaption>
 </figure>
 </div>
@@ -264,7 +300,7 @@ Figure&nbsp;4: The subgraphs of the FHS (bottom) that Apache and MariaDB have ac
 <img src="https://happel.ai/posts/mandatory-access-control/fhs-labels.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fhs-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: The FHS of the Apache and MariaDB example, with the bits serializing <img src="https://latex.codecogs.com/png.latex?%5Clangle%20%5Cchi_%7B%5Ctexttt%7Bhttpd%5C_t%7D%7D,%20%5Cchi_%7B%5Ctexttt%7Bmysqld%5C_t%7D%7D%20%5Crangle%20:%0A%5Ctext%7BFHS%7D%20%5Cto%20%5COmega%20%5Ctimes%20%5COmega"> stored at every node.
+Figure&nbsp;6: The FHS of the Apache and MariaDB example, with the bits serializing <img src="https://latex.codecogs.com/png.latex?%5Clangle%20%5Cchi_%7B%5Ctexttt%7Bhttpd%5C_t%7D%7D,%20%5Cchi_%7B%5Ctexttt%7Bmysqld%5C_t%7D%7D%20%5Crangle%20:%0A%5Ctext%7BFHS%7D%20%5Cto%20%5COmega%20%5Ctimes%20%5COmega"> stored at every node.
 </figcaption>
 </figure>
 </div>
