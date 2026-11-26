@@ -266,15 +266,23 @@ $X$ and graph morphisms $X \to \Omega$.
 
 In fact, by considering the subobject classifier, it becomes clear that some
 other subobjects, which we have not yet considered, are also possible, like
-just removing an edge $p : x \to y$ while keeping both $x$ and $y$ (i.e.
+just removing an edge $p \in X(A)$ with $X(s)(p) = x$ and $X(t)(p) = y$,
+while keeping both $x$ and $y$ (i.e.
 mapping $p$ to $\binom{s}{t}$).
 This corresponds to keeping the directory $y$, but hiding that $x$ lies inside
 it, so that a user without the corresponding access permission cannot follow
 through $y$ to $x$.
+
+![The subgraph $Y \rightarrowtail X$ (top) of the graph of `cwd/` (bottom)
+which keeps every node, but drops the symlink edge from `cwd/` into
+`cwd/sub/par/`. The dotted arrows show where each node of $Y$ is sent in
+$X$.](subgraph-edge.svg){#fig-subgraph-edge}
+
 If $p$ was the only inbound arrow of $y$, then $y$ even appears as an empty
 directory to that user.
 The node $x$ itself stays accessible, though, possibly along some other path.
 For example, removing the edge from `cwd/` into the symlink `cwd/sub/par/`
+(@fig-subgraph-edge)
 keeps both `cwd/` and `cwd/sub/par/` visible, but the symlink can no longer be
 followed back to `cwd/`.
 

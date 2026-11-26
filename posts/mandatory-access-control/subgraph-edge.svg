@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 185 830 465" font-family="sans-serif" font-size="13">
+<rect x="0" y="185" width="830" height="465" fill="#fff"/>
+<defs>
+<marker id="sge-arr-grey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="sge-arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+</defs>
+<polygon points="18.0,636.0 668.0,636.0 806.0,429.0 156.0,429.0" fill="#fff" stroke="#000"/>
+<text x="164.0" y="447.0" fill="#000" font-style="italic">X</text>
+<path d="M180.3,596.6 L341.7,531.4" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#sge-arr-grey)"/>
+<path d="M400.5,592.9 L355.5,535.1" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#sge-arr-grey)"/>
+<path d="M519.5,458.9 Q423.8,491.4 407.5,591.1" fill="none" stroke="#000" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#sge-arr-grey)"/>
+<path d="M358.3,524.6 L519.7,459.4" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#sge-arr-grey)"/>
+<path d="M628.5,523.0 L535.5,461.0" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#sge-arr-grey)"/>
+<circle cx="528.0" cy="456.0" r="5" fill="#000"/>
+<text x="538.0" y="450.0" fill="#000" text-anchor="start" font-family="monospace">cwd/</text>
+<circle cx="350.0" cy="528.0" r="5" fill="#000"/>
+<text x="341.0" y="520.0" fill="#000" text-anchor="end" font-family="monospace">cwd/sub/</text>
+<circle cx="636.0" cy="528.0" r="5" fill="#000"/>
+<text x="645.0" y="545.0" fill="#000" text-anchor="start" font-family="monospace">cwd/file1</text>
+<circle cx="172.0" cy="600.0" r="5" fill="#000"/>
+<text x="181.0" y="617.0" fill="#000" text-anchor="start" font-family="monospace">cwd/sub/file2</text>
+<circle cx="406.0" cy="600.0" r="5" fill="#000"/>
+<text x="415.0" y="617.0" fill="#000" text-anchor="start" font-family="monospace">cwd/sub/par/</text>
+<polygon points="18.0,415.0 668.0,415.0 806.0,208.0 156.0,208.0" fill="#fff" stroke="#000"/>
+<text x="164.0" y="226.0" fill="#000" font-style="italic">Y</text>
+<line x1="528.0" y1="244.0" x2="528.0" y2="447.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#sge-arr-grey)"/>
+<line x1="350.0" y1="316.0" x2="350.0" y2="519.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#sge-arr-grey)"/>
+<line x1="636.0" y1="316.0" x2="636.0" y2="519.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#sge-arr-grey)"/>
+<line x1="172.0" y1="388.0" x2="172.0" y2="591.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#sge-arr-grey)"/>
+<line x1="406.0" y1="388.0" x2="406.0" y2="591.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#sge-arr-grey)"/>
+<path d="M180.3,375.6 L341.7,310.4" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#sge-arr-blue)"/>
+<path d="M400.5,371.9 L355.5,314.1" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#sge-arr-blue)"/>
+<path d="M358.3,303.6 L519.7,238.4" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#sge-arr-blue)"/>
+<path d="M628.5,302.0 L535.5,240.0" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#sge-arr-blue)"/>
+<circle cx="528.0" cy="235.0" r="5" fill="#000"/>
+<text x="538.0" y="229.0" fill="#000" text-anchor="start" font-family="monospace">cwd/</text>
+<circle cx="350.0" cy="307.0" r="5" fill="#000"/>
+<text x="341.0" y="299.0" fill="#000" text-anchor="end" font-family="monospace">cwd/sub/</text>
+<circle cx="636.0" cy="307.0" r="5" fill="#000"/>
+<text x="645.0" y="324.0" fill="#000" text-anchor="start" font-family="monospace">cwd/file1</text>
+<circle cx="172.0" cy="379.0" r="5" fill="#000"/>
+<text x="181.0" y="396.0" fill="#000" text-anchor="start" font-family="monospace">cwd/sub/file2</text>
+<circle cx="406.0" cy="379.0" r="5" fill="#000"/>
+<text x="415.0" y="396.0" fill="#000" text-anchor="start" font-family="monospace">cwd/sub/par/</text>
+</svg>
