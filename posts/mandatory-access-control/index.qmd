@@ -489,3 +489,12 @@ This gives us:
 $\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
 \text{FHS} \to \Omega \times \Omega$ stored at every
 node.](fhs-labels.svg){#fig-fhs-labels}
+
+:::{.callout-warning}
+This text has _not_ been _reviewed_ yet.
+Preferably we would like an expert on topos theory and one on SELinux to review it, but any feedback is welcome.
+
+In particular, it is still an open question if all restriction maps
+and the way sets are associated to nodes and arcs in the topos of graphs
+are correct.
+:::
