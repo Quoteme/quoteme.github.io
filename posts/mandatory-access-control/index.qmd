@@ -159,6 +159,28 @@ is exactly the standard definition of a graph homomorphism in graph theory.
 [^bachelor]: See my bachelor thesis at
   [happel.ai/bachelor2](https://happel.ai/bachelor2).
 
+```{=html}
+<style>
+.float-fig { float: right; width: 32%; margin: 0 0 1em 1.5em; }
+#fig-global-section { clear: both; }
+@media (max-width: 600px) { .float-fig { float: none; width: 100%; margin: 0; } }
+</style>
+```
+
+::::: {.float-fig}
+:::: {#fig-restriction-maps}
+![All restriction maps are the
+identity.](restriction-maps-id.svg){#fig-restriction-maps-id}
+
+![The restriction map for $a \to b$ swaps $\top$ and
+$\bot$.](restriction-maps-twist.svg){#fig-restriction-maps-twist}
+
+Two presheaves $Y$ over the graph $a \to b \leftarrow c$, with
+$Y(x) = \texttt{Bool}$ above each node $x$ and the restriction maps
+$Y(b) \to Y(a)$ and $Y(b) \to Y(c)$ drawn between them.
+::::
+:::::
+
 Let us now assume that we are given some graph $X \in [\Gamma^{\text{op}},
 \textbf{Set}]$, which, as noticed before, we can take to be a category (namely
 the free category on $X$).
