@@ -642,7 +642,119 @@ Figure&nbsp;2: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</s
 <p>In fact, for multiple users <span class="math inline">\(u_1, \dots, u_k\)</span> we can proceed similarly, by considering the coproduct of the subgraphs <span class="math display">\[Y_{u_1} \sqcup \dots \sqcup Y_{u_k} \rightarrowtail
 X \sqcup \dots \sqcup X,\]</span> which is again a subgraph (coproducts of monomorphisms are monomorphisms in a topos). Its characteristic map is the copairing <span class="math display">\[[\chi_{Y_{u_1}}, \dots, \chi_{Y_{u_k}}] : X \sqcup \dots \sqcup X \to \Omega,\]</span> which we can serialize again. By the universal properties of the coproduct and the product, this is the same as a single graph morphism <span class="math display">\[\langle \chi_{Y_{u_1}}, \dots, \chi_{Y_{u_k}} \rangle :
 X \to \Omega \times \dots \times \Omega,\]</span> which stores at every node and arc of <span class="math inline">\(X\)</span> a <span class="math inline">\(k\)</span>-tuple of access rights, one per user. This is precisely the SELinux approach from the beginning: the access control information is kept alongside each file or directory.</p>
-<!-- TODO: continue -->
+</section>
+<section id="example-apache-and-mariadb" class="level2">
+<h2 class="anchored" data-anchor-id="example-apache-and-mariadb">Example: Apache and MariaDB</h2>
+<p>As Immanuel Kant said in his <em>Critique of Pure Reason</em><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>,</p>
+<blockquote class="blockquote">
+<p>Gedanken ohne Inhalt sind leer, Anschauungen ohne Begriffe sind blind</p>
+</blockquote>
+<p>(thoughts without content are empty, intuitions without concepts are blind). We therefore wish to put the abstract theory of this post to work on the go-to example of SELinux, as described in Red Hat’s official guide<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>: assume we have two processes, an Apache web server running in the SELinux domain <code>httpd_t</code>, and a MariaDB database server running in the domain <code>mysqld_t</code>. We want to grant <code>httpd_t</code> access to the web content in <code>/var/www/html/</code> (labeled <code>httpd_sys_content_t</code>), and <code>mysqld_t</code> access to the database files in <code>/data/mysql/</code> (labeled <code>mysqld_db_t</code>), but not give <code>httpd_t</code> access to <code>/data/mysql/</code>, and vice versa not give <code>mysqld_t</code> access to <code>/var/www/html/</code>! This is depicted in the following diagram:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#ffffff", "primaryBorderColor": "#000000", "primaryTextColor": "#000000", "lineColor": "#000000", "textColor": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "sans-serif"}}}%%
+flowchart TB
+    apache["Apache&lt;br/&gt;&lt;code&gt;httpd_t&lt;/code&gt;"] --&gt; www["/var/www/html/&lt;br/&gt;&lt;code&gt;httpd_sys_content_t&lt;/code&gt;"]
+    mariadb["MariaDB&lt;br/&gt;&lt;code&gt;mysqld_t&lt;/code&gt;"] --&gt; mysql["/data/mysql/&lt;br/&gt;&lt;code&gt;mysqld_db_t&lt;/code&gt;"]
+    apache -. "✗" .-&gt; mysql
+    mariadb -. "✗" .-&gt; www
+</pre>
+</div>
+<p></p><figcaption> Apache and MariaDB confined by SELinux, after Red Hat’s guide. Solid arrows are allowed accesses, dashed arrows are denied ones.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>We therefore need two different subgraphs of (a small part of) the FHS: one for <code>httpd_t</code> and one for <code>mysqld_t</code>, as we can see here:</p>
+<div id="fig-apache-mariadb" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-apache-mariadb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-apache-mariadb" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-fhs-httpd" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-fhs-httpd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fhs-httpd.svg" class="img-fluid figure-img" data-ref-parent="fig-apache-mariadb">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fhs-httpd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) <span class="math inline">\(Y_{\texttt{httpd\_t}} \rightarrowtail \text{FHS}\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-apache-mariadb" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-fhs-mysqld" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-fhs-mysqld-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fhs-mysqld.svg" class="img-fluid figure-img" data-ref-parent="fig-apache-mariadb">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fhs-mysqld-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) <span class="math inline">\(Y_{\texttt{mysqld\_t}} \rightarrowtail \text{FHS}\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-apache-mariadb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
+</figcaption>
+</figure>
+</div>
+<p>These two subgraphs are now given by the following two characteristic maps <span class="math inline">\(\chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} : \text{FHS} \to \Omega\)</span>. On nodes, they are given by <span class="math display">\[
+\chi_{\texttt{httpd\_t}}(x) = \begin{cases}
+  N &amp; x \in \{\texttt{/}, \texttt{/var/}, \texttt{/var/www/},
+      \texttt{/var/www/html/}, \texttt{/var/www/html/index.html}\} \\
+  0_N &amp; \text{otherwise}
+\end{cases}
+\]</span> <span class="math display">\[
+\chi_{\texttt{mysqld\_t}}(x) = \begin{cases}
+  N &amp; x \in \{\texttt{/}, \texttt{/data/}, \texttt{/data/mysql/},
+      \texttt{/data/mysql/ibdata1}\} \\
+  0_N &amp; \text{otherwise}
+\end{cases}
+\]</span> and on arcs <span class="math inline">\(p : x \to y\)</span> by <span class="math display">\[
+\chi_{\texttt{httpd\_t}}(p) = \begin{cases}
+  A &amp; x \in \{\texttt{/var/}, \texttt{/var/www/}, \texttt{/var/www/html/},
+      \texttt{/var/www/html/index.html}\} \\
+  t &amp; x \in \{\texttt{/etc/}, \texttt{/data/}\} \\
+  0_A &amp; \text{otherwise}
+\end{cases}
+\]</span> <span class="math display">\[
+\chi_{\texttt{mysqld\_t}}(p) = \begin{cases}
+  A &amp; x \in \{\texttt{/data/}, \texttt{/data/mysql/},
+      \texttt{/data/mysql/ibdata1}\} \\
+  t &amp; x \in \{\texttt{/etc/}, \texttt{/var/}\} \\
+  0_A &amp; \text{otherwise}
+\end{cases}
+\]</span> (every node except <code>/</code> has exactly one outgoing arc, to its parent directory, so it suffices to name the source <span class="math inline">\(x\)</span> of <span class="math inline">\(p\)</span>). For example, the arc from <code>/data/</code> to <code>/</code> is sent to <span class="math inline">\(t\)</span> by <span class="math inline">\(\chi_{\texttt{httpd\_t}}\)</span>: Apache may see <code>/</code>, but not that <code>/data/</code> lies inside it.</p>
+<p>Finally, by considering the coproduct, we have a map from the algebraic data type<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> <span class="math inline">\(\text{FHS} \sqcup \text{FHS}\)</span> (think <code>Either FHS FHS</code> in Haskell) to <span class="math inline">\(\Omega\)</span>, namely the copairing <span class="math display">\[[\chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}}] :
+\text{FHS} \sqcup \text{FHS} \to \Omega,\]</span> i.e.&nbsp;using the universal properties of the coproduct and the product, a single graph morphism <span class="math display">\[\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
+\text{FHS} \to \Omega \times \Omega,\]</span> where the projection onto the first <span class="math inline">\(\Omega\)</span> in the product corresponds to the access control given to the Apache process running in the domain <code>httpd_t</code>, and the projection onto the second <span class="math inline">\(\Omega\)</span> to the access control given to the MariaDB process running in the domain <code>mysqld_t</code>. Storing this morphism node by node and arc by arc is exactly storing a label alongside each file and directory, as SELinux does.</p>
+</section>
+<section id="serialization" class="level2">
+<h2 class="anchored" data-anchor-id="serialization">Serialization</h2>
+<p>We can now finally serialize this map and store it to disk, by encoding these characteristic maps and storing the tuples. Remember that a graph is a presheaf <span class="math inline">\(X\)</span> over <span class="math inline">\(N \rightrightarrows A\)</span>, and that a graph morphism <span class="math inline">\(\chi : X \to \Omega\)</span> is a natural transformation, i.e.&nbsp;a pair of functions <span class="math display">\[\chi_N : X(N) \to \Omega(N), \qquad \chi_A : X(A) \to \Omega(A).\]</span> Therefore, we need to store</p>
+<ul>
+<li>for each node <span class="math inline">\(v \in X(N)\)</span> the value <span class="math inline">\(\chi_N(v) \in \Omega(N) = \{0_N, N\} \cong \texttt{Bool}\)</span>, i.e.&nbsp;a single bit, and</li>
+<li>for each arc <span class="math inline">\(p \in X(A)\)</span> the value <span class="math inline">\(\chi_A(p) \in \Omega(A) = \{0_A, s, t, \tbinom{s}{t}, A\}\)</span>, one of five values.</li>
+</ul>
+<p>Naturality saves us most of the second part, though: the source and target of <span class="math inline">\(\chi_A(p)\)</span> have to be <span class="math inline">\(\chi_N\)</span> of the source and target of <span class="math inline">\(p\)</span>. If one of the two endpoints of <span class="math inline">\(p\)</span> is sent to <span class="math inline">\(0_N\)</span>, this already determines <span class="math inline">\(\chi_A(p)\)</span> uniquely (as <span class="math inline">\(0_A\)</span>, <span class="math inline">\(s\)</span> or <span class="math inline">\(t\)</span>), so nothing needs to be stored. Only if both endpoints are sent to <span class="math inline">\(N\)</span> do we have to store one more bit, deciding between <span class="math inline">\(A\)</span> (the arc is visible) and <span class="math inline">\(\binom{s}{t}\)</span> (the arc is hidden). For the Apache example, this means one bit per node, and one bit for each of the four arcs between visible nodes.</p>
+<p>For <span class="math inline">\(k\)</span> processes, the morphism <span class="math inline">\(\langle \chi_1, \dots, \chi_k \rangle : X \to \Omega^k\)</span> is stored in the same way, as a <span class="math inline">\(k\)</span>-tuple of such values at every node and every arc. On a real file system, the values at a node can be kept in the extended attributes of the corresponding file or directory, just like the <code>security.selinux</code> attribute in which SELinux stores its labels, and the values at an arc <span class="math inline">\(p : x \to y\)</span> alongside the directory entry of <span class="math inline">\(x\)</span> in <span class="math inline">\(y\)</span>.</p>
+<p>By these observations, we can conclude that each file, directory and symlink needs an additional bit per user (or rather, per SELinux domain), encoding whether it should be accessible to that user. For directories and symlinks in particular, we also need to store a bit for each of their links (i.e.&nbsp;each entry of a directory, or the target of a symlink) for each user, signifying whether that link should also be accessible to the user. In our graph, these links are precisely the inbound arcs of the node, as arcs point from a file to its parent directory. Following the observation above, this bit only matters when both ends of the link are accessible; otherwise we simply store <code>false</code>. This gives us:</p>
+<div id="fig-fhs-labels" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fhs-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fhs-labels.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fhs-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: The FHS of the Apache and MariaDB example, with the bits serializing <span class="math inline">\(\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
+\text{FHS} \to \Omega \times \Omega\)</span> stored at every node.
+</figcaption>
+</figure>
+</div>
 
 
 </section>
@@ -658,6 +770,9 @@ X \to \Omega \times \dots \times \Omega,\]</span> which stores at every node and
 <li id="fn5"><p>Sebastiano Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>, 2003.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>See my bachelor thesis at <a href="https://happel.ai/bachelor2">happel.ai/bachelor2</a>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p>See again Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Immanuel Kant, <em>Kritik der reinen Vernunft</em>, A51/B75.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>See Red Hat, <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux"><em>Using SELinux</em>, Chapter 1: Getting started with SELinux</a>.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>See the Haskell wiki on <a href="https://wiki.haskell.org/Algebraic_data_type">algebraic data types</a>.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
