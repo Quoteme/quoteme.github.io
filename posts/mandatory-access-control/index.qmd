@@ -305,4 +305,157 @@ which stores at every node and arc of $X$ a $k$-tuple of access rights, one
 per user. This is precisely the SELinux approach from the beginning: the access
 control information is kept alongside each file or directory.
 
-<!-- TODO: continue -->
+## Example: Apache and MariaDB
+
+As Immanuel Kant said in his _Critique of Pure Reason_[^kant],
+
+> Gedanken ohne Inhalt sind leer, Anschauungen ohne Begriffe sind blind
+
+(thoughts without content are empty, intuitions without concepts are blind).
+We therefore wish to put the abstract theory of this post to work on the go-to
+example of SELinux, as described in Red Hat's official guide[^redhat]:
+assume we have two processes, an Apache web server running in the SELinux
+domain `httpd_t`, and a MariaDB database server running in the domain
+`mysqld_t`.
+We want to grant `httpd_t` access to the web content in `/var/www/html/`
+(labeled `httpd_sys_content_t`), and `mysqld_t` access to the database files in
+`/data/mysql/` (labeled `mysqld_db_t`), but not give `httpd_t` access to
+`/data/mysql/`, and vice versa not give `mysqld_t` access to `/var/www/html/`!
+This is depicted in the following diagram:
+
+```{mermaid}
+%%| fig-cap: "Apache and MariaDB confined by SELinux, after Red Hat's guide. Solid arrows are allowed accesses, dashed arrows are denied ones."
+%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#ffffff", "primaryBorderColor": "#000000", "primaryTextColor": "#000000", "lineColor": "#000000", "textColor": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "sans-serif"}}}%%
+flowchart TB
+    apache["Apache<br/><code>httpd_t</code>"] --> www["/var/www/html/<br/><code>httpd_sys_content_t</code>"]
+    mariadb["MariaDB<br/><code>mysqld_t</code>"] --> mysql["/data/mysql/<br/><code>mysqld_db_t</code>"]
+    apache -. "✗" .-> mysql
+    mariadb -. "✗" .-> www
+```
+
+We therefore need two different subgraphs of (a small part of) the FHS: one
+for `httpd_t` and one for `mysqld_t`, as we can see here:
+
+::: {#fig-apache-mariadb layout-ncol=2}
+
+![$Y_{\texttt{httpd\_t}} \rightarrowtail \text{FHS}$](fhs-httpd.svg){#fig-fhs-httpd}
+
+![$Y_{\texttt{mysqld\_t}} \rightarrowtail \text{FHS}$](fhs-mysqld.svg){#fig-fhs-mysqld}
+
+The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
+:::
+
+These two subgraphs are now given by the following two characteristic maps
+$\chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} : \text{FHS} \to \Omega$.
+On nodes, they are given by
+$$
+\chi_{\texttt{httpd\_t}}(x) = \begin{cases}
+  N & x \in \{\texttt{/}, \texttt{/var/}, \texttt{/var/www/},
+      \texttt{/var/www/html/}, \texttt{/var/www/html/index.html}\} \\
+  0_N & \text{otherwise}
+\end{cases}
+$$
+$$
+\chi_{\texttt{mysqld\_t}}(x) = \begin{cases}
+  N & x \in \{\texttt{/}, \texttt{/data/}, \texttt{/data/mysql/},
+      \texttt{/data/mysql/ibdata1}\} \\
+  0_N & \text{otherwise}
+\end{cases}
+$$
+and on arcs $p : x \to y$ by
+$$
+\chi_{\texttt{httpd\_t}}(p) = \begin{cases}
+  A & x \in \{\texttt{/var/}, \texttt{/var/www/}, \texttt{/var/www/html/},
+      \texttt{/var/www/html/index.html}\} \\
+  t & x \in \{\texttt{/etc/}, \texttt{/data/}\} \\
+  0_A & \text{otherwise}
+\end{cases}
+$$
+$$
+\chi_{\texttt{mysqld\_t}}(p) = \begin{cases}
+  A & x \in \{\texttt{/data/}, \texttt{/data/mysql/},
+      \texttt{/data/mysql/ibdata1}\} \\
+  t & x \in \{\texttt{/etc/}, \texttt{/var/}\} \\
+  0_A & \text{otherwise}
+\end{cases}
+$$
+(every node except `/` has exactly one outgoing arc, to its parent directory,
+so it suffices to name the source $x$ of $p$).
+For example, the arc from `/data/` to `/` is sent to $t$ by
+$\chi_{\texttt{httpd\_t}}$: Apache may see `/`, but not that `/data/` lies
+inside it.
+
+Finally, by considering the coproduct, we have a map from the algebraic data
+type[^adt] $\text{FHS} \sqcup \text{FHS}$ (think `Either FHS FHS` in Haskell)
+to $\Omega$, namely the copairing
+$$[\chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}}] :
+\text{FHS} \sqcup \text{FHS} \to \Omega,$$
+i.e. using the universal properties of the coproduct and the product, a single
+graph morphism
+$$\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
+\text{FHS} \to \Omega \times \Omega,$$
+where the projection onto the first $\Omega$ in the product corresponds to the
+access control given to the Apache process running in the domain `httpd_t`,
+and the projection onto the second $\Omega$ to the access control given to the
+MariaDB process running in the domain `mysqld_t`.
+Storing this morphism node by node and arc by arc is exactly storing a label
+alongside each file and directory, as SELinux does.
+
+[^kant]: Immanuel Kant, _Kritik der reinen Vernunft_, A51/B75.
+[^redhat]: See Red Hat,
+  [_Using SELinux_, Chapter 1: Getting started with SELinux](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux).
+[^adt]: See the Haskell wiki on
+  [algebraic data types](https://wiki.haskell.org/Algebraic_data_type).
+
+## Serialization
+
+We can now finally serialize this map and store it to disk, by encoding these
+characteristic maps and storing the tuples.
+Remember that a graph is a presheaf $X$ over $N \rightrightarrows A$, and that
+a graph morphism $\chi : X \to \Omega$ is a natural transformation, i.e. a pair
+of functions
+$$\chi_N : X(N) \to \Omega(N), \qquad \chi_A : X(A) \to \Omega(A).$$
+Therefore, we need to store
+
+- for each node $v \in X(N)$ the value
+  $\chi_N(v) \in \Omega(N) = \{0_N, N\} \cong \texttt{Bool}$, i.e. a single
+  bit, and
+- for each arc $p \in X(A)$ the value
+  $\chi_A(p) \in \Omega(A) = \{0_A, s, t, \tbinom{s}{t}, A\}$, one of five
+  values.
+
+Naturality saves us most of the second part, though: the source and target of
+$\chi_A(p)$ have to be $\chi_N$ of the source and target of $p$.
+If one of the two endpoints of $p$ is sent to $0_N$, this already determines
+$\chi_A(p)$ uniquely (as $0_A$, $s$ or $t$), so nothing needs to be stored.
+Only if both endpoints are sent to $N$ do we have to store one more bit,
+deciding between $A$ (the arc is visible) and $\binom{s}{t}$ (the arc is
+hidden).
+For the Apache example, this means one bit per node, and one bit for each of
+the four arcs between visible nodes.
+
+For $k$ processes, the morphism
+$\langle \chi_1, \dots, \chi_k \rangle : X \to \Omega^k$ is stored in the same
+way, as a $k$-tuple of such values at every node and every arc.
+On a real file system, the values at a node can be kept in the extended
+attributes of the corresponding file or directory, just like the
+`security.selinux` attribute in which SELinux stores its labels, and the values
+at an arc $p : x \to y$ alongside the directory entry of $x$ in $y$.
+
+By these observations, we can conclude that each file, directory and symlink
+needs an additional bit per user (or rather, per SELinux domain), encoding
+whether it should be accessible to that user.
+For directories and symlinks in particular, we also need to store a bit for
+each of their links (i.e. each entry of a directory, or the target of a
+symlink) for each user, signifying whether that link should also be accessible
+to the user.
+In our graph, these links are precisely the inbound arcs of the node, as arcs
+point from a file to its parent directory.
+Following the observation above, this bit only matters when both ends of the
+link are accessible; otherwise we simply store `false`.
+This gives us:
+
+![The FHS of the Apache and MariaDB example, with the bits serializing
+$\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
+\text{FHS} \to \Omega \times \Omega$ stored at every
+node.](fhs-labels.svg){#fig-fhs-labels}

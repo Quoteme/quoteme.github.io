@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 716" font-family="monospace" font-size="12.5">
+<rect width="860" height="716" fill="#fff"/>
+<defs><marker id="lab-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker></defs>
+<line x1="150.0" y1="216" x2="360.0" y2="172" stroke="#000" stroke-width="1.4" marker-end="url(#lab-arr)"/>
+<line x1="430.0" y1="216" x2="430.0" y2="172" stroke="#000" stroke-width="1.4" marker-end="url(#lab-arr)"/>
+<line x1="710.0" y1="216" x2="500.0" y2="172" stroke="#000" stroke-width="1.4" marker-end="url(#lab-arr)"/>
+<line x1="150.0" y1="358" x2="150.0" y2="314" stroke="#000" stroke-width="1.4" marker-end="url(#lab-arr)"/>
+<line x1="150.0" y1="500" x2="150.0" y2="456" stroke="#000" stroke-width="1.4" marker-end="url(#lab-arr)"/>
+<line x1="150.0" y1="642" x2="150.0" y2="598" stroke="#000" stroke-width="1.4" marker-end="url(#lab-arr)"/>
+<line x1="710.0" y1="358" x2="710.0" y2="314" stroke="#000" stroke-width="1.4" marker-end="url(#lab-arr)"/>
+<line x1="710.0" y1="500" x2="710.0" y2="456" stroke="#000" stroke-width="1.4" marker-end="url(#lab-arr)"/>
+<rect x="300" y="10" width="260" height="160" fill="#fff" stroke="#000"/>
+<text x="308" y="30" font-weight="bold">/</text>
+<text x="308" y="46">httpd_include: true</text>
+<text x="308" y="62">mysqld_include: true</text>
+<text x="308" y="78">httpd_out_var: true</text>
+<text x="308" y="94">httpd_out_etc: false</text>
+<text x="308" y="110">httpd_out_data: false</text>
+<text x="308" y="126">mysqld_out_var: false</text>
+<text x="308" y="142">mysqld_out_etc: false</text>
+<text x="308" y="158">mysqld_out_data: true</text>
+<rect x="20" y="216" width="260" height="96" fill="#fff" stroke="#000"/>
+<text x="28" y="236" font-weight="bold">/var/</text>
+<text x="28" y="252">httpd_include: true</text>
+<text x="28" y="268">mysqld_include: false</text>
+<text x="28" y="284">httpd_out_www: true</text>
+<text x="28" y="300">mysqld_out_www: false</text>
+<rect x="300" y="216" width="260" height="64" fill="#fff" stroke="#000"/>
+<text x="308" y="236" font-weight="bold">/etc/</text>
+<text x="308" y="252">httpd_include: false</text>
+<text x="308" y="268">mysqld_include: false</text>
+<rect x="580" y="216" width="260" height="96" fill="#fff" stroke="#000"/>
+<text x="588" y="236" font-weight="bold">/data/</text>
+<text x="588" y="252">httpd_include: false</text>
+<text x="588" y="268">mysqld_include: true</text>
+<text x="588" y="284">httpd_out_mysql: false</text>
+<text x="588" y="300">mysqld_out_mysql: true</text>
+<rect x="20" y="358" width="260" height="96" fill="#fff" stroke="#000"/>
+<text x="28" y="378" font-weight="bold">/var/www/</text>
+<text x="28" y="394">httpd_include: true</text>
+<text x="28" y="410">mysqld_include: false</text>
+<text x="28" y="426">httpd_out_html: true</text>
+<text x="28" y="442">mysqld_out_html: false</text>
+<rect x="20" y="500" width="260" height="96" fill="#fff" stroke="#000"/>
+<text x="28" y="520" font-weight="bold">/var/www/html/</text>
+<text x="28" y="536">httpd_include: true</text>
+<text x="28" y="552">mysqld_include: false</text>
+<text x="28" y="568">httpd_out_index.html: true</text>
+<text x="28" y="584">mysqld_out_index.html: false</text>
+<rect x="20" y="642" width="260" height="64" fill="#fff" stroke="#000"/>
+<text x="28" y="662" font-weight="bold">/var/www/html/index.html</text>
+<text x="28" y="678">httpd_include: true</text>
+<text x="28" y="694">mysqld_include: false</text>
+<rect x="580" y="358" width="260" height="96" fill="#fff" stroke="#000"/>
+<text x="588" y="378" font-weight="bold">/data/mysql/</text>
+<text x="588" y="394">httpd_include: false</text>
+<text x="588" y="410">mysqld_include: true</text>
+<text x="588" y="426">httpd_out_ibdata1: false</text>
+<text x="588" y="442">mysqld_out_ibdata1: true</text>
+<rect x="580" y="500" width="260" height="64" fill="#fff" stroke="#000"/>
+<text x="588" y="520" font-weight="bold">/data/mysql/ibdata1</text>
+<text x="588" y="536">httpd_include: false</text>
+<text x="588" y="552">mysqld_include: true</text>
+</svg>
