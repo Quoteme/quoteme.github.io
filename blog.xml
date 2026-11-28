@@ -10,7 +10,91 @@
 <atom:link href="https://happel.ai/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Luca Happel&#39;s blog on mathematics (algebra, algebraic geometry, topology, type theory, category theory), programming, IT security and AI.</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Wed, 25 Nov 2026 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 27 Nov 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>second bachelor thesis: The Topos of Trees</title>
+  <dc:creator>Luca Leon Happel</dc:creator>
+  <link>https://happel.ai/posts/topos-of-trees/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>I have long been fascinated by topos theory. Initially, and I can still clearly remember this, I watched some videos by <a href="https://www.youtube.com/@RichardSouthwell">Richard Southwell</a> on YouTube. It started out with videos about synthetic differential geometry, which I wanted to use since I was quite fascinated by tangent spaces and geodesics. I assume most game developers are, once they have successfully transitioned from 2d game dev to 3d, and in my case even beyond! My progression was that I started with 2d games like <a href="../../posts/qcoded/">Jump ’n runner</a>, then went to 3d games like <a href="../../posts/webglcs/">WebGLCS</a> and finally went to 4d games like <a href="https://github.com/Quoteme/dimensioncrusher">dimensioncrusher</a>.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../posts/qcoded/thumbnail.gif" class="lightbox" data-gallery="dimensions" title="2d: Jump ’n runner"><img src="https://happel.ai/posts/qcoded/thumbnail.gif" class="img-fluid figure-img" alt="2d: Jump ’n runner"></a></p>
+<figcaption>2d: <a href="../../posts/qcoded/">Jump ’n runner</a></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/webglcs.png" class="lightbox" data-gallery="dimensions" title="3d: WebGLCS"><img src="https://happel.ai/posts/topos-of-trees/assets/webglcs.png" class="img-fluid figure-img" alt="3d: WebGLCS"></a></p>
+<figcaption>3d: <a href="../../posts/webglcs/">WebGLCS</a></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/dimensioncrusher.gif" class="lightbox" data-gallery="dimensions" title="4d: dimensioncrusher"><img src="https://happel.ai/posts/topos-of-trees/assets/dimensioncrusher.gif" class="img-fluid figure-img" alt="4d: dimensioncrusher"></a></p>
+<figcaption>4d: <a href="https://github.com/Quoteme/dimensioncrusher">dimensioncrusher</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Richard Southwell started this video series about synthetic differential geometry back then:</p>
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/1NJvNZ9Lig8?controls=1&amp;rel=0" title="Richard Southwell: Synthetic Differential Geometry" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div>
+<p>In it, he mentioned that this would rely on topos theory, which he has also done videos about:</p>
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/o-yBDYgUqZQ?controls=1&amp;rel=0&amp;start=2601" title="Richard Southwell: Topos Theory" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div>
+<p>This also prompted me to ask Prof.&nbsp;Dr.&nbsp;Schröer at the end of Algebraic Geometry I if we could do some topos theory, which he however declined, as he deemed this topic too complex to teach in an algebraic geometry lecture course. This sparked my interest even further, and naturally, after I learned that Prof.&nbsp;Dr.&nbsp;Arndt at HHU published some work on interpretations of dependent product (<img src="https://latex.codecogs.com/png.latex?%5CPi">) and dependent sum (<img src="https://latex.codecogs.com/png.latex?%5CSigma">) types using model categories, which was something that I needed for my masters thesis, I was hooked, since he is also especially knowledgeable in topos theory.</p>
+<section id="dependent-typing-in-category-theory" class="level2">
+<h2 class="anchored" data-anchor-id="dependent-typing-in-category-theory">Dependent typing in category theory</h2>
+<p>My biggest grief in category theory so far was that it lacked the proper notation for “dependent typing”. Consider the Fuglede-Kadison determinant, which I used in my masters thesis:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./assets/fuglede-kadison-determinant.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Definition of the Fuglede-Kadison determinant from my masters thesis"><img src="https://happel.ai/posts/topos-of-trees/assets/fuglede-kadison-determinant.png" class="img-fluid figure-img" alt="Definition of the Fuglede-Kadison determinant from my masters thesis"></a></p>
+<figcaption>Definition of the Fuglede-Kadison determinant from my masters thesis</figcaption>
+</figure>
+</div>
+<p>In it, I needed to write <img src="https://latex.codecogs.com/png.latex?%0A%5Cdet%5E%7B%5Cmathrm%7BFK%7D%7D_%7B%5Cmathcal%7BR%7D(G)%7D%20:%20%5Cmathrm%7BHom%7D(V,%20W)%20%5Cto%20%5Cmathbb%7BR%7D_%7B%5Cgeq%200%7D%0A"> for <img src="https://latex.codecogs.com/png.latex?V,%20W"> some finitely generated <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BR%7D(G)">-modules. Instead, we would rather write this as a dependent function <img src="https://latex.codecogs.com/png.latex?%0A%5Cdet%5E%7B%5Cmathrm%7BFK%7D%7D_%7B%5Cmathcal%7BR%7D(G)%7D%20:%20%5Cprod_%7BV,%20W%20%5C,:%5C,%20%7B%7D_%7B%5Cmathcal%7BR%7D(G)%7D%5Cmathtt%7BHilbMod%7D%5E%7B%5Cmathrm%7Bfg%7D%7D%7D%20%5Cbig(%5Cmathrm%7BHom%7D(V,%20W)%20%5Cto%20%5Cmathbb%7BR%7D_%7B%5Cgeq%200%7D%5Cbig),%0A"> so that we do not explicitly need to fix <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?W">. I still have not solved this problem, but I am still working on it (I heard for example that <a href="https://ncatlab.org/nlab/show/categories+with+families">categories with families</a> might be one possible approach to that?).</p>
+</section>
+<section id="the-topos-of-trees" class="level2">
+<h2 class="anchored" data-anchor-id="the-topos-of-trees">The topos of trees</h2>
+<p>Well, this led me to research the topic of the topos of trees, as that seemed like an especially easy topic to get started with topos theory and to apply its internal intuitionistic logic.</p>
+<p>You can read my second bachelor thesis here:</p>
+<iframe src="https://quoteme.github.io/bachelor2/ba.pdf" style="width:100%; height:600px; border:none;" title="Second bachelor thesis: The Topos of Trees (PDF)" height="600">
+</iframe>
+<p><a href="https://quoteme.github.io/bachelor2">The Topos of Trees (PDF)</a></p>
+<p>If you are wondering what I did in my first bachelor thesis about algebraic geometry and cryptography, you can read about it <a href="../../posts/bachelorarbeit/">here</a>. And my masters thesis on <img src="https://latex.codecogs.com/png.latex?%5Cell%5E2">-invariants is <a href="../../posts/masterarbeit/">here</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>math</category>
+  <category>topos theory</category>
+  <category>category theory</category>
+  <category>logic</category>
+  <category>English</category>
+  <guid>https://happel.ai/posts/topos-of-trees/</guid>
+  <pubDate>Fri, 27 Nov 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://happel.ai/posts/topos-of-trees/assets/thumbnail.png" medium="image" type="image/png" height="94" width="144"/>
+</item>
 <item>
   <title>SELinux (Mandatory Access Control) and the Topos of Graphs</title>
   <dc:creator>Luca Leon Happel</dc:creator>
@@ -14692,29 +14776,6 @@ Table&nbsp;1: Derivative visualized
   <category>English</category>
   <guid>https://happel.ai/posts/one_forms/</guid>
   <pubDate>Fri, 26 Sep 2025 22:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Affine lineare Transformationen als lineare Transformationen auf dem projektiven Raum</title>
-  <dc:creator>Luca Leon Happel</dc:creator>
-  <link>https://happel.ai/posts/affine_lineare_transformationen/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p><object data="notizen.pdf" type="application/pdf" width="100%" height="800"><a href="notizen.pdf" download="">Download PDF file.</a></object></p>
-
-
-
- ]]></description>
-  <category>math</category>
-  <category>algebra</category>
-  <category>Deutsch</category>
-  <guid>https://happel.ai/posts/affine_lineare_transformationen/</guid>
-  <pubDate>Sat, 16 Aug 2025 22:00:00 GMT</pubDate>
-  <media:content url="https://happel.ai/posts/affine_lineare_transformationen/thumbnail.png" medium="image" type="image/png" height="123" width="144"/>
 </item>
 </channel>
 </rss>

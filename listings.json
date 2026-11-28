@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/topos-of-trees/index.html",
       "/posts/mandatory-access-control/index.html",
       "/posts/mathcraft/index.html",
       "/posts/basket-winding/index.html",
