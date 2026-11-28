@@ -102,19 +102,6 @@ flowchart BT
 <!-- TODO: continue — labels on the nodes of this tree, allow rules between
      labels; small SELinux example policy. -->
 
-## Sheaves over graphs
-
-As we have previously seen, sheaves are the most natural data structure to
-track data that is associated to some location. We have used this, for example,
-to store state for the game Minecraft per chunk in _Sheaves in
-Minecraft_[^sheaves-minecraft] or _Mathcraft: Topoi in Minecraft_[^mathcraft].
-Storing access control information per node using sheaves therefore does not
-seem that far-fetched.
-
-[^sheaves-minecraft]: See [Sheaves in Minecraft](../sheaves_in_minecraft/).
-[^mathcraft]: See [Mathcraft: Topoi in Minecraft](../mathcraft/).
-
-:::{.callout-note collapse="true"}
 ## The topos of graphs
 
 Funnily enough, graphs themselves can be regarded as presheaves over a certain
@@ -151,13 +138,46 @@ H(A) & \xrightarrow[H(t)]{} & H(N)
 $$
 Intuitively, this means that $f$ maps nodes to nodes and preserves arcs, which
 is exactly the standard definition of a graph homomorphism in graph theory.
-:::
+
+As an example, let $G$ be the path $a \xrightarrow{p} b \xrightarrow{q} c$, i.e.
+$$G(N) = \{a, b, c\}, \quad G(A) = \{p, q\}, \quad
+G(s) : p \mapsto a,\ q \mapsto b, \quad G(t) : p \mapsto b,\ q \mapsto c,$$
+and let $H$ be the graph with a single arc $u \xrightarrow{r} v$ and a loop
+$\ell : v \to v$, i.e.
+$$H(N) = \{u, v\}, \quad H(A) = \{r, \ell\}, \quad
+H(s) : r \mapsto u,\ \ell \mapsto v, \quad H(t) : r \mapsto v,\ \ell \mapsto v.$$
+Then a morphism $f : G \to H$ is given by
+$$f_N : a \mapsto u,\ b \mapsto v,\ c \mapsto v, \qquad
+f_A : p \mapsto r,\ q \mapsto \ell,$$
+as shown in @fig-morphism.
+To check that the diagrams above commute, we have to compare sources and
+targets of each arc: $f_N(G(s)(p)) = f_N(a) = u = H(s)(r) = H(s)(f_A(p))$, and
+likewise for the targets and for $q$. Note that $f$ is not injective, as it
+glues $b$ and $c$ together, and in doing so the arc $q : b \to c$ has to become
+an arc $v \to v$, which is exactly the loop $\ell$.
+On the other hand, there is no morphism $f$ with $f_A(q) = r$ and $f_N(b) = v$,
+since then $H(s)(f_A(q)) = u \neq v = f_N(G(s)(q))$.
+
+![A graph morphism $f : G \to H$. The dotted arrows show $f_N$; $f_A$ sends
+$p$ to $r$ and $q$ to the loop $\ell$.](morphism.svg){#fig-morphism width=70%}
 
 [^vigna]: Sebastiano Vigna,
   [_A guided tour in the topos of graphs_](https://arxiv.org/abs/math/0306394),
   2003.
 [^bachelor]: See my bachelor thesis at
   [happel.ai/bachelor2](https://happel.ai/bachelor2).
+
+## Sheaves over graphs
+
+As we have previously seen, sheaves are the most natural data structure to
+track data that is associated to some location. We have used this, for example,
+to store state for the game Minecraft per chunk in _Sheaves in
+Minecraft_[^sheaves-minecraft] or _Mathcraft: Topoi in Minecraft_[^mathcraft].
+Storing access control information per node using sheaves therefore does not
+seem that far-fetched.
+
+[^sheaves-minecraft]: See [Sheaves in Minecraft](../sheaves_in_minecraft/).
+[^mathcraft]: See [Mathcraft: Topoi in Minecraft](../mathcraft/).
 
 ```{=html}
 <style>
@@ -372,7 +392,8 @@ for `httpd_t` and one for `mysqld_t`, as we can see here:
 
 ![$Y_{\texttt{mysqld\_t}} \rightarrowtail \text{FHS}$](fhs-mysqld.svg){#fig-fhs-mysqld}
 
-The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
+The subgraphs of the FHS that Apache and MariaDB have access to, drawn in
+black; the rest of the FHS is grey.
 :::
 
 These two subgraphs are now given by the following two characteristic maps
@@ -489,6 +510,63 @@ This gives us:
 $\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
 \text{FHS} \to \Omega \times \Omega$ stored at every
 node.](fhs-labels.svg){#fig-fhs-labels}
+
+## Further theory
+
+To exploit the functionality that topos theory provides to us, we need to
+investigate the topos of graphs some more.
+The first observations are trivial: the initial and terminal objects are given
+by the empty graph and the graph with a single node and a single arc
+respectively, as shown in @fig-initial-terminal.
+
+![The initial object $0$, the empty graph, and the terminal object $1$, a
+single node $*$ with a single loop $!$.](initial-terminal.svg){#fig-initial-terminal width=60%}
+
+Global elements of a graph $X$ are then given by morphisms $x : 1 \to X$, which
+are clearly given by choosing a node of $X$ together with a loop on it: $x_N$
+picks the node $x_N(*)$, and $x_A$ picks an arc $x_A(!)$ whose source and
+target both have to be $x_N(*)$, as in @fig-global-element.
+
+![A global element $x : 1 \to X$. The dotted arrows show that $x$ sends the
+node $*$ to $b$ and the loop $!$ to the loop
+$\ell$.](global-element.svg){#fig-global-element width=70%}
+
+In particular, a graph without loops has no global elements at all, even if
+it has plenty of nodes.
+
+We can now consider subobjects
+$[\![ x : X \mid \varphi(x) ]\!] \rightarrowtail X$, which consist of all those
+elements $x$ of $X$ which satisfy some predicate $\varphi : X \to \Omega$.
+Formally, $[\![ x : X \mid \varphi(x) ]\!]$ is the pullback of
+$\top : 1 \to \Omega$ along $\varphi$.
+By the observation above, "element" cannot just mean global element here: a
+graph without loops has no global elements, but still has plenty of subgraphs.
+Instead, we have to read $x$ as a generalized element in context $U$, written
+$x : U \to X$, or, more concretely, as a node or an arc of $X$, which lies in
+the subobject precisely if $\varphi$ sends it to $N$ resp. $A$.
+
+![A generalized element $x : U \to X$ in context $U$. The dotted arrows show
+that $x$ sends $u$ to $a$, $v$ to $b$ and the arc $e$ to
+$p$.](generalized-element.svg){#fig-generalized-element width=70%}
+
+An example would be the subgraphs from before: $Y_{\texttt{httpd\_t}}$ is just
+$[\![ x : \text{FHS} \mid \chi_{\texttt{httpd\_t}}(x) ]\!]$.
+More interestingly, we can combine predicates with the logical connectives of
+$\Omega$.
+For example,
+$$[\![ x : \text{FHS} \mid \chi_{\texttt{httpd\_t}}(x) \land
+\chi_{\texttt{mysqld\_t}}(x) ]\!] = Y_{\texttt{httpd\_t}} \cap
+Y_{\texttt{mysqld\_t}}$$
+is the part of the FHS which both Apache and MariaDB have access to, which only
+consists of the root node `/`.
+Note that the arcs $\texttt{/var/} \to \texttt{/}$ and
+$\texttt{/data/} \to \texttt{/}$ are not part of it, since
+$\land : \Omega \times \Omega \to \Omega$ sends $(A, t)$ and $(t, A)$ to $t$.
+
+![The subgraph
+$[\![ x : \text{FHS} \mid \chi_{\texttt{httpd\_t}}(x) \land
+\chi_{\texttt{mysqld\_t}}(x) ]\!] \rightarrowtail \text{FHS}$, drawn in black;
+the rest of the FHS is grey.](fhs-both.svg){#fig-fhs-both width=50%}
 
 :::{.callout-warning}
 This text has _not_ been _reviewed_ yet.
