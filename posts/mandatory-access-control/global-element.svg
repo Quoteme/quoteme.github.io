@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" font-family="sans-serif" font-size="17">
+<rect x="0" y="0" width="540" height="360" fill="#fff"/>
+<defs>
+<marker id="ge-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+</defs>
+<rect x="30" y="20" width="480" height="110" rx="8" fill="none" stroke="#000"/>
+<text x="40" y="42" fill="#000" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">1</text>
+<rect x="30" y="190" width="480" height="150" rx="8" fill="none" stroke="#000"/>
+<text x="40" y="212" fill="#000" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">X</text>
+<path d="M292,81 C230,125 230,25 292,69" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#ge-arr)"/>
+<text x="238" y="80" fill="#000" text-anchor="end" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">!</text>
+<circle cx="300" cy="75" r="5" fill="#000"/>
+<text x="312" y="80" fill="#000" text-anchor="start" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">*</text>
+<line x1="100.0" y1="250.0" x2="290.0" y2="250.0" stroke="#000" stroke-width="1.6" marker-end="url(#ge-arr)"/>
+<text x="150.0" y="240" fill="#000" text-anchor="middle" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">p</text>
+<line x1="310.0" y1="250.0" x2="470.0" y2="250.0" stroke="#000" stroke-width="1.6" marker-end="url(#ge-arr)"/>
+<text x="390.0" y="240" fill="#000" text-anchor="middle" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">q</text>
+<path d="M306,258 C350,320 250,320 294,258" fill="none" stroke="#000" stroke-width="1.6" marker-end="url(#ge-arr)"/>
+<text x="330" y="308" fill="#000" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">ℓ</text>
+<circle cx="90" cy="250" r="5" fill="#000"/>
+<text x="90" y="238" fill="#000" text-anchor="middle" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">a</text>
+<circle cx="300" cy="250" r="5" fill="#000"/>
+<text x="310" y="238" fill="#000" text-anchor="start" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">b</text>
+<circle cx="480" cy="250" r="5" fill="#000"/>
+<text x="480" y="238" fill="#000" text-anchor="middle" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">c</text>
+<line x1="300.0" y1="87.0" x2="300.0" y2="238.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#ge-arr)"/>
+<text x="308" y="165" fill="#000" font-family="'Latin Modern Math','STIX Two Math','Cambria Math',serif" font-style="italic">x</text>
+<path d="M240,85 C160,205 182,318 292,308" fill="none" stroke="#000" stroke-dasharray="2 4" marker-end="url(#ge-arr)"/>
+</svg>

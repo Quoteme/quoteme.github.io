@@ -1,49 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 160 770 460" font-family="sans-serif" font-size="13">
-<rect x="0" y="160" width="770" height="460" fill="#fff"/>
-<defs><marker id="fhs-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker></defs>
-<polygon points="19.4,608.0 608.4,608.0 754.0,400.0 165.0,400.0" fill="#fff" stroke="#000"/>
-<text x="173.0" y="418.0" fill="#000" font-style="italic">FHS</text>
-<line x1="327.4" y1="462.0" x2="463.5" y2="426.0" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<line x1="447.8" y1="457.4" x2="466.6" y2="430.6" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<line x1="559.3" y1="460.9" x2="478.6" y2="427.1" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<line x1="296.3" y1="497.4" x2="315.1" y2="470.6" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<line x1="268.3" y1="537.4" x2="287.1" y2="510.6" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<line x1="240.3" y1="577.4" x2="259.1" y2="550.6" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<line x1="543.3" y1="497.4" x2="562.1" y2="470.6" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<line x1="515.3" y1="537.4" x2="534.1" y2="510.6" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<circle cx="471.2" cy="424.0" r="4.5" fill="#000"/>
-<text x="479.2" y="415.0" fill="#000" font-family="monospace" font-size="12">/</text>
-<circle cx="319.7" cy="464.0" r="4.5" fill="#000"/>
-<text x="311.7" y="468.0" fill="#000" text-anchor="end" font-family="monospace" font-size="12">/var/</text>
-<circle cx="443.2" cy="464.0" r="4.5" fill="#000"/>
-<text x="451.2" y="479.0" fill="#000" font-family="monospace" font-size="12">/etc/</text>
-<circle cx="566.7" cy="464.0" r="4.5" fill="#000"/>
-<text x="574.7" y="479.0" fill="#000" font-family="monospace" font-size="12">/data/</text>
-<circle cx="291.7" cy="504.0" r="4.5" fill="#000"/>
-<text x="283.7" y="508.0" fill="#000" text-anchor="end" font-family="monospace" font-size="12">/var/www/</text>
-<circle cx="263.7" cy="544.0" r="4.5" fill="#000"/>
-<text x="255.7" y="548.0" fill="#000" text-anchor="end" font-family="monospace" font-size="12">/var/www/html/</text>
-<circle cx="235.7" cy="584.0" r="4.5" fill="#000"/>
-<text x="227.7" y="588.0" fill="#000" text-anchor="end" font-family="monospace" font-size="12">/var/www/html/index.html</text>
-<circle cx="538.7" cy="504.0" r="4.5" fill="#000"/>
-<text x="546.7" y="519.0" fill="#000" font-family="monospace" font-size="12">/data/mysql/</text>
-<circle cx="510.7" cy="544.0" r="4.5" fill="#000"/>
-<text x="518.7" y="559.0" fill="#000" font-family="monospace" font-size="12">/data/mysql/ibdata1</text>
-<polygon points="19.4,384.0 608.4,384.0 754.0,176.0 165.0,176.0" fill="#fff" stroke="#000"/>
-<text x="173.0" y="194.0" fill="#000" font-style="italic">Y<tspan font-size='10' dy='4'>mysqld_t</tspan></text>
-<line x1="471.2" y1="208.0" x2="471.2" y2="416.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#fhs-arr)"/>
-<line x1="510.7" y1="328.0" x2="510.7" y2="536.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#fhs-arr)"/>
-<line x1="566.7" y1="248.0" x2="566.7" y2="456.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#fhs-arr)"/>
-<line x1="538.7" y1="288.0" x2="538.7" y2="496.0" stroke="#000" stroke-dasharray="2 4" marker-end="url(#fhs-arr)"/>
-<line x1="559.3" y1="236.9" x2="478.6" y2="203.1" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<line x1="543.3" y1="273.4" x2="562.1" y2="246.6" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<line x1="515.3" y1="313.4" x2="534.1" y2="286.6" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
-<circle cx="471.2" cy="200.0" r="4.5" fill="#000"/>
-<text x="479.2" y="191.0" fill="#000" font-family="monospace" font-size="12">/</text>
-<circle cx="566.7" cy="240.0" r="4.5" fill="#000"/>
-<text x="574.7" y="255.0" fill="#000" font-family="monospace" font-size="12">/data/</text>
-<circle cx="538.7" cy="280.0" r="4.5" fill="#000"/>
-<text x="546.7" y="295.0" fill="#000" font-family="monospace" font-size="12">/data/mysql/</text>
-<circle cx="510.7" cy="320.0" r="4.5" fill="#000"/>
-<text x="518.7" y="335.0" fill="#000" font-family="monospace" font-size="12">/data/mysql/ibdata1</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 5 646 370" font-family="sans-serif" font-size="13">
+<rect x="-5" y="5" width="646" height="370" fill="#fff"/>
+<defs>
+<marker id="fhs-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+<marker id="fhs-arr-grey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bbb"/></marker>
+</defs>
+<line x1="202.0" y1="106.1" x2="331.0" y2="33.9" stroke="#bbb" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#fhs-arr-grey)"/>
+<line x1="338.0" y1="102.0" x2="338.0" y2="38.0" stroke="#bbb" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#fhs-arr-grey)"/>
+<line x1="474.0" y1="106.1" x2="345.0" y2="33.9" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
+<line x1="195.0" y1="182.0" x2="195.0" y2="118.0" stroke="#bbb" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#fhs-arr-grey)"/>
+<line x1="195.0" y1="262.0" x2="195.0" y2="198.0" stroke="#bbb" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#fhs-arr-grey)"/>
+<line x1="195.0" y1="342.0" x2="195.0" y2="278.0" stroke="#bbb" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#fhs-arr-grey)"/>
+<line x1="481.0" y1="182.0" x2="481.0" y2="118.0" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
+<line x1="481.0" y1="262.0" x2="481.0" y2="198.0" stroke="#000" stroke-width="1.5" marker-end="url(#fhs-arr)"/>
+<circle cx="338.0" cy="30.0" r="4.5" fill="#000"/>
+<text x="338.0" y="20.0" fill="#000" text-anchor="middle" font-family="monospace" font-size="12">/</text>
+<circle cx="195.0" cy="110.0" r="4.5" fill="#bbb"/>
+<text x="186.0" y="114.0" fill="#bbb" text-anchor="end" font-family="monospace" font-size="12">/var/</text>
+<circle cx="338.0" cy="110.0" r="4.5" fill="#bbb"/>
+<text x="347.0" y="114.0" fill="#bbb" font-family="monospace" font-size="12">/etc/</text>
+<circle cx="481.0" cy="110.0" r="4.5" fill="#000"/>
+<text x="490.0" y="114.0" fill="#000" font-family="monospace" font-size="12">/data/</text>
+<circle cx="195.0" cy="190.0" r="4.5" fill="#bbb"/>
+<text x="186.0" y="194.0" fill="#bbb" text-anchor="end" font-family="monospace" font-size="12">/var/www/</text>
+<circle cx="195.0" cy="270.0" r="4.5" fill="#bbb"/>
+<text x="186.0" y="274.0" fill="#bbb" text-anchor="end" font-family="monospace" font-size="12">/var/www/html/</text>
+<circle cx="195.0" cy="350.0" r="4.5" fill="#bbb"/>
+<text x="186.0" y="354.0" fill="#bbb" text-anchor="end" font-family="monospace" font-size="12">/var/www/html/index.html</text>
+<circle cx="481.0" cy="190.0" r="4.5" fill="#000"/>
+<text x="490.0" y="194.0" fill="#000" font-family="monospace" font-size="12">/data/mysql/</text>
+<circle cx="481.0" cy="270.0" r="4.5" fill="#000"/>
+<text x="490.0" y="274.0" fill="#000" font-family="monospace" font-size="12">/data/mysql/ibdata1</text>
 </svg>

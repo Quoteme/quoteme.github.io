@@ -532,22 +532,9 @@ flowchart BT
 <!-- TODO: continue — labels on the nodes of this tree, allow rules between
      labels; small SELinux example policy. -->
 </section>
-<section id="sheaves-over-graphs" class="level2">
-<h2 class="anchored" data-anchor-id="sheaves-over-graphs">Sheaves over graphs</h2>
-<p>As we have previously seen, sheaves are the most natural data structure to track data that is associated to some location. We have used this, for example, to store state for the game Minecraft per chunk in <em>Sheaves in Minecraft</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> or <em>Mathcraft: Topoi in Minecraft</em><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Storing access control information per node using sheaves therefore does not seem that far-fetched.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>The topos of graphs
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Funnily enough, graphs themselves can be regarded as presheaves over a certain small category<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. This section is taken from my bachelor thesis<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. Let <span class="math inline">\(\Gamma\)</span> be the category with two objects <span class="math inline">\(N\)</span> and <span class="math inline">\(A\)</span> and, besides the identities, exactly two morphisms <span class="math display">\[N \overset{s}{\underset{t}{\rightrightarrows}} A.\]</span> The <em>topos of graphs</em> is the presheaf category <span class="math inline">\(\mathcal{G} = [\Gamma^{\text{op}}, \textbf{Set}]\)</span>.</p>
+<section id="the-topos-of-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="the-topos-of-graphs">The topos of graphs</h2>
+<p>Funnily enough, graphs themselves can be regarded as presheaves over a certain small category<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. This section is taken from my bachelor thesis<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Let <span class="math inline">\(\Gamma\)</span> be the category with two objects <span class="math inline">\(N\)</span> and <span class="math inline">\(A\)</span> and, besides the identities, exactly two morphisms <span class="math display">\[N \overset{s}{\underset{t}{\rightrightarrows}} A.\]</span> The <em>topos of graphs</em> is the presheaf category <span class="math inline">\(\mathcal{G} = [\Gamma^{\text{op}}, \textbf{Set}]\)</span>.</p>
 <p>An object <span class="math inline">\(G \in \mathcal{G}\)</span> is uniquely determined by <span class="math inline">\(G(N)\)</span>, the set of nodes, <span class="math inline">\(G(A)\)</span>, the set of arcs, and two functions <span class="math inline">\(G(s), G(t) : G(A) \to G(N)\)</span>, which map an arc to its source and target node, respectively. In other words, <span class="math inline">\(G\)</span> is a directed graph with nodes <span class="math inline">\(G(N)\)</span> and arcs <span class="math inline">\(G(A)\)</span>.</p>
 <p>A morphism <span class="math inline">\(f : G \to H\)</span> in <span class="math inline">\(\mathcal{G}\)</span> is a natural transformation between the presheaves <span class="math inline">\(G\)</span> and <span class="math inline">\(H\)</span>, or explicitly a pair of functions <span class="math display">\[f_N : G(N) \to H(N), \qquad f_A : G(A) \to H(A)\]</span> such that the following diagrams commute: <span class="math display">\[
 \begin{array}{ccc}
@@ -562,9 +549,24 @@ G(A) &amp; \xrightarrow{G(t)} &amp; G(N) \\
 H(A) &amp; \xrightarrow[H(t)]{} &amp; H(N)
 \end{array}
 \]</span> Intuitively, this means that <span class="math inline">\(f\)</span> maps nodes to nodes and preserves arcs, which is exactly the standard definition of a graph homomorphism in graph theory.</p>
+<p>As an example, let <span class="math inline">\(G\)</span> be the path <span class="math inline">\(a \xrightarrow{p} b \xrightarrow{q} c\)</span>, i.e. <span class="math display">\[G(N) = \{a, b, c\}, \quad G(A) = \{p, q\}, \quad
+G(s) : p \mapsto a,\ q \mapsto b, \quad G(t) : p \mapsto b,\ q \mapsto c,\]</span> and let <span class="math inline">\(H\)</span> be the graph with a single arc <span class="math inline">\(u \xrightarrow{r} v\)</span> and a loop <span class="math inline">\(\ell : v \to v\)</span>, i.e. <span class="math display">\[H(N) = \{u, v\}, \quad H(A) = \{r, \ell\}, \quad
+H(s) : r \mapsto u,\ \ell \mapsto v, \quad H(t) : r \mapsto v,\ \ell \mapsto v.\]</span> Then a morphism <span class="math inline">\(f : G \to H\)</span> is given by <span class="math display">\[f_N : a \mapsto u,\ b \mapsto v,\ c \mapsto v, \qquad
+f_A : p \mapsto r,\ q \mapsto \ell,\]</span> as shown in <a href="#fig-morphism" class="quarto-xref">Figure&nbsp;1</a>. To check that the diagrams above commute, we have to compare sources and targets of each arc: <span class="math inline">\(f_N(G(s)(p)) = f_N(a) = u = H(s)(r) = H(s)(f_A(p))\)</span>, and likewise for the targets and for <span class="math inline">\(q\)</span>. Note that <span class="math inline">\(f\)</span> is not injective, as it glues <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> together, and in doing so the arc <span class="math inline">\(q : b \to c\)</span> has to become an arc <span class="math inline">\(v \to v\)</span>, which is exactly the loop <span class="math inline">\(\ell\)</span>. On the other hand, there is no morphism <span class="math inline">\(f\)</span> with <span class="math inline">\(f_A(q) = r\)</span> and <span class="math inline">\(f_N(b) = v\)</span>, since then <span class="math inline">\(H(s)(f_A(q)) = u \neq v = f_N(G(s)(q))\)</span>.</p>
+<div id="fig-morphism" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-morphism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="morphism.svg" class="img-fluid figure-img" style="width:70.0%">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-morphism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A graph morphism <span class="math inline">\(f : G \to H\)</span>. The dotted arrows show <span class="math inline">\(f_N\)</span>; <span class="math inline">\(f_A\)</span> sends <span class="math inline">\(p\)</span> to <span class="math inline">\(r\)</span> and <span class="math inline">\(q\)</span> to the loop <span class="math inline">\(\ell\)</span>.
+</figcaption>
+</figure>
 </div>
-</div>
+</section>
+<section id="sheaves-over-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="sheaves-over-graphs">Sheaves over graphs</h2>
+<p>As we have previously seen, sheaves are the most natural data structure to track data that is associated to some location. We have used this, for example, to store state for the game Minecraft per chunk in <em>Sheaves in Minecraft</em><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> or <em>Mathcraft: Topoi in Minecraft</em><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. Storing access control information per node using sheaves therefore does not seem that far-fetched.</p>
 <style>
 .float-fig { float: right; width: 32%; margin: 0 0 1em 1.5em; }
 #fig-global-section { clear: both; }
@@ -596,21 +598,21 @@ H(A) &amp; \xrightarrow[H(t)]{} &amp; H(N)
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-restriction-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Two presheaves <span class="math inline">\(Y\)</span> over the graph <span class="math inline">\(a \to b \leftarrow c\)</span>, with <span class="math inline">\(Y(x) = \texttt{Bool}\)</span> above each node <span class="math inline">\(x\)</span> and the restriction maps <span class="math inline">\(Y(b) \to Y(a)\)</span> and <span class="math inline">\(Y(b) \to Y(c)\)</span> drawn between them.
+Figure&nbsp;2: Two presheaves <span class="math inline">\(Y\)</span> over the graph <span class="math inline">\(a \to b \leftarrow c\)</span>, with <span class="math inline">\(Y(x) = \texttt{Bool}\)</span> above each node <span class="math inline">\(x\)</span> and the restriction maps <span class="math inline">\(Y(b) \to Y(a)\)</span> and <span class="math inline">\(Y(b) \to Y(c)\)</span> drawn between them.
 </figcaption>
 </figure>
 </div>
 </div>
 <p>Let us now assume that we are given some graph <span class="math inline">\(X \in [\Gamma^{\text{op}},
 \textbf{Set}]\)</span>, which, as noticed before, we can take to be a category (namely the free category on <span class="math inline">\(X\)</span>). We can now consider the presheaf category over <span class="math inline">\(X\)</span>, given by <span class="math inline">\([X^{\text{op}}, \textbf{Set}]\)</span>, and take <span class="math inline">\(Y\)</span> to be one of its presheaves, which assigns to each node the set <span class="math inline">\(\texttt{Bool}\)</span>, i.e. <span class="math inline">\(Y(x) = \texttt{Bool} = \{\bot, \top\}\)</span> for every node <span class="math inline">\(x\)</span>. Each edge <span class="math inline">\(p : x \to y\)</span> is then sent to a restriction map <span class="math inline">\(Y(p) : Y(y) \to Y(x)\)</span>, i.e.&nbsp;a function <span class="math inline">\(\texttt{Bool} \to \texttt{Bool}\)</span> from the parent directory to its child.</p>
-<p>A global element <span class="math inline">\(s : 1 \to Y\)</span> of this presheaf is then given by concretely associating a compatible choice of boolean values <span class="math inline">\(s_x \in Y(x)\)</span> to each node <span class="math inline">\(x\)</span> in the graph, where <em>compatible</em> means that <span class="math inline">\(s_x = Y(p)(s_y)\)</span> for every edge <span class="math inline">\(p : x \to y\)</span>. We can think of <span class="math inline">\(s\)</span> as answering the question “does the user have access to node <span class="math inline">\(x\)</span>?” for every node at once. As the restriction maps are already a part of <span class="math inline">\(Y\)</span>, choosing a value <span class="math inline">\(s_y \in Y(y)\)</span> for a directory <span class="math inline">\(y\)</span> already determines the access rights of everything below it, since <span class="math inline">\(s_x = Y(p)(s_y)\)</span> for each edge <span class="math inline">\(p : x \to y\)</span>. Read the other way around, as long as every restriction map sends <span class="math inline">\(\bot\)</span> to <span class="math inline">\(\bot\)</span> (as is the case in <a href="#fig-global-section" class="quarto-xref">Figure&nbsp;2</a>), <span class="math inline">\(s_x = \top\)</span> forces <span class="math inline">\(s_y = \top\)</span>, so choosing a value for <span class="math inline">\(x\)</span> determines the access rights of all its parents (i.e.&nbsp;the directories above it). This is however to be expected, as we might like for a directory to have access rights, given that at least one of its files is accessible! This leads us to the notion of <em>refinement types</em>, which we will consider for the topos of graphs in a later post some day.</p>
+<p>A global element <span class="math inline">\(s : 1 \to Y\)</span> of this presheaf is then given by concretely associating a compatible choice of boolean values <span class="math inline">\(s_x \in Y(x)\)</span> to each node <span class="math inline">\(x\)</span> in the graph, where <em>compatible</em> means that <span class="math inline">\(s_x = Y(p)(s_y)\)</span> for every edge <span class="math inline">\(p : x \to y\)</span>. We can think of <span class="math inline">\(s\)</span> as answering the question “does the user have access to node <span class="math inline">\(x\)</span>?” for every node at once. As the restriction maps are already a part of <span class="math inline">\(Y\)</span>, choosing a value <span class="math inline">\(s_y \in Y(y)\)</span> for a directory <span class="math inline">\(y\)</span> already determines the access rights of everything below it, since <span class="math inline">\(s_x = Y(p)(s_y)\)</span> for each edge <span class="math inline">\(p : x \to y\)</span>. Read the other way around, as long as every restriction map sends <span class="math inline">\(\bot\)</span> to <span class="math inline">\(\bot\)</span> (as is the case in <a href="#fig-global-section" class="quarto-xref">Figure&nbsp;3</a>), <span class="math inline">\(s_x = \top\)</span> forces <span class="math inline">\(s_y = \top\)</span>, so choosing a value for <span class="math inline">\(x\)</span> determines the access rights of all its parents (i.e.&nbsp;the directories above it). This is however to be expected, as we might like for a directory to have access rights, given that at least one of its files is accessible! This leads us to the notion of <em>refinement types</em>, which we will consider for the topos of graphs in a later post some day.</p>
 <div id="fig-global-section" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="global-section.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: A global element of <span class="math inline">\(Y\)</span> over the graph of <code>cwd/</code>, which lies in the <span class="math inline">\(x\)</span>-<span class="math inline">\(z\)</span>-plane. Above each node sits a copy of <span class="math inline">\(\texttt{Bool}\)</span>, and the global element picks one value per node (filled). Here, all restriction maps are the identity, except the one for the edge from <code>cwd/sub/file2</code>, which is constantly <span class="math inline">\(\bot\)</span>.
+Figure&nbsp;3: A global element of <span class="math inline">\(Y\)</span> over the graph of <code>cwd/</code>, which lies in the <span class="math inline">\(x\)</span>-<span class="math inline">\(z\)</span>-plane. Above each node sits a copy of <span class="math inline">\(\texttt{Bool}\)</span>, and the global element picks one value per node (filled). Here, all restriction maps are the identity, except the one for the edge from <code>cwd/sub/file2</code>, which is constantly <span class="math inline">\(\bot\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -624,7 +626,7 @@ Figure&nbsp;2: A global element of <span class="math inline">\(Y\)</span> over t
 <img src="subgraph.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</span> (top) of the graph of <code>cwd/</code> (bottom) for a user without access to <code>cwd/sub/file2</code>. The dotted arrows show where each node of <span class="math inline">\(Y\)</span> is sent in <span class="math inline">\(X\)</span>.
+Figure&nbsp;4: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</span> (top) of the graph of <code>cwd/</code> (bottom) for a user without access to <code>cwd/sub/file2</code>. The dotted arrows show where each node of <span class="math inline">\(Y\)</span> is sent in <span class="math inline">\(X\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -680,11 +682,11 @@ Figure&nbsp;3: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</s
 <img src="subgraph-edge.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-edge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</span> (top) of the graph of <code>cwd/</code> (bottom) which keeps every node, but drops the symlink edge from <code>cwd/</code> into <code>cwd/sub/par/</code>. The dotted arrows show where each node of <span class="math inline">\(Y\)</span> is sent in <span class="math inline">\(X\)</span>.
+Figure&nbsp;5: The subgraph <span class="math inline">\(Y \rightarrowtail X\)</span> (top) of the graph of <code>cwd/</code> (bottom) which keeps every node, but drops the symlink edge from <code>cwd/</code> into <code>cwd/sub/par/</code>. The dotted arrows show where each node of <span class="math inline">\(Y\)</span> is sent in <span class="math inline">\(X\)</span>.
 </figcaption>
 </figure>
 </div>
-<p>If <span class="math inline">\(p\)</span> was the only inbound arrow of <span class="math inline">\(y\)</span>, then <span class="math inline">\(y\)</span> even appears as an empty directory to that user. The node <span class="math inline">\(x\)</span> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> (<a href="#fig-subgraph-edge" class="quarto-xref">Figure&nbsp;4</a>) keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
+<p>If <span class="math inline">\(p\)</span> was the only inbound arrow of <span class="math inline">\(y\)</span>, then <span class="math inline">\(y\)</span> even appears as an empty directory to that user. The node <span class="math inline">\(x\)</span> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> (<a href="#fig-subgraph-edge" class="quarto-xref">Figure&nbsp;5</a>) keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
 <p>Assume now that the graph <span class="math inline">\(X\)</span> is given. How can we encode the access controls for its users? We first consider a single user <span class="math inline">\(u\)</span>, in which case we can simply store the characteristic map <span class="math inline">\(\chi_{Y_u} : X \to \Omega\)</span> of the associated subgraph <span class="math inline">\(Y_u \rightarrowtail X\)</span>, after serialization: one of the two nodes of <span class="math inline">\(\Omega\)</span> for every node of <span class="math inline">\(X\)</span>, and one of the five arcs of <span class="math inline">\(\Omega\)</span> for every arc of <span class="math inline">\(X\)</span>.</p>
 <p>In fact, for multiple users <span class="math inline">\(u_1, \dots, u_k\)</span> we can proceed similarly, by considering the coproduct of the subgraphs <span class="math display">\[Y_{u_1} \sqcup \dots \sqcup Y_{u_k} \rightarrowtail
 X \sqcup \dots \sqcup X,\]</span> which is again a subgraph (coproducts of monomorphisms are monomorphisms in a topos). Its characteristic map is the copairing <span class="math display">\[[\chi_{Y_{u_1}}, \dots, \chi_{Y_{u_k}}] : X \sqcup \dots \sqcup X \to \Omega,\]</span> which we can serialize again. By the universal properties of the coproduct and the product, this is the same as a single graph morphism <span class="math display">\[\langle \chi_{Y_{u_1}}, \dots, \chi_{Y_{u_k}} \rangle :
@@ -746,7 +748,7 @@ flowchart TB
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-apache-mariadb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
+Figure&nbsp;6: The subgraphs of the FHS that Apache and MariaDB have access to, drawn in black; the rest of the FHS is grey.
 </figcaption>
 </figure>
 </div>
@@ -797,10 +799,75 @@ Figure&nbsp;5: The subgraphs of the FHS (bottom) that Apache and MariaDB have ac
 <img src="fhs-labels.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fhs-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: The FHS of the Apache and MariaDB example, with the bits serializing <span class="math inline">\(\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
+Figure&nbsp;7: The FHS of the Apache and MariaDB example, with the bits serializing <span class="math inline">\(\langle \chi_{\texttt{httpd\_t}}, \chi_{\texttt{mysqld\_t}} \rangle :
 \text{FHS} \to \Omega \times \Omega\)</span> stored at every node.
 </figcaption>
 </figure>
+</div>
+</section>
+<section id="further-theory" class="level2">
+<h2 class="anchored" data-anchor-id="further-theory">Further theory</h2>
+<p>To exploit the functionality that topos theory provides to us, we need to investigate the topos of graphs some more. The first observations are trivial: the initial and terminal objects are given by the empty graph and the graph with a single node and a single arc respectively, as shown in <a href="#fig-initial-terminal" class="quarto-xref">Figure&nbsp;8</a>.</p>
+<div id="fig-initial-terminal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-initial-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="initial-terminal.svg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-initial-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: The initial object <span class="math inline">\(0\)</span>, the empty graph, and the terminal object <span class="math inline">\(1\)</span>, a single node <span class="math inline">\(*\)</span> with a single loop <span class="math inline">\(!\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>Global elements of a graph <span class="math inline">\(X\)</span> are then given by morphisms <span class="math inline">\(x : 1 \to X\)</span>, which are clearly given by choosing a node of <span class="math inline">\(X\)</span> together with a loop on it: <span class="math inline">\(x_N\)</span> picks the node <span class="math inline">\(x_N(*)\)</span>, and <span class="math inline">\(x_A\)</span> picks an arc <span class="math inline">\(x_A(!)\)</span> whose source and target both have to be <span class="math inline">\(x_N(*)\)</span>, as in <a href="#fig-global-element" class="quarto-xref">Figure&nbsp;9</a>.</p>
+<div id="fig-global-element" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-global-element-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="global-element.svg" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-element-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: A global element <span class="math inline">\(x : 1 \to X\)</span>. The dotted arrows show that <span class="math inline">\(x\)</span> sends the node <span class="math inline">\(*\)</span> to <span class="math inline">\(b\)</span> and the loop <span class="math inline">\(!\)</span> to the loop <span class="math inline">\(\ell\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>In particular, a graph without loops has no global elements at all, even if it has plenty of nodes.</p>
+<p>We can now consider subobjects <span class="math inline">\([\![ x : X \mid \varphi(x) ]\!] \rightarrowtail X\)</span>, which consist of all those elements <span class="math inline">\(x\)</span> of <span class="math inline">\(X\)</span> which satisfy some predicate <span class="math inline">\(\varphi : X \to \Omega\)</span>. Formally, <span class="math inline">\([\![ x : X \mid \varphi(x) ]\!]\)</span> is the pullback of <span class="math inline">\(\top : 1 \to \Omega\)</span> along <span class="math inline">\(\varphi\)</span>. By the observation above, “element” cannot just mean global element here: a graph without loops has no global elements, but still has plenty of subgraphs. Instead, we have to read <span class="math inline">\(x\)</span> as a generalized element in context <span class="math inline">\(U\)</span>, written <span class="math inline">\(x : U \to X\)</span>, or, more concretely, as a node or an arc of <span class="math inline">\(X\)</span>, which lies in the subobject precisely if <span class="math inline">\(\varphi\)</span> sends it to <span class="math inline">\(N\)</span> resp. <span class="math inline">\(A\)</span>.</p>
+<div id="fig-generalized-element" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-generalized-element-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="generalized-element.svg" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-generalized-element-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: A generalized element <span class="math inline">\(x : U \to X\)</span> in context <span class="math inline">\(U\)</span>. The dotted arrows show that <span class="math inline">\(x\)</span> sends <span class="math inline">\(u\)</span> to <span class="math inline">\(a\)</span>, <span class="math inline">\(v\)</span> to <span class="math inline">\(b\)</span> and the arc <span class="math inline">\(e\)</span> to <span class="math inline">\(p\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>An example would be the subgraphs from before: <span class="math inline">\(Y_{\texttt{httpd\_t}}\)</span> is just <span class="math inline">\([\![ x : \text{FHS} \mid \chi_{\texttt{httpd\_t}}(x) ]\!]\)</span>. More interestingly, we can combine predicates with the logical connectives of <span class="math inline">\(\Omega\)</span>. For example, <span class="math display">\[[\![ x : \text{FHS} \mid \chi_{\texttt{httpd\_t}}(x) \land
+\chi_{\texttt{mysqld\_t}}(x) ]\!] = Y_{\texttt{httpd\_t}} \cap
+Y_{\texttt{mysqld\_t}}\]</span> is the part of the FHS which both Apache and MariaDB have access to, which only consists of the root node <code>/</code>. Note that the arcs <span class="math inline">\(\texttt{/var/} \to \texttt{/}\)</span> and <span class="math inline">\(\texttt{/data/} \to \texttt{/}\)</span> are not part of it, since <span class="math inline">\(\land : \Omega \times \Omega \to \Omega\)</span> sends <span class="math inline">\((A, t)\)</span> and <span class="math inline">\((t, A)\)</span> to <span class="math inline">\(t\)</span>.</p>
+<div id="fig-fhs-both" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fhs-both-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fhs-both.svg" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fhs-both-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: The subgraph <span class="math inline">\([\![ x : \text{FHS} \mid \chi_{\texttt{httpd\_t}}(x) \land
+\chi_{\texttt{mysqld\_t}}(x) ]\!] \rightarrowtail \text{FHS}\)</span>, drawn in black; the rest of the FHS is grey.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This text has <em>not</em> been <em>reviewed</em> yet. Preferably we would like an expert on topos theory and one on SELinux to review it, but any feedback is welcome.</p>
+<p>In particular, it is still an open question if all restriction maps and the way sets are associated to nodes and arcs in the topos of graphs are correct.</p>
+</div>
 </div>
 
 
@@ -812,10 +879,10 @@ Figure&nbsp;6: The FHS of the Apache and MariaDB example, with the bits serializ
 <ol>
 <li id="fn1"><p>See the ArchWiki on <a href="https://wiki.archlinux.org/title/Security#Mandatory_access_control">mandatory access control</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>See the <a href="https://github.com/SELinuxProject/selinux-kernel">SELinux kernel repository</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>See <a href="../sheaves_in_minecraft/">Sheaves in Minecraft</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>See <a href="../mathcraft/">Mathcraft: Topoi in Minecraft</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Sebastiano Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>, 2003.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>See my bachelor thesis at <a href="https://happel.ai/bachelor2">happel.ai/bachelor2</a>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Sebastiano Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>, 2003.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>See my bachelor thesis at <a href="https://happel.ai/bachelor2">happel.ai/bachelor2</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>See <a href="../sheaves_in_minecraft/">Sheaves in Minecraft</a>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>See <a href="../mathcraft/">Mathcraft: Topoi in Minecraft</a>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p>See again Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn8"><p>Immanuel Kant, <em>Kritik der reinen Vernunft</em>, A51/B75.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn9"><p>See Red Hat, <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux"><em>Using SELinux</em>, Chapter 1: Getting started with SELinux</a>.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

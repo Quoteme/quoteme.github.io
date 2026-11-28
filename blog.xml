@@ -78,27 +78,26 @@ flowchart BT
 <!-- TODO: continue — labels on the nodes of this tree, allow rules between
      labels; small SELinux example policy. -->
 </section>
-<section id="sheaves-over-graphs" class="level2">
-<h2 class="anchored" data-anchor-id="sheaves-over-graphs">Sheaves over graphs</h2>
-<p>As we have previously seen, sheaves are the most natural data structure to track data that is associated to some location. We have used this, for example, to store state for the game Minecraft per chunk in <em>Sheaves in Minecraft</em><sup>3</sup> or <em>Mathcraft: Topoi in Minecraft</em><sup>4</sup>. Storing access control information per node using sheaves therefore does not seem that far-fetched.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>The topos of graphs
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Funnily enough, graphs themselves can be regarded as presheaves over a certain small category<sup>5</sup>. This section is taken from my bachelor thesis<sup>6</sup>. Let <img src="https://latex.codecogs.com/png.latex?%5CGamma"> be the category with two objects <img src="https://latex.codecogs.com/png.latex?N"> and <img src="https://latex.codecogs.com/png.latex?A"> and, besides the identities, exactly two morphisms <img src="https://latex.codecogs.com/png.latex?N%20%5Coverset%7Bs%7D%7B%5Cunderset%7Bt%7D%7B%5Crightrightarrows%7D%7D%20A."> The <em>topos of graphs</em> is the presheaf category <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BG%7D%20=%20%5B%5CGamma%5E%7B%5Ctext%7Bop%7D%7D,%20%5Ctextbf%7BSet%7D%5D">.</p>
+<section id="the-topos-of-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="the-topos-of-graphs">The topos of graphs</h2>
+<p>Funnily enough, graphs themselves can be regarded as presheaves over a certain small category<sup>3</sup>. This section is taken from my bachelor thesis<sup>4</sup>. Let <img src="https://latex.codecogs.com/png.latex?%5CGamma"> be the category with two objects <img src="https://latex.codecogs.com/png.latex?N"> and <img src="https://latex.codecogs.com/png.latex?A"> and, besides the identities, exactly two morphisms <img src="https://latex.codecogs.com/png.latex?N%20%5Coverset%7Bs%7D%7B%5Cunderset%7Bt%7D%7B%5Crightrightarrows%7D%7D%20A."> The <em>topos of graphs</em> is the presheaf category <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BG%7D%20=%20%5B%5CGamma%5E%7B%5Ctext%7Bop%7D%7D,%20%5Ctextbf%7BSet%7D%5D">.</p>
 <p>An object <img src="https://latex.codecogs.com/png.latex?G%20%5Cin%20%5Cmathcal%7BG%7D"> is uniquely determined by <img src="https://latex.codecogs.com/png.latex?G(N)">, the set of nodes, <img src="https://latex.codecogs.com/png.latex?G(A)">, the set of arcs, and two functions <img src="https://latex.codecogs.com/png.latex?G(s),%20G(t)%20:%20G(A)%20%5Cto%20G(N)">, which map an arc to its source and target node, respectively. In other words, <img src="https://latex.codecogs.com/png.latex?G"> is a directed graph with nodes <img src="https://latex.codecogs.com/png.latex?G(N)"> and arcs <img src="https://latex.codecogs.com/png.latex?G(A)">.</p>
 <p>A morphism <img src="https://latex.codecogs.com/png.latex?f%20:%20G%20%5Cto%20H"> in <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BG%7D"> is a natural transformation between the presheaves <img src="https://latex.codecogs.com/png.latex?G"> and <img src="https://latex.codecogs.com/png.latex?H">, or explicitly a pair of functions <img src="https://latex.codecogs.com/png.latex?f_N%20:%20G(N)%20%5Cto%20H(N),%20%5Cqquad%20f_A%20:%20G(A)%20%5Cto%20H(A)"> such that the following diagrams commute: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Barray%7D%7Bccc%7D%0AG(A)%20&amp;%20%5Cxrightarrow%7BG(s)%7D%20&amp;%20G(N)%20%5C%5C%0A%7B%5Cscriptstyle%20f_A%7D%20%5Cbig%5Cdownarrow%20&amp;%20&amp;%20%5Cbig%5Cdownarrow%20%7B%5Cscriptstyle%20f_N%7D%20%5C%5C%0AH(A)%20&amp;%20%5Cxrightarrow%5BH(s)%5D%7B%7D%20&amp;%20H(N)%0A%5Cend%7Barray%7D%0A%5Cqquad%20%5Ctext%7Band%7D%20%5Cqquad%0A%5Cbegin%7Barray%7D%7Bccc%7D%0AG(A)%20&amp;%20%5Cxrightarrow%7BG(t)%7D%20&amp;%20G(N)%20%5C%5C%0A%7B%5Cscriptstyle%20f_A%7D%20%5Cbig%5Cdownarrow%20&amp;%20&amp;%20%5Cbig%5Cdownarrow%20%7B%5Cscriptstyle%20f_N%7D%20%5C%5C%0AH(A)%20&amp;%20%5Cxrightarrow%5BH(t)%5D%7B%7D%20&amp;%20H(N)%0A%5Cend%7Barray%7D%0A"> Intuitively, this means that <img src="https://latex.codecogs.com/png.latex?f"> maps nodes to nodes and preserves arcs, which is exactly the standard definition of a graph homomorphism in graph theory.</p>
+<p>As an example, let <img src="https://latex.codecogs.com/png.latex?G"> be the path <img src="https://latex.codecogs.com/png.latex?a%20%5Cxrightarrow%7Bp%7D%20b%20%5Cxrightarrow%7Bq%7D%20c">, i.e. <img src="https://latex.codecogs.com/png.latex?G(N)%20=%20%5C%7Ba,%20b,%20c%5C%7D,%20%5Cquad%20G(A)%20=%20%5C%7Bp,%20q%5C%7D,%20%5Cquad%0AG(s)%20:%20p%20%5Cmapsto%20a,%5C%20q%20%5Cmapsto%20b,%20%5Cquad%20G(t)%20:%20p%20%5Cmapsto%20b,%5C%20q%20%5Cmapsto%20c,"> and let <img src="https://latex.codecogs.com/png.latex?H"> be the graph with a single arc <img src="https://latex.codecogs.com/png.latex?u%20%5Cxrightarrow%7Br%7D%20v"> and a loop <img src="https://latex.codecogs.com/png.latex?%5Cell%20:%20v%20%5Cto%20v">, i.e. <img src="https://latex.codecogs.com/png.latex?H(N)%20=%20%5C%7Bu,%20v%5C%7D,%20%5Cquad%20H(A)%20=%20%5C%7Br,%20%5Cell%5C%7D,%20%5Cquad%0AH(s)%20:%20r%20%5Cmapsto%20u,%5C%20%5Cell%20%5Cmapsto%20v,%20%5Cquad%20H(t)%20:%20r%20%5Cmapsto%20v,%5C%20%5Cell%20%5Cmapsto%20v."> Then a morphism <img src="https://latex.codecogs.com/png.latex?f%20:%20G%20%5Cto%20H"> is given by <img src="https://latex.codecogs.com/png.latex?f_N%20:%20a%20%5Cmapsto%20u,%5C%20b%20%5Cmapsto%20v,%5C%20c%20%5Cmapsto%20v,%20%5Cqquad%0Af_A%20:%20p%20%5Cmapsto%20r,%5C%20q%20%5Cmapsto%20%5Cell,"> as shown in Figure&nbsp;1. To check that the diagrams above commute, we have to compare sources and targets of each arc: <img src="https://latex.codecogs.com/png.latex?f_N(G(s)(p))%20=%20f_N(a)%20=%20u%20=%20H(s)(r)%20=%20H(s)(f_A(p))">, and likewise for the targets and for <img src="https://latex.codecogs.com/png.latex?q">. Note that <img src="https://latex.codecogs.com/png.latex?f"> is not injective, as it glues <img src="https://latex.codecogs.com/png.latex?b"> and <img src="https://latex.codecogs.com/png.latex?c"> together, and in doing so the arc <img src="https://latex.codecogs.com/png.latex?q%20:%20b%20%5Cto%20c"> has to become an arc <img src="https://latex.codecogs.com/png.latex?v%20%5Cto%20v">, which is exactly the loop <img src="https://latex.codecogs.com/png.latex?%5Cell">. On the other hand, there is no morphism <img src="https://latex.codecogs.com/png.latex?f"> with <img src="https://latex.codecogs.com/png.latex?f_A(q)%20=%20r"> and <img src="https://latex.codecogs.com/png.latex?f_N(b)%20=%20v">, since then <img src="https://latex.codecogs.com/png.latex?H(s)(f_A(q))%20=%20u%20%5Cneq%20v%20=%20f_N(G(s)(q))">.</p>
+<div id="fig-morphism" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-morphism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://happel.ai/posts/mandatory-access-control/morphism.svg" class="img-fluid figure-img" style="width:70.0%">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-morphism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A graph morphism <img src="https://latex.codecogs.com/png.latex?f%20:%20G%20%5Cto%20H">. The dotted arrows show <img src="https://latex.codecogs.com/png.latex?f_N">; <img src="https://latex.codecogs.com/png.latex?f_A"> sends <img src="https://latex.codecogs.com/png.latex?p"> to <img src="https://latex.codecogs.com/png.latex?r"> and <img src="https://latex.codecogs.com/png.latex?q"> to the loop <img src="https://latex.codecogs.com/png.latex?%5Cell">.
+</figcaption>
+</figure>
 </div>
-</div>
+</section>
+<section id="sheaves-over-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="sheaves-over-graphs">Sheaves over graphs</h2>
+<p>As we have previously seen, sheaves are the most natural data structure to track data that is associated to some location. We have used this, for example, to store state for the game Minecraft per chunk in <em>Sheaves in Minecraft</em><sup>5</sup> or <em>Mathcraft: Topoi in Minecraft</em><sup>6</sup>. Storing access control information per node using sheaves therefore does not seem that far-fetched.</p>
 <style>
 .float-fig { float: right; width: 32%; margin: 0 0 1em 1.5em; }
 #fig-global-section { clear: both; }
@@ -130,20 +129,20 @@ flowchart BT
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-restriction-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Two presheaves <img src="https://latex.codecogs.com/png.latex?Y"> over the graph <img src="https://latex.codecogs.com/png.latex?a%20%5Cto%20b%20%5Cleftarrow%20c">, with <img src="https://latex.codecogs.com/png.latex?Y(x)%20=%20%5Ctexttt%7BBool%7D"> above each node <img src="https://latex.codecogs.com/png.latex?x"> and the restriction maps <img src="https://latex.codecogs.com/png.latex?Y(b)%20%5Cto%20Y(a)"> and <img src="https://latex.codecogs.com/png.latex?Y(b)%20%5Cto%20Y(c)"> drawn between them.
+Figure&nbsp;2: Two presheaves <img src="https://latex.codecogs.com/png.latex?Y"> over the graph <img src="https://latex.codecogs.com/png.latex?a%20%5Cto%20b%20%5Cleftarrow%20c">, with <img src="https://latex.codecogs.com/png.latex?Y(x)%20=%20%5Ctexttt%7BBool%7D"> above each node <img src="https://latex.codecogs.com/png.latex?x"> and the restriction maps <img src="https://latex.codecogs.com/png.latex?Y(b)%20%5Cto%20Y(a)"> and <img src="https://latex.codecogs.com/png.latex?Y(b)%20%5Cto%20Y(c)"> drawn between them.
 </figcaption>
 </figure>
 </div>
 </div>
 <p>Let us now assume that we are given some graph <img src="https://latex.codecogs.com/png.latex?X%20%5Cin%20%5B%5CGamma%5E%7B%5Ctext%7Bop%7D%7D,%0A%5Ctextbf%7BSet%7D%5D">, which, as noticed before, we can take to be a category (namely the free category on <img src="https://latex.codecogs.com/png.latex?X">). We can now consider the presheaf category over <img src="https://latex.codecogs.com/png.latex?X">, given by <img src="https://latex.codecogs.com/png.latex?%5BX%5E%7B%5Ctext%7Bop%7D%7D,%20%5Ctextbf%7BSet%7D%5D">, and take <img src="https://latex.codecogs.com/png.latex?Y"> to be one of its presheaves, which assigns to each node the set <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D">, i.e. <img src="https://latex.codecogs.com/png.latex?Y(x)%20=%20%5Ctexttt%7BBool%7D%20=%20%5C%7B%5Cbot,%20%5Ctop%5C%7D"> for every node <img src="https://latex.codecogs.com/png.latex?x">. Each edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y"> is then sent to a restriction map <img src="https://latex.codecogs.com/png.latex?Y(p)%20:%20Y(y)%20%5Cto%20Y(x)">, i.e.&nbsp;a function <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D%20%5Cto%20%5Ctexttt%7BBool%7D"> from the parent directory to its child.</p>
-<p>A global element <img src="https://latex.codecogs.com/png.latex?s%20:%201%20%5Cto%20Y"> of this presheaf is then given by concretely associating a compatible choice of boolean values <img src="https://latex.codecogs.com/png.latex?s_x%20%5Cin%20Y(x)"> to each node <img src="https://latex.codecogs.com/png.latex?x"> in the graph, where <em>compatible</em> means that <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for every edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. We can think of <img src="https://latex.codecogs.com/png.latex?s"> as answering the question “does the user have access to node <img src="https://latex.codecogs.com/png.latex?x">?” for every node at once. As the restriction maps are already a part of <img src="https://latex.codecogs.com/png.latex?Y">, choosing a value <img src="https://latex.codecogs.com/png.latex?s_y%20%5Cin%20Y(y)"> for a directory <img src="https://latex.codecogs.com/png.latex?y"> already determines the access rights of everything below it, since <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for each edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. Read the other way around, as long as every restriction map sends <img src="https://latex.codecogs.com/png.latex?%5Cbot"> to <img src="https://latex.codecogs.com/png.latex?%5Cbot"> (as is the case in Figure&nbsp;2), <img src="https://latex.codecogs.com/png.latex?s_x%20=%20%5Ctop"> forces <img src="https://latex.codecogs.com/png.latex?s_y%20=%20%5Ctop">, so choosing a value for <img src="https://latex.codecogs.com/png.latex?x"> determines the access rights of all its parents (i.e.&nbsp;the directories above it). This is however to be expected, as we might like for a directory to have access rights, given that at least one of its files is accessible! This leads us to the notion of <em>refinement types</em>, which we will consider for the topos of graphs in a later post some day.</p>
+<p>A global element <img src="https://latex.codecogs.com/png.latex?s%20:%201%20%5Cto%20Y"> of this presheaf is then given by concretely associating a compatible choice of boolean values <img src="https://latex.codecogs.com/png.latex?s_x%20%5Cin%20Y(x)"> to each node <img src="https://latex.codecogs.com/png.latex?x"> in the graph, where <em>compatible</em> means that <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for every edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. We can think of <img src="https://latex.codecogs.com/png.latex?s"> as answering the question “does the user have access to node <img src="https://latex.codecogs.com/png.latex?x">?” for every node at once. As the restriction maps are already a part of <img src="https://latex.codecogs.com/png.latex?Y">, choosing a value <img src="https://latex.codecogs.com/png.latex?s_y%20%5Cin%20Y(y)"> for a directory <img src="https://latex.codecogs.com/png.latex?y"> already determines the access rights of everything below it, since <img src="https://latex.codecogs.com/png.latex?s_x%20=%20Y(p)(s_y)"> for each edge <img src="https://latex.codecogs.com/png.latex?p%20:%20x%20%5Cto%20y">. Read the other way around, as long as every restriction map sends <img src="https://latex.codecogs.com/png.latex?%5Cbot"> to <img src="https://latex.codecogs.com/png.latex?%5Cbot"> (as is the case in Figure&nbsp;3), <img src="https://latex.codecogs.com/png.latex?s_x%20=%20%5Ctop"> forces <img src="https://latex.codecogs.com/png.latex?s_y%20=%20%5Ctop">, so choosing a value for <img src="https://latex.codecogs.com/png.latex?x"> determines the access rights of all its parents (i.e.&nbsp;the directories above it). This is however to be expected, as we might like for a directory to have access rights, given that at least one of its files is accessible! This leads us to the notion of <em>refinement types</em>, which we will consider for the topos of graphs in a later post some day.</p>
 <div id="fig-global-section" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://happel.ai/posts/mandatory-access-control/global-section.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: A global element of <img src="https://latex.codecogs.com/png.latex?Y"> over the graph of <code>cwd/</code>, which lies in the <img src="https://latex.codecogs.com/png.latex?x">-<img src="https://latex.codecogs.com/png.latex?z">-plane. Above each node sits a copy of <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D">, and the global element picks one value per node (filled). Here, all restriction maps are the identity, except the one for the edge from <code>cwd/sub/file2</code>, which is constantly <img src="https://latex.codecogs.com/png.latex?%5Cbot">.
+Figure&nbsp;3: A global element of <img src="https://latex.codecogs.com/png.latex?Y"> over the graph of <code>cwd/</code>, which lies in the <img src="https://latex.codecogs.com/png.latex?x">-<img src="https://latex.codecogs.com/png.latex?z">-plane. Above each node sits a copy of <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7BBool%7D">, and the global element picks one value per node (filled). Here, all restriction maps are the identity, except the one for the edge from <code>cwd/sub/file2</code>, which is constantly <img src="https://latex.codecogs.com/png.latex?%5Cbot">.
 </figcaption>
 </figure>
 </div>
@@ -157,7 +156,7 @@ Figure&nbsp;2: A global element of <img src="https://latex.codecogs.com/png.late
 <img src="https://happel.ai/posts/mandatory-access-control/subgraph.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X"> (top) of the graph of <code>cwd/</code> (bottom) for a user without access to <code>cwd/sub/file2</code>. The dotted arrows show where each node of <img src="https://latex.codecogs.com/png.latex?Y"> is sent in <img src="https://latex.codecogs.com/png.latex?X">.
+Figure&nbsp;4: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X"> (top) of the graph of <code>cwd/</code> (bottom) for a user without access to <code>cwd/sub/file2</code>. The dotted arrows show where each node of <img src="https://latex.codecogs.com/png.latex?Y"> is sent in <img src="https://latex.codecogs.com/png.latex?X">.
 </figcaption>
 </figure>
 </div>
@@ -213,11 +212,11 @@ Figure&nbsp;3: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%
 <img src="https://happel.ai/posts/mandatory-access-control/subgraph-edge.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subgraph-edge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X"> (top) of the graph of <code>cwd/</code> (bottom) which keeps every node, but drops the symlink edge from <code>cwd/</code> into <code>cwd/sub/par/</code>. The dotted arrows show where each node of <img src="https://latex.codecogs.com/png.latex?Y"> is sent in <img src="https://latex.codecogs.com/png.latex?X">.
+Figure&nbsp;5: The subgraph <img src="https://latex.codecogs.com/png.latex?Y%20%5Crightarrowtail%20X"> (top) of the graph of <code>cwd/</code> (bottom) which keeps every node, but drops the symlink edge from <code>cwd/</code> into <code>cwd/sub/par/</code>. The dotted arrows show where each node of <img src="https://latex.codecogs.com/png.latex?Y"> is sent in <img src="https://latex.codecogs.com/png.latex?X">.
 </figcaption>
 </figure>
 </div>
-<p>If <img src="https://latex.codecogs.com/png.latex?p"> was the only inbound arrow of <img src="https://latex.codecogs.com/png.latex?y">, then <img src="https://latex.codecogs.com/png.latex?y"> even appears as an empty directory to that user. The node <img src="https://latex.codecogs.com/png.latex?x"> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> (Figure&nbsp;4) keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
+<p>If <img src="https://latex.codecogs.com/png.latex?p"> was the only inbound arrow of <img src="https://latex.codecogs.com/png.latex?y">, then <img src="https://latex.codecogs.com/png.latex?y"> even appears as an empty directory to that user. The node <img src="https://latex.codecogs.com/png.latex?x"> itself stays accessible, though, possibly along some other path. For example, removing the edge from <code>cwd/</code> into the symlink <code>cwd/sub/par/</code> (Figure&nbsp;5) keeps both <code>cwd/</code> and <code>cwd/sub/par/</code> visible, but the symlink can no longer be followed back to <code>cwd/</code>.</p>
 <p>Assume now that the graph <img src="https://latex.codecogs.com/png.latex?X"> is given. How can we encode the access controls for its users? We first consider a single user <img src="https://latex.codecogs.com/png.latex?u">, in which case we can simply store the characteristic map <img src="https://latex.codecogs.com/png.latex?%5Cchi_%7BY_u%7D%20:%20X%20%5Cto%20%5COmega"> of the associated subgraph <img src="https://latex.codecogs.com/png.latex?Y_u%20%5Crightarrowtail%20X">, after serialization: one of the two nodes of <img src="https://latex.codecogs.com/png.latex?%5COmega"> for every node of <img src="https://latex.codecogs.com/png.latex?X">, and one of the five arcs of <img src="https://latex.codecogs.com/png.latex?%5COmega"> for every arc of <img src="https://latex.codecogs.com/png.latex?X">.</p>
 <p>In fact, for multiple users <img src="https://latex.codecogs.com/png.latex?u_1,%20%5Cdots,%20u_k"> we can proceed similarly, by considering the coproduct of the subgraphs <img src="https://latex.codecogs.com/png.latex?Y_%7Bu_1%7D%20%5Csqcup%20%5Cdots%20%5Csqcup%20Y_%7Bu_k%7D%20%5Crightarrowtail%0AX%20%5Csqcup%20%5Cdots%20%5Csqcup%20X,"> which is again a subgraph (coproducts of monomorphisms are monomorphisms in a topos). Its characteristic map is the copairing <img src="https://latex.codecogs.com/png.latex?%5B%5Cchi_%7BY_%7Bu_1%7D%7D,%20%5Cdots,%20%5Cchi_%7BY_%7Bu_k%7D%7D%5D%20:%20X%20%5Csqcup%20%5Cdots%20%5Csqcup%20X%20%5Cto%20%5COmega,"> which we can serialize again. By the universal properties of the coproduct and the product, this is the same as a single graph morphism <img src="https://latex.codecogs.com/png.latex?%5Clangle%20%5Cchi_%7BY_%7Bu_1%7D%7D,%20%5Cdots,%20%5Cchi_%7BY_%7Bu_k%7D%7D%20%5Crangle%20:%0AX%20%5Cto%20%5COmega%20%5Ctimes%20%5Cdots%20%5Ctimes%20%5COmega,"> which stores at every node and arc of <img src="https://latex.codecogs.com/png.latex?X"> a <img src="https://latex.codecogs.com/png.latex?k">-tuple of access rights, one per user. This is precisely the SELinux approach from the beginning: the access control information is kept alongside each file or directory.</p>
 </section>
@@ -277,7 +276,7 @@ flowchart TB
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-apache-mariadb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: The subgraphs of the FHS (bottom) that Apache and MariaDB have access to (top).
+Figure&nbsp;6: The subgraphs of the FHS that Apache and MariaDB have access to, drawn in black; the rest of the FHS is grey.
 </figcaption>
 </figure>
 </div>
@@ -300,9 +299,71 @@ Figure&nbsp;5: The subgraphs of the FHS (bottom) that Apache and MariaDB have ac
 <img src="https://happel.ai/posts/mandatory-access-control/fhs-labels.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fhs-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: The FHS of the Apache and MariaDB example, with the bits serializing <img src="https://latex.codecogs.com/png.latex?%5Clangle%20%5Cchi_%7B%5Ctexttt%7Bhttpd%5C_t%7D%7D,%20%5Cchi_%7B%5Ctexttt%7Bmysqld%5C_t%7D%7D%20%5Crangle%20:%0A%5Ctext%7BFHS%7D%20%5Cto%20%5COmega%20%5Ctimes%20%5COmega"> stored at every node.
+Figure&nbsp;7: The FHS of the Apache and MariaDB example, with the bits serializing <img src="https://latex.codecogs.com/png.latex?%5Clangle%20%5Cchi_%7B%5Ctexttt%7Bhttpd%5C_t%7D%7D,%20%5Cchi_%7B%5Ctexttt%7Bmysqld%5C_t%7D%7D%20%5Crangle%20:%0A%5Ctext%7BFHS%7D%20%5Cto%20%5COmega%20%5Ctimes%20%5COmega"> stored at every node.
 </figcaption>
 </figure>
+</div>
+</section>
+<section id="further-theory" class="level2">
+<h2 class="anchored" data-anchor-id="further-theory">Further theory</h2>
+<p>To exploit the functionality that topos theory provides to us, we need to investigate the topos of graphs some more. The first observations are trivial: the initial and terminal objects are given by the empty graph and the graph with a single node and a single arc respectively, as shown in Figure&nbsp;8.</p>
+<div id="fig-initial-terminal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-initial-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://happel.ai/posts/mandatory-access-control/initial-terminal.svg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-initial-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: The initial object <img src="https://latex.codecogs.com/png.latex?0">, the empty graph, and the terminal object <img src="https://latex.codecogs.com/png.latex?1">, a single node <img src="https://latex.codecogs.com/png.latex?*"> with a single loop <img src="https://latex.codecogs.com/png.latex?!">.
+</figcaption>
+</figure>
+</div>
+<p>Global elements of a graph <img src="https://latex.codecogs.com/png.latex?X"> are then given by morphisms <img src="https://latex.codecogs.com/png.latex?x%20:%201%20%5Cto%20X">, which are clearly given by choosing a node of <img src="https://latex.codecogs.com/png.latex?X"> together with a loop on it: <img src="https://latex.codecogs.com/png.latex?x_N"> picks the node <img src="https://latex.codecogs.com/png.latex?x_N(*)">, and <img src="https://latex.codecogs.com/png.latex?x_A"> picks an arc <img src="https://latex.codecogs.com/png.latex?x_A(!)"> whose source and target both have to be <img src="https://latex.codecogs.com/png.latex?x_N(*)">, as in Figure&nbsp;9.</p>
+<div id="fig-global-element" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-global-element-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://happel.ai/posts/mandatory-access-control/global-element.svg" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-element-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: A global element <img src="https://latex.codecogs.com/png.latex?x%20:%201%20%5Cto%20X">. The dotted arrows show that <img src="https://latex.codecogs.com/png.latex?x"> sends the node <img src="https://latex.codecogs.com/png.latex?*"> to <img src="https://latex.codecogs.com/png.latex?b"> and the loop <img src="https://latex.codecogs.com/png.latex?!"> to the loop <img src="https://latex.codecogs.com/png.latex?%5Cell">.
+</figcaption>
+</figure>
+</div>
+<p>In particular, a graph without loops has no global elements at all, even if it has plenty of nodes.</p>
+<p>We can now consider subobjects <img src="https://latex.codecogs.com/png.latex?%5B%5C!%5B%20x%20:%20X%20%5Cmid%20%5Cvarphi(x)%20%5D%5C!%5D%20%5Crightarrowtail%20X">, which consist of all those elements <img src="https://latex.codecogs.com/png.latex?x"> of <img src="https://latex.codecogs.com/png.latex?X"> which satisfy some predicate <img src="https://latex.codecogs.com/png.latex?%5Cvarphi%20:%20X%20%5Cto%20%5COmega">. Formally, <img src="https://latex.codecogs.com/png.latex?%5B%5C!%5B%20x%20:%20X%20%5Cmid%20%5Cvarphi(x)%20%5D%5C!%5D"> is the pullback of <img src="https://latex.codecogs.com/png.latex?%5Ctop%20:%201%20%5Cto%20%5COmega"> along <img src="https://latex.codecogs.com/png.latex?%5Cvarphi">. By the observation above, “element” cannot just mean global element here: a graph without loops has no global elements, but still has plenty of subgraphs. Instead, we have to read <img src="https://latex.codecogs.com/png.latex?x"> as a generalized element in context <img src="https://latex.codecogs.com/png.latex?U">, written <img src="https://latex.codecogs.com/png.latex?x%20:%20U%20%5Cto%20X">, or, more concretely, as a node or an arc of <img src="https://latex.codecogs.com/png.latex?X">, which lies in the subobject precisely if <img src="https://latex.codecogs.com/png.latex?%5Cvarphi"> sends it to <img src="https://latex.codecogs.com/png.latex?N"> resp. <img src="https://latex.codecogs.com/png.latex?A">.</p>
+<div id="fig-generalized-element" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-generalized-element-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://happel.ai/posts/mandatory-access-control/generalized-element.svg" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-generalized-element-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: A generalized element <img src="https://latex.codecogs.com/png.latex?x%20:%20U%20%5Cto%20X"> in context <img src="https://latex.codecogs.com/png.latex?U">. The dotted arrows show that <img src="https://latex.codecogs.com/png.latex?x"> sends <img src="https://latex.codecogs.com/png.latex?u"> to <img src="https://latex.codecogs.com/png.latex?a">, <img src="https://latex.codecogs.com/png.latex?v"> to <img src="https://latex.codecogs.com/png.latex?b"> and the arc <img src="https://latex.codecogs.com/png.latex?e"> to <img src="https://latex.codecogs.com/png.latex?p">.
+</figcaption>
+</figure>
+</div>
+<p>An example would be the subgraphs from before: <img src="https://latex.codecogs.com/png.latex?Y_%7B%5Ctexttt%7Bhttpd%5C_t%7D%7D"> is just <img src="https://latex.codecogs.com/png.latex?%5B%5C!%5B%20x%20:%20%5Ctext%7BFHS%7D%20%5Cmid%20%5Cchi_%7B%5Ctexttt%7Bhttpd%5C_t%7D%7D(x)%20%5D%5C!%5D">. More interestingly, we can combine predicates with the logical connectives of <img src="https://latex.codecogs.com/png.latex?%5COmega">. For example, <img src="https://latex.codecogs.com/png.latex?%5B%5C!%5B%20x%20:%20%5Ctext%7BFHS%7D%20%5Cmid%20%5Cchi_%7B%5Ctexttt%7Bhttpd%5C_t%7D%7D(x)%20%5Cland%0A%5Cchi_%7B%5Ctexttt%7Bmysqld%5C_t%7D%7D(x)%20%5D%5C!%5D%20=%20Y_%7B%5Ctexttt%7Bhttpd%5C_t%7D%7D%20%5Ccap%0AY_%7B%5Ctexttt%7Bmysqld%5C_t%7D%7D"> is the part of the FHS which both Apache and MariaDB have access to, which only consists of the root node <code>/</code>. Note that the arcs <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7B/var/%7D%20%5Cto%20%5Ctexttt%7B/%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Ctexttt%7B/data/%7D%20%5Cto%20%5Ctexttt%7B/%7D"> are not part of it, since <img src="https://latex.codecogs.com/png.latex?%5Cland%20:%20%5COmega%20%5Ctimes%20%5COmega%20%5Cto%20%5COmega"> sends <img src="https://latex.codecogs.com/png.latex?(A,%20t)"> and <img src="https://latex.codecogs.com/png.latex?(t,%20A)"> to <img src="https://latex.codecogs.com/png.latex?t">.</p>
+<div id="fig-fhs-both" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fhs-both-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://happel.ai/posts/mandatory-access-control/fhs-both.svg" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fhs-both-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: The subgraph <img src="https://latex.codecogs.com/png.latex?%5B%5C!%5B%20x%20:%20%5Ctext%7BFHS%7D%20%5Cmid%20%5Cchi_%7B%5Ctexttt%7Bhttpd%5C_t%7D%7D(x)%20%5Cland%0A%5Cchi_%7B%5Ctexttt%7Bmysqld%5C_t%7D%7D(x)%20%5D%5C!%5D%20%5Crightarrowtail%20%5Ctext%7BFHS%7D">, drawn in black; the rest of the FHS is grey.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This text has <em>not</em> been <em>reviewed</em> yet. Preferably we would like an expert on topos theory and one on SELinux to review it, but any feedback is welcome.</p>
+<p>In particular, it is still an open question if all restriction maps and the way sets are associated to nodes and arcs in the topos of graphs are correct.</p>
+</div>
 </div>
 
 
@@ -314,10 +375,10 @@ Figure&nbsp;6: The FHS of the Apache and MariaDB example, with the bits serializ
 <ol>
 <li id="fn1"><p>See the ArchWiki on <a href="https://wiki.archlinux.org/title/Security#Mandatory_access_control">mandatory access control</a>.↩︎</p></li>
 <li id="fn2"><p>See the <a href="https://github.com/SELinuxProject/selinux-kernel">SELinux kernel repository</a>.↩︎</p></li>
-<li id="fn3"><p>See <a href="../sheaves_in_minecraft/">Sheaves in Minecraft</a>.↩︎</p></li>
-<li id="fn4"><p>See <a href="../mathcraft/">Mathcraft: Topoi in Minecraft</a>.↩︎</p></li>
-<li id="fn5"><p>Sebastiano Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>, 2003.↩︎</p></li>
-<li id="fn6"><p>See my bachelor thesis at <a href="https://happel.ai/bachelor2">happel.ai/bachelor2</a>.↩︎</p></li>
+<li id="fn3"><p>Sebastiano Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>, 2003.↩︎</p></li>
+<li id="fn4"><p>See my bachelor thesis at <a href="https://happel.ai/bachelor2">happel.ai/bachelor2</a>.↩︎</p></li>
+<li id="fn5"><p>See <a href="../sheaves_in_minecraft/">Sheaves in Minecraft</a>.↩︎</p></li>
+<li id="fn6"><p>See <a href="../mathcraft/">Mathcraft: Topoi in Minecraft</a>.↩︎</p></li>
 <li id="fn7"><p>See again Vigna, <a href="https://arxiv.org/abs/math/0306394"><em>A guided tour in the topos of graphs</em></a>.↩︎</p></li>
 <li id="fn8"><p>Immanuel Kant, <em>Kritik der reinen Vernunft</em>, A51/B75.↩︎</p></li>
 <li id="fn9"><p>See Red Hat, <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux"><em>Using SELinux</em>, Chapter 1: Getting started with SELinux</a>.↩︎</p></li>
