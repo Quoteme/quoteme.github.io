@@ -85,7 +85,7 @@ internal intuitionistic logic.
 You can read my second bachelor thesis here:
 
 <iframe
-  src="https://quoteme.github.io/bachelor2/ba.pdf"
+  src="../../bachelor2/ba.pdf"
   style="width:100%; height:600px; border:none;"
   title="Second bachelor thesis: The Topos of Trees (PDF)"
   height="600"
